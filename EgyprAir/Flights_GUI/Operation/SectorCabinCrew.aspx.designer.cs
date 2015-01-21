@@ -92,5 +92,17 @@ namespace Flights_GUI.Operation {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView uiGridViewCrew;
+        
+        /// <summary>
+        /// Master property.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated property.
+        /// </remarks>
+        public new Flights_GUI.MasterPages.E_Admin Master {
+            get {
+                return ((Flights_GUI.MasterPages.E_Admin)(base.Master));
+            }
+        }
     }
 }

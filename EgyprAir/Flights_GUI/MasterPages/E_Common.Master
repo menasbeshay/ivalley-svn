@@ -9,7 +9,7 @@
 <html lang="en">
 <!--<![endif]-->
 <!-- BEGIN HEAD -->
-<head>
+<head runat="server">
     <meta charset="utf-8" />
     <title>I-Flights</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
@@ -40,8 +40,8 @@
         <div class="navbar-inner">
             <div class="container-fluid">
                 <!-- BEGIN LOGO -->
-                <a class="brand" href="#">
-                    <img src="../img/logo.png" alt="Admin Lab" />
+                <a class="brand" href="../Default.aspx">
+                    <img src="../img/flyegypt.png" alt="Fly Egypt" style="max-height:45px;" />
                 </a>
                 <!-- END LOGO -->
                 <!-- BEGIN RESPONSIVE MENU TOGGLER -->
@@ -49,7 +49,7 @@
                     data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar">
                     </span><span class="icon-bar"></span><span class="arrow"></span></a>
                 <!-- END RESPONSIVE MENU TOGGLER -->
-                <div id="top_menu" class="nav notify-row">
+                <%--<div id="top_menu" class="nav notify-row">
                     <!-- BEGIN NOTIFICATION -->
                     <ul class="nav top-menu">
                         <!-- BEGIN SETTINGS -->
@@ -108,7 +108,7 @@
                         </li>
                         <!-- END NOTIFICATION DROPDOWN -->
                     </ul>
-                </div>
+                </div>--%>
                 <!-- END  NOTIFICATION -->
                 <div class="top-nav ">
                     <ul class="nav pull-right top-menu">

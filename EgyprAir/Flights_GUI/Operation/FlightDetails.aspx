@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Admin.Master" AutoEventWireup="true"
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/E_Admin.Master" AutoEventWireup="true"
     CodeBehind="FlightDetails.aspx.cs" Inherits="Flights_GUI.Operation.FlightDetails"
     EnableEventValidation="false" %>
 

@@ -52,6 +52,7 @@
     <Compile Include="Delay.cs" />
     <Compile Include="FlightCrew.cs" />
     <Compile Include="FlightPilot.cs" />
+    <Compile Include="FlightType.cs" />
     <Compile Include="IOSA\IOSA_Answer.cs" />
     <Compile Include="IOSA\IOSA_Attachement.cs" />
     <Compile Include="IOSA\IOSA_Departement.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="PilotCourse.cs" />
     <Compile Include="PilotLog.cs" />
     <Compile Include="PilotTitle.cs" />
+    <Compile Include="PilotTransaction.cs" />
     <Compile Include="Pilot_CompanyPosition.cs" />
     <Compile Include="Pilot_TBF.cs" />
     <Compile Include="Position.cs" />
@@ -78,6 +80,7 @@
     <Compile Include="Title.cs" />
     <Compile Include="TitleCourse.cs" />
     <Compile Include="Training.cs" />
+    <Compile Include="Transactions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Flight_DAL\Flight_DAL.csproj">

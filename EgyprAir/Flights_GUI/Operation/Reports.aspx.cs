@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using Flight_BLL;
 using System.Web.Security;
 using Flights_GUI.FlightReportDataSetTableAdapters;
+using Microsoft.Reporting.WebForms;
 
 namespace Flights_GUI.Operation
 {
@@ -122,8 +123,10 @@ namespace Flights_GUI.Operation
                         rds.Name = "PilotDataSet";
                         rds.Value = ta.GetData(Convert.ToInt32(uiDropDownListPilots.SelectedValue), From, To);
                         ReportViewer1.LocalReport.DataSources.Add(rds);
-                        ReportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WebForms.ReportParameter("From", string.Format("{0:MM/dd/yyyy}", uiRadDatePickerFrom.SelectedDate)));
-                        ReportViewer1.LocalReport.SetParameters(new Microsoft.Reporting.WebForms.ReportParameter("To", string.Format("{0:MM/dd/yyyy}", uiRadDatePickerTo.SelectedDate)));
+                        ReportParameter[] rep_params1 = new ReportParameter[2];
+                        rep_params1[0] = new Microsoft.Reporting.WebForms.ReportParameter("From", string.Format("{0:MM/dd/yyyy}", uiRadDatePickerFrom.SelectedDate));
+                        rep_params1[1] = new Microsoft.Reporting.WebForms.ReportParameter("To", string.Format("{0:MM/dd/yyyy}", uiRadDatePickerTo.SelectedDate));
+                        ReportViewer1.LocalReport.SetParameters(rep_params1);                        
                         ReportViewer1.LocalReport.Refresh();
                         ReportViewer1.Visible = true;
                         ReportViewer2.Visible = false;
@@ -137,9 +140,12 @@ namespace Flights_GUI.Operation
                         rds.Name = "PAXDataSet";
                         rds.Value = taP.GetData(From, To,Convert.ToInt32(uiDropDownListAirplane.SelectedValue));
                         ReportViewer3.LocalReport.DataSources.Add(rds);
-                        ReportViewer3.LocalReport.SetParameters(new Microsoft.Reporting.WebForms.ReportParameter("From", string.Format("{0:MM/dd/yyyy}", uiRadDatePickerFrom.SelectedDate)));
-                        ReportViewer3.LocalReport.SetParameters(new Microsoft.Reporting.WebForms.ReportParameter("To", string.Format("{0:MM/dd/yyyy}", uiRadDatePickerTo.SelectedDate)));
-                        ReportViewer3.LocalReport.SetParameters(new Microsoft.Reporting.WebForms.ReportParameter("Airplane", uiDropDownListAirplane.SelectedValue));
+                        ReportParameter[] rep_params3 = new ReportParameter[3];
+                        rep_params3[0] = new Microsoft.Reporting.WebForms.ReportParameter("From", string.Format("{0:MM/dd/yyyy}", uiRadDatePickerFrom.SelectedDate));
+                        rep_params3[1] = new Microsoft.Reporting.WebForms.ReportParameter("To", string.Format("{0:MM/dd/yyyy}", uiRadDatePickerTo.SelectedDate));
+                        rep_params3[2] = new Microsoft.Reporting.WebForms.ReportParameter("Airplane", uiDropDownListAirplane.SelectedValue);
+                        ReportViewer3.LocalReport.SetParameters(rep_params3);                                                
+                        
                         ReportViewer3.LocalReport.Refresh();
                         ReportViewer1.Visible = false;
                         ReportViewer2.Visible = false;
@@ -153,8 +159,10 @@ namespace Flights_GUI.Operation
                         rds.Name = "FlyHoursDataSet";
                         rds.Value = taF.GetData(From, To);
                         ReportViewer4.LocalReport.DataSources.Add(rds);
-                        ReportViewer4.LocalReport.SetParameters(new Microsoft.Reporting.WebForms.ReportParameter("From", string.Format("{0:MM/dd/yyyy}", uiRadDatePickerFrom.SelectedDate)));
-                        ReportViewer4.LocalReport.SetParameters(new Microsoft.Reporting.WebForms.ReportParameter("To", string.Format("{0:MM/dd/yyyy}", uiRadDatePickerTo.SelectedDate)));                
+                        ReportParameter[] rep_params4 = new ReportParameter[2];
+                        rep_params4[0] = new Microsoft.Reporting.WebForms.ReportParameter("From", string.Format("{0:MM/dd/yyyy}", uiRadDatePickerFrom.SelectedDate));
+                        rep_params4[1] = new Microsoft.Reporting.WebForms.ReportParameter("To", string.Format("{0:MM/dd/yyyy}", uiRadDatePickerTo.SelectedDate));
+                        ReportViewer4.LocalReport.SetParameters(rep_params4);               
                         ReportViewer4.LocalReport.Refresh();
                         ReportViewer1.Visible = false;
                         ReportViewer2.Visible = false;
@@ -194,8 +202,10 @@ namespace Flights_GUI.Operation
                         rds.Value = TPD.GetData(From, To, Convert.ToInt32(uiDropDownListPilots.SelectedValue));
                         rds2.Value = TPDL.GetData(From, To, Convert.ToInt32(uiDropDownListPilots.SelectedValue));
                         ReportViewer2.LocalReport.DataSources.Add(rds);
-                        ReportViewer2.LocalReport.DataSources.Add(rds2);                
-                        ReportViewer2.LocalReport.SetParameters(new Microsoft.Reporting.WebForms.ReportParameter("RateParameter", uiTextBoxRate.Text));
+                        ReportViewer2.LocalReport.DataSources.Add(rds2);
+                        ReportParameter[] rep_params2 = new ReportParameter[1];
+                        rep_params2[0] = new Microsoft.Reporting.WebForms.ReportParameter("RateParameter", uiTextBoxRate.Text);
+                        ReportViewer2.LocalReport.SetParameters(rep_params2);                           
                         ReportViewer2.LocalReport.Refresh(); 
                         ReportViewer1.Visible = false;
                         ReportViewer2.Visible = true;
@@ -212,7 +222,9 @@ namespace Flights_GUI.Operation
                         rds2.Value = TPDL.GetData(From, To, Convert.ToInt32(uiDropDownListPilots.SelectedValue));
                         ReportViewer2.LocalReport.DataSources.Add(rds);
                         ReportViewer2.LocalReport.DataSources.Add(rds2);                
-                        ReportViewer2.LocalReport.SetParameters(new Microsoft.Reporting.WebForms.ReportParameter("RateParameter", uiTextBoxRate.Text));
+                        ReportParameter[] rep_params22 = new ReportParameter[1];
+                        rep_params22[0] = new Microsoft.Reporting.WebForms.ReportParameter("RateParameter", uiTextBoxRate.Text);
+                        ReportViewer2.LocalReport.SetParameters(rep_params22);                           
                         ReportViewer2.LocalReport.Refresh(); 
                         ReportViewer1.Visible = false;
                         ReportViewer2.Visible = true;
@@ -225,9 +237,11 @@ namespace Flights_GUI.Operation
                     case "6":
                         rds.Name = "AirplaneActualBurnOffDataSet";
                         rds.Value = APBO.GetData(Convert.ToInt32(uiDropDownListAirplane.SelectedValue),From, To);
-                        ReportViewer6.LocalReport.DataSources.Add(rds);               
-                        ReportViewer6.LocalReport.SetParameters(new Microsoft.Reporting.WebForms.ReportParameter("StartDate", string.Format("{0:MM/dd/yyyy}", uiRadDatePickerFrom.SelectedDate)));
-                        ReportViewer6.LocalReport.SetParameters(new Microsoft.Reporting.WebForms.ReportParameter("EndDate", string.Format("{0:MM/dd/yyyy}", uiRadDatePickerTo.SelectedDate)));
+                        ReportViewer6.LocalReport.DataSources.Add(rds);  
+                        ReportParameter[] rep_params6 = new ReportParameter[2];
+                        rep_params6[0] = new Microsoft.Reporting.WebForms.ReportParameter("StartDate", string.Format("{0:MM/dd/yyyy}", uiRadDatePickerFrom.SelectedDate));
+                        rep_params6[1] = new Microsoft.Reporting.WebForms.ReportParameter("EndDate", string.Format("{0:MM/dd/yyyy}", uiRadDatePickerTo.SelectedDate));
+                        ReportViewer6.LocalReport.SetParameters(rep_params6);                          
                         ReportViewer6.LocalReport.Refresh();    
                         ReportViewer1.Visible = false;
                         ReportViewer2.Visible = false;
@@ -241,10 +255,12 @@ namespace Flights_GUI.Operation
                         rds.Name = "SectorActualBurnOffDataSet";
                         rds.Value = SBO.GetData(Convert.ToInt32(uiDropDownListFrom.SelectedValue), Convert.ToInt32(uiDropDownListTo.SelectedValue), From, To);
                         ReportViewer7.LocalReport.DataSources.Add(rds); 
-                        ReportViewer7.LocalReport.SetParameters(new Microsoft.Reporting.WebForms.ReportParameter("StartDate", string.Format("{0:MM/dd/yyyy}", uiRadDatePickerFrom.SelectedDate)));
-                        ReportViewer7.LocalReport.SetParameters(new Microsoft.Reporting.WebForms.ReportParameter("EndDate", string.Format("{0:MM/dd/yyyy}", uiRadDatePickerTo.SelectedDate)));
-                        ReportViewer7.LocalReport.SetParameters(new Microsoft.Reporting.WebForms.ReportParameter("FromAirPort", uiDropDownListFrom.SelectedValue));
-                        ReportViewer7.LocalReport.SetParameters(new Microsoft.Reporting.WebForms.ReportParameter("ToAirPort", uiDropDownListTo.SelectedValue));
+                        ReportParameter[] rep_params7 = new ReportParameter[4];
+                        rep_params7[0] = new Microsoft.Reporting.WebForms.ReportParameter("StartDate", string.Format("{0:MM/dd/yyyy}", uiRadDatePickerFrom.SelectedDate));
+                        rep_params7[1] = new Microsoft.Reporting.WebForms.ReportParameter("EndDate", string.Format("{0:MM/dd/yyyy}", uiRadDatePickerTo.SelectedDate));
+                        rep_params7[2] = new Microsoft.Reporting.WebForms.ReportParameter("FromAirPort", uiDropDownListFrom.SelectedValue);
+                        rep_params7[3] = new Microsoft.Reporting.WebForms.ReportParameter("ToAirPort", uiDropDownListTo.SelectedValue);
+                        ReportViewer7.LocalReport.SetParameters(rep_params7);  
                         ReportViewer7.LocalReport.Refresh();  
                         ReportViewer1.Visible = false;
                         ReportViewer2.Visible = false;

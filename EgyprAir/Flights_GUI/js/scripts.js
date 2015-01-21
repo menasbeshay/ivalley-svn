@@ -2301,6 +2301,7 @@ $('.element').tooltip();
 
 
 // Slider input js
+/*
 try{
     jQuery("#Slider1").slider({ from: 5, to: 50, step: 2.5, round: 1, dimension: '&nbsp;$', skin: "round_plastic" });
     jQuery("#Slider2").slider({ from: 5000, to: 150000, heterogeneity: ['50/50000'], step: 1000, dimension: '&nbsp;$', skin: "round_plastic" });
@@ -2312,12 +2313,12 @@ try{
     }});
 } catch (e){
     errorMessage(e);
-}
+}*/
 
 
 //knob
 
-$(".knob").knob();
+//$(".knob").knob();
 
 
 

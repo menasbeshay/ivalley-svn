@@ -21,6 +21,7 @@ namespace Flights_GUI.Operation
         {
             if (!IsPostBack)
             {
+                Master.PageTitle = "Pilot status";
                 Header.Visible = false;
                 totals.Visible = false;
                 grandTotal.Visible = false;
@@ -42,6 +43,10 @@ namespace Flights_GUI.Operation
             uiDropDownListPilots.DataBind();
             uiDropDownListPilots.Items.Insert(0, new ListItem("Select Pilot", "0"));
         }
+        protected void uiRadGridTrx_PageIndexChanged(object sender, Telerik.Web.UI.GridPageChangedEventArgs e)
+        {
+            BindData();
+        }       
 
         private void BindData()
         {
@@ -61,13 +66,24 @@ namespace Flights_GUI.Operation
                 To = DateTime.ParseExact(uiTextBoxTo.Text, "dd/MM/yyyy", provider);
             }
             if (current.RowCount > 0)
+                p.GetPilotTransactions(current.PilotID, From, To);
+            else
+                p.GetPilotTransactions(3, From, To);
+
+
+            uiRadGridTrx.DataSource = p.DefaultView;
+            uiRadGridTrx.DataBind();
+
+            /*
+            if (current.RowCount > 0)
                 p.GetPilotSchedule(current.PilotID, From, To);
             else
                 p.GetPilotSchedule(3, From, To);
+             * */
             uiLabelFullName.Text = current.FirstName + " " + current.SecondName;
             uiLabelShortName.Text = current.ShortName;
-            uiDataListSchedule.DataSource = p.DefaultView;
-            uiDataListSchedule.DataBind();
+            //uiDataListSchedule.DataSource = p.DefaultView;
+            //uiDataListSchedule.DataBind();
             Header.Visible = true;
             totals.Visible = true;
             grandTotal.Visible = true;
@@ -408,7 +424,10 @@ namespace Flights_GUI.Operation
                 DutyHours.Text = Duty.Add(new TimeSpan(1,30,0)).ToString("hh\\:mm");
 
             }
-        }
+        }     
+
+
+
 
     }
 }

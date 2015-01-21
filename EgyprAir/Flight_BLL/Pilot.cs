@@ -66,5 +66,17 @@ namespace Flight_BLL
             return LoadFromSql("GetPilotsByTrainingID", parameters);
 
         }
+
+        public virtual bool GetPilotTransactions(int PilotID, DateTime? StartDate, DateTime? EndDate)
+        {
+            ListDictionary parameters = new ListDictionary();
+
+            parameters.Add(new SqlParameter("@PilotID", SqlDbType.Int, 0), PilotID);
+            parameters.Add(new SqlParameter("@StartDate", SqlDbType.DateTime, 0), StartDate);
+            parameters.Add(new SqlParameter("@EndDate", SqlDbType.DateTime, 0), EndDate);
+
+            return LoadFromSql("GetPilotTransactions", parameters);
+
+        }
 	}
 }

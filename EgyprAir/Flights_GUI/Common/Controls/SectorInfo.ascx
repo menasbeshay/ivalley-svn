@@ -21,21 +21,21 @@
     </tr>
     <tr>
         <td width="20%">
-            <asp:Label ID="Label1" runat="server" Text="Flight No." CssClass="Label"></asp:Label></td>
+            <asp:Label ID="Label1" runat="server" Text="Flight No." CssClass="Label" Font-Bold="true"></asp:Label></td>
         <td>
-            <asp:Label ID="uiLabelNO" runat="server"></asp:Label></td>
+            <asp:Label ID="uiLabelNO" runat="server" ></asp:Label></td>
         <td width="20%">
-            <asp:Label ID="Label2" runat="server" Text="Date" CssClass="Label"></asp:Label></td>
+            <asp:Label ID="Label2" runat="server" Text="Date" CssClass="Label" Font-Bold="true"></asp:Label></td>
         <td>
             <asp:Label ID="uiLabelDate" runat="server"></asp:Label></td>
     </tr>
     <tr>
         <td width="20%">
-            <asp:Label ID="Label3" runat="server" Text="From" CssClass="Label"></asp:Label></td>
+            <asp:Label ID="Label3" runat="server" Text="From" CssClass="Label" Font-Bold="true"></asp:Label></td>
         <td>
             <asp:Label ID="uiLabelFrom" runat="server"></asp:Label></td>
         <td width="20%">
-            <asp:Label ID="Label4" runat="server" Text="To" CssClass="Label"></asp:Label></td>
+            <asp:Label ID="Label4" runat="server" Text="To" CssClass="Label" Font-Bold="true"></asp:Label></td>
         <td>
             <asp:Label ID="uiLabelTo" runat="server"></asp:Label></td>
     </tr>

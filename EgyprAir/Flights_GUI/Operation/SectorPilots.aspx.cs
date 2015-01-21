@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Flight_BLL;
 using System.Data;
+using System.Net.Mail;
+using System.Configuration;
 
 namespace Flights_GUI.Operation
 {
@@ -32,7 +34,8 @@ namespace Flights_GUI.Operation
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            {               
+            {
+                Master.PageTitle = "Sector pilots";
                 LoadDDLs();
                 BindPilots();
             }
@@ -48,8 +51,41 @@ namespace Flights_GUI.Operation
                 Member.PositionID = Convert.ToInt32(uiDropDownListPilotPos.SelectedValue);
                 Member.PilotID = Convert.ToInt32(uiDropDownListPilot.SelectedValue);
                 Member.Save();
+                BindPilots();
+                // send mail to pilot
+                try
+                {
+                    Pilot p = new Pilot();
+                    p.LoadByPrimaryKey(Convert.ToInt32(uiDropDownListPilot.SelectedValue));
+                    AirPort from = new AirPort();
+                    from.LoadByPrimaryKey(CurrentSector.From_AirportID);
+                    AirPort to = new AirPort();
+                    to.LoadByPrimaryKey(CurrentSector.To_AirportID);
+                    MailMessage msg = new MailMessage();
+                    string mail = GetLocalResourceObject("mail").ToString();
+                    string mailto = p.Email;
+                    msg.To.Add(mailto);
+                    msg.From = new MailAddress(mail);
+                    msg.Subject = GetLocalResourceObject("subject").ToString();
+                    msg.IsBodyHtml = true;
+                    msg.BodyEncoding = System.Text.Encoding.UTF8;
+
+                    msg.Body = string.Format(GetLocalResourceObject("MailBody").ToString(), p.FirstName + " " + p.SecondName, CurrentSector.SectorDate.ToString("dd/MM/yyyy"), CurrentSector.FlightNo, from.IATACode, to.IATACode);
+                    
+                    SmtpClient client = new SmtpClient(GetLocalResourceObject("server").ToString(), 25);
+                    //client.EnableSsl = true;
+                    client.UseDefaultCredentials = false;
+
+                    client.Credentials = new System.Net.NetworkCredential(mail, GetLocalResourceObject("pass").ToString());
+                    client.Send(msg);
+
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
             }
-            BindPilots();
+            
         }
 
         protected void uiLinkButtonAddCo_Click(object sender, EventArgs e)
@@ -88,9 +124,9 @@ namespace Flights_GUI.Operation
                 Label temp = (Label)e.Row.FindControl("uiLabelName");
                 temp.Text = current.FirstName + " " + current.SecondName;
                 Label temp2 = (Label)e.Row.FindControl("uiLabelStaffNo");
-                if (!current.IsColumnNull("StaffNo"))
+                if (!current.IsColumnNull("ShortName"))
                 {
-                    temp2.Text = current.StaffNo.ToString();
+                    temp2.Text = current.ShortName.ToString();
                 }
 
                 CheckBox IsPilot = (CheckBox)e.Row.FindControl("uiCheckBoxIsPilot");
@@ -112,7 +148,7 @@ namespace Flights_GUI.Operation
         protected void uiLinkButtonBack_Click(object sender, EventArgs e)
         {
             CurrentSector = null;
-            Response.Redirect("~/Operation/SectorsList.aspx?" + Request.QueryString.ToString());
+            Response.Redirect("~/Operation/FlightList.aspx?" + Request.QueryString.ToString());
         }
         #endregion
 

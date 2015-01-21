@@ -275,6 +275,22 @@ namespace Flight_DAL
 				}
 			}
 			
+			public static SqlParameter Email
+			{
+				get
+				{
+					return new SqlParameter("@Email", SqlDbType.NVarChar, 200);
+				}
+			}
+			
+			public static SqlParameter Mobile
+			{
+				get
+				{
+					return new SqlParameter("@Mobile", SqlDbType.NVarChar, 50);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -303,6 +319,8 @@ namespace Flight_DAL
             public const string LastModifiedDate = "LastModifiedDate";
             public const string UserName = "UserName";
             public const string AirportClass = "AirportClass";
+            public const string Email = "Email";
+            public const string Mobile = "Mobile";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -332,6 +350,8 @@ namespace Flight_DAL
 					ht[LastModifiedDate] = _Pilot.PropertyNames.LastModifiedDate;
 					ht[UserName] = _Pilot.PropertyNames.UserName;
 					ht[AirportClass] = _Pilot.PropertyNames.AirportClass;
+					ht[Email] = _Pilot.PropertyNames.Email;
+					ht[Mobile] = _Pilot.PropertyNames.Mobile;
 
 				}
 				return (string)ht[columnName];
@@ -366,6 +386,8 @@ namespace Flight_DAL
             public const string LastModifiedDate = "LastModifiedDate";
             public const string UserName = "UserName";
             public const string AirportClass = "AirportClass";
+            public const string Email = "Email";
+            public const string Mobile = "Mobile";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -395,6 +417,8 @@ namespace Flight_DAL
 					ht[LastModifiedDate] = _Pilot.ColumnNames.LastModifiedDate;
 					ht[UserName] = _Pilot.ColumnNames.UserName;
 					ht[AirportClass] = _Pilot.ColumnNames.AirportClass;
+					ht[Email] = _Pilot.ColumnNames.Email;
+					ht[Mobile] = _Pilot.ColumnNames.Mobile;
 
 				}
 				return (string)ht[propertyName];
@@ -429,6 +453,8 @@ namespace Flight_DAL
             public const string LastModifiedDate = "s_LastModifiedDate";
             public const string UserName = "s_UserName";
             public const string AirportClass = "s_AirportClass";
+            public const string Email = "s_Email";
+            public const string Mobile = "s_Mobile";
 
 		}
 		#endregion		
@@ -696,6 +722,30 @@ namespace Flight_DAL
 			set
 	        {
 				base.Setint(ColumnNames.AirportClass, value);
+			}
+		}
+
+		public virtual string Email
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.Email);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.Email, value);
+			}
+		}
+
+		public virtual string Mobile
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.Mobile);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.Mobile, value);
 			}
 		}
 
@@ -1034,6 +1084,36 @@ namespace Flight_DAL
 			}
 		}
 
+		public virtual string s_Email
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.Email) ? string.Empty : base.GetstringAsString(ColumnNames.Email);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.Email);
+				else
+					this.Email = base.SetstringAsString(ColumnNames.Email, value);
+			}
+		}
+
+		public virtual string s_Mobile
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.Mobile) ? string.Empty : base.GetstringAsString(ColumnNames.Mobile);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.Mobile);
+				else
+					this.Mobile = base.SetstringAsString(ColumnNames.Mobile, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -1282,6 +1362,26 @@ namespace Flight_DAL
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.AirportClass, Parameters.AirportClass);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter Email
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.Email, Parameters.Email);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter Mobile
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.Mobile, Parameters.Mobile);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -1556,6 +1656,30 @@ namespace Flight_DAL
 				}
 			}
 
+			public WhereParameter Email
+		    {
+				get
+		        {
+					if(_Email_W == null)
+	        	    {
+						_Email_W = TearOff.Email;
+					}
+					return _Email_W;
+				}
+			}
+
+			public WhereParameter Mobile
+		    {
+				get
+		        {
+					if(_Mobile_W == null)
+	        	    {
+						_Mobile_W = TearOff.Mobile;
+					}
+					return _Mobile_W;
+				}
+			}
+
 			private WhereParameter _PilotID_W = null;
 			private WhereParameter _FirstName_W = null;
 			private WhereParameter _SecondName_W = null;
@@ -1578,6 +1702,8 @@ namespace Flight_DAL
 			private WhereParameter _LastModifiedDate_W = null;
 			private WhereParameter _UserName_W = null;
 			private WhereParameter _AirportClass_W = null;
+			private WhereParameter _Email_W = null;
+			private WhereParameter _Mobile_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -1603,6 +1729,8 @@ namespace Flight_DAL
 				_LastModifiedDate_W = null;
 				_UserName_W = null;
 				_AirportClass_W = null;
+				_Email_W = null;
+				_Mobile_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -1879,6 +2007,26 @@ namespace Flight_DAL
 					}
 				}
 
+				public AggregateParameter Email
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Email, Parameters.Email);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter Mobile
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Mobile, Parameters.Mobile);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -2148,6 +2296,30 @@ namespace Flight_DAL
 				}
 			}
 
+			public AggregateParameter Email
+		    {
+				get
+		        {
+					if(_Email_W == null)
+	        	    {
+						_Email_W = TearOff.Email;
+					}
+					return _Email_W;
+				}
+			}
+
+			public AggregateParameter Mobile
+		    {
+				get
+		        {
+					if(_Mobile_W == null)
+	        	    {
+						_Mobile_W = TearOff.Mobile;
+					}
+					return _Mobile_W;
+				}
+			}
+
 			private AggregateParameter _PilotID_W = null;
 			private AggregateParameter _FirstName_W = null;
 			private AggregateParameter _SecondName_W = null;
@@ -2170,6 +2342,8 @@ namespace Flight_DAL
 			private AggregateParameter _LastModifiedDate_W = null;
 			private AggregateParameter _UserName_W = null;
 			private AggregateParameter _AirportClass_W = null;
+			private AggregateParameter _Email_W = null;
+			private AggregateParameter _Mobile_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -2195,6 +2369,8 @@ namespace Flight_DAL
 				_LastModifiedDate_W = null;
 				_UserName_W = null;
 				_AirportClass_W = null;
+				_Email_W = null;
+				_Mobile_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -2355,6 +2531,14 @@ namespace Flight_DAL
 
 			p = cmd.Parameters.Add(Parameters.AirportClass);
 			p.SourceColumn = ColumnNames.AirportClass;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.Email);
+			p.SourceColumn = ColumnNames.Email;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.Mobile);
+			p.SourceColumn = ColumnNames.Mobile;
 			p.SourceVersion = DataRowVersion.Current;
 
 

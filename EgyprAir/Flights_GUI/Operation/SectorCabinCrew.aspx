@@ -1,23 +1,37 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Admin.Master" AutoEventWireup="true" CodeBehind="SectorCabinCrew.aspx.cs" Inherits="Flights_GUI.Operation.SectorCabinCrew" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/E_Admin.Master" AutoEventWireup="true" CodeBehind="SectorCabinCrew.aspx.cs" Inherits="Flights_GUI.Operation.SectorCabinCrew" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <%@ Register src="../Common/Controls/SectorInfo.ascx" tagname="SectorInfo" tagprefix="uc1" %>
+<%@ MasterType VirtualPath="~/MasterPages/E_Admin.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+     <style type="text/css">
+           
+.seprator
+{
+    color: #FFFFFF;
+    font-weight: bold;    
+    font-family: Tahoma, Geneva, sans-serif;
+    text-align: left;
+    background-color: #79BCFF;
+    padding: 2px;
+    display: block;
+    clear: both;
+    padding-left:30px;
+    margin:10px 0;
+}
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="ContentLeftDiv">
-        <h4>
-            Edit Sector Details</h4>
+       
         <div class="Details900">
             <div class="whiteArea">
             <asp:UpdatePanel ID="uiUpdatePanel" runat="server">
                 <ContentTemplate>
-                    <div class="MoreBig" style="float: right; position: absolute; right: 180px; top: 60px;
-                        height: 25px; z-index: 99999;">
-                        <asp:LinkButton ID="uiLinkButtonBack" runat="server" OnClick="uiLinkButtonBack_Click">Back to flight list</asp:LinkButton>
-                    </div>
-                    <div style="height: 25px; clear: both;">
-                    </div>               
+                    
+                        <asp:LinkButton ID="uiLinkButtonBack" runat="server" OnClick="uiLinkButtonBack_Click" CssClass="btn btn-primary pull-right">Back to flight list</asp:LinkButton>
+                    
+                               
                     <div>                    
                         <uc1:SectorInfo ID="SectorInfo1" runat="server" />
                     </div>
@@ -53,7 +67,7 @@
                                         &nbsp;</div>
                                     <div class="AdminMiddle">
                                         <div class="More" style="float: left; height: 15px;">
-                                            <asp:LinkButton ID="uiLinkButtonAddCrew" runat="server" OnClick="uiLinkButtonAddCrew_Click">Add crew Member</asp:LinkButton></div>
+                                            <asp:LinkButton ID="uiLinkButtonAddCrew" runat="server" OnClick="uiLinkButtonAddCrew_Click" CssClass="btn btn-primary">Add crew Member</asp:LinkButton></div>
                                     </div>
                                     <div class="AdminRight">
                                     </div>
