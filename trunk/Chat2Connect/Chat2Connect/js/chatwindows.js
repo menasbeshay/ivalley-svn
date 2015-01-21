@@ -286,7 +286,6 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
 
     this.removeFriend = function () {
         var friend = this;
-        $('#usernode-' + friend.MemberID()).popover('hide');
         var newlst = ko.utils.arrayFilter(self.friends(), function (f) {
             return f.MemberID() != friend.MemberID();
         });
@@ -353,7 +352,7 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
                 return null;*/
             return ko.utils.arrayFilter(self.Members(), function (mem) {
                 return mem.InRoom();
-            }).sort(function (a, b) { return a.LastJoinDate() > b.LastJoinDate(); });
+            })
         }, this);
         //Room Members
         this.RoomMembers = ko.computed(function () {
@@ -361,7 +360,33 @@ function Chat(maxWin, memberID, memberName, profilePic, memberType) {
                 return (mem.QueueOrder() == null && mem.IsMicOpened() != true && mem.IsCamOpened() != true);
             });
         }, this);
-
+        this.ExistingMembersWithCustomOrder = ko.computed(function () {
+            var onlineMembers = ko.utils.arrayFilter(self.Members(), function (mem) {
+                return mem.InRoom();
+            });
+            return onlineMembers.sort(function (a, b) {
+                if (a.IsMicOpened() != b.IsMicOpened()) {
+                    return a.IsMicOpened() ? -1 : 1;
+                }
+                if (a.IsCamOpened() != b.IsCamOpened()) {
+                    return a.IsCamOpened() ? -1 : 1;
+                }
+                if (a.QueueOrder() != null && b.QueueOrder() != null) {
+                    return a.QueueOrder() - b.QueueOrder();
+                }
+                if (a.QueueOrder() != b.QueueOrder()) {
+                    return a.QueueOrder() != null ? -1 : 1;
+                }
+                if (a.MemberLevelID() == 4 || b.MemberLevelID() == 4) {
+                    return a.MemberLevelID() == 4 ? -1 : 1;
+                }
+                if (a.HasGift() != b.HasGift()) {
+                    return a.HasGift() ? -1 : 1;
+                }
+                return b.LastJoinDate() > a.LastJoinDate(); // descending
+            });
+        }, this);
+        
         //Cams only Member
         this.CamOnlyMembers = ko.computed(function () {
             return ko.utils.arrayFilter(self.ExistingMembers(), function (mem) {

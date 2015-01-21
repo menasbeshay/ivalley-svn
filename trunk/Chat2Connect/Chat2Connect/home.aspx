@@ -367,7 +367,7 @@
         </div>
     </script>
     <script id="memberTemplate" type="text/html">
-        <div class="friend-link rm roomMemberlink Alteven">
+        <div class="friend-link rm roomMemberlink" data-bind="css: $index() % 2 == 0 ? 'Alteven' : 'Altodd'">
             <div class="pull-left controls">
                 <div class="cameraHolder">
 
@@ -1450,24 +1450,7 @@
                 <div style="padding: 5px;" class="col-lg-12">
                     <!-- ko if: Type()=="Room" -->
                     <div style="padding: 5px; margin-top: 2px; position: relative;" class="col-lg-3 pull-right">
-                        <div id="roomMembersDiv" data-bind="attr:{'data-height' : CurrentMember().MemberLevelID() > 1 ? '550px' : '510px'}, style:{height:CurrentMember().MemberLevelID() > 1 ? '550px' : '510px' }" class="SScroll" style="overflow-y: hidden; width: auto; overflow-x: visible; background-color: #D9D9D9;">
-                            <div id="MicDiv">
-                                <!-- ko template: { name: 'memberTemplate', foreach: MicMember } -->
-                                <!-- /ko -->
-                            </div>
-                            <div id="queueDiv">
-                                <!-- ko template: { name: 'memberTemplate', foreach: QueueMembers } -->
-                                <!-- /ko -->
-                            </div>
-                            <div id="CamsDiv">
-                                <!-- ko template: { name: 'memberTemplate', foreach: CamOnlyMembers } -->
-                                <!-- /ko -->
-                            </div>
-
-                            <div id="regular">
-                                <!-- ko template: { name: 'memberTemplate', foreach: RoomMembers } -->
-                                <!-- /ko -->
-                            </div>
+                        <div id="roomMembersDiv" data-bind="template: { name: 'memberTemplate', foreach: ExistingMembersWithCustomOrder },attr:{'data-height' : CurrentMember().MemberLevelID() > 1 ? '550px' : '510px'}, style:{height:CurrentMember().MemberLevelID() > 1 ? '550px' : '510px' }" class="SScroll" style="overflow-y: hidden; width: auto; overflow-x: visible; background-color: #D9D9D9;">
                         </div>
                     </div>
                     <!-- /ko -->
