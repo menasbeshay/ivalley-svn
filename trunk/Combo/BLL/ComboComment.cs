@@ -16,7 +16,15 @@ namespace Combo.BLL
         public virtual bool GetPostCommentsByPostID(int pid)
         {
             this.Where.ComboPostID.Value = pid;
+            this.Where.ComboPostID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;            
+            return this.Query.Load();
+        }
+
+        public virtual bool GetTopPostCommentsByPostID(int pid)
+        {
+            this.Where.ComboPostID.Value = pid;
             this.Where.ComboPostID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+            this.Query.Top = 3;
             return this.Query.Load();
         }
 

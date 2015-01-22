@@ -47,10 +47,13 @@
     <Compile Include="ComboComment.cs" />
     <Compile Include="ComboCommentAttachment.cs" />
     <Compile Include="ComboCommentLike.cs" />
+    <Compile Include="ComboMsg.cs" />
+    <Compile Include="ComboMsgAttachment.cs" />
     <Compile Include="ComboPost.cs" />
     <Compile Include="ComboPostAttachment.cs" />
     <Compile Include="ComboPostLike.cs" />
     <Compile Include="ComboUser.cs" />
+    <Compile Include="ComboUserMsg.cs" />
     <Compile Include="ExternalIDType.cs" />
     <Compile Include="Gender.cs" />
     <Compile Include="ProfileFollower.cs" />

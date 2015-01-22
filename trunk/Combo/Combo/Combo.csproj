@@ -99,6 +99,7 @@
     </Compile>
     <Compile Include="Models\Attachment.cs" />
     <Compile Include="Models\ComboComment.cs" />
+    <Compile Include="Models\ComboCommentLike.cs" />
     <Compile Include="Models\ComboPost.cs" />
     <Compile Include="Models\ComboPostLike.cs" />
     <Compile Include="Models\ComboResponse.cs" />
