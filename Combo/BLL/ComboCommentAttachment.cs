@@ -11,5 +11,12 @@ namespace Combo.BLL
 		{
 		
 		}
+
+        public virtual bool GetCommentAttachmentsByCommentID(int cid)
+        {
+            return LoadFromRawSql(@"Select * From Attachment A 
+                                    inner join ComboCommentAttachment PA on A.AttachmentID = PA.AttachmentID
+                                    Where PA.ComboCommnetID = {0}", cid);
+        }
 	}
 }

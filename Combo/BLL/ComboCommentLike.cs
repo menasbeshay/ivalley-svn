@@ -14,9 +14,9 @@ namespace Combo.BLL
 
         public virtual bool GetCommentLikesByCommentID(int cid)
         {
-            this.Where.ComboCommentID.Value = cid;
-            this.Where.ComboCommentID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
-            return this.Query.Load();
+            return LoadFromRawSql(@"Select L.*, U.UserName From ComboCommentLike L 
+                                    inner join ComboUser U on L.ComboUserID = U.ComboUserID
+                                    Where L.ComboCommentID = {0}", cid);
         }
 	}
 }

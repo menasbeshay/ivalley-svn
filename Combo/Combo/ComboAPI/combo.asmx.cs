@@ -411,7 +411,7 @@ namespace Combo.ComboAPI
 
 
                 ComboComment comments = new ComboComment();
-                comments.GetPostCommentsByPostID(item.ComboPostID);
+                comments.GetTopPostCommentsByPostID(item.ComboPostID);
                 // get top 3 comments for each post
                 item.Comments = comments.DefaultView.Table.AsEnumerable().Select(r =>
                     {
@@ -423,7 +423,36 @@ namespace Combo.ComboAPI
                             CommentText = r["CommentText"].ToString(),
                             CommentDate = Convert.ToDateTime(r["CommentDate"].ToString()),
                         };
-                    }).Take(3).ToList();
+                    }).ToList();
+
+                List<Models.ComboComment> _comm = item.Comments as List<Models.ComboComment>;
+                foreach (Models.ComboComment _itemcomm in _comm)
+                {
+                    ComboCommentLike c_likes = new ComboCommentLike();
+                    ComboCommentAttachment c_attachments = new ComboCommentAttachment();
+                    c_likes.GetCommentLikesByCommentID(_itemcomm.ComboCommentID);
+                    c_attachments.GetCommentAttachmentsByCommentID(_itemcomm.ComboCommentID);
+                    _itemcomm.Likes = c_likes.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.ComboCommentLike
+                        {
+                            ComboCommentID = Convert.ToInt32(r["ComboCommentID"]),
+                            ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                            UserName = r["UserName"].ToString(),
+                        };
+                    }).ToList();
+                    _itemcomm.Attachments = c_attachments.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.Attachment
+                        {
+                            AttachmentID = Convert.ToInt32(r["AttachmentID"]),
+                            Path = r["Path"].ToString(),
+                            AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"])
+                        };
+                    }).ToList();
+                }
+
+                item.Comments = _comm;
 
                 ComboPostAttachment attachments = new ComboPostAttachment();
                 attachments.GetPostAttachmentsByPostID(item.ComboPostID);
@@ -509,7 +538,36 @@ namespace Combo.ComboAPI
                 };
             }).ToList();
 
-
+            foreach (Models.ComboPost item in Post)
+            {
+                List<Models.ComboComment> comm = (List<Models.ComboComment>)item.Comments;
+                for (int i = 0; i < comm.Count;i++ )
+                {
+                    ComboCommentLike c_likes = new ComboCommentLike();
+                    ComboCommentAttachment c_attachments = new ComboCommentAttachment();
+                    c_likes.GetCommentLikesByCommentID(comm[i].ComboCommentID);
+                    c_attachments.GetCommentAttachmentsByCommentID(comm[i].ComboCommentID);
+                    comm[i].Likes = c_likes.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.ComboCommentLike
+                        {
+                            ComboCommentID = Convert.ToInt32(r["ComboCommentID"]),
+                            ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                            UserName = r["UserName"].ToString(),
+                        };
+                    }).ToList();
+                    comm[i].Attachments = c_attachments.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.Attachment
+                        {
+                            AttachmentID = Convert.ToInt32(r["AttachmentID"]),
+                            Path = r["Path"].ToString(),
+                            AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"])
+                        };
+                    }).ToList();
+                }
+                
+            }
             _response.Entity = Post;
             SetContentResult(_response);
 

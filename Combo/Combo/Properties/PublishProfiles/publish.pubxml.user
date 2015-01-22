@@ -13,13 +13,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/21/2014 16:40:51</publishTime>
     </File>
     <File Include="bin/BLL.dll">
-      <publishTime>12/22/2014 17:16:40</publishTime>
+      <publishTime>01/05/2015 12:26:26</publishTime>
     </File>
     <File Include="bin/Combo.dll">
-      <publishTime>12/28/2014 16:12:00</publishTime>
+      <publishTime>01/05/2015 12:26:27</publishTime>
     </File>
     <File Include="bin/DAL.dll">
-      <publishTime>12/22/2014 17:16:39</publishTime>
+      <publishTime>01/05/2015 12:26:23</publishTime>
     </File>
     <File Include="bin/MyGeneration.dOOdads.dll">
       <publishTime>12/21/2014 16:40:54</publishTime>
@@ -62,6 +62,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="packages.config">
       <publishTime>12/21/2014 16:40:51</publishTime>
+    </File>
+    <File Include="post.html">
+      <publishTime>01/04/2015 16:21:12</publishTime>
     </File>
     <File Include="Properties/Resources.resx">
       <publishTime>12/04/2014 15:20:13</publishTime>
