@@ -363,7 +363,6 @@ namespace Combo.ComboAPI
         }
         #endregion
 
-
         #region Posts
         const int PostsPageSize = 20;
         const int CommentsPageSize = 20;
@@ -389,6 +388,8 @@ namespace Combo.ComboAPI
                 {
                     ComboPostID = Convert.ToInt32(row["ComboPostID"]),
                     ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                    ComboUserName = row["UserName"].ToString(),
+                    ProfilePic = row["ProfilePic"].ToString(),
                     PostText = row["PostText"].ToString(),
                     PostDate = Convert.ToDateTime(row["PostDate"].ToString())                    
                 };
@@ -420,6 +421,8 @@ namespace Combo.ComboAPI
                             ComboCommentID = Convert.ToInt32(r["ComboCommentID"]),
                             ComboPostID = Convert.ToInt32(r["ComboPostID"]),
                             ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                            ComboUserName = row["UserName"].ToString(),
+                            ProfilePic = row["ProfilePic"].ToString(),
                             CommentText = r["CommentText"].ToString(),
                             CommentDate = Convert.ToDateTime(r["CommentDate"].ToString()),
                         };
@@ -488,7 +491,7 @@ namespace Combo.ComboAPI
             _response.ErrorMsg = "";
 
             ComboPost post = new ComboPost();
-            post.LoadByPrimaryKey(id);
+            post.GetPostByID(id);
             ComboPostLike likes = new ComboPostLike();
             ComboPostAttachment attachments = new ComboPostAttachment();
             ComboComment comments = new ComboComment();
@@ -503,6 +506,8 @@ namespace Combo.ComboAPI
                 {
                     ComboPostID = Convert.ToInt32(row["ComboPostID"]),
                     ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                    ComboUserName = row["UserName"].ToString(),
+                    ProfilePic = row["ProfilePic"].ToString(),
                     PostText = row["PostText"].ToString(),
                     PostDate = Convert.ToDateTime(row["PostDate"].ToString()),
                     Likes =  likes.DefaultView.Table.AsEnumerable().Select(r =>
@@ -522,6 +527,8 @@ namespace Combo.ComboAPI
                             ComboCommentID = Convert.ToInt32(r["ComboCommentID"]),
                             ComboPostID = Convert.ToInt32(r["ComboPostID"]),
                             ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                            ComboUserName = row["UserName"].ToString(),
+                            ProfilePic = row["ProfilePic"].ToString(),
                             CommentText = r["CommentText"].ToString(),
                             CommentDate = Convert.ToDateTime(r["CommentDate"].ToString()),                            
                         };
@@ -745,7 +752,6 @@ namespace Combo.ComboAPI
 
        
         #endregion
-
 
         #region Comments
         [WebMethod]

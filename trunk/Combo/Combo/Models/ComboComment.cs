@@ -11,6 +11,8 @@ namespace Combo.Models
         public int ComboPostID { get; set; }
         public string CommentText { get; set; }
         public int ComboUserID { get; set; }
+        public string ComboUserName { get; set; }
+        public string ProfilePic { get; set; }
         public DateTime CommentDate { get; set; }
         public object Likes { get; set; }
         public object Attachments { get; set; }

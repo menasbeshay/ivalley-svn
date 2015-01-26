@@ -14,9 +14,20 @@ namespace Combo.BLL
 
         public virtual bool GetPostByUserID(int userid)
         {
-            return LoadFromRawSql(@"Select P.* from ComboPost P
+            return LoadFromRawSql(@"Select P.*, U.UserName, A.Path ProfilePic from ComboPost P
+                                    Inner Join ComboUser U on P.ComboUserID = U.ComboUserID
+                                    Left join Attachment A on U.ProfileImgID = A.AttachmentID
                                     Where P.ComboUserID = {0} and 
                                     (P.IsDeleted <> 1 or P.IsDeleted is null)", userid);
+        }
+
+        public virtual bool GetPostByID(int pid)
+        {
+            return LoadFromRawSql(@"Select P.*, U.UserName, A.Path ProfilePic from ComboPost P
+                                    Inner Join ComboUser U on P.ComboUserID = U.ComboUserID
+                                    Left join Attachment A on U.ProfileImgID = A.AttachmentID
+                                    Where P.ComboPostID = {0} and 
+                                    (P.IsDeleted <> 1 or P.IsDeleted is null)", pid);
         }
 
 	}
