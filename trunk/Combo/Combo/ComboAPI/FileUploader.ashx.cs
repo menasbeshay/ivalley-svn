@@ -62,7 +62,7 @@ namespace Combo.ComboAPI
             _response.bool_result = true;
             _response.ErrorCode = 0;
             _response.ErrorMsg = "";
-            _response.Entity = responseText;
+            _response.Entity = new Models.Attachment[] { responseText };
             SetContentResult(_response);
 
         }

@@ -18,7 +18,18 @@ namespace Combo.BLL
                                     Inner Join ComboUser U on P.ComboUserID = U.ComboUserID
                                     Left join Attachment A on U.ProfileImgID = A.AttachmentID
                                     Where P.ComboUserID = {0} and 
-                                    (P.IsDeleted <> 1 or P.IsDeleted is null)", userid);
+                                    (P.IsDeleted <> 1 or P.IsDeleted is null) 
+                                    order by P.PostDate Desc", userid);
+        }
+
+        public virtual bool GetFollowingPostsByUserID(int userid)
+        {
+            return LoadFromRawSql(@"Select P.*, U.UserName, A.Path ProfilePic from ComboPost P
+                                    Inner Join ComboUser U on P.ComboUserID = U.ComboUserID
+                                    Left join Attachment A on U.ProfileImgID = A.AttachmentID
+                                    Where P.ComboUserID in (select ComboFollowerID from ProfileFollower PF where PF.ComboUserID = {0}) and 
+                                    (P.IsDeleted <> 1 or P.IsDeleted is null)
+                                    order by P.PostDate Desc", userid);
         }
 
         public virtual bool GetPostByID(int pid)

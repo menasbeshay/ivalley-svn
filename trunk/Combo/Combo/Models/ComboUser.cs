@@ -22,5 +22,8 @@ namespace Combo.Models
         public string DeviceID { get; set; }
         public Guid ActivationCode { get; set; }
         public Guid PassResetCode { get; set; }
+        public string ProfilePic { get; set; }
+        public int FollowingCount { get; set; }
+        public int FollowersCount { get; set; }
     }
 }

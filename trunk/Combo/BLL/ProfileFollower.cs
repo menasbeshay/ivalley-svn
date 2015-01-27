@@ -11,5 +11,21 @@ namespace Combo.BLL
 		{
 		
 		}
+
+        public virtual bool GetProfileFollowersByUserID(int userid)
+        {
+            return LoadFromRawSql(@"Select CU.*, A.Path ProfilePic from ProfileFollower PF
+                                    Inner Join ComboUser CU on PF.ComboFollowerID = CU.ComboUserID
+                                    Left join Attachment A on CU.ProfileImgID = A.AttachmentID
+                                    Where PF.ComboUserID = {0}", userid);
+        }
+
+        public virtual bool GetProfileFollowingByUserID(int userid)
+        {
+            return LoadFromRawSql(@"Select CU.*, A.Path ProfilePic from ProfileFollower PF
+                                    Inner Join ComboUser CU on PF.ComboUserID = CU.ComboUserID
+                                    Left join Attachment A on CU.ProfileImgID = A.AttachmentID
+                                    Where PF.ComboFollowerID = {0}", userid);
+        }
 	}
 }

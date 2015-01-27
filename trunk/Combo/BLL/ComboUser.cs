@@ -31,5 +31,6 @@ namespace Combo.BLL
             return LoadFromSql("GetUserByUserName", parameters);
 
         }
+        
 	}
 }

@@ -16,5 +16,6 @@ namespace Combo.Models
         public object Likes { get; set; }
         public object Comments { get; set; }
         public object Attachments { get; set; }
+        public int CommentsCount { get; set; }
     }
 }
