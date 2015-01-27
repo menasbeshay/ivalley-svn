@@ -139,6 +139,14 @@ namespace Combo.DAL
 				}
 			}
 			
+			public static SqlParameter ComboMsgID
+			{
+				get
+				{
+					return new SqlParameter("@ComboMsgID", SqlDbType.Int, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -150,6 +158,7 @@ namespace Combo.DAL
             public const string ComboPostID = "ComboPostID";
             public const string CommentText = "CommentText";
             public const string CommentDate = "CommentDate";
+            public const string ComboMsgID = "ComboMsgID";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -162,6 +171,7 @@ namespace Combo.DAL
 					ht[ComboPostID] = _ComboComment.PropertyNames.ComboPostID;
 					ht[CommentText] = _ComboComment.PropertyNames.CommentText;
 					ht[CommentDate] = _ComboComment.PropertyNames.CommentDate;
+					ht[ComboMsgID] = _ComboComment.PropertyNames.ComboMsgID;
 
 				}
 				return (string)ht[columnName];
@@ -179,6 +189,7 @@ namespace Combo.DAL
             public const string ComboPostID = "ComboPostID";
             public const string CommentText = "CommentText";
             public const string CommentDate = "CommentDate";
+            public const string ComboMsgID = "ComboMsgID";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -191,6 +202,7 @@ namespace Combo.DAL
 					ht[ComboPostID] = _ComboComment.ColumnNames.ComboPostID;
 					ht[CommentText] = _ComboComment.ColumnNames.CommentText;
 					ht[CommentDate] = _ComboComment.ColumnNames.CommentDate;
+					ht[ComboMsgID] = _ComboComment.ColumnNames.ComboMsgID;
 
 				}
 				return (string)ht[propertyName];
@@ -208,6 +220,7 @@ namespace Combo.DAL
             public const string ComboPostID = "s_ComboPostID";
             public const string CommentText = "s_CommentText";
             public const string CommentDate = "s_CommentDate";
+            public const string ComboMsgID = "s_ComboMsgID";
 
 		}
 		#endregion		
@@ -271,6 +284,18 @@ namespace Combo.DAL
 			set
 	        {
 				base.SetDateTime(ColumnNames.CommentDate, value);
+			}
+		}
+
+		public virtual int ComboMsgID
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.ComboMsgID);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.ComboMsgID, value);
 			}
 		}
 
@@ -351,6 +376,21 @@ namespace Combo.DAL
 					this.SetColumnNull(ColumnNames.CommentDate);
 				else
 					this.CommentDate = base.SetDateTimeAsString(ColumnNames.CommentDate, value);
+			}
+		}
+
+		public virtual string s_ComboMsgID
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.ComboMsgID) ? string.Empty : base.GetintAsString(ColumnNames.ComboMsgID);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.ComboMsgID);
+				else
+					this.ComboMsgID = base.SetintAsString(ColumnNames.ComboMsgID, value);
 			}
 		}
 
@@ -437,6 +477,16 @@ namespace Combo.DAL
 					}
 				}
 
+				public WhereParameter ComboMsgID
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.ComboMsgID, Parameters.ComboMsgID);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -502,11 +552,24 @@ namespace Combo.DAL
 				}
 			}
 
+			public WhereParameter ComboMsgID
+		    {
+				get
+		        {
+					if(_ComboMsgID_W == null)
+	        	    {
+						_ComboMsgID_W = TearOff.ComboMsgID;
+					}
+					return _ComboMsgID_W;
+				}
+			}
+
 			private WhereParameter _ComboCommentID_W = null;
 			private WhereParameter _ComboUserID_W = null;
 			private WhereParameter _ComboPostID_W = null;
 			private WhereParameter _CommentText_W = null;
 			private WhereParameter _CommentDate_W = null;
+			private WhereParameter _ComboMsgID_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -515,6 +578,7 @@ namespace Combo.DAL
 				_ComboPostID_W = null;
 				_CommentText_W = null;
 				_CommentDate_W = null;
+				_ComboMsgID_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -621,6 +685,16 @@ namespace Combo.DAL
 					}
 				}
 
+				public AggregateParameter ComboMsgID
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.ComboMsgID, Parameters.ComboMsgID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -686,11 +760,24 @@ namespace Combo.DAL
 				}
 			}
 
+			public AggregateParameter ComboMsgID
+		    {
+				get
+		        {
+					if(_ComboMsgID_W == null)
+	        	    {
+						_ComboMsgID_W = TearOff.ComboMsgID;
+					}
+					return _ComboMsgID_W;
+				}
+			}
+
 			private AggregateParameter _ComboCommentID_W = null;
 			private AggregateParameter _ComboUserID_W = null;
 			private AggregateParameter _ComboPostID_W = null;
 			private AggregateParameter _CommentText_W = null;
 			private AggregateParameter _CommentDate_W = null;
+			private AggregateParameter _ComboMsgID_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -699,6 +786,7 @@ namespace Combo.DAL
 				_ComboPostID_W = null;
 				_CommentText_W = null;
 				_CommentDate_W = null;
+				_ComboMsgID_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -791,6 +879,10 @@ namespace Combo.DAL
 
 			p = cmd.Parameters.Add(Parameters.CommentDate);
 			p.SourceColumn = ColumnNames.CommentDate;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.ComboMsgID);
+			p.SourceColumn = ColumnNames.ComboMsgID;
 			p.SourceVersion = DataRowVersion.Current;
 
 

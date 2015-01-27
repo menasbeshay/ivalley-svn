@@ -22,7 +22,8 @@ namespace Combo.BLL
             return LoadFromRawSql(@"Select C.*, U.UserName, A.Path ProfilePic from ComboComment C
                                     Inner Join ComboUser U on C.ComboUserID = U.ComboUserID
                                     Left join Attachment A on U.ProfileImgID = A.AttachmentID
-                                    Where C.ComboPostID = {0}", pid);
+                                    Where C.ComboPostID = {0}
+                                    order by C.CommentDate Desc", pid);
         }
 
         public virtual bool GetTopPostCommentsByPostID(int pid)
@@ -35,6 +36,17 @@ namespace Combo.BLL
             return LoadFromRawSql(@"Select top 3 C.*, U.UserName, A.Path ProfilePic from ComboComment C
                                     Inner Join ComboUser U on C.ComboUserID = U.ComboUserID
                                     Left join Attachment A on U.ProfileImgID = A.AttachmentID
+                                    Where C.ComboPostID = {0}
+                                    order by C.CommentDate Desc", pid);
+        }
+
+        public virtual bool GetPostCommentsCount(int pid)
+        {
+            //this.Where.ComboPostID.Value = pid;
+            //this.Where.ComboPostID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;            
+            //return this.Query.Load();
+
+            return LoadFromRawSql(@"Select count(C.ComboCommentID) TotalCount from ComboComment C                                    
                                     Where C.ComboPostID = {0}", pid);
         }
 
