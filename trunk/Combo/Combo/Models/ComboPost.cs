@@ -12,7 +12,7 @@ namespace Combo.Models
         public int ComboUserID { get; set; }
         public string ComboUserName { get; set; }
         public string ProfilePic { get; set; }
-        public DateTime PostDate { get; set; }
+        public double PostDate { get; set; }
         public object Likes { get; set; }
         public object Comments { get; set; }
         public object Attachments { get; set; }
