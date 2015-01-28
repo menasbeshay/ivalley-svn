@@ -400,7 +400,7 @@ namespace Combo.ComboAPI
                     ComboUserName = row["UserName"].ToString(),
                     ProfilePic = row["ProfilePic"].ToString(),
                     PostText = row["PostText"].ToString(),
-                    PostDate = Convert.ToDateTime(row["PostDate"].ToString())                    
+                    PostDate = Convert.ToDateTime(row["PostDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds
                 };
             }).Skip(Page * PostsPageSize).Take(PostsPageSize).ToList();
 
@@ -437,7 +437,7 @@ namespace Combo.ComboAPI
                             ComboUserName = r["UserName"].ToString(),
                             ProfilePic = r["ProfilePic"].ToString(),
                             CommentText = r["CommentText"].ToString(),
-                            CommentDate = Convert.ToDateTime(r["CommentDate"].ToString()),
+                            CommentDate = Convert.ToDateTime(r["CommentDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
                         };
                     }).ToList();
 
@@ -481,120 +481,6 @@ namespace Combo.ComboAPI
                             AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"])
                         };
                     }).ToList();
-            }
-
-            _response.Entity = Posts;
-            SetContentResult(_response);
-            //return _response;
-
-        }
-
-        [WebMethod]
-        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        /// <summary>
-        /// Get All Posts by Userid
-        /// </summary>
-        /// <param name="ID">ID of Combo User</param>
-        /// <returns>ComboResponse object with List of all posts for User</returns>
-        public void GetFollowingPosts(int UserID, int Page)
-        {
-            Models.ComboResponse _response = new Models.ComboResponse();
-            _response.bool_result = true;
-            _response.ErrorCode = 0;
-            _response.ErrorMsg = "";
-
-            ComboPost posts = new ComboPost();
-            posts.GetFollowingPostsByUserID(UserID);
-            List<Models.ComboPost> Posts = posts.DefaultView.Table.AsEnumerable().Select(row =>
-            {
-                return new Models.ComboPost
-                {
-                    ComboPostID = Convert.ToInt32(row["ComboPostID"]),
-                    ComboUserID = Convert.ToInt32(row["ComboUserID"]),
-                    ComboUserName = row["UserName"].ToString(),
-                    ProfilePic = row["ProfilePic"].ToString(),
-                    PostText = row["PostText"].ToString(),
-                    PostDate = Convert.ToDateTime(row["PostDate"].ToString())
-                };
-            }).Skip(Page * PostsPageSize).Take(PostsPageSize).ToList();
-
-
-            foreach (Models.ComboPost item in Posts)
-            {
-                ComboPostLike likes = new ComboPostLike();
-                likes.GetPostLikesByPostID(item.ComboPostID);
-                item.Likes = likes.DefaultView.Table.AsEnumerable().Select(r =>
-                {
-                    return new Models.ComboPostLike
-                    {
-                        ComboPostID = Convert.ToInt32(r["ComboPostID"]),
-                        ComboUserID = Convert.ToInt32(r["ComboUserID"]),
-                        UserName = r["UserName"].ToString(),
-                    };
-                }).ToList();
-
-                ComboComment totalCount = new ComboComment();
-                totalCount.GetPostCommentsCount(item.ComboPostID);
-
-                item.CommentsCount = totalCount.RowCount;
-
-                ComboComment comments = new ComboComment();
-                comments.GetTopPostCommentsByPostID(item.ComboPostID);
-                // get top 3 comments for each post
-                item.Comments = comments.DefaultView.Table.AsEnumerable().Select(r =>
-                {
-                    return new Models.ComboComment
-                    {
-                        ComboCommentID = Convert.ToInt32(r["ComboCommentID"]),
-                        ComboPostID = Convert.ToInt32(r["ComboPostID"]),
-                        ComboUserID = Convert.ToInt32(r["ComboUserID"]),
-                        ComboUserName = r["UserName"].ToString(),
-                        ProfilePic = r["ProfilePic"].ToString(),
-                        CommentText = r["CommentText"].ToString(),
-                        CommentDate = Convert.ToDateTime(r["CommentDate"].ToString()),
-                    };
-                }).ToList();
-
-                List<Models.ComboComment> _comm = item.Comments as List<Models.ComboComment>;
-                foreach (Models.ComboComment _itemcomm in _comm)
-                {
-                    ComboCommentLike c_likes = new ComboCommentLike();
-                    ComboCommentAttachment c_attachments = new ComboCommentAttachment();
-                    c_likes.GetCommentLikesByCommentID(_itemcomm.ComboCommentID);
-                    c_attachments.GetCommentAttachmentsByCommentID(_itemcomm.ComboCommentID);
-                    _itemcomm.Likes = c_likes.DefaultView.Table.AsEnumerable().Select(r =>
-                    {
-                        return new Models.ComboCommentLike
-                        {
-                            ComboCommentID = Convert.ToInt32(r["ComboCommentID"]),
-                            ComboUserID = Convert.ToInt32(r["ComboUserID"]),
-                            UserName = r["UserName"].ToString(),
-                        };
-                    }).ToList();
-                    _itemcomm.Attachments = c_attachments.DefaultView.Table.AsEnumerable().Select(r =>
-                    {
-                        return new Models.Attachment
-                        {
-                            AttachmentID = Convert.ToInt32(r["AttachmentID"]),
-                            Path = r["Path"].ToString(),
-                            AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"])
-                        };
-                    }).ToList();
-                }
-
-                item.Comments = _comm;
-
-                ComboPostAttachment attachments = new ComboPostAttachment();
-                attachments.GetPostAttachmentsByPostID(item.ComboPostID);
-                item.Attachments = attachments.DefaultView.Table.AsEnumerable().Select(r =>
-                {
-                    return new Models.Attachment
-                    {
-                        AttachmentID = Convert.ToInt32(r["AttachmentID"]),
-                        Path = r["Path"].ToString(),
-                        AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"])
-                    };
-                }).ToList();
             }
 
             _response.Entity = Posts;
@@ -641,7 +527,7 @@ namespace Combo.ComboAPI
                     ComboUserName = row["UserName"].ToString(),
                     ProfilePic = row["ProfilePic"].ToString(),
                     PostText = row["PostText"].ToString(),
-                    PostDate = Convert.ToDateTime(row["PostDate"].ToString()),
+                    PostDate = Convert.ToDateTime(row["PostDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
                     CommentsCount = totalCount.RowCount,
                     Likes =  likes.DefaultView.Table.AsEnumerable().Select(r =>
                     {
@@ -663,7 +549,7 @@ namespace Combo.ComboAPI
                             ComboUserName = row["UserName"].ToString(),
                             ProfilePic = row["ProfilePic"].ToString(),
                             CommentText = r["CommentText"].ToString(),
-                            CommentDate = Convert.ToDateTime(r["CommentDate"].ToString()),                            
+                            CommentDate = Convert.ToDateTime(r["CommentDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,                            
                         };
                     }).Skip(CommentPage * CommentsPageSize).Take(CommentsPageSize).ToList(),
                     Attachments = attachments.DefaultView.Table.AsEnumerable().Select(r =>
@@ -759,7 +645,7 @@ namespace Combo.ComboAPI
             attachment.Save();  
 
             post.ComboPostID = newPost.ComboPostID;
-            post.PostDate = newPost.PostDate;
+            post.PostDate = newPost.PostDate.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
             _response.Entity = new Models.ComboPost[] { post };
 
             SetContentResult(_response);
@@ -803,9 +689,9 @@ namespace Combo.ComboAPI
                     
                 }
 
-            }            
+            }
 
-            post.PostDate = newPost.PostDate;
+            post.PostDate = newPost.PostDate.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
             _response.Entity = new Models.ComboPost[] { post };
 
             SetContentResult(_response);
@@ -881,7 +767,235 @@ namespace Combo.ComboAPI
             _response.Entity = Alllikes;
             SetContentResult(_response);
 
-        }       
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        /// <summary>
+        /// Get All Posts by Userid
+        /// </summary>
+        /// <param name="ID">ID of Combo User</param>
+        /// <returns>ComboResponse object with List of all posts for User</returns>
+        public void GetFollowingPosts(int UserID, int Page)
+        {
+            Models.ComboResponse _response = new Models.ComboResponse();
+            _response.bool_result = true;
+            _response.ErrorCode = 0;
+            _response.ErrorMsg = "";
+
+            ComboPost posts = new ComboPost();
+            posts.GetFollowingPostsByUserID(UserID);
+            List<Models.ComboPost> Posts = posts.DefaultView.Table.AsEnumerable().Select(row =>
+            {
+                return new Models.ComboPost
+                {
+                    ComboPostID = Convert.ToInt32(row["ComboPostID"]),
+                    ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                    ComboUserName = row["UserName"].ToString(),
+                    ProfilePic = row["ProfilePic"].ToString(),
+                    PostText = row["PostText"].ToString(),
+                    PostDate = Convert.ToDateTime(row["PostDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds
+                };
+            }).Skip(Page * PostsPageSize).Take(PostsPageSize).ToList();
+
+
+            foreach (Models.ComboPost item in Posts)
+            {
+                ComboPostLike likes = new ComboPostLike();
+                likes.GetPostLikesByPostID(item.ComboPostID);
+                item.Likes = likes.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.ComboPostLike
+                    {
+                        ComboPostID = Convert.ToInt32(r["ComboPostID"]),
+                        ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                        UserName = r["UserName"].ToString(),
+                    };
+                }).ToList();
+
+                ComboComment totalCount = new ComboComment();
+                totalCount.GetPostCommentsCount(item.ComboPostID);
+
+                item.CommentsCount = totalCount.RowCount;
+
+                ComboComment comments = new ComboComment();
+                comments.GetTopPostCommentsByPostID(item.ComboPostID);
+                // get top 3 comments for each post
+                item.Comments = comments.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.ComboComment
+                    {
+                        ComboCommentID = Convert.ToInt32(r["ComboCommentID"]),
+                        ComboPostID = Convert.ToInt32(r["ComboPostID"]),
+                        ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                        ComboUserName = r["UserName"].ToString(),
+                        ProfilePic = r["ProfilePic"].ToString(),
+                        CommentText = r["CommentText"].ToString(),
+                        CommentDate = Convert.ToDateTime(r["CommentDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                    };
+                }).ToList();
+
+                List<Models.ComboComment> _comm = item.Comments as List<Models.ComboComment>;
+                foreach (Models.ComboComment _itemcomm in _comm)
+                {
+                    ComboCommentLike c_likes = new ComboCommentLike();
+                    ComboCommentAttachment c_attachments = new ComboCommentAttachment();
+                    c_likes.GetCommentLikesByCommentID(_itemcomm.ComboCommentID);
+                    c_attachments.GetCommentAttachmentsByCommentID(_itemcomm.ComboCommentID);
+                    _itemcomm.Likes = c_likes.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.ComboCommentLike
+                        {
+                            ComboCommentID = Convert.ToInt32(r["ComboCommentID"]),
+                            ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                            UserName = r["UserName"].ToString(),
+                        };
+                    }).ToList();
+                    _itemcomm.Attachments = c_attachments.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.Attachment
+                        {
+                            AttachmentID = Convert.ToInt32(r["AttachmentID"]),
+                            Path = r["Path"].ToString(),
+                            AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"])
+                        };
+                    }).ToList();
+                }
+
+                item.Comments = _comm;
+
+                ComboPostAttachment attachments = new ComboPostAttachment();
+                attachments.GetPostAttachmentsByPostID(item.ComboPostID);
+                item.Attachments = attachments.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.Attachment
+                    {
+                        AttachmentID = Convert.ToInt32(r["AttachmentID"]),
+                        Path = r["Path"].ToString(),
+                        AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"])
+                    };
+                }).ToList();
+            }
+
+            _response.Entity = Posts;
+            SetContentResult(_response);
+            //return _response;
+
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        /// <summary>
+        /// Get All Posts by Userid
+        /// </summary>
+        /// <param name="ID">ID of Combo User</param>
+        /// <returns>ComboResponse object with List of all posts for User</returns>
+        public void GetFriendsPosts(int UserID, int Page)
+        {
+            Models.ComboResponse _response = new Models.ComboResponse();
+            _response.bool_result = true;
+            _response.ErrorCode = 0;
+            _response.ErrorMsg = "";
+
+            ComboPost posts = new ComboPost();
+            posts.GetFriendsPostsByUserID(UserID);
+            List<Models.ComboPost> Posts = posts.DefaultView.Table.AsEnumerable().Select(row =>
+            {
+                return new Models.ComboPost
+                {
+                    ComboPostID = Convert.ToInt32(row["ComboPostID"]),
+                    ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                    ComboUserName = row["UserName"].ToString(),
+                    ProfilePic = row["ProfilePic"].ToString(),
+                    PostText = row["PostText"].ToString(),
+                    PostDate = Convert.ToDateTime(row["PostDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds
+                };
+            }).Skip(Page * PostsPageSize).Take(PostsPageSize).ToList();
+
+
+            foreach (Models.ComboPost item in Posts)
+            {
+                ComboPostLike likes = new ComboPostLike();
+                likes.GetPostLikesByPostID(item.ComboPostID);
+                item.Likes = likes.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.ComboPostLike
+                    {
+                        ComboPostID = Convert.ToInt32(r["ComboPostID"]),
+                        ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                        UserName = r["UserName"].ToString(),
+                    };
+                }).ToList();
+
+                ComboComment totalCount = new ComboComment();
+                totalCount.GetPostCommentsCount(item.ComboPostID);
+
+                item.CommentsCount = totalCount.RowCount;
+
+                ComboComment comments = new ComboComment();
+                comments.GetTopPostCommentsByPostID(item.ComboPostID);
+                // get top 3 comments for each post
+                item.Comments = comments.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.ComboComment
+                    {
+                        ComboCommentID = Convert.ToInt32(r["ComboCommentID"]),
+                        ComboPostID = Convert.ToInt32(r["ComboPostID"]),
+                        ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                        ComboUserName = r["UserName"].ToString(),
+                        ProfilePic = r["ProfilePic"].ToString(),
+                        CommentText = r["CommentText"].ToString(),
+                        CommentDate = Convert.ToDateTime(r["CommentDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                    };
+                }).ToList();
+
+                List<Models.ComboComment> _comm = item.Comments as List<Models.ComboComment>;
+                foreach (Models.ComboComment _itemcomm in _comm)
+                {
+                    ComboCommentLike c_likes = new ComboCommentLike();
+                    ComboCommentAttachment c_attachments = new ComboCommentAttachment();
+                    c_likes.GetCommentLikesByCommentID(_itemcomm.ComboCommentID);
+                    c_attachments.GetCommentAttachmentsByCommentID(_itemcomm.ComboCommentID);
+                    _itemcomm.Likes = c_likes.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.ComboCommentLike
+                        {
+                            ComboCommentID = Convert.ToInt32(r["ComboCommentID"]),
+                            ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                            UserName = r["UserName"].ToString(),
+                        };
+                    }).ToList();
+                    _itemcomm.Attachments = c_attachments.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.Attachment
+                        {
+                            AttachmentID = Convert.ToInt32(r["AttachmentID"]),
+                            Path = r["Path"].ToString(),
+                            AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"])
+                        };
+                    }).ToList();
+                }
+
+                item.Comments = _comm;
+
+                ComboPostAttachment attachments = new ComboPostAttachment();
+                attachments.GetPostAttachmentsByPostID(item.ComboPostID);
+                item.Attachments = attachments.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.Attachment
+                    {
+                        AttachmentID = Convert.ToInt32(r["AttachmentID"]),
+                        Path = r["Path"].ToString(),
+                        AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"])
+                    };
+                }).ToList();
+            }
+
+            _response.Entity = Posts;
+            SetContentResult(_response);
+            //return _response;
+
+        }
 
        
         #endregion
@@ -944,7 +1058,7 @@ namespace Combo.ComboAPI
             attachment.Save();
 
             comment.ComboCommentID = newComment.ComboCommentID;
-            comment.CommentDate = newComment.CommentDate;
+            comment.CommentDate = newComment.CommentDate.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
             _response.Entity = new Models.ComboComment[] { comment };
 
             SetContentResult(_response);
@@ -1125,6 +1239,51 @@ namespace Combo.ComboAPI
 
         }
 
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        /// <summary>
+        /// Get All combo Users following user with specified id 
+        /// </summary>
+        /// <returns>ComboResponse object with List of all followers Users </returns>
+        public void SearchForFriends(int userID, string searchText,int pageIndex)
+        {
+            Models.ComboResponse _response = new Models.ComboResponse();
+            _response.bool_result = true;
+            _response.ErrorCode = 0;
+            _response.ErrorMsg = "";
+
+            ComboUserFriend user = new ComboUserFriend();
+            user.SearchForFriendsByUserID(userID,searchText);
+            List<Models.ComboUser> Users = user.DefaultView.Table.AsEnumerable().Select(row =>
+            {
+                return new Models.ComboUser
+                {
+                    ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                    UserName = row["UserName"].ToString(),
+                    DisplayName = row["DisplayName"].ToString(),
+                    Password = row["Password"].ToString(),
+                    Email = row["Email"].ToString(),
+                    Bio = row["Bio"].ToString(),
+                    ProfileImgID = row.IsNull("ProfileImgID") ? 0 : Convert.ToInt32(row["ProfileImgID"]),
+                    CoverImgID = row.IsNull("CoverImgID") ? 0 : Convert.ToInt32(row["CoverImgID"]),
+                    GenderID = row.IsNull("GenderID") ? 0 : Convert.ToInt32(row["GenderID"]),
+                    IsActivated = row.IsNull("IsActivated") ? false : Convert.ToBoolean(row["IsActivated"]),
+                    ExternalIDType = row.IsNull("ExternalIDType") ? 0 : Convert.ToInt32(row["ExternalIDType"]),
+                    ExternalID = row["ExternalID"].ToString(),
+                    DeviceID = row["DeviceID"].ToString(),
+                    ActivationCode = row.IsNull("ActivationCode") ? Guid.Empty : new Guid(row["ActivationCode"].ToString()),
+                    PassResetCode = row.IsNull("PassResetCode") ? Guid.Empty : new Guid(row["PassResetCode"].ToString()),
+                    ProfilePic = row["ProfilePic"].ToString(),
+                };
+            }).Skip(pageIndex * FriendsPageSize).Take(FriendsPageSize).ToList();
+
+
+            _response.Entity = Users;
+            SetContentResult(_response);
+            //return _response;
+
+        }
        
         [WebMethod]
         /// <summary>
@@ -1150,15 +1309,385 @@ namespace Combo.ComboAPI
                 friend.RequestApproved = false;
                 friend.Save();
             }
-            else
-            {
-                friend.MarkAsDeleted();
-                friend.Save();
-            }
+            
             _response.Entity = null;
             SetContentResult(_response);
 
         }
+
+        [WebMethod]
+        /// <summary>
+        /// Add Friend user 
+        /// </summary>
+        /// <param name="UserID">UserID to be followed</param>
+        /// <param name="FollowerID">follower ID</param>
+        /// <returns>ComboResponse object with result</returns>
+        public void RespondToFriendRequest(int userId, int FriendId, bool isAccepted)
+        {
+            Models.ComboResponse _response = new Models.ComboResponse();
+            _response.bool_result = true;
+            _response.ErrorCode = 0;
+            _response.ErrorMsg = "";
+
+
+            ComboUserFriend friend = new ComboUserFriend();
+            if (friend.LoadByPrimaryKey(userId, FriendId))
+            {
+                if (isAccepted)
+                {
+                    friend.RequestApproved = true;
+                }
+                else
+                {
+                    friend.MarkAsDeleted();
+                }
+                friend.Save();
+            }
+            
+            _response.Entity = null;
+            SetContentResult(_response);
+
+        }
+        #endregion
+
+        #region Msgs
+        const int MsgsPageSize = 20;
+        const int MsgsCommentsPageSize = 20;
+        [WebMethod]
+        /// <summary>
+        /// Add Combo post to db
+        /// </summary>
+        /// <param name="user">Combo post object to be added</param>
+        /// <returns>ComboResponse object with Added post object</returns>
+        public void AddMessage(Models.ComboMessage msg)
+        {
+            Models.ComboResponse _response = new Models.ComboResponse();
+            _response.bool_result = true;
+            _response.ErrorCode = 0;
+            _response.ErrorMsg = "";
+
+            if (string.IsNullOrEmpty(msg.ToIds))
+            {
+                _response.ErrorCode = 30;
+                _response.ErrorMsg = "Can't add Msg. No to id .";
+                _response.bool_result = false;
+                SetContentResult(_response);
+                return;
+            }
+
+            if (msg.ToIds.Split(',').Length == 0)
+            {
+                _response.ErrorCode = 30;
+                _response.ErrorMsg = "Can't add Msg. No to idsor error in format .";
+                _response.bool_result = false;
+                SetContentResult(_response);
+                return;
+            }
+
+            BLL.ComboMsg newMsg = new ComboMsg();
+            newMsg.AddNew();
+
+            if (msg.ComboUserID != 0)
+                newMsg.ComboUserID = msg.ComboUserID;
+            else
+            {
+                _response.ErrorCode = 30;
+                _response.ErrorMsg = "Can't add Msg. No user id .";
+                _response.bool_result = false;
+                SetContentResult(_response);
+                return;
+            }
+
+            newMsg.MsgText = msg.MsgText;
+            newMsg.MsgDate = DateTime.UtcNow.Date;
+            newMsg.IsRead = false;
+            newMsg.Save();
+
+            string[] ToIds = msg.ToIds.Split(',');
+            ComboUserMsg tomsg = new ComboUserMsg();
+            foreach (string item in ToIds)
+            {
+                tomsg.AddNew();
+                tomsg.ComboUserID = Convert.ToInt32(item);
+                tomsg.ComboMsgID = newMsg.ComboMsgID;
+            }
+            tomsg.Save();
+
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            Models.Attachment[] att = js.Deserialize<Models.Attachment[]>(js.Serialize(msg.Attachments));
+
+            ComboMsgAttachment attachment = new ComboMsgAttachment();
+            foreach (Models.Attachment item in att)
+            {
+                attachment.AddNew();
+                attachment.AttachmentID = item.AttachmentID;
+                attachment.ComboMsgID = newMsg.ComboMsgID;
+
+            }
+            attachment.Save();
+
+            msg.ComboMsgID = newMsg.ComboMsgID;
+            msg.MsgDate = newMsg.MsgDate.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
+            _response.Entity = new Models.ComboMessage[] { msg };
+
+            SetContentResult(_response);
+            return;
+        }
+
+        [WebMethod]
+        /// <summary>
+        /// Add Combo commnet to db
+        /// </summary>
+        /// <param name="user">Combo comment object to be added</param>
+        /// <returns>ComboResponse object with Added comment object</returns>
+        public void AddMessageComment(Models.ComboComment comment)
+        {
+            Models.ComboResponse _response = new Models.ComboResponse();
+            _response.bool_result = true;
+            _response.ErrorCode = 0;
+            _response.ErrorMsg = "";
+
+            BLL.ComboComment newComment = new ComboComment();
+            newComment.AddNew();
+
+            if (comment.ComboUserID != 0)
+                newComment.ComboUserID = comment.ComboUserID;
+            else
+            {
+                _response.ErrorCode = 30;
+                _response.ErrorMsg = "Can't insert commnet. No user id .";
+                _response.bool_result = false;
+                SetContentResult(_response);
+                return;
+            }
+
+            if (comment.ComboMsgID != 0)
+                newComment.ComboMsgID = comment.ComboMsgID;
+            else
+            {
+                _response.ErrorCode = 31;
+                _response.ErrorMsg = "Can't insert comment. No Msg id .";
+                _response.bool_result = false;
+                SetContentResult(_response);
+                return;
+            }
+
+            newComment.CommentText = comment.CommentText;
+            newComment.CommentDate = DateTime.UtcNow.Date;
+            newComment.IsRead = false;
+            newComment.Save();
+
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            Models.Attachment[] att = js.Deserialize<Models.Attachment[]>(js.Serialize(comment.Attachments));
+
+            ComboMsgAttachment attachment = new ComboMsgAttachment();
+            foreach (Models.Attachment item in att)
+            {
+                attachment.AddNew();
+                attachment.AttachmentID = item.AttachmentID;
+                attachment.ComboMsgID = newComment.ComboMsgID;
+
+            }
+            attachment.Save();
+
+            comment.ComboCommentID = newComment.ComboCommentID;
+            comment.CommentDate = newComment.CommentDate.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
+            _response.Entity = new Models.ComboComment[] { comment };
+
+            SetContentResult(_response);
+            return;
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        /// <summary>
+        /// Get All Posts by Userid
+        /// </summary>
+        /// <param name="ID">ID of Combo User</param>
+        /// <returns>ComboResponse object with List of all posts for User</returns>
+        public void GetMessages(int UserID, int Page)
+        {
+            Models.ComboResponse _response = new Models.ComboResponse();
+            _response.bool_result = true;
+            _response.ErrorCode = 0;
+            _response.ErrorMsg = "";
+
+            ComboMsg Messages = new ComboMsg();
+            Messages.GetUserMessages(UserID);
+            List<Models.ComboMessage> Msgs = Messages.DefaultView.Table.AsEnumerable().Select(row =>
+            {
+                return new Models.ComboMessage
+                {
+                    ComboMsgID = Convert.ToInt32(row["ComboMsgID"]),
+                    ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                    ComboUserName = row["UserName"].ToString(),
+                    ProfilePic = row["ProfilePic"].ToString(),
+                    MsgText = row["MsgText"].ToString(),
+                    MsgDate = Convert.ToDateTime(row["MsgDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                    ToIds = row["ToIds"].ToString()
+                };
+            }).Skip(Page * MsgsPageSize).Take(MsgsPageSize).ToList();
+
+
+            foreach (Models.ComboMessage item in Msgs)
+            {                
+                ComboComment totalCount = new ComboComment();
+                totalCount.GetMsgCommentsCount(item.ComboMsgID);
+
+                item.CommentsCount = totalCount.RowCount;
+
+                ComboComment comments = new ComboComment();
+                comments.GetTopMsgsCommentsByPostID(item.ComboMsgID);
+                // get top 3 comments for each post
+                item.Comments = comments.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.ComboComment
+                    {
+                        ComboCommentID = Convert.ToInt32(r["ComboCommentID"]),
+                        ComboMsgID = Convert.ToInt32(r["ComboMsgID"]),
+                        ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                        ComboUserName = r["UserName"].ToString(),
+                        ProfilePic = r["ProfilePic"].ToString(),
+                        CommentText = r["CommentText"].ToString(),
+                        CommentDate = Convert.ToDateTime(r["CommentDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                    };
+                }).ToList();
+
+                List<Models.ComboComment> _comm = item.Comments as List<Models.ComboComment>;
+                foreach (Models.ComboComment _itemcomm in _comm)
+                {
+                    
+                    ComboCommentAttachment c_attachments = new ComboCommentAttachment();
+                    
+                    c_attachments.GetCommentAttachmentsByCommentID(_itemcomm.ComboCommentID);
+                    
+                    _itemcomm.Attachments = c_attachments.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.Attachment
+                        {
+                            AttachmentID = Convert.ToInt32(r["AttachmentID"]),
+                            Path = r["Path"].ToString(),
+                            AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"])
+                        };
+                    }).ToList();
+                }
+
+                item.Comments = _comm;
+
+                ComboMsgAttachment attachments = new ComboMsgAttachment();
+                attachments.GetMsgAttachmentsByPostID(item.ComboMsgID);
+                item.Attachments = attachments.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.Attachment
+                    {
+                        AttachmentID = Convert.ToInt32(r["AttachmentID"]),
+                        Path = r["Path"].ToString(),
+                        AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"])
+                    };
+                }).ToList();
+            }
+
+            _response.Entity = Msgs;
+            SetContentResult(_response);
+            //return _response;
+
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        /// <summary>
+        /// Get All Posts by Userid
+        /// </summary>
+        /// <param name="ID">ID of Combo User</param>
+        /// <returns>ComboResponse object with List of all posts for User</returns>
+        public void GetMessageComments(int MsgID, int Page)
+        {
+            Models.ComboResponse _response = new Models.ComboResponse();
+            _response.bool_result = true;
+            _response.ErrorCode = 0;
+            _response.ErrorMsg = "";
+
+            ComboMsg Messages = new ComboMsg();
+            Messages.GetMessageById(MsgID);
+            List<Models.ComboMessage> Msgs = Messages.DefaultView.Table.AsEnumerable().Select(row =>
+            {
+                return new Models.ComboMessage
+                {
+                    ComboMsgID = Convert.ToInt32(row["ComboMsgID"]),
+                    ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                    ComboUserName = row["UserName"].ToString(),
+                    ProfilePic = row["ProfilePic"].ToString(),
+                    MsgText = row["MsgText"].ToString(),
+                    MsgDate = Convert.ToDateTime(row["MsgDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                    ToIds = row["ToIds"].ToString()
+                };
+            }).ToList();
+
+
+            foreach (Models.ComboMessage item in Msgs)
+            {
+                ComboComment totalCount = new ComboComment();
+                totalCount.GetMsgCommentsCount(item.ComboMsgID);
+
+                item.CommentsCount = totalCount.RowCount;
+
+                ComboComment comments = new ComboComment();
+                comments.GetMsgsCommentsByPostID(item.ComboMsgID);
+                
+                item.Comments = comments.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.ComboComment
+                    {
+                        ComboCommentID = Convert.ToInt32(r["ComboCommentID"]),
+                        ComboMsgID = Convert.ToInt32(r["ComboMsgID"]),
+                        ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                        ComboUserName = r["UserName"].ToString(),
+                        ProfilePic = r["ProfilePic"].ToString(),
+                        CommentText = r["CommentText"].ToString(),
+                        CommentDate = Convert.ToDateTime(r["CommentDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                    };
+                }).Skip(Page * MsgsCommentsPageSize).Take(MsgsCommentsPageSize).ToList();
+
+                List<Models.ComboComment> _comm = item.Comments as List<Models.ComboComment>;
+                foreach (Models.ComboComment _itemcomm in _comm)
+                {
+
+                    ComboCommentAttachment c_attachments = new ComboCommentAttachment();
+
+                    c_attachments.GetCommentAttachmentsByCommentID(_itemcomm.ComboCommentID);
+
+                    _itemcomm.Attachments = c_attachments.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.Attachment
+                        {
+                            AttachmentID = Convert.ToInt32(r["AttachmentID"]),
+                            Path = r["Path"].ToString(),
+                            AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"])
+                        };
+                    }).ToList();
+                }
+
+                item.Comments = _comm;
+
+                ComboMsgAttachment attachments = new ComboMsgAttachment();
+                attachments.GetMsgAttachmentsByPostID(item.ComboMsgID);
+                item.Attachments = attachments.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.Attachment
+                    {
+                        AttachmentID = Convert.ToInt32(r["AttachmentID"]),
+                        Path = r["Path"].ToString(),
+                        AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"])
+                    };
+                }).ToList();
+            }
+
+            _response.Entity = Msgs;
+            SetContentResult(_response);
+            //return _response;
+
+        }
+
         #endregion
 
         #region Global

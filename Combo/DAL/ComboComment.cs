@@ -147,6 +147,14 @@ namespace Combo.DAL
 				}
 			}
 			
+			public static SqlParameter IsRead
+			{
+				get
+				{
+					return new SqlParameter("@IsRead", SqlDbType.Bit, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -159,6 +167,7 @@ namespace Combo.DAL
             public const string CommentText = "CommentText";
             public const string CommentDate = "CommentDate";
             public const string ComboMsgID = "ComboMsgID";
+            public const string IsRead = "IsRead";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -172,6 +181,7 @@ namespace Combo.DAL
 					ht[CommentText] = _ComboComment.PropertyNames.CommentText;
 					ht[CommentDate] = _ComboComment.PropertyNames.CommentDate;
 					ht[ComboMsgID] = _ComboComment.PropertyNames.ComboMsgID;
+					ht[IsRead] = _ComboComment.PropertyNames.IsRead;
 
 				}
 				return (string)ht[columnName];
@@ -190,6 +200,7 @@ namespace Combo.DAL
             public const string CommentText = "CommentText";
             public const string CommentDate = "CommentDate";
             public const string ComboMsgID = "ComboMsgID";
+            public const string IsRead = "IsRead";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -203,6 +214,7 @@ namespace Combo.DAL
 					ht[CommentText] = _ComboComment.ColumnNames.CommentText;
 					ht[CommentDate] = _ComboComment.ColumnNames.CommentDate;
 					ht[ComboMsgID] = _ComboComment.ColumnNames.ComboMsgID;
+					ht[IsRead] = _ComboComment.ColumnNames.IsRead;
 
 				}
 				return (string)ht[propertyName];
@@ -221,6 +233,7 @@ namespace Combo.DAL
             public const string CommentText = "s_CommentText";
             public const string CommentDate = "s_CommentDate";
             public const string ComboMsgID = "s_ComboMsgID";
+            public const string IsRead = "s_IsRead";
 
 		}
 		#endregion		
@@ -296,6 +309,18 @@ namespace Combo.DAL
 			set
 	        {
 				base.Setint(ColumnNames.ComboMsgID, value);
+			}
+		}
+
+		public virtual bool IsRead
+	    {
+			get
+	        {
+				return base.Getbool(ColumnNames.IsRead);
+			}
+			set
+	        {
+				base.Setbool(ColumnNames.IsRead, value);
 			}
 		}
 
@@ -394,6 +419,21 @@ namespace Combo.DAL
 			}
 		}
 
+		public virtual string s_IsRead
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.IsRead) ? string.Empty : base.GetboolAsString(ColumnNames.IsRead);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.IsRead);
+				else
+					this.IsRead = base.SetboolAsString(ColumnNames.IsRead, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -487,6 +527,16 @@ namespace Combo.DAL
 					}
 				}
 
+				public WhereParameter IsRead
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.IsRead, Parameters.IsRead);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -564,12 +614,25 @@ namespace Combo.DAL
 				}
 			}
 
+			public WhereParameter IsRead
+		    {
+				get
+		        {
+					if(_IsRead_W == null)
+	        	    {
+						_IsRead_W = TearOff.IsRead;
+					}
+					return _IsRead_W;
+				}
+			}
+
 			private WhereParameter _ComboCommentID_W = null;
 			private WhereParameter _ComboUserID_W = null;
 			private WhereParameter _ComboPostID_W = null;
 			private WhereParameter _CommentText_W = null;
 			private WhereParameter _CommentDate_W = null;
 			private WhereParameter _ComboMsgID_W = null;
+			private WhereParameter _IsRead_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -579,6 +642,7 @@ namespace Combo.DAL
 				_CommentText_W = null;
 				_CommentDate_W = null;
 				_ComboMsgID_W = null;
+				_IsRead_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -695,6 +759,16 @@ namespace Combo.DAL
 					}
 				}
 
+				public AggregateParameter IsRead
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.IsRead, Parameters.IsRead);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -772,12 +846,25 @@ namespace Combo.DAL
 				}
 			}
 
+			public AggregateParameter IsRead
+		    {
+				get
+		        {
+					if(_IsRead_W == null)
+	        	    {
+						_IsRead_W = TearOff.IsRead;
+					}
+					return _IsRead_W;
+				}
+			}
+
 			private AggregateParameter _ComboCommentID_W = null;
 			private AggregateParameter _ComboUserID_W = null;
 			private AggregateParameter _ComboPostID_W = null;
 			private AggregateParameter _CommentText_W = null;
 			private AggregateParameter _CommentDate_W = null;
 			private AggregateParameter _ComboMsgID_W = null;
+			private AggregateParameter _IsRead_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -787,6 +874,7 @@ namespace Combo.DAL
 				_CommentText_W = null;
 				_CommentDate_W = null;
 				_ComboMsgID_W = null;
+				_IsRead_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -883,6 +971,10 @@ namespace Combo.DAL
 
 			p = cmd.Parameters.Add(Parameters.ComboMsgID);
 			p.SourceColumn = ColumnNames.ComboMsgID;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.IsRead);
+			p.SourceColumn = ColumnNames.IsRead;
 			p.SourceVersion = DataRowVersion.Current;
 
 

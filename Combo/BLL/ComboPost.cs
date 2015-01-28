@@ -32,6 +32,27 @@ namespace Combo.BLL
                                     order by P.PostDate Desc", userid);
         }
 
+        public virtual bool GetFriendsPostsByUserID(int userid)
+        {
+            return LoadFromRawSql(@"Select P.*, U.UserName, A.Path ProfilePic 
+                                    from ComboPost P
+                                    Inner Join ComboUser U on P.ComboUserID = U.ComboUserID
+                                    Left join Attachment A on U.ProfileImgID = A.AttachmentID
+                                    inner join ComboUserFriend CF on U.ComboUserID = CF.ComboFriendID and 
+								                                     CF.ComboUserID = {0}							 
+                                    where (P.IsDeleted <> 1 or P.IsDeleted is null)
+
+                                    union 
+                                    Select P.*, U.UserName, A.Path ProfilePic 
+                                    from ComboPost P
+                                    Inner Join ComboUser U on P.ComboUserID = U.ComboUserID
+                                    Left join Attachment A on U.ProfileImgID = A.AttachmentID
+                                    Inner join ComboUserFriend CFF on U.ComboUserID = CFF.ComboUserID and
+								                                      CFF.ComboFriendID = {0}
+                                    where (P.IsDeleted <> 1 or P.IsDeleted is null)
+                                    order by P.PostDate Desc", userid);
+        }
+
         public virtual bool GetPostByID(int pid)
         {
             return LoadFromRawSql(@"Select P.*, U.UserName, A.Path ProfilePic from ComboPost P

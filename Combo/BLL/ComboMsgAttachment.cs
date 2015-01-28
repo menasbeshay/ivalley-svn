@@ -11,5 +11,12 @@ namespace Combo.BLL
 		{
 		
 		}
+
+        public virtual bool GetMsgAttachmentsByPostID(int mid)
+        {
+            return LoadFromRawSql(@"Select * From Attachment A 
+                                    inner join ComboMsgAttachment PA on A.AttachmentID = PA.AttachmentID
+                                    Where PA.ComboMsgID = {0}", mid);
+        }
 	}
 }
