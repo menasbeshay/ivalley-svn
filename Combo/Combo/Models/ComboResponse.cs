@@ -36,6 +36,14 @@ namespace Combo.Models
         /// false - request executed with errors 
         /// </summary>
         public bool bool_result { get; set; }
+        /// <summary>
+        /// get notification type
+        /// 1 - like post
+        /// 2- comment on post
+        /// 3- friend request
+        /// </summary>
+        public int NotificationType { get; set; }        
+
     }
     
     

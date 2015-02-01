@@ -101,10 +101,12 @@
     <Compile Include="Models\ComboComment.cs" />
     <Compile Include="Models\ComboCommentLike.cs" />
     <Compile Include="Models\ComboMessage.cs" />
+    <Compile Include="Models\ComboNotification.cs" />
     <Compile Include="Models\ComboPost.cs" />
     <Compile Include="Models\ComboPostLike.cs" />
     <Compile Include="Models\ComboResponse.cs" />
     <Compile Include="Models\ComboUser.cs" />
+    <Compile Include="Models\FriendRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
