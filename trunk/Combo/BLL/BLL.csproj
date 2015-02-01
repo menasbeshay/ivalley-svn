@@ -49,6 +49,7 @@
     <Compile Include="ComboCommentLike.cs" />
     <Compile Include="ComboMsg.cs" />
     <Compile Include="ComboMsgAttachment.cs" />
+    <Compile Include="ComboNotification.cs" />
     <Compile Include="ComboPost.cs" />
     <Compile Include="ComboPostAttachment.cs" />
     <Compile Include="ComboPostLike.cs" />

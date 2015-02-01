@@ -9,6 +9,10 @@ using System.Net.Mail;
 using System.Web.Script.Services;
 using System.IO;
 using System.Web.Script.Serialization;
+using System.Net;
+using System.Net.Security;
+using System.Text;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Combo.ComboAPI
 {
@@ -633,17 +637,18 @@ namespace Combo.ComboAPI
 
             JavaScriptSerializer js = new JavaScriptSerializer();
             Models.Attachment[] att = js.Deserialize<Models.Attachment[]>(js.Serialize(post.Attachments));
-
-            ComboPostAttachment attachment = new ComboPostAttachment();
-            foreach (Models.Attachment item in att)
+            if (att != null)
             {
-                attachment.AddNew();
-                attachment.AttachmentID = item.AttachmentID;
-                attachment.ComboPostID = newPost.ComboPostID;
-                  
-            }
-            attachment.Save();  
+                ComboPostAttachment attachment = new ComboPostAttachment();
+                foreach (Models.Attachment item in att)
+                {
+                    attachment.AddNew();
+                    attachment.AttachmentID = item.AttachmentID;
+                    attachment.ComboPostID = newPost.ComboPostID;
 
+                }
+                attachment.Save();
+            }
             post.ComboPostID = newPost.ComboPostID;
             post.PostDate = newPost.PostDate.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
             _response.Entity = new Models.ComboPost[] { post };
@@ -744,6 +749,50 @@ namespace Combo.ComboAPI
                 likes.ComboPostID = id;
                 likes.ComboUserID = userid;
                 likes.Save();
+                
+                // save notification and push it to device 
+                ComboPost post = new ComboPost();
+                post.LoadByPrimaryKey(id);
+                ComboUser creator = new ComboUser();
+                ComboUser liker = new ComboUser();
+                creator.LoadByPrimaryKey(post.ComboUserID);
+                liker.LoadByPrimaryKey(userid);
+
+                List<Models.ComboPostLike> alike = likes.DefaultView.Table.AsEnumerable().Select(row =>
+                    {
+                        return new Models.ComboPostLike
+                        {
+                            ComboPostID = Convert.ToInt32(row["ComboPostID"]),
+                            ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                            UserName = liker.UserName
+                        };
+                    }
+                    ).ToList();
+
+                ComboNotification notification = new ComboNotification();
+                notification.AddNew();
+                notification.ComboUserID = post.ComboUserID;
+                notification.NotificationType = 1; // like 
+                notification.NotificationDate= DateTime.UtcNow.Date;
+                notification.NotificationBody = Newtonsoft.Json.JsonConvert.SerializeObject(alike);
+                notification.IsRead = false;
+                notification.Save();
+
+                List<Models.ComboNotification> notificationJson = notification.DefaultView.Table.AsEnumerable().Select(row =>
+                    {
+                        return new Models.ComboNotification
+                        {
+                            ComboNotificationID = Convert.ToInt32(row["ComboNotificationID"]),
+                            ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                            IsRead = Convert.ToBoolean(row["IsRead"]),
+                            NotificationBody = row["NotificationBody"].ToString(),
+                            NotificationDate = Convert.ToDateTime(row["NotificationDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                            NotificationType = Convert.ToInt32(row["NotificationType"])
+                        };
+                    }
+                    ).ToList();
+
+                SendGCMNotification(Newtonsoft.Json.JsonConvert.SerializeObject(notificationJson), creator.DeviceID);
             }
             else
             {
@@ -1044,6 +1093,51 @@ namespace Combo.ComboAPI
 
             newComment.Save();
 
+
+            /**************************/
+            // save notification and push it to device 
+            ComboPost post = new ComboPost();
+            post.LoadByPrimaryKey(comment.ComboPostID);
+            ComboUser creator = new ComboUser();
+            ComboUser commentor = new ComboUser();
+            creator.LoadByPrimaryKey(post.ComboUserID);
+            commentor.LoadByPrimaryKey(comment.ComboUserID);
+
+            List<Models.ComboComment> acomment = newComment.DefaultView.Table.AsEnumerable().Select(row =>
+            {
+                return new Models.ComboComment
+                {
+                    ComboPostID = Convert.ToInt32(row["ComboPostID"]),
+                    ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                    ComboUserName = commentor.UserName
+                };
+            }).ToList();
+
+            ComboNotification notification = new ComboNotification();
+            notification.AddNew();
+            notification.ComboUserID = post.ComboUserID;
+            notification.NotificationType = 2; // add comment to post 
+            notification.NotificationDate = DateTime.UtcNow.Date;
+            notification.NotificationBody = Newtonsoft.Json.JsonConvert.SerializeObject(acomment);
+            notification.IsRead = false;
+            notification.Save();
+
+            List<Models.ComboNotification> notificationJson = notification.DefaultView.Table.AsEnumerable().Select(row =>
+            {
+                return new Models.ComboNotification
+                {
+                    ComboNotificationID = Convert.ToInt32(row["ComboNotificationID"]),
+                    ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                    IsRead = Convert.ToBoolean(row["IsRead"]),
+                    NotificationBody = row["NotificationBody"].ToString(),
+                    NotificationDate = Convert.ToDateTime(row["NotificationDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                    NotificationType = Convert.ToInt32(row["NotificationType"])
+                };
+            }).ToList();
+
+            SendGCMNotification(Newtonsoft.Json.JsonConvert.SerializeObject(notificationJson), creator.DeviceID);
+            /**************************/
+
             JavaScriptSerializer js = new JavaScriptSerializer();
             Models.Attachment[] att = js.Deserialize<Models.Attachment[]>(js.Serialize(comment.Attachments));
 
@@ -1308,6 +1402,49 @@ namespace Combo.ComboAPI
                 friend.ComboUserID = userId;
                 friend.RequestApproved = false;
                 friend.Save();
+
+                /**************************/
+                // save notification and push it to device                 
+                ComboUser creator = new ComboUser();
+                ComboUser requester = new ComboUser();
+                creator.LoadByPrimaryKey(userId);
+                requester.LoadByPrimaryKey(FriendId);
+
+                List<Models.ComboFriendRequest> arequest = friend.DefaultView.Table.AsEnumerable().Select(row =>
+                {
+                    return new Models.ComboFriendRequest
+                    {
+                        ComboFriendID = Convert.ToInt32(row["ComboFriendID"]),
+                        ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                        ComboUserName = creator.UserName,
+                        ComboFriendName = requester.UserName
+                    };
+                }).ToList();
+
+                ComboNotification notification = new ComboNotification();
+                notification.AddNew();
+                notification.ComboUserID = creator.ComboUserID;
+                notification.NotificationType = 3; // friend request
+                notification.NotificationDate = DateTime.UtcNow.Date;
+                notification.NotificationBody = Newtonsoft.Json.JsonConvert.SerializeObject(arequest);
+                notification.IsRead = false;
+                notification.Save();
+
+                List<Models.ComboNotification> notificationJson = notification.DefaultView.Table.AsEnumerable().Select(row =>
+                {
+                    return new Models.ComboNotification
+                    {
+                        ComboNotificationID = Convert.ToInt32(row["ComboNotificationID"]),
+                        ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                        IsRead = Convert.ToBoolean(row["IsRead"]),
+                        NotificationBody = row["NotificationBody"].ToString(),
+                        NotificationDate = Convert.ToDateTime(row["NotificationDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                        NotificationType = Convert.ToInt32(row["NotificationType"])
+                    };
+                }).ToList();
+
+                SendGCMNotification(Newtonsoft.Json.JsonConvert.SerializeObject(notificationJson), creator.DeviceID);
+                /**************************/
             }
             
             _response.Entity = null;
@@ -1758,6 +1895,71 @@ namespace Combo.ComboAPI
             }
 
             SetContentResult(_response);    
+        }
+        #endregion
+
+        #region noftifications
+        const string APIKEY = "AIzaSyCn_Ln5KVlD-QVt6Mt2DJa8Zr7WvYQqEaE";
+        
+        private string SendGCMNotification(string postData, string regID , string postDataContentType = "application/json")
+        {
+            ServicePointManager.ServerCertificateValidationCallback += new RemoteCertificateValidationCallback(ValidateServerCertificate);
+
+            //
+            //  MESSAGE CONTENT
+            postData = "{ \"registration_ids\": [ \"" + regID + "\" ], " + "\"data\": {" + "\"message\": \"" + postData + "\"}}";
+
+            byte[] byteArray = Encoding.UTF8.GetBytes(postData);
+
+            //
+            //  CREATE REQUEST
+            HttpWebRequest Request = (HttpWebRequest)WebRequest.Create("https://android.googleapis.com/gcm/send");
+            Request.Method = "POST";
+            Request.KeepAlive = false;
+            Request.ContentType = "application/json";
+            Request.Headers.Add(string.Format("Authorization: key={0}", APIKEY));            
+            Request.ContentLength = byteArray.Length;
+
+            Stream dataStream = Request.GetRequestStream();
+            dataStream.Write(byteArray, 0, byteArray.Length);
+            dataStream.Close();
+
+            //
+            //  SEND MESSAGE
+            try
+            {
+                WebResponse Response = Request.GetResponse();
+                HttpStatusCode ResponseCode = ((HttpWebResponse)Response).StatusCode;
+                if (ResponseCode.Equals(HttpStatusCode.Unauthorized) || ResponseCode.Equals(HttpStatusCode.Forbidden))
+                {
+                    var text = "Unauthorized - need new token";
+                }
+                else if (!ResponseCode.Equals(HttpStatusCode.OK))
+                {
+                    var text = "Response from web service isn't OK";
+                }
+
+                StreamReader Reader = new StreamReader(Response.GetResponseStream());
+                string responseLine = Reader.ReadToEnd();
+                Reader.Close();
+
+                return responseLine;
+            }
+            catch (Exception e)
+            {
+                return e.Message;
+            }
+            
+        }
+
+
+        public static bool ValidateServerCertificate(
+                                                    object sender,
+                                                    X509Certificate certificate,
+                                                    X509Chain chain,
+                                                    SslPolicyErrors sslPolicyErrors)
+        {
+            return true;
         }
         #endregion
     }

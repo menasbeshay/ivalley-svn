@@ -213,6 +213,37 @@
 
             });
         }
+
+        function addPost() {
+            var post = { post: { ComboUserID: 7, PostText: $('#text').val() } };
+            var json = JSON.stringify(post);
+
+            $.ajax({
+                url: 'ComboAPI/combo.asmx/AddPost',
+                cache: false,
+                type: 'POST',
+                data: json,
+                contentType: 'application/json; charset=utf-8',
+                success:
+                   function (data) {
+                       if (data.bool_result != false) {
+
+                           // Add a table row for the product.
+                           //var row = '<td>' + data.Entity.ComboUserID + '</td><td>' + data.Entity.UserName + '</td>';
+                           //$('<tr/>', { html: row })  // Append the name.
+                           //    .appendTo($('#users'));
+
+                       }
+                       else {
+                           $('#error').css('display', 'block');
+                           $('#error').html(data.ErrorMsg);
+                       }
+
+
+                   }
+
+            });
+        }
     </script>
 </head>
 <body>
@@ -224,7 +255,7 @@
     <input id="text" type="text" />
     <input id="pass" type="password" />
     <input id="email" type="text" />
-    <input id="Button1" type="button" value="add" onclick="addUser()" />
+    <input id="Button1" type="button" value="add" onclick="addPost()" />
     <input id="Button1" type="button" value="get user by user name" onclick="getuserbyuernameandpass()" />
     <input id="Button1" type="button" value="get user by id" onclick="getuserbyid()" />
     <input id="Button1" type="button" value="get all users" onclick="getUsers()" />
