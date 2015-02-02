@@ -31,6 +31,16 @@ namespace Combo.BLL
             return LoadFromSql("GetUserByUserName", parameters);
 
         }
+
+        public virtual bool GetUserStatisticsByUserId(int UserId)
+        {
+            ListDictionary parameters = new ListDictionary();
+            parameters.Add(new SqlParameter("@UserId", SqlDbType.Int, 0), UserId);
+            return LoadFromSql("GetUserStatisticsByUserId", parameters);
+
+        }
+
+        
         
 	}
 }

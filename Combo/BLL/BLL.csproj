@@ -56,6 +56,7 @@
     <Compile Include="ComboUser.cs" />
     <Compile Include="ComboUserFriend.cs" />
     <Compile Include="ComboUserMsg.cs" />
+    <Compile Include="ComboUserSettings.cs" />
     <Compile Include="ExternalIDType.cs" />
     <Compile Include="Gender.cs" />
     <Compile Include="ProfileFollower.cs" />

@@ -88,11 +88,8 @@ namespace Combo.ComboAPI
             ComboUser user = new ComboUser();
             user.LoadByPrimaryKey(id);
 
-            ProfileFollower followers = new ProfileFollower();
-            followers.GetProfileFollowersByUserID(id);
-
-            ProfileFollower following = new ProfileFollower();
-            following.GetProfileFollowingByUserID(id);
+            ComboUser stats = new ComboUser();
+            stats.GetUserStatisticsByUserId(id);
 
             List<Models.ComboUser> Users = user.DefaultView.Table.AsEnumerable().Select(row =>
             {
@@ -113,8 +110,11 @@ namespace Combo.ComboAPI
                     DeviceID = row["DeviceID"].ToString(),
                     ActivationCode = row.IsNull("ActivationCode") ? Guid.Empty : new Guid(row["ActivationCode"].ToString()),
                     PassResetCode = row.IsNull("PassResetCode") ? Guid.Empty : new Guid(row["PassResetCode"].ToString()),
-                    FollowersCount = followers.RowCount,
-                    FollowingCount = following.RowCount
+                    FollowersCount = Convert.ToInt32(stats.GetColumn("FollowersCount")),
+                    FollowingCount = Convert.ToInt32(stats.GetColumn("FollowingsCount")),
+                    FriendsCount = Convert.ToInt32(stats.GetColumn("FriendsCount")),
+                    PostsCount = Convert.ToInt32(stats.GetColumn("PostsCount")),
+                    PostsLikeCount = Convert.ToInt32(stats.GetColumn("PostsLikeCount"))
                 };
             }).ToList();
 
@@ -404,7 +404,8 @@ namespace Combo.ComboAPI
                     ComboUserName = row["UserName"].ToString(),
                     ProfilePic = row["ProfilePic"].ToString(),
                     PostText = row["PostText"].ToString(),
-                    PostDate = Convert.ToDateTime(row["PostDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds
+                    PostDate = Convert.ToDateTime(row["PostDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                    IsDownloadable = (row["IsPostsDownloadable"] == DBNull.Value) ? false : Convert.ToBoolean(row["IsPostsDownloadable"])
                 };
             }).Skip(Page * PostsPageSize).Take(PostsPageSize).ToList();
 
@@ -496,6 +497,121 @@ namespace Combo.ComboAPI
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         /// <summary>
+        /// Get All Posts by Userid
+        /// </summary>
+        /// <param name="ID">ID of Combo User</param>
+        /// <returns>ComboResponse object with List of all posts for User</returns>
+        public void GetLikedPosts(int UserID, int Page)
+        {
+            Models.ComboResponse _response = new Models.ComboResponse();
+            _response.bool_result = true;
+            _response.ErrorCode = 0;
+            _response.ErrorMsg = "";
+
+            ComboPost posts = new ComboPost();
+            posts.GetLikedPostByUserID(UserID);
+            List<Models.ComboPost> Posts = posts.DefaultView.Table.AsEnumerable().Select(row =>
+            {
+                return new Models.ComboPost
+                {
+                    ComboPostID = Convert.ToInt32(row["ComboPostID"]),
+                    ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                    ComboUserName = row["UserName"].ToString(),
+                    ProfilePic = row["ProfilePic"].ToString(),
+                    PostText = row["PostText"].ToString(),
+                    PostDate = Convert.ToDateTime(row["PostDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                    IsDownloadable = (row["IsPostsDownloadable"] == DBNull.Value) ? false : Convert.ToBoolean(row["IsPostsDownloadable"])
+                };
+            }).Skip(Page * PostsPageSize).Take(PostsPageSize).ToList();
+
+
+            foreach (Models.ComboPost item in Posts)
+            {
+                ComboPostLike likes = new ComboPostLike();
+                likes.GetPostLikesByPostID(item.ComboPostID);
+                item.Likes = likes.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.ComboPostLike
+                    {
+                        ComboPostID = Convert.ToInt32(r["ComboPostID"]),
+                        ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                        UserName = r["UserName"].ToString(),
+                    };
+                }).ToList();
+
+                ComboComment totalCount = new ComboComment();
+                totalCount.GetPostCommentsCount(item.ComboPostID);
+
+                item.CommentsCount = totalCount.RowCount;
+
+                ComboComment comments = new ComboComment();
+                comments.GetTopPostCommentsByPostID(item.ComboPostID);
+                // get top 3 comments for each post
+                item.Comments = comments.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.ComboComment
+                    {
+                        ComboCommentID = Convert.ToInt32(r["ComboCommentID"]),
+                        ComboPostID = Convert.ToInt32(r["ComboPostID"]),
+                        ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                        ComboUserName = r["UserName"].ToString(),
+                        ProfilePic = r["ProfilePic"].ToString(),
+                        CommentText = r["CommentText"].ToString(),
+                        CommentDate = Convert.ToDateTime(r["CommentDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                    };
+                }).ToList();
+
+                List<Models.ComboComment> _comm = item.Comments as List<Models.ComboComment>;
+                foreach (Models.ComboComment _itemcomm in _comm)
+                {
+                    ComboCommentLike c_likes = new ComboCommentLike();
+                    ComboCommentAttachment c_attachments = new ComboCommentAttachment();
+                    c_likes.GetCommentLikesByCommentID(_itemcomm.ComboCommentID);
+                    c_attachments.GetCommentAttachmentsByCommentID(_itemcomm.ComboCommentID);
+                    _itemcomm.Likes = c_likes.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.ComboCommentLike
+                        {
+                            ComboCommentID = Convert.ToInt32(r["ComboCommentID"]),
+                            ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                            UserName = r["UserName"].ToString(),
+                        };
+                    }).ToList();
+                    _itemcomm.Attachments = c_attachments.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.Attachment
+                        {
+                            AttachmentID = Convert.ToInt32(r["AttachmentID"]),
+                            Path = r["Path"].ToString(),
+                            AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"])
+                        };
+                    }).ToList();
+                }
+
+                item.Comments = _comm;
+
+                ComboPostAttachment attachments = new ComboPostAttachment();
+                attachments.GetPostAttachmentsByPostID(item.ComboPostID);
+                item.Attachments = attachments.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.Attachment
+                    {
+                        AttachmentID = Convert.ToInt32(r["AttachmentID"]),
+                        Path = r["Path"].ToString(),
+                        AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"])
+                    };
+                }).ToList();
+            }
+
+            _response.Entity = Posts;
+            SetContentResult(_response);
+            //return _response;
+
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        /// <summary>
         /// Get Post By ID
         /// </summary>
         /// <param name="ID">ID of Post</param>
@@ -532,6 +648,7 @@ namespace Combo.ComboAPI
                     ProfilePic = row["ProfilePic"].ToString(),
                     PostText = row["PostText"].ToString(),
                     PostDate = Convert.ToDateTime(row["PostDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                    IsDownloadable = (row["IsPostsDownloadable"] == DBNull.Value) ? false : Convert.ToBoolean(row["IsPostsDownloadable"]),
                     CommentsCount = totalCount.RowCount,
                     Likes =  likes.DefaultView.Table.AsEnumerable().Select(r =>
                     {
@@ -843,7 +960,8 @@ namespace Combo.ComboAPI
                     ComboUserName = row["UserName"].ToString(),
                     ProfilePic = row["ProfilePic"].ToString(),
                     PostText = row["PostText"].ToString(),
-                    PostDate = Convert.ToDateTime(row["PostDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds
+                    PostDate = Convert.ToDateTime(row["PostDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                    IsDownloadable = (row["IsPostsDownloadable"] == DBNull.Value) ? false : Convert.ToBoolean(row["IsPostsDownloadable"])
                 };
             }).Skip(Page * PostsPageSize).Take(PostsPageSize).ToList();
 
@@ -957,7 +1075,8 @@ namespace Combo.ComboAPI
                     ComboUserName = row["UserName"].ToString(),
                     ProfilePic = row["ProfilePic"].ToString(),
                     PostText = row["PostText"].ToString(),
-                    PostDate = Convert.ToDateTime(row["PostDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds
+                    PostDate = Convert.ToDateTime(row["PostDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                    IsDownloadable = (row["IsPostsDownloadable"] == DBNull.Value) ? false : Convert.ToBoolean(row["IsPostsDownloadable"])
                 };
             }).Skip(Page * PostsPageSize).Take(PostsPageSize).ToList();
 
@@ -1899,8 +2018,18 @@ namespace Combo.ComboAPI
         #endregion
 
         #region noftifications
+        /// <summary>
+        /// APIKEY from google 
+        /// </summary>
         const string APIKEY = "AIzaSyCn_Ln5KVlD-QVt6Mt2DJa8Zr7WvYQqEaE";
-        
+        const int NotificationPageSize = 20;
+        /// <summary>
+        /// send push notifications to Android devices
+        /// </summary>
+        /// <param name="postData">data to be sent</param>
+        /// <param name="regID">device id </param>
+        /// <param name="postDataContentType"></param>
+        /// <returns>result from server about sending status</returns>
         private string SendGCMNotification(string postData, string regID , string postDataContentType = "application/json")
         {
             ServicePointManager.ServerCertificateValidationCallback += new RemoteCertificateValidationCallback(ValidateServerCertificate);
@@ -1953,7 +2082,7 @@ namespace Combo.ComboAPI
         }
 
 
-        public static bool ValidateServerCertificate(
+        private static bool ValidateServerCertificate(
                                                     object sender,
                                                     X509Certificate certificate,
                                                     X509Chain chain,
@@ -1961,6 +2090,80 @@ namespace Combo.ComboAPI
         {
             return true;
         }
+
+        
+        
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        /// <summary>
+        /// Get All combo Users notifications user with specified id 
+        /// </summary>
+        /// <returns>ComboResponse object with List of all notifications</returns>
+        public void GetNotifications(int userID, int pageIndex)
+        {
+            Models.ComboResponse _response = new Models.ComboResponse();
+            _response.bool_result = true;
+            _response.ErrorCode = 0;
+            _response.ErrorMsg = "";
+
+            ComboNotification notifications = new ComboNotification();
+            notifications.GetNotificationsbyUserId(userID);
+            List<Models.ComboNotification> allnotifications = notifications.DefaultView.Table.AsEnumerable().Select(row =>
+            {
+                return new Models.ComboNotification
+                {
+                    ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                    ComboNotificationID = Convert.ToInt32(row["ComboNotificationID"]),
+                    IsRead = Convert.ToBoolean(row["IsRead"]),
+                    NotificationBody = row["NotificationBody"].ToString(),
+                    NotificationDate = Convert.ToDateTime(row["NotificationDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                    NotificationType = Convert.ToInt32(row["NotificationType"])
+                };
+            }).Skip(pageIndex * NotificationPageSize).Take(NotificationPageSize).ToList();
+
+
+            _response.Entity = allnotifications;
+            SetContentResult(_response);
+            //return _response;
+
+        }
+
         #endregion
+
+        #region UserSettings
+        [WebMethod]
+        /// <summary>
+        /// Toggle IsDownloadable setting for a user By ID
+        /// </summary>        
+        /// <param name="ID">userid of user</param>
+        /// <returns>ComboResponse object with total likes  </returns>
+        public void ToggleIsDownloadablePosts(int userid, bool IsDownloadable)
+        {
+            Models.ComboResponse _response = new Models.ComboResponse();
+            _response.bool_result = true;
+            _response.ErrorCode = 0;
+            _response.ErrorMsg = "";
+
+
+            ComboUserSettings setting = new ComboUserSettings();
+            if (!setting.GetSettingsByUserId(userid))
+            {
+                setting.AddNew();
+                setting.IsPostsDownloadable = IsDownloadable;
+                setting.ComboUserID = userid;
+                setting.Save();
+            }
+            else
+            {
+                setting.IsPostsDownloadable = IsDownloadable;                
+                setting.Save();
+            }
+
+
+            _response.Entity = null;
+            SetContentResult(_response);
+
+        }
+        #endregion 
     }
 }

@@ -27,5 +27,7 @@ namespace Combo.BLL
                                     Left join Attachment A on CU.ProfileImgID = A.AttachmentID
                                     Where PF.ComboFollowerID = {0}", userid);
         }
+       
+     
 	}
 }
