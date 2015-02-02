@@ -17,5 +17,6 @@ namespace Combo.Models
         public object Comments { get; set; }
         public object Attachments { get; set; }
         public int CommentsCount { get; set; }
+        public bool IsDownloadable { get; set; }
     }
 }

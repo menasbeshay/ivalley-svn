@@ -5,16 +5,16 @@ using System;
 using Combo.DAL;
 namespace Combo.BLL
 {
-	public class ComboNotification : _ComboNotification
+	public class ComboUserSettings : _ComboUserSettings
 	{
-		public ComboNotification()
+		public ComboUserSettings()
 		{
 		
 		}
 
-        public virtual bool GetNotificationsbyUserId(int userid) 
+        public virtual bool GetSettingsByUserId(int UserId)
         {
-            this.Where.ComboUserID.Value = userid;
+            this.Where.ComboUserID.Value = UserId;
             this.Where.ComboUserID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
             return this.Query.Load();
         }
