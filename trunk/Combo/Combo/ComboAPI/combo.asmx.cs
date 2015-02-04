@@ -313,6 +313,40 @@ namespace Combo.ComboAPI
             return;
         }
 
+
+        [WebMethod]
+        /// <summary>
+        /// activate/deactivate Combo User 
+        /// </summary>
+        /// <param name="ID">Combo User ID</param>
+        /// <returns>ComboResponse object </returns>
+        public void ToggleDeactivateUser(int ID, bool deactivate)
+        {
+            Models.ComboResponse _response = new Models.ComboResponse();
+            _response.bool_result = true;
+            _response.ErrorCode = 0;
+            _response.ErrorMsg = "";
+
+            ComboUser user = new ComboUser();
+            if (!user.LoadByPrimaryKey(ID))
+            {
+                _response.ErrorCode = 11;
+                _response.ErrorMsg = "User doesn't exist";
+                _response.bool_result = false;
+
+            }
+            else
+            {
+                user.IsDeactivated = deactivate;
+                user.Save();
+            }
+
+            _response.Entity = null;
+            SetContentResult(_response);
+            return;
+        }
+
+
         [WebMethod]
         /// <summary>
         /// send forget pasword code by username
@@ -468,7 +502,8 @@ namespace Combo.ComboAPI
                         {
                             AttachmentID = Convert.ToInt32(r["AttachmentID"]),
                             Path = r["Path"].ToString(),
-                            AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"])
+                            AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"]),
+                            ThumbsPath = r["ThumbsPath"].ToString()
                         };
                     }).ToList();
                 }
@@ -483,7 +518,8 @@ namespace Combo.ComboAPI
                         {
                             AttachmentID = Convert.ToInt32(r["AttachmentID"]),
                             Path = r["Path"].ToString(),
-                            AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"])
+                            AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"]),
+                            ThumbsPath = r["ThumbsPath"].ToString()
                         };
                     }).ToList();
             }
@@ -583,7 +619,8 @@ namespace Combo.ComboAPI
                         {
                             AttachmentID = Convert.ToInt32(r["AttachmentID"]),
                             Path = r["Path"].ToString(),
-                            AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"])
+                            AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"]),
+                            ThumbsPath = r["ThumbsPath"].ToString()
                         };
                     }).ToList();
                 }
@@ -598,7 +635,8 @@ namespace Combo.ComboAPI
                     {
                         AttachmentID = Convert.ToInt32(r["AttachmentID"]),
                         Path = r["Path"].ToString(),
-                        AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"])
+                        AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"]),
+                        ThumbsPath = r["ThumbsPath"].ToString()
                     };
                 }).ToList();
             }
@@ -679,7 +717,8 @@ namespace Combo.ComboAPI
                         {
                             AttachmentID = Convert.ToInt32(r["AttachmentID"]),
                             Path = r["Path"].ToString(),
-                            AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"])
+                            AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"]),
+                            ThumbsPath = r["ThumbsPath"].ToString()
                         };
                     }).ToList()
                 };
@@ -709,7 +748,8 @@ namespace Combo.ComboAPI
                         {
                             AttachmentID = Convert.ToInt32(r["AttachmentID"]),
                             Path = r["Path"].ToString(),
-                            AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"])
+                            AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"]),
+                            ThumbsPath = r["ThumbsPath"].ToString()
                         };
                     }).ToList();
                 }
@@ -1024,7 +1064,8 @@ namespace Combo.ComboAPI
                         {
                             AttachmentID = Convert.ToInt32(r["AttachmentID"]),
                             Path = r["Path"].ToString(),
-                            AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"])
+                            AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"]),
+                            ThumbsPath = r["ThumbsPath"].ToString()
                         };
                     }).ToList();
                 }
@@ -1039,7 +1080,8 @@ namespace Combo.ComboAPI
                     {
                         AttachmentID = Convert.ToInt32(r["AttachmentID"]),
                         Path = r["Path"].ToString(),
-                        AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"])
+                        AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"]),
+                        ThumbsPath = r["ThumbsPath"].ToString()
                     };
                 }).ToList();
             }
@@ -1139,7 +1181,8 @@ namespace Combo.ComboAPI
                         {
                             AttachmentID = Convert.ToInt32(r["AttachmentID"]),
                             Path = r["Path"].ToString(),
-                            AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"])
+                            AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"]),
+                            ThumbsPath = r["ThumbsPath"].ToString()
                         };
                     }).ToList();
                 }
@@ -1154,7 +1197,8 @@ namespace Combo.ComboAPI
                     {
                         AttachmentID = Convert.ToInt32(r["AttachmentID"]),
                         Path = r["Path"].ToString(),
-                        AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"])
+                        AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"]),
+                        ThumbsPath = r["ThumbsPath"].ToString()
                     };
                 }).ToList();
             }
@@ -1164,6 +1208,32 @@ namespace Combo.ComboAPI
             //return _response;
 
         }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        /// <summary>
+        /// Report Post By ID
+        /// </summary>
+        /// <param name="ID">ID of Post</param>
+        /// <returns>ComboResponse object </returns>
+        public void ReportPost(int id, string description)
+        {
+            Models.ComboResponse _response = new Models.ComboResponse();
+            _response.bool_result = true;
+            _response.ErrorCode = 0;
+            _response.ErrorMsg = "";
+
+            ComboPostReport post = new ComboPostReport();
+            post.AddNew();
+            post.ComboPostID = id;
+            post.ReportDate = DateTime.UtcNow.Date;
+            post.ReportText = description;
+            post.Save();
+
+            _response.Entity = null;
+            SetContentResult(_response);
+
+        }       
 
        
         #endregion
@@ -1571,6 +1641,36 @@ namespace Combo.ComboAPI
 
         }
 
+
+        [WebMethod]
+        /// <summary>
+        /// ban Friend user 
+        /// </summary>
+        /// <param name="UserID">UserID </param>
+        /// <param name="FollowerID">banned ID</param>
+        /// <param name="IsBanned">bool is banned</param>
+        /// <returns>ComboResponse object with result</returns>
+        public void ToggleBanFriend(int userId, int FriendId, bool IsBanned)
+        {
+            Models.ComboResponse _response = new Models.ComboResponse();
+            _response.bool_result = true;
+            _response.ErrorCode = 0;
+            _response.ErrorMsg = "";
+
+
+            ComboUserFriend friend = new ComboUserFriend();
+            if (friend.LoadByPrimaryKey(userId, FriendId))
+            {                                
+                friend.IsBanned = IsBanned;
+                friend.Save();
+            }
+
+            _response.Entity = null;
+            SetContentResult(_response);
+
+        }
+
+
         [WebMethod]
         /// <summary>
         /// Add Friend user 
@@ -1823,7 +1923,8 @@ namespace Combo.ComboAPI
                         {
                             AttachmentID = Convert.ToInt32(r["AttachmentID"]),
                             Path = r["Path"].ToString(),
-                            AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"])
+                            AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"]),
+                            ThumbsPath = r["ThumbsPath"].ToString()
                         };
                     }).ToList();
                 }
@@ -1838,7 +1939,8 @@ namespace Combo.ComboAPI
                     {
                         AttachmentID = Convert.ToInt32(r["AttachmentID"]),
                         Path = r["Path"].ToString(),
-                        AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"])
+                        AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"]),
+                        ThumbsPath = r["ThumbsPath"].ToString()
                     };
                 }).ToList();
             }
@@ -1918,7 +2020,8 @@ namespace Combo.ComboAPI
                         {
                             AttachmentID = Convert.ToInt32(r["AttachmentID"]),
                             Path = r["Path"].ToString(),
-                            AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"])
+                            AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"]),
+                            ThumbsPath = r["ThumbsPath"].ToString()
                         };
                     }).ToList();
                 }
@@ -1933,7 +2036,8 @@ namespace Combo.ComboAPI
                     {
                         AttachmentID = Convert.ToInt32(r["AttachmentID"]),
                         Path = r["Path"].ToString(),
-                        AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"])
+                        AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"]),
+                        ThumbsPath = r["ThumbsPath"].ToString()
                     };
                 }).ToList();
             }
@@ -2030,7 +2134,8 @@ namespace Combo.ComboAPI
         /// <param name="regID">device id </param>
         /// <param name="postDataContentType"></param>
         /// <returns>result from server about sending status</returns>
-        private string SendGCMNotification(string postData, string regID , string postDataContentType = "application/json")
+        [WebMethod]
+        public string SendGCMNotification(string postData, string regID , string postDataContentType = "application/json")
         {
             ServicePointManager.ServerCertificateValidationCallback += new RemoteCertificateValidationCallback(ValidateServerCertificate);
 

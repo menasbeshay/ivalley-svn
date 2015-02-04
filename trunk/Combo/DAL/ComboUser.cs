@@ -219,6 +219,14 @@ namespace Combo.DAL
 				}
 			}
 			
+			public static SqlParameter IsDeactivated
+			{
+				get
+				{
+					return new SqlParameter("@IsDeactivated", SqlDbType.Bit, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -240,6 +248,7 @@ namespace Combo.DAL
             public const string ExternalIDType = "ExternalIDType";
             public const string DeviceID = "DeviceID";
             public const string PassResetCode = "PassResetCode";
+            public const string IsDeactivated = "IsDeactivated";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -262,6 +271,7 @@ namespace Combo.DAL
 					ht[ExternalIDType] = _ComboUser.PropertyNames.ExternalIDType;
 					ht[DeviceID] = _ComboUser.PropertyNames.DeviceID;
 					ht[PassResetCode] = _ComboUser.PropertyNames.PassResetCode;
+					ht[IsDeactivated] = _ComboUser.PropertyNames.IsDeactivated;
 
 				}
 				return (string)ht[columnName];
@@ -289,6 +299,7 @@ namespace Combo.DAL
             public const string ExternalIDType = "ExternalIDType";
             public const string DeviceID = "DeviceID";
             public const string PassResetCode = "PassResetCode";
+            public const string IsDeactivated = "IsDeactivated";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -311,6 +322,7 @@ namespace Combo.DAL
 					ht[ExternalIDType] = _ComboUser.ColumnNames.ExternalIDType;
 					ht[DeviceID] = _ComboUser.ColumnNames.DeviceID;
 					ht[PassResetCode] = _ComboUser.ColumnNames.PassResetCode;
+					ht[IsDeactivated] = _ComboUser.ColumnNames.IsDeactivated;
 
 				}
 				return (string)ht[propertyName];
@@ -338,6 +350,7 @@ namespace Combo.DAL
             public const string ExternalIDType = "s_ExternalIDType";
             public const string DeviceID = "s_DeviceID";
             public const string PassResetCode = "s_PassResetCode";
+            public const string IsDeactivated = "s_IsDeactivated";
 
 		}
 		#endregion		
@@ -521,6 +534,18 @@ namespace Combo.DAL
 			set
 	        {
 				base.SetGuid(ColumnNames.PassResetCode, value);
+			}
+		}
+
+		public virtual bool IsDeactivated
+	    {
+			get
+	        {
+				return base.Getbool(ColumnNames.IsDeactivated);
+			}
+			set
+	        {
+				base.Setbool(ColumnNames.IsDeactivated, value);
 			}
 		}
 
@@ -754,6 +779,21 @@ namespace Combo.DAL
 			}
 		}
 
+		public virtual string s_IsDeactivated
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.IsDeactivated) ? string.Empty : base.GetboolAsString(ColumnNames.IsDeactivated);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.IsDeactivated);
+				else
+					this.IsDeactivated = base.SetboolAsString(ColumnNames.IsDeactivated, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -932,6 +972,16 @@ namespace Combo.DAL
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.PassResetCode, Parameters.PassResetCode);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter IsDeactivated
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.IsDeactivated, Parameters.IsDeactivated);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -1122,6 +1172,18 @@ namespace Combo.DAL
 				}
 			}
 
+			public WhereParameter IsDeactivated
+		    {
+				get
+		        {
+					if(_IsDeactivated_W == null)
+	        	    {
+						_IsDeactivated_W = TearOff.IsDeactivated;
+					}
+					return _IsDeactivated_W;
+				}
+			}
+
 			private WhereParameter _ComboUserID_W = null;
 			private WhereParameter _UserName_W = null;
 			private WhereParameter _DisplayName_W = null;
@@ -1137,6 +1199,7 @@ namespace Combo.DAL
 			private WhereParameter _ExternalIDType_W = null;
 			private WhereParameter _DeviceID_W = null;
 			private WhereParameter _PassResetCode_W = null;
+			private WhereParameter _IsDeactivated_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -1155,6 +1218,7 @@ namespace Combo.DAL
 				_ExternalIDType_W = null;
 				_DeviceID_W = null;
 				_PassResetCode_W = null;
+				_IsDeactivated_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -1361,6 +1425,16 @@ namespace Combo.DAL
 					}
 				}
 
+				public AggregateParameter IsDeactivated
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.IsDeactivated, Parameters.IsDeactivated);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -1546,6 +1620,18 @@ namespace Combo.DAL
 				}
 			}
 
+			public AggregateParameter IsDeactivated
+		    {
+				get
+		        {
+					if(_IsDeactivated_W == null)
+	        	    {
+						_IsDeactivated_W = TearOff.IsDeactivated;
+					}
+					return _IsDeactivated_W;
+				}
+			}
+
 			private AggregateParameter _ComboUserID_W = null;
 			private AggregateParameter _UserName_W = null;
 			private AggregateParameter _DisplayName_W = null;
@@ -1561,6 +1647,7 @@ namespace Combo.DAL
 			private AggregateParameter _ExternalIDType_W = null;
 			private AggregateParameter _DeviceID_W = null;
 			private AggregateParameter _PassResetCode_W = null;
+			private AggregateParameter _IsDeactivated_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -1579,6 +1666,7 @@ namespace Combo.DAL
 				_ExternalIDType_W = null;
 				_DeviceID_W = null;
 				_PassResetCode_W = null;
+				_IsDeactivated_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -1711,6 +1799,10 @@ namespace Combo.DAL
 
 			p = cmd.Parameters.Add(Parameters.PassResetCode);
 			p.SourceColumn = ColumnNames.PassResetCode;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.IsDeactivated);
+			p.SourceColumn = ColumnNames.IsDeactivated;
 			p.SourceVersion = DataRowVersion.Current;
 
 

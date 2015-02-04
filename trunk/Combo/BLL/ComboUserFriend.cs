@@ -15,12 +15,14 @@ namespace Combo.BLL
         public virtual bool GetFriendsByUserID(int userid)
         {
             return LoadFromRawSql(@"Select CU.*, A.Path ProfilePic from ComboUserFriend CF
-                                    Inner Join ComboUser CU on CF.ComboFriendID = CU.ComboUserID
+                                    Inner Join ComboUser CU on CF.ComboFriendID = CU.ComboUserID and 
+                                                               CU.IsDeactivated <> 1
                                     Left join Attachment A on CU.ProfileImgID = A.AttachmentID
                                     where CF.ComboUserID = {0} and CF.RequestApproved = 1
                                     union 
                                     Select CU.*, A.Path ProfilePic from ComboUserFriend CF
-                                    Inner Join ComboUser CU on CF.ComboUserID = CU.ComboUserID
+                                    Inner Join ComboUser CU on CF.ComboUserID = CU.ComboUserID and 
+                                                               CU.IsDeactivated <> 1
                                     Left join Attachment A on CU.ProfileImgID = A.AttachmentID
                                     where CF.ComboFriendID = {0} and CF.RequestApproved = 1", userid);
         }
@@ -29,28 +31,32 @@ namespace Combo.BLL
         {
             // get friends - followers - followings - users 
             return LoadFromRawSql(@"Select CU.*, A.Path ProfilePic from ComboUserFriend CF
-                                    Inner Join ComboUser CU on CF.ComboFriendID = CU.ComboUserID
+                                    Inner Join ComboUser CU on CF.ComboFriendID = CU.ComboUserID and
+                                                               CU.IsDeactivated <> 1
                                     Left join Attachment A on CU.ProfileImgID = A.AttachmentID
-                                    where CF.ComboUserID = {0} and CF.RequestApproved = 1 and CU.Username like '%{1}%'
+                                    where CF.ComboUserID = {0} and CF.RequestApproved = 1 and CF.InBanned <> 1 and CU.Username like '%{1}%'
                                     union 
                                     Select CU.*, A.Path ProfilePic from ComboUserFriend CF
-                                    Inner Join ComboUser CU on CF.ComboUserID = CU.ComboUserID
+                                    Inner Join ComboUser CU on CF.ComboUserID = CU.ComboUserID and 
+                                                         CU.IsDeactivated <> 1
                                     Left join Attachment A on CU.ProfileImgID = A.AttachmentID
-                                    where CF.ComboFriendID = {0} and CF.RequestApproved = 1 and CU.Username like '%{1}%'
+                                    where CF.ComboFriendID = {0} and CF.RequestApproved = 1 and CF.InBanned <> 1 and CU.Username like '%{1}%'
                                     union
                                     Select CU.*, A.Path ProfilePic from ProfileFollower PF
-                                    Inner Join ComboUser CU on PF.ComboFollowerID = CU.ComboUserID
+                                    Inner Join ComboUser CU on PF.ComboFollowerID = CU.ComboUserID and
+                                                               CU.IsDeactivated <> 1
                                     Left join Attachment A on CU.ProfileImgID = A.AttachmentID
                                     Where PF.ComboUserID = {0} and CU.Username like '%{1}%'
                                     union
                                     Select CU.*, A.Path ProfilePic from ProfileFollower PF
-                                    Inner Join ComboUser CU on PF.ComboUserID = CU.ComboUserID
+                                    Inner Join ComboUser CU on PF.ComboUserID = CU.ComboUserID and
+                                                               CU.IsDeactivated <> 1
                                     Left join Attachment A on CU.ProfileImgID = A.AttachmentID
                                     Where PF.ComboFollowerID = {0} and CU.Username like '%{1}%'
                                     union 
-                                    Select CU.*, A.Path ProfilePic ComboUser CU on CF.ComboFriendID = CU.ComboUserID
+                                    Select CU.*, A.Path ProfilePic from ComboUser CU                                                                                    
                                     Left join Attachment A on CU.ProfileImgID = A.AttachmentID
-                                    where CU.Username like '%{1}%'
+                                    where CU.Username like '%{1}%' and CU.IsDeactivated <> 1
                                     order by Username asc
                                     ", userid, searchText);
         }

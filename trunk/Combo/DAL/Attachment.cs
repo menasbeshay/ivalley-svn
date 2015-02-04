@@ -123,6 +123,14 @@ namespace Combo.DAL
 				}
 			}
 			
+			public static SqlParameter ThumbsPath
+			{
+				get
+				{
+					return new SqlParameter("@ThumbsPath", SqlDbType.NVarChar, 2000);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -132,6 +140,7 @@ namespace Combo.DAL
             public const string AttachmentID = "AttachmentID";
             public const string Path = "Path";
             public const string AttachmentTypeID = "AttachmentTypeID";
+            public const string ThumbsPath = "ThumbsPath";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -142,6 +151,7 @@ namespace Combo.DAL
 					ht[AttachmentID] = _Attachment.PropertyNames.AttachmentID;
 					ht[Path] = _Attachment.PropertyNames.Path;
 					ht[AttachmentTypeID] = _Attachment.PropertyNames.AttachmentTypeID;
+					ht[ThumbsPath] = _Attachment.PropertyNames.ThumbsPath;
 
 				}
 				return (string)ht[columnName];
@@ -157,6 +167,7 @@ namespace Combo.DAL
             public const string AttachmentID = "AttachmentID";
             public const string Path = "Path";
             public const string AttachmentTypeID = "AttachmentTypeID";
+            public const string ThumbsPath = "ThumbsPath";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -167,6 +178,7 @@ namespace Combo.DAL
 					ht[AttachmentID] = _Attachment.ColumnNames.AttachmentID;
 					ht[Path] = _Attachment.ColumnNames.Path;
 					ht[AttachmentTypeID] = _Attachment.ColumnNames.AttachmentTypeID;
+					ht[ThumbsPath] = _Attachment.ColumnNames.ThumbsPath;
 
 				}
 				return (string)ht[propertyName];
@@ -182,6 +194,7 @@ namespace Combo.DAL
             public const string AttachmentID = "s_AttachmentID";
             public const string Path = "s_Path";
             public const string AttachmentTypeID = "s_AttachmentTypeID";
+            public const string ThumbsPath = "s_ThumbsPath";
 
 		}
 		#endregion		
@@ -221,6 +234,18 @@ namespace Combo.DAL
 			set
 	        {
 				base.Setint(ColumnNames.AttachmentTypeID, value);
+			}
+		}
+
+		public virtual string ThumbsPath
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.ThumbsPath);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.ThumbsPath, value);
 			}
 		}
 
@@ -271,6 +296,21 @@ namespace Combo.DAL
 					this.SetColumnNull(ColumnNames.AttachmentTypeID);
 				else
 					this.AttachmentTypeID = base.SetintAsString(ColumnNames.AttachmentTypeID, value);
+			}
+		}
+
+		public virtual string s_ThumbsPath
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.ThumbsPath) ? string.Empty : base.GetstringAsString(ColumnNames.ThumbsPath);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.ThumbsPath);
+				else
+					this.ThumbsPath = base.SetstringAsString(ColumnNames.ThumbsPath, value);
 			}
 		}
 
@@ -337,6 +377,16 @@ namespace Combo.DAL
 					}
 				}
 
+				public WhereParameter ThumbsPath
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.ThumbsPath, Parameters.ThumbsPath);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -378,15 +428,29 @@ namespace Combo.DAL
 				}
 			}
 
+			public WhereParameter ThumbsPath
+		    {
+				get
+		        {
+					if(_ThumbsPath_W == null)
+	        	    {
+						_ThumbsPath_W = TearOff.ThumbsPath;
+					}
+					return _ThumbsPath_W;
+				}
+			}
+
 			private WhereParameter _AttachmentID_W = null;
 			private WhereParameter _Path_W = null;
 			private WhereParameter _AttachmentTypeID_W = null;
+			private WhereParameter _ThumbsPath_W = null;
 
 			public void WhereClauseReset()
 			{
 				_AttachmentID_W = null;
 				_Path_W = null;
 				_AttachmentTypeID_W = null;
+				_ThumbsPath_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -473,6 +537,16 @@ namespace Combo.DAL
 					}
 				}
 
+				public AggregateParameter ThumbsPath
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.ThumbsPath, Parameters.ThumbsPath);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -514,15 +588,29 @@ namespace Combo.DAL
 				}
 			}
 
+			public AggregateParameter ThumbsPath
+		    {
+				get
+		        {
+					if(_ThumbsPath_W == null)
+	        	    {
+						_ThumbsPath_W = TearOff.ThumbsPath;
+					}
+					return _ThumbsPath_W;
+				}
+			}
+
 			private AggregateParameter _AttachmentID_W = null;
 			private AggregateParameter _Path_W = null;
 			private AggregateParameter _AttachmentTypeID_W = null;
+			private AggregateParameter _ThumbsPath_W = null;
 
 			public void AggregateClauseReset()
 			{
 				_AttachmentID_W = null;
 				_Path_W = null;
 				_AttachmentTypeID_W = null;
+				_ThumbsPath_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -607,6 +695,10 @@ namespace Combo.DAL
 
 			p = cmd.Parameters.Add(Parameters.AttachmentTypeID);
 			p.SourceColumn = ColumnNames.AttachmentTypeID;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.ThumbsPath);
+			p.SourceColumn = ColumnNames.ThumbsPath;
 			p.SourceVersion = DataRowVersion.Current;
 
 
