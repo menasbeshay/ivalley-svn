@@ -34,7 +34,13 @@ namespace Combo.ComboAPI
                 dir.Create();
 
             string location = context.Server.MapPath("~/userfiles/"+ userid.ToString() + "/") + fileName + ext;
+            string thumblocation = context.Server.MapPath("~/userfiles/" + userid.ToString() + "/thumb_") + fileName + ".jpg";
             context.Request.Files[0].SaveAs(location);
+
+            if (typeid == 3)
+            {
+                (new NReco.VideoConverter.FFMpegConverter()).GetVideoThumbnail(location, thumblocation);
+            }
 
             BLL.Attachment newfile = new BLL.Attachment();
             newfile.AddNew();

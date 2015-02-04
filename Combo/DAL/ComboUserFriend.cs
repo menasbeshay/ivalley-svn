@@ -125,6 +125,14 @@ parameters.Add(Parameters.ComboFriendID, ComboFriendID);
 				}
 			}
 			
+			public static SqlParameter IsBanned
+			{
+				get
+				{
+					return new SqlParameter("@IsBanned", SqlDbType.Bit, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -134,6 +142,7 @@ parameters.Add(Parameters.ComboFriendID, ComboFriendID);
             public const string ComboUserID = "ComboUserID";
             public const string ComboFriendID = "ComboFriendID";
             public const string RequestApproved = "RequestApproved";
+            public const string IsBanned = "IsBanned";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -144,6 +153,7 @@ parameters.Add(Parameters.ComboFriendID, ComboFriendID);
 					ht[ComboUserID] = _ComboUserFriend.PropertyNames.ComboUserID;
 					ht[ComboFriendID] = _ComboUserFriend.PropertyNames.ComboFriendID;
 					ht[RequestApproved] = _ComboUserFriend.PropertyNames.RequestApproved;
+					ht[IsBanned] = _ComboUserFriend.PropertyNames.IsBanned;
 
 				}
 				return (string)ht[columnName];
@@ -159,6 +169,7 @@ parameters.Add(Parameters.ComboFriendID, ComboFriendID);
             public const string ComboUserID = "ComboUserID";
             public const string ComboFriendID = "ComboFriendID";
             public const string RequestApproved = "RequestApproved";
+            public const string IsBanned = "IsBanned";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -169,6 +180,7 @@ parameters.Add(Parameters.ComboFriendID, ComboFriendID);
 					ht[ComboUserID] = _ComboUserFriend.ColumnNames.ComboUserID;
 					ht[ComboFriendID] = _ComboUserFriend.ColumnNames.ComboFriendID;
 					ht[RequestApproved] = _ComboUserFriend.ColumnNames.RequestApproved;
+					ht[IsBanned] = _ComboUserFriend.ColumnNames.IsBanned;
 
 				}
 				return (string)ht[propertyName];
@@ -184,6 +196,7 @@ parameters.Add(Parameters.ComboFriendID, ComboFriendID);
             public const string ComboUserID = "s_ComboUserID";
             public const string ComboFriendID = "s_ComboFriendID";
             public const string RequestApproved = "s_RequestApproved";
+            public const string IsBanned = "s_IsBanned";
 
 		}
 		#endregion		
@@ -223,6 +236,18 @@ parameters.Add(Parameters.ComboFriendID, ComboFriendID);
 			set
 	        {
 				base.Setbool(ColumnNames.RequestApproved, value);
+			}
+		}
+
+		public virtual bool IsBanned
+	    {
+			get
+	        {
+				return base.Getbool(ColumnNames.IsBanned);
+			}
+			set
+	        {
+				base.Setbool(ColumnNames.IsBanned, value);
 			}
 		}
 
@@ -273,6 +298,21 @@ parameters.Add(Parameters.ComboFriendID, ComboFriendID);
 					this.SetColumnNull(ColumnNames.RequestApproved);
 				else
 					this.RequestApproved = base.SetboolAsString(ColumnNames.RequestApproved, value);
+			}
+		}
+
+		public virtual string s_IsBanned
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.IsBanned) ? string.Empty : base.GetboolAsString(ColumnNames.IsBanned);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.IsBanned);
+				else
+					this.IsBanned = base.SetboolAsString(ColumnNames.IsBanned, value);
 			}
 		}
 
@@ -339,6 +379,16 @@ parameters.Add(Parameters.ComboFriendID, ComboFriendID);
 					}
 				}
 
+				public WhereParameter IsBanned
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.IsBanned, Parameters.IsBanned);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -380,15 +430,29 @@ parameters.Add(Parameters.ComboFriendID, ComboFriendID);
 				}
 			}
 
+			public WhereParameter IsBanned
+		    {
+				get
+		        {
+					if(_IsBanned_W == null)
+	        	    {
+						_IsBanned_W = TearOff.IsBanned;
+					}
+					return _IsBanned_W;
+				}
+			}
+
 			private WhereParameter _ComboUserID_W = null;
 			private WhereParameter _ComboFriendID_W = null;
 			private WhereParameter _RequestApproved_W = null;
+			private WhereParameter _IsBanned_W = null;
 
 			public void WhereClauseReset()
 			{
 				_ComboUserID_W = null;
 				_ComboFriendID_W = null;
 				_RequestApproved_W = null;
+				_IsBanned_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -475,6 +539,16 @@ parameters.Add(Parameters.ComboFriendID, ComboFriendID);
 					}
 				}
 
+				public AggregateParameter IsBanned
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.IsBanned, Parameters.IsBanned);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -516,15 +590,29 @@ parameters.Add(Parameters.ComboFriendID, ComboFriendID);
 				}
 			}
 
+			public AggregateParameter IsBanned
+		    {
+				get
+		        {
+					if(_IsBanned_W == null)
+	        	    {
+						_IsBanned_W = TearOff.IsBanned;
+					}
+					return _IsBanned_W;
+				}
+			}
+
 			private AggregateParameter _ComboUserID_W = null;
 			private AggregateParameter _ComboFriendID_W = null;
 			private AggregateParameter _RequestApproved_W = null;
+			private AggregateParameter _IsBanned_W = null;
 
 			public void AggregateClauseReset()
 			{
 				_ComboUserID_W = null;
 				_ComboFriendID_W = null;
 				_RequestApproved_W = null;
+				_IsBanned_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -609,6 +697,10 @@ parameters.Add(Parameters.ComboFriendID, ComboFriendID);
 
 			p = cmd.Parameters.Add(Parameters.RequestApproved);
 			p.SourceColumn = ColumnNames.RequestApproved;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.IsBanned);
+			p.SourceColumn = ColumnNames.IsBanned;
 			p.SourceVersion = DataRowVersion.Current;
 
 

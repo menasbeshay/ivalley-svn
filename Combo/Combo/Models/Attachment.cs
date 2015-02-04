@@ -9,6 +9,7 @@ namespace Combo.Models
     {
         public int AttachmentID { get; set; }
         public string Path { get; set; }
+        public string ThumbsPath { get; set; }
         public int AttachmentTypeID { get; set; }
     }
 }

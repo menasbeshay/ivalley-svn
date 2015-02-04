@@ -17,7 +17,8 @@ namespace Combo.BLL
         {
             return LoadFromRawSql(@"Select M.*, U.UserName, A.Path ProfilePic , Stuff((select ',' + STR(UM.ComboUserID) from ComboUserMsg UM where UM.ComboMsgID = M.ComboMsgID for XML path('')),1,1,'') ToIds 
                                     from ComboMsg M
-                                    Inner Join ComboUser U on M.ComboUserID = U.ComboUserID
+                                    Inner Join ComboUser U on M.ComboUserID = U.ComboUserID and 
+                                                              U.IsDeactivated <> 1
                                     Left join Attachment A on U.ProfileImgID = A.AttachmentID
                                     Where M.ComboMsgID = {0}", MsgId);
         }
@@ -27,7 +28,8 @@ namespace Combo.BLL
             return LoadFromRawSql(@"Select M.*, U.UserName, A.Path ProfilePic , Stuff((select ',' + STR(UM.ComboUserID) from ComboUserMsg UM where UM.ComboMsgID = M.ComboMsgID for XML path('')),1,1,'') ToIds 
                                     from ComboMsg M
                                     Inner join ComboMsgUser CM on M.
-                                    Inner Join ComboUser U on M.ComboUserID = U.ComboUserID
+                                    Inner Join ComboUser U on M.ComboUserID = U.ComboUserID and 
+                                                              U.IsDeactivated <> 1
                                     Left join Attachment A on U.ProfileImgID = A.AttachmentID
                                     Where M.ComboMsgID = {0}", UserId);
         }

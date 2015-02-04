@@ -20,7 +20,8 @@ namespace Combo.BLL
             //return this.Query.Load();
 
             return LoadFromRawSql(@"Select C.*, U.UserName, A.Path ProfilePic from ComboComment C
-                                    Inner Join ComboUser U on C.ComboUserID = U.ComboUserID
+                                    Inner Join ComboUser U on C.ComboUserID = U.ComboUserID and 
+                                                         U.IsDeactivated <> 1
                                     Left join Attachment A on U.ProfileImgID = A.AttachmentID
                                     Where C.ComboPostID = {0}
                                     order by C.CommentDate Desc", pid);
@@ -34,7 +35,8 @@ namespace Combo.BLL
             //return this.Query.Load();
 
             return LoadFromRawSql(@"Select top 3 C.*, U.UserName, A.Path ProfilePic from ComboComment C
-                                    Inner Join ComboUser U on C.ComboUserID = U.ComboUserID
+                                    Inner Join ComboUser U on C.ComboUserID = U.ComboUserID and 
+                                                              U.IsDeactivated <> 1
                                     Left join Attachment A on U.ProfileImgID = A.AttachmentID
                                     Where C.ComboPostID = {0}
                                     order by C.CommentDate Desc", pid);
@@ -59,7 +61,8 @@ namespace Combo.BLL
             //return this.Query.Load();
 
             return LoadFromRawSql(@"Select top 3 C.*, U.UserName, A.Path ProfilePic from ComboComment C
-                                    Inner Join ComboUser U on C.ComboUserID = U.ComboUserID
+                                    Inner Join ComboUser U on C.ComboUserID = U.ComboUserID and 
+                                                              U.IsDeactivated <> 1
                                     Left join Attachment A on U.ProfileImgID = A.AttachmentID
                                     Where C.ComboMsgID = {0}
                                     order by C.CommentDate Desc", mid);
@@ -82,7 +85,8 @@ namespace Combo.BLL
             //return this.Query.Load();
 
             return LoadFromRawSql(@"Select C.*, U.UserName, A.Path ProfilePic from ComboComment C
-                                    Inner Join ComboUser U on C.ComboUserID = U.ComboUserID
+                                    Inner Join ComboUser U on C.ComboUserID = U.ComboUserID and 
+                                                              U.IsDeactivated <> 1
                                     Left join Attachment A on U.ProfileImgID = A.AttachmentID
                                     Where C.ComboMsgID = {0}
                                     order by C.CommentDate Desc", mid);
