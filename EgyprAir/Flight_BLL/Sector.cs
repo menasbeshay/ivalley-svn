@@ -61,5 +61,19 @@ namespace Flight_BLL
             return LoadFromSql("GetPAXSectors", parameters);
 
         }
+
+
+        public virtual bool GetPilotsAndCrewToNotify(
+              DateTime FromDate,
+              DateTime ToDate)
+        {
+            ListDictionary parameters = new ListDictionary();
+            
+            parameters.Add(new SqlParameter("@FromDate", SqlDbType.DateTime, 0), FromDate);
+            parameters.Add(new SqlParameter("@ToDate", SqlDbType.DateTime, 0), ToDate);
+
+            return LoadFromSql("GetPilotsAndCrewToNotify", parameters);
+
+        }
 	}
 }

@@ -100,3 +100,80 @@ Create Table PilotTransaction
 	Location nvarchar(500)
 )
 Go
+
+
+Alter Table Crew
+add Email nvarchar(200),
+    Mobile nvarchar(50)
+Go
+
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'SystemSettings' and
+		        xtype = 'U')
+Drop Table SystemSettings
+Go
+Create Table SystemSettings
+(
+	SystemSettingsID int not null
+			identity(1,1)
+			Primary Key,	
+	FlightNoPrefix nvarchar(10)
+)
+Go
+
+
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'GetPilotsAndCrewToNotify' and
+		        xtype = 'P')
+Drop Procedure GetPilotsAndCrewToNotify
+Go
+Create Procedure GetPilotsAndCrewToNotify @FromDate DateTime = null,  
+											@ToDate DateTime = null  
+as
+/*
+declare   @FromDate DateTime = null,  
+          @ToDate DateTime = null  
+set @FromDate = '01/25/2013'          
+set @ToDate = '01/30/2013'
+  */
+Select * from (  
+Select P.FirstName + ' ' + P.SecondName DisplayName , p.Email, 
+Stuff((Select '   <hr /><br />FlightNo. : ' + S.FlightNo + ' <br /> Date:  ' +  CONVERT(nvarchar(12), s.SectorDate) + '<br /> From : ' +  af.IATACode  + ' To : ' +  at.IATACode  from Sector  S
+Inner Join AirPort af on s.From_AirportID = af.AirPortID
+Inner Join AirPort at on s.To_AirportID = at.AirPortID
+Inner Join SectorPilot SP on SP.SectorID = S.SectorID and 
+								SP.PilotID = P.PilotID
+where   
+   S.SectorDate >= (ISNULL(@FromDate, '01/01/1900')) And   
+   S.SectorDate <= (ISNULL(@ToDate, '01/01/2500')) And   
+   (IsPAX is NULL Or IsPAX <> 1 )  
+for XML path('')),1,3,'') as FlightInfo
+from  Pilot P 
+) A
+Where A.FlightInfo is not null
+
+union
+
+Select * from (  
+Select c.Name DisplayName , c.Email, 
+Stuff((Select '   <hr /><br />FlightNo. : ' + S.FlightNo + ' <br /> Date:  ' +  CONVERT(nvarchar(12), s.SectorDate) + '<br /> From : ' +  af.IATACode  + ' To : ' +  at.IATACode  from Sector  S
+Inner Join AirPort af on s.From_AirportID = af.AirPortID
+Inner Join AirPort at on s.To_AirportID = at.AirPortID
+Inner Join SectorCrew SP on SP.SectorID = S.SectorID and 
+								SP.crewID = C.CrewID
+where   
+   S.SectorDate >= (ISNULL(@FromDate, '01/01/1900')) And   
+   S.SectorDate <= (ISNULL(@ToDate, '01/01/2500')) And   
+   (IsPAX is NULL Or IsPAX <> 1 )  
+for XML path('')),1,3,'') as FlightInfo
+from  crew C 
+) A
+Where A.FlightInfo is not null
+Go
+

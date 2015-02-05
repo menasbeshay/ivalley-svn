@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Flight_BLL;
 using System.Data;
+using System.Net.Mail;
+using System.Net;
 
 namespace Flights_GUI.Operation
 {
@@ -49,8 +51,47 @@ namespace Flights_GUI.Operation
                 Member.PositionID = Convert.ToInt32(uiDropDownListCrewPos.SelectedValue);
                 Member.CrewID = Convert.ToInt32(uiDropDownListCrew.SelectedValue);
                 Member.Save();
+                BindCrew();
+                // send mail to pilot
+                try
+                {
+                    Crew p = new Crew();
+                    p.LoadByPrimaryKey(Convert.ToInt32(uiDropDownListCrew.SelectedValue));
+                    AirPort from = new AirPort();
+                    from.LoadByPrimaryKey(CurrentSector.From_AirportID);
+                    AirPort to = new AirPort();
+                    to.LoadByPrimaryKey(CurrentSector.To_AirportID);
+                    MailMessage msg = new MailMessage();
+                    string mail = GetLocalResourceObject("mail").ToString();
+                    string mailto = p.Email;
+                    msg.To.Add(mailto);
+                    msg.From = new MailAddress(mail);
+                    msg.Subject = GetLocalResourceObject("subject").ToString();
+                    msg.IsBodyHtml = true;
+                    msg.BodyEncoding = System.Text.Encoding.UTF8;
+
+                    msg.Body = string.Format(GetLocalResourceObject("MailBody").ToString(), p.Name, CurrentSector.SectorDate.ToString("dd/MM/yyyy"), CurrentSector.FlightNo, from.IATACode, to.IATACode);
+
+
+                    var smtp = new SmtpClient
+                    {
+                        Host = "smtp.gmail.com",
+                        Port = 587,
+                        EnableSsl = true,
+                        DeliveryMethod = SmtpDeliveryMethod.Network,
+                        UseDefaultCredentials = false,
+                        Credentials = new NetworkCredential(mail, GetLocalResourceObject("pass").ToString())
+                    };
+
+                    smtp.Send(msg);
+
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
             }
-            BindCrew();
+            
         }
 
         protected void uiGridViewCrew_RowCommand(object sender, GridViewCommandEventArgs e)

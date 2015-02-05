@@ -61,8 +61,15 @@ namespace Flights_GUI.Operation
                 populateDDLs();
                 LoadDDLs();
 
+                SystemSettings settings = new SystemSettings();
+                settings.LoadByPrimaryKey(1);
+                uiLabelFlightPrefix.Text = settings.FlightNoPrefix;
+                uiLabelSectorPrefix.Text = settings.FlightNoPrefix;
+
                 uiPanelAllFlights.Visible = true;
                 uiPanelFlightDetails.Visible = false;
+                uiPanelSectors.Visible = false;
+                uiPanelSectorDetails.Visible = false;
 
             }
         }
@@ -106,7 +113,7 @@ namespace Flights_GUI.Operation
                 Flight objData = new Flight();
                 objData.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
                 CurrentFlight = objData;
-                uiTextBoxFlightNo.Text = CurrentFlight.FlightNo;
+                uiTextBoxFlightNo.Text = CurrentFlight.FlightNo.Substring(3);
                 uiRadioButtonListFlightType.SelectedValue = CurrentFlight.FlightTypeID.ToString();
                 uiDropDownListACType.SelectedValue = CurrentFlight.AirCraft_AirPlaneID.ToString();
                 uiRaddatepickerFlightDate.SelectedDate = CurrentFlight.FlightDate;
@@ -319,6 +326,8 @@ namespace Flights_GUI.Operation
                 {
                     Response.Redirect("~/Operation/InitiateSector.aspx?F=" + uiRadDatePickerFrom.SelectedDate.Value.ToString("dd/MM/yyyy") + "&T=" + uiRadDatePickerTo.SelectedDate.Value.ToString("dd/MM/yyyy"));
                 }*/
+                uiPanelAllFlights.Visible = false;
+                uiPanelFlightDetails.Visible = false;
                 uiPanelSectors.Visible = false;
                 uiPanelSectorDetails.Visible = true;
             }
@@ -381,7 +390,7 @@ namespace Flights_GUI.Operation
             else
                 objData = CurrentFlight;
 
-            objData.FlightNo = uiTextBoxFlightNo.Text;
+            objData.FlightNo = uiLabelFlightPrefix.Text + uiTextBoxFlightNo.Text;
             objData.FlightTypeID = Convert.ToInt32(uiRadioButtonListFlightType.SelectedValue);
             objData.AirCraft_AirPlaneID = Convert.ToInt32(uiDropDownListACType.SelectedValue);
             objData.FlightDate = uiRaddatepickerFlightDate.SelectedDate.Value;
@@ -392,6 +401,8 @@ namespace Flights_GUI.Operation
 
             LoadSectors();
             ViewButtons();
+            uiPanelFlightDetails.Visible = true;
+            uiPanelAllFlights.Visible = false;
             uiPanelSectors.Visible = true;
             uiPanelSectorDetails.Visible = false;
             
@@ -399,6 +410,8 @@ namespace Flights_GUI.Operation
 
         protected void uiLinkButtonAddSector_Click(object sender, EventArgs e)
         {
+            uiPanelAllFlights.Visible = false;
+            uiPanelFlightDetails.Visible = false;
             uiPanelSectorDetails.Visible = true;
             uiPanelSectors.Visible = false;
             ClearSectorFields();
@@ -408,6 +421,8 @@ namespace Flights_GUI.Operation
         protected void uiLinkButtonBack_Click(object sender, EventArgs e)
         {
             uiPanelFlightDetails.Visible = false;
+            uiPanelSectorDetails.Visible = false;
+            uiPanelSectors.Visible = false;
             uiPanelAllFlights.Visible = true;
             CurrentFlight = null;
             CurrentSector = null;
@@ -726,7 +741,7 @@ namespace Flights_GUI.Operation
             }
             if (!CurrentSector.IsColumnNull("FlightNo"))
             {
-                uiTextBoxSectorFlightNo.Text = CurrentSector.FlightNo;                
+                uiTextBoxSectorFlightNo.Text = CurrentSector.FlightNo.Substring(3);                
             }
 
             if (!CurrentSector.IsColumnNull("From_AirportID"))
@@ -926,7 +941,7 @@ namespace Flights_GUI.Operation
                     objData.SectorDate = uiRaddatepickerSectorDate.SelectedDate.Value;
                 objData.From_AirportID = Convert.ToInt32(uiDropDownListSectorFrom.SelectedValue);
                 objData.To_AirportID = Convert.ToInt32(uiDropDownListSectorTo.SelectedValue);
-                objData.FlightNo = uiTextBoxSectorFlightNo.Text;
+                objData.FlightNo = uiLabelSectorPrefix.Text + uiTextBoxSectorFlightNo.Text;
                 objData.IsHeavy = uiCheckBoxIsHeavy.Checked;
                 objData.AirCraft_AirPlaneID = Convert.ToInt32(uiDropDownListAirCraftRegistration.SelectedValue);
                 if (uiDropDownListNightCity.SelectedIndex != 0)
@@ -1223,6 +1238,8 @@ namespace Flights_GUI.Operation
 
             }
             ClearSectorFields();
+            uiPanelFlightDetails.Visible = true;
+            uiPanelAllFlights.Visible = false;
             uiPanelSectors.Visible = true;
             uiPanelSectorDetails.Visible = false;
             LoadSectors();
@@ -1232,8 +1249,10 @@ namespace Flights_GUI.Operation
         protected void uiLinkButtonCancelSector_Click(object sender, EventArgs e)
         {
             CurrentSector = null;
-            uiPanelSectorDetails.Visible = false;
-            uiPanelSectors.Visible = true;            
+            uiPanelFlightDetails.Visible = true;
+            uiPanelAllFlights.Visible = false;
+            uiPanelSectors.Visible = true;
+            uiPanelSectorDetails.Visible = false;            
         }
 
        

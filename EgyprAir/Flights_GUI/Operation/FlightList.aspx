@@ -123,13 +123,22 @@
                             <Columns>
                                 <telerik:GridBoundColumn DataField="FlightNo" HeaderText="Flight No.">
                                 </telerik:GridBoundColumn>
-                                <telerik:GridBoundColumn DataField="FlightDate" HeaderText="Date" DataFormatString="{0:dd/MM/yyyy}">
-                                </telerik:GridBoundColumn>
                                 <telerik:GridTemplateColumn HeaderText="Flight Type">
                                     <ItemTemplate>
                                         <asp:Label ID="uiLabelFlightType" runat="server"></asp:Label>
                                     </ItemTemplate>
                                 </telerik:GridTemplateColumn>
+                                
+                                
+                                <telerik:GridBoundColumn DataField="Route" HeaderText="Route">
+                                </telerik:GridBoundColumn>
+
+                                <telerik:GridBoundColumn DataField="FlightDate" HeaderText="Date" DataFormatString="{0:dd/MM/yyyy}">
+                                </telerik:GridBoundColumn>
+                                
+                                <telerik:GridBoundColumn DataField="STD" HeaderText="STD" DataFormatString="{0:HH:mm}">
+                                </telerik:GridBoundColumn>
+
                                 <telerik:GridTemplateColumn HeaderText="Aircraft">
                                     <ItemTemplate>
                                         <asp:Label ID="uiLabelAirCraft" runat="server"></asp:Label>
@@ -166,7 +175,8 @@
         <div class="span12 clearfix" style="margin-left:2.564102564102564%">
             <div class="span2">Flight No.</div>
             <div class="span6">
-                <asp:TextBox ID="uiTextBoxFlightNo" runat="server"></asp:TextBox></div>
+                <asp:Label ID="uiLabelFlightPrefix" runat="server" ></asp:Label>
+                <asp:TextBox ID="uiTextBoxFlightNo" runat="server" Width="20%"></asp:TextBox></div>
             <div class="span4" style="text-align:center;">
                 <asp:LinkButton ID="uiLinkButtonBack" runat="server" CssClass="btn btn-primary" OnClick="uiLinkButtonBack_Click">Back to flights</asp:LinkButton>
             </div>
@@ -201,7 +211,9 @@
                 <asp:LinkButton ID="uiLinkButtonSaveFlight" runat="server" CssClass="btn btn-primary" OnClick="uiLinkButtonSaveFlight_Click" style="margin-right:48%;">Save</asp:LinkButton>
             </div>
         </div>
-        <asp:Panel runat="server" ID="uiPanelSectors" CssClass="space12 clearfix">
+       
+    </asp:Panel>
+    <asp:Panel runat="server" ID="uiPanelSectors" CssClass="space12 clearfix">
             <div class="span12">
                 <h3>
                     Sectors
@@ -266,7 +278,7 @@
                     </div>
             </div>
         </asp:Panel>
-        <asp:Panel runat="server" ID="uiPanelSectorDetails">
+    <asp:Panel runat="server" ID="uiPanelSectorDetails">
             <div id="FlightForm" class="span12 clearfix" style="margin-left:0">
                   <h3>
                     Add / update Sector details
@@ -276,7 +288,8 @@
                         <asp:Label ID="Label37" runat="server" Text="Flight No." CssClass="Label"></asp:Label>
                     </div>
                     <div class="span2">
-                        <asp:TextBox ID="uiTextBoxSectorFlightNo" runat="server" Style="margin-left: -1px;"></asp:TextBox>
+                        <asp:Label ID="uiLabelSectorPrefix" runat="server" ></asp:Label>
+                        <asp:TextBox ID="uiTextBoxSectorFlightNo" runat="server" Style="margin-left: -1px;width:70%"></asp:TextBox>
                     </div>
                     <div class="span2">
                         &nbsp;&nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server"
@@ -729,5 +742,4 @@
                 
             </div>
         </asp:Panel>
-    </asp:Panel>
 </asp:Content>
