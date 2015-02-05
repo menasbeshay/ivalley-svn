@@ -126,11 +126,8 @@
         &lt;td&gt;
             &lt;p&gt;
                 Dear {0},&lt;br /&gt;
-                Kindly be informed that you have been assigned to a new flight with this info:&lt;br /&gt;
-                Date : {1}&lt;br /&gt;
-                Flight No. :{2}&lt;br /&gt;                
-                From : {3}&lt;br /&gt;
-                To : {4}&lt;br /&gt;
+                Kindly be informed that you have been assigned to new flight(s) with this info:&lt;br /&gt;
+             {1}
             &lt;/p&gt;
         &lt;/td&gt;
     &lt;/tr&gt;
@@ -143,6 +140,6 @@
     <value>smtp.gmail.com</value>
   </data>
   <data name="subject" xml:space="preserve">
-    <value>FlyEgypt - New flight has been added to your schedule</value>
+    <value>FlyEgypt - flight schedule has been updated</value>
   </data>
 </root>

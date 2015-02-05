@@ -267,6 +267,22 @@ namespace Flight_DAL
 				}
 			}
 			
+			public static SqlParameter Email
+			{
+				get
+				{
+					return new SqlParameter("@Email", SqlDbType.NVarChar, 200);
+				}
+			}
+			
+			public static SqlParameter Mobile
+			{
+				get
+				{
+					return new SqlParameter("@Mobile", SqlDbType.NVarChar, 50);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -294,6 +310,8 @@ namespace Flight_DAL
             public const string RECURRENT24 = "RECURRENT24";
             public const string SMS = "SMS";
             public const string Security = "security";
+            public const string Email = "Email";
+            public const string Mobile = "Mobile";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -322,6 +340,8 @@ namespace Flight_DAL
 					ht[RECURRENT24] = _Crew.PropertyNames.RECURRENT24;
 					ht[SMS] = _Crew.PropertyNames.SMS;
 					ht[Security] = _Crew.PropertyNames.Security;
+					ht[Email] = _Crew.PropertyNames.Email;
+					ht[Mobile] = _Crew.PropertyNames.Mobile;
 
 				}
 				return (string)ht[columnName];
@@ -355,6 +375,8 @@ namespace Flight_DAL
             public const string RECURRENT24 = "RECURRENT24";
             public const string SMS = "SMS";
             public const string Security = "Security";
+            public const string Email = "Email";
+            public const string Mobile = "Mobile";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -383,6 +405,8 @@ namespace Flight_DAL
 					ht[RECURRENT24] = _Crew.ColumnNames.RECURRENT24;
 					ht[SMS] = _Crew.ColumnNames.SMS;
 					ht[Security] = _Crew.ColumnNames.Security;
+					ht[Email] = _Crew.ColumnNames.Email;
+					ht[Mobile] = _Crew.ColumnNames.Mobile;
 
 				}
 				return (string)ht[propertyName];
@@ -416,6 +440,8 @@ namespace Flight_DAL
             public const string RECURRENT24 = "s_RECURRENT24";
             public const string SMS = "s_SMS";
             public const string Security = "s_Security";
+            public const string Email = "s_Email";
+            public const string Mobile = "s_Mobile";
 
 		}
 		#endregion		
@@ -671,6 +697,30 @@ namespace Flight_DAL
 			set
 	        {
 				base.SetDateTime(ColumnNames.Security, value);
+			}
+		}
+
+		public virtual string Email
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.Email);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.Email, value);
+			}
+		}
+
+		public virtual string Mobile
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.Mobile);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.Mobile, value);
 			}
 		}
 
@@ -994,6 +1044,36 @@ namespace Flight_DAL
 			}
 		}
 
+		public virtual string s_Email
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.Email) ? string.Empty : base.GetstringAsString(ColumnNames.Email);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.Email);
+				else
+					this.Email = base.SetstringAsString(ColumnNames.Email, value);
+			}
+		}
+
+		public virtual string s_Mobile
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.Mobile) ? string.Empty : base.GetstringAsString(ColumnNames.Mobile);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.Mobile);
+				else
+					this.Mobile = base.SetstringAsString(ColumnNames.Mobile, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -1232,6 +1312,26 @@ namespace Flight_DAL
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.Security, Parameters.Security);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter Email
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.Email, Parameters.Email);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter Mobile
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.Mobile, Parameters.Mobile);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -1494,6 +1594,30 @@ namespace Flight_DAL
 				}
 			}
 
+			public WhereParameter Email
+		    {
+				get
+		        {
+					if(_Email_W == null)
+	        	    {
+						_Email_W = TearOff.Email;
+					}
+					return _Email_W;
+				}
+			}
+
+			public WhereParameter Mobile
+		    {
+				get
+		        {
+					if(_Mobile_W == null)
+	        	    {
+						_Mobile_W = TearOff.Mobile;
+					}
+					return _Mobile_W;
+				}
+			}
+
 			private WhereParameter _CrewID_W = null;
 			private WhereParameter _Name_W = null;
 			private WhereParameter _StaffNo_W = null;
@@ -1515,6 +1639,8 @@ namespace Flight_DAL
 			private WhereParameter _RECURRENT24_W = null;
 			private WhereParameter _SMS_W = null;
 			private WhereParameter _Security_W = null;
+			private WhereParameter _Email_W = null;
+			private WhereParameter _Mobile_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -1539,6 +1665,8 @@ namespace Flight_DAL
 				_RECURRENT24_W = null;
 				_SMS_W = null;
 				_Security_W = null;
+				_Email_W = null;
+				_Mobile_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -1805,6 +1933,26 @@ namespace Flight_DAL
 					}
 				}
 
+				public AggregateParameter Email
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Email, Parameters.Email);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter Mobile
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Mobile, Parameters.Mobile);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -2062,6 +2210,30 @@ namespace Flight_DAL
 				}
 			}
 
+			public AggregateParameter Email
+		    {
+				get
+		        {
+					if(_Email_W == null)
+	        	    {
+						_Email_W = TearOff.Email;
+					}
+					return _Email_W;
+				}
+			}
+
+			public AggregateParameter Mobile
+		    {
+				get
+		        {
+					if(_Mobile_W == null)
+	        	    {
+						_Mobile_W = TearOff.Mobile;
+					}
+					return _Mobile_W;
+				}
+			}
+
 			private AggregateParameter _CrewID_W = null;
 			private AggregateParameter _Name_W = null;
 			private AggregateParameter _StaffNo_W = null;
@@ -2083,6 +2255,8 @@ namespace Flight_DAL
 			private AggregateParameter _RECURRENT24_W = null;
 			private AggregateParameter _SMS_W = null;
 			private AggregateParameter _Security_W = null;
+			private AggregateParameter _Email_W = null;
+			private AggregateParameter _Mobile_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -2107,6 +2281,8 @@ namespace Flight_DAL
 				_RECURRENT24_W = null;
 				_SMS_W = null;
 				_Security_W = null;
+				_Email_W = null;
+				_Mobile_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -2263,6 +2439,14 @@ namespace Flight_DAL
 
 			p = cmd.Parameters.Add(Parameters.Security);
 			p.SourceColumn = ColumnNames.Security;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.Email);
+			p.SourceColumn = ColumnNames.Email;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.Mobile);
+			p.SourceColumn = ColumnNames.Mobile;
 			p.SourceVersion = DataRowVersion.Current;
 
 

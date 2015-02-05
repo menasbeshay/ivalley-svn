@@ -148,6 +148,15 @@ namespace Flights_GUI.Operation {
         protected global::System.Web.UI.WebControls.Panel uiPanelFlightDetails;
         
         /// <summary>
+        /// uiLabelFlightPrefix control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label uiLabelFlightPrefix;
+        
+        /// <summary>
         /// uiTextBoxFlightNo control.
         /// </summary>
         /// <remarks>
@@ -254,6 +263,15 @@ namespace Flights_GUI.Operation {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label37;
+        
+        /// <summary>
+        /// uiLabelSectorPrefix control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label uiLabelSectorPrefix;
         
         /// <summary>
         /// uiTextBoxSectorFlightNo control.

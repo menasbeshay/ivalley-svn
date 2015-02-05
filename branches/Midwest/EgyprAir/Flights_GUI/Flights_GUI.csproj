@@ -837,6 +837,7 @@
     <Content Include="js\scripts.js" />
     <Content Include="js\ui-nestable.js" />
     <Content Include="js\ui-tree.js" />
+    <Content Include="Operation\Airports.aspx" />
     <Content Include="Operation\AllPilotStatus.aspx" />
     <Content Include="Operation\Default.aspx" />
     <Content Include="Operation\FlightDetails.aspx" />
@@ -915,6 +916,7 @@
     <Content Include="Scripts\jquery.rating.pack.js" />
     <Content Include="Scripts\newautocomplete.js" />
     <Content Include="Scripts\star.gif" />
+    <Content Include="Operation\sendNotifications.aspx" />
     <Content Include="Styles\css.css" />
     <Content Include="Styles\images\toggle_collapse.png" />
     <Content Include="Styles\images\toggle_collapse_alt.png" />
@@ -1316,6 +1318,13 @@
     <Compile Include="MasterPages\Start.Master.designer.cs">
       <DependentUpon>Start.Master</DependentUpon>
     </Compile>
+    <Compile Include="Operation\Airports.aspx.cs">
+      <DependentUpon>Airports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Operation\Airports.aspx.designer.cs">
+      <DependentUpon>Airports.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Operation\AllPilotStatus.aspx.cs">
       <DependentUpon>AllPilotStatus.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1471,6 +1480,13 @@
     </Compile>
     <Compile Include="Operation\Schedule.aspx.designer.cs">
       <DependentUpon>Schedule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Operation\sendNotifications.aspx.cs">
+      <DependentUpon>sendNotifications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Operation\sendNotifications.aspx.designer.cs">
+      <DependentUpon>sendNotifications.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -1936,6 +1952,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Operation\App_LocalResources\SectorPilots.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Operation\App_LocalResources\sendNotifications.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Operation\App_LocalResources\SectorCabinCrew.aspx.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

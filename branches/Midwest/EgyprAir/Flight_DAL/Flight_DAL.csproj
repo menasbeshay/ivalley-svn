@@ -78,6 +78,7 @@
     <Compile Include="SectorCrew.cs" />
     <Compile Include="SectorPilot.cs" />
     <Compile Include="SubTitle.cs" />
+    <Compile Include="SystemSettings.cs" />
     <Compile Include="Title.cs" />
     <Compile Include="TitleCourse.cs" />
     <Compile Include="Training.cs" />

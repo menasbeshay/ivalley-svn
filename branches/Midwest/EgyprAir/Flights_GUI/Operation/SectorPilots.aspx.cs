@@ -8,6 +8,7 @@ using Flight_BLL;
 using System.Data;
 using System.Net.Mail;
 using System.Configuration;
+using System.Net;
 
 namespace Flights_GUI.Operation
 {
@@ -71,13 +72,19 @@ namespace Flights_GUI.Operation
                     msg.BodyEncoding = System.Text.Encoding.UTF8;
 
                     msg.Body = string.Format(GetLocalResourceObject("MailBody").ToString(), p.FirstName + " " + p.SecondName, CurrentSector.SectorDate.ToString("dd/MM/yyyy"), CurrentSector.FlightNo, from.IATACode, to.IATACode);
-                    
-                    SmtpClient client = new SmtpClient(GetLocalResourceObject("server").ToString(), 25);
-                    //client.EnableSsl = true;
-                    client.UseDefaultCredentials = false;
 
-                    client.Credentials = new System.Net.NetworkCredential(mail, GetLocalResourceObject("pass").ToString());
-                    client.Send(msg);
+
+                    var smtp = new SmtpClient
+                    {
+                        Host = "smtp.gmail.com",
+                        Port = 587,
+                        EnableSsl = true,
+                        DeliveryMethod = SmtpDeliveryMethod.Network,
+                        UseDefaultCredentials = false,
+                        Credentials = new NetworkCredential(mail, GetLocalResourceObject("pass").ToString())
+                    };
+
+                    smtp.Send(msg);
 
                 }
                 catch (Exception)
