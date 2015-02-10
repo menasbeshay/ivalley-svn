@@ -16,11 +16,19 @@ namespace Combo.BLL
         {
             return LoadFromRawSql(@"Select P.*, U.UserName, A.Path ProfilePic, S.IsPostsDownloadable from ComboPost P
                                     Inner Join ComboUser U on P.ComboUserID = U.ComboUserID and 
-                                                              U.IsDeactivated <> 1
+                                                              (U.IsDeactivated <> 1 or U.IsDeactivated is null)
                                     Left join Attachment A on U.ProfileImgID = A.AttachmentID
                                     Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID 
                                     Where P.ComboUserID = {0} and 
                                     (P.IsDeleted <> 1 or P.IsDeleted is null) 
+                                    union
+                                    Select P.*, U.UserName, A.Path ProfilePic, S.IsPostsDownloadable from ComboPost P
+                                    Inner Join ComboUser U on P.ComboUserID = U.ComboUserID and 
+                                                              (U.IsDeactivated <> 1 or U.IsDeactivated is null)
+                                    Left join Attachment A on U.ProfileImgID = A.AttachmentID
+                                    Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID 
+                                    Inner join ComboPostShare PS on PS.ComboUserID = {0}
+                                    Where (P.IsDeleted <> 1 or P.IsDeleted is null) 
                                     order by P.PostDate Desc", userid);
         }
 
@@ -29,7 +37,7 @@ namespace Combo.BLL
             return LoadFromRawSql(@"Select P.*, U.UserName, A.Path ProfilePic , S.IsPostsDownloadable
                                     from ComboPost P
                                     Inner Join ComboUser U on P.ComboUserID = U.ComboUserID and 
-                                                              U.IsDeactivated <> 1                                    
+                                                              (U.IsDeactivated <> 1 or U.IsDeactivated is null)                                    
                                     Inner Join ComboPostLike PL on PL.ComboPostID = P.ComboPostID and 
 							                                       PL.ComboUserID = {0}
                                     Left join Attachment A on U.ProfileImgID = A.AttachmentID
@@ -42,7 +50,7 @@ namespace Combo.BLL
         {
             return LoadFromRawSql(@"Select P.*, U.UserName, A.Path ProfilePic , S.IsPostsDownloadable from ComboPost P
                                     Inner Join ComboUser U on P.ComboUserID = U.ComboUserID and 
-                                                              U.IsDeactivated <> 1
+                                                              (U.IsDeactivated <> 1 or U.IsDeactivated is null)
                                     Left join Attachment A on U.ProfileImgID = A.AttachmentID
                                     Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID
                                     Where P.ComboUserID in (select ComboFollowerID from ProfileFollower PF where PF.ComboUserID = {0}) and 
@@ -55,26 +63,26 @@ namespace Combo.BLL
             return LoadFromRawSql(@"Select P.*, U.UserName, A.Path ProfilePic, S.IsPostsDownloadable 
                                     from ComboPost P
                                     Inner Join ComboUser U on P.ComboUserID = U.ComboUserID and
-                                                              U.IsDeactivated <> 1
+                                                              (U.IsDeactivated <> 1 or U.IsDeactivated is null)
                                     Left join Attachment A on U.ProfileImgID = A.AttachmentID
                                     Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID
                                     inner join ComboUserFriend CF on U.ComboUserID = CF.ComboFriendID and 
 								                                     CF.ComboUserID = {0} and 
                                                                      CF.RequestApproved = 1	and 
-                                                                     CF.InBanned <> 1						 
+                                                                     CF.IsBanned <> 1						 
                                     where (P.IsDeleted <> 1 or P.IsDeleted is null)
 
                                     union 
                                     Select P.*, U.UserName, A.Path ProfilePic, S.IsPostsDownloadable 
                                     from ComboPost P
                                     Inner Join ComboUser U on P.ComboUserID = U.ComboUserID and
-                                                              U.IsDeactivated <> 1
+                                                              (U.IsDeactivated <> 1 or U.IsDeactivated is null)
                                     Left join Attachment A on U.ProfileImgID = A.AttachmentID
                                     Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID
                                     Inner join ComboUserFriend CFF on U.ComboUserID = CFF.ComboUserID and
 								                                      CFF.ComboFriendID = {0} and
                                                                       CF.RequestApproved = 1 and
-                                                                      CF.InBanned <> 1
+                                                                      CF.IsBanned <> 1
                                     where (P.IsDeleted <> 1 or P.IsDeleted is null)
                                     order by P.PostDate Desc", userid);
         }
