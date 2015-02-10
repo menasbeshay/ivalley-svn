@@ -79,10 +79,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ComboAPI\combo.asmx" />
+    <Content Include="ComboAPI\images.aspx" />
     <Content Include="Global.asax" />
     <Content Include="post.html" />
     <Content Include="index.html" />
     <Content Include="js\jquery-1.11.1.min.js" />
+    <Content Include="showpost.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -95,6 +97,13 @@
     </Compile>
     <Compile Include="ComboAPI\FileUploader.ashx.cs">
       <DependentUpon>FileUploader.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ComboAPI\images.aspx.cs">
+      <DependentUpon>images.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ComboAPI\images.aspx.designer.cs">
+      <DependentUpon>images.aspx</DependentUpon>
     </Compile>
     <Compile Include="Controllers\ComboUserController.cs" />
     <Compile Include="Global.asax.cs">
@@ -116,6 +125,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="showpost.aspx.cs">
+      <DependentUpon>showpost.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="showpost.aspx.designer.cs">
+      <DependentUpon>showpost.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

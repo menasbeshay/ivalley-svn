@@ -461,7 +461,12 @@ namespace Combo.ComboAPI
                 ComboComment totalCount = new ComboComment();
                 totalCount.GetPostCommentsCount(item.ComboPostID);
 
-                item.CommentsCount = totalCount.RowCount;
+                item.CommentsCount = Convert.ToInt32(totalCount.GetColumn("TotalCount"));
+
+                ComboPostShare shareCount = new ComboPostShare();
+                shareCount.GetPostShareCount(item.ComboPostID);
+
+                item.ShareCount = Convert.ToInt32(shareCount.GetColumn("TotalCount"));
 
                 ComboComment comments = new ComboComment();
                 comments.GetTopPostCommentsByPostID(item.ComboPostID);
@@ -578,7 +583,12 @@ namespace Combo.ComboAPI
                 ComboComment totalCount = new ComboComment();
                 totalCount.GetPostCommentsCount(item.ComboPostID);
 
-                item.CommentsCount = totalCount.RowCount;
+                item.CommentsCount = Convert.ToInt32(totalCount.GetColumn("TotalCount"));
+
+                ComboPostShare shareCount = new ComboPostShare();
+                shareCount.GetPostShareCount(item.ComboPostID);
+
+                item.ShareCount = Convert.ToInt32(shareCount.GetColumn("TotalCount"));
 
                 ComboComment comments = new ComboComment();
                 comments.GetTopPostCommentsByPostID(item.ComboPostID);
@@ -674,6 +684,9 @@ namespace Combo.ComboAPI
             ComboComment totalCount = new ComboComment();
             totalCount.GetPostCommentsCount(post.ComboPostID);
 
+            ComboPostShare shareCount = new ComboPostShare();
+            shareCount.GetPostShareCount(post.ComboPostID);
+
             
             
             List<Models.ComboPost> Post = post.DefaultView.Table.AsEnumerable().Select(row =>
@@ -687,7 +700,8 @@ namespace Combo.ComboAPI
                     PostText = row["PostText"].ToString(),
                     PostDate = Convert.ToDateTime(row["PostDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
                     IsDownloadable = (row["IsPostsDownloadable"] == DBNull.Value) ? false : Convert.ToBoolean(row["IsPostsDownloadable"]),
-                    CommentsCount = totalCount.RowCount,
+                    CommentsCount = Convert.ToInt32(totalCount.GetColumn("TotalCount")),
+                    ShareCount = Convert.ToInt32(shareCount.GetColumn("TotalCount")),
                     Likes =  likes.DefaultView.Table.AsEnumerable().Select(r =>
                     {
                         return new Models.ComboPostLike
@@ -1023,7 +1037,12 @@ namespace Combo.ComboAPI
                 ComboComment totalCount = new ComboComment();
                 totalCount.GetPostCommentsCount(item.ComboPostID);
 
-                item.CommentsCount = totalCount.RowCount;
+                item.CommentsCount = Convert.ToInt32(totalCount.GetColumn("TotalCount"));
+
+                ComboPostShare shareCount = new ComboPostShare();
+                shareCount.GetPostShareCount(item.ComboPostID);
+
+                item.ShareCount = Convert.ToInt32(shareCount.GetColumn("TotalCount"));
 
                 ComboComment comments = new ComboComment();
                 comments.GetTopPostCommentsByPostID(item.ComboPostID);
@@ -1140,7 +1159,12 @@ namespace Combo.ComboAPI
                 ComboComment totalCount = new ComboComment();
                 totalCount.GetPostCommentsCount(item.ComboPostID);
 
-                item.CommentsCount = totalCount.RowCount;
+                item.CommentsCount = Convert.ToInt32(totalCount.GetColumn("TotalCount"));
+
+                ComboPostShare shareCount = new ComboPostShare();
+                shareCount.GetPostShareCount(item.ComboPostID);
+
+                item.ShareCount = Convert.ToInt32(shareCount.GetColumn("TotalCount"));
 
                 ComboComment comments = new ComboComment();
                 comments.GetTopPostCommentsByPostID(item.ComboPostID);
@@ -1228,6 +1252,32 @@ namespace Combo.ComboAPI
             post.ComboPostID = id;
             post.ReportDate = DateTime.UtcNow.Date;
             post.ReportText = description;
+            post.Save();
+
+            _response.Entity = null;
+            SetContentResult(_response);
+
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        /// <summary>
+        /// Report Post By ID
+        /// </summary>
+        /// <param name="ID">ID of Post</param>
+        /// <returns>ComboResponse object </returns>
+        public void SharePost(int PostId, int UserId)
+        {
+            Models.ComboResponse _response = new Models.ComboResponse();
+            _response.bool_result = true;
+            _response.ErrorCode = 0;
+            _response.ErrorMsg = "";
+
+            ComboPostShare post = new ComboPostShare();
+            post.AddNew();
+            post.ComboPostID = PostId;
+            post.ShareDate = DateTime.UtcNow.Date;
+            post.ComboUserID = UserId;
             post.Save();
 
             _response.Entity = null;
@@ -1329,17 +1379,18 @@ namespace Combo.ComboAPI
 
             JavaScriptSerializer js = new JavaScriptSerializer();
             Models.Attachment[] att = js.Deserialize<Models.Attachment[]>(js.Serialize(comment.Attachments));
-
-            ComboCommentAttachment attachment = new ComboCommentAttachment();
-            foreach (Models.Attachment item in att)
+            if (att != null)
             {
-                attachment.AddNew();
-                attachment.AttachmentID = item.AttachmentID;
-                attachment.ComboCommnetID = newComment.ComboCommentID;
+                ComboCommentAttachment attachment = new ComboCommentAttachment();
+                foreach (Models.Attachment item in att)
+                {
+                    attachment.AddNew();
+                    attachment.AttachmentID = item.AttachmentID;
+                    attachment.ComboCommnetID = newComment.ComboCommentID;
 
+                }
+                attachment.Save();
             }
-            attachment.Save();
-
             comment.ComboCommentID = newComment.ComboCommentID;
             comment.CommentDate = newComment.CommentDate.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
             _response.Entity = new Models.ComboComment[] { comment };
@@ -1758,6 +1809,7 @@ namespace Combo.ComboAPI
             newMsg.MsgDate = DateTime.UtcNow.Date;
             newMsg.IsRead = false;
             newMsg.Save();
+            
 
             string[] ToIds = msg.ToIds.Split(',');
             ComboUserMsg tomsg = new ComboUserMsg();
@@ -1768,6 +1820,51 @@ namespace Combo.ComboAPI
                 tomsg.ComboMsgID = newMsg.ComboMsgID;
             }
             tomsg.Save();
+
+            /**************************/
+            // save notification and push it to device             
+            ComboUser creator = new ComboUser();
+            ComboUser commentor = new ComboUser();
+            creator.LoadByPrimaryKey(newMsg.ComboUserID);
+            
+
+            List<Models.ComboMessage> amsg = newMsg.DefaultView.Table.AsEnumerable().Select(row =>
+            {
+                return new Models.ComboMessage
+                {
+                    ComboMsgID = Convert.ToInt32(row["ComboMsgID"]),
+                    ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                    ComboUserName = creator.UserName
+                };
+            }).ToList();
+
+            foreach (string item in ToIds)
+            {
+                ComboNotification notification = new ComboNotification();
+                notification.AddNew();
+                notification.ComboUserID = Convert.ToInt32(item);
+                notification.NotificationType = 4; // new Msg recieved
+                notification.NotificationDate = DateTime.UtcNow.Date;
+                notification.NotificationBody = Newtonsoft.Json.JsonConvert.SerializeObject(amsg);
+                notification.IsRead = false;
+                notification.Save();
+
+                List<Models.ComboNotification> notificationJson = notification.DefaultView.Table.AsEnumerable().Select(row =>
+                {
+                    return new Models.ComboNotification
+                    {
+                        ComboNotificationID = Convert.ToInt32(row["ComboNotificationID"]),
+                        ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                        IsRead = Convert.ToBoolean(row["IsRead"]),
+                        NotificationBody = row["NotificationBody"].ToString(),
+                        NotificationDate = Convert.ToDateTime(row["NotificationDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                        NotificationType = Convert.ToInt32(row["NotificationType"])
+                    };
+                }).ToList();
+
+                SendGCMNotification(Newtonsoft.Json.JsonConvert.SerializeObject(notificationJson), creator.DeviceID);
+            }
+            /**************************/
 
             JavaScriptSerializer js = new JavaScriptSerializer();
             Models.Attachment[] att = js.Deserialize<Models.Attachment[]>(js.Serialize(msg.Attachments));
@@ -1890,7 +1987,7 @@ namespace Combo.ComboAPI
                 ComboComment totalCount = new ComboComment();
                 totalCount.GetMsgCommentsCount(item.ComboMsgID);
 
-                item.CommentsCount = totalCount.RowCount;
+                item.CommentsCount = Convert.ToInt32(totalCount.GetColumn("TotalCount"));
 
                 ComboComment comments = new ComboComment();
                 comments.GetTopMsgsCommentsByPostID(item.ComboMsgID);
@@ -1951,6 +2048,103 @@ namespace Combo.ComboAPI
 
         }
 
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        /// <summary>
+        /// Get All Posts by Userid
+        /// </summary>
+        /// <param name="ID">ID of Combo User</param>
+        /// <returns>ComboResponse object with List of all posts for User</returns>
+        public void GetMessagesBetweenUsers(int _1stUserID,int _2ndUserID ,int Page)
+        {
+            Models.ComboResponse _response = new Models.ComboResponse();
+            _response.bool_result = true;
+            _response.ErrorCode = 0;
+            _response.ErrorMsg = "";
+
+            ComboMsg Messages = new ComboMsg();
+            Messages.GetMessagesBetweenUsers(_1stUserID, _2ndUserID);
+            List<Models.ComboMessage> Msgs = Messages.DefaultView.Table.AsEnumerable().Select(row =>
+            {
+                return new Models.ComboMessage
+                {
+                    ComboMsgID = Convert.ToInt32(row["ComboMsgID"]),
+                    ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                    ComboUserName = row["UserName"].ToString(),
+                    ProfilePic = row["ProfilePic"].ToString(),
+                    MsgText = row["MsgText"].ToString(),
+                    MsgDate = Convert.ToDateTime(row["MsgDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                    ToIds = row["ToIds"].ToString()
+                };
+            }).Skip(Page * MsgsPageSize).Take(MsgsPageSize).ToList();
+
+
+            foreach (Models.ComboMessage item in Msgs)
+            {
+                ComboComment totalCount = new ComboComment();
+                totalCount.GetMsgCommentsCount(item.ComboMsgID);
+
+                item.CommentsCount = Convert.ToInt32(totalCount.GetColumn("TotalCount"));
+
+                ComboComment comments = new ComboComment();
+                comments.GetTopMsgsCommentsByPostID(item.ComboMsgID);
+                // get top 3 comments for each post
+                item.Comments = comments.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.ComboComment
+                    {
+                        ComboCommentID = Convert.ToInt32(r["ComboCommentID"]),
+                        ComboMsgID = Convert.ToInt32(r["ComboMsgID"]),
+                        ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                        ComboUserName = r["UserName"].ToString(),
+                        ProfilePic = r["ProfilePic"].ToString(),
+                        CommentText = r["CommentText"].ToString(),
+                        CommentDate = Convert.ToDateTime(r["CommentDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                    };
+                }).ToList();
+
+                List<Models.ComboComment> _comm = item.Comments as List<Models.ComboComment>;
+                foreach (Models.ComboComment _itemcomm in _comm)
+                {
+
+                    ComboCommentAttachment c_attachments = new ComboCommentAttachment();
+
+                    c_attachments.GetCommentAttachmentsByCommentID(_itemcomm.ComboCommentID);
+
+                    _itemcomm.Attachments = c_attachments.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.Attachment
+                        {
+                            AttachmentID = Convert.ToInt32(r["AttachmentID"]),
+                            Path = r["Path"].ToString(),
+                            AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"]),
+                            ThumbsPath = r["ThumbsPath"].ToString()
+                        };
+                    }).ToList();
+                }
+
+                item.Comments = _comm;
+
+                ComboMsgAttachment attachments = new ComboMsgAttachment();
+                attachments.GetMsgAttachmentsByPostID(item.ComboMsgID);
+                item.Attachments = attachments.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.Attachment
+                    {
+                        AttachmentID = Convert.ToInt32(r["AttachmentID"]),
+                        Path = r["Path"].ToString(),
+                        AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"]),
+                        ThumbsPath = r["ThumbsPath"].ToString()
+                    };
+                }).ToList();
+            }
+
+            _response.Entity = Msgs;
+            SetContentResult(_response);
+            //return _response;
+
+        }
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         /// <summary>
@@ -1987,7 +2181,7 @@ namespace Combo.ComboAPI
                 ComboComment totalCount = new ComboComment();
                 totalCount.GetMsgCommentsCount(item.ComboMsgID);
 
-                item.CommentsCount = totalCount.RowCount;
+                item.CommentsCount = Convert.ToInt32(totalCount.GetColumn("TotalCount"));
 
                 ComboComment comments = new ComboComment();
                 comments.GetMsgsCommentsByPostID(item.ComboMsgID);
@@ -2047,6 +2241,30 @@ namespace Combo.ComboAPI
             //return _response;
 
         }
+
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        /// <summary>
+        /// Delete Post By ID
+        /// </summary>
+        /// <param name="ID">ID of Post</param>
+        /// <returns>ComboResponse object </returns>
+        public void DeleteMsg(int id)
+        {
+            Models.ComboResponse _response = new Models.ComboResponse();
+            _response.bool_result = true;
+            _response.ErrorCode = 0;
+            _response.ErrorMsg = "";
+
+            ComboMsg msg = new ComboMsg();
+            msg.LoadByPrimaryKey(id);
+            msg.IsDeleted = true;
+            msg.Save();
+            _response.Entity = null;
+            SetContentResult(_response);
+
+        }       
 
         #endregion
 
@@ -2233,6 +2451,35 @@ namespace Combo.ComboAPI
 
         }
 
+
+        [WebMethod]
+        /// <summary>
+        /// Toggle Notification isread By ID
+        /// </summary>
+        /// <param name="ID">ID of notification</param>
+        /// <param name="IsRead">true or false</param>
+        /// <returns>ComboResponse object </returns>
+        public void ToggleNotificationIsRead(int id, bool isRead)
+        {
+            Models.ComboResponse _response = new Models.ComboResponse();
+            _response.bool_result = true;
+            _response.ErrorCode = 0;
+            _response.ErrorMsg = "";
+
+
+            ComboNotification notification = new ComboNotification();
+            if (notification.LoadByPrimaryKey(id))
+            {
+                notification.IsRead = isRead;
+                notification.Save();
+
+            }
+
+
+            _response.Entity = null;
+            SetContentResult(_response);
+
+        }
         #endregion
 
         #region UserSettings

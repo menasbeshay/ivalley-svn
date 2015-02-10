@@ -18,20 +18,47 @@ namespace Combo.BLL
             return LoadFromRawSql(@"Select M.*, U.UserName, A.Path ProfilePic , Stuff((select ',' + STR(UM.ComboUserID) from ComboUserMsg UM where UM.ComboMsgID = M.ComboMsgID for XML path('')),1,1,'') ToIds 
                                     from ComboMsg M
                                     Inner Join ComboUser U on M.ComboUserID = U.ComboUserID and 
-                                                              U.IsDeactivated <> 1
+                                                              (U.IsDeactivated <> 1 or U.IsDeactivated is null)
                                     Left join Attachment A on U.ProfileImgID = A.AttachmentID
-                                    Where M.ComboMsgID = {0}", MsgId);
+                                    Where M.ComboMsgID = {0} and                                     
+                                    (M.IsDeleted <> 1 or M.IsDeleted is null) ", MsgId);
         }
 
         public virtual bool GetUserMessages(int UserId)
         {
             return LoadFromRawSql(@"Select M.*, U.UserName, A.Path ProfilePic , Stuff((select ',' + STR(UM.ComboUserID) from ComboUserMsg UM where UM.ComboMsgID = M.ComboMsgID for XML path('')),1,1,'') ToIds 
                                     from ComboMsg M
-                                    Inner join ComboMsgUser CM on M.
                                     Inner Join ComboUser U on M.ComboUserID = U.ComboUserID and 
-                                                              U.IsDeactivated <> 1
+                                                              (U.IsDeactivated <> 1 or U.IsDeactivated is null)
                                     Left join Attachment A on U.ProfileImgID = A.AttachmentID
-                                    Where M.ComboMsgID = {0}", UserId);
+                                    Inner join ComboUserMsg CM on M.ComboMsgID = CM.ComboMsgID
+                                    Where CM.ComboUserID = {0}  and                                     
+                                    (M.IsDeleted <> 1 or M.IsDeleted is null) ", UserId);
+        }
+
+        public virtual bool GetMessagesBetweenUsers(int _1stUserId, int _2ndUserId)
+        {
+            return LoadFromRawSql(@"Select M.*, U.UserName, A.Path ProfilePic , Stuff((select ',' + STR(UM.ComboUserID) from ComboUserMsg UM where UM.ComboMsgID = M.ComboMsgID for XML path('')),1,1,'') ToIds 
+                                    from ComboMsg M
+                                    Inner Join ComboUser U on M.ComboUserID = U.ComboUserID and 
+                                                              (U.IsDeactivated <> 1 or U.IsDeactivated is null)
+                                    Left join Attachment A on U.ProfileImgID = A.AttachmentID
+                                    Inner join ComboUserMsg CM on M.ComboMsgID = CM.ComboMsgID
+                                    Where CM.ComboUserID = {0} and 
+	                                      M.ComboUserID = {1}  and                                     
+                                    (M.IsDeleted <> 1 or M.IsDeleted is null) 
+
+                                    union 
+                                    Select M.*, U.UserName, A.Path ProfilePic , Stuff((select ',' + STR(UM.ComboUserID) from ComboUserMsg UM where UM.ComboMsgID = M.ComboMsgID for XML path('')),1,1,'') ToIds 
+                                    from ComboMsg M
+                                    Inner Join ComboUser U on M.ComboUserID = U.ComboUserID and 
+                                                              (U.IsDeactivated <> 1 or U.IsDeactivated is null)
+                                    Left join Attachment A on U.ProfileImgID = A.AttachmentID
+                                    Inner join ComboUserMsg CM on M.ComboMsgID = CM.ComboMsgID
+                                    Where CM.ComboUserID = {1} and 
+	                                      M.ComboUserID = {0}  and                                     
+                                    (M.IsDeleted <> 1 or M.IsDeleted is null) 
+                                    order by M.MsgDate desc", _1stUserId, _2ndUserId);
         }
 	}
 }

@@ -36,16 +36,19 @@ namespace Combo.ComboAPI
             string location = context.Server.MapPath("~/userfiles/"+ userid.ToString() + "/") + fileName + ext;
             string thumblocation = context.Server.MapPath("~/userfiles/" + userid.ToString() + "/thumb_") + fileName + ".jpg";
             context.Request.Files[0].SaveAs(location);
-
+            
+            BLL.Attachment newfile = new BLL.Attachment();
+            newfile.AddNew();
             if (typeid == 3)
             {
                 (new NReco.VideoConverter.FFMpegConverter()).GetVideoThumbnail(location, thumblocation);
+                newfile.ThumbsPath = "/userfiles/" + userid.ToString() + "/thumb_" + fileName + ".jpg";
             }
 
-            BLL.Attachment newfile = new BLL.Attachment();
-            newfile.AddNew();
+           
             newfile.Path = "/userfiles/"+ userid.ToString() + "/" + fileName + ext;
-            newfile.AttachmentTypeID = typeid;            
+            newfile.AttachmentTypeID = typeid;
+            
             newfile.Save();
 
             if (isCover || isProfile)
@@ -62,6 +65,8 @@ namespace Combo.ComboAPI
             Models.Attachment responseText = new Models.Attachment();
             responseText.AttachmentID = newfile.AttachmentID;
             responseText.Path = newfile.Path;
+            if (newfile.AttachmentTypeID == 3)
+                responseText.ThumbsPath = newfile.ThumbsPath;
             responseText.AttachmentTypeID = newfile.AttachmentTypeID;
 
             Models.ComboResponse _response = new Models.ComboResponse();

@@ -17,7 +17,7 @@ namespace Combo.BLL
             return LoadFromRawSql(@"Select CU.*, A.Path ProfilePic from ProfileFollower PF
                                     Inner Join ComboUser CU on PF.ComboFollowerID = CU.ComboUserID
                                     Left join Attachment A on CU.ProfileImgID = A.AttachmentID
-                                    Where PF.ComboUserID = {0}", userid);
+                                    Where PF.ComboUserID = {0} and (CU.IsDeactivated <> 1 or CU.IsDeactivated is null)", userid);
         }
 
         public virtual bool GetProfileFollowingByUserID(int userid)
@@ -25,7 +25,7 @@ namespace Combo.BLL
             return LoadFromRawSql(@"Select CU.*, A.Path ProfilePic from ProfileFollower PF
                                     Inner Join ComboUser CU on PF.ComboUserID = CU.ComboUserID
                                     Left join Attachment A on CU.ProfileImgID = A.AttachmentID
-                                    Where PF.ComboFollowerID = {0}", userid);
+                                    Where PF.ComboFollowerID = {0} and (CU.IsDeactivated <> 1 or CU.IsDeactivated is null)", userid);
         }
        
      
