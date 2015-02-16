@@ -117,6 +117,7 @@
     <Compile Include="Models\ComboPost.cs" />
     <Compile Include="Models\ComboPostLike.cs" />
     <Compile Include="Models\ComboResponse.cs" />
+    <Compile Include="Models\ComboSharePost.cs" />
     <Compile Include="Models\ComboUser.cs" />
     <Compile Include="Models\FriendRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

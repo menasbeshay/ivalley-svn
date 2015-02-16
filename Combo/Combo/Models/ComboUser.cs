@@ -28,5 +28,10 @@ namespace Combo.Models
         public int PostsCount { get; set; }
         public int PostsLikeCount { get; set; }
         public int FriendsCount { get; set; }
+        public bool IsFollower { get; set; }
+        public bool IsFollowing { get; set; }
+        public bool IsFriend { get; set; }
+        public bool IsFriendRequestSent { get; set; }
+
     }
 }

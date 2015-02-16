@@ -78,7 +78,7 @@ namespace Combo.BLL
                                     Where C.ComboMsgID = {0}", mid);
         }
 
-        public virtual bool GetMsgsCommentsByPostID(int mid)
+        public virtual bool GetMsgsCommentsByMsgID(int mid)
         {
             //this.Where.ComboPostID.Value = pid;
             //this.Where.ComboPostID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;            

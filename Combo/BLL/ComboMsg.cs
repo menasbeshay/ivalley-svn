@@ -29,11 +29,24 @@ namespace Combo.BLL
             return LoadFromRawSql(@"Select M.*, U.UserName, A.Path ProfilePic , Stuff((select ',' + STR(UM.ComboUserID) from ComboUserMsg UM where UM.ComboMsgID = M.ComboMsgID for XML path('')),1,1,'') ToIds 
                                     from ComboMsg M
                                     Inner Join ComboUser U on M.ComboUserID = U.ComboUserID and 
-                                                              (U.IsDeactivated <> 1 or U.IsDeactivated is null)
+                                                                (U.IsDeactivated <> 1 or U.IsDeactivated is null)
                                     Left join Attachment A on U.ProfileImgID = A.AttachmentID
                                     Inner join ComboUserMsg CM on M.ComboMsgID = CM.ComboMsgID
                                     Where CM.ComboUserID = {0}  and                                     
-                                    (M.IsDeleted <> 1 or M.IsDeleted is null) ", UserId);
+                                    (M.IsDeleted <> 1 or M.IsDeleted is null) 
+
+                                    union 
+
+                                    Select M.*, U.UserName, A.Path ProfilePic , Stuff((select ',' + STR(UM.ComboUserID) from ComboUserMsg UM where UM.ComboMsgID = M.ComboMsgID for XML path('')),1,1,'') ToIds 
+                                    from ComboMsg M
+                                    Inner Join ComboUser U on M.ComboUserID = U.ComboUserID and 
+                                                                (U.IsDeactivated <> 1 or U.IsDeactivated is null)
+                                    Left join Attachment A on U.ProfileImgID = A.AttachmentID
+                                    Inner join ComboUserMsg CM on M.ComboMsgID = CM.ComboMsgID
+                                    Where M.ComboUserID = {0}  and                                     
+                                    (M.IsDeleted <> 1 or M.IsDeleted is null) 
+
+                                    Order by MsgDate Desc", UserId);
         }
 
         public virtual bool GetMessagesBetweenUsers(int _1stUserId, int _2ndUserId)

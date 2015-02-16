@@ -42,7 +42,7 @@ namespace Combo.Models
         /// 2- comment on post
         /// 3- friend request
         /// </summary>
-        public int NotificationType { get; set; }        
+        //public int NotificationType { get; set; }        
 
     }
     
