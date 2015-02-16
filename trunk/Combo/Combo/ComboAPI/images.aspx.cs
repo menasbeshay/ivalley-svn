@@ -15,7 +15,7 @@ namespace Combo.ComboAPI
         {
             string imgPath;
             int maxWidth = 300;
-            int maxHeight = 200;
+            int maxHeight = 0;
             if (!string.IsNullOrEmpty(Request.QueryString["w"]))
             {
                 maxWidth = Convert.ToInt32(Request.QueryString["w"].ToString());

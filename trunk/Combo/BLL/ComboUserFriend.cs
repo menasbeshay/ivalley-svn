@@ -3,6 +3,9 @@
 
 using System;
 using Combo.DAL;
+using System.Collections.Specialized;
+using System.Data.SqlClient;
+using System.Data;
 namespace Combo.BLL
 {
 	public class ComboUserFriend : _ComboUserFriend
@@ -30,35 +33,41 @@ namespace Combo.BLL
         public virtual bool SearchForFriendsByUserID(int userid, string searchText)
         {
             // get friends - followers - followings - users 
-            return LoadFromRawSql(@"Select CU.*, A.Path ProfilePic from ComboUserFriend CF
-                                    Inner Join ComboUser CU on CF.ComboFriendID = CU.ComboUserID and
-                                                               (CU.IsDeactivated <> 1 or CU.IsDeactivated is null)
+            /*return LoadFromRawSql(@"Select CU.*, A.Path ProfilePic from ComboUserFriend CF
+                                    Inner Join ComboUser CU on CF.ComboFriendID = CU.ComboUserID and 
+                                                                (CU.IsDeactivated <> 1 or CU.IsDeactivated is null)
                                     Left join Attachment A on CU.ProfileImgID = A.AttachmentID
-                                    where CF.ComboUserID = {0} and CF.RequestApproved = 1 and CF.IsBanned <> 1 and CU.Username like '%{1}%'
+                                    where CF.ComboUserID = {0} and CF.RequestApproved = 1 and (cf.isBanned = 1 or cf.isbanned is null) and CU.Username like '%{1}%'
                                     union 
                                     Select CU.*, A.Path ProfilePic from ComboUserFriend CF
                                     Inner Join ComboUser CU on CF.ComboUserID = CU.ComboUserID and 
-                                                         (CU.IsDeactivated <> 1 or CU.IsDeactivated is null)
+                                                                (CU.IsDeactivated <> 1 or CU.IsDeactivated is null)
                                     Left join Attachment A on CU.ProfileImgID = A.AttachmentID
-                                    where CF.ComboFriendID = {0} and CF.RequestApproved = 1 and CF.IsBanned <> 1 and CU.Username like '%{1}%'
+                                    where CF.ComboFriendID = {0} and CF.RequestApproved = 1 and (cf.isBanned = 1 or cf.isbanned is null)  and CU.Username like '%{1}%'
                                     union
                                     Select CU.*, A.Path ProfilePic from ProfileFollower PF
                                     Inner Join ComboUser CU on PF.ComboFollowerID = CU.ComboUserID and
-                                                               (CU.IsDeactivated <> 1 or CU.IsDeactivated is null)
+                                                                (CU.IsDeactivated <> 1 or CU.IsDeactivated is null)
                                     Left join Attachment A on CU.ProfileImgID = A.AttachmentID
                                     Where PF.ComboUserID = {0} and CU.Username like '%{1}%'
                                     union
                                     Select CU.*, A.Path ProfilePic from ProfileFollower PF
                                     Inner Join ComboUser CU on PF.ComboUserID = CU.ComboUserID and
-                                                               (CU.IsDeactivated <> 1 or CU.IsDeactivated is null)
+                                                                (CU.IsDeactivated <> 1 or CU.IsDeactivated is null)
                                     Left join Attachment A on CU.ProfileImgID = A.AttachmentID
                                     Where PF.ComboFollowerID = {0} and CU.Username like '%{1}%'
                                     union 
                                     Select CU.*, A.Path ProfilePic from ComboUser CU                                                                                    
                                     Left join Attachment A on CU.ProfileImgID = A.AttachmentID
-                                    where CU.Username like '%{1}%' and CU.IsDeactivated <> 1
+                                    where CU.Username like '%{1}%' and (CU.IsDeactivated <> 1 or CU.IsDeactivated is null)
                                     order by Username asc
                                     ", userid, searchText);
+            */
+
+            ListDictionary parameters = new ListDictionary();
+            parameters.Add(new SqlParameter("@UserID", SqlDbType.NVarChar, 200), userid);
+            parameters.Add(new SqlParameter("@FilterText", SqlDbType.NVarChar, 200), searchText);
+            return LoadFromSql("SearchForFriends", parameters);
         }
 	}
 }
