@@ -10,5 +10,6 @@ namespace Combo.Models
         public int ComboPostID { get; set; }
         public int ComboUserID { get; set; }
         public string UserName { get; set; }
+        public string DisplayName { get; set; }
     }
 }

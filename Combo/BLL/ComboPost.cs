@@ -23,13 +23,14 @@ namespace Combo.BLL
                                     Where P.ComboUserID = {0} and 
                                     (P.IsDeleted <> 1 or P.IsDeleted is null) 
                                     union
-                                    Select P.*, U.UserName, A.Path ProfilePic, S.IsPostsDownloadable from ComboPost P
-                                    Inner Join ComboUser U on P.ComboUserID = U.ComboUserID and 
-                                                              (U.IsDeactivated <> 1 or U.IsDeactivated is null)
-                                    Left join Attachment A on U.ProfileImgID = A.AttachmentID
+                                    Select P.*, U.UserName, A.Path ProfilePic, S.IsPostsDownloadable from ComboPost P                                                                        
                                     Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID 
-                                    Inner join ComboPostShare PS on PS.ComboUserID = {0}
-                                    Where (P.IsDeleted <> 1 or P.IsDeleted is null) 
+                                    Inner join ComboPostShare PS on PS.ComboPostID = P.ComboPostID and 
+																	PS.ComboUserID = {0}
+                                    Inner Join ComboUser U on P.ComboUserID = U.ComboUserID and															   
+                                                              (U.IsDeactivated <> 1 or U.IsDeactivated is null)
+									Left join Attachment A on U.ProfileImgID = A.AttachmentID
+                                    Where (P.IsDeleted <> 1 or P.IsDeleted is null)
                                     union
                                     Select P.*, U.UserName, A.Path ProfilePic , S.IsPostsDownloadable from ComboPost P
                                     Inner Join ComboUser U on P.ComboUserID = U.ComboUserID and 

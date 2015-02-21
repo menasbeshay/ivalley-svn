@@ -186,7 +186,7 @@
             var alldata = new FormData();
             alldata.append('file',$('#afile')[0].files[0]);
             alldata.append('UserId', 9);
-            alldata.append("Type", 3);
+            alldata.append("Type", 2);
             //var json = JSON.stringify(alldata);
 
             $.ajax({
@@ -246,7 +246,7 @@
         }
 
         function addComment() {
-            var comment = { comment: { ComboUserID: 7, CommentText: $('#text').val(), ComboPostID: 4 } };
+            var comment = { comment: { ComboUserID: 7, CommentText: $('#text').val(), ComboPostID: 4, Attachments: [{AttachmentID:5}] } };
             var json = JSON.stringify(comment);
 
             $.ajax({
@@ -286,7 +286,7 @@
     <input id="text" type="text" />
     <input id="pass" type="password" />
     <input id="email" type="text" />
-    <input id="Button1" type="button" value="add" onclick="addComment()" />
+    <input id="Button1" type="button" value="add comment" onclick="addComment()" />
     <input id="Button1" type="button" value="get user by user name" onclick="getuserbyuernameandpass()" />
     <input id="Button1" type="button" value="get user by id" onclick="getuserbyid()" />
     <input id="Button1" type="button" value="get all users" onclick="getUsers()" />

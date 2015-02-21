@@ -227,6 +227,22 @@ namespace Combo.DAL
 				}
 			}
 			
+			public static SqlParameter SecurityQuestion
+			{
+				get
+				{
+					return new SqlParameter("@SecurityQuestion", SqlDbType.NVarChar, 200);
+				}
+			}
+			
+			public static SqlParameter SecurityAnswer
+			{
+				get
+				{
+					return new SqlParameter("@SecurityAnswer", SqlDbType.NVarChar, 200);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -249,6 +265,8 @@ namespace Combo.DAL
             public const string DeviceID = "DeviceID";
             public const string PassResetCode = "PassResetCode";
             public const string IsDeactivated = "IsDeactivated";
+            public const string SecurityQuestion = "SecurityQuestion";
+            public const string SecurityAnswer = "SecurityAnswer";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -272,6 +290,8 @@ namespace Combo.DAL
 					ht[DeviceID] = _ComboUser.PropertyNames.DeviceID;
 					ht[PassResetCode] = _ComboUser.PropertyNames.PassResetCode;
 					ht[IsDeactivated] = _ComboUser.PropertyNames.IsDeactivated;
+					ht[SecurityQuestion] = _ComboUser.PropertyNames.SecurityQuestion;
+					ht[SecurityAnswer] = _ComboUser.PropertyNames.SecurityAnswer;
 
 				}
 				return (string)ht[columnName];
@@ -300,6 +320,8 @@ namespace Combo.DAL
             public const string DeviceID = "DeviceID";
             public const string PassResetCode = "PassResetCode";
             public const string IsDeactivated = "IsDeactivated";
+            public const string SecurityQuestion = "SecurityQuestion";
+            public const string SecurityAnswer = "SecurityAnswer";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -323,6 +345,8 @@ namespace Combo.DAL
 					ht[DeviceID] = _ComboUser.ColumnNames.DeviceID;
 					ht[PassResetCode] = _ComboUser.ColumnNames.PassResetCode;
 					ht[IsDeactivated] = _ComboUser.ColumnNames.IsDeactivated;
+					ht[SecurityQuestion] = _ComboUser.ColumnNames.SecurityQuestion;
+					ht[SecurityAnswer] = _ComboUser.ColumnNames.SecurityAnswer;
 
 				}
 				return (string)ht[propertyName];
@@ -351,6 +375,8 @@ namespace Combo.DAL
             public const string DeviceID = "s_DeviceID";
             public const string PassResetCode = "s_PassResetCode";
             public const string IsDeactivated = "s_IsDeactivated";
+            public const string SecurityQuestion = "s_SecurityQuestion";
+            public const string SecurityAnswer = "s_SecurityAnswer";
 
 		}
 		#endregion		
@@ -546,6 +572,30 @@ namespace Combo.DAL
 			set
 	        {
 				base.Setbool(ColumnNames.IsDeactivated, value);
+			}
+		}
+
+		public virtual string SecurityQuestion
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.SecurityQuestion);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.SecurityQuestion, value);
+			}
+		}
+
+		public virtual string SecurityAnswer
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.SecurityAnswer);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.SecurityAnswer, value);
 			}
 		}
 
@@ -794,6 +844,36 @@ namespace Combo.DAL
 			}
 		}
 
+		public virtual string s_SecurityQuestion
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.SecurityQuestion) ? string.Empty : base.GetstringAsString(ColumnNames.SecurityQuestion);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.SecurityQuestion);
+				else
+					this.SecurityQuestion = base.SetstringAsString(ColumnNames.SecurityQuestion, value);
+			}
+		}
+
+		public virtual string s_SecurityAnswer
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.SecurityAnswer) ? string.Empty : base.GetstringAsString(ColumnNames.SecurityAnswer);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.SecurityAnswer);
+				else
+					this.SecurityAnswer = base.SetstringAsString(ColumnNames.SecurityAnswer, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -982,6 +1062,26 @@ namespace Combo.DAL
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.IsDeactivated, Parameters.IsDeactivated);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter SecurityQuestion
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.SecurityQuestion, Parameters.SecurityQuestion);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter SecurityAnswer
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.SecurityAnswer, Parameters.SecurityAnswer);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -1184,6 +1284,30 @@ namespace Combo.DAL
 				}
 			}
 
+			public WhereParameter SecurityQuestion
+		    {
+				get
+		        {
+					if(_SecurityQuestion_W == null)
+	        	    {
+						_SecurityQuestion_W = TearOff.SecurityQuestion;
+					}
+					return _SecurityQuestion_W;
+				}
+			}
+
+			public WhereParameter SecurityAnswer
+		    {
+				get
+		        {
+					if(_SecurityAnswer_W == null)
+	        	    {
+						_SecurityAnswer_W = TearOff.SecurityAnswer;
+					}
+					return _SecurityAnswer_W;
+				}
+			}
+
 			private WhereParameter _ComboUserID_W = null;
 			private WhereParameter _UserName_W = null;
 			private WhereParameter _DisplayName_W = null;
@@ -1200,6 +1324,8 @@ namespace Combo.DAL
 			private WhereParameter _DeviceID_W = null;
 			private WhereParameter _PassResetCode_W = null;
 			private WhereParameter _IsDeactivated_W = null;
+			private WhereParameter _SecurityQuestion_W = null;
+			private WhereParameter _SecurityAnswer_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -1219,6 +1345,8 @@ namespace Combo.DAL
 				_DeviceID_W = null;
 				_PassResetCode_W = null;
 				_IsDeactivated_W = null;
+				_SecurityQuestion_W = null;
+				_SecurityAnswer_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -1435,6 +1563,26 @@ namespace Combo.DAL
 					}
 				}
 
+				public AggregateParameter SecurityQuestion
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.SecurityQuestion, Parameters.SecurityQuestion);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter SecurityAnswer
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.SecurityAnswer, Parameters.SecurityAnswer);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -1632,6 +1780,30 @@ namespace Combo.DAL
 				}
 			}
 
+			public AggregateParameter SecurityQuestion
+		    {
+				get
+		        {
+					if(_SecurityQuestion_W == null)
+	        	    {
+						_SecurityQuestion_W = TearOff.SecurityQuestion;
+					}
+					return _SecurityQuestion_W;
+				}
+			}
+
+			public AggregateParameter SecurityAnswer
+		    {
+				get
+		        {
+					if(_SecurityAnswer_W == null)
+	        	    {
+						_SecurityAnswer_W = TearOff.SecurityAnswer;
+					}
+					return _SecurityAnswer_W;
+				}
+			}
+
 			private AggregateParameter _ComboUserID_W = null;
 			private AggregateParameter _UserName_W = null;
 			private AggregateParameter _DisplayName_W = null;
@@ -1648,6 +1820,8 @@ namespace Combo.DAL
 			private AggregateParameter _DeviceID_W = null;
 			private AggregateParameter _PassResetCode_W = null;
 			private AggregateParameter _IsDeactivated_W = null;
+			private AggregateParameter _SecurityQuestion_W = null;
+			private AggregateParameter _SecurityAnswer_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -1667,6 +1841,8 @@ namespace Combo.DAL
 				_DeviceID_W = null;
 				_PassResetCode_W = null;
 				_IsDeactivated_W = null;
+				_SecurityQuestion_W = null;
+				_SecurityAnswer_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -1803,6 +1979,14 @@ namespace Combo.DAL
 
 			p = cmd.Parameters.Add(Parameters.IsDeactivated);
 			p.SourceColumn = ColumnNames.IsDeactivated;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.SecurityQuestion);
+			p.SourceColumn = ColumnNames.SecurityQuestion;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.SecurityAnswer);
+			p.SourceColumn = ColumnNames.SecurityAnswer;
 			p.SourceVersion = DataRowVersion.Current;
 
 
