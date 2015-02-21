@@ -16,6 +16,7 @@ namespace Combo.BLL
         {
             this.Where.ComboUserID.Value = userid;
             this.Where.ComboUserID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+            this.Query.AddOrderBy(ColumnNames.NotificationDate, MyGeneration.dOOdads.WhereParameter.Dir.DESC);
             return this.Query.Load();
         }
 	}

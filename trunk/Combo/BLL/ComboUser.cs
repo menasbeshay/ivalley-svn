@@ -53,13 +53,32 @@ namespace Combo.BLL
 				                                       else 'false' end IsFriendRequestSent 
                                     from ComboUser CU                                                              
                                     Left join Attachment A on CU.ProfileImgID = A.AttachmentID
-                                    Left Join ComboUserFriend F on (CU.ComboUserID = F.ComboUserID and F.ComboFriendID = {0} and F.ComboUserID = {1} and F.RequestApproved = 1)
+                                    Left Join ComboUserFriend F on (CU.ComboUserID = F.ComboUserID and F.ComboFriendID = {1} and F.ComboUserID = {0} and F.RequestApproved = 1)
 							                                     Or (CU.ComboUserID = F.ComboFriendID and F.ComboFriendID = {0} and F.ComboUserID = {1} and F.RequestApproved = 1)
                                     left join ProfileFollower PF on PF.ComboUserID = {0} and PF.ComboFollowerID = {1}										
                                     left join ProfileFollower PF2 on PF2.ComboUserID = {1} and PF2.ComboFollowerID = {0}
-                                    Left Join ComboUserFriend F2 on (CU.ComboUserID = F2.ComboUserID and F2.ComboFriendID = {0} and F2.ComboUserID = {1} )
+                                    Left Join ComboUserFriend F2 on (CU.ComboUserID = F2.ComboUserID and F2.ComboFriendID = {1} and F2.ComboUserID = {0} )
 							                                     Or (CU.ComboUserID = F2.ComboFriendID and F2.ComboFriendID = {0} and F2.ComboUserID = {1} )
                                     where CU.combouserid = {0}", id, requester);
+
+        }
+
+        public virtual bool GetUserByUserId(int id)
+        {
+            return LoadFromRawSql(@"Select CU.*, A.Path ProfilePic                                    
+                                    from ComboUser CU                                                              
+                                    Left join Attachment A on CU.ProfileImgID = A.AttachmentID                                    
+                                    where CU.combouserid = {0}", id);
+
+        }
+
+
+        public virtual bool GetUserByPasscode(string passcode)
+        {
+            return LoadFromRawSql(@"Select CU.*, A.Path ProfilePic                                    
+                                    from ComboUser CU                                                              
+                                    Left join Attachment A on CU.ProfileImgID = A.AttachmentID                                    
+                                    where CU.PassResetCode = {0}", passcode);
 
         }
         

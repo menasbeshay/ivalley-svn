@@ -61,7 +61,11 @@ namespace Combo.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} click {1}.
+        ///   Looks up a localized string similar to Dear {0} , &lt;br /&gt;
+        ///    you are requested to ireset you password fot Combo Application .
+        ///&lt;br /&gt;click &lt;a href=&quot;http://combomobile.com/resetpass.aspx?code={1}&quot;&gt; here&lt;/a&gt; to reset your password.
+        ///&lt;br /&gt;&lt;br /&gt;
+        ///Combo team..
         /// </summary>
         internal static string body {
             get {

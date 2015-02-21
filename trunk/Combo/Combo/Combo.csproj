@@ -84,6 +84,7 @@
     <Content Include="post.html" />
     <Content Include="index.html" />
     <Content Include="js\jquery-1.11.1.min.js" />
+    <Content Include="resetpass.aspx" />
     <Content Include="showpost.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -126,6 +127,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="resetpass.aspx.cs">
+      <DependentUpon>resetpass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="resetpass.aspx.designer.cs">
+      <DependentUpon>resetpass.aspx</DependentUpon>
     </Compile>
     <Compile Include="showpost.aspx.cs">
       <DependentUpon>showpost.aspx</DependentUpon>

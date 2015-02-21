@@ -24,7 +24,7 @@ namespace Combo.BLL
                                                         (U.IsDeactivated <> 1 or U.IsDeactivated is null)
                                     Left join Attachment A on U.ProfileImgID = A.AttachmentID
                                     Where C.ComboPostID = {0}
-                                    order by C.CommentDate Desc", pid);
+                                    order by C.CommentDate asc", pid);
         }
 
         public virtual bool GetTopPostCommentsByPostID(int pid)
@@ -65,7 +65,7 @@ namespace Combo.BLL
                                                              (U.IsDeactivated <> 1 or U.IsDeactivated is null)
                                     Left join Attachment A on U.ProfileImgID = A.AttachmentID
                                     Where C.ComboMsgID = {0}
-                                    order by C.CommentDate Desc", mid);
+                                    order by C.CommentDate asc", mid);
         }
 
         public virtual bool GetMsgCommentsCount(int mid)
@@ -89,7 +89,7 @@ namespace Combo.BLL
                                                               (U.IsDeactivated <> 1 or U.IsDeactivated is null)
                                     Left join Attachment A on U.ProfileImgID = A.AttachmentID
                                     Where C.ComboMsgID = {0}
-                                    order by C.CommentDate Desc", mid);
+                                    order by C.CommentDate asc", mid);
         }
 
 	}

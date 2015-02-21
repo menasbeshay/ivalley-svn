@@ -15,7 +15,10 @@ namespace Combo.BLL
 
         public virtual bool GetMessageById(int MsgId)
         {
-            return LoadFromRawSql(@"Select M.*, U.UserName, A.Path ProfilePic , Stuff((select ',' + STR(UM.ComboUserID) from ComboUserMsg UM where UM.ComboMsgID = M.ComboMsgID for XML path('')),1,1,'') ToIds 
+            return LoadFromRawSql(@"Select M.*, U.UserName, A.Path ProfilePic , '[' + Stuff((select ',{""ComboUserID"":' + STR(UM.ComboUserID)+ ',""DisplayName"" : ""'+ISnull( U2.displayname , '')+ '"", ""ProfilePic"" : ""'+ isnull(A2.path, '') + '""}' from ComboUserMsg UM
+												   Inner join ComboUser U2 on UM.CombouserID = U2.ComboUserID
+												   left join Attachment A2 on U2.ProfileImgID = A2.AttachmentID
+												   where UM.ComboMsgID = M.ComboMsgID for XML path('')),1,1,'') + ']' ToIds 
                                     from ComboMsg M
                                     Inner Join ComboUser U on M.ComboUserID = U.ComboUserID and 
                                                               (U.IsDeactivated <> 1 or U.IsDeactivated is null)
@@ -26,7 +29,10 @@ namespace Combo.BLL
 
         public virtual bool GetUserMessages(int UserId)
         {
-            return LoadFromRawSql(@"Select M.*, U.UserName, A.Path ProfilePic , Stuff((select ',' + STR(UM.ComboUserID) from ComboUserMsg UM where UM.ComboMsgID = M.ComboMsgID for XML path('')),1,1,'') ToIds 
+            return LoadFromRawSql(@"Select M.*, U.UserName, A.Path ProfilePic , '[' + Stuff((select ',{""ComboUserID"":' + STR(UM.ComboUserID)+ ',""DisplayName"" : ""'+ISnull( U2.displayname , '')+ '"", ""ProfilePic"" : ""'+ isnull(A2.path, '') + '""}' from ComboUserMsg UM
+												   Inner join ComboUser U2 on UM.CombouserID = U2.ComboUserID
+												   left join Attachment A2 on U2.ProfileImgID = A2.AttachmentID
+												   where UM.ComboMsgID = M.ComboMsgID for XML path('')),1,1,'') + ']' ToIds 
                                     from ComboMsg M
                                     Inner Join ComboUser U on M.ComboUserID = U.ComboUserID and 
                                                                 (U.IsDeactivated <> 1 or U.IsDeactivated is null)
@@ -37,7 +43,10 @@ namespace Combo.BLL
 
                                     union 
 
-                                    Select M.*, U.UserName, A.Path ProfilePic , Stuff((select ',' + STR(UM.ComboUserID) from ComboUserMsg UM where UM.ComboMsgID = M.ComboMsgID for XML path('')),1,1,'') ToIds 
+                                    Select M.*, U.UserName, A.Path ProfilePic , '[' + Stuff((select ',{""ComboUserID"":' + STR(UM.ComboUserID)+ ',""DisplayName"" : ""'+ISnull( U2.displayname , '')+ '"", ""ProfilePic"" : ""'+ isnull(A2.path, '') + '""}' from ComboUserMsg UM
+												   Inner join ComboUser U2 on UM.CombouserID = U2.ComboUserID
+												   left join Attachment A2 on U2.ProfileImgID = A2.AttachmentID
+												   where UM.ComboMsgID = M.ComboMsgID for XML path('')),1,1,'') + ']' ToIds 
                                     from ComboMsg M
                                     Inner Join ComboUser U on M.ComboUserID = U.ComboUserID and 
                                                                 (U.IsDeactivated <> 1 or U.IsDeactivated is null)
@@ -46,12 +55,15 @@ namespace Combo.BLL
                                     Where M.ComboUserID = {0}  and                                     
                                     (M.IsDeleted <> 1 or M.IsDeleted is null) 
 
-                                    Order by MsgDate Desc", UserId);
+                                    Order by M.MsgDate Desc", UserId);
         }
 
         public virtual bool GetMessagesBetweenUsers(int _1stUserId, int _2ndUserId)
         {
-            return LoadFromRawSql(@"Select M.*, U.UserName, A.Path ProfilePic , Stuff((select ',' + STR(UM.ComboUserID) from ComboUserMsg UM where UM.ComboMsgID = M.ComboMsgID for XML path('')),1,1,'') ToIds 
+            return LoadFromRawSql(@"Select M.*, U.UserName, A.Path ProfilePic , '[' + Stuff((select ',{""ComboUserID"":' + STR(UM.ComboUserID)+ ',""DisplayName"" : ""'+ISnull( U2.displayname , '')+ '"", ""ProfilePic"" : ""'+ isnull(A2.path, '') + '""}' from ComboUserMsg UM
+												   Inner join ComboUser U2 on UM.CombouserID = U2.ComboUserID
+												   left join Attachment A2 on U2.ProfileImgID = A2.AttachmentID
+												   where UM.ComboMsgID = M.ComboMsgID for XML path('')),1,1,'') + ']' ToIds 
                                     from ComboMsg M
                                     Inner Join ComboUser U on M.ComboUserID = U.ComboUserID and 
                                                               (U.IsDeactivated <> 1 or U.IsDeactivated is null)
@@ -62,7 +74,10 @@ namespace Combo.BLL
                                     (M.IsDeleted <> 1 or M.IsDeleted is null) 
 
                                     union 
-                                    Select M.*, U.UserName, A.Path ProfilePic , Stuff((select ',' + STR(UM.ComboUserID) from ComboUserMsg UM where UM.ComboMsgID = M.ComboMsgID for XML path('')),1,1,'') ToIds 
+                                    Select M.*, U.UserName, A.Path ProfilePic , '[' + Stuff((select ',{""ComboUserID"":' + STR(UM.ComboUserID)+ ',""DisplayName"" : ""'+ISnull( U2.displayname , '')+ '"", ""ProfilePic"" : ""'+ isnull(A2.path, '') + '""}' from ComboUserMsg UM
+												   Inner join ComboUser U2 on UM.CombouserID = U2.ComboUserID
+												   left join Attachment A2 on U2.ProfileImgID = A2.AttachmentID
+												   where UM.ComboMsgID = M.ComboMsgID for XML path('')),1,1,'') + ']' ToIds 
                                     from ComboMsg M
                                     Inner Join ComboUser U on M.ComboUserID = U.ComboUserID and 
                                                               (U.IsDeactivated <> 1 or U.IsDeactivated is null)

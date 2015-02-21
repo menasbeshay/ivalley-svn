@@ -32,6 +32,8 @@ namespace Combo.Models
         public bool IsFollowing { get; set; }
         public bool IsFriend { get; set; }
         public bool IsFriendRequestSent { get; set; }
+        public string SecurityQuestion { get; set; }
+        public string SecurityAnswer { get; set; }
 
     }
 }

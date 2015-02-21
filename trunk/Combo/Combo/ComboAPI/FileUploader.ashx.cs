@@ -45,6 +45,20 @@ namespace Combo.ComboAPI
                 newfile.ThumbsPath = "/userfiles/" + userid.ToString() + "/thumb_" + fileName + ".jpg";
             }
 
+            if (typeid == 2 && ext == ".amr")
+            {
+                try
+                {
+                    
+                    string wavfile = location.Replace(".amr", ".wav");
+                    (new NReco.VideoConverter.FFMpegConverter()).ConvertMedia(location, wavfile, "wav");
+                    ext = ".wav";
+                }
+                catch (Exception e)
+                {                    
+                }
+            }
+
            
             newfile.Path = "/userfiles/"+ userid.ToString() + "/" + fileName + ext;
             newfile.AttachmentTypeID = typeid;
