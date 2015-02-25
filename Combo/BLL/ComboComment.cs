@@ -78,7 +78,7 @@ namespace Combo.BLL
                                     Where C.ComboMsgID = {0}", mid);
         }
 
-        public virtual bool GetMsgsCommentsByMsgID(int mid)
+        public virtual bool GetMsgsCommentsByMsgID(int mid, string order)
         {
             //this.Where.ComboPostID.Value = pid;
             //this.Where.ComboPostID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;            
@@ -89,7 +89,7 @@ namespace Combo.BLL
                                                               (U.IsDeactivated <> 1 or U.IsDeactivated is null)
                                     Left join Attachment A on U.ProfileImgID = A.AttachmentID
                                     Where C.ComboMsgID = {0}
-                                    order by C.CommentDate asc", mid);
+                                    order by C.CommentDate " + order, mid);
         }
 
 	}

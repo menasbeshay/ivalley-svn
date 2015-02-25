@@ -88,5 +88,11 @@ namespace Combo.BLL
                                     (M.IsDeleted <> 1 or M.IsDeleted is null) 
                                     order by M.MsgDate desc", _1stUserId, _2ndUserId);
         }
+
+        public virtual bool GetUnReadMsgComments(int userID)
+        {
+            return LoadFromRawSql(@"select (select COUNT(M.ComboMsgID) from ComboMsg M where (M.IsRead <> 1 or M.IsRead is null) and M.ComboUserID= {0}) + 
+                                    (select COUNT(C.ComboCommentID) from ComboComment C where (C.IsRead <> 1 or C.IsRead is null) and (C.ComboMsgID is not null)  and C.ComboUserID= {0} ) MsgCommentsCounter", userID);
+        }
 	}
 }

@@ -34,6 +34,7 @@ namespace Combo.Models
         public bool IsFriendRequestSent { get; set; }
         public string SecurityQuestion { get; set; }
         public string SecurityAnswer { get; set; }
+        public int UserRankID { get; set; }
 
     }
 }

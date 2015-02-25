@@ -19,5 +19,11 @@ namespace Combo.BLL
             this.Query.AddOrderBy(ColumnNames.NotificationDate, MyGeneration.dOOdads.WhereParameter.Dir.DESC);
             return this.Query.Load();
         }
+
+        public virtual bool GetCountUnReadNotificationsbyUserId(int userid)
+        {                        
+            return LoadFromRawSql(@"Select count(C.ComboNotificationID) TotalCount from ComboNotification C                                    
+                                    Where C.ComboUserID = {0} and (C.IsRead <> 1 or C.IsRead is null)", userid);
+        }
 	}
 }

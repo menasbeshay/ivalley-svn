@@ -243,6 +243,14 @@ namespace Combo.DAL
 				}
 			}
 			
+			public static SqlParameter UserRankID
+			{
+				get
+				{
+					return new SqlParameter("@UserRankID", SqlDbType.Int, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -267,6 +275,7 @@ namespace Combo.DAL
             public const string IsDeactivated = "IsDeactivated";
             public const string SecurityQuestion = "SecurityQuestion";
             public const string SecurityAnswer = "SecurityAnswer";
+            public const string UserRankID = "UserRankID";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -292,6 +301,7 @@ namespace Combo.DAL
 					ht[IsDeactivated] = _ComboUser.PropertyNames.IsDeactivated;
 					ht[SecurityQuestion] = _ComboUser.PropertyNames.SecurityQuestion;
 					ht[SecurityAnswer] = _ComboUser.PropertyNames.SecurityAnswer;
+					ht[UserRankID] = _ComboUser.PropertyNames.UserRankID;
 
 				}
 				return (string)ht[columnName];
@@ -322,6 +332,7 @@ namespace Combo.DAL
             public const string IsDeactivated = "IsDeactivated";
             public const string SecurityQuestion = "SecurityQuestion";
             public const string SecurityAnswer = "SecurityAnswer";
+            public const string UserRankID = "UserRankID";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -347,6 +358,7 @@ namespace Combo.DAL
 					ht[IsDeactivated] = _ComboUser.ColumnNames.IsDeactivated;
 					ht[SecurityQuestion] = _ComboUser.ColumnNames.SecurityQuestion;
 					ht[SecurityAnswer] = _ComboUser.ColumnNames.SecurityAnswer;
+					ht[UserRankID] = _ComboUser.ColumnNames.UserRankID;
 
 				}
 				return (string)ht[propertyName];
@@ -377,6 +389,7 @@ namespace Combo.DAL
             public const string IsDeactivated = "s_IsDeactivated";
             public const string SecurityQuestion = "s_SecurityQuestion";
             public const string SecurityAnswer = "s_SecurityAnswer";
+            public const string UserRankID = "s_UserRankID";
 
 		}
 		#endregion		
@@ -596,6 +609,18 @@ namespace Combo.DAL
 			set
 	        {
 				base.Setstring(ColumnNames.SecurityAnswer, value);
+			}
+		}
+
+		public virtual int UserRankID
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.UserRankID);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.UserRankID, value);
 			}
 		}
 
@@ -874,6 +899,21 @@ namespace Combo.DAL
 			}
 		}
 
+		public virtual string s_UserRankID
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.UserRankID) ? string.Empty : base.GetintAsString(ColumnNames.UserRankID);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.UserRankID);
+				else
+					this.UserRankID = base.SetintAsString(ColumnNames.UserRankID, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -1082,6 +1122,16 @@ namespace Combo.DAL
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.SecurityAnswer, Parameters.SecurityAnswer);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter UserRankID
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.UserRankID, Parameters.UserRankID);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -1308,6 +1358,18 @@ namespace Combo.DAL
 				}
 			}
 
+			public WhereParameter UserRankID
+		    {
+				get
+		        {
+					if(_UserRankID_W == null)
+	        	    {
+						_UserRankID_W = TearOff.UserRankID;
+					}
+					return _UserRankID_W;
+				}
+			}
+
 			private WhereParameter _ComboUserID_W = null;
 			private WhereParameter _UserName_W = null;
 			private WhereParameter _DisplayName_W = null;
@@ -1326,6 +1388,7 @@ namespace Combo.DAL
 			private WhereParameter _IsDeactivated_W = null;
 			private WhereParameter _SecurityQuestion_W = null;
 			private WhereParameter _SecurityAnswer_W = null;
+			private WhereParameter _UserRankID_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -1347,6 +1410,7 @@ namespace Combo.DAL
 				_IsDeactivated_W = null;
 				_SecurityQuestion_W = null;
 				_SecurityAnswer_W = null;
+				_UserRankID_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -1583,6 +1647,16 @@ namespace Combo.DAL
 					}
 				}
 
+				public AggregateParameter UserRankID
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.UserRankID, Parameters.UserRankID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -1804,6 +1878,18 @@ namespace Combo.DAL
 				}
 			}
 
+			public AggregateParameter UserRankID
+		    {
+				get
+		        {
+					if(_UserRankID_W == null)
+	        	    {
+						_UserRankID_W = TearOff.UserRankID;
+					}
+					return _UserRankID_W;
+				}
+			}
+
 			private AggregateParameter _ComboUserID_W = null;
 			private AggregateParameter _UserName_W = null;
 			private AggregateParameter _DisplayName_W = null;
@@ -1822,6 +1908,7 @@ namespace Combo.DAL
 			private AggregateParameter _IsDeactivated_W = null;
 			private AggregateParameter _SecurityQuestion_W = null;
 			private AggregateParameter _SecurityAnswer_W = null;
+			private AggregateParameter _UserRankID_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -1843,6 +1930,7 @@ namespace Combo.DAL
 				_IsDeactivated_W = null;
 				_SecurityQuestion_W = null;
 				_SecurityAnswer_W = null;
+				_UserRankID_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -1987,6 +2075,10 @@ namespace Combo.DAL
 
 			p = cmd.Parameters.Add(Parameters.SecurityAnswer);
 			p.SourceColumn = ColumnNames.SecurityAnswer;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.UserRankID);
+			p.SourceColumn = ColumnNames.UserRankID;
 			p.SourceVersion = DataRowVersion.Current;
 
 

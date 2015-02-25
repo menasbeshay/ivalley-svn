@@ -82,6 +82,49 @@ namespace Combo.BLL
                                     order by P.PostDate Desc", userid);
         }
 
+        public virtual bool GetAudioPostsByUserID(int userid)
+        {
+            return LoadFromRawSql(@"Select P.*, U.UserName, A.Path ProfilePic, S.IsPostsDownloadable from ComboPost P
+                                    Inner Join ComboUser U on P.ComboUserID = U.ComboUserID and 
+                                                              (U.IsDeactivated <> 1 or U.IsDeactivated is null)
+                                    Left join Attachment A on U.ProfileImgID = A.AttachmentID
+                                    Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID
+                                    Inner Join ComboPostAttachment PA on P.ComboPostID = PA.ComboPostID
+                                    inner Join Attachment AA on PA.AttachmentID = AA.AttachmentID and 
+                                                                AA.AttachmentTypeID = 2 
+                                    Where P.ComboUserID = {0} and 
+                                    (P.IsDeleted <> 1 or P.IsDeleted is null)                                     
+                                    order by P.PostDate Desc", userid);
+        }
+
+        public virtual bool GetVedioPostsByUserID(int userid)
+        {
+            return LoadFromRawSql(@"Select P.*, U.UserName, A.Path ProfilePic, S.IsPostsDownloadable from ComboPost P
+                                    Inner Join ComboUser U on P.ComboUserID = U.ComboUserID and 
+                                                              (U.IsDeactivated <> 1 or U.IsDeactivated is null)
+                                    Left join Attachment A on U.ProfileImgID = A.AttachmentID
+                                    Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID
+                                    Inner Join ComboPostAttachment PA on P.ComboPostID = PA.ComboPostID
+                                    inner Join Attachment AA on PA.AttachmentID = AA.AttachmentID and 
+                                                                AA.AttachmentTypeID = 3 
+                                    Where P.ComboUserID = {0} and 
+                                    (P.IsDeleted <> 1 or P.IsDeleted is null)                                     
+                                    order by P.PostDate Desc", userid);
+        }
+
+        public virtual bool GetTextPostsByUserID(int userid)
+        {
+            return LoadFromRawSql(@"Select P.*, U.UserName, A.Path ProfilePic, S.IsPostsDownloadable from ComboPost P
+                                    Inner Join ComboUser U on P.ComboUserID = U.ComboUserID and 
+                                                              (U.IsDeactivated <> 1 or U.IsDeactivated is null)
+                                    Left join Attachment A on U.ProfileImgID = A.AttachmentID
+                                    Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID
+                                    left outer Join ComboPostAttachment PA on P.ComboPostID = PA.ComboPostID                                                                           
+                                    Where P.ComboUserID = {0} and PA.ComboPostID is null and
+                                    (P.IsDeleted <> 1 or P.IsDeleted is null)                                     
+                                    order by P.PostDate Desc", userid);
+        }
+
         public virtual bool GetLikedPostByUserID(int userid)
         {
             return LoadFromRawSql(@"Select P.*, U.UserName, A.Path ProfilePic , S.IsPostsDownloadable
@@ -145,6 +188,29 @@ namespace Combo.BLL
                                     Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID
                                     Where P.ComboPostID = {0} and 
                                     (P.IsDeleted <> 1 or P.IsDeleted is null)", pid);
+        }
+
+        public virtual bool SearchPosts(string filterText)
+        {
+            return LoadFromRawSql(@"Select P.*, U.UserName, A.Path ProfilePic, S.IsPostsDownloadable from ComboPost P
+                                    Inner Join ComboUser U on P.ComboUserID = U.ComboUserID
+                                    Left join Attachment A on U.ProfileImgID = A.AttachmentID
+                                    Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID
+                                    Where P.PostText like '%' + {0} + '%' and 
+                                    (P.IsDeleted <> 1 or P.IsDeleted is null)", filterText);
+        }
+
+        public virtual bool ExplorePosts()
+        {
+            return LoadFromRawSql(@"select P.* , U.UserName, A.Path ProfilePic, S.IsPostsDownloadable,
+                                    (select COUNT(c.ComboCommentID) 
+                                     from ComboComment C where P.ComboPostID = C.ComboPostID)  commentCount
+                                    ,(select COUNT(pl.ComboPostID) LikeCount 
+                                    from ComboPostLike PL where P.ComboPostID = PL.ComboPostID ) Likecount
+                                    from ComboPost P Inner Join ComboUser U on P.ComboUserID = U.ComboUserID
+                                    Left join Attachment A on U.ProfileImgID = A.AttachmentID
+                                    Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID
+                                    order by Likecount desc, commentCount desc , PostDate desc ");
         }
 
 	}
