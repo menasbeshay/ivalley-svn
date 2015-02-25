@@ -45,14 +45,15 @@ namespace Combo.ComboAPI
                 newfile.ThumbsPath = "/userfiles/" + userid.ToString() + "/thumb_" + fileName + ".jpg";
             }
 
-            if (typeid == 2 && ext == ".amr")
+            if (typeid == 2)
             {
                 try
                 {
                     
-                    string wavfile = location.Replace(".amr", ".wav");
-                    (new NReco.VideoConverter.FFMpegConverter()).ConvertMedia(location, wavfile, "wav");
-                    ext = ".wav";
+                    //string wavfile = location.Replace(".amr", ".wav");
+                    string newlocation = context.Server.MapPath("~/userfiles/" + userid.ToString() + "/") + fileName + ".mp3";
+                    (new NReco.VideoConverter.FFMpegConverter()).ConvertMedia(location, newlocation, "mp3");
+                    ext = ".mp3";
                 }
                 catch (Exception e)
                 {                    

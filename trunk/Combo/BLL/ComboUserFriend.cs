@@ -69,5 +69,13 @@ namespace Combo.BLL
             parameters.Add(new SqlParameter("@FilterText", SqlDbType.NVarChar, 200), searchText);
             return LoadFromSql("SearchForFriends", parameters);
         }
+
+        public virtual bool SearchOnFriendsByUserID(int userid, string searchText)
+        {            
+            ListDictionary parameters = new ListDictionary();
+            parameters.Add(new SqlParameter("@UserID", SqlDbType.NVarChar, 200), userid);
+            parameters.Add(new SqlParameter("@FilterText", SqlDbType.NVarChar, 200), searchText);
+            return LoadFromSql("SearchOnFriends", parameters);
+        }
 	}
 }

@@ -21,6 +21,7 @@ namespace Combo.Models
         /// 13 - email is required
         /// 14 - no security question
         /// 15 - no securty answer
+        /// 16 - error in security question / answer
         /// 20 - error while uploading file
         /// 21 - no file found
         /// 30 - no user id
