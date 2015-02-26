@@ -101,3 +101,42 @@ Go
 Alter table combouser
 add UserRankID int foreign key references UserRank(UserRankID)
 		
+		
+		
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'PilotNightCity' and
+		        xtype = 'U')
+Drop Table PilotNightCity
+Go
+Create Table PilotNightCity
+(
+	PilotNightCityID int not null
+			identity(1,1)
+			Primary Key,	
+	AirportID int foreign key references airport(airportid),
+	PilotID int foreign key references Pilot(PilotID),
+	CityDate DateTime,
+	CONSTRAINT Pilot_City_index UNIQUE(PilotID,AirportID,CityDate)
+)
+Go 	
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'CrewNightCity' and
+		        xtype = 'U')
+Drop Table CrewNightCity
+Go
+Create Table CrewNightCity
+(
+	CrewNightCityID int not null
+			identity(1,1)
+			Primary Key,	
+	AirportID int foreign key references airport(airportid),
+	CrewID int foreign key references Crew(CrewID),
+	CityDate DateTime,
+	CONSTRAINT Crew_City_index UNIQUE(CrewID,AirportID,CityDate)
+)
+Go 		
