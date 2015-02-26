@@ -9,7 +9,7 @@
 <html lang="en">
 <!--<![endif]-->
 <!-- BEGIN HEAD -->
-<head>
+<head runat="server">
     <meta charset="utf-8" />
     <title>I-Flights</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
@@ -24,6 +24,7 @@
     <link href="../css/style_default.css" rel="stylesheet" id="style_color" />
     <link href="../assets/fancybox/source/jquery.fancybox.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="../assets/uniform/css/uniform.default.css" />
+    <script src="../js/jquery-1.8.3.min.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -39,8 +40,8 @@
         <div class="navbar-inner">
             <div class="container-fluid">
                 <!-- BEGIN LOGO -->
-                <a class="brand" href="#">
-                    <img src="../img/logo.png" alt="Admin Lab" />
+                <a class="brand" href="../Default.aspx">
+                    <img src="../img/flyegypt.png" alt="Fly Egypt" style="max-height:45px;" />
                 </a>
                 <!-- END LOGO -->
                 <!-- BEGIN RESPONSIVE MENU TOGGLER -->
@@ -48,7 +49,7 @@
                     data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar">
                     </span><span class="icon-bar"></span><span class="arrow"></span></a>
                 <!-- END RESPONSIVE MENU TOGGLER -->
-                <div id="top_menu" class="nav notify-row">
+                <%--<div id="top_menu" class="nav notify-row">
                     <!-- BEGIN NOTIFICATION -->
                     <ul class="nav top-menu">
                         <!-- BEGIN SETTINGS -->
@@ -107,7 +108,7 @@
                         </li>
                         <!-- END NOTIFICATION DROPDOWN -->
                     </ul>
-                </div>
+                </div>--%>
                 <!-- END  NOTIFICATION -->
                 <div class="top-nav ">
                     <ul class="nav pull-right top-menu">
@@ -174,22 +175,23 @@
                 <div class="row-fluid">
                     <div class="span12">
                         <!-- BEGIN THEME CUSTOMIZER-->
-                        <div id="theme-change" class="hidden-phone">
+                        <%--<div id="theme-change" class="hidden-phone">
                             <i class="icon-cogs"></i><span class="settings"><span class="text">Theme:</span> <span
                                 class="colors"><span class="color-default" data-style="default"></span><span class="color-gray"
                                     data-style="gray"></span><span class="color-purple" data-style="purple"></span>
                                 <span class="color-navy-blue" data-style="navy-blue"></span></span></span>
-                        </div>
+                        </div>--%>
                         <!-- END THEME CUSTOMIZER-->
                         <!-- BEGIN PAGE TITLE & BREADCRUMB-->
                         <h3 class="page-title">
-                            Blank Page <small>blank page sample</small>
+                            Cabin crew
                         </h3>
                         <ul class="breadcrumb">
                             <li><a href="#"><i class="icon-home"></i></a><span class="divider">&nbsp;</span>
                             </li>
-                            <li><a href="#">Sample Pages</a> <span class="divider">&nbsp;</span> </li>
-                            <li><a href="#">Blank Page</a><span class="divider-last">&nbsp;</span></li>
+                            <li><a href="../Cabincrew/Default.aspx">Cabin Crew</a> <span class="divider">&nbsp;</span> </li>
+                            <li><a href="#">
+                                <asp:Label ID="uiLabelTitle" runat="server" ></asp:Label></a><span class="divider-last">&nbsp;</span></li>
                         </ul>
                         <!-- END PAGE TITLE & BREADCRUMB-->
                     </div>
@@ -201,7 +203,7 @@
                         <div class="widget">
                             <div class="widget-title">
                                 <h4>
-                                    <i class="icon-globe"></i>Blank Page</h4>
+                                    <i class="icon-globe"></i><asp:Label ID="uiLabelContTitle" runat="server" ></asp:Label></h4>
                                 <span class="tools"><a href="javascript:;" class="icon-chevron-down"></a><a href="javascript:;"
                                     class="icon-remove"></a></span>
                             </div>

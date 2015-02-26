@@ -28,7 +28,7 @@ namespace Flights_GUI.Operation {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList uiRadioButtonListReports;
+        protected global::System.Web.UI.WebControls.DropDownList uiRadioButtonListReports;
         
         /// <summary>
         /// Label1 control.
@@ -227,5 +227,17 @@ namespace Flights_GUI.Operation {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Microsoft.Reporting.WebForms.ReportViewer ReportViewer7;
+        
+        /// <summary>
+        /// Master property.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated property.
+        /// </remarks>
+        public new Flights_GUI.MasterPages.E_Admin Master {
+            get {
+                return ((Flights_GUI.MasterPages.E_Admin)(base.Master));
+            }
+        }
     }
 }

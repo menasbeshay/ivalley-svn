@@ -840,6 +840,7 @@
     <Content Include="Operation\Airports.aspx" />
     <Content Include="Operation\AllPilotStatus.aspx" />
     <Content Include="Operation\Default.aspx" />
+    <Content Include="Operation\FlightBatchs.aspx" />
     <Content Include="Operation\FlightDetails.aspx" />
     <Content Include="images\4.jpg" />
     <Content Include="images\bar_chart.png" />
@@ -887,6 +888,7 @@
     <Content Include="Operation\InitiateSector.aspx" />
     <Content Include="Operation\PAX.aspx" />
     <Content Include="Operation\PilotFlights.aspx" />
+    <Content Include="Operation\PilotProfileData.aspx" />
     <Content Include="Operation\PilotSchedule.aspx" />
     <Content Include="Operation\PilotTrx.aspx" />
     <Content Include="Operation\SectorCabinCrew.aspx" />
@@ -1339,6 +1341,13 @@
     <Compile Include="Operation\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Operation\FlightBatchs.aspx.cs">
+      <DependentUpon>FlightBatchs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Operation\FlightBatchs.aspx.designer.cs">
+      <DependentUpon>FlightBatchs.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Operation\FlightDetails.aspx.cs">
       <DependentUpon>FlightDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1399,6 +1408,13 @@
     </Compile>
     <Compile Include="Operation\PilotFlights.aspx.designer.cs">
       <DependentUpon>PilotFlights.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Operation\PilotProfileData.aspx.cs">
+      <DependentUpon>PilotProfileData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Operation\PilotProfileData.aspx.designer.cs">
+      <DependentUpon>PilotProfileData.aspx</DependentUpon>
     </Compile>
     <Compile Include="Operation\PilotSchedule.aspx.cs">
       <DependentUpon>PilotSchedule.aspx</DependentUpon>
@@ -1958,6 +1974,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Operation\App_LocalResources\SectorCabinCrew.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Operation\App_LocalResources\FlightBatchs.aspx.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

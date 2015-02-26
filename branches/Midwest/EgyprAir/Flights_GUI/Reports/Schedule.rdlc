@@ -37,7 +37,7 @@
                                           <Paragraph>
                                             <TextRuns>
                                               <TextRun>
-                                                <Value>=IIf(Fields!IsPAX.Value = true, "" ,Fields!FlightNo.Value) &amp; " / " &amp; IIf(Fields!AirPlane.Value = 1,"MWE" , "MWF")</Value>
+                                                <Value>=IIf(Fields!IsPAX.Value = true, "" ,Fields!FlightNo.Value) &amp; " / " &amp; IIf(Fields!AirPlane.Value = 1,"TMG" , "MWF")</Value>
                                                 <Style>
                                                   <FontWeight>Bold</FontWeight>
                                                 </Style>
@@ -364,7 +364,7 @@
         <DataSetName>ScheduleDataSet</DataSetName>
         <Top>0.25506cm</Top>
         <Left>0.11906cm</Left>
-        <Height>4.30858cm</Height>
+        <Height>4.30857cm</Height>
         <Width>4.06413cm</Width>
         <Style>
           <Border>

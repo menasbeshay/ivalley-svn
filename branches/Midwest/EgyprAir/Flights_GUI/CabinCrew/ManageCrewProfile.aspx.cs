@@ -36,6 +36,7 @@ namespace Flights_GUI.CabinCrew
                 SearchCrew();
                 uiPanelViewAll.Visible = true;
                 uiPanelEdit.Visible = false;
+                Master.PageTitle = "Cabin Crew profile";
             }
         }
 
@@ -73,6 +74,7 @@ namespace Flights_GUI.CabinCrew
 
         protected void uiRadGridCrew_PageIndexChanged(object sender, Telerik.Web.UI.GridPageChangedEventArgs e)
         {
+            uiRadGridCrew.CurrentPageIndex = e.NewPageIndex;
             SearchCrew();
         }
 
@@ -131,7 +133,7 @@ namespace Flights_GUI.CabinCrew
         private void AddNewCrew()
         {
             MembershipCreateStatus obj;
-            MembershipUser objUser = Membership.CreateUser(uiTextBoxUserName.Text, uiTextBoxPassword.Text, "info@I-Valley.com", null, null, true, out obj);
+            MembershipUser objUser = Membership.CreateUser(uiTextBoxUserName.Text, uiTextBoxPassword.Text, uiTextBoxEmail.Text, null, null, true, out obj);
             bool success = true;
             switch (obj)
             {
@@ -165,7 +167,11 @@ namespace Flights_GUI.CabinCrew
                 objData.AddNew();
                 objData.Name = uiTextBoxName.Text;
                 objData.Username = uiTextBoxUserName.Text;
-                objData.StaffNo = Convert.ToInt32(uiTextBoxStaffNo.Text);
+                objData.StaffNo = uiTextBoxStaffNo.Text;
+                objData.Email = uiTextBoxEmail.Text;
+                objData.Mobile = uiTextBoxMobile.Text;
+                 objData.ShortName = uiTextBoxShortName.Text;
+
                 objData.LicenseNo = uiTextBoxLicenseNo.Text;
                 if(uiRadDatePickerCompetenecycheck.SelectedDate != null)
                     objData.Competenecycheck = uiRadDatePickerCompetenecycheck.SelectedDate.Value;
@@ -194,7 +200,10 @@ namespace Flights_GUI.CabinCrew
             Crew objData = new Crew();
             objData = CurrentCrew;
             objData.Name = uiTextBoxName.Text;            
-            objData.StaffNo = Convert.ToInt32(uiTextBoxStaffNo.Text);
+            objData.StaffNo = uiTextBoxStaffNo.Text;
+            objData.Email = uiTextBoxEmail.Text;
+            objData.Mobile = uiTextBoxMobile.Text;
+            objData.ShortName = uiTextBoxShortName.Text;
             objData.LicenseNo = uiTextBoxLicenseNo.Text;
             if (uiRadDatePickerCompetenecycheck.SelectedDate != null)
                 objData.Competenecycheck = uiRadDatePickerCompetenecycheck.SelectedDate.Value;
@@ -238,12 +247,21 @@ namespace Flights_GUI.CabinCrew
             RequiredFieldValidator4.Enabled = true;
             RequiredFieldValidator5.Enabled = true;
             CompareValidator1.Enabled = true;
+
+            uiTextBoxPassword.Text = "";
+            uiTextBoxUserName.Text = "";
+            uiTextBoxEmail.Text = "";
+            uiTextBoxCPassword.Text = "";
+            uiTextBoxMobile.Text = "";
         }
 
         private void FillCrewData()
         {
             uiTextBoxName.Text = CurrentCrew.Name;
-            uiTextBoxStaffNo.Text = CurrentCrew.StaffNo.ToString();
+            uiTextBoxStaffNo.Text = CurrentCrew.StaffNo;
+            uiTextBoxEmail.Text = CurrentCrew.Email;
+            uiTextBoxMobile.Text = CurrentCrew.Mobile;
+            uiTextBoxShortName.Text = CurrentCrew.ShortName;
             uiTextBoxLicenseNo.Text = CurrentCrew.LicenseNo;
             if (!CurrentCrew.IsColumnNull("Competenecycheck"))
                 uiRadDatePickerCompetenecycheck.SelectedDate = CurrentCrew.Competenecycheck;
@@ -270,6 +288,7 @@ namespace Flights_GUI.CabinCrew
             RequiredFieldValidator4.Enabled = false;
             RequiredFieldValidator5.Enabled = false;
             CompareValidator1.Enabled = false;
+            uiTextBoxPassword.Text = Membership.GetUser(CurrentCrew.Username).GetPassword();
             uiTextBoxPassword.Enabled = false;
             uiTextBoxCPassword.Enabled = false;
         }

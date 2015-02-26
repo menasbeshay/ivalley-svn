@@ -119,7 +119,7 @@ namespace Flight_DAL
 			{
 				get
 				{
-					return new SqlParameter("@StaffNo", SqlDbType.Int, 0);
+					return new SqlParameter("@StaffNo", SqlDbType.NVarChar, 10);
 				}
 			}
 			
@@ -283,6 +283,14 @@ namespace Flight_DAL
 				}
 			}
 			
+			public static SqlParameter ShortName
+			{
+				get
+				{
+					return new SqlParameter("@ShortName", SqlDbType.NVarChar, 6);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -312,6 +320,7 @@ namespace Flight_DAL
             public const string Security = "security";
             public const string Email = "Email";
             public const string Mobile = "Mobile";
+            public const string ShortName = "ShortName";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -342,6 +351,7 @@ namespace Flight_DAL
 					ht[Security] = _Crew.PropertyNames.Security;
 					ht[Email] = _Crew.PropertyNames.Email;
 					ht[Mobile] = _Crew.PropertyNames.Mobile;
+					ht[ShortName] = _Crew.PropertyNames.ShortName;
 
 				}
 				return (string)ht[columnName];
@@ -377,6 +387,7 @@ namespace Flight_DAL
             public const string Security = "Security";
             public const string Email = "Email";
             public const string Mobile = "Mobile";
+            public const string ShortName = "ShortName";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -407,6 +418,7 @@ namespace Flight_DAL
 					ht[Security] = _Crew.ColumnNames.Security;
 					ht[Email] = _Crew.ColumnNames.Email;
 					ht[Mobile] = _Crew.ColumnNames.Mobile;
+					ht[ShortName] = _Crew.ColumnNames.ShortName;
 
 				}
 				return (string)ht[propertyName];
@@ -442,6 +454,7 @@ namespace Flight_DAL
             public const string Security = "s_Security";
             public const string Email = "s_Email";
             public const string Mobile = "s_Mobile";
+            public const string ShortName = "s_ShortName";
 
 		}
 		#endregion		
@@ -472,15 +485,15 @@ namespace Flight_DAL
 			}
 		}
 
-		public virtual int StaffNo
+		public virtual string StaffNo
 	    {
 			get
 	        {
-				return base.Getint(ColumnNames.StaffNo);
+				return base.Getstring(ColumnNames.StaffNo);
 			}
 			set
 	        {
-				base.Setint(ColumnNames.StaffNo, value);
+				base.Setstring(ColumnNames.StaffNo, value);
 			}
 		}
 
@@ -724,6 +737,18 @@ namespace Flight_DAL
 			}
 		}
 
+		public virtual string ShortName
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.ShortName);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.ShortName, value);
+			}
+		}
+
 
 		#endregion
 		
@@ -763,14 +788,14 @@ namespace Flight_DAL
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.StaffNo) ? string.Empty : base.GetintAsString(ColumnNames.StaffNo);
+				return this.IsColumnNull(ColumnNames.StaffNo) ? string.Empty : base.GetstringAsString(ColumnNames.StaffNo);
 			}
 			set
 	        {
 				if(string.Empty == value)
 					this.SetColumnNull(ColumnNames.StaffNo);
 				else
-					this.StaffNo = base.SetintAsString(ColumnNames.StaffNo, value);
+					this.StaffNo = base.SetstringAsString(ColumnNames.StaffNo, value);
 			}
 		}
 
@@ -1074,6 +1099,21 @@ namespace Flight_DAL
 			}
 		}
 
+		public virtual string s_ShortName
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.ShortName) ? string.Empty : base.GetstringAsString(ColumnNames.ShortName);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.ShortName);
+				else
+					this.ShortName = base.SetstringAsString(ColumnNames.ShortName, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -1332,6 +1372,16 @@ namespace Flight_DAL
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.Mobile, Parameters.Mobile);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter ShortName
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.ShortName, Parameters.ShortName);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -1618,6 +1668,18 @@ namespace Flight_DAL
 				}
 			}
 
+			public WhereParameter ShortName
+		    {
+				get
+		        {
+					if(_ShortName_W == null)
+	        	    {
+						_ShortName_W = TearOff.ShortName;
+					}
+					return _ShortName_W;
+				}
+			}
+
 			private WhereParameter _CrewID_W = null;
 			private WhereParameter _Name_W = null;
 			private WhereParameter _StaffNo_W = null;
@@ -1641,6 +1703,7 @@ namespace Flight_DAL
 			private WhereParameter _Security_W = null;
 			private WhereParameter _Email_W = null;
 			private WhereParameter _Mobile_W = null;
+			private WhereParameter _ShortName_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -1667,6 +1730,7 @@ namespace Flight_DAL
 				_Security_W = null;
 				_Email_W = null;
 				_Mobile_W = null;
+				_ShortName_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -1953,6 +2017,16 @@ namespace Flight_DAL
 					}
 				}
 
+				public AggregateParameter ShortName
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.ShortName, Parameters.ShortName);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -2234,6 +2308,18 @@ namespace Flight_DAL
 				}
 			}
 
+			public AggregateParameter ShortName
+		    {
+				get
+		        {
+					if(_ShortName_W == null)
+	        	    {
+						_ShortName_W = TearOff.ShortName;
+					}
+					return _ShortName_W;
+				}
+			}
+
 			private AggregateParameter _CrewID_W = null;
 			private AggregateParameter _Name_W = null;
 			private AggregateParameter _StaffNo_W = null;
@@ -2257,6 +2343,7 @@ namespace Flight_DAL
 			private AggregateParameter _Security_W = null;
 			private AggregateParameter _Email_W = null;
 			private AggregateParameter _Mobile_W = null;
+			private AggregateParameter _ShortName_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -2283,6 +2370,7 @@ namespace Flight_DAL
 				_Security_W = null;
 				_Email_W = null;
 				_Mobile_W = null;
+				_ShortName_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -2447,6 +2535,10 @@ namespace Flight_DAL
 
 			p = cmd.Parameters.Add(Parameters.Mobile);
 			p.SourceColumn = ColumnNames.Mobile;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.ShortName);
+			p.SourceColumn = ColumnNames.ShortName;
 			p.SourceVersion = DataRowVersion.Current;
 
 

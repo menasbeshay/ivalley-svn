@@ -70,6 +70,9 @@
     <Compile Include="Pilot_CompanyPosition.cs" />
     <Compile Include="Pilot_TBF.cs" />
     <Compile Include="Position.cs" />
+    <Compile Include="ProfileProperty.cs" />
+    <Compile Include="ProfilePropertyType.cs" />
+    <Compile Include="ProfilePropertyValue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Flight.cs" />
     <Compile Include="Sector.cs" />
@@ -82,6 +85,7 @@
     <Compile Include="TitleCourse.cs" />
     <Compile Include="Training.cs" />
     <Compile Include="Transactions.cs" />
+    <Compile Include="VisaInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Flight_DAL\Flight_DAL.csproj">

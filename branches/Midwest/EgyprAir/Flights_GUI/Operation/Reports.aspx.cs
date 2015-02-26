@@ -24,7 +24,8 @@ namespace Flights_GUI.Operation
                 ReportViewer4.Visible = false;
                 ReportViewer5.Visible = false;
                 ReportViewer6.Visible = false;
-                ReportViewer7.Visible = false;                               
+                ReportViewer7.Visible = false;
+                Master.PageTitle = "Reports";      
             }
             if (Request.IsAuthenticated)
             {
@@ -88,6 +89,9 @@ namespace Flights_GUI.Operation
             Microsoft.Reporting.WebForms.ReportDataSource rds2 = new Microsoft.Reporting.WebForms.ReportDataSource();                        
             
             GetPilotReportTableAdapter ta = new GetPilotReportTableAdapter();
+            GetPilotReportWithinRangeTableAdapter pilotHoursWithinRange = new GetPilotReportWithinRangeTableAdapter();
+            GetPilotDHDWithinRangeTableAdapter pilotDHDHoursWithinRange = new GetPilotDHDWithinRangeTableAdapter();
+
             GetPAXReportTableAdapter taP = new GetPAXReportTableAdapter();
             GetFlyHoursReportTableAdapter taF = new GetFlyHoursReportTableAdapter();
             GetPilotScheduleTableAdapter taS = new GetPilotScheduleTableAdapter();
@@ -98,6 +102,9 @@ namespace Flights_GUI.Operation
             GetSectorsActualBurnOffTableAdapter SBO = new GetSectorsActualBurnOffTableAdapter();
 
             ta.ClearBeforeFill = true;
+            pilotHoursWithinRange.ClearBeforeFill = true;
+            pilotDHDHoursWithinRange.ClearBeforeFill = true;
+
             taP.ClearBeforeFill = true;
             taF.ClearBeforeFill = true;
             taS.ClearBeforeFill = true;
@@ -122,6 +129,9 @@ namespace Flights_GUI.Operation
                     case "0":
                         rds.Name = "PilotDataSet";
                         rds.Value = ta.GetData(Convert.ToInt32(uiDropDownListPilots.SelectedValue), From, To);
+
+                        //rds.Value = pilotHoursWithinRange.GetData(Convert.ToInt32(uiDropDownListPilots.SelectedValue), From, To);
+
                         ReportViewer1.LocalReport.DataSources.Add(rds);
                         ReportParameter[] rep_params1 = new ReportParameter[2];
                         rep_params1[0] = new Microsoft.Reporting.WebForms.ReportParameter("From", string.Format("{0:MM/dd/yyyy}", uiRadDatePickerFrom.SelectedDate));
@@ -135,6 +145,26 @@ namespace Flights_GUI.Operation
                         ReportViewer5.Visible = false;
                         ReportViewer6.Visible = false;
                         ReportViewer7.Visible = false;                        
+                        break;
+                    case "8":
+                        rds.Name = "PilotDataSet";
+                        //rds.Value = ta.GetData(Convert.ToInt32(uiDropDownListPilots.SelectedValue), From, To);
+
+                        rds.Value = pilotDHDHoursWithinRange.GetData(Convert.ToInt32(uiDropDownListPilots.SelectedValue), From, To);
+
+                        ReportViewer1.LocalReport.DataSources.Add(rds);
+                        ReportParameter[] rep_params8 = new ReportParameter[2];
+                        rep_params8[0] = new Microsoft.Reporting.WebForms.ReportParameter("From", string.Format("{0:MM/dd/yyyy}", uiRadDatePickerFrom.SelectedDate));
+                        rep_params8[1] = new Microsoft.Reporting.WebForms.ReportParameter("To", string.Format("{0:MM/dd/yyyy}", uiRadDatePickerTo.SelectedDate));
+                        ReportViewer1.LocalReport.SetParameters(rep_params8);
+                        ReportViewer1.LocalReport.Refresh();
+                        ReportViewer1.Visible = true;
+                        ReportViewer2.Visible = false;
+                        ReportViewer3.Visible = false;
+                        ReportViewer4.Visible = false;
+                        ReportViewer5.Visible = false;
+                        ReportViewer6.Visible = false;
+                        ReportViewer7.Visible = false;
                         break;
                     case "1":
                         rds.Name = "PAXDataSet";
