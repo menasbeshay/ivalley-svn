@@ -48,6 +48,7 @@
     <Compile Include="Course.cs" />
     <Compile Include="CourseDetail.cs" />
     <Compile Include="Crew.cs" />
+    <Compile Include="CrewNightCity.cs" />
     <Compile Include="Days.cs" />
     <Compile Include="Delay.cs" />
     <Compile Include="Flight.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="PilotAirCraft.cs" />
     <Compile Include="PilotCourse.cs" />
     <Compile Include="PilotLog.cs" />
+    <Compile Include="PilotNightCity.cs" />
     <Compile Include="PilotPerDiemLog.cs" />
     <Compile Include="PilotTitle.cs" />
     <Compile Include="PilotTransaction.cs" />
