@@ -139,12 +139,12 @@ as
 /*
 declare   @FromDate DateTime = null,  
           @ToDate DateTime = null  
-set @FromDate = '01/25/2013'          
-set @ToDate = '01/30/2013'
-  */
+set @FromDate = '01/14/2015'          
+set @ToDate = '01/19/2015'
+*/
 Select * from (  
 Select P.FirstName + ' ' + P.SecondName DisplayName , p.Email, 
-Stuff((Select '   <hr /><br />FlightNo. : ' + S.FlightNo + ' <br /> Date:  ' +  CONVERT(nvarchar(12), s.SectorDate) + '<br /> From : ' +  af.IATACode  + ' To : ' +  at.IATACode  from Sector  S
+Stuff((Select '   <hr /><br />FlightNo. : ' + S.FlightNo + ' <br /> Date:  ' +  CONVERT(nvarchar(12), s.SectorDate) + '<br /> STD : ' + convert(nvarchar(8),s.STD,108) + '<br /> STA : ' + convert(nvarchar(8),s.STA,108) + '<br /> From : ' +  af.IATACode  + ' To : ' +  at.IATACode  from Sector  S
 Inner Join AirPort af on s.From_AirportID = af.AirPortID
 Inner Join AirPort at on s.To_AirportID = at.AirPortID
 Inner Join SectorPilot SP on SP.SectorID = S.SectorID and 
@@ -153,6 +153,7 @@ where
    S.SectorDate >= (ISNULL(@FromDate, '01/01/1900')) And   
    S.SectorDate <= (ISNULL(@ToDate, '01/01/2500')) And   
    (IsPAX is NULL Or IsPAX <> 1 )  
+   order by S.SectorDate , DATEPART(hh, S.STD)
 for XML path('')),1,3,'') as FlightInfo
 from  Pilot P 
 ) A
@@ -162,7 +163,7 @@ union
 
 Select * from (  
 Select c.Name DisplayName , c.Email, 
-Stuff((Select '   <hr /><br />FlightNo. : ' + S.FlightNo + ' <br /> Date:  ' +  CONVERT(nvarchar(12), s.SectorDate) + '<br /> From : ' +  af.IATACode  + ' To : ' +  at.IATACode  from Sector  S
+Stuff((Select '   <hr /><br />FlightNo. : ' + S.FlightNo + ' <br /> Date:  ' +  CONVERT(nvarchar(12), s.SectorDate) + '<br /> STD : ' + convert(nvarchar(8),s.STD,108) + '<br /> STA : ' + convert(nvarchar(8),s.STA,108) + '<br /> From : ' +  af.IATACode  + ' To : ' +  at.IATACode  from Sector  S
 Inner Join AirPort af on s.From_AirportID = af.AirPortID
 Inner Join AirPort at on s.To_AirportID = at.AirPortID
 Inner Join SectorCrew SP on SP.SectorID = S.SectorID and 
@@ -171,9 +172,50 @@ where
    S.SectorDate >= (ISNULL(@FromDate, '01/01/1900')) And   
    S.SectorDate <= (ISNULL(@ToDate, '01/01/2500')) And   
    (IsPAX is NULL Or IsPAX <> 1 )  
+	order by S.SectorDate , DATEPART(hh, S.STD)
 for XML path('')),1,3,'') as FlightInfo
 from  crew C 
 ) A
 Where A.FlightInfo is not null
 Go
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'SearchBatchSectors' and
+		        xtype = 'P')
+Drop Procedure SearchBatchSectors
+Go
+Create Procedure SearchBatchSectors @filterText nvarchar(30),  
+          @FromDate DateTime = null,  
+          @ToDate DateTime = null  
+as  
+ /* declare   @FromDate DateTime = null,  
+          @ToDate DateTime = null  ,
+          @filterText nvarchar(30) = ''
+set @FromDate = '01/01/2015'          
+set @ToDate = '01/31/2015'*/
+Select S.FlightNo, S.SectorDate, S.STD, S.STA,FromA.IATACode FromA, ToA.IATACode TOA ,Stuff(( Select '   <br />'+ po.Title + ' - ' + P2.ShortName    
+      From Sector SS2   
+      Inner Join SectorPilot RP2 on SS2.SectorID = RP2.SectorID   
+      inner join Pilot P2 on RP2.PilotID = P2.PilotID   
+      Inner Join Position po on RP2.PositionID = po.PositionID
+      where SS2.SectorID = S.SectorID   
+   for XML path('')),1,3,'') Pilots ,
+    Stuff(( Select '   <br />' + po.Title + ' - ' + CC.ShortName 
+      From Sector S2   
+      Inner Join SectorCrew C on S2.SectorID = C.SectorID   
+      inner join Crew CC on CC.CrewID = C.CrewID   
+      Inner Join Position po on c.PositionID = po.PositionID
+      where S2.SectorID = S.SectorID   
+   for XML path('')),1,3,'') Crew
+from Sector S
+Inner Join AirPort FromA on FromA.AirPortID = S.From_AirportID
+Inner join AirPort ToA on ToA.AirPortID = S.To_AirportID
+where (ISNULL(@filterText,'') = '' Or FlightNo Like N'%' + @filterText + N'%') and   
+   SectorDate >= (ISNULL(@FromDate, '01/01/1900')) And   
+   SectorDate <= (ISNULL(@ToDate, '01/01/2500')) And   
+   (IsPAX is NULL Or IsPAX <> 1 )  
+  Order by S.SectorDate , datepart(hh,S.STD)
+  GO
 

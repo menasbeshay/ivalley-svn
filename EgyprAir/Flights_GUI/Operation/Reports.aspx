@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/E_Admin.Master" AutoEventWireup="true" CodeBehind="Reports.aspx.cs" Inherits="Flights_GUI.Operation.Reports" %>
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
-
+<%@ MasterType VirtualPath="~/MasterPages/E_Admin.Master" %>
 <%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
     Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
@@ -10,12 +10,12 @@
         $("#mi3").addClass("selected");
     });
 </script>
-<script language="javascript" type="text/javascript">
+<script type="text/javascript">
     $(document).ready(function () {
-        $('#ReportList input').click(function () {
-            var selectedvalue = $("#ReportList input:radio:checked").val();
+        $('#<%= uiRadioButtonListReports.ClientID %>').change(function () {
+            var selectedvalue = $(this).val();
 
-            if (selectedvalue == 0 || selectedvalue == 4 || selectedvalue == 5) {
+            if (selectedvalue == 0 || selectedvalue == 4 || selectedvalue == 5 || selectedvalue == 8) {
                 $('#pilotdiv').css('display', 'block');
 
                 if (selectedvalue == 4 || selectedvalue == 5)
@@ -52,34 +52,35 @@
                 <h4>
                     Flight Reports</h4>
                 <div class="Details900">
-
-                <div class="AdminLeft" style="width: 10%">
+                    <div class="span12 clearfix">
+                <div class="span2" >
                              <asp:Label ID="Label4" runat="server" Text="Select Report" CssClass="Label"></asp:Label>
                             </div>
-                            <div class="AdminMiddle" id="ReportList">
-                                <asp:RadioButtonList ID="uiRadioButtonListReports" runat="server" 
-                                    RepeatDirection="Horizontal" RepeatLayout="Table" RepeatColumns="3" 
-                                    CellPadding="2" CellSpacing="2" CssClass="ReportItems">
-                                    <asp:ListItem Value="0">Pilot Hours</asp:ListItem>                                                                                                  
+                            <div class="span3" id="ReportList">
+                                <asp:DropDownList ID="uiRadioButtonListReports" runat="server" CssClass="ReportItems">                                    
+                                    <asp:ListItem Value="-1">Select report ... </asp:ListItem>             
+                                    <asp:ListItem Value="0">Pilot Hours</asp:ListItem>      
+                                    <asp:ListItem Value="8">Pilot DHD Hours</asp:ListItem>                                                                                             
                                     <%--<asp:ListItem Value="4">Per diem</asp:ListItem>--%>
-                                    <asp:ListItem Value="5">Actual Per diem</asp:ListItem>
+                                   <%-- <asp:ListItem Value="5">Actual Per diem</asp:ListItem>--%>
                                     <asp:ListItem Value="1">PAX & Fuel</asp:ListItem>
                                     <asp:ListItem Value="2">Aircraft Fly Hours</asp:ListItem>  
                                     <asp:ListItem Value="3">Flight Schedule</asp:ListItem>    
                                     <asp:ListItem Value="6">Airplane Fuel</asp:ListItem>
                                     <asp:ListItem Value="7">Sector Fuel</asp:ListItem>
-                                </asp:RadioButtonList>
+                                </asp:DropDownList>
                                 
                             </div>
                             <div class="AdminRight">
                                                       
                             </div>
                             <div class="clear10"></div>
-                            <div id="PlanDiv" style="display:none;">
-                            <div class="AdminLeft" style="width: 10%">
+                        </div>
+                            <div id="PlanDiv" style="display:none;" class="span12 clearfix">
+                            <div class="span2" >
                              <asp:Label ID="Label1" runat="server" Text="Airplane :" CssClass="Label"></asp:Label>
                             </div>
-                            <div class="AdminMiddle">
+                            <div class="span3">
                                 <asp:DropDownList ID="uiDropDownListAirplane" runat="server" Width="150px">
                                 </asp:DropDownList>&nbsp;
                             </div>
@@ -88,11 +89,11 @@
                             <div class="clear10"></div>
                             </div>
                             <div class="clear10"></div>
-                            <div id="pilotdiv" style="display:none;">
-                            <div class="AdminLeft" style="width: 10%">
+                            <div id="pilotdiv" style="display:none;" class="span12 clearfix">
+                            <div class="span2" >
                              <asp:Label ID="Label31" runat="server" Text="Select Pilot" CssClass="Label"></asp:Label>
                             </div>
-                            <div class="AdminMiddle">
+                            <div class="span3">
                                 <asp:DropDownList ID="uiDropDownListPilots" runat="server" Width="150px">
                                 </asp:DropDownList>&nbsp;
                             </div>
@@ -100,11 +101,11 @@
                             </div>
                             <div class="clear10"></div>
                             </div>
-                            <div id="Ratediv" style="display:none;">
-                            <div class="AdminLeft" style="width: 10%">
+                            <div id="Ratediv" style="display:none;" class="span12">
+                            <div class="span2">
                              <asp:Label ID="Label5" runat="server" Text="Rate / Day" CssClass="Label"></asp:Label>
                             </div>
-                            <div class="AdminMiddle">
+                            <div class="span3">
                                 <asp:TextBox ID="uiTextBoxRate" runat="server"></asp:TextBox>
                             </div>
                             <div class="AdminRight">
@@ -112,26 +113,33 @@
                             <div class="clear10"></div>
                             </div>
 
-                            <div id="SectorDiv" style="display:none">
-                            <div class="AdminLeft" style="width: 10%">
+                            <div id="SectorDiv" style="display:none" class="span12">
+                            <div class="span1" >
                                 <asp:Label ID="Label6" runat="server" Text="From :" CssClass="Label"></asp:Label>
                             </div>
-                            <div class="AdminMiddle" style="vertical-align: 50%">
+                            <div class="span2" >
                                 <asp:DropDownList ID="uiDropDownListFrom" runat="server">
                                 </asp:DropDownList>
-                                &nbsp; <asp:Label ID="Label7" runat="server" Text="To :" CssClass="Label"></asp:Label>
-                                &nbsp;<asp:DropDownList ID="uiDropDownListTo" runat="server">
-                                </asp:DropDownList>
+                               
                             </div>
-                            <div class="AdminRight">
+                            <div class="span1">
                            
                             </div>
+                                <div class="span1">
+                                      <asp:Label ID="Label7" runat="server" Text="To :" CssClass="Label"></asp:Label>
+                                
+                                </div>
+                                <div class="span2">
+                                    <asp:DropDownList ID="uiDropDownListTo" runat="server">
+                                </asp:DropDownList>
+                                </div>
                             <div class="clear10"></div>
                             </div>
-                            <div class="AdminLeft" style="width: 10%">
+                    <div class="span12 clearfix">
+                            <div class="span2" >
                                 <asp:Label ID="Label2" runat="server" Text="From :" CssClass="Label"></asp:Label>
                             </div>
-                            <div class="AdminMiddle" style="vertical-align: 50%">
+                            <div class="span2" >
                                 <telerik:RadDatePicker ID="uiRadDatePickerFrom" runat="server" Culture="en-US" Skin="Office2007">
                                     <Calendar UseRowHeadersAsSelectors="False" UseColumnHeadersAsSelectors="False" ViewSelectorText="x"
                                         Skin="Office2007">
@@ -140,8 +148,17 @@
                                     </DateInput>
                                     <DatePopupButton ImageUrl="" HoverImageUrl=""></DatePopupButton>
                                 </telerik:RadDatePicker>                                
-                                &nbsp; <asp:Label ID="Label3" runat="server" Text="To :" CssClass="Label"></asp:Label>
-                                &nbsp;
+                                  
+                            </div>
+                        <div class="span1">
+                            &nbsp;
+                            </div>
+                        <div class="span1">
+                             <asp:Label ID="Label3" runat="server" Text="To :" CssClass="Label"></asp:Label>
+                                
+                        </div>
+                        <div class="span2">
+                            
                                 <telerik:RadDatePicker ID="uiRadDatePickerTo" runat="server" Culture="en-US" Skin="Office2007">
                                     <Calendar UseRowHeadersAsSelectors="False" UseColumnHeadersAsSelectors="False" ViewSelectorText="x"
                                         Skin="Office2007">
@@ -149,26 +166,17 @@
                                     <DateInput DisplayDateFormat="dd/MM/yyyy" DateFormat="dd/MM/yyyy">
                                     </DateInput>
                                     <DatePopupButton ImageUrl="" HoverImageUrl=""></DatePopupButton>
-                                </telerik:RadDatePicker>    
-                            </div>
-                            <div class="AdminRight">
-                           
+                                </telerik:RadDatePicker>  
+                        </div>
+                            <div class="span2">
+                           <asp:LinkButton ID="uiLinkButtonGetReport" runat="server" 
+                                        OnClick="uiLinkButtonGetReport_Click" CssClass="btn btn-primary">View Report</asp:LinkButton>
                             </div>
                             <div class="clear10"></div>
+                        </div>
+                            
 
-                            <div class="AdminLeft" style="width: 10%">
-                            &nbsp;
-                            </div>
-                            <div class="AdminMiddle">
-                            <div class="More" style="float:left; height: 15px;">
-                                    <asp:LinkButton ID="uiLinkButtonGetReport" runat="server" 
-                                        OnClick="uiLinkButtonGetReport_Click">View Report</asp:LinkButton>
-                                </div>                                
-                            </div>
-                            <div class="AdminRight"></div>
-                            <div class="clear10"></div>
-
-                            <div class="AdminMiddle" style="width: 100%">
+                            <div class="span12 clearfix" >
                                 <rsweb:ReportViewer ID="ReportViewer1" runat="server" Width="100%" 
                                     Font-Names="Verdana" Font-Size="8pt" InteractiveDeviceInfos="(Collection)" 
                                     WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt">

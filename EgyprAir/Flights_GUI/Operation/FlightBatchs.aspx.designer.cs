@@ -7,55 +7,46 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Flights_GUI.CabinCrew {
+namespace Flights_GUI.Operation {
     
     
-    public partial class Reports {
+    public partial class FlightBatchs {
         
         /// <summary>
-        /// Label4 control.
+        /// uiPanelSuccess control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
+        protected global::System.Web.UI.WebControls.Panel uiPanelSuccess;
         
         /// <summary>
-        /// uiRadioButtonListReports control.
+        /// uiPanelSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList uiRadioButtonListReports;
+        protected global::System.Web.UI.WebControls.Panel uiPanelSearch;
         
         /// <summary>
-        /// Label31 control.
+        /// Label34 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label31;
+        protected global::System.Web.UI.WebControls.Label Label34;
         
         /// <summary>
-        /// uiDropDownListCrew control.
+        /// Label35 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList uiDropDownListCrew;
-        
-        /// <summary>
-        /// Label2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label Label35;
         
         /// <summary>
         /// uiRadDatePickerFrom control.
@@ -67,13 +58,13 @@ namespace Flights_GUI.CabinCrew {
         protected global::Telerik.Web.UI.RadDatePicker uiRadDatePickerFrom;
         
         /// <summary>
-        /// Label3 control.
+        /// Label36 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Label Label36;
         
         /// <summary>
         /// uiRadDatePickerTo control.
@@ -85,22 +76,58 @@ namespace Flights_GUI.CabinCrew {
         protected global::Telerik.Web.UI.RadDatePicker uiRadDatePickerTo;
         
         /// <summary>
-        /// uiLinkButtonGetReport control.
+        /// uiButtonSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonGetReport;
+        protected global::System.Web.UI.WebControls.Button uiButtonSearch;
         
         /// <summary>
-        /// ReportViewer1 control.
+        /// uiLinkButtonSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Microsoft.Reporting.WebForms.ReportViewer ReportViewer1;
+        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonSearch;
+        
+        /// <summary>
+        /// uiLinkButtonSend control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonSend;
+        
+        /// <summary>
+        /// uiTextBoxMailto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxMailto;
+        
+        /// <summary>
+        /// uiTextBoxBody control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxBody;
+        
+        /// <summary>
+        /// uiRadGridFlights control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadGrid uiRadGridFlights;
         
         /// <summary>
         /// Master property.
@@ -108,9 +135,9 @@ namespace Flights_GUI.CabinCrew {
         /// <remarks>
         /// Auto-generated property.
         /// </remarks>
-        public new Flights_GUI.MasterPages.E_CabinCrew Master {
+        public new Flights_GUI.MasterPages.E_Admin Master {
             get {
-                return ((Flights_GUI.MasterPages.E_CabinCrew)(base.Master));
+                return ((Flights_GUI.MasterPages.E_Admin)(base.Master));
             }
         }
     }

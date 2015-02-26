@@ -53,7 +53,7 @@ namespace Flights_GUI.Operation
                 Member.Save();
                 BindCrew();
                 // send mail to pilot
-                try
+                /*try
                 {
                     Crew p = new Crew();
                     p.LoadByPrimaryKey(Convert.ToInt32(uiDropDownListCrew.SelectedValue));
@@ -89,7 +89,7 @@ namespace Flights_GUI.Operation
                 catch (Exception)
                 {
                     throw;
-                }
+                }*/
             }
             
         }
@@ -114,7 +114,7 @@ namespace Flights_GUI.Operation
                 Crew current = new Crew();
                 current.LoadByPrimaryKey(Convert.ToInt32(objData["CrewID"].ToString()));
                 Label temp = (Label)e.Row.FindControl("uiLabelName");
-                temp.Text = current.Name;
+                temp.Text = current.ShortName;
                 Label temp2 = (Label)e.Row.FindControl("uiLabelStaffNo");
                 if (!current.IsColumnNull("StaffNo"))
                 {
@@ -167,7 +167,7 @@ namespace Flights_GUI.Operation
             Crew AllCrew = new Crew();
             AllCrew.LoadAll();
             uiDropDownListCrew.DataSource = AllCrew.DefaultView;
-            uiDropDownListCrew.DataTextField = "Name";
+            uiDropDownListCrew.DataTextField = "ShortName";
             uiDropDownListCrew.DataValueField = "CrewID";
             uiDropDownListCrew.DataBind();
             uiDropDownListCrew.Items.Insert(0, new ListItem("Select Member", ""));

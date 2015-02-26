@@ -24,6 +24,8 @@
     <link href="../css/style_default.css" rel="stylesheet" id="style_color" />
     <link href="../assets/fancybox/source/jquery.fancybox.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="../assets/uniform/css/uniform.default.css" />
+
+    <script src="../js/jquery-1.8.3.min.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -234,7 +236,7 @@
     <!-- END FOOTER -->
     <!-- BEGIN JAVASCRIPTS -->
     <!-- Load javascripts at bottom, this will reduce page load time -->
-    <script src="../js/jquery-1.8.3.min.js"></script>
+    
     <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="../js/jquery.blockui.js"></script>
     <!-- ie8 fixes -->

@@ -17,7 +17,8 @@ namespace Flights_GUI.CabinCrew
         {
             if (!IsPostBack)
             {
-                LoadDDLs();                
+                LoadDDLs();
+                Master.PageTitle = "Reports"; 
             }
             if (Request.IsAuthenticated)
             {
@@ -65,12 +66,14 @@ namespace Flights_GUI.CabinCrew
             }
 
             GetCrewHoursTableAdapter CTA = new GetCrewHoursTableAdapter();
+            GetCrewDHDHoursTableAdapter CrewDHD = new GetCrewDHDHoursTableAdapter();
             GetAllCrewHoursTableAdapter ACTA = new GetAllCrewHoursTableAdapter();
             GetCrewScheduleTableAdapter CSTA = new GetCrewScheduleTableAdapter();
 
             CTA.ClearBeforeFill = true;
             ACTA.ClearBeforeFill = true;
             CSTA.ClearBeforeFill = true;
+            CrewDHD.ClearBeforeFill = true;
 
             try
             {
@@ -93,6 +96,10 @@ namespace Flights_GUI.CabinCrew
                 switch (uiRadioButtonListReports.SelectedValue)
                 {
                     case "0":
+                        rds.Value = CTA.GetData(Convert.ToInt32(uiDropDownListCrew.SelectedValue), From, To);
+                        ReportViewer1.LocalReport.ReportPath = "Reports\\CabinCrewHours.rdlc";
+                        break;
+                    case "5":
                         rds.Value = CTA.GetData(Convert.ToInt32(uiDropDownListCrew.SelectedValue), From, To);
                         ReportViewer1.LocalReport.ReportPath = "Reports\\CabinCrewHours.rdlc";
                         break;

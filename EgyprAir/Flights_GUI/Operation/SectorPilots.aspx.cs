@@ -54,7 +54,7 @@ namespace Flights_GUI.Operation
                 Member.Save();
                 BindPilots();
                 // send mail to pilot
-                try
+               /* try
                 {
                     Pilot p = new Pilot();
                     p.LoadByPrimaryKey(Convert.ToInt32(uiDropDownListPilot.SelectedValue));
@@ -90,7 +90,7 @@ namespace Flights_GUI.Operation
                 catch (Exception)
                 {
                     throw;
-                }
+                }*/
             }
             
         }

@@ -44,6 +44,7 @@ namespace Flights_GUI.Operation
             }
         }
         #endregion
+
         #region Events
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -316,6 +317,7 @@ namespace Flights_GUI.Operation
                 Sector objData = new Sector();
                 objData.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
                 CurrentSector = objData;
+                ClearSectorFields();
                 FillSectorData();
                 /*
                 if (Roles.IsUserInRole("Operation") || Roles.IsUserInRole("Dispatcher"))
@@ -944,8 +946,13 @@ namespace Flights_GUI.Operation
                 objData.FlightNo = uiLabelSectorPrefix.Text + uiTextBoxSectorFlightNo.Text;
                 objData.IsHeavy = uiCheckBoxIsHeavy.Checked;
                 objData.AirCraft_AirPlaneID = Convert.ToInt32(uiDropDownListAirCraftRegistration.SelectedValue);
+
                 if (uiDropDownListNightCity.SelectedIndex != 0)
-                    objData.PilotCityID = Convert.ToInt32(uiDropDownListNightCity.SelectedValue);
+                {
+                    //objData.PilotCityID = Convert.ToInt32(uiDropDownListNightCity.SelectedValue);
+
+                }
+
 
                 objData.IsPAX = false;
                 if (!string.IsNullOrEmpty(uiTextBoxFule.Text))
@@ -1255,8 +1262,5 @@ namespace Flights_GUI.Operation
             uiPanelSectorDetails.Visible = false;            
         }
 
-       
-
-        
     }
 }

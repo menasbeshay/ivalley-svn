@@ -30,6 +30,20 @@ namespace Flight_BLL
 
         }
 
+        public virtual bool SearchBatchSectors(string filterText,
+              DateTime FromDate,
+              DateTime ToDate)
+        {
+            ListDictionary parameters = new ListDictionary();
+
+            parameters.Add(new SqlParameter("@filterText", SqlDbType.NVarChar, 30), filterText);
+            parameters.Add(new SqlParameter("@FromDate", SqlDbType.DateTime, 0), FromDate);
+            parameters.Add(new SqlParameter("@ToDate", SqlDbType.DateTime, 0), ToDate);
+
+            return LoadFromSql("SearchBatchSectors", parameters);
+
+        }
+
 
         public virtual bool SearchPAXSectors(string filterText,
               DateTime FromDate,

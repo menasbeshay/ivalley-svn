@@ -78,5 +78,15 @@ namespace Flight_BLL
             return LoadFromSql("GetPilotTransactions", parameters);
 
         }
+
+        public virtual bool SearchPilot(string filterText)
+        {
+            ListDictionary parameters = new ListDictionary();
+
+            parameters.Add(new SqlParameter("@filterText", SqlDbType.NVarChar, 200), filterText);
+
+            return LoadFromSql("SearchPilot", parameters);
+
+        }
 	}
 }

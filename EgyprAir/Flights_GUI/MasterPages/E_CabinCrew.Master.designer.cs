@@ -13,6 +13,15 @@ namespace Flights_GUI.MasterPages {
     public partial class E_CabinCrew {
         
         /// <summary>
+        /// style_color control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlLink style_color;
+        
+        /// <summary>
         /// head control.
         /// </summary>
         /// <remarks>
@@ -65,6 +74,24 @@ namespace Flights_GUI.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LoginStatus LoginStatus1;
+        
+        /// <summary>
+        /// uiLabelTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label uiLabelTitle;
+        
+        /// <summary>
+        /// uiLabelContTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label uiLabelContTitle;
         
         /// <summary>
         /// ContentPlaceHolder1 control.

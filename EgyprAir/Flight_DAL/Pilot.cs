@@ -207,7 +207,7 @@ namespace Flight_DAL
 			{
 				get
 				{
-					return new SqlParameter("@StaffNo", SqlDbType.Int, 0);
+					return new SqlParameter("@StaffNo", SqlDbType.NVarChar, 10);
 				}
 			}
 			
@@ -291,6 +291,94 @@ namespace Flight_DAL
 				}
 			}
 			
+			public static SqlParameter Address
+			{
+				get
+				{
+					return new SqlParameter("@Address", SqlDbType.NVarChar, 400);
+				}
+			}
+			
+			public static SqlParameter PassportNo
+			{
+				get
+				{
+					return new SqlParameter("@PassportNo", SqlDbType.NVarChar, 20);
+				}
+			}
+			
+			public static SqlParameter PassportExpiryDate
+			{
+				get
+				{
+					return new SqlParameter("@PassportExpiryDate", SqlDbType.DateTime, 0);
+				}
+			}
+			
+			public static SqlParameter PICDayHours
+			{
+				get
+				{
+					return new SqlParameter("@PICDayHours", SqlDbType.Int, 0);
+				}
+			}
+			
+			public static SqlParameter PICDayMin
+			{
+				get
+				{
+					return new SqlParameter("@PICDayMin", SqlDbType.Int, 0);
+				}
+			}
+			
+			public static SqlParameter SICDayHours
+			{
+				get
+				{
+					return new SqlParameter("@SICDayHours", SqlDbType.Int, 0);
+				}
+			}
+			
+			public static SqlParameter SICDayMin
+			{
+				get
+				{
+					return new SqlParameter("@SICDayMin", SqlDbType.Int, 0);
+				}
+			}
+			
+			public static SqlParameter PICNightHours
+			{
+				get
+				{
+					return new SqlParameter("@PICNightHours", SqlDbType.Int, 0);
+				}
+			}
+			
+			public static SqlParameter PICNightMin
+			{
+				get
+				{
+					return new SqlParameter("@PICNightMin", SqlDbType.Int, 0);
+				}
+			}
+			
+			public static SqlParameter SICNightHours
+			{
+				get
+				{
+					return new SqlParameter("@SICNightHours", SqlDbType.Int, 0);
+				}
+			}
+			
+			public static SqlParameter SICNightMin
+			{
+				get
+				{
+					return new SqlParameter("@SICNightMin", SqlDbType.Int, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -321,6 +409,17 @@ namespace Flight_DAL
             public const string AirportClass = "AirportClass";
             public const string Email = "Email";
             public const string Mobile = "Mobile";
+            public const string Address = "address";
+            public const string PassportNo = "PassportNo";
+            public const string PassportExpiryDate = "PassportExpiryDate";
+            public const string PICDayHours = "PICDayHours";
+            public const string PICDayMin = "PICDayMin";
+            public const string SICDayHours = "SICDayHours";
+            public const string SICDayMin = "SICDayMin";
+            public const string PICNightHours = "PICNightHours";
+            public const string PICNightMin = "PICNightMin";
+            public const string SICNightHours = "SICNightHours";
+            public const string SICNightMin = "SICNightMin";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -352,6 +451,17 @@ namespace Flight_DAL
 					ht[AirportClass] = _Pilot.PropertyNames.AirportClass;
 					ht[Email] = _Pilot.PropertyNames.Email;
 					ht[Mobile] = _Pilot.PropertyNames.Mobile;
+					ht[Address] = _Pilot.PropertyNames.Address;
+					ht[PassportNo] = _Pilot.PropertyNames.PassportNo;
+					ht[PassportExpiryDate] = _Pilot.PropertyNames.PassportExpiryDate;
+					ht[PICDayHours] = _Pilot.PropertyNames.PICDayHours;
+					ht[PICDayMin] = _Pilot.PropertyNames.PICDayMin;
+					ht[SICDayHours] = _Pilot.PropertyNames.SICDayHours;
+					ht[SICDayMin] = _Pilot.PropertyNames.SICDayMin;
+					ht[PICNightHours] = _Pilot.PropertyNames.PICNightHours;
+					ht[PICNightMin] = _Pilot.PropertyNames.PICNightMin;
+					ht[SICNightHours] = _Pilot.PropertyNames.SICNightHours;
+					ht[SICNightMin] = _Pilot.PropertyNames.SICNightMin;
 
 				}
 				return (string)ht[columnName];
@@ -388,6 +498,17 @@ namespace Flight_DAL
             public const string AirportClass = "AirportClass";
             public const string Email = "Email";
             public const string Mobile = "Mobile";
+            public const string Address = "Address";
+            public const string PassportNo = "PassportNo";
+            public const string PassportExpiryDate = "PassportExpiryDate";
+            public const string PICDayHours = "PICDayHours";
+            public const string PICDayMin = "PICDayMin";
+            public const string SICDayHours = "SICDayHours";
+            public const string SICDayMin = "SICDayMin";
+            public const string PICNightHours = "PICNightHours";
+            public const string PICNightMin = "PICNightMin";
+            public const string SICNightHours = "SICNightHours";
+            public const string SICNightMin = "SICNightMin";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -419,6 +540,17 @@ namespace Flight_DAL
 					ht[AirportClass] = _Pilot.ColumnNames.AirportClass;
 					ht[Email] = _Pilot.ColumnNames.Email;
 					ht[Mobile] = _Pilot.ColumnNames.Mobile;
+					ht[Address] = _Pilot.ColumnNames.Address;
+					ht[PassportNo] = _Pilot.ColumnNames.PassportNo;
+					ht[PassportExpiryDate] = _Pilot.ColumnNames.PassportExpiryDate;
+					ht[PICDayHours] = _Pilot.ColumnNames.PICDayHours;
+					ht[PICDayMin] = _Pilot.ColumnNames.PICDayMin;
+					ht[SICDayHours] = _Pilot.ColumnNames.SICDayHours;
+					ht[SICDayMin] = _Pilot.ColumnNames.SICDayMin;
+					ht[PICNightHours] = _Pilot.ColumnNames.PICNightHours;
+					ht[PICNightMin] = _Pilot.ColumnNames.PICNightMin;
+					ht[SICNightHours] = _Pilot.ColumnNames.SICNightHours;
+					ht[SICNightMin] = _Pilot.ColumnNames.SICNightMin;
 
 				}
 				return (string)ht[propertyName];
@@ -455,6 +587,17 @@ namespace Flight_DAL
             public const string AirportClass = "s_AirportClass";
             public const string Email = "s_Email";
             public const string Mobile = "s_Mobile";
+            public const string Address = "s_Address";
+            public const string PassportNo = "s_PassportNo";
+            public const string PassportExpiryDate = "s_PassportExpiryDate";
+            public const string PICDayHours = "s_PICDayHours";
+            public const string PICDayMin = "s_PICDayMin";
+            public const string SICDayHours = "s_SICDayHours";
+            public const string SICDayMin = "s_SICDayMin";
+            public const string PICNightHours = "s_PICNightHours";
+            public const string PICNightMin = "s_PICNightMin";
+            public const string SICNightHours = "s_SICNightHours";
+            public const string SICNightMin = "s_SICNightMin";
 
 		}
 		#endregion		
@@ -617,15 +760,15 @@ namespace Flight_DAL
 			}
 		}
 
-		public virtual int StaffNo
+		public virtual string StaffNo
 	    {
 			get
 	        {
-				return base.Getint(ColumnNames.StaffNo);
+				return base.Getstring(ColumnNames.StaffNo);
 			}
 			set
 	        {
-				base.Setint(ColumnNames.StaffNo, value);
+				base.Setstring(ColumnNames.StaffNo, value);
 			}
 		}
 
@@ -746,6 +889,138 @@ namespace Flight_DAL
 			set
 	        {
 				base.Setstring(ColumnNames.Mobile, value);
+			}
+		}
+
+		public virtual string Address
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.Address);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.Address, value);
+			}
+		}
+
+		public virtual string PassportNo
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.PassportNo);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.PassportNo, value);
+			}
+		}
+
+		public virtual DateTime PassportExpiryDate
+	    {
+			get
+	        {
+				return base.GetDateTime(ColumnNames.PassportExpiryDate);
+			}
+			set
+	        {
+				base.SetDateTime(ColumnNames.PassportExpiryDate, value);
+			}
+		}
+
+		public virtual int PICDayHours
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.PICDayHours);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.PICDayHours, value);
+			}
+		}
+
+		public virtual int PICDayMin
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.PICDayMin);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.PICDayMin, value);
+			}
+		}
+
+		public virtual int SICDayHours
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.SICDayHours);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.SICDayHours, value);
+			}
+		}
+
+		public virtual int SICDayMin
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.SICDayMin);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.SICDayMin, value);
+			}
+		}
+
+		public virtual int PICNightHours
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.PICNightHours);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.PICNightHours, value);
+			}
+		}
+
+		public virtual int PICNightMin
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.PICNightMin);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.PICNightMin, value);
+			}
+		}
+
+		public virtual int SICNightHours
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.SICNightHours);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.SICNightHours, value);
+			}
+		}
+
+		public virtual int SICNightMin
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.SICNightMin);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.SICNightMin, value);
 			}
 		}
 
@@ -953,14 +1228,14 @@ namespace Flight_DAL
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.StaffNo) ? string.Empty : base.GetintAsString(ColumnNames.StaffNo);
+				return this.IsColumnNull(ColumnNames.StaffNo) ? string.Empty : base.GetstringAsString(ColumnNames.StaffNo);
 			}
 			set
 	        {
 				if(string.Empty == value)
 					this.SetColumnNull(ColumnNames.StaffNo);
 				else
-					this.StaffNo = base.SetintAsString(ColumnNames.StaffNo, value);
+					this.StaffNo = base.SetstringAsString(ColumnNames.StaffNo, value);
 			}
 		}
 
@@ -1111,6 +1386,171 @@ namespace Flight_DAL
 					this.SetColumnNull(ColumnNames.Mobile);
 				else
 					this.Mobile = base.SetstringAsString(ColumnNames.Mobile, value);
+			}
+		}
+
+		public virtual string s_Address
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.Address) ? string.Empty : base.GetstringAsString(ColumnNames.Address);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.Address);
+				else
+					this.Address = base.SetstringAsString(ColumnNames.Address, value);
+			}
+		}
+
+		public virtual string s_PassportNo
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.PassportNo) ? string.Empty : base.GetstringAsString(ColumnNames.PassportNo);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.PassportNo);
+				else
+					this.PassportNo = base.SetstringAsString(ColumnNames.PassportNo, value);
+			}
+		}
+
+		public virtual string s_PassportExpiryDate
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.PassportExpiryDate) ? string.Empty : base.GetDateTimeAsString(ColumnNames.PassportExpiryDate);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.PassportExpiryDate);
+				else
+					this.PassportExpiryDate = base.SetDateTimeAsString(ColumnNames.PassportExpiryDate, value);
+			}
+		}
+
+		public virtual string s_PICDayHours
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.PICDayHours) ? string.Empty : base.GetintAsString(ColumnNames.PICDayHours);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.PICDayHours);
+				else
+					this.PICDayHours = base.SetintAsString(ColumnNames.PICDayHours, value);
+			}
+		}
+
+		public virtual string s_PICDayMin
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.PICDayMin) ? string.Empty : base.GetintAsString(ColumnNames.PICDayMin);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.PICDayMin);
+				else
+					this.PICDayMin = base.SetintAsString(ColumnNames.PICDayMin, value);
+			}
+		}
+
+		public virtual string s_SICDayHours
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.SICDayHours) ? string.Empty : base.GetintAsString(ColumnNames.SICDayHours);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.SICDayHours);
+				else
+					this.SICDayHours = base.SetintAsString(ColumnNames.SICDayHours, value);
+			}
+		}
+
+		public virtual string s_SICDayMin
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.SICDayMin) ? string.Empty : base.GetintAsString(ColumnNames.SICDayMin);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.SICDayMin);
+				else
+					this.SICDayMin = base.SetintAsString(ColumnNames.SICDayMin, value);
+			}
+		}
+
+		public virtual string s_PICNightHours
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.PICNightHours) ? string.Empty : base.GetintAsString(ColumnNames.PICNightHours);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.PICNightHours);
+				else
+					this.PICNightHours = base.SetintAsString(ColumnNames.PICNightHours, value);
+			}
+		}
+
+		public virtual string s_PICNightMin
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.PICNightMin) ? string.Empty : base.GetintAsString(ColumnNames.PICNightMin);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.PICNightMin);
+				else
+					this.PICNightMin = base.SetintAsString(ColumnNames.PICNightMin, value);
+			}
+		}
+
+		public virtual string s_SICNightHours
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.SICNightHours) ? string.Empty : base.GetintAsString(ColumnNames.SICNightHours);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.SICNightHours);
+				else
+					this.SICNightHours = base.SetintAsString(ColumnNames.SICNightHours, value);
+			}
+		}
+
+		public virtual string s_SICNightMin
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.SICNightMin) ? string.Empty : base.GetintAsString(ColumnNames.SICNightMin);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.SICNightMin);
+				else
+					this.SICNightMin = base.SetintAsString(ColumnNames.SICNightMin, value);
 			}
 		}
 
@@ -1382,6 +1822,116 @@ namespace Flight_DAL
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.Mobile, Parameters.Mobile);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter Address
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.Address, Parameters.Address);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter PassportNo
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.PassportNo, Parameters.PassportNo);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter PassportExpiryDate
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.PassportExpiryDate, Parameters.PassportExpiryDate);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter PICDayHours
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.PICDayHours, Parameters.PICDayHours);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter PICDayMin
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.PICDayMin, Parameters.PICDayMin);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter SICDayHours
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.SICDayHours, Parameters.SICDayHours);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter SICDayMin
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.SICDayMin, Parameters.SICDayMin);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter PICNightHours
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.PICNightHours, Parameters.PICNightHours);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter PICNightMin
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.PICNightMin, Parameters.PICNightMin);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter SICNightHours
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.SICNightHours, Parameters.SICNightHours);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter SICNightMin
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.SICNightMin, Parameters.SICNightMin);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -1680,6 +2230,138 @@ namespace Flight_DAL
 				}
 			}
 
+			public WhereParameter Address
+		    {
+				get
+		        {
+					if(_Address_W == null)
+	        	    {
+						_Address_W = TearOff.Address;
+					}
+					return _Address_W;
+				}
+			}
+
+			public WhereParameter PassportNo
+		    {
+				get
+		        {
+					if(_PassportNo_W == null)
+	        	    {
+						_PassportNo_W = TearOff.PassportNo;
+					}
+					return _PassportNo_W;
+				}
+			}
+
+			public WhereParameter PassportExpiryDate
+		    {
+				get
+		        {
+					if(_PassportExpiryDate_W == null)
+	        	    {
+						_PassportExpiryDate_W = TearOff.PassportExpiryDate;
+					}
+					return _PassportExpiryDate_W;
+				}
+			}
+
+			public WhereParameter PICDayHours
+		    {
+				get
+		        {
+					if(_PICDayHours_W == null)
+	        	    {
+						_PICDayHours_W = TearOff.PICDayHours;
+					}
+					return _PICDayHours_W;
+				}
+			}
+
+			public WhereParameter PICDayMin
+		    {
+				get
+		        {
+					if(_PICDayMin_W == null)
+	        	    {
+						_PICDayMin_W = TearOff.PICDayMin;
+					}
+					return _PICDayMin_W;
+				}
+			}
+
+			public WhereParameter SICDayHours
+		    {
+				get
+		        {
+					if(_SICDayHours_W == null)
+	        	    {
+						_SICDayHours_W = TearOff.SICDayHours;
+					}
+					return _SICDayHours_W;
+				}
+			}
+
+			public WhereParameter SICDayMin
+		    {
+				get
+		        {
+					if(_SICDayMin_W == null)
+	        	    {
+						_SICDayMin_W = TearOff.SICDayMin;
+					}
+					return _SICDayMin_W;
+				}
+			}
+
+			public WhereParameter PICNightHours
+		    {
+				get
+		        {
+					if(_PICNightHours_W == null)
+	        	    {
+						_PICNightHours_W = TearOff.PICNightHours;
+					}
+					return _PICNightHours_W;
+				}
+			}
+
+			public WhereParameter PICNightMin
+		    {
+				get
+		        {
+					if(_PICNightMin_W == null)
+	        	    {
+						_PICNightMin_W = TearOff.PICNightMin;
+					}
+					return _PICNightMin_W;
+				}
+			}
+
+			public WhereParameter SICNightHours
+		    {
+				get
+		        {
+					if(_SICNightHours_W == null)
+	        	    {
+						_SICNightHours_W = TearOff.SICNightHours;
+					}
+					return _SICNightHours_W;
+				}
+			}
+
+			public WhereParameter SICNightMin
+		    {
+				get
+		        {
+					if(_SICNightMin_W == null)
+	        	    {
+						_SICNightMin_W = TearOff.SICNightMin;
+					}
+					return _SICNightMin_W;
+				}
+			}
+
 			private WhereParameter _PilotID_W = null;
 			private WhereParameter _FirstName_W = null;
 			private WhereParameter _SecondName_W = null;
@@ -1704,6 +2386,17 @@ namespace Flight_DAL
 			private WhereParameter _AirportClass_W = null;
 			private WhereParameter _Email_W = null;
 			private WhereParameter _Mobile_W = null;
+			private WhereParameter _Address_W = null;
+			private WhereParameter _PassportNo_W = null;
+			private WhereParameter _PassportExpiryDate_W = null;
+			private WhereParameter _PICDayHours_W = null;
+			private WhereParameter _PICDayMin_W = null;
+			private WhereParameter _SICDayHours_W = null;
+			private WhereParameter _SICDayMin_W = null;
+			private WhereParameter _PICNightHours_W = null;
+			private WhereParameter _PICNightMin_W = null;
+			private WhereParameter _SICNightHours_W = null;
+			private WhereParameter _SICNightMin_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -1731,6 +2424,17 @@ namespace Flight_DAL
 				_AirportClass_W = null;
 				_Email_W = null;
 				_Mobile_W = null;
+				_Address_W = null;
+				_PassportNo_W = null;
+				_PassportExpiryDate_W = null;
+				_PICDayHours_W = null;
+				_PICDayMin_W = null;
+				_SICDayHours_W = null;
+				_SICDayMin_W = null;
+				_PICNightHours_W = null;
+				_PICNightMin_W = null;
+				_SICNightHours_W = null;
+				_SICNightMin_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -2022,6 +2726,116 @@ namespace Flight_DAL
 					get
 					{
 							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Mobile, Parameters.Mobile);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter Address
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Address, Parameters.Address);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter PassportNo
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.PassportNo, Parameters.PassportNo);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter PassportExpiryDate
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.PassportExpiryDate, Parameters.PassportExpiryDate);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter PICDayHours
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.PICDayHours, Parameters.PICDayHours);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter PICDayMin
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.PICDayMin, Parameters.PICDayMin);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter SICDayHours
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.SICDayHours, Parameters.SICDayHours);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter SICDayMin
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.SICDayMin, Parameters.SICDayMin);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter PICNightHours
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.PICNightHours, Parameters.PICNightHours);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter PICNightMin
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.PICNightMin, Parameters.PICNightMin);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter SICNightHours
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.SICNightHours, Parameters.SICNightHours);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter SICNightMin
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.SICNightMin, Parameters.SICNightMin);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -2320,6 +3134,138 @@ namespace Flight_DAL
 				}
 			}
 
+			public AggregateParameter Address
+		    {
+				get
+		        {
+					if(_Address_W == null)
+	        	    {
+						_Address_W = TearOff.Address;
+					}
+					return _Address_W;
+				}
+			}
+
+			public AggregateParameter PassportNo
+		    {
+				get
+		        {
+					if(_PassportNo_W == null)
+	        	    {
+						_PassportNo_W = TearOff.PassportNo;
+					}
+					return _PassportNo_W;
+				}
+			}
+
+			public AggregateParameter PassportExpiryDate
+		    {
+				get
+		        {
+					if(_PassportExpiryDate_W == null)
+	        	    {
+						_PassportExpiryDate_W = TearOff.PassportExpiryDate;
+					}
+					return _PassportExpiryDate_W;
+				}
+			}
+
+			public AggregateParameter PICDayHours
+		    {
+				get
+		        {
+					if(_PICDayHours_W == null)
+	        	    {
+						_PICDayHours_W = TearOff.PICDayHours;
+					}
+					return _PICDayHours_W;
+				}
+			}
+
+			public AggregateParameter PICDayMin
+		    {
+				get
+		        {
+					if(_PICDayMin_W == null)
+	        	    {
+						_PICDayMin_W = TearOff.PICDayMin;
+					}
+					return _PICDayMin_W;
+				}
+			}
+
+			public AggregateParameter SICDayHours
+		    {
+				get
+		        {
+					if(_SICDayHours_W == null)
+	        	    {
+						_SICDayHours_W = TearOff.SICDayHours;
+					}
+					return _SICDayHours_W;
+				}
+			}
+
+			public AggregateParameter SICDayMin
+		    {
+				get
+		        {
+					if(_SICDayMin_W == null)
+	        	    {
+						_SICDayMin_W = TearOff.SICDayMin;
+					}
+					return _SICDayMin_W;
+				}
+			}
+
+			public AggregateParameter PICNightHours
+		    {
+				get
+		        {
+					if(_PICNightHours_W == null)
+	        	    {
+						_PICNightHours_W = TearOff.PICNightHours;
+					}
+					return _PICNightHours_W;
+				}
+			}
+
+			public AggregateParameter PICNightMin
+		    {
+				get
+		        {
+					if(_PICNightMin_W == null)
+	        	    {
+						_PICNightMin_W = TearOff.PICNightMin;
+					}
+					return _PICNightMin_W;
+				}
+			}
+
+			public AggregateParameter SICNightHours
+		    {
+				get
+		        {
+					if(_SICNightHours_W == null)
+	        	    {
+						_SICNightHours_W = TearOff.SICNightHours;
+					}
+					return _SICNightHours_W;
+				}
+			}
+
+			public AggregateParameter SICNightMin
+		    {
+				get
+		        {
+					if(_SICNightMin_W == null)
+	        	    {
+						_SICNightMin_W = TearOff.SICNightMin;
+					}
+					return _SICNightMin_W;
+				}
+			}
+
 			private AggregateParameter _PilotID_W = null;
 			private AggregateParameter _FirstName_W = null;
 			private AggregateParameter _SecondName_W = null;
@@ -2344,6 +3290,17 @@ namespace Flight_DAL
 			private AggregateParameter _AirportClass_W = null;
 			private AggregateParameter _Email_W = null;
 			private AggregateParameter _Mobile_W = null;
+			private AggregateParameter _Address_W = null;
+			private AggregateParameter _PassportNo_W = null;
+			private AggregateParameter _PassportExpiryDate_W = null;
+			private AggregateParameter _PICDayHours_W = null;
+			private AggregateParameter _PICDayMin_W = null;
+			private AggregateParameter _SICDayHours_W = null;
+			private AggregateParameter _SICDayMin_W = null;
+			private AggregateParameter _PICNightHours_W = null;
+			private AggregateParameter _PICNightMin_W = null;
+			private AggregateParameter _SICNightHours_W = null;
+			private AggregateParameter _SICNightMin_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -2371,6 +3328,17 @@ namespace Flight_DAL
 				_AirportClass_W = null;
 				_Email_W = null;
 				_Mobile_W = null;
+				_Address_W = null;
+				_PassportNo_W = null;
+				_PassportExpiryDate_W = null;
+				_PICDayHours_W = null;
+				_PICDayMin_W = null;
+				_SICDayHours_W = null;
+				_SICDayMin_W = null;
+				_PICNightHours_W = null;
+				_PICNightMin_W = null;
+				_SICNightHours_W = null;
+				_SICNightMin_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -2539,6 +3507,50 @@ namespace Flight_DAL
 
 			p = cmd.Parameters.Add(Parameters.Mobile);
 			p.SourceColumn = ColumnNames.Mobile;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.Address);
+			p.SourceColumn = ColumnNames.Address;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.PassportNo);
+			p.SourceColumn = ColumnNames.PassportNo;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.PassportExpiryDate);
+			p.SourceColumn = ColumnNames.PassportExpiryDate;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.PICDayHours);
+			p.SourceColumn = ColumnNames.PICDayHours;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.PICDayMin);
+			p.SourceColumn = ColumnNames.PICDayMin;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.SICDayHours);
+			p.SourceColumn = ColumnNames.SICDayHours;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.SICDayMin);
+			p.SourceColumn = ColumnNames.SICDayMin;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.PICNightHours);
+			p.SourceColumn = ColumnNames.PICNightHours;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.PICNightMin);
+			p.SourceColumn = ColumnNames.PICNightMin;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.SICNightHours);
+			p.SourceColumn = ColumnNames.SICNightHours;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.SICNightMin);
+			p.SourceColumn = ColumnNames.SICNightMin;
 			p.SourceVersion = DataRowVersion.Current;
 
 
