@@ -42,7 +42,7 @@ namespace Combo.BLL
 
         public virtual bool GetUserByUserId(int id, int requester)
         {
-            return LoadFromRawSql(@"Select CU.*, A.Path ProfilePic, 
+            return LoadFromRawSql(@"Select CU.*, A.Path ProfilePic, A2.Path CoverPic,
                                     case F.ComboUserID when {0} then 'true' 
 				                                       when {1} then 'true' 
 				                                       else 'false' end IsFriend, 
@@ -53,6 +53,7 @@ namespace Combo.BLL
 				                                       else 'false' end IsFriendRequestSent 
                                     from ComboUser CU                                                              
                                     Left join Attachment A on CU.ProfileImgID = A.AttachmentID
+                                    Left join Attachment A2 on CU.CoverImgID = A2.AttachmentID
                                     Left Join ComboUserFriend F on (CU.ComboUserID = F.ComboUserID and F.ComboFriendID = {1} and F.ComboUserID = {0} and F.RequestApproved = 1)
 							                                     Or (CU.ComboUserID = F.ComboFriendID and F.ComboFriendID = {0} and F.ComboUserID = {1} and F.RequestApproved = 1)
                                     left join ProfileFollower PF on PF.ComboUserID = {0} and PF.ComboFollowerID = {1}										

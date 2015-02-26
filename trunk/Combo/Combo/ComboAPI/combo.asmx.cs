@@ -121,6 +121,7 @@ namespace Combo.ComboAPI
                     IsFollowing = Convert.ToBoolean(row["IsFollowing"]),
                     IsFriendRequestSent = Convert.ToBoolean(row["IsFriendRequestSent"]),
                     ProfilePic = row["ProfilePic"].ToString(),
+                    CoverPic = row["CoverPic"].ToString(),
                     UserRankID = Convert.ToInt32(row["UserRankID"])
                 };
             }).ToList();
