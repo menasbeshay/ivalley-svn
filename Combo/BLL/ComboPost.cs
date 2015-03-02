@@ -67,6 +67,18 @@ namespace Combo.BLL
                                     order by P.PostDate Desc", userid);
         }
 
+        public virtual bool GetUserPostByUserID(int userid)
+        {
+            return LoadFromRawSql(@"Select P.*, U.UserName, A.Path ProfilePic, S.IsPostsDownloadable from ComboPost P
+                                    Inner Join ComboUser U on P.ComboUserID = U.ComboUserID and 
+                                                              (U.IsDeactivated <> 1 or U.IsDeactivated is null)
+                                    Left join Attachment A on U.ProfileImgID = A.AttachmentID
+                                    Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID 
+                                    Where P.ComboUserID = {0} and 
+                                    (P.IsDeleted <> 1 or P.IsDeleted is null)                                                                         
+                                    order by P.PostDate Desc", userid);
+        }
+
         public virtual bool GetPhotoPostsByUserID(int userid)
         {
             return LoadFromRawSql(@"Select P.*, U.UserName, A.Path ProfilePic, S.IsPostsDownloadable from ComboPost P
@@ -174,8 +186,8 @@ namespace Combo.BLL
                                     Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID
                                     Inner join ComboUserFriend CFF on U.ComboUserID = CFF.ComboUserID and
 								                                      CFF.ComboFriendID = {0} and
-                                                                      CF.RequestApproved = 1 and
-                                                                      (CF.IsBanned <> 1 or CF.IsBanned is null)
+                                                                      CFF.RequestApproved = 1 and
+                                                                      (CFF.IsBanned <> 1 or CFF.IsBanned is null)
                                     where (P.IsDeleted <> 1 or P.IsDeleted is null)
                                     order by P.PostDate Desc", userid);
         }
@@ -190,14 +202,47 @@ namespace Combo.BLL
                                     (P.IsDeleted <> 1 or P.IsDeleted is null)", pid);
         }
 
-        public virtual bool SearchPosts(string filterText)
+        public virtual bool SearchPosts(string filterText, int requester)
         {
-            return LoadFromRawSql(@"Select P.*, U.UserName, A.Path ProfilePic, S.IsPostsDownloadable from ComboPost P
+            return LoadFromRawSql(@"Select P.*, U.UserName, A.Path ProfilePic , S.IsPostsDownloadable from ComboPost P
+                                    Inner Join ComboUser U on P.ComboUserID = U.ComboUserID and 
+                                                              (U.IsDeactivated <> 1 or U.IsDeactivated is null)
+                                    Left join Attachment A on U.ProfileImgID = A.AttachmentID
+                                    Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID
+                                    Where P.ComboUserID in (select ComboFollowerID from ProfileFollower PF where PF.ComboUserID = {1}) and 
+                                    (P.IsDeleted <> 1 or P.IsDeleted is null) and P.PostText like '%' + {0} + '%' 
+                                    union
+                                    Select P.*, U.UserName, A.Path ProfilePic, S.IsPostsDownloadable 
+                                    from ComboPost P
+                                    Inner Join ComboUser U on P.ComboUserID = U.ComboUserID and
+                                                              (U.IsDeactivated <> 1 or U.IsDeactivated is null)
+                                    Left join Attachment A on U.ProfileImgID = A.AttachmentID
+                                    Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID
+                                    inner join ComboUserFriend CF on U.ComboUserID = CF.ComboFriendID and 
+								                                     CF.ComboUserID = {1} and 
+                                                                     CF.RequestApproved = 1	and 
+                                                                     (CF.IsBanned <> 1 or CF.IsBanned is null)
+                                    where P.PostText like '%' + {0} + '%' and (P.IsDeleted <> 1 or P.IsDeleted is null)
+
+                                    union 
+                                    Select P.*, U.UserName, A.Path ProfilePic, S.IsPostsDownloadable 
+                                    from ComboPost P
+                                    Inner Join ComboUser U on P.ComboUserID = U.ComboUserID and
+                                                              (U.IsDeactivated <> 1 or U.IsDeactivated is null)
+                                    Left join Attachment A on U.ProfileImgID = A.AttachmentID
+                                    Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID
+                                    Inner join ComboUserFriend CFF on U.ComboUserID = CFF.ComboUserID and
+								                                      CFF.ComboFriendID = {1} and
+                                                                      CFF.RequestApproved = 1 and
+                                                                      (CFF.IsBanned <> 1 or CFF.IsBanned is null)
+                                    where P.PostText like '%' + {0} + '%' and  (P.IsDeleted <> 1 or P.IsDeleted is null)
+                                    union
+                                    Select P.*, U.UserName, A.Path ProfilePic, S.IsPostsDownloadable from ComboPost P
                                     Inner Join ComboUser U on P.ComboUserID = U.ComboUserID
                                     Left join Attachment A on U.ProfileImgID = A.AttachmentID
                                     Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID
                                     Where P.PostText like '%' + {0} + '%' and 
-                                    (P.IsDeleted <> 1 or P.IsDeleted is null)", filterText);
+                                    (P.IsDeleted <> 1 or P.IsDeleted is null) ", filterText, requester);
         }
 
         public virtual bool ExplorePosts()

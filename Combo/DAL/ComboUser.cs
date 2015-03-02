@@ -251,6 +251,46 @@ namespace Combo.DAL
 				}
 			}
 			
+			public static SqlParameter SecurityWord
+			{
+				get
+				{
+					return new SqlParameter("@SecurityWord", SqlDbType.NVarChar, 50);
+				}
+			}
+			
+			public static SqlParameter BirthDate
+			{
+				get
+				{
+					return new SqlParameter("@BirthDate", SqlDbType.DateTime, 0);
+				}
+			}
+			
+			public static SqlParameter Country
+			{
+				get
+				{
+					return new SqlParameter("@Country", SqlDbType.NVarChar, 100);
+				}
+			}
+			
+			public static SqlParameter Phone
+			{
+				get
+				{
+					return new SqlParameter("@Phone", SqlDbType.NVarChar, 20);
+				}
+			}
+			
+			public static SqlParameter Website
+			{
+				get
+				{
+					return new SqlParameter("@Website", SqlDbType.NVarChar, 200);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -276,6 +316,11 @@ namespace Combo.DAL
             public const string SecurityQuestion = "SecurityQuestion";
             public const string SecurityAnswer = "SecurityAnswer";
             public const string UserRankID = "UserRankID";
+            public const string SecurityWord = "SecurityWord";
+            public const string BirthDate = "BirthDate";
+            public const string Country = "Country";
+            public const string Phone = "Phone";
+            public const string Website = "Website";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -302,6 +347,11 @@ namespace Combo.DAL
 					ht[SecurityQuestion] = _ComboUser.PropertyNames.SecurityQuestion;
 					ht[SecurityAnswer] = _ComboUser.PropertyNames.SecurityAnswer;
 					ht[UserRankID] = _ComboUser.PropertyNames.UserRankID;
+					ht[SecurityWord] = _ComboUser.PropertyNames.SecurityWord;
+					ht[BirthDate] = _ComboUser.PropertyNames.BirthDate;
+					ht[Country] = _ComboUser.PropertyNames.Country;
+					ht[Phone] = _ComboUser.PropertyNames.Phone;
+					ht[Website] = _ComboUser.PropertyNames.Website;
 
 				}
 				return (string)ht[columnName];
@@ -333,6 +383,11 @@ namespace Combo.DAL
             public const string SecurityQuestion = "SecurityQuestion";
             public const string SecurityAnswer = "SecurityAnswer";
             public const string UserRankID = "UserRankID";
+            public const string SecurityWord = "SecurityWord";
+            public const string BirthDate = "BirthDate";
+            public const string Country = "Country";
+            public const string Phone = "Phone";
+            public const string Website = "Website";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -359,6 +414,11 @@ namespace Combo.DAL
 					ht[SecurityQuestion] = _ComboUser.ColumnNames.SecurityQuestion;
 					ht[SecurityAnswer] = _ComboUser.ColumnNames.SecurityAnswer;
 					ht[UserRankID] = _ComboUser.ColumnNames.UserRankID;
+					ht[SecurityWord] = _ComboUser.ColumnNames.SecurityWord;
+					ht[BirthDate] = _ComboUser.ColumnNames.BirthDate;
+					ht[Country] = _ComboUser.ColumnNames.Country;
+					ht[Phone] = _ComboUser.ColumnNames.Phone;
+					ht[Website] = _ComboUser.ColumnNames.Website;
 
 				}
 				return (string)ht[propertyName];
@@ -390,6 +450,11 @@ namespace Combo.DAL
             public const string SecurityQuestion = "s_SecurityQuestion";
             public const string SecurityAnswer = "s_SecurityAnswer";
             public const string UserRankID = "s_UserRankID";
+            public const string SecurityWord = "s_SecurityWord";
+            public const string BirthDate = "s_BirthDate";
+            public const string Country = "s_Country";
+            public const string Phone = "s_Phone";
+            public const string Website = "s_Website";
 
 		}
 		#endregion		
@@ -621,6 +686,66 @@ namespace Combo.DAL
 			set
 	        {
 				base.Setint(ColumnNames.UserRankID, value);
+			}
+		}
+
+		public virtual string SecurityWord
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.SecurityWord);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.SecurityWord, value);
+			}
+		}
+
+		public virtual DateTime BirthDate
+	    {
+			get
+	        {
+				return base.GetDateTime(ColumnNames.BirthDate);
+			}
+			set
+	        {
+				base.SetDateTime(ColumnNames.BirthDate, value);
+			}
+		}
+
+		public virtual string Country
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.Country);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.Country, value);
+			}
+		}
+
+		public virtual string Phone
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.Phone);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.Phone, value);
+			}
+		}
+
+		public virtual string Website
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.Website);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.Website, value);
 			}
 		}
 
@@ -914,6 +1039,81 @@ namespace Combo.DAL
 			}
 		}
 
+		public virtual string s_SecurityWord
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.SecurityWord) ? string.Empty : base.GetstringAsString(ColumnNames.SecurityWord);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.SecurityWord);
+				else
+					this.SecurityWord = base.SetstringAsString(ColumnNames.SecurityWord, value);
+			}
+		}
+
+		public virtual string s_BirthDate
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.BirthDate) ? string.Empty : base.GetDateTimeAsString(ColumnNames.BirthDate);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.BirthDate);
+				else
+					this.BirthDate = base.SetDateTimeAsString(ColumnNames.BirthDate, value);
+			}
+		}
+
+		public virtual string s_Country
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.Country) ? string.Empty : base.GetstringAsString(ColumnNames.Country);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.Country);
+				else
+					this.Country = base.SetstringAsString(ColumnNames.Country, value);
+			}
+		}
+
+		public virtual string s_Phone
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.Phone) ? string.Empty : base.GetstringAsString(ColumnNames.Phone);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.Phone);
+				else
+					this.Phone = base.SetstringAsString(ColumnNames.Phone, value);
+			}
+		}
+
+		public virtual string s_Website
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.Website) ? string.Empty : base.GetstringAsString(ColumnNames.Website);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.Website);
+				else
+					this.Website = base.SetstringAsString(ColumnNames.Website, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -1132,6 +1332,56 @@ namespace Combo.DAL
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.UserRankID, Parameters.UserRankID);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter SecurityWord
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.SecurityWord, Parameters.SecurityWord);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter BirthDate
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.BirthDate, Parameters.BirthDate);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter Country
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.Country, Parameters.Country);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter Phone
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.Phone, Parameters.Phone);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter Website
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.Website, Parameters.Website);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -1370,6 +1620,66 @@ namespace Combo.DAL
 				}
 			}
 
+			public WhereParameter SecurityWord
+		    {
+				get
+		        {
+					if(_SecurityWord_W == null)
+	        	    {
+						_SecurityWord_W = TearOff.SecurityWord;
+					}
+					return _SecurityWord_W;
+				}
+			}
+
+			public WhereParameter BirthDate
+		    {
+				get
+		        {
+					if(_BirthDate_W == null)
+	        	    {
+						_BirthDate_W = TearOff.BirthDate;
+					}
+					return _BirthDate_W;
+				}
+			}
+
+			public WhereParameter Country
+		    {
+				get
+		        {
+					if(_Country_W == null)
+	        	    {
+						_Country_W = TearOff.Country;
+					}
+					return _Country_W;
+				}
+			}
+
+			public WhereParameter Phone
+		    {
+				get
+		        {
+					if(_Phone_W == null)
+	        	    {
+						_Phone_W = TearOff.Phone;
+					}
+					return _Phone_W;
+				}
+			}
+
+			public WhereParameter Website
+		    {
+				get
+		        {
+					if(_Website_W == null)
+	        	    {
+						_Website_W = TearOff.Website;
+					}
+					return _Website_W;
+				}
+			}
+
 			private WhereParameter _ComboUserID_W = null;
 			private WhereParameter _UserName_W = null;
 			private WhereParameter _DisplayName_W = null;
@@ -1389,6 +1699,11 @@ namespace Combo.DAL
 			private WhereParameter _SecurityQuestion_W = null;
 			private WhereParameter _SecurityAnswer_W = null;
 			private WhereParameter _UserRankID_W = null;
+			private WhereParameter _SecurityWord_W = null;
+			private WhereParameter _BirthDate_W = null;
+			private WhereParameter _Country_W = null;
+			private WhereParameter _Phone_W = null;
+			private WhereParameter _Website_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -1411,6 +1726,11 @@ namespace Combo.DAL
 				_SecurityQuestion_W = null;
 				_SecurityAnswer_W = null;
 				_UserRankID_W = null;
+				_SecurityWord_W = null;
+				_BirthDate_W = null;
+				_Country_W = null;
+				_Phone_W = null;
+				_Website_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -1657,6 +1977,56 @@ namespace Combo.DAL
 					}
 				}
 
+				public AggregateParameter SecurityWord
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.SecurityWord, Parameters.SecurityWord);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter BirthDate
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.BirthDate, Parameters.BirthDate);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter Country
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Country, Parameters.Country);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter Phone
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Phone, Parameters.Phone);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter Website
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Website, Parameters.Website);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -1890,6 +2260,66 @@ namespace Combo.DAL
 				}
 			}
 
+			public AggregateParameter SecurityWord
+		    {
+				get
+		        {
+					if(_SecurityWord_W == null)
+	        	    {
+						_SecurityWord_W = TearOff.SecurityWord;
+					}
+					return _SecurityWord_W;
+				}
+			}
+
+			public AggregateParameter BirthDate
+		    {
+				get
+		        {
+					if(_BirthDate_W == null)
+	        	    {
+						_BirthDate_W = TearOff.BirthDate;
+					}
+					return _BirthDate_W;
+				}
+			}
+
+			public AggregateParameter Country
+		    {
+				get
+		        {
+					if(_Country_W == null)
+	        	    {
+						_Country_W = TearOff.Country;
+					}
+					return _Country_W;
+				}
+			}
+
+			public AggregateParameter Phone
+		    {
+				get
+		        {
+					if(_Phone_W == null)
+	        	    {
+						_Phone_W = TearOff.Phone;
+					}
+					return _Phone_W;
+				}
+			}
+
+			public AggregateParameter Website
+		    {
+				get
+		        {
+					if(_Website_W == null)
+	        	    {
+						_Website_W = TearOff.Website;
+					}
+					return _Website_W;
+				}
+			}
+
 			private AggregateParameter _ComboUserID_W = null;
 			private AggregateParameter _UserName_W = null;
 			private AggregateParameter _DisplayName_W = null;
@@ -1909,6 +2339,11 @@ namespace Combo.DAL
 			private AggregateParameter _SecurityQuestion_W = null;
 			private AggregateParameter _SecurityAnswer_W = null;
 			private AggregateParameter _UserRankID_W = null;
+			private AggregateParameter _SecurityWord_W = null;
+			private AggregateParameter _BirthDate_W = null;
+			private AggregateParameter _Country_W = null;
+			private AggregateParameter _Phone_W = null;
+			private AggregateParameter _Website_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -1931,6 +2366,11 @@ namespace Combo.DAL
 				_SecurityQuestion_W = null;
 				_SecurityAnswer_W = null;
 				_UserRankID_W = null;
+				_SecurityWord_W = null;
+				_BirthDate_W = null;
+				_Country_W = null;
+				_Phone_W = null;
+				_Website_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -2079,6 +2519,26 @@ namespace Combo.DAL
 
 			p = cmd.Parameters.Add(Parameters.UserRankID);
 			p.SourceColumn = ColumnNames.UserRankID;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.SecurityWord);
+			p.SourceColumn = ColumnNames.SecurityWord;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.BirthDate);
+			p.SourceColumn = ColumnNames.BirthDate;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.Country);
+			p.SourceColumn = ColumnNames.Country;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.Phone);
+			p.SourceColumn = ColumnNames.Phone;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.Website);
+			p.SourceColumn = ColumnNames.Website;
 			p.SourceVersion = DataRowVersion.Current;
 
 

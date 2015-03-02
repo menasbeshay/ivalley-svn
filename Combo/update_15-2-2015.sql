@@ -98,10 +98,55 @@ Create Table UserRank
 Go 
 
 
+
 Alter table combouser
-add UserRankID int foreign key references UserRank(UserRankID)
+add --UserRankID int foreign key references UserRank(UserRankID),
+	BirthDate Datetime, 
+	Country nvarchar(100),
+	Phone nvarchar(20),
+	Website nvarchar(200)
+
+alter table comboComment
+add IsDeleted bit	
+
+
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'ComboCommentReport' and
+		        xtype = 'U')
+Drop Table ComboCommentReport
+Go
+Create Table ComboCommentReport
+(
+	ComboCommentReportID int not null
+			identity(1,1)
+			Primary Key,	
+	ComboUserID int foreign key references ComboUser(ComboUserID),
+	ComboCommentID int foreign key references ComboComment(ComboCommentID),
+	ReportText Nvarchar(200),
+	ReportDate DateTime
+)
+Go 		
 		
-		
+
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'ProfileLiker' and
+		        xtype = 'U')
+Drop Table ProfileLiker
+Go
+Create Table ProfileLiker
+(
+	ComboUserID int, 
+	ComboLikerID int,
+	Primary key(comboUserID, ComboLikerID)
+)
+Go 
+
 		
 
 If Exists (select Name 

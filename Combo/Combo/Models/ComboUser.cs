@@ -36,6 +36,11 @@ namespace Combo.Models
         public string SecurityQuestion { get; set; }
         public string SecurityAnswer { get; set; }
         public int UserRankID { get; set; }
-
+        public int ProfileLikerCount { get; set; }
+        public string SecurityWord { get; set; }
+        public DateTime BirthDate {get; set;} 
+	    public string Country {get;set;}
+	    public string Phone {get; set;}
+        public string Website { get; set; }
     }
 }
