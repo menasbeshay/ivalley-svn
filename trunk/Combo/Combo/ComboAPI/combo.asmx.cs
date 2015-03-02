@@ -122,7 +122,12 @@ namespace Combo.ComboAPI
                     IsFriendRequestSent = Convert.ToBoolean(row["IsFriendRequestSent"]),
                     ProfilePic = row["ProfilePic"].ToString(),
                     CoverPic = row["CoverPic"].ToString(),
-                    UserRankID = Convert.ToInt32(row["UserRankID"])
+                    UserRankID = Convert.ToInt32(row["UserRankID"]),
+                    ProfileLikerCount = Convert.ToInt32(stats.GetColumn("ProfileLikerCount")),
+                    BirthDate = row.IsNull("BirthDate") ? DateTime.MinValue : Convert.ToDateTime(row["BirthDate"]),
+                    Country  = row["Country"].ToString(),
+                    Phone = row["Phone"].ToString(),
+                    Website = row["Website"].ToString()
                 };
             }).ToList();
 
@@ -179,7 +184,9 @@ namespace Combo.ComboAPI
                     ProfilePic = row["ProfilePic"].ToString(),
                     SecurityQuestion = row["SecurityQuestion"].ToString(),
                     SecurityAnswer = row["SecurityAnswer"].ToString(),
-                    UserRankID = Convert.ToInt32(row["UserRankID"])
+                    UserRankID = Convert.ToInt32(row["UserRankID"]),
+                    ProfileLikerCount = Convert.ToInt32(stats.GetColumn("ProfileLikerCount")),
+                    SecurityWord = row["SecurityWord"].ToString()
                 };
             }).ToList();
 
@@ -243,7 +250,8 @@ namespace Combo.ComboAPI
                         PassResetCode = row.IsNull("PassResetCode") ? Guid.Empty : new Guid(row["PassResetCode"].ToString()),
                         SecurityQuestion = row["SecurityQuestion"].ToString(),
                         SecurityAnswer = row["SecurityAnswer"].ToString(),
-                        UserRankID = Convert.ToInt32(row["UserRankID"])
+                        UserRankID = Convert.ToInt32(row["UserRankID"]),
+                        SecurityWord = row["SecurityWord"].ToString()
                     };
                 }).ToList();
 
@@ -278,19 +286,27 @@ namespace Combo.ComboAPI
                 return;
             }
 
-            if (string.IsNullOrEmpty(user.SecurityQuestion))
-            {
-                _response.ErrorCode = 14;
-                _response.ErrorMsg = "No secuity question found";
-                _response.bool_result = false;
-                SetContentResult(_response);
-                return;
-            }
+            //if (string.IsNullOrEmpty(user.SecurityQuestion))
+            //{
+            //    _response.ErrorCode = 14;
+            //    _response.ErrorMsg = "No secuity question found";
+            //    _response.bool_result = false;
+            //    SetContentResult(_response);
+            //    return;
+            //}
 
-            if (string.IsNullOrEmpty(user.SecurityAnswer))
+            //if (string.IsNullOrEmpty(user.SecurityAnswer))
+            //{
+            //    _response.ErrorCode = 15;
+            //    _response.ErrorMsg = "No security answer found";
+            //    _response.bool_result = false;
+            //    SetContentResult(_response);
+            //    return;
+            //}
+            if (string.IsNullOrEmpty(user.SecurityWord))
             {
                 _response.ErrorCode = 15;
-                _response.ErrorMsg = "No security answer found";
+                _response.ErrorMsg = "No security word found";
                 _response.bool_result = false;
                 SetContentResult(_response);
                 return;
@@ -303,6 +319,7 @@ namespace Combo.ComboAPI
             newUser.Email = user.Email;
             newUser.SecurityQuestion = user.SecurityQuestion;
             newUser.SecurityAnswer = user.SecurityAnswer;
+            newUser.SecurityWord = user.SecurityWord;
             if (!string.IsNullOrEmpty(user.Bio))
                 newUser.Bio = user.Bio;
             if (user.ProfileImgID != 0)
@@ -321,6 +338,11 @@ namespace Combo.ComboAPI
                 newUser.DeviceID = user.DeviceID;
             // set rank by default
             newUser.UserRankID = 1;
+
+            newUser.BirthDate = user.BirthDate;
+            newUser.Country  = user.Country;
+            newUser.Phone = user.Phone;
+            newUser.Website = user.Website;
             newUser.Save();
 
             user.ComboUserID = newUser.ComboUserID;
@@ -364,6 +386,8 @@ namespace Combo.ComboAPI
                 newUser.SecurityQuestion = user.SecurityQuestion;
             if (!string.IsNullOrEmpty(user.SecurityAnswer))
                 newUser.SecurityAnswer = user.SecurityAnswer;
+            if (!string.IsNullOrEmpty(user.SecurityWord))
+                newUser.SecurityWord = user.SecurityWord;
 
             if (user.ExternalIDType != 0)
             {
@@ -372,10 +396,19 @@ namespace Combo.ComboAPI
             }
             if (!string.IsNullOrEmpty(user.DeviceID))
                 newUser.DeviceID = user.DeviceID;
+
+            newUser.BirthDate = user.BirthDate;
+            newUser.Country = user.Country;
+            newUser.Phone = user.Phone;
+            newUser.Website = user.Website;
+            
             newUser.Save();
 
             user.ComboUserID = newUser.ComboUserID;
             user.UserRankID = newUser.UserRankID;
+
+
+
             _response.Entity = new Models.ComboUser[]{ user};
 
             SetContentResult(_response);
@@ -454,7 +487,7 @@ namespace Combo.ComboAPI
         /// </summary>
         /// <param name="ID">username of Combo User</param>
         /// <returns>ComboResponse object </returns>
-        public void ForgetPassword(string Username, string question , string answer)
+        public void ForgetPassword(string Username, string securityWord)
         {
             Models.ComboResponse _response = new Models.ComboResponse();
             _response.bool_result = true;
@@ -469,53 +502,125 @@ namespace Combo.ComboAPI
                 _response.bool_result = false;
 
             }
-            else if (user.SecurityQuestion != question || user.SecurityAnswer != answer)
+            else if (user.SecurityWord != securityWord)
             {
                 _response.ErrorCode = 16;
-                _response.ErrorMsg = "Security question or answer are not matched to our databse.";
+                _response.ErrorMsg = "Security word is not matched to our databse.";
                 _response.bool_result = false;
 
             }
             else
             {
-                user.PassResetCode = Guid.NewGuid();
-                user.Save();
+                //user.PassResetCode = Guid.NewGuid();
+                //user.Save();
 
 
-                try
-                {
-                    MailMessage msg = new MailMessage();
-                    string body = Combo.Properties.Resources.body;
-                    string mail = Combo.Properties.Resources.mail;
+                //try
+                //{
+                //    MailMessage msg = new MailMessage();
+                //    string body = Combo.Properties.Resources.body;
+                //    string mail = Combo.Properties.Resources.mail;
 
-                    string mailto = user.Email;
-                    msg.To.Add(mailto);
-                    msg.From = new MailAddress(mail);
-                    msg.Subject = Combo.Properties.Resources.subject;
-                    msg.IsBodyHtml = true;
-                    msg.BodyEncoding = System.Text.Encoding.UTF8;
+                //    string mailto = user.Email;
+                //    msg.To.Add(mailto);
+                //    msg.From = new MailAddress(mail);
+                //    msg.Subject = Combo.Properties.Resources.subject;
+                //    msg.IsBodyHtml = true;
+                //    msg.BodyEncoding = System.Text.Encoding.UTF8;
 
-                    msg.Body = string.Format(body, user.UserName, user.PassResetCode.ToString());
+                //    msg.Body = string.Format(body, user.UserName, user.PassResetCode.ToString());
 
-                    SmtpClient client = new SmtpClient(Combo.Properties.Resources.mailserver, Convert.ToInt32(Combo.Properties.Resources.port));
+                //    SmtpClient client = new SmtpClient(Combo.Properties.Resources.mailserver, Convert.ToInt32(Combo.Properties.Resources.port));
 
-                    client.UseDefaultCredentials = false;
-                    //client.EnableSsl = true;
-                    client.Credentials = new System.Net.NetworkCredential(mail, Combo.Properties.Resources.mailpass);
-                    client.Send(msg);
-                }
-                catch (Exception ex)
-                {
-                    _response.ErrorCode = 9999;
-                    _response.ErrorMsg = "An Error Occured.Please try again.<br />" + ex.Message;
-                    _response.bool_result = false;
-                }
+                //    client.UseDefaultCredentials = false;
+                //    //client.EnableSsl = true;
+                //    client.Credentials = new System.Net.NetworkCredential(mail, Combo.Properties.Resources.mailpass);
+                //    client.Send(msg);
+                //}
+                //catch (Exception ex)
+                //{
+                //    _response.ErrorCode = 9999;
+                //    _response.ErrorMsg = "An Error Occured.Please try again.<br />" + ex.Message;
+                //    _response.bool_result = false;
+                //}
             }
 
             _response.Entity = null;
             SetContentResult(_response);
             return;
         }
+
+
+        [WebMethod]
+        /// <summary>
+        /// Toggle follow user 
+        /// </summary>
+        /// <param name="UserID">UserID to be followed</param>
+        /// <param name="FollowerID">follower ID</param>
+        /// <returns>ComboResponse object with result</returns>
+        public void ToggleLikeFriend(int userId, int LikerId)
+        {
+            Models.ComboResponse _response = new Models.ComboResponse();
+            _response.bool_result = true;
+            _response.ErrorCode = 0;
+            _response.ErrorMsg = "";
+            bool like = false;
+
+            ProfileLiker Liker = new ProfileLiker();
+            if (!Liker.LoadByPrimaryKey(userId, LikerId))
+            {
+                Liker.AddNew();
+                Liker.ComboLikerID = LikerId;
+                Liker.ComboUserID = userId;
+                Liker.Save();
+                like = true;
+            }
+            else
+            {
+                Liker.MarkAsDeleted();
+                Liker.Save();
+            }
+
+
+            /**************************/
+            // save notification and push it to device             
+            ComboUser creator = new ComboUser();
+            ComboUser P_Liker = new ComboUser();
+            creator.LoadByPrimaryKey(userId);
+            P_Liker.LoadByPrimaryKey(LikerId);
+
+            ComboNotification notification = new ComboNotification();
+            notification.AddNew();
+            notification.ComboUserID = creator.ComboUserID;
+            if (like)
+                notification.NotificationType = (int)Combo.Models.NotificationType.LIKE_PROFILE; // Like friend
+            else
+                notification.NotificationType = (int)Combo.Models.NotificationType.UNLIKE_PROFILE; // unLike friend
+            notification.NotificationDate = DateTime.UtcNow;
+            notification.NotificationBody = Newtonsoft.Json.JsonConvert.SerializeObject("[{'ComboUserID':" + creator.ComboUserID + ",'ComboFriendID':" + P_Liker.ComboUserID + ",'ComboUsername:'" + P_Liker.UserName + "'" + ",'ComboDisplayName:'" + P_Liker.DisplayName + "', 'IsFollowUser' : " + like + "}]");
+            notification.IsRead = false;
+            notification.Save();
+
+            List<Models.ComboNotification> notificationJson = notification.DefaultView.Table.AsEnumerable().Select(row =>
+            {
+                return new Models.ComboNotification
+                {
+                    ComboNotificationID = Convert.ToInt32(row["ComboNotificationID"]),
+                    ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                    IsRead = Convert.ToBoolean(row["IsRead"]),
+                    NotificationBody = row["NotificationBody"].ToString(),
+                    NotificationDate = Convert.ToDateTime(row["NotificationDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                    NotificationType = Convert.ToInt32(row["NotificationType"])
+                };
+            }).ToList();
+
+            SendGCMNotification(Newtonsoft.Json.JsonConvert.SerializeObject(notificationJson), creator.DeviceID);
+            /**************************/
+
+            _response.Entity = null;
+            SetContentResult(_response);
+
+        }       
         #endregion
 
         #region Posts
@@ -650,6 +755,129 @@ namespace Combo.ComboAPI
         /// </summary>
         /// <param name="ID">ID of Combo User</param>
         /// <returns>ComboResponse object with List of all posts for User</returns>
+        public void GetUserPosts(int UserID, int Page)
+        {
+            Models.ComboResponse _response = new Models.ComboResponse();
+            _response.bool_result = true;
+            _response.ErrorCode = 0;
+            _response.ErrorMsg = "";
+
+            ComboPost posts = new ComboPost();
+            posts.GetUserPostByUserID(UserID);
+            List<Models.ComboPost> Posts = posts.DefaultView.Table.AsEnumerable().Select(row =>
+            {
+                return new Models.ComboPost
+                {
+                    ComboPostID = Convert.ToInt32(row["ComboPostID"]),
+                    ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                    ComboUserName = row["UserName"].ToString(),
+                    ProfilePic = row["ProfilePic"].ToString(),
+                    PostText = row["PostText"].ToString(),
+                    PostDate = Convert.ToDateTime(row["PostDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                    IsDownloadable = (row["IsPostsDownloadable"] == DBNull.Value) ? false : Convert.ToBoolean(row["IsPostsDownloadable"])
+                };
+            }).Skip(Page * PostsPageSize).Take(PostsPageSize).ToList();
+
+
+            foreach (Models.ComboPost item in Posts)
+            {
+                ComboPostLike likes = new ComboPostLike();
+                likes.GetPostLikesByPostID(item.ComboPostID);
+                item.Likes = likes.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.ComboPostLike
+                    {
+                        ComboPostID = Convert.ToInt32(r["ComboPostID"]),
+                        ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                        UserName = r["UserName"].ToString(),
+                    };
+                }).ToList();
+
+                ComboComment totalCount = new ComboComment();
+                totalCount.GetPostCommentsCount(item.ComboPostID);
+
+                item.CommentsCount = Convert.ToInt32(totalCount.GetColumn("TotalCount"));
+
+                ComboPostShare shareCount = new ComboPostShare();
+                shareCount.GetPostShareCount(item.ComboPostID);
+
+                item.ShareCount = Convert.ToInt32(shareCount.GetColumn("TotalCount"));
+
+                ComboComment comments = new ComboComment();
+                comments.GetTopPostCommentsByPostID(item.ComboPostID);
+                // get top 3 comments for each post
+                item.Comments = comments.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.ComboComment
+                    {
+                        ComboCommentID = Convert.ToInt32(r["ComboCommentID"]),
+                        ComboPostID = Convert.ToInt32(r["ComboPostID"]),
+                        ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                        ComboUserName = r["UserName"].ToString(),
+                        ProfilePic = r["ProfilePic"].ToString(),
+                        CommentText = r["CommentText"].ToString(),
+                        CommentDate = Convert.ToDateTime(r["CommentDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                    };
+                }).ToList();
+
+                List<Models.ComboComment> _comm = item.Comments as List<Models.ComboComment>;
+                foreach (Models.ComboComment _itemcomm in _comm)
+                {
+                    ComboCommentLike c_likes = new ComboCommentLike();
+                    ComboCommentAttachment c_attachments = new ComboCommentAttachment();
+                    c_likes.GetCommentLikesByCommentID(_itemcomm.ComboCommentID);
+                    c_attachments.GetCommentAttachmentsByCommentID(_itemcomm.ComboCommentID);
+                    _itemcomm.Likes = c_likes.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.ComboCommentLike
+                        {
+                            ComboCommentID = Convert.ToInt32(r["ComboCommentID"]),
+                            ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                            UserName = r["UserName"].ToString(),
+                        };
+                    }).ToList();
+                    _itemcomm.Attachments = c_attachments.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.Attachment
+                        {
+                            AttachmentID = Convert.ToInt32(r["AttachmentID"]),
+                            Path = r["Path"].ToString(),
+                            AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"]),
+                            ThumbsPath = r["ThumbsPath"].ToString()
+                        };
+                    }).ToList();
+                }
+
+                item.Comments = _comm;
+
+                ComboPostAttachment attachments = new ComboPostAttachment();
+                attachments.GetPostAttachmentsByPostID(item.ComboPostID);
+                item.Attachments = attachments.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.Attachment
+                    {
+                        AttachmentID = Convert.ToInt32(r["AttachmentID"]),
+                        Path = r["Path"].ToString(),
+                        AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"]),
+                        ThumbsPath = r["ThumbsPath"].ToString()
+                    };
+                }).ToList();
+            }
+
+            _response.Entity = Posts;
+            SetContentResult(_response);
+            //return _response;
+
+        }
+
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        /// <summary>
+        /// Get All Posts by Userid
+        /// </summary>
+        /// <param name="ID">ID of Combo User</param>
+        /// <returns>ComboResponse object with List of all posts for User</returns>
         public void ExplorePosts(int Page)
         {
             Models.ComboResponse _response = new Models.ComboResponse();
@@ -772,7 +1000,7 @@ namespace Combo.ComboAPI
         /// </summary>
         /// <param name="ID">ID of Combo User</param>
         /// <returns>ComboResponse object with List of all posts for User</returns>
-        public void SearchPosts(string filterText, int Page)
+        public void SearchPosts(string filterText, int requester,int Page)
         {
             Models.ComboResponse _response = new Models.ComboResponse();
             _response.bool_result = true;
@@ -780,7 +1008,7 @@ namespace Combo.ComboAPI
             _response.ErrorMsg = "";
 
             ComboPost posts = new ComboPost();
-            posts.SearchPosts(filterText);
+            posts.SearchPosts(filterText, requester);
             List<Models.ComboPost> Posts = posts.DefaultView.Table.AsEnumerable().Select(row =>
             {
                 return new Models.ComboPost
@@ -1500,7 +1728,7 @@ namespace Combo.ComboAPI
         /// </summary>
         /// <param name="ID">ID of Post</param>
         /// <returns>ComboResponse object with requested Post object </returns>
-        public void GePostByID(int id, int CommentPage)
+        public void GetPostByID(int id, int CommentPage)
         {
             Models.ComboResponse _response = new Models.ComboResponse();
             _response.bool_result = true;
@@ -1764,43 +1992,45 @@ namespace Combo.ComboAPI
                 ComboUser liker = new ComboUser();
                 creator.LoadByPrimaryKey(post.ComboUserID);
                 liker.LoadByPrimaryKey(userid);
-
-                List<Models.ComboPostLike> alike = likes.DefaultView.Table.AsEnumerable().Select(row =>
-                    {
-                        return new Models.ComboPostLike
+                if (creator.ComboUserID != liker.ComboUserID)
+                {
+                    List<Models.ComboPostLike> alike = likes.DefaultView.Table.AsEnumerable().Select(row =>
                         {
-                            ComboPostID = Convert.ToInt32(row["ComboPostID"]),
-                            ComboUserID = Convert.ToInt32(row["ComboUserID"]),
-                            UserName = liker.UserName,
-                            DisplayName = liker.DisplayName
-                        };
-                    }
-                    ).ToList();
+                            return new Models.ComboPostLike
+                            {
+                                ComboPostID = Convert.ToInt32(row["ComboPostID"]),
+                                ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                                UserName = liker.UserName,
+                                DisplayName = liker.DisplayName
+                            };
+                        }
+                        ).ToList();
 
-                ComboNotification notification = new ComboNotification();
-                notification.AddNew();
-                notification.ComboUserID = post.ComboUserID;
-                notification.NotificationType = (int)Combo.Models.NotificationType.LIKE; // like 
-                notification.NotificationDate= DateTime.UtcNow;
-                notification.NotificationBody = Newtonsoft.Json.JsonConvert.SerializeObject(alike);
-                notification.IsRead = false;
-                notification.Save();
+                    ComboNotification notification = new ComboNotification();
+                    notification.AddNew();
+                    notification.ComboUserID = post.ComboUserID;
+                    notification.NotificationType = (int)Combo.Models.NotificationType.LIKE; // like 
+                    notification.NotificationDate = DateTime.UtcNow;
+                    notification.NotificationBody = Newtonsoft.Json.JsonConvert.SerializeObject(alike);
+                    notification.IsRead = false;
+                    notification.Save();
 
-                List<Models.ComboNotification> notificationJson = notification.DefaultView.Table.AsEnumerable().Select(row =>
-                    {
-                        return new Models.ComboNotification
+                    List<Models.ComboNotification> notificationJson = notification.DefaultView.Table.AsEnumerable().Select(row =>
                         {
-                            ComboNotificationID = Convert.ToInt32(row["ComboNotificationID"]),
-                            ComboUserID = Convert.ToInt32(row["ComboUserID"]),
-                            IsRead = Convert.ToBoolean(row["IsRead"]),
-                            NotificationBody = row["NotificationBody"].ToString(),
-                            NotificationDate = Convert.ToDateTime(row["NotificationDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
-                            NotificationType = Convert.ToInt32(row["NotificationType"])
-                        };
-                    }
-                    ).ToList();
+                            return new Models.ComboNotification
+                            {
+                                ComboNotificationID = Convert.ToInt32(row["ComboNotificationID"]),
+                                ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                                IsRead = Convert.ToBoolean(row["IsRead"]),
+                                NotificationBody = row["NotificationBody"].ToString(),
+                                NotificationDate = Convert.ToDateTime(row["NotificationDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                                NotificationType = Convert.ToInt32(row["NotificationType"])
+                            };
+                        }
+                        ).ToList();
 
-                string notification_response = SendGCMNotification(Newtonsoft.Json.JsonConvert.SerializeObject(notificationJson), creator.DeviceID);
+                    string notification_response = SendGCMNotification(Newtonsoft.Json.JsonConvert.SerializeObject(notificationJson), creator.DeviceID);
+                }
             }
             else
             {
@@ -2127,43 +2357,45 @@ namespace Combo.ComboAPI
             ComboUser requester = new ComboUser();
             creator.LoadByPrimaryKey(ref_post.ComboUserID);
             requester.LoadByPrimaryKey(UserId);
-
-            List<Models.ComboSharePost> info = post.DefaultView.Table.AsEnumerable().Select(row =>
+            if (creator.ComboUserID != requester.ComboUserID)
             {
-                return new Models.ComboSharePost
+                List<Models.ComboSharePost> info = post.DefaultView.Table.AsEnumerable().Select(row =>
                 {
-                    ComboFriendID = requester.ComboUserID,
-                    ComboUserID = creator.ComboUserID,
-                    ComboUserName = creator.UserName,
-                    ComboFriendName = requester.UserName,
-                    ComboFriendDisplayName = requester.DisplayName,
-                    ComboPostID = Convert.ToInt32(row["ComboPostID"].ToString())
-                };
-            }).ToList();
+                    return new Models.ComboSharePost
+                    {
+                        ComboFriendID = requester.ComboUserID,
+                        ComboUserID = creator.ComboUserID,
+                        ComboUserName = creator.UserName,
+                        ComboFriendName = requester.UserName,
+                        ComboFriendDisplayName = requester.DisplayName,
+                        ComboPostID = Convert.ToInt32(row["ComboPostID"].ToString())
+                    };
+                }).ToList();
 
-            ComboNotification notification = new ComboNotification();
-            notification.AddNew();
-            notification.ComboUserID = creator.ComboUserID;
-            notification.NotificationType = (int)Combo.Models.NotificationType.SHARE_POST; // share post
-            notification.NotificationDate = DateTime.UtcNow;
-            notification.NotificationBody = Newtonsoft.Json.JsonConvert.SerializeObject(info);
-            notification.IsRead = false;
-            notification.Save();
+                ComboNotification notification = new ComboNotification();
+                notification.AddNew();
+                notification.ComboUserID = creator.ComboUserID;
+                notification.NotificationType = (int)Combo.Models.NotificationType.SHARE_POST; // share post
+                notification.NotificationDate = DateTime.UtcNow;
+                notification.NotificationBody = Newtonsoft.Json.JsonConvert.SerializeObject(info);
+                notification.IsRead = false;
+                notification.Save();
 
-            List<Models.ComboNotification> notificationJson = notification.DefaultView.Table.AsEnumerable().Select(row =>
-            {
-                return new Models.ComboNotification
+                List<Models.ComboNotification> notificationJson = notification.DefaultView.Table.AsEnumerable().Select(row =>
                 {
-                    ComboNotificationID = Convert.ToInt32(row["ComboNotificationID"]),
-                    ComboUserID = Convert.ToInt32(row["ComboUserID"]),
-                    IsRead = Convert.ToBoolean(row["IsRead"]),
-                    NotificationBody = row["NotificationBody"].ToString(),
-                    NotificationDate = Convert.ToDateTime(row["NotificationDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
-                    NotificationType = Convert.ToInt32(row["NotificationType"])
-                };
-            }).ToList();
+                    return new Models.ComboNotification
+                    {
+                        ComboNotificationID = Convert.ToInt32(row["ComboNotificationID"]),
+                        ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                        IsRead = Convert.ToBoolean(row["IsRead"]),
+                        NotificationBody = row["NotificationBody"].ToString(),
+                        NotificationDate = Convert.ToDateTime(row["NotificationDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                        NotificationType = Convert.ToInt32(row["NotificationType"])
+                    };
+                }).ToList();
 
-            SendGCMNotification(Newtonsoft.Json.JsonConvert.SerializeObject(notificationJson), creator.DeviceID);
+                SendGCMNotification(Newtonsoft.Json.JsonConvert.SerializeObject(notificationJson), creator.DeviceID);
+            }
             /**************************/
 
 
@@ -2228,44 +2460,46 @@ namespace Combo.ComboAPI
             ComboUser commentor = new ComboUser();
             creator.GetUserByUserId(post.ComboUserID);
             commentor.GetUserByUserId(comment.ComboUserID);
-
-            List<Models.ComboComment> acomment = newComment.DefaultView.Table.AsEnumerable().Select(row =>
+            if (creator.ComboUserID != commentor.ComboUserID)
             {
-                return new Models.ComboComment
+                List<Models.ComboComment> acomment = newComment.DefaultView.Table.AsEnumerable().Select(row =>
                 {
-                    ComboPostID = Convert.ToInt32(row["ComboPostID"]),
-                    ComboUserID = Convert.ToInt32(row["ComboUserID"]),
-                    ComboUserName = commentor.UserName,
-                    ComboDisplayName = commentor.DisplayName,
-                    CommentText = newComment.CommentText,
-                    CommentDate = newComment.CommentDate.Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
-                    ProfilePic = commentor.GetColumn("ProfilePic").ToString()
-                };
-            }).ToList();
+                    return new Models.ComboComment
+                    {
+                        ComboPostID = Convert.ToInt32(row["ComboPostID"]),
+                        ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                        ComboUserName = commentor.UserName,
+                        ComboDisplayName = commentor.DisplayName,
+                        CommentText = newComment.CommentText,
+                        CommentDate = newComment.CommentDate.Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                        ProfilePic = commentor.GetColumn("ProfilePic").ToString()
+                    };
+                }).ToList();
 
-            ComboNotification notification = new ComboNotification();
-            notification.AddNew();
-            notification.ComboUserID = post.ComboUserID;
-            notification.NotificationType = (int)Combo.Models.NotificationType.COMMENT_ON_POST; // add comment to post 
-            notification.NotificationDate = DateTime.UtcNow;
-            notification.NotificationBody = Newtonsoft.Json.JsonConvert.SerializeObject(acomment);
-            notification.IsRead = false;
-            notification.Save();
+                ComboNotification notification = new ComboNotification();
+                notification.AddNew();
+                notification.ComboUserID = post.ComboUserID;
+                notification.NotificationType = (int)Combo.Models.NotificationType.COMMENT_ON_POST; // add comment to post 
+                notification.NotificationDate = DateTime.UtcNow;
+                notification.NotificationBody = Newtonsoft.Json.JsonConvert.SerializeObject(acomment);
+                notification.IsRead = false;
+                notification.Save();
 
-            List<Models.ComboNotification> notificationJson = notification.DefaultView.Table.AsEnumerable().Select(row =>
-            {
-                return new Models.ComboNotification
+                List<Models.ComboNotification> notificationJson = notification.DefaultView.Table.AsEnumerable().Select(row =>
                 {
-                    ComboNotificationID = Convert.ToInt32(row["ComboNotificationID"]),
-                    ComboUserID = Convert.ToInt32(row["ComboUserID"]),
-                    IsRead = Convert.ToBoolean(row["IsRead"]),
-                    NotificationBody = row["NotificationBody"].ToString(),
-                    NotificationDate = Convert.ToDateTime(row["NotificationDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
-                    NotificationType = Convert.ToInt32(row["NotificationType"])
-                };
-            }).ToList();
+                    return new Models.ComboNotification
+                    {
+                        ComboNotificationID = Convert.ToInt32(row["ComboNotificationID"]),
+                        ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                        IsRead = Convert.ToBoolean(row["IsRead"]),
+                        NotificationBody = row["NotificationBody"].ToString(),
+                        NotificationDate = Convert.ToDateTime(row["NotificationDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                        NotificationType = Convert.ToInt32(row["NotificationType"])
+                    };
+                }).ToList();
 
-            SendGCMNotification(Newtonsoft.Json.JsonConvert.SerializeObject(notificationJson), creator.DeviceID);
+                SendGCMNotification(Newtonsoft.Json.JsonConvert.SerializeObject(notificationJson), creator.DeviceID);
+            }
             /**************************/
 
             JavaScriptSerializer js = new JavaScriptSerializer();
@@ -2289,6 +2523,56 @@ namespace Combo.ComboAPI
             SetContentResult(_response);
             return;
         }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        /// <summary>
+        /// Delete comment By ID
+        /// </summary>
+        /// <param name="ID">ID of comment</param>
+        /// <returns>ComboResponse object </returns>
+        public void DeleteCommnet(int id)
+        {
+            Models.ComboResponse _response = new Models.ComboResponse();
+            _response.bool_result = true;
+            _response.ErrorCode = 0;
+            _response.ErrorMsg = "";
+
+            ComboComment comment = new ComboComment();
+            comment.LoadByPrimaryKey(id);
+            comment.IsDeleted = true;
+            comment.Save();
+            _response.Entity = null;
+            SetContentResult(_response);
+
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        /// <summary>
+        /// Report Comment By ID
+        /// </summary>
+        /// <param name="ID">ID of comment</param>
+        /// <returns>ComboResponse object </returns>
+        public void ReportComment(int id, string description)
+        {
+            Models.ComboResponse _response = new Models.ComboResponse();
+            _response.bool_result = true;
+            _response.ErrorCode = 0;
+            _response.ErrorMsg = "";
+
+            ComboCommentReport comment = new ComboCommentReport();
+            comment.AddNew();
+            comment.ComboCommentID = id;
+            comment.ReportDate = DateTime.UtcNow;
+            comment.ReportText = description;
+            comment.Save();
+
+            _response.Entity = null;
+            SetContentResult(_response);
+
+        }
+
         #endregion
 
         #region Followers
@@ -3049,43 +3333,46 @@ namespace Combo.ComboAPI
             creator.LoadByPrimaryKey(post.ComboUserID);
             commentor.GetUserByUserId(comment.ComboUserID);
 
-            List<Models.ComboComment> acomment = newComment.DefaultView.Table.AsEnumerable().Select(row =>
+            if (creator.ComboUserID != commentor.ComboUserID)
             {
-                return new Models.ComboComment
+                List<Models.ComboComment> acomment = newComment.DefaultView.Table.AsEnumerable().Select(row =>
                 {
-                    ComboMsgID = Convert.ToInt32(row["ComboMsgID"]),
-                    ComboUserID = Convert.ToInt32(row["ComboUserID"]),
-                    ComboUserName = commentor.UserName,
-                    ComboDisplayName = commentor.DisplayName,
-                    CommentText = newComment.CommentText,
-                    CommentDate = newComment.CommentDate.Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
-                    ProfilePic = commentor.GetColumn("ProfilePic").ToString()
-                };
-            }).ToList();
+                    return new Models.ComboComment
+                    {
+                        ComboMsgID = Convert.ToInt32(row["ComboMsgID"]),
+                        ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                        ComboUserName = commentor.UserName,
+                        ComboDisplayName = commentor.DisplayName,
+                        CommentText = newComment.CommentText,
+                        CommentDate = newComment.CommentDate.Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                        ProfilePic = commentor.GetColumn("ProfilePic").ToString()
+                    };
+                }).ToList();
 
-            ComboNotification notification = new ComboNotification();
-            notification.AddNew();
-            notification.ComboUserID = post.ComboUserID;
-            notification.NotificationType = (int)Combo.Models.NotificationType.COMMENT_ON_MESSAGE; // add comment to post 
-            notification.NotificationDate = DateTime.UtcNow;
-            notification.NotificationBody = Newtonsoft.Json.JsonConvert.SerializeObject(acomment);
-            notification.IsRead = false;
-            notification.Save();
+                ComboNotification notification = new ComboNotification();
+                notification.AddNew();
+                notification.ComboUserID = post.ComboUserID;
+                notification.NotificationType = (int)Combo.Models.NotificationType.COMMENT_ON_MESSAGE; // add comment to post 
+                notification.NotificationDate = DateTime.UtcNow;
+                notification.NotificationBody = Newtonsoft.Json.JsonConvert.SerializeObject(acomment);
+                notification.IsRead = false;
+                notification.Save();
 
-            List<Models.ComboNotification> notificationJson = notification.DefaultView.Table.AsEnumerable().Select(row =>
-            {
-                return new Models.ComboNotification
+                List<Models.ComboNotification> notificationJson = notification.DefaultView.Table.AsEnumerable().Select(row =>
                 {
-                    ComboNotificationID = Convert.ToInt32(row["ComboNotificationID"]),
-                    ComboUserID = Convert.ToInt32(row["ComboUserID"]),
-                    IsRead = Convert.ToBoolean(row["IsRead"]),
-                    NotificationBody = row["NotificationBody"].ToString(),
-                    NotificationDate = Convert.ToDateTime(row["NotificationDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
-                    NotificationType = Convert.ToInt32(row["NotificationType"])
-                };
-            }).ToList();
+                    return new Models.ComboNotification
+                    {
+                        ComboNotificationID = Convert.ToInt32(row["ComboNotificationID"]),
+                        ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                        IsRead = Convert.ToBoolean(row["IsRead"]),
+                        NotificationBody = row["NotificationBody"].ToString(),
+                        NotificationDate = Convert.ToDateTime(row["NotificationDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                        NotificationType = Convert.ToInt32(row["NotificationType"])
+                    };
+                }).ToList();
 
-            SendGCMNotification(Newtonsoft.Json.JsonConvert.SerializeObject(notificationJson), creator.DeviceID);
+                SendGCMNotification(Newtonsoft.Json.JsonConvert.SerializeObject(notificationJson), creator.DeviceID);
+            }
             /**************************/
 
             JavaScriptSerializer js = new JavaScriptSerializer();
@@ -3658,6 +3945,33 @@ namespace Combo.ComboAPI
             ComboNotification notifications = new ComboNotification();
             notifications.GetCountUnReadNotificationsbyUserId(userID);
             string result = "[{ 'TotalCount' : " + notifications.GetColumn("TotalCount").ToString() + " }]";
+            _response.Entity = result;
+            SetContentResult(_response);
+            //return _response;
+
+        }
+
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        /// <summary>
+        /// Get All combo Users notifications user with specified id 
+        /// </summary>
+        /// <returns>ComboResponse object with List of all notifications</returns>
+        public void GetCountUnReadNotificationsAndUnReadMsgComments(int userID)
+        {
+            Models.ComboResponse _response = new Models.ComboResponse();
+            _response.bool_result = true;
+            _response.ErrorCode = 0;
+            _response.ErrorMsg = "";
+
+            ComboNotification notifications = new ComboNotification();
+            notifications.GetCountUnReadNotificationsbyUserId(userID);
+
+            ComboMsg Msgs = new ComboMsg();
+            Msgs.GetUnReadMsgComments(userID);
+            
+            string result = "[{ 'TotalNotificationsCount' : " + notifications.GetColumn("TotalCount").ToString() + ", 'TotalMsgCommentsCount' : " + Msgs.GetColumn("MsgCommentsCounter").ToString() + " }]";
             _response.Entity = result;
             SetContentResult(_response);
             //return _response;

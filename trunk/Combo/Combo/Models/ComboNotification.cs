@@ -26,6 +26,8 @@ namespace Combo.Models
         FOLLOW_FIREND = 7,
         UNFOLLOW_FRIEND = 8,
         UNFRIEND = 9,
-        COMMENT_ON_MESSAGE = 10
+        COMMENT_ON_MESSAGE = 10,
+        LIKE_PROFILE = 11,
+        UNLIKE_PROFILE = 12
     }
 }

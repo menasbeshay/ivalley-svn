@@ -23,7 +23,8 @@ namespace Combo.BLL
                                     Inner Join ComboUser U on C.ComboUserID = U.ComboUserID and 
                                                         (U.IsDeactivated <> 1 or U.IsDeactivated is null)
                                     Left join Attachment A on U.ProfileImgID = A.AttachmentID
-                                    Where C.ComboPostID = {0}
+                                    Where C.ComboPostID = {0} and 
+                                          (C.IsDeleted <> 1 or C.IsDeleted is null)
                                     order by C.CommentDate asc", pid);
         }
 
@@ -38,7 +39,8 @@ namespace Combo.BLL
                                     Inner Join ComboUser U on C.ComboUserID = U.ComboUserID and 
                                                               (U.IsDeactivated <> 1 or U.IsDeactivated is null)
                                     Left join Attachment A on U.ProfileImgID = A.AttachmentID
-                                    Where C.ComboPostID = {0}
+                                    Where C.ComboPostID = {0} and 
+                                          (C.IsDeleted <> 1 or C.IsDeleted is null)
                                     order by C.CommentDate Desc", pid);
         }
 
@@ -49,7 +51,8 @@ namespace Combo.BLL
             //return this.Query.Load();
 
             return LoadFromRawSql(@"Select count(C.ComboCommentID) TotalCount from ComboComment C                                    
-                                    Where C.ComboPostID = {0}", pid);
+                                    Where C.ComboPostID = {0} and 
+                                          (C.IsDeleted <> 1 or C.IsDeleted is null)", pid);
         }
 
 
@@ -64,7 +67,8 @@ namespace Combo.BLL
                                     Inner Join ComboUser U on C.ComboUserID = U.ComboUserID and 
                                                              (U.IsDeactivated <> 1 or U.IsDeactivated is null)
                                     Left join Attachment A on U.ProfileImgID = A.AttachmentID
-                                    Where C.ComboMsgID = {0}
+                                    Where C.ComboMsgID = {0} and 
+                                          (C.IsDeleted <> 1 or C.IsDeleted is null)
                                     order by C.CommentDate asc", mid);
         }
 
@@ -75,7 +79,8 @@ namespace Combo.BLL
             //return this.Query.Load();
 
             return LoadFromRawSql(@"Select count(C.ComboCommentID) TotalCount from ComboComment C                                    
-                                    Where C.ComboMsgID = {0}", mid);
+                                    Where C.ComboMsgID = {0} and 
+                                          (C.IsDeleted <> 1 or C.IsDeleted is null)", mid);
         }
 
         public virtual bool GetMsgsCommentsByMsgID(int mid, string order)
@@ -88,7 +93,8 @@ namespace Combo.BLL
                                     Inner Join ComboUser U on C.ComboUserID = U.ComboUserID and 
                                                               (U.IsDeactivated <> 1 or U.IsDeactivated is null)
                                     Left join Attachment A on U.ProfileImgID = A.AttachmentID
-                                    Where C.ComboMsgID = {0}
+                                    Where C.ComboMsgID = {0} and 
+                                          (C.IsDeleted <> 1 or C.IsDeleted is null)
                                     order by C.CommentDate " + order, mid);
         }
 

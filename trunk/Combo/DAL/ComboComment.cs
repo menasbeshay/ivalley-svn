@@ -155,6 +155,14 @@ namespace Combo.DAL
 				}
 			}
 			
+			public static SqlParameter IsDeleted
+			{
+				get
+				{
+					return new SqlParameter("@IsDeleted", SqlDbType.Bit, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -168,6 +176,7 @@ namespace Combo.DAL
             public const string CommentDate = "CommentDate";
             public const string ComboMsgID = "ComboMsgID";
             public const string IsRead = "IsRead";
+            public const string IsDeleted = "IsDeleted";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -182,6 +191,7 @@ namespace Combo.DAL
 					ht[CommentDate] = _ComboComment.PropertyNames.CommentDate;
 					ht[ComboMsgID] = _ComboComment.PropertyNames.ComboMsgID;
 					ht[IsRead] = _ComboComment.PropertyNames.IsRead;
+					ht[IsDeleted] = _ComboComment.PropertyNames.IsDeleted;
 
 				}
 				return (string)ht[columnName];
@@ -201,6 +211,7 @@ namespace Combo.DAL
             public const string CommentDate = "CommentDate";
             public const string ComboMsgID = "ComboMsgID";
             public const string IsRead = "IsRead";
+            public const string IsDeleted = "IsDeleted";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -215,6 +226,7 @@ namespace Combo.DAL
 					ht[CommentDate] = _ComboComment.ColumnNames.CommentDate;
 					ht[ComboMsgID] = _ComboComment.ColumnNames.ComboMsgID;
 					ht[IsRead] = _ComboComment.ColumnNames.IsRead;
+					ht[IsDeleted] = _ComboComment.ColumnNames.IsDeleted;
 
 				}
 				return (string)ht[propertyName];
@@ -234,6 +246,7 @@ namespace Combo.DAL
             public const string CommentDate = "s_CommentDate";
             public const string ComboMsgID = "s_ComboMsgID";
             public const string IsRead = "s_IsRead";
+            public const string IsDeleted = "s_IsDeleted";
 
 		}
 		#endregion		
@@ -321,6 +334,18 @@ namespace Combo.DAL
 			set
 	        {
 				base.Setbool(ColumnNames.IsRead, value);
+			}
+		}
+
+		public virtual bool IsDeleted
+	    {
+			get
+	        {
+				return base.Getbool(ColumnNames.IsDeleted);
+			}
+			set
+	        {
+				base.Setbool(ColumnNames.IsDeleted, value);
 			}
 		}
 
@@ -434,6 +459,21 @@ namespace Combo.DAL
 			}
 		}
 
+		public virtual string s_IsDeleted
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.IsDeleted) ? string.Empty : base.GetboolAsString(ColumnNames.IsDeleted);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.IsDeleted);
+				else
+					this.IsDeleted = base.SetboolAsString(ColumnNames.IsDeleted, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -537,6 +577,16 @@ namespace Combo.DAL
 					}
 				}
 
+				public WhereParameter IsDeleted
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.IsDeleted, Parameters.IsDeleted);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -626,6 +676,18 @@ namespace Combo.DAL
 				}
 			}
 
+			public WhereParameter IsDeleted
+		    {
+				get
+		        {
+					if(_IsDeleted_W == null)
+	        	    {
+						_IsDeleted_W = TearOff.IsDeleted;
+					}
+					return _IsDeleted_W;
+				}
+			}
+
 			private WhereParameter _ComboCommentID_W = null;
 			private WhereParameter _ComboUserID_W = null;
 			private WhereParameter _ComboPostID_W = null;
@@ -633,6 +695,7 @@ namespace Combo.DAL
 			private WhereParameter _CommentDate_W = null;
 			private WhereParameter _ComboMsgID_W = null;
 			private WhereParameter _IsRead_W = null;
+			private WhereParameter _IsDeleted_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -643,6 +706,7 @@ namespace Combo.DAL
 				_CommentDate_W = null;
 				_ComboMsgID_W = null;
 				_IsRead_W = null;
+				_IsDeleted_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -769,6 +833,16 @@ namespace Combo.DAL
 					}
 				}
 
+				public AggregateParameter IsDeleted
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.IsDeleted, Parameters.IsDeleted);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -858,6 +932,18 @@ namespace Combo.DAL
 				}
 			}
 
+			public AggregateParameter IsDeleted
+		    {
+				get
+		        {
+					if(_IsDeleted_W == null)
+	        	    {
+						_IsDeleted_W = TearOff.IsDeleted;
+					}
+					return _IsDeleted_W;
+				}
+			}
+
 			private AggregateParameter _ComboCommentID_W = null;
 			private AggregateParameter _ComboUserID_W = null;
 			private AggregateParameter _ComboPostID_W = null;
@@ -865,6 +951,7 @@ namespace Combo.DAL
 			private AggregateParameter _CommentDate_W = null;
 			private AggregateParameter _ComboMsgID_W = null;
 			private AggregateParameter _IsRead_W = null;
+			private AggregateParameter _IsDeleted_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -875,6 +962,7 @@ namespace Combo.DAL
 				_CommentDate_W = null;
 				_ComboMsgID_W = null;
 				_IsRead_W = null;
+				_IsDeleted_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -975,6 +1063,10 @@ namespace Combo.DAL
 
 			p = cmd.Parameters.Add(Parameters.IsRead);
 			p.SourceColumn = ColumnNames.IsRead;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.IsDeleted);
+			p.SourceColumn = ColumnNames.IsDeleted;
 			p.SourceVersion = DataRowVersion.Current;
 
 
