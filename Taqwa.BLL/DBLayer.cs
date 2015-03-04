@@ -946,7 +946,7 @@ namespace Taqwa.BLL
         #endregion
 
         #region  Results Methods
-        public bool AddResult(int StudentID  ,int CourseID  ,float Grade ,string Evaluation ,bool FirstHalfMidTerm ,bool FirstHalfFinal ,bool SecondHalfMidTerm ,bool SecondHalfFinal ,int SchoolYearID)
+        public bool AddResult(int StudentID, int CourseID, decimal Grade, string Evaluation, bool FirstHalfMidTerm, bool FirstHalfFinal, bool SecondHalfMidTerm, bool SecondHalfFinal, int SchoolYearID)
         {
             int rows = 0;
             try
@@ -960,7 +960,7 @@ namespace Taqwa.BLL
             }
         }
 
-        public bool UpdateResult(int ResultID, int StudentID, int CourseID, float Grade, string Evaluation, bool FirstHalfMidTerm, bool FirstHalfFinal, bool SecondHalfMidTerm, bool SecondHalfFinal, int SchoolYearID)
+        public bool UpdateResult(int ResultID, int StudentID, int CourseID, decimal Grade, string Evaluation, bool FirstHalfMidTerm, bool FirstHalfFinal, bool SecondHalfMidTerm, bool SecondHalfFinal, int SchoolYearID)
         {
             int rows = 0;
             try

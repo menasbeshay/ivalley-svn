@@ -196,6 +196,12 @@
             <br />
              تحميل فيديوهات الصفحة الرئيسية
         </a>
+
+         <a href="stats.aspx" class="MainLink" >
+            <img src="../images/icons/pages.jpg" />
+            <br />
+             إحصائيات
+        </a>
     </div>
 </div>
 </asp:Content>

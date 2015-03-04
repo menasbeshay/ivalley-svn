@@ -197,16 +197,16 @@ namespace Taqwa.Website.Admin.Controls
                     MaxGrade.Value = "1000";
                 if (!string.IsNullOrEmpty(grade.Text))
                 {
-                    if (float.Parse(grade.Text) <= float.Parse(MaxGrade.Value))
+                    if (decimal.Parse(grade.Text) <= decimal.Parse(MaxGrade.Value))
                     {
 
                         if (ResultId.Value != "0" && !string.IsNullOrEmpty(grade.Text) && !string.IsNullOrEmpty(eval.Text))
                         {
-                            db.UpdateResult(Convert.ToInt32(ResultId.Value), CurrentActiveStudent, Convert.ToInt32(CourseId.Value), float.Parse(grade.Text), eval.Text, (CurrentResultType == 1), (CurrentResultType == 2), (CurrentResultType == 3), (CurrentResultType == 4), Convert.ToInt32(uiDropDownListSchoolYear.SelectedValue));
+                            db.UpdateResult(Convert.ToInt32(ResultId.Value), CurrentActiveStudent, Convert.ToInt32(CourseId.Value), decimal.Parse(grade.Text), eval.Text, (CurrentResultType == 1), (CurrentResultType == 2), (CurrentResultType == 3), (CurrentResultType == 4), Convert.ToInt32(uiDropDownListSchoolYear.SelectedValue));
                         }
                         else if (!string.IsNullOrEmpty(grade.Text) && !string.IsNullOrEmpty(eval.Text))
                         {
-                            db.AddResult(CurrentActiveStudent, Convert.ToInt32(CourseId.Value), float.Parse(grade.Text), eval.Text, (CurrentResultType == 1), (CurrentResultType == 2), (CurrentResultType == 3), (CurrentResultType == 4), Convert.ToInt32(uiDropDownListSchoolYear.SelectedValue));
+                            db.AddResult(CurrentActiveStudent, Convert.ToInt32(CourseId.Value), decimal.Parse(grade.Text), eval.Text, (CurrentResultType == 1), (CurrentResultType == 2), (CurrentResultType == 3), (CurrentResultType == 4), Convert.ToInt32(uiDropDownListSchoolYear.SelectedValue));
                         }
 
                     }

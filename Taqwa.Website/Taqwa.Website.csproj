@@ -65,7 +65,9 @@
     <Content Include="Admin\changepass.aspx" />
     <Content Include="Admin\EditClassFiles.aspx" />
     <Content Include="Admin\EditClassVideos.aspx" />
+    <Content Include="Admin\HomePageVideos.aspx" />
     <Content Include="Admin\promotestudents.aspx" />
+    <Content Include="Admin\stats.aspx" />
     <Content Include="ClassAttachment.aspx" />
     <Content Include="gpage.aspx" />
     <Content Include="Admin\AdminCP.aspx" />
@@ -1324,6 +1326,7 @@
     <Content Include="styles\Style1.css" />
     <Content Include="Controls\News.ascx" />
     <Content Include="Suggestions.aspx" />
+    <Content Include="videos.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1363,12 +1366,26 @@
     <Compile Include="Admin\EditClassVideos.aspx.designer.cs">
       <DependentUpon>EditClassVideos.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\HomePageVideos.aspx.cs">
+      <DependentUpon>HomePageVideos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\HomePageVideos.aspx.designer.cs">
+      <DependentUpon>HomePageVideos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\promotestudents.aspx.cs">
       <DependentUpon>promotestudents.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\promotestudents.aspx.designer.cs">
       <DependentUpon>promotestudents.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\stats.aspx.cs">
+      <DependentUpon>stats.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\stats.aspx.designer.cs">
+      <DependentUpon>stats.aspx</DependentUpon>
     </Compile>
     <Compile Include="ClassAttachment.aspx.cs">
       <DependentUpon>ClassAttachment.aspx</DependentUpon>
@@ -1874,6 +1891,13 @@
     </Compile>
     <Compile Include="Suggestions.aspx.designer.cs">
       <DependentUpon>Suggestions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="videos.aspx.cs">
+      <DependentUpon>videos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="videos.aspx.designer.cs">
+      <DependentUpon>videos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Zahraa.Master.cs">
       <DependentUpon>Zahraa.Master</DependentUpon>

@@ -190,6 +190,8 @@ namespace Taqwa.Website.Admin
             uiDropDownListCourses.DataTextField = "ArName";
             uiDropDownListCourses.DataValueField = "CourseID";
             uiDropDownListCourses.DataBind();
+            uiDropDownListCourses.Items.Insert(0, new ListItem("عام", "-1"));
+            uiDropDownListCourses.Items.Insert(0, new ListItem("واجبات وأنشطة", "-2"));
             uiDropDownListCourses.Items.Insert(0, new ListItem("كل المواد", "0"));
             if(uiDropDownListCourses.Items.Count > 0)
                 uiDropDownListCourses.SelectedIndex = 0;

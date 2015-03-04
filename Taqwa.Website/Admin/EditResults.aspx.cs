@@ -203,11 +203,11 @@ namespace Taqwa.Website.Admin
             DBLayer db = new DBLayer();            
             if (CurrentResult != 0)
             {
-                db.UpdateResult(CurrentResult, CurrentActiveStudent, Convert.ToInt32(uiDropDownListCourses.SelectedValue), float.Parse(uiTextBoxGrade.Text), uiTextBoxEvaluation.Text, uiRadioButtonListResult.Items[0].Selected, uiRadioButtonListResult.Items[1].Selected, uiRadioButtonListResult.Items[2].Selected, uiRadioButtonListResult.Items[3].Selected, Convert.ToInt32(uiDropDownListSchoolYear.SelectedValue));                
+                db.UpdateResult(CurrentResult, CurrentActiveStudent, Convert.ToInt32(uiDropDownListCourses.SelectedValue), decimal.Parse(uiTextBoxGrade.Text), uiTextBoxEvaluation.Text, uiRadioButtonListResult.Items[0].Selected, uiRadioButtonListResult.Items[1].Selected, uiRadioButtonListResult.Items[2].Selected, uiRadioButtonListResult.Items[3].Selected, Convert.ToInt32(uiDropDownListSchoolYear.SelectedValue));                
             }
             else
             {
-                db.AddResult(CurrentActiveStudent, Convert.ToInt32(uiDropDownListCourses.SelectedValue), float.Parse(uiTextBoxGrade.Text), uiTextBoxEvaluation.Text, uiRadioButtonListResult.Items[0].Selected, uiRadioButtonListResult.Items[1].Selected, uiRadioButtonListResult.Items[2].Selected, uiRadioButtonListResult.Items[3].Selected, Convert.ToInt32(uiDropDownListSchoolYear.SelectedValue));                
+                db.AddResult(CurrentActiveStudent, Convert.ToInt32(uiDropDownListCourses.SelectedValue), decimal.Parse(uiTextBoxGrade.Text), uiTextBoxEvaluation.Text, uiRadioButtonListResult.Items[0].Selected, uiRadioButtonListResult.Items[1].Selected, uiRadioButtonListResult.Items[2].Selected, uiRadioButtonListResult.Items[3].Selected, Convert.ToInt32(uiDropDownListSchoolYear.SelectedValue));                
             }            
             uiPanelCurrentStudents.Visible = false;
             uiPanelCurrent.Visible = true;

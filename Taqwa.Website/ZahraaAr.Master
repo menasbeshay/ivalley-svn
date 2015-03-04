@@ -99,7 +99,7 @@
 								<a href="#" class="bottomtip" title="Dribbble"><i class="fa-dribbble"></i></a>
 								<a href="#" class="bottomtip" title="Pinterest"><i class="fa-pinterest"></i></a>
 								<a href="#" class="bottomtip" title="RSS"><i class="fa-rss"></i></a>
-								<a href="#" class="bottomtip" title="Youtube"><i class="fa-youtube"></i></a>
+								<a href="https://www.youtube.com/channel/UCE0Y3xx_l1qIoppzWCVCrYw" class="bottomtip" title="Youtube"><i class="fa-youtube"></i></a>
 								<a href="#" class="bottomtip" title="SoundCloud"><i class="fa-cloud"></i></a>
 								<a href="#" class="bottomtip" title="Flickr"><i class="fa-flickr"></i></a>
 							</div><!-- end social -->
@@ -148,7 +148,7 @@
 								<a href="#" class="toptip" title="Dribbble"><i class="fa-dribbble"></i></a>
 								<a href="#" class="toptip" title="Pinterest"><i class="fa-pinterest"></i></a>
 								<a href="#" class="toptip" title="RSS"><i class="fa-rss"></i></a>
-								<a href="#" class="toptip" title="Youtube"><i class="fa-youtube"></i></a>
+								<a href="https://www.youtube.com/channel/UCE0Y3xx_l1qIoppzWCVCrYw" class="toptip" title="Youtube"><i class="fa-youtube"></i></a>
 								<a href="#" class="toptip" title="SoundCloud"><i class="fa-cloud"></i></a>
 								<a href="#" class="toptip" title="Flickr"><i class="fa-flickr"></i></a>
 							</div>

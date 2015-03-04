@@ -4,6 +4,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Net.Mail;
+using System.Configuration;
 
 namespace Taqwa.Website.en
 {
@@ -20,22 +21,22 @@ namespace Taqwa.Website.en
             {
 
                 MailMessage msg = new MailMessage();
-                msg.To.Add("info@altaqwaschools.com");
-                msg.From = new MailAddress("info@altaqwaschools.com");
+                msg.To.Add(ConfigurationManager.AppSettings["SuggestMail"]);
+                msg.From = new MailAddress(ConfigurationManager.AppSettings["FromMail"]);
                 msg.Subject = " Email from suggestions page";
                 msg.IsBodyHtml = true;
-                msg.BodyEncoding = System.Text.Encoding.Unicode;
+                msg.BodyEncoding = System.Text.Encoding.UTF8;
 
                 msg.Body = "Name : " + uiTextBoxName.Text;
-                msg.Body += "<br/> Email : " + uiTextBoxEmail.Text;
-                msg.Body += "<br/> Suggestion : " + uiTextBoxSugg.Text;
+                msg.Body += "<br /> Email : " + uiTextBoxEmail.Text;
+                msg.Body += "<br /> Suggestion : " + uiTextBoxSugg.Text;
 
-                SmtpClient client = new SmtpClient("mail.altaqwaschools.com", 25);
+                SmtpClient client = new SmtpClient(ConfigurationManager.AppSettings["Server"], 25);
                 //SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
                 //client.EnableSsl = true;
                 client.UseDefaultCredentials = false;
 
-                client.Credentials = new System.Net.NetworkCredential("info@altaqwaschools.com", "password");
+                client.Credentials = new System.Net.NetworkCredential(ConfigurationManager.AppSettings["FromMail"], ConfigurationManager.AppSettings["FromPass"]);
                 client.Send(msg);
                 uiLabelMessage.Visible = true;
                 uiLabelMessage.Text = "Suggestion sent successfully.";
