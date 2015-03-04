@@ -25,11 +25,11 @@ namespace Taqwa.Website
                 msg.From = new MailAddress(ConfigurationManager.AppSettings["FromMail"]);
                 msg.Subject = " Email from suggestions page";
                 msg.IsBodyHtml = true;
-                msg.BodyEncoding = System.Text.Encoding.Unicode;
+                msg.BodyEncoding = System.Text.Encoding.UTF8;
 
                 msg.Body = "Name : " + uiTextBoxName.Text;                
-                msg.Body += "<br/> Email : " + uiTextBoxEmail.Text;                
-                msg.Body += "<br/> Suggestion : " + uiTextBoxSugg.Text;
+                msg.Body += "<br /> Email : " + uiTextBoxEmail.Text;                
+                msg.Body += "<br /> Suggestion : " + uiTextBoxSugg.Text;
 
                 SmtpClient client = new SmtpClient(ConfigurationManager.AppSettings["Server"], 25);
                 //SmtpClient client = new SmtpClient("smtp.gmail.com", 587);

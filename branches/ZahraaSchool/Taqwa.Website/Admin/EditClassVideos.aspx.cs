@@ -169,6 +169,7 @@ namespace Taqwa.Website.Admin
             uiDropDownListClasses.DataValueField = "ClassID";
             uiDropDownListClasses.DataBind();
             uiDropDownListClasses.Items.Insert(0, new ListItem("كل الصفوف", "0"));
+            
             if (uiDropDownListClasses.Items.Count > 0)
                 uiDropDownListClasses.SelectedIndex = 0;
 
@@ -184,7 +185,10 @@ namespace Taqwa.Website.Admin
             uiDropDownListCourses.DataTextField = "ArName";
             uiDropDownListCourses.DataValueField = "CourseID";
             uiDropDownListCourses.DataBind();
-            uiDropDownListCourses.Items.Insert(0, new ListItem("كل المواد", "0"));
+            uiDropDownListCourses.Items.Insert(0, new ListItem("عام", "-1"));
+            uiDropDownListCourses.Items.Insert(0, new ListItem("واجبات وأنشطة", "-2"));
+            uiDropDownListCourses.Items.Insert(0, new ListItem("كل المواد", "0"));            
+            
             if (uiDropDownListCourses.Items.Count > 0)
                 uiDropDownListCourses.SelectedIndex = 0;
         }

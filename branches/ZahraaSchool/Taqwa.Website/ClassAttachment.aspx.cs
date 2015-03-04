@@ -75,6 +75,9 @@ namespace Taqwa.Website
             uiDropDownListCourses.DataTextField = "ArName";
             uiDropDownListCourses.DataValueField = "CourseID";
             uiDropDownListCourses.DataBind();
+            uiDropDownListCourses.Items.Insert(0, new ListItem("واجبات وأنشطة", "-2"));
+            uiDropDownListCourses.Items.Insert(0, new ListItem("عام", "-1"));
+            
             if (uiDropDownListCourses.Items.Count > 0)
             {
                 uiDropDownListCourses.SelectedIndex = 0;                
