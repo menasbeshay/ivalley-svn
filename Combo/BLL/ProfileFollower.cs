@@ -27,6 +27,19 @@ namespace Combo.BLL
                                     Left join Attachment A on CU.ProfileImgID = A.AttachmentID
                                     Where PF.ComboFollowerID = {0} and (CU.IsDeactivated <> 1 or CU.IsDeactivated is null)", userid);
         }
+
+
+        public virtual bool GetProfileFollowersCountByUserID(int userid)
+        {
+            return LoadFromRawSql(@"Select count(PF.ComboFollowerID) TotalFollowers from ProfileFollower PF                                    
+                                    Where PF.ComboUserID = {0}", userid);
+        }
+
+        public virtual bool GetProfileFollowingCountByUserID(int userid)
+        {
+            return LoadFromRawSql(@"Select count(PF.ComboUserID) TotalFollowings from ProfileFollower PF
+                                    Where PF.ComboFollowerID = {0} ", userid);
+        }
        
      
 	}

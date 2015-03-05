@@ -21,6 +21,13 @@ namespace Combo.BLL
         }
 
 
+        public virtual bool GetProfileLikerCountByUserID(int userid)
+        {
+            return LoadFromRawSql(@"Select count(PF.ComboLikerID) TotalProfileLikes from ProfileLiker PF                                    
+                                    Where PF.ComboLikerID = {0} ", userid);
+        }
+
+
 
 	}
 }

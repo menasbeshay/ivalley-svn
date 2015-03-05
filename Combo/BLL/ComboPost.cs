@@ -79,6 +79,15 @@ namespace Combo.BLL
                                     order by P.PostDate Desc", userid);
         }
 
+        public virtual bool GetUserPostsCountByUserID(int userid)
+        {
+            return LoadFromRawSql(@"Select count(P.ComboPostID) TotalPostCount from ComboPost P
+                                    Inner Join ComboUser U on P.ComboUserID = U.ComboUserID and 
+                                                              (U.IsDeactivated <> 1 or U.IsDeactivated is null)                                    
+                                    Where P.ComboUserID = {0} and 
+                                    (P.IsDeleted <> 1 or P.IsDeleted is null)", userid);
+        }
+
         public virtual bool GetPhotoPostsByUserID(int userid)
         {
             return LoadFromRawSql(@"Select P.*, U.UserName, A.Path ProfilePic, S.IsPostsDownloadable from ComboPost P

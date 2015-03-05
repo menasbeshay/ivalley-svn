@@ -55,6 +55,17 @@ namespace Combo.BLL
                                           (C.IsDeleted <> 1 or C.IsDeleted is null)", pid);
         }
 
+        public virtual bool GetPostCommentsCountByUserID(int uid)
+        {
+            //this.Where.ComboPostID.Value = pid;
+            //this.Where.ComboPostID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;            
+            //return this.Query.Load();
+
+            return LoadFromRawSql(@"Select count(C.ComboCommentID) TotalCount from ComboComment C                                    
+                                    Where C.ComboUserID = {0} and 
+                                          (C.IsDeleted <> 1 or C.IsDeleted is null)", uid);
+        }
+
 
         public virtual bool GetTopMsgsCommentsByPostID(int mid)
         {

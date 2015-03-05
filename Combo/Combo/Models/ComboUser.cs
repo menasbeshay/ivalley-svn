@@ -42,5 +42,11 @@ namespace Combo.Models
 	    public string Country {get;set;}
 	    public string Phone {get; set;}
         public string Website { get; set; }
+        public string CountryFlagPath { get; set; }
+        public int CountryID { get; set; }
+        public string Location { get; set; }
+        public int CommentsCount { get; set; }
+        public int TotalActivityDays { get; set; }
+
     }
 }
