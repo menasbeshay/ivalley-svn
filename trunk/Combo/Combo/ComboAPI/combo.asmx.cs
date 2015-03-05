@@ -13,6 +13,7 @@ using System.Net;
 using System.Net.Security;
 using System.Text;
 using System.Security.Cryptography.X509Certificates;
+using System.Threading;
 
 namespace Combo.ComboAPI
 {
@@ -61,7 +62,8 @@ namespace Combo.ComboAPI
                     DeviceID = row["DeviceID"].ToString(),
                     ActivationCode = row.IsNull("ActivationCode") ? Guid.Empty : new Guid(row["ActivationCode"].ToString()),
                     PassResetCode = row.IsNull("PassResetCode") ? Guid.Empty : new Guid(row["PassResetCode"].ToString()),
-                    UserRankID = Convert.ToInt32(row["UserRankID"])
+                    UserRankID = Convert.ToInt32(row["UserRankID"]),
+                    Location = row["Location"].ToString()
                 };
             }).ToList();
 
@@ -127,7 +129,9 @@ namespace Combo.ComboAPI
                     BirthDate = row.IsNull("BirthDate") ? DateTime.MinValue : Convert.ToDateTime(row["BirthDate"]),
                     Country  = row["Country"].ToString(),
                     Phone = row["Phone"].ToString(),
-                    Website = row["Website"].ToString()
+                    Website = row["Website"].ToString(),
+                    CountryFlagPath = row["CountryFlagPath"].ToString(),
+                    Location = row["Location"].ToString()
                 };
             }).ToList();
 
@@ -153,6 +157,12 @@ namespace Combo.ComboAPI
 
             ComboUser user = new ComboUser();
             user.GetUserByUserId(id);
+
+            ComboComment comments = new ComboComment();
+            comments.GetPostCommentsCountByUserID(user.ComboUserID);
+
+            UserActivityLog log = new UserActivityLog();
+            log.GetActivityDaysByUserID(user.ComboUserID);
 
             ComboUser stats = new ComboUser();
             stats.GetUserStatisticsByUserId(id);
@@ -186,7 +196,11 @@ namespace Combo.ComboAPI
                     SecurityAnswer = row["SecurityAnswer"].ToString(),
                     UserRankID = Convert.ToInt32(row["UserRankID"]),
                     ProfileLikerCount = Convert.ToInt32(stats.GetColumn("ProfileLikerCount")),
-                    SecurityWord = row["SecurityWord"].ToString()
+                    SecurityWord = row["SecurityWord"].ToString(),
+                    CountryFlagPath = row["CountryFlagPath"].ToString(),
+                    Location = row["Location"].ToString(),
+                    TotalActivityDays = log.RowCount > 0 ? Convert.ToInt32(log.GetColumn("TotalActivityDays")) : 0,
+                    CommentsCount = Convert.ToInt32(comments.GetColumn("TotalCount"))
                 };
             }).ToList();
 
@@ -251,14 +265,15 @@ namespace Combo.ComboAPI
                         SecurityQuestion = row["SecurityQuestion"].ToString(),
                         SecurityAnswer = row["SecurityAnswer"].ToString(),
                         UserRankID = Convert.ToInt32(row["UserRankID"]),
-                        SecurityWord = row["SecurityWord"].ToString()
+                        SecurityWord = row["SecurityWord"].ToString(),
+                        Location = row["Location"].ToString()
                     };
                 }).ToList();
 
 
                 _response.Entity = Users;
             }
-            SetContentResult(_response);
+            SetContentResult(_response);           
             return;
         }
 
@@ -317,8 +332,8 @@ namespace Combo.ComboAPI
                 newUser.DisplayName = user.DisplayName;
             newUser.Password = user.Password;
             newUser.Email = user.Email;
-            newUser.SecurityQuestion = user.SecurityQuestion;
-            newUser.SecurityAnswer = user.SecurityAnswer;
+            //newUser.SecurityQuestion = user.SecurityQuestion;
+            //newUser.SecurityAnswer = user.SecurityAnswer;
             newUser.SecurityWord = user.SecurityWord;
             if (!string.IsNullOrEmpty(user.Bio))
                 newUser.Bio = user.Bio;
@@ -336,13 +351,23 @@ namespace Combo.ComboAPI
             }
             if (!string.IsNullOrEmpty(user.DeviceID))
                 newUser.DeviceID = user.DeviceID;
+            
             // set rank by default
             newUser.UserRankID = 1;
 
-            newUser.BirthDate = user.BirthDate;
-            newUser.Country  = user.Country;
-            newUser.Phone = user.Phone;
-            newUser.Website = user.Website;
+            if (user.BirthDate != DateTime.MinValue)
+                newUser.BirthDate = user.BirthDate;
+            if (!string.IsNullOrEmpty(user.Country))
+                newUser.Country  = user.Country;
+            if (!string.IsNullOrEmpty(user.Phone))
+                newUser.Phone = user.Phone;
+            if (!string.IsNullOrEmpty(user.Website))
+                newUser.Website = user.Website;
+            if (user.CountryID != 0)
+                newUser.CountryID = user.CountryID;
+            if (!string.IsNullOrEmpty(user.Location))
+                newUser.Location = user.Location;
+
             newUser.Save();
 
             user.ComboUserID = newUser.ComboUserID;
@@ -397,10 +422,18 @@ namespace Combo.ComboAPI
             if (!string.IsNullOrEmpty(user.DeviceID))
                 newUser.DeviceID = user.DeviceID;
 
-            newUser.BirthDate = user.BirthDate;
-            newUser.Country = user.Country;
-            newUser.Phone = user.Phone;
-            newUser.Website = user.Website;
+            if (user.BirthDate != DateTime.MinValue)
+                newUser.BirthDate = user.BirthDate;
+            if (!string.IsNullOrEmpty(user.Country))
+                newUser.Country = user.Country;
+            if (!string.IsNullOrEmpty(user.Phone))
+                newUser.Phone = user.Phone;
+            if (!string.IsNullOrEmpty(user.Website))
+                newUser.Website = user.Website;
+            if (user.CountryID != 0)
+                newUser.CountryID = user.CountryID;
+            if (!string.IsNullOrEmpty(user.Location))
+                newUser.Location = user.Location;
             
             newUser.Save();
 
@@ -543,9 +576,36 @@ namespace Combo.ComboAPI
                 //    _response.ErrorMsg = "An Error Occured.Please try again.<br />" + ex.Message;
                 //    _response.bool_result = false;
                 //}
+
+
+                List<Models.ComboUser> Users = user.DefaultView.Table.AsEnumerable().Select(row =>
+                {
+                    return new Models.ComboUser
+                    {
+                        ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                        UserName = row["UserName"].ToString(),
+                        DisplayName = row["DisplayName"].ToString(),
+                        Password = row["Password"].ToString(),
+                        Email = row["Email"].ToString(),
+                        Bio = row["Bio"].ToString(),
+                        ProfileImgID = row.IsNull("ProfileImgID") ? 0 : Convert.ToInt32(row["ProfileImgID"]),
+                        CoverImgID = row.IsNull("CoverImgID") ? 0 : Convert.ToInt32(row["CoverImgID"]),
+                        GenderID = row.IsNull("GenderID") ? 0 : Convert.ToInt32(row["GenderID"]),
+                        IsActivated = row.IsNull("IsActivated") ? false : Convert.ToBoolean(row["IsActivated"]),
+                        ExternalIDType = row.IsNull("ExternalIDType") ? 0 : Convert.ToInt32(row["ExternalIDType"]),
+                        ExternalID = row["ExternalID"].ToString(),
+                        DeviceID = row["DeviceID"].ToString(),
+                        ActivationCode = row.IsNull("ActivationCode") ? Guid.Empty : new Guid(row["ActivationCode"].ToString()),
+                        PassResetCode = row.IsNull("PassResetCode") ? Guid.Empty : new Guid(row["PassResetCode"].ToString()),                        
+                        UserRankID = Convert.ToInt32(row["UserRankID"]),
+                        SecurityWord = row["SecurityWord"].ToString()
+                    };
+                }).ToList();
+
+                _response.Entity = Users;
             }
 
-            _response.Entity = null;
+            
             SetContentResult(_response);
             return;
         }
@@ -620,11 +680,82 @@ namespace Combo.ComboAPI
             _response.Entity = null;
             SetContentResult(_response);
 
-        }       
+        }
+
+        private void UpdateUserRank(int UserID)
+        {
+            ComboUser user = new ComboUser();
+            user.LoadByPrimaryKey(UserID);
+
+            UserActivityLog log = new UserActivityLog();
+            log.GetActivityDaysByUserID(user.ComboUserID);
+
+            ComboPost posts = new ComboPost();
+            posts.GetUserPostsCountByUserID(user.ComboUserID);
+
+            ComboComment comments = new ComboComment();
+            comments.GetPostCommentsCountByUserID(user.ComboUserID);
+
+            ComboPostLike postLikes = new ComboPostLike();
+            postLikes.GetPostLikesCountByUserID(user.ComboUserID);
+
+            ProfileFollower followers = new ProfileFollower();
+            followers.GetProfileFollowersCountByUserID(user.ComboUserID);
+
+            ProfileFollower followings = new ProfileFollower();
+            followings.GetProfileFollowingCountByUserID(user.ComboUserID);
+
+            ProfileLiker profileLikes = new ProfileLiker();
+            profileLikes.GetProfileLikerCountByUserID(user.ComboUserID);
+
+            if (Convert.ToInt32(log.GetColumn("TotalActivityDays")) > 365 ||
+                Convert.ToInt32(posts.GetColumn("TotalPostCount")) > 3000 ||
+                Convert.ToInt32(comments.GetColumn("TotalCount")) > 3000 ||
+                Convert.ToInt32(postLikes.GetColumn("TotalPostLikes")) > 3000 ||
+                Convert.ToInt32(followers.GetColumn("TotalFollowers")) > 3000 ||
+                Convert.ToInt32(followings.GetColumn("TotalFollowings")) > 3000 ||
+                Convert.ToInt32(profileLikes.GetColumn("TotalProfileLikes")) > 3000)
+            {
+                user.UserRankID = 5;
+            }
+            else if (Convert.ToInt32(log.GetColumn("TotalActivityDays")) > 240 ||
+                    Convert.ToInt32(posts.GetColumn("TotalPostCount")) > 2000 ||
+                    Convert.ToInt32(comments.GetColumn("TotalCount")) > 2000 ||
+                    Convert.ToInt32(postLikes.GetColumn("TotalPostLikes")) > 2000 ||
+                    Convert.ToInt32(followers.GetColumn("TotalFollowers")) > 2000 ||
+                    Convert.ToInt32(followings.GetColumn("TotalFollowings")) > 2000 ||
+                    Convert.ToInt32(profileLikes.GetColumn("TotalProfileLikes")) > 2000)
+            {
+                user.UserRankID = 4;
+            }
+            else if (Convert.ToInt32(log.GetColumn("TotalActivityDays")) > 120 ||
+                    Convert.ToInt32(posts.GetColumn("TotalPostCount")) > 1000 ||
+                    Convert.ToInt32(comments.GetColumn("TotalCount")) > 1000 ||
+                    Convert.ToInt32(postLikes.GetColumn("TotalPostLikes")) > 1000 ||
+                    Convert.ToInt32(followers.GetColumn("TotalFollowers")) > 1000 ||
+                    Convert.ToInt32(followings.GetColumn("TotalFollowings")) > 1000 ||
+                    Convert.ToInt32(profileLikes.GetColumn("TotalProfileLikes")) > 1000)
+            {
+                user.UserRankID = 3;
+            }
+            else if (Convert.ToInt32(log.GetColumn("TotalActivityDays")) > 30 ||
+                    Convert.ToInt32(posts.GetColumn("TotalPostCount")) > 500 ||
+                    Convert.ToInt32(comments.GetColumn("TotalCount")) > 500 ||
+                    Convert.ToInt32(postLikes.GetColumn("TotalPostLikes")) > 500 ||
+                    Convert.ToInt32(followers.GetColumn("TotalFollowers")) > 500 ||
+                    Convert.ToInt32(followings.GetColumn("TotalFollowings")) > 500 ||
+                    Convert.ToInt32(profileLikes.GetColumn("TotalProfileLikes")) > 500)
+            {
+                user.UserRankID = 2;
+            }
+
+            user.Save();
+
+        }
         #endregion
 
         #region Posts
-        const int PostsPageSize = 20;
+        const int PostsPageSize = 50;
         const int CommentsPageSize = 20;
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
@@ -744,6 +875,16 @@ namespace Combo.ComboAPI
 
             _response.Entity = Posts;
             SetContentResult(_response);
+
+            // calculate user rank in another thread
+            ThreadPool.QueueUserWorkItem(delegate
+            {
+                if (AddActivityLog(UserID, DateTime.Now.Date))
+                {
+                    UpdateUserRank(UserID);
+                }
+            });
+
             //return _response;
 
         }
@@ -3876,7 +4017,19 @@ namespace Combo.ComboAPI
             }
             catch (Exception e)
             {
-                return e.Message;
+                WebException wex = (WebException)e;
+                var s = wex.Response.GetResponseStream();
+                string ss = "";
+                int lastNum = 0;
+                do
+                {
+                    lastNum = s.ReadByte();
+                    ss += (char)lastNum;
+                } while (lastNum != -1);
+                s.Close();
+                s = null;
+                
+                return e.Message + "### " + ss;
             }
             
         }
@@ -4044,5 +4197,70 @@ namespace Combo.ComboAPI
 
         }
         #endregion 
+
+        #region ActivityLog
+        public bool AddActivityLog(int userID, DateTime date)
+        {
+            try
+            {
+                int discount = 0;
+                UserActivityLog log = new UserActivityLog();                
+                if (log.GetLastActivityByUserID(userID))
+                {
+                    // get between days only i.e. 
+                    // last day 01/03/2015 - current date  04/03/2015 
+                    // the between days not equal 3 it's only 2 ( 02/03/2015 - 03-03-2015 )
+                    // so diff = current date - last date - 1
+                    discount = date.Subtract(log.Date).Days - 1; 
+                }
+                log.AddNew();
+                log.ComboUserID = userID;
+                log.Date = date;
+                log.DaysToDiscount = discount;
+                log.Save();
+                // if save success
+                return true;
+            }
+            catch (Exception ex)
+            {
+                //if save fail - duplicate entry
+                return false;
+            }
+        }
+        #endregion
+
+        #region Country
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        /// <summary>
+        /// Get All Countries
+        /// </summary>
+        /// <returns>ComboResponse object with List of all Countries</returns>
+        public void GetCountries()
+        {
+            Models.ComboResponse _response = new Models.ComboResponse();
+            _response.bool_result = true;
+            _response.ErrorCode = 0;
+            _response.ErrorMsg = "";
+
+            Country country = new Country();
+            country.LoadAll();
+            List<Models.Country> AllCountries = country.DefaultView.Table.AsEnumerable().Select(row =>
+            {
+                return new Models.Country
+                {
+                    CountryID = Convert.ToInt32(row["CountryID"]),
+                    Name = row["Name"].ToString(),
+                    IconPath = row["IconPath"].ToString()
+                };
+            }).ToList();
+
+
+            _response.Entity = AllCountries;
+            SetContentResult(_response);
+            //return _response;
+
+        }
+        #endregion
     }
 }

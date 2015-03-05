@@ -63,7 +63,7 @@
 
         function getuserbyuernameandpass()
         {
-            var user = { username : "awe", password :"666" }
+            var user = { username : "awe", password :"666", DeviceID : "abcdefg" }
             var json = JSON.stringify(user);
 
             $.ajax({
@@ -97,7 +97,7 @@
        // $(document).ready(getUsers);
 
         function addUser() {
-            var user = { user: { ComboUserID: 0, UserName: $('#text').val(), Password: $('#pass').val(), Email: $('#email').val() } };
+            var user = { user: { ComboUserID: 0, UserName: $('#text').val(), Password: $('#pass').val(), Email: $('#email').val(), SecurityWord: $('#text').val() } };
             var json = JSON.stringify(user);
 
             $.ajax({
@@ -124,6 +124,37 @@
                         
                     }
                 
+            });
+        }
+
+        function UpdateUser() {
+            var user = { user: { ComboUserID: 22, UserName: $('#text').val(), Password: $('#pass').val(), Email: $('#email').val(), SecurityWord: $('#text').val() } };
+            var json = JSON.stringify(user);
+
+            $.ajax({
+                url: 'ComboAPI/combo.asmx/UpdateUser',
+                cache: false,
+                type: 'POST',
+                data: json,
+                contentType: 'application/json; charset=utf-8',
+                success:
+                   function (data) {
+                       if (data.bool_result != false) {
+
+                           // Add a table row for the product.
+                           var row = '<td>' + data.Entity.ComboUserID + '</td><td>' + data.Entity.UserName + '</td>';
+                           $('<tr/>', { html: row })  // Append the name.
+                               .appendTo($('#users'));
+
+                       }
+                       else {
+                           $('#error').css('display', 'block');
+                           $('#error').html(data.ErrorMsg);
+                       }
+
+
+                   }
+
             });
         }
 
@@ -247,7 +278,7 @@
         }
 
         function addComment() {
-            var comment = { comment: { ComboUserID: 7, CommentText: $('#text').val(), ComboPostID: 4, Attachments: [{AttachmentID:5}] } };
+            var comment = { comment: { ComboUserID: 7, CommentText: $('#text').val(), ComboPostID: 4, Attachments: [{ AttachmentID: 5 }] } };
             var json = JSON.stringify(comment);
 
             $.ajax({
@@ -276,6 +307,38 @@
 
             });
         }
+
+        function getPosts() {
+                var comment = { UserID: 7, Page: 0 };
+                var json = JSON.stringify(comment);
+
+                $.ajax({
+                    url: 'ComboAPI/combo.asmx/GetPosts',
+                    cache: false,
+                    type: 'POST',
+                    data: json,
+                    contentType: 'application/json; charset=utf-8',
+                    success:
+                       function (data) {
+                           if (data.bool_result != false) {
+
+                               // Add a table row for the product.
+                               //var row = '<td>' + data.Entity.ComboUserID + '</td><td>' + data.Entity.UserName + '</td>';
+                               //$('<tr/>', { html: row })  // Append the name.
+                               //    .appendTo($('#users'));
+
+                           }
+                           else {
+                               $('#error').css('display', 'block');
+                               $('#error').html(data.ErrorMsg);
+                           }
+
+
+                       }
+
+                });
+            }
+        
     </script>
 </head>
 <body>
@@ -287,10 +350,11 @@
     <input id="text" type="text" />
     <input id="pass" type="password" />
     <input id="email" type="text" />
-    <input id="Button1" type="button" value="add comment" onclick="addComment()" />
+    <input id="Button1" type="button" value="add comment" onclick="UpdateUser()" />
     <input id="Button1" type="button" value="get user by user name" onclick="getuserbyuernameandpass()" />
     <input id="Button1" type="button" value="get user by id" onclick="getuserbyid()" />
     <input id="Button1" type="button" value="get all users" onclick="getUsers()" />
+    <input id="Button1" type="button" value="get all posts" onclick="getPosts()" />
 
 
     

@@ -60,11 +60,13 @@
     <Compile Include="ComboUserFriend.cs" />
     <Compile Include="ComboUserMsg.cs" />
     <Compile Include="ComboUserSettings.cs" />
+    <Compile Include="Country.cs" />
     <Compile Include="ExternalIDType.cs" />
     <Compile Include="Gender.cs" />
     <Compile Include="ProfileFollower.cs" />
     <Compile Include="ProfileLiker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserActivityLog.cs" />
     <Compile Include="UserRank.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

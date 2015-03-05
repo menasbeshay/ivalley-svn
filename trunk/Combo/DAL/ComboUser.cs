@@ -291,6 +291,22 @@ namespace Combo.DAL
 				}
 			}
 			
+			public static SqlParameter CountryID
+			{
+				get
+				{
+					return new SqlParameter("@CountryID", SqlDbType.Int, 0);
+				}
+			}
+			
+			public static SqlParameter Location
+			{
+				get
+				{
+					return new SqlParameter("@Location", SqlDbType.NVarChar, 100);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -321,6 +337,8 @@ namespace Combo.DAL
             public const string Country = "Country";
             public const string Phone = "Phone";
             public const string Website = "Website";
+            public const string CountryID = "CountryID";
+            public const string Location = "Location";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -352,6 +370,8 @@ namespace Combo.DAL
 					ht[Country] = _ComboUser.PropertyNames.Country;
 					ht[Phone] = _ComboUser.PropertyNames.Phone;
 					ht[Website] = _ComboUser.PropertyNames.Website;
+					ht[CountryID] = _ComboUser.PropertyNames.CountryID;
+					ht[Location] = _ComboUser.PropertyNames.Location;
 
 				}
 				return (string)ht[columnName];
@@ -388,6 +408,8 @@ namespace Combo.DAL
             public const string Country = "Country";
             public const string Phone = "Phone";
             public const string Website = "Website";
+            public const string CountryID = "CountryID";
+            public const string Location = "Location";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -419,6 +441,8 @@ namespace Combo.DAL
 					ht[Country] = _ComboUser.ColumnNames.Country;
 					ht[Phone] = _ComboUser.ColumnNames.Phone;
 					ht[Website] = _ComboUser.ColumnNames.Website;
+					ht[CountryID] = _ComboUser.ColumnNames.CountryID;
+					ht[Location] = _ComboUser.ColumnNames.Location;
 
 				}
 				return (string)ht[propertyName];
@@ -455,6 +479,8 @@ namespace Combo.DAL
             public const string Country = "s_Country";
             public const string Phone = "s_Phone";
             public const string Website = "s_Website";
+            public const string CountryID = "s_CountryID";
+            public const string Location = "s_Location";
 
 		}
 		#endregion		
@@ -746,6 +772,30 @@ namespace Combo.DAL
 			set
 	        {
 				base.Setstring(ColumnNames.Website, value);
+			}
+		}
+
+		public virtual int CountryID
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.CountryID);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.CountryID, value);
+			}
+		}
+
+		public virtual string Location
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.Location);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.Location, value);
 			}
 		}
 
@@ -1114,6 +1164,36 @@ namespace Combo.DAL
 			}
 		}
 
+		public virtual string s_CountryID
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.CountryID) ? string.Empty : base.GetintAsString(ColumnNames.CountryID);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.CountryID);
+				else
+					this.CountryID = base.SetintAsString(ColumnNames.CountryID, value);
+			}
+		}
+
+		public virtual string s_Location
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.Location) ? string.Empty : base.GetstringAsString(ColumnNames.Location);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.Location);
+				else
+					this.Location = base.SetstringAsString(ColumnNames.Location, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -1382,6 +1462,26 @@ namespace Combo.DAL
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.Website, Parameters.Website);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter CountryID
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.CountryID, Parameters.CountryID);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter Location
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.Location, Parameters.Location);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -1680,6 +1780,30 @@ namespace Combo.DAL
 				}
 			}
 
+			public WhereParameter CountryID
+		    {
+				get
+		        {
+					if(_CountryID_W == null)
+	        	    {
+						_CountryID_W = TearOff.CountryID;
+					}
+					return _CountryID_W;
+				}
+			}
+
+			public WhereParameter Location
+		    {
+				get
+		        {
+					if(_Location_W == null)
+	        	    {
+						_Location_W = TearOff.Location;
+					}
+					return _Location_W;
+				}
+			}
+
 			private WhereParameter _ComboUserID_W = null;
 			private WhereParameter _UserName_W = null;
 			private WhereParameter _DisplayName_W = null;
@@ -1704,6 +1828,8 @@ namespace Combo.DAL
 			private WhereParameter _Country_W = null;
 			private WhereParameter _Phone_W = null;
 			private WhereParameter _Website_W = null;
+			private WhereParameter _CountryID_W = null;
+			private WhereParameter _Location_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -1731,6 +1857,8 @@ namespace Combo.DAL
 				_Country_W = null;
 				_Phone_W = null;
 				_Website_W = null;
+				_CountryID_W = null;
+				_Location_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -2022,6 +2150,26 @@ namespace Combo.DAL
 					get
 					{
 							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Website, Parameters.Website);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter CountryID
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.CountryID, Parameters.CountryID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter Location
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Location, Parameters.Location);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -2320,6 +2468,30 @@ namespace Combo.DAL
 				}
 			}
 
+			public AggregateParameter CountryID
+		    {
+				get
+		        {
+					if(_CountryID_W == null)
+	        	    {
+						_CountryID_W = TearOff.CountryID;
+					}
+					return _CountryID_W;
+				}
+			}
+
+			public AggregateParameter Location
+		    {
+				get
+		        {
+					if(_Location_W == null)
+	        	    {
+						_Location_W = TearOff.Location;
+					}
+					return _Location_W;
+				}
+			}
+
 			private AggregateParameter _ComboUserID_W = null;
 			private AggregateParameter _UserName_W = null;
 			private AggregateParameter _DisplayName_W = null;
@@ -2344,6 +2516,8 @@ namespace Combo.DAL
 			private AggregateParameter _Country_W = null;
 			private AggregateParameter _Phone_W = null;
 			private AggregateParameter _Website_W = null;
+			private AggregateParameter _CountryID_W = null;
+			private AggregateParameter _Location_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -2371,6 +2545,8 @@ namespace Combo.DAL
 				_Country_W = null;
 				_Phone_W = null;
 				_Website_W = null;
+				_CountryID_W = null;
+				_Location_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -2539,6 +2715,14 @@ namespace Combo.DAL
 
 			p = cmd.Parameters.Add(Parameters.Website);
 			p.SourceColumn = ColumnNames.Website;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.CountryID);
+			p.SourceColumn = ColumnNames.CountryID;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.Location);
+			p.SourceColumn = ColumnNames.Location;
 			p.SourceVersion = DataRowVersion.Current;
 
 

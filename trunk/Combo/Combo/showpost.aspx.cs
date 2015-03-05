@@ -34,7 +34,7 @@ namespace Combo
                 uiLabelName.Text = post.GetColumn("UserName").ToString();
                 uiLabelDate.Text = post.PostDate.ToString("dd/MM/yyyy hh:mm tt");
                 uiLiteralText.Text = post.PostText;
-            }
+            }           
         }
     }
 }

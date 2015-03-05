@@ -18,5 +18,12 @@ namespace Combo.BLL
                                     inner join ComboUser U on L.ComboUserID = U.ComboUserID
                                     Where L.ComboPostID = {0}", pid);
         }
+
+
+        public virtual bool GetPostLikesCountByUserID(int uid)
+        {
+            return LoadFromRawSql(@"Select (L.ComboUserID) TotalPostLikes From ComboPostLike L                                     
+                                    Where L.ComboUserID = {0}", uid);
+        }
 	}
 }

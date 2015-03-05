@@ -148,40 +148,42 @@ Create Table ProfileLiker
 Go 
 
 		
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'Country' and
+		        xtype = 'U')
+Drop Table Country
+Go
+Create Table Country
+(
+	CountryID int not null
+			identity(1,1)
+			Primary Key,	
+	Name Nvarchar(200),
+	IconPath nvarchar(200)
+)
+Go 
+
+alter table ComboUser
+add CountryID int foreign key references Country(CountryID),
+	Location Nvarchar(100)
+
 
 If Exists (select Name 
 		   from sysobjects 
-		   where name = 'PilotNightCity' and
+		   where name = 'UserActivityLog' and
 		        xtype = 'U')
-Drop Table PilotNightCity
+Drop Table UserActivityLog
 Go
-Create Table PilotNightCity
+Create Table UserActivityLog
 (
-	PilotNightCityID int not null
+	UserActivityLogID int not null
 			identity(1,1)
 			Primary Key,	
-	AirportID int foreign key references airport(airportid),
-	PilotID int foreign key references Pilot(PilotID),
-	CityDate DateTime,
-	CONSTRAINT Pilot_City_index UNIQUE(PilotID,AirportID,CityDate)
+	Date DateTime,
+	ComboUserID int foreign key references ComboUser(ComboUserID),
+	DaysToDiscount int,
+	CONSTRAINT User_Activity_index UNIQUE (Date, ComboUserID)
 )
-Go 	
-
-
-If Exists (select Name 
-		   from sysobjects 
-		   where name = 'CrewNightCity' and
-		        xtype = 'U')
-Drop Table CrewNightCity
-Go
-Create Table CrewNightCity
-(
-	CrewNightCityID int not null
-			identity(1,1)
-			Primary Key,	
-	AirportID int foreign key references airport(airportid),
-	CrewID int foreign key references Crew(CrewID),
-	CityDate DateTime,
-	CONSTRAINT Crew_City_index UNIQUE(CrewID,AirportID,CityDate)
-)
-Go 		
+Go 
+		
