@@ -1,7 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/E_Admin.Master" AutoEventWireup="true" CodeBehind="PilotSchedule.aspx.cs" Inherits="Flights_GUI.Operation.PilotSchedule" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/IFlights.Master" AutoEventWireup="true" CodeBehind="PilotSchedule.aspx.cs" Inherits="Flights_GUI.Operation.PilotSchedule" %>
     <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
-<%@ MasterType  VirtualPath="~/MasterPages/E_Admin.Master" %>
+<%@ MasterType  VirtualPath="~/MasterPages/IFlights.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
 .hidebr br
@@ -284,6 +284,4 @@ display:none;
           
     </div>
     </div>
-
-    
 </asp:Content>

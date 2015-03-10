@@ -42,7 +42,8 @@ namespace Flights_GUI.MasterPages
                     uiLiteralMenu.Text += "<li><a href='../CabinCrew/Profile.aspx'><span class='icon-box'><i class='icon-user'></i></span> Profile</a></li>";
                     uiLiteralMenu.Text += "<li><a href='../CabinCrew/Reports.aspx'><span class='icon-box'><i class='icon-bar-chart'></i></span> Crew Reports</a></li>";
                     uiLiteralMenu.Text += "<li><a href='../Common/Tickets.aspx?ref=o'><span class='icon-box'><i class='icon-group'></i></span> PAX Tickets</a></li>";
-                    uiLiteralMenu.Text += "<li><a href='../CabinCrew/Activities.aspx?ref=o'><span class='icon-box'><i class='icon-group'></i></span> Activities</a></li>";
+                    //uiLiteralMenu.Text += "<li><a href='../CabinCrew/Activities.aspx?ref=o'><span class='icon-box'><i class='icon-group'></i></span> Activities</a></li>";
+                    uiLiteralMenu.Text += "<li><a href='../CabinCrew/CrewTrx.aspx'><span class='icon-box'><i class='icon-plane'></i></span> Crew Transactions</a></li>";
                     uiLiteralMenu.Text += "<li><a href='../Changepassword.aspx'><span class='icon-box'><i class='icon-user-md'></i></span> Change Password</a></li>";
                 
                 }

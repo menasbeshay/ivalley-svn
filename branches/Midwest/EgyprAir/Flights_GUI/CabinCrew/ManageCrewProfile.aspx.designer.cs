@@ -594,9 +594,9 @@ namespace Flights_GUI.CabinCrew {
         /// <remarks>
         /// Auto-generated property.
         /// </remarks>
-        public new Flights_GUI.MasterPages.E_CabinCrew Master {
+        public new Flights_GUI.MasterPages.IFlights Master {
             get {
-                return ((Flights_GUI.MasterPages.E_CabinCrew)(base.Master));
+                return ((Flights_GUI.MasterPages.IFlights)(base.Master));
             }
         }
     }

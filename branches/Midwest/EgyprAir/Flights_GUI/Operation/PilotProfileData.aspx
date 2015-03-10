@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/E_Admin.Master" AutoEventWireup="true" CodeBehind="PilotProfileData.aspx.cs" Inherits="Flights_GUI.Operation.PilotProfileData" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/IFlights.Master" AutoEventWireup="true" CodeBehind="PilotProfileData.aspx.cs" Inherits="Flights_GUI.Operation.PilotProfileData" %>
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
-<%@ MasterType VirtualPath="~/MasterPages/E_Admin.Master" %>
+<%@ MasterType VirtualPath="~/MasterPages/IFlights.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
      <style type="text/css">
         .RadGrid_Office2007 .rgRow td
@@ -30,12 +30,12 @@
                     </div>
                     <div class="clear10">
                     </div>
-                </asp:Panel>
-            <div class="span12 clearfix">
-                <div class="span2 right">
+                <div class="span2 pull-right">
                         <asp:LinkButton ID="uiLinkButtonAdd" runat="server" OnClick="uiLinkButtonAdd_Click" CssClass="btn btn-primary">Add new pilot</asp:LinkButton>
+                    <div class="clearfix">&nbsp;</div>
                 </div>
-            </div>
+                </asp:Panel>
+            
             <div class="span12 clearfix">
                 <telerik:radgrid id="uiRadGridPilots" runat="server" allowpaging="True" autogeneratecolumns="False"
                         cellspacing="0" horizontalalign="Center" skin="Office2007" width="90%" 
@@ -80,8 +80,8 @@
         <asp:Panel ID="uiPanelEdit" runat="server">
             <ul class="nav nav-tabs">
                 <li class="active"><a href="#tab_1_1" data-toggle="tab">Personal Info</a></li>
-                <li class=""><a href="#tab_1_2" data-toggle="tab">Aviation Info</a></li>
-                <li class=""><a href="#tab_1_3" data-toggle="tab">Other Info</a></li>
+                <%--<li class=""><a href="#tab_1_2" data-toggle="tab">Aviation Info</a></li>
+                <li class=""><a href="#tab_1_3" data-toggle="tab">Other Info</a></li>--%>
             </ul>
             <div class="tab-content">
                 <div class="tab-pane active" id="tab_1_1">
@@ -112,7 +112,7 @@
                         </div>
                         <div class="span2" style="margin-left: 0; margin-right: 20px">
                             <asp:TextBox ID="uiTextBoxLicNo" runat="server" ValidationGroup="PilotProfile" Width="160px"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*" ValidationGroup="PilotProfile" Font-Bold="true" ForeColor="Red" ControlToValidate="uiTextBoxLicNo"> </asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator Enabled="false" ID="RequiredFieldValidator3" runat="server" ErrorMessage="*" ValidationGroup="PilotProfile" Font-Bold="true" ForeColor="Red" ControlToValidate="uiTextBoxLicNo"> </asp:RequiredFieldValidator>
                         </div>
                         <div class="span1" style="width: 13%">
                             Expiry Date :
@@ -138,7 +138,7 @@
                         </div>
                         <div class="span2" style="margin-left: 0; margin-right: 20px">
                             <asp:TextBox ID="uiTextBoxStaffNo" runat="server" ValidationGroup="PilotProfile" Width="160px"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*" ValidationGroup="PilotProfile" Font-Bold="true" ForeColor="Red" ControlToValidate="uiTextBoxStaffNo"> </asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator Enabled="false" ID="RequiredFieldValidator4" runat="server" ErrorMessage="*" ValidationGroup="PilotProfile" Font-Bold="true" ForeColor="Red" ControlToValidate="uiTextBoxStaffNo"> </asp:RequiredFieldValidator>
                         </div>
                         <div class="span1" style="width: 13%">
                             Short Name :
@@ -203,14 +203,14 @@
                         </div>
                         <div class="span2" style="margin-left: 0; margin-right: 20px">
                             <asp:TextBox ID="uiTextBoxUsername" runat="server" ValidationGroup="PilotProfile" Width="160px"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="*" ValidationGroup="PilotProfile" Font-Bold="true" ForeColor="Red" ControlToValidate="uiTextBoxUsername"> </asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator Enabled="false" ID="RequiredFieldValidator6" runat="server" ErrorMessage="*" ValidationGroup="PilotProfile" Font-Bold="true" ForeColor="Red" ControlToValidate="uiTextBoxUsername"> </asp:RequiredFieldValidator>
                         </div>
                         <div class="span1" style="width: 13%">
                             Password
                         </div>
                         <div class="span2" style="margin-left: 0; margin-right: 20px">
                             <asp:TextBox ID="uiTextBoxPassword" runat="server" ValidationGroup="PilotProfile" Width="160px"></asp:TextBox>
-                            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="*" ValidationGroup="PilotProfile" Font-Bold="true" ForeColor="Red" ControlToValidate="uiTextBoxPassword"> </asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator Enabled="false" ID="RequiredFieldValidator7" runat="server" ErrorMessage="*" ValidationGroup="PilotProfile" Font-Bold="true" ForeColor="Red" ControlToValidate="uiTextBoxPassword"> </asp:RequiredFieldValidator>
                         </div>
                         <div class="span1" style="width: 13%"></div>
                         <div class="span2" style="margin-left: 0; margin-right: 20px"></div>

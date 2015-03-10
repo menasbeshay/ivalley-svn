@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/E_Admin.Master" AutoEventWireup="true" CodeBehind="PilotTrx.aspx.cs" Inherits="Flights_GUI.Operation.PilotTrx" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/IFlights.Master" AutoEventWireup="true" CodeBehind="PilotTrx.aspx.cs" Inherits="Flights_GUI.Operation.PilotTrx" %>
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
-<%@ MasterType  VirtualPath="~/MasterPages/E_Admin.Master" %>
+<%@ MasterType  VirtualPath="~/MasterPages/IFlights.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

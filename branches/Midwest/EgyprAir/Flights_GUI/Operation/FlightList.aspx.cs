@@ -932,6 +932,9 @@ namespace Flights_GUI.Operation
   
 
         }
+
+
+        
         #endregion
 
         protected void uiLinkButtonSaveSector_Click(object sender, EventArgs e)

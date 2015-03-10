@@ -16,6 +16,9 @@ namespace Flights_GUI.CabinCrew
             if (!IsPostBack)
             {
                 //BindData();
+                Master.PageTitle = "Crew status";
+
+                LoadDDLs();
                 if (Request.QueryString["F"] != null)
                 {
                     uiTextBoxFrom.Text = Request.QueryString["F"].ToString();
@@ -34,6 +37,16 @@ namespace Flights_GUI.CabinCrew
                 }                
             }
         }
+        private void LoadDDLs()
+        {
+            Crew Allcrew = new Crew();
+            Allcrew.GetAllCrew();
+            uiDropDownListCrew.DataSource = Allcrew.DefaultView;
+            uiDropDownListCrew.DataTextField = "DisplayName";
+            uiDropDownListCrew.DataValueField = "CrewID";
+            uiDropDownListCrew.DataBind();
+            uiDropDownListCrew.Items.Insert(0, new ListItem("Select Crew", "0"));
+        }
 
         private DateTime GetWeekStartDaTe()
         {
@@ -51,11 +64,16 @@ namespace Flights_GUI.CabinCrew
             }
         }
 
+        protected void uiRadGridTrx_PageIndexChanged(object sender, Telerik.Web.UI.GridPageChangedEventArgs e)
+        {
+            BindData();
+        }
 
         private void BindData()
         {
             Crew current = new Crew();
-            current.GetCrewByUserName(Page.User.Identity.Name);
+            //current.GetCrewByUserName(Page.User.Identity.Name);
+            current.LoadByPrimaryKey(Convert.ToInt32(uiDropDownListCrew.SelectedValue));
             Crew p = new Crew();
             DateTime? From = null;
             DateTime? To = null;
@@ -70,11 +88,14 @@ namespace Flights_GUI.CabinCrew
                 To = DateTime.ParseExact(uiTextBoxTo.Text, "dd/MM/yyyy", provider);
             }
             if (current.RowCount > 0)
-                p.GetCrewSchedule(current.CrewID, From, To);
+                p.GetCrewTransactions(current.CrewID, From, To);
             else
-                p.GetCrewSchedule(0, From, To);
-            uiGridViewSchedule.DataSource = p.DefaultView;
-            uiGridViewSchedule.DataBind();
+                p.GetCrewTransactions(1, From, To);
+            //uiGridViewSchedule.DataSource = p.DefaultView;
+            //uiGridViewSchedule.DataBind();
+
+            uiRadGridTrx.DataSource = p.DefaultView;
+            uiRadGridTrx.DataBind();
         }
 
         protected void uiLinkButtonExport_Click(object sender, EventArgs e)

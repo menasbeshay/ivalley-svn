@@ -245,7 +245,12 @@ namespace Flights_GUI.Operation
             uiTextBoxPassportNo.Text = CurrentPilot.PassportNo;
             if (!CurrentPilot.IsColumnNull(Pilot.ColumnNames.PassportExpiryDate))
                 uiRaddatepickerPassportExpiry.SelectedDate = CurrentPilot.PassportExpiryDate;
-            uiTextBoxPassword.Text = Membership.GetUser(CurrentPilot.UserName).GetPassword();
+            MembershipUser user = Membership.GetUser(CurrentPilot.UserName);
+            if (user != null)
+            {
+                uiTextBoxPassword.Text = user.GetPassword();
+                uiTextBoxUsername.Text = user.UserName;
+            }
         }
 
         #endregion

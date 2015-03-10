@@ -118,6 +118,39 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="FlightTemplate" xml:space="preserve">
+    <value>&lt;tr&gt;
+        &lt;td&gt; 
+            {0}           
+        &lt;/td&gt;
+        &lt;td&gt;    
+            {1}       
+        &lt;/td&gt;
+        &lt;td&gt;   
+            {2}         
+        &lt;/td&gt;
+        &lt;td&gt;  
+            {3}
+        &lt;/td&gt;
+        &lt;td&gt;  {4}
+        &lt;/td&gt;
+        &lt;td&gt;
+            {5}
+        &lt;/td&gt;
+        &lt;td&gt;
+            {6}
+        &lt;/td&gt;
+        &lt;td&gt;
+            {7}
+        &lt;/td&gt;
+    &lt;/tr&gt;</value>
+  </data>
+  <data name="FooterFlights" xml:space="preserve">
+    <value>
+&lt;/table&gt;
+    &lt;br /&gt;&lt;hr /&gt;
+</value>
+  </data>
+  <data name="HeaderFlights" xml:space="preserve">
     <value>&lt;table cellpadding="0" cellspacing="0" style="width:100%;border:1px solid black;border-collapse:collapse;text-align:center;" border="1" &gt;
     &lt;tr&gt;
         &lt;td&gt; 
@@ -144,43 +177,25 @@
             Crew
         &lt;/td&gt;
     &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt; 
-            {0}           
-        &lt;/td&gt;
-        &lt;td&gt;    
-            {1}       
-        &lt;/td&gt;
-        &lt;td&gt;   
-            {2}         
-        &lt;/td&gt;
-        &lt;td&gt;  
-            {3}
-        &lt;/td&gt;
-        &lt;td&gt;  {4}
-        &lt;/td&gt;
-        &lt;td&gt;
-            {5}
-        &lt;/td&gt;
-        &lt;td&gt;
-            {6}
-        &lt;/td&gt;
-        &lt;td&gt;
-            {7}
-        &lt;/td&gt;
-    &lt;/tr&gt;
-&lt;/table&gt;
-    &lt;br /&gt;&lt;hr /&gt;
-    &lt;br /&gt;</value>
+    </value>
   </data>
   <data name="mail" xml:space="preserve">
     <value>flyegypt1@gmail.com</value>
   </data>
+  <data name="mail2" xml:space="preserve">
+    <value>flyegypt@i-valley.com</value>
+  </data>
   <data name="pass" xml:space="preserve">
     <value>mena@ivalley</value>
   </data>
+  <data name="pass2" xml:space="preserve">
+    <value>123456</value>
+  </data>
   <data name="server" xml:space="preserve">
     <value>smtp.gmail.com</value>
+  </data>
+  <data name="server2" xml:space="preserve">
+    <value>mail.i-valley.com</value>
   </data>
   <data name="subject" xml:space="preserve">
     <value>FlyEgypt - Flights Info</value>

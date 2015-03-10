@@ -253,6 +253,7 @@ namespace Flights_GUI.CabinCrew
             uiTextBoxEmail.Text = "";
             uiTextBoxCPassword.Text = "";
             uiTextBoxMobile.Text = "";
+            uiTextBoxShortName.Text = "";
         }
 
         private void FillCrewData()
@@ -288,7 +289,14 @@ namespace Flights_GUI.CabinCrew
             RequiredFieldValidator4.Enabled = false;
             RequiredFieldValidator5.Enabled = false;
             CompareValidator1.Enabled = false;
-            uiTextBoxPassword.Text = Membership.GetUser(CurrentCrew.Username).GetPassword();
+            try
+            {
+                uiTextBoxPassword.Text = Membership.GetUser(CurrentCrew.Username).GetPassword();
+            }
+            catch (Exception ex)
+            {
+                uiTextBoxPassword.Text = "";
+            }
             uiTextBoxPassword.Enabled = false;
             uiTextBoxCPassword.Enabled = false;
         }

@@ -50,6 +50,27 @@ namespace Flight_BLL
 
         }
 
+        public virtual bool GetAllCrew()
+        {
+            ListDictionary parameters = new ListDictionary();
+
+
+            return LoadFromSql("GetAllCrew", parameters);
+
+        }
+
+        public virtual bool GetCrewTransactions(int CrewID, DateTime? StartDate, DateTime? EndDate)
+        {
+            ListDictionary parameters = new ListDictionary();
+
+            parameters.Add(new SqlParameter("@CrewID", SqlDbType.Int, 0), CrewID);
+            parameters.Add(new SqlParameter("@StartDate", SqlDbType.DateTime, 0), StartDate);
+            parameters.Add(new SqlParameter("@EndDate", SqlDbType.DateTime, 0), EndDate);
+
+            return LoadFromSql("GetCrewTransactions", parameters);
+
+        }
+
         
 	}
 }

@@ -94,3 +94,45 @@ Go
 Alter table crew 
 alter column StaffNo nvarchar(10)
 Add ShortName nvarchar(6)
+
+
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'Announcement' and
+		        xtype = 'U')
+Drop Table Announcement
+Go
+Create Table Announcement
+(
+	AnnouncementID int not null
+			identity(1,1)
+			Primary Key,	
+	Title Nvarchar(500),
+	Content nvarchar(max),
+	CreatedBy nvarchar(200),
+	createdDate Datetime
+)
+Go  
+
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'Manual' and
+		        xtype = 'U')
+Drop Table Manual
+Go
+Create Table Manual
+(
+	ManualID int not null
+			identity(1,1)
+			Primary Key,	
+	Title Nvarchar(500),
+	Path nvarchar(1000),
+	CreatedBy nvarchar(200),
+	createdDate Datetime
+)
+Go  
+

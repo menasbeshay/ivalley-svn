@@ -252,9 +252,9 @@ namespace Flights_GUI.Operation {
         /// <remarks>
         /// Auto-generated property.
         /// </remarks>
-        public new Flights_GUI.MasterPages.E_Admin Master {
+        public new Flights_GUI.MasterPages.IFlights Master {
             get {
-                return ((Flights_GUI.MasterPages.E_Admin)(base.Master));
+                return ((Flights_GUI.MasterPages.IFlights)(base.Master));
             }
         }
     }

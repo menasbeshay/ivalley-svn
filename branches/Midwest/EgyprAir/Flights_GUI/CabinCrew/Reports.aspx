@@ -1,7 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/E_CabinCrew.Master" AutoEventWireup="true" CodeBehind="Reports.aspx.cs" Inherits="Flights_GUI.CabinCrew.Reports" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/IFlights.Master" AutoEventWireup="true" CodeBehind="Reports.aspx.cs" Inherits="Flights_GUI.CabinCrew.Reports" %>
 
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
-<%@ MasterType VirtualPath="~/MasterPages/E_CabinCrew.Master" %>
+<%@ MasterType VirtualPath="~/MasterPages/IFlights.Master" %>
 <%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
     Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
@@ -16,7 +16,7 @@
         $('#<%= uiRadioButtonListReports.ClientID %>').change(function () {
             var selectedvalue = $(this).val();
 
-            if (selectedvalue == 0 || selectedvalue == 1 || selectedvalue == 3 || selectedvalue == 5) {
+            if (selectedvalue == 0 || selectedvalue == 1 || selectedvalue == 3 || selectedvalue == 5 || selectedvalue == 6) {
                 $('#crewdiv').css('display', 'block');
                 
             }
@@ -41,6 +41,8 @@
                                     <asp:ListItem Value="-1">Select report ... </asp:ListItem>    
                                     <asp:ListItem Value="0">Crew Hours</asp:ListItem>                                                                                                  
                                     <asp:ListItem Value="5">Crew DHD Hours</asp:ListItem>
+                                    <asp:ListItem Value="6">Crew Night city</asp:ListItem>
+                                    <asp:ListItem Value="7">Crew Hours summary</asp:ListItem>
                                     <%--<asp:ListItem Value="4">Per diem</asp:ListItem>--%>
                                     <%--<asp:ListItem Value="1">Actual Per diem</asp:ListItem>--%>
                                     <asp:ListItem Value="2">All Crew Hours</asp:ListItem>                                    

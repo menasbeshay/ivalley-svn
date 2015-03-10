@@ -229,14 +229,41 @@ namespace Flights_GUI.Operation {
         protected global::Microsoft.Reporting.WebForms.ReportViewer ReportViewer7;
         
         /// <summary>
+        /// ReportViewer8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Microsoft.Reporting.WebForms.ReportViewer ReportViewer8;
+        
+        /// <summary>
+        /// ReportViewer10 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Microsoft.Reporting.WebForms.ReportViewer ReportViewer10;
+        
+        /// <summary>
+        /// ReportViewer9 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Microsoft.Reporting.WebForms.ReportViewer ReportViewer9;
+        
+        /// <summary>
         /// Master property.
         /// </summary>
         /// <remarks>
         /// Auto-generated property.
         /// </remarks>
-        public new Flights_GUI.MasterPages.E_Admin Master {
+        public new Flights_GUI.MasterPages.IFlights Master {
             get {
-                return ((Flights_GUI.MasterPages.E_Admin)(base.Master));
+                return ((Flights_GUI.MasterPages.IFlights)(base.Master));
             }
         }
     }

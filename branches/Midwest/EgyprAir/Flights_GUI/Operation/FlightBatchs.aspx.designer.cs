@@ -130,14 +130,23 @@ namespace Flights_GUI.Operation {
         protected global::Telerik.Web.UI.RadGrid uiRadGridFlights;
         
         /// <summary>
+        /// uiLiteralNames control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal uiLiteralNames;
+        
+        /// <summary>
         /// Master property.
         /// </summary>
         /// <remarks>
         /// Auto-generated property.
         /// </remarks>
-        public new Flights_GUI.MasterPages.E_Admin Master {
+        public new Flights_GUI.MasterPages.IFlights Master {
             get {
-                return ((Flights_GUI.MasterPages.E_Admin)(base.Master));
+                return ((Flights_GUI.MasterPages.IFlights)(base.Master));
             }
         }
     }

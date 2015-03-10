@@ -165,9 +165,9 @@ namespace Flights_GUI.Operation
         private void LoadDDLs()
         {
             Crew AllCrew = new Crew();
-            AllCrew.LoadAll();
+            AllCrew.GetAllCrew();
             uiDropDownListCrew.DataSource = AllCrew.DefaultView;
-            uiDropDownListCrew.DataTextField = "ShortName";
+            uiDropDownListCrew.DataTextField = "DisplayName";
             uiDropDownListCrew.DataValueField = "CrewID";
             uiDropDownListCrew.DataBind();
             uiDropDownListCrew.Items.Insert(0, new ListItem("Select Member", ""));

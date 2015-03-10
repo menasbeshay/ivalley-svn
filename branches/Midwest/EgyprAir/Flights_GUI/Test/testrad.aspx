@@ -15,6 +15,11 @@
     <div>
         <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
         </asp:ToolkitScriptManager>
+        <telerik:RadEditor ID="RadEditor1" runat="server"><Content>
+</Content>
+            <ImageManager DeletePaths="~/FileUploads" UploadPaths="~/FileUploads" ViewPaths="~/FileUploads" />
+            <SilverlightManager DeletePaths="~/FileUploads" UploadPaths="~/FileUploads" ViewPaths="~/FileUploads" />
+        </telerik:RadEditor>
         <telerik:RadGrid ID="uiRadGrid" runat="server" AutoGenerateColumns="False" 
                             HorizontalAlign="Center" Width="95%" AllowPaging="True" CellSpacing="0" 
                             Skin="Default" PageSize="3" 

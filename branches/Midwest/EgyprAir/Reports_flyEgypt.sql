@@ -591,40 +591,201 @@ End
 
 Go   
   
+
+
+  
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'GetCrewHoursWithinRangeAsTable' and
+		        xtype = 'FT')
+Drop function GetCrewHoursWithinRangeAsTable
+Go
+
+CREATE function GetCrewHoursWithinRangeAsTable (@CrewID int,  
+        @StartDate DateTime = null,  
+        @EndDate DateTime = null)
+returns @result table
+(
+	GrandTotalHours int, 
+	GrandTotalMins int
+)
+as  
+Begin
+
+
+Declare @TotalH int,  
+  @TotalMin int,  
+  @CTotalH int,  
+  @CTotalMin int,  
+  @DayH int,   
+  @DayM int,  
+  @NightH int,  
+  @NightM int  
+  
+select @DayH = sum(DayH), @DayM = sum(DayM), @NightH = sum(NightH), @NightM = sum(NightM)  
+From(  
+Select   
+case when IsHeavyCrew = 1 then ((sum(datepart(hh,s.FlyAtDay )))*2)/3  
+else sum(datepart(hh,s.FlyAtDay ))  end DayH,  
+  
+case when IsHeavyCrew = 1 then ((sum(datepart(MI,s.FlyAtDay )))*2)/3  
+else sum(datepart(MI,s.FlyAtDay )) end DayM,  
+  
+case when IsHeavyCrew = 1 then ((sum(datepart(hh,s.FlyAtNight )))*2)/3  
+else sum(datepart(hh,s.FlyAtNight )) end NightH,   
+  
+case when IsHeavyCrew = 1 then ((sum(datepart(MI,s.FlyAtNight )))*2)/3  
+else sum(datepart(MI,s.FlyAtNight )) end NightM  
+  
+from Sector S   
+Inner Join AirPlane AP on S.AirCraft_AirPlaneID = AP.AirPlaneID  
+Inner Join AirPort A on S.From_AirportID = A.AirPortID  
+Inner Join AirPort A2 on S.To_AirportID = A2.AirPortID  
+Inner Join SectorCrew SP on S.SectorID = SP.SectorID  
+Inner Join Crew C on SP.CrewID = C.CrewID  
+Inner join Position PP on SP.PositionID = PP.PositionID  
+Where C.CrewID = @CrewID and   
+   S.SectorDate >= ISNULL(@StartDate, '01/01/1900') and   
+   S.SectorDate <= ISNULL(@EndDate, '01/01/2500') AND  
+   (S.IsPAX is null or S.IsPAX <> 1 ) AND  
+   /* not Dead head */  
+   --((SP.PositionID <> 12 ) and  -- trainee included in crew hours 
+   (SP.PositionID <> 13) 
+group by IsHeavyCrew  
+) as A  
+  
+  
+/* grand totals ( TBF + all times till start date + totals within start date and end date ) */  
+Select @TotalH =  @DayH + @NightH  , @TotalMin = @DayM + @NightM  
+Select @TotalH =  @TotalH + (@TotalMin/ 60)  
+Select @TotalMin = @TotalMin - (@TotalMin/60)*60  
+  
+  insert @Result
+Select @TotalH+(@TotalMin/60)  , @TotalMin-((@TotalMin/60)*60)        
+  Return
+
+End
+  
+  
+  If Exists (select Name 
+		   from sysobjects 
+		   where name = 'GetCrewDHDWithinRangeAsTable' and
+		        xtype = 'FT')
+Drop function GetCrewDHDWithinRangeAsTable
+Go
+
+CREATE function GetCrewDHDWithinRangeAsTable (@CrewID int,  
+        @StartDate DateTime = null,  
+        @EndDate DateTime = null)
+returns @result table
+(
+	GrandTotalDHDHours int, 
+	GrandTotalDHDMins int
+)
+as  
+  
+  Begin 
+  
+Declare @TotalH int,  
+  @TotalMin int,  
+  @CTotalH int,  
+  @CTotalMin int,  
+  @DayH int,   
+  @DayM int,  
+  @NightH int,  
+  @NightM int  
+  
+select @DayH = sum(DayH), @DayM = sum(DayM), @NightH = sum(NightH), @NightM = sum(NightM)  
+From(  
+Select   
+case when IsHeavyCrew = 1 then ((sum(datepart(hh,s.FlyAtDay )))*2)/3  
+else sum(datepart(hh,s.FlyAtDay ))  end DayH,  
+  
+case when IsHeavyCrew = 1 then ((sum(datepart(MI,s.FlyAtDay )))*2)/3  
+else sum(datepart(MI,s.FlyAtDay )) end DayM,  
+  
+case when IsHeavyCrew = 1 then ((sum(datepart(hh,s.FlyAtNight )))*2)/3  
+else sum(datepart(hh,s.FlyAtNight )) end NightH,   
+  
+case when IsHeavyCrew = 1 then ((sum(datepart(MI,s.FlyAtNight )))*2)/3  
+else sum(datepart(MI,s.FlyAtNight )) end NightM  
+  
+from Sector S   
+Inner Join AirPlane AP on S.AirCraft_AirPlaneID = AP.AirPlaneID  
+Inner Join AirPort A on S.From_AirportID = A.AirPortID  
+Inner Join AirPort A2 on S.To_AirportID = A2.AirPortID  
+Inner Join SectorCrew SP on S.SectorID = SP.SectorID  
+Inner Join Crew C on SP.CrewID = C.CrewID  
+Inner join Position PP on SP.PositionID = PP.PositionID  
+Where C.CrewID = @CrewID and   
+   S.SectorDate >= ISNULL(@StartDate, '01/01/1900') and   
+   S.SectorDate <= ISNULL(@EndDate, '01/01/2500') AND     
+   /*  Dead head */  
+   (SP.PositionID = 13 ) 
+group by IsHeavyCrew  
+) as A  
+  
+  
+/* grand totals ( TBF + all times till start date + totals within start date and end date ) */  
+Select @TotalH =  @DayH + @NightH  , @TotalMin = @DayM + @NightM  
+Select @TotalH =  @TotalH + (@TotalMin/ 60)  
+Select @TotalMin = @TotalMin - (@TotalMin/60)*60  
+  
+  insert @result
+Select @TotalH+(@TotalMin/60)  ,      
+    @TotalMin-((@TotalMin/60)*60) 
+    return 
+  End
   
   
 /*
-get all pilots hours - working / dhd / total/ night city (perdiem)
+get all pilots hours - working / dhd 
 */  
 
 If Exists (select Name 
 		   from sysobjects 
-		   where name = 'GetAllPilotsHours' and
+		   where name = 'GetAllPilotsHours_Summary' and
 		        xtype = 'P')
-Drop Procedure GetAllPilotsHours
+Drop Procedure GetAllPilotsHours_Summary
 Go
-Create Procedure GetAllPilotsHours   
+Create Procedure GetAllPilotsHours_Summary   
          @StartDate DateTime = null,  
          @EndDate DateTime = null  
 as 
 
 
-Create Table #AllPilotsHoursTable  
-( 
-    PilotShortName nvarchar(5),
-    Name nvarchar(150),
-    StaffNo nvarchar(10),
-    IsPilot bit,
-    Email nvarchar(200),
-    Mobile nvarchar(50),
-    TotalWorkingHours int,
-    TotalWorkingMins int,
-    TotalDHDHours int,
-    TotalDHDMins int,
-    GrandTotalHours int, 
-    GrandTotalMins int,
-    TotalNightCity int, 
-    NightCityDetails nvarchar(400)
-) 
+Select FirstName + ' ' + SecondName + ' ' + SureName Name,shortName,
+(select grandtotalhours from GetPilotReportWithinRangeAsTable(PilotID,@StartDate, @EndDate)) WorkHours,
+(select grandtotalmins from GetPilotReportWithinRangeAsTable(PilotID,@StartDate, @EndDate)) WorkMins,
+(select GrandTotalDHDHours from GetPilotDHDWithinRangeAsTable(PilotID,@StartDate, @EndDate)) DHDHours,
+(select GrandTotalDHDMins from GetPilotDHDWithinRangeAsTable(PilotID,@StartDate, @EndDate)) DHDMins
+ from Pilot
+ Go
+ 
+ 
+ /*
+get all pilots hours - working / dhd 
+*/  
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'GetAllCrewHours_Summary' and
+		        xtype = 'P')
+Drop Procedure GetAllCrewHours_Summary
+Go
+Create Procedure GetAllCrewHours_Summary   
+         @StartDate DateTime = null,  
+         @EndDate DateTime = null  
+as 
+
+
+Select Name,shortName,
+(select grandtotalhours from GetCrewHoursWithinRangeAsTable(CrewID,@StartDate, @EndDate)) WorkHours,
+(select grandtotalmins from GetCrewHoursWithinRangeAsTable(CrewID,@StartDate, @EndDate)) WorkMins,
+(select GrandTotalDHDHours from GetCrewDHDWithinRangeAsTable(CrewID,@StartDate, @EndDate)) DHDHours,
+(select GrandTotalDHDMins from GetCrewDHDWithinRangeAsTable(CrewID,@StartDate, @EndDate)) DHDMins
+ from Crew
+ Go
+
 
 
