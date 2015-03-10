@@ -89,5 +89,48 @@ namespace Flight_BLL
             return LoadFromSql("GetPilotsAndCrewToNotify", parameters);
 
         }
+        public virtual bool GetPilotsAndCrewInfoToNotify(
+              DateTime FromDate,
+              DateTime ToDate)
+        {
+            ListDictionary parameters = new ListDictionary();
+            
+            parameters.Add(new SqlParameter("@FromDate", SqlDbType.DateTime, 0), FromDate);
+            parameters.Add(new SqlParameter("@ToDate", SqlDbType.DateTime, 0), ToDate);
+
+            return LoadFromSql("GetPilotsAndCrewInfoToNotify", parameters);
+
+        }
+        
+
+        public virtual bool GetPilotSectors(int PilotID, DateTime FromDate, DateTime ToDate)
+        {
+            ListDictionary parameters = new ListDictionary();
+            parameters.Add(new SqlParameter("@PilotID", SqlDbType.Int, 0), PilotID);
+            parameters.Add(new SqlParameter("@FromDate", SqlDbType.DateTime, 0), FromDate);
+            parameters.Add(new SqlParameter("@ToDate", SqlDbType.DateTime, 0), ToDate);
+
+            return LoadFromSql("GetPilotSectors", parameters);
+
+        }
+
+        public virtual bool GetCrewSectors(int CrewID, DateTime FromDate, DateTime ToDate)
+        {
+            ListDictionary parameters = new ListDictionary();
+            parameters.Add(new SqlParameter("@CrewID", SqlDbType.Int, 0), CrewID);
+            parameters.Add(new SqlParameter("@FromDate", SqlDbType.DateTime, 0), FromDate);
+            parameters.Add(new SqlParameter("@ToDate", SqlDbType.DateTime, 0), ToDate);
+
+            return LoadFromSql("GetCrewSectors", parameters);
+
+        }
+
+        public virtual bool GetNextSector(int SectorID)
+        {
+            ListDictionary parameters = new ListDictionary();
+            parameters.Add(new SqlParameter("@SectorID", SqlDbType.Int, 0), SectorID);
+            return LoadFromSql("GetNextSector", parameters);
+
+        }
 	}
 }

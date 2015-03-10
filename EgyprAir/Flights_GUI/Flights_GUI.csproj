@@ -84,6 +84,9 @@
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
+    <Content Include="Admin\circularsManagment.aspx" />
+    <Content Include="Admin\ManualManagment.aspx" />
+    <Content Include="Admin\UserManagement.aspx" />
     <Content Include="assets\bootstrap-colorpicker\css\colorpicker.css" />
     <Content Include="assets\bootstrap-colorpicker\img\alpha.png" />
     <Content Include="assets\bootstrap-colorpicker\img\hue.png" />
@@ -740,6 +743,7 @@
     <Content Include="CabinCrew\Activities.aspx" />
     <Content Include="CabinCrew\ActivityLog.aspx" />
     <Content Include="CabinCrew\CrewSchedule.aspx" />
+    <Content Include="CabinCrew\CrewTrx.aspx" />
     <Content Include="CabinCrew\Default.aspx" />
     <Content Include="CabinCrew\ExportSchedule.aspx" />
     <Content Include="CabinCrew\ManageCrewProfile.aspx" />
@@ -749,12 +753,14 @@
     <Content Include="Common\Controls\SectorInfo.ascx" />
     <Content Include="Common\SectorClients.aspx" />
     <Content Include="Common\Tickets.aspx" />
+    <Content Include="css\editor.css" />
     <Content Include="css\style.css" />
     <Content Include="css\style_default.css" />
     <Content Include="css\style_gray.css" />
     <Content Include="css\style_navy-blue.css" />
     <Content Include="css\style_purple.css" />
     <Content Include="css\style_responsive.css" />
+    <Content Include="FileUploads\Manuals\stub.txt" />
     <Content Include="images\FE.jpg" />
     <Content Include="images\Accounting.png" />
     <Content Include="images\Courses.png" />
@@ -824,6 +830,8 @@
     <Content Include="img\top-bg.jpg" />
     <Content Include="img\trns-bg.png" />
     <Content Include="img\vector-lab.jpg" />
+    <Content Include="Intranet\Circulars.aspx" />
+    <Content Include="Intranet\Manuals.aspx" />
     <Content Include="js\demo.gmaps.js" />
     <Content Include="js\excanvas.js" />
     <Content Include="js\gmaps.js" />
@@ -1172,6 +1180,27 @@
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\circularsManagment.aspx.cs">
+      <DependentUpon>circularsManagment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\circularsManagment.aspx.designer.cs">
+      <DependentUpon>circularsManagment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ManualManagment.aspx.cs">
+      <DependentUpon>ManualManagment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ManualManagment.aspx.designer.cs">
+      <DependentUpon>ManualManagment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UserManagement.aspx.cs">
+      <DependentUpon>UserManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UserManagement.aspx.designer.cs">
+      <DependentUpon>UserManagement.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AvailableAircrafts.aspx.cs">
       <DependentUpon>AvailableAircrafts.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1199,6 +1228,13 @@
     </Compile>
     <Compile Include="CabinCrew\CrewSchedule.aspx.designer.cs">
       <DependentUpon>CrewSchedule.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CabinCrew\CrewTrx.aspx.cs">
+      <DependentUpon>CrewTrx.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CabinCrew\CrewTrx.aspx.designer.cs">
+      <DependentUpon>CrewTrx.aspx</DependentUpon>
     </Compile>
     <Compile Include="CabinCrew\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -1264,6 +1300,20 @@
     <Compile Include="Common\Tickets.aspx.designer.cs">
       <DependentUpon>Tickets.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Intranet\Circulars.aspx.cs">
+      <DependentUpon>Circulars.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Intranet\Circulars.aspx.designer.cs">
+      <DependentUpon>Circulars.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Intranet\Manuals.aspx.cs">
+      <DependentUpon>Manuals.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Intranet\Manuals.aspx.designer.cs">
+      <DependentUpon>Manuals.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MasterPages\CabinCrew.Master.cs">
       <DependentUpon>CabinCrew.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1306,12 +1356,26 @@
     <Compile Include="MasterPages\E_Start.Master.designer.cs">
       <DependentUpon>E_Start.Master</DependentUpon>
     </Compile>
+    <Compile Include="MasterPages\E_SuperAdmin.Master.cs">
+      <DependentUpon>E_SuperAdmin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\E_SuperAdmin.Master.designer.cs">
+      <DependentUpon>E_SuperAdmin.Master</DependentUpon>
+    </Compile>
     <Compile Include="MasterPages\E_Training.Master.cs">
       <DependentUpon>E_Training.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="MasterPages\E_Training.Master.designer.cs">
       <DependentUpon>E_Training.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\IFlights.Master.cs">
+      <DependentUpon>IFlights.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\IFlights.Master.designer.cs">
+      <DependentUpon>IFlights.Master</DependentUpon>
     </Compile>
     <Compile Include="MasterPages\Start.Master.cs">
       <DependentUpon>Start.Master</DependentUpon>
@@ -1604,9 +1668,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Admin\" />
     <Folder Include="App_Data\" />
-    <Folder Include="FileUploads\Clients\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />
@@ -1885,18 +1947,24 @@
     <None Include="img\.DS_Store" />
     <None Include="img\blog\.DS_Store" />
     <None Include="img\gallery\.DS_Store" />
+    <Content Include="Intranet.sitemap" />
     <None Include="js\.DS_Store" />
     <Content Include="MasterPages\E_Start.Master" />
     <Content Include="MasterPages\E_Admin.Master" />
     <Content Include="MasterPages\E_CabinCrew.Master" />
     <Content Include="MasterPages\E_Common.Master" />
     <Content Include="MasterPages\E_Training.Master" />
+    <Content Include="MasterPages\E_SuperAdmin.Master" />
+    <Content Include="MasterPages\IFlights.Master" />
     <None Include="Properties\PublishProfiles\FTP_Midwest.pubxml" />
     <None Include="Properties\PublishProfiles\Profile1.pubxml" />
     <None Include="Styles\ui-lightness\images\Thumbs.db" />
     <None Include="images\logo.psd" />
     <None Include="images\Thumbs.db" />
     <Content Include="Test\GOL\GMaster.Master" />
+    <Content Include="Web.sitemap">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Flight_BLL\Flight_BLL.csproj">
@@ -1922,7 +1990,7 @@
     <Content Include="Reports\PerDiem.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Reports\PilotReport.rdlc">
+    <Content Include="Reports\AllPilotsSummary.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Reports\PlaneReport.rdlc">
@@ -1977,6 +2045,31 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Operation\App_LocalResources\FlightBatchs.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\PilotNightCity.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\CrewNightCity.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\PilotReport.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\AllCrewSummary.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\PilotNightCitySummary.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -121,17 +121,11 @@
     <value>flyegypt1@gmail.com</value>
   </data>
   <data name="MailBody" xml:space="preserve">
-    <value>&lt;table cellpadding="0" cellspacing="0"&gt;
-    &lt;tr&gt;
-        &lt;td&gt;
+    <value>
             &lt;p&gt;
                 Dear {0},&lt;br /&gt;
                 Kindly be informed that you have been assigned to new flight(s) with this info:&lt;br /&gt;
-             {1}
-            &lt;/p&gt;
-        &lt;/td&gt;
-    &lt;/tr&gt;
-&lt;/table&gt;</value>
+            &lt;/p&gt;</value>
   </data>
   <data name="pass" xml:space="preserve">
     <value>mena@ivalley</value>
@@ -141,5 +135,127 @@
   </data>
   <data name="subject" xml:space="preserve">
     <value>FlyEgypt - flight schedule has been updated</value>
+  </data>
+  <data name="FlightTemplate" xml:space="preserve">
+    <value>&lt;tr&gt;
+        &lt;td&gt; 
+            {0}           
+        &lt;/td&gt;
+        &lt;td&gt;    
+            {1}       
+        &lt;/td&gt;
+        &lt;td&gt;   
+            {2}         
+        &lt;/td&gt;
+        &lt;td&gt;  
+            {3}
+        &lt;/td&gt;
+        &lt;td&gt;  {4}
+        &lt;/td&gt;
+        &lt;td&gt;
+            {5}
+        &lt;/td&gt;
+        &lt;td&gt;
+            {6}
+        &lt;/td&gt;
+        &lt;td&gt;
+            {7}
+        &lt;/td&gt;
+    &lt;/tr&gt;</value>
+  </data>
+  <data name="FooterFlights" xml:space="preserve">
+    <value>&lt;/table&gt;
+    &lt;br /&gt;&lt;hr /&gt;</value>
+  </data>
+  <data name="FooterStatus" xml:space="preserve">
+    <value>&lt;/table&gt;</value>
+  </data>
+  <data name="HeaderFlights" xml:space="preserve">
+    <value>&lt;table cellpadding="0" cellspacing="0" style="width:100%;border:1px solid black;border-collapse:collapse;text-align:center;" border="1" &gt;
+    &lt;tr&gt;
+        &lt;td&gt; 
+            Date           
+        &lt;/td&gt;
+        &lt;td&gt;
+            Flight No.
+        &lt;/td&gt;
+        &lt;td&gt;    
+            STD        
+        &lt;/td&gt;
+        &lt;td&gt;   
+            STA         
+        &lt;/td&gt;
+        &lt;td&gt;  
+            From          
+        &lt;/td&gt;
+        &lt;td&gt;    TO        
+        &lt;/td&gt;
+        &lt;td&gt;
+            Pilots
+        &lt;/td&gt;
+        &lt;td&gt;
+            Crew
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    </value>
+  </data>
+  <data name="HeaderStatus" xml:space="preserve">
+    <value>&lt;table cellpadding="0" cellspacing="0" style="width:100%;border:1px solid black;border-collapse:collapse;text-align:center;" border="1" &gt;
+    &lt;tr&gt;
+        &lt;td&gt; 
+            Date           
+        &lt;/td&gt;
+        &lt;td&gt;
+           Day
+        &lt;/td&gt;
+&lt;td&gt;
+           Status
+        &lt;/td&gt;
+        &lt;td&gt;
+           Flight No.
+        &lt;/td&gt;
+        
+        &lt;td&gt;  
+            Route          
+        &lt;/td&gt;
+        &lt;td&gt;    
+            STD        
+        &lt;/td&gt;
+        &lt;td&gt;   
+            STA         
+        &lt;/td&gt;
+        &lt;td&gt;
+           Night City
+        &lt;/td&gt;        
+    &lt;/tr&gt;</value>
+  </data>
+  <data name="StatusTemplate" xml:space="preserve">
+    <value>&lt;tr&gt;
+        &lt;td&gt; 
+            {0}           
+        &lt;/td&gt;
+        &lt;td&gt;
+           {1}
+        &lt;/td&gt;
+        &lt;td&gt;
+           {2}
+        &lt;/td&gt;
+        
+        &lt;td&gt;  
+            {3}          
+        &lt;/td&gt;
+        &lt;td&gt;    
+            {4}        
+        &lt;/td&gt;
+        &lt;td&gt;   
+            {5}         
+        &lt;/td&gt;
+        &lt;td&gt;
+           {6}
+        &lt;/td&gt;        
+&lt;td&gt;
+           {7}
+        &lt;/td&gt; 
+    &lt;/tr&gt;</value>
   </data>
 </root>

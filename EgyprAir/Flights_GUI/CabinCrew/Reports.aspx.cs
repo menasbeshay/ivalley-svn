@@ -52,6 +52,9 @@ namespace Flights_GUI.CabinCrew
                 case "0":
                     rds.Name = "CabinCrewHoursDataSet";
                     break;
+                case "5":
+                    rds.Name = "CabinCrewHoursDataSet";
+                    break;
                 case "1":
                     rds.Name = "CabinCrewPerDiemDataSet";
                     break;
@@ -60,7 +63,13 @@ namespace Flights_GUI.CabinCrew
                     break;
                 case "3":
                     rds.Name = "CabinCrewScheduleDataSet";
-                    break;               
+                    break;
+                case "6":
+                    rds.Name = "CrewNightCityDataSet";
+                    break;
+                case "7":
+                    rds.Name = "CrewSummaryDataSet";
+                    break; 
                 default:
                     break;
             }
@@ -69,11 +78,13 @@ namespace Flights_GUI.CabinCrew
             GetCrewDHDHoursTableAdapter CrewDHD = new GetCrewDHDHoursTableAdapter();
             GetAllCrewHoursTableAdapter ACTA = new GetAllCrewHoursTableAdapter();
             GetCrewScheduleTableAdapter CSTA = new GetCrewScheduleTableAdapter();
+            GetAllCrewHours_SummaryTableAdapter crewSummary = new GetAllCrewHours_SummaryTableAdapter();
 
             CTA.ClearBeforeFill = true;
             ACTA.ClearBeforeFill = true;
             CSTA.ClearBeforeFill = true;
             CrewDHD.ClearBeforeFill = true;
+            crewSummary.ClearBeforeFill = true;
 
             try
             {
@@ -100,7 +111,7 @@ namespace Flights_GUI.CabinCrew
                         ReportViewer1.LocalReport.ReportPath = "Reports\\CabinCrewHours.rdlc";
                         break;
                     case "5":
-                        rds.Value = CTA.GetData(Convert.ToInt32(uiDropDownListCrew.SelectedValue), From, To);
+                        rds.Value = CrewDHD.GetData(Convert.ToInt32(uiDropDownListCrew.SelectedValue), From, To);
                         ReportViewer1.LocalReport.ReportPath = "Reports\\CabinCrewHours.rdlc";
                         break;
                     case "2":
@@ -114,6 +125,24 @@ namespace Flights_GUI.CabinCrew
                     case "3":
                         rds.Value = CSTA.GetData(Convert.ToInt32(uiDropDownListCrew.SelectedValue), From, To);
                         ReportViewer1.LocalReport.ReportPath = "Reports\\CabinCrewSchedule.rdlc";
+                        break;
+                    case "6":
+                        rds.Value = Common.CalculationUtils.GetCrewNightCity(Convert.ToInt32(uiDropDownListCrew.SelectedValue), From, To);
+                        ReportViewer1.LocalReport.ReportPath = "Reports\\CrewNightCity.rdlc";
+                        ReportParameter[] rep_params2 = new ReportParameter[2];
+                        rep_params2[0] = new Microsoft.Reporting.WebForms.ReportParameter("From", string.Format("{0:MM/dd/yyyy}", uiRadDatePickerFrom.SelectedDate));
+                        rep_params2[1] = new Microsoft.Reporting.WebForms.ReportParameter("To", string.Format("{0:MM/dd/yyyy}", uiRadDatePickerTo.SelectedDate));
+                        ReportViewer1.LocalReport.SetParameters(rep_params2);
+                        
+
+                        break;
+                    case "7":
+                        rds.Value = crewSummary.GetData(From, To);
+                        ReportViewer1.LocalReport.ReportPath = "Reports\\AllCrewSummary.rdlc";
+                        ReportParameter[] rep_params3 = new ReportParameter[2];
+                        rep_params3[0] = new Microsoft.Reporting.WebForms.ReportParameter("From", string.Format("{0:MM/dd/yyyy}", uiRadDatePickerFrom.SelectedDate));
+                        rep_params3[1] = new Microsoft.Reporting.WebForms.ReportParameter("To", string.Format("{0:MM/dd/yyyy}", uiRadDatePickerTo.SelectedDate));
+                        ReportViewer1.LocalReport.SetParameters(rep_params3);
                         break;
                 }
 

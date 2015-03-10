@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/E_Admin.Master" AutoEventWireup="true" CodeBehind="SectorPilots.aspx.cs" Inherits="Flights_GUI.Operation.SectorPilots" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/IFlights.Master" AutoEventWireup="true" CodeBehind="SectorPilots.aspx.cs" Inherits="Flights_GUI.Operation.SectorPilots" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <%@ Register Src="../Common/Controls/SectorInfo.ascx" TagName="SectorInfo" TagPrefix="uc1" %>
-<%@ MasterType VirtualPath="~/MasterPages/E_Admin.Master" %>
+<%@ MasterType VirtualPath="~/MasterPages/IFlights.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
            

@@ -227,6 +227,143 @@ namespace Flights_GUI.Common
                     return 30;
             }
         }
+
+
+        public static DataTable GetPilotNightCity(int PilotID, DateTime? StartDate, DateTime? EndDate)
+        {
+            DataTable ResultTable = new DataTable();
+            ResultTable.Columns.Add("PilotID", typeof(Int32));
+            ResultTable.Columns.Add("CityID", typeof(Int32));
+            ResultTable.Columns.Add("PilotName", typeof(string));
+            ResultTable.Columns.Add("CityName", typeof(string));
+            ResultTable.Columns.Add("Date", typeof(DateTime));
+            ResultTable.PrimaryKey = new DataColumn[] { ResultTable.Columns[0], ResultTable.Columns[1], ResultTable.Columns[4] };
+            Pilot pilot = new Pilot();
+            pilot.LoadByPrimaryKey(PilotID);
+            
+            Sector Sectors = new Sector();
+
+            // get all sectors for pilot in range
+            Sectors.GetPilotSectors(PilotID, StartDate.Value, EndDate.Value);
+
+            if (Sectors.RowCount > 0)
+            {
+                // current flight
+                //int currentFlightID = Sectors.FlightID;
+
+                for (int i = 0; i < Sectors.RowCount; i++)
+                {
+                    //if (Sectors.FlightID != currentFlightID)
+                    //{
+                    //    currentFlightID = Sectors.FlightID;
+                    //}
+
+                    // has night city 
+                    if (!Sectors.IsColumnNull(Sector.ColumnNames.PilotCityID))
+                    {
+                        Sector nextsector = new Sector();
+                        // get next sector in same flight
+                        nextsector.GetNextSector(Sectors.SectorID);
+                        DateTime CurrentDate = Sectors.SectorDate;
+                        if (nextsector.RowCount > 0)
+                        {
+                            for (int j = 0; j < nextsector.SectorDate.Subtract(Sectors.SectorDate).Days; j++)
+                            {
+                                DataRow row = ResultTable.NewRow();
+                                row["PilotID"] = PilotID;
+                                row["PilotName"] = pilot.ShortName + " - " + pilot.FirstName + " " + pilot.SecondName;
+                                row["CityID"] = Sectors.PilotCityID;
+                                row["CityName"] = Sectors.GetColumn("IATACode").ToString();
+                                row["Date"] = CurrentDate;
+                                try
+                                {
+                                    ResultTable.Rows.Add(row);
+                                }
+                                catch (Exception ex)
+                                {
+                                    CurrentDate.AddDays(1);
+                                    continue;
+                                    
+                                }
+                                CurrentDate = CurrentDate.AddDays(1);
+
+                            }
+                        }
+                    }
+                    Sectors.MoveNext();
+
+                }
+            }
+            return ResultTable;
+        }
+
+
+        public static DataTable GetCrewNightCity(int CrewID, DateTime? StartDate, DateTime? EndDate)
+        {
+            DataTable ResultTable = new DataTable();
+            ResultTable.Columns.Add("CrewID", typeof(Int32));
+            ResultTable.Columns.Add("CityID", typeof(Int32));
+            ResultTable.Columns.Add("CrewName", typeof(string));
+            ResultTable.Columns.Add("CityName", typeof(string));
+            ResultTable.Columns.Add("Date", typeof(DateTime));
+            ResultTable.PrimaryKey = new DataColumn[] { ResultTable.Columns[0], ResultTable.Columns[1], ResultTable.Columns[4] };
+            Crew crew = new Crew();
+            crew.LoadByPrimaryKey(CrewID);
+
+            Sector Sectors = new Sector();
+
+            // get all sectors for pilot in range
+            Sectors.GetCrewSectors(CrewID, StartDate.Value, EndDate.Value);
+
+            if (Sectors.RowCount > 0)
+            {
+                // current flight
+                int currentFlightID = Sectors.FlightID;
+
+                for (int i = 0; i < Sectors.RowCount; i++)
+                {
+                    if (Sectors.FlightID != currentFlightID)
+                    {
+                        currentFlightID = Sectors.FlightID;
+                    }
+
+                    // has night city 
+                    if (!Sectors.IsColumnNull(Sector.ColumnNames.PilotCityID))
+                    {
+                        Sector nextsector = new Sector();
+                        nextsector.GetNextSector(Sectors.SectorID);
+                        DateTime CurrentDate = Sectors.SectorDate;
+                        if (nextsector.RowCount > 0)
+                        {
+                            for (int j = 0; j < nextsector.SectorDate.Subtract(Sectors.SectorDate).Days; j++)
+                            {
+                                DataRow row = ResultTable.NewRow();
+                                row["CrewID"] = CrewID;
+                                row["CrewName"] = crew.ShortName + " - " + crew.Name;
+                                row["CityID"] = Sectors.PilotCityID;
+                                row["CityName"] = Sectors.GetColumn("IATACode").ToString();
+                                row["Date"] = CurrentDate;
+                                try
+                                {
+                                    ResultTable.Rows.Add(row);
+                                }
+                                catch (Exception ex)
+                                {
+                                    CurrentDate.AddDays(1);
+                                    continue;
+
+                                }
+                                CurrentDate = CurrentDate.AddDays(1);
+
+                            }
+                        }
+                    }
+                    Sectors.MoveNext();
+
+                }
+            }
+            return ResultTable;
+        }
         
     }
 }

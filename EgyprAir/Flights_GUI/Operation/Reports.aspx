@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/E_Admin.Master" AutoEventWireup="true" CodeBehind="Reports.aspx.cs" Inherits="Flights_GUI.Operation.Reports" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/IFlights.Master" AutoEventWireup="true" CodeBehind="Reports.aspx.cs" Inherits="Flights_GUI.Operation.Reports" %>
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
-<%@ MasterType VirtualPath="~/MasterPages/E_Admin.Master" %>
+<%@ MasterType VirtualPath="~/MasterPages/IFlights.Master" %>
 <%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
     Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
@@ -15,7 +15,7 @@
         $('#<%= uiRadioButtonListReports.ClientID %>').change(function () {
             var selectedvalue = $(this).val();
 
-            if (selectedvalue == 0 || selectedvalue == 4 || selectedvalue == 5 || selectedvalue == 8) {
+            if (selectedvalue == 0 || selectedvalue == 4 || selectedvalue == 5 || selectedvalue == 8 || selectedvalue == 9) {
                 $('#pilotdiv').css('display', 'block');
 
                 if (selectedvalue == 4 || selectedvalue == 5)
@@ -49,8 +49,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="ContentLeftDiv">
-                <h4>
-                    Flight Reports</h4>
+                
                 <div class="Details900">
                     <div class="span12 clearfix">
                 <div class="span2" >
@@ -61,6 +60,9 @@
                                     <asp:ListItem Value="-1">Select report ... </asp:ListItem>             
                                     <asp:ListItem Value="0">Pilot Hours</asp:ListItem>      
                                     <asp:ListItem Value="8">Pilot DHD Hours</asp:ListItem>                                                                                             
+                                    <asp:ListItem Value="9">Pilot Night city</asp:ListItem>
+                                    <%--<asp:ListItem Value="11">Pilot Night city - Summary</asp:ListItem>--%>
+                                    <asp:ListItem Value="10">Pilots hours summary</asp:ListItem>
                                     <%--<asp:ListItem Value="4">Per diem</asp:ListItem>--%>
                                    <%-- <asp:ListItem Value="5">Actual Per diem</asp:ListItem>--%>
                                     <asp:ListItem Value="1">PAX & Fuel</asp:ListItem>
@@ -240,6 +242,36 @@
                                     Font-Names="Verdana" Font-Size="8pt" InteractiveDeviceInfos="(Collection)" 
                                     WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" ShowParameterPrompts="true">
                                     <LocalReport ReportPath="Reports\SectorActualBurnOff.rdlc">                                    
+                                    
+                                    </LocalReport>
+                                    
+                                    
+                                </rsweb:ReportViewer>
+
+                                 <rsweb:ReportViewer ID="ReportViewer8" runat="server" Width="100%" 
+                                    Font-Names="Verdana" Font-Size="8pt" InteractiveDeviceInfos="(Collection)" 
+                                    WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" ShowParameterPrompts="true">
+                                    <LocalReport ReportPath="Reports\PilotNightCity.rdlc">                                    
+                                    
+                                    </LocalReport>
+                                    
+                                    
+                                </rsweb:ReportViewer>
+
+                                <rsweb:ReportViewer ID="ReportViewer10" runat="server" Width="100%" 
+                                    Font-Names="Verdana" Font-Size="8pt" InteractiveDeviceInfos="(Collection)" 
+                                    WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" ShowParameterPrompts="true">
+                                    <LocalReport ReportPath="Reports\PilotNightCitySummary.rdlc">                                    
+                                    
+                                    </LocalReport>
+                                    
+                                    
+                                </rsweb:ReportViewer>
+
+                                <rsweb:ReportViewer ID="ReportViewer9" runat="server" Width="100%" 
+                                    Font-Names="Verdana" Font-Size="8pt" InteractiveDeviceInfos="(Collection)" 
+                                    WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" ShowParameterPrompts="true">
+                                    <LocalReport ReportPath="Reports\AllPilotsSummary.rdlc">                                    
                                     
                                     </LocalReport>
                                     

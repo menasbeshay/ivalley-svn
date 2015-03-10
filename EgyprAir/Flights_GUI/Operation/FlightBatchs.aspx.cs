@@ -24,8 +24,10 @@ namespace Flights_GUI.Operation
         {
             uiPanelSuccess.Visible = false;
             SearchFlights();
+            DisplayNameGuide();
         }
 
+        
         protected void uiButtonSend_Click(object sender, EventArgs e)
         {
             uiPanelSuccess.Visible = false;
@@ -60,6 +62,8 @@ namespace Flights_GUI.Operation
             SectorsObj.SearchBatchSectors("",(uiRadDatePickerFrom.SelectedDate != null) ? uiRadDatePickerFrom.SelectedDate.Value : DateTime.ParseExact("01/" + DateTime.Now.Month.ToString("00") + "/" + DateTime.Now.Year.ToString(), "dd/MM/yyyy", null)
                 , (uiRadDatePickerTo.SelectedDate != null) ? uiRadDatePickerTo.SelectedDate.Value : DateTime.ParseExact(((DateTime.Now.Month != 2) ? "30" : "28") + "/" + DateTime.Now.Month.ToString("00") + "/" + DateTime.Now.Year.ToString(), "dd/MM/yyyy", null));
 
+            DisplayNameGuide();
+
             try
             {
 
@@ -76,12 +80,14 @@ namespace Flights_GUI.Operation
                 msg.Subject = GetLocalResourceObject("subject").ToString();
                 msg.IsBodyHtml = true;
                 msg.BodyEncoding = System.Text.Encoding.UTF8;
-
+                msg.Body += GetLocalResourceObject("HeaderFlights").ToString();
                 for (int i = 0; i < SectorsObj.RowCount; i++)
                 {
                     msg.Body += string.Format(GetLocalResourceObject("FlightTemplate").ToString(), SectorsObj.SectorDate.ToString("dd/MM/yyyy"), SectorsObj.FlightNo, SectorsObj.STD.ToString("HH:mm"), SectorsObj.STA.ToString("HH:mm"), SectorsObj.GetColumn("FromA").ToString(), SectorsObj.GetColumn("TOA"), Server.HtmlDecode(SectorsObj.GetColumn("Pilots").ToString()), Server.HtmlDecode(SectorsObj.GetColumn("Crew").ToString()));
                     SectorsObj.MoveNext();
                 }
+                msg.Body += GetLocalResourceObject("FooterFlights").ToString();
+                msg.Body += uiLiteralNames.Text + "<p>&nbsp;</p>";
 
                 msg.Body += uiTextBoxBody.Text;
                 SmtpClient client = new SmtpClient(GetLocalResourceObject("server").ToString(), 587);
@@ -172,5 +178,32 @@ namespace Flights_GUI.Operation
         {            
             SearchFlights();
         }
+
+
+        private void DisplayNameGuide()
+        {
+            Pilot pilots = new Pilot();
+            pilots.LoadAll();
+
+            Crew crew = new Crew();
+            crew.LoadAll();
+
+            uiLiteralNames.Text = "<table cellpadding='0' cellspacing='0' width='100%' border='0'><tr><td> <h5>Pilots</h5><ul>";
+            for (int i = 0; i < pilots.RowCount; i++)
+            {
+                uiLiteralNames.Text += "<li>" + pilots.ShortName + " - " + pilots.FirstName + " " + pilots.SecondName + " " + pilots.SureName  +"</li>";
+                pilots.MoveNext();
+            }
+            uiLiteralNames.Text += "</ul></td>";
+
+            uiLiteralNames.Text += "<td><h5>Crew</h5><ul>";
+            for (int i = 0; i < crew.RowCount; i++)
+            {
+                uiLiteralNames.Text += "<li>" + crew.ShortName + " - " + crew.Name + "</li>";
+                crew.MoveNext();
+            }
+            uiLiteralNames.Text += "</ul></td></tr></table>";
+        }
+
     }
 }

@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/E_Admin.Master" AutoEventWireup="true" CodeBehind="FlightBatchs.aspx.cs" Inherits="Flights_GUI.Operation.FlightBatchs" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/IFlights.Master" AutoEventWireup="true" CodeBehind="FlightBatchs.aspx.cs" Inherits="Flights_GUI.Operation.FlightBatchs" %>
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
-<%@ MasterType VirtualPath="~/MasterPages/E_Admin.Master" %>
+<%@ MasterType VirtualPath="~/MasterPages/IFlights.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -106,6 +106,10 @@
                         <ItemStyle HorizontalAlign="Center" />
                     </telerik:radgrid>
                 </div>
+        <div class="span12 clearfix"  style="height:10px"></div>
+        <div class="span12 clearfix" >
+            <asp:Literal Text="" runat="server" ID="uiLiteralNames" />
+            </div>
     </div>
         
 

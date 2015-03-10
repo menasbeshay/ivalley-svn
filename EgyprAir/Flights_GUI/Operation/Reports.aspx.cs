@@ -8,6 +8,7 @@ using Flight_BLL;
 using System.Web.Security;
 using Flights_GUI.FlightReportDataSetTableAdapters;
 using Microsoft.Reporting.WebForms;
+using System.Data;
 
 namespace Flights_GUI.Operation
 {
@@ -91,6 +92,7 @@ namespace Flights_GUI.Operation
             GetPilotReportTableAdapter ta = new GetPilotReportTableAdapter();
             GetPilotReportWithinRangeTableAdapter pilotHoursWithinRange = new GetPilotReportWithinRangeTableAdapter();
             GetPilotDHDWithinRangeTableAdapter pilotDHDHoursWithinRange = new GetPilotDHDWithinRangeTableAdapter();
+            GetAllPilotsHours_SummaryTableAdapter pilotSummary = new GetAllPilotsHours_SummaryTableAdapter();
 
             GetPAXReportTableAdapter taP = new GetPAXReportTableAdapter();
             GetFlyHoursReportTableAdapter taF = new GetFlyHoursReportTableAdapter();
@@ -104,6 +106,7 @@ namespace Flights_GUI.Operation
             ta.ClearBeforeFill = true;
             pilotHoursWithinRange.ClearBeforeFill = true;
             pilotDHDHoursWithinRange.ClearBeforeFill = true;
+            pilotSummary.ClearBeforeFill = true;
 
             taP.ClearBeforeFill = true;
             taF.ClearBeforeFill = true;
@@ -144,7 +147,10 @@ namespace Flights_GUI.Operation
                         ReportViewer4.Visible = false;
                         ReportViewer5.Visible = false;
                         ReportViewer6.Visible = false;
-                        ReportViewer7.Visible = false;                        
+                        ReportViewer7.Visible = false;  
+                        ReportViewer8.Visible = false;
+                        ReportViewer9.Visible = false;
+                        ReportViewer10.Visible = false;
                         break;
                     case "8":
                         rds.Name = "PilotDataSet";
@@ -165,6 +171,9 @@ namespace Flights_GUI.Operation
                         ReportViewer5.Visible = false;
                         ReportViewer6.Visible = false;
                         ReportViewer7.Visible = false;
+                        ReportViewer8.Visible = false;
+                        ReportViewer9.Visible = false;
+                        ReportViewer10.Visible = false;
                         break;
                     case "1":
                         rds.Name = "PAXDataSet";
@@ -184,6 +193,9 @@ namespace Flights_GUI.Operation
                         ReportViewer5.Visible = false;
                         ReportViewer6.Visible = false;
                         ReportViewer7.Visible = false;
+                        ReportViewer8.Visible = false;
+                        ReportViewer9.Visible = false;
+                        ReportViewer10.Visible = false;
                         break;
                     case "2":
                         rds.Name = "FlyHoursDataSet";
@@ -201,6 +213,9 @@ namespace Flights_GUI.Operation
                         ReportViewer5.Visible = false;
                         ReportViewer6.Visible = false;
                         ReportViewer7.Visible = false;
+                        ReportViewer8.Visible = false;
+                        ReportViewer9.Visible = false;
+                        ReportViewer10.Visible = false;
                         break;
                     case "3":
                         rds.Name = "ScheduleDataSet";
@@ -225,6 +240,9 @@ namespace Flights_GUI.Operation
                         ReportViewer5.Visible = true;
                         ReportViewer6.Visible = false;
                         ReportViewer7.Visible = false;
+                        ReportViewer8.Visible = false;
+                        ReportViewer9.Visible = false;
+                        ReportViewer10.Visible = false;
                         break;
                     case "4":
                         rds.Name = "PerDiemDataSet";
@@ -244,6 +262,9 @@ namespace Flights_GUI.Operation
                         ReportViewer5.Visible = false;
                         ReportViewer6.Visible = false;
                         ReportViewer7.Visible = false;
+                        ReportViewer8.Visible = false;
+                        ReportViewer9.Visible = false;
+                        ReportViewer10.Visible = false;
                         break;
                     case "5":
                         rds.Name = "PerDiemDataSet";
@@ -263,6 +284,9 @@ namespace Flights_GUI.Operation
                         ReportViewer5.Visible = false;
                         ReportViewer6.Visible = false;
                         ReportViewer7.Visible = false;
+                        ReportViewer8.Visible = false;
+                        ReportViewer9.Visible = false;
+                        ReportViewer10.Visible = false;
                         break;
                     case "6":
                         rds.Name = "AirplaneActualBurnOffDataSet";
@@ -280,6 +304,9 @@ namespace Flights_GUI.Operation
                         ReportViewer5.Visible = false;
                         ReportViewer6.Visible = true;
                         ReportViewer7.Visible = false;
+                        ReportViewer8.Visible = false;
+                        ReportViewer9.Visible = false;
+                        ReportViewer10.Visible = false;
                         break;
                     case "7":
                         rds.Name = "SectorActualBurnOffDataSet";
@@ -299,8 +326,89 @@ namespace Flights_GUI.Operation
                         ReportViewer5.Visible = false;
                         ReportViewer6.Visible = false;
                         ReportViewer7.Visible = true;
+                        ReportViewer8.Visible = false;
+                        ReportViewer9.Visible = false;
+                        ReportViewer10.Visible = false;
                         break;
+                    case "9":
+                        rds.Name = "PilotNightCityDataSet";
+                        rds.Value = Common.CalculationUtils.GetPilotNightCity(Convert.ToInt32(uiDropDownListPilots.SelectedValue), From, To);
+                        ReportParameter[] rep_params9 = new ReportParameter[2];
+                        rep_params9[0] = new Microsoft.Reporting.WebForms.ReportParameter("From", string.Format("{0:MM/dd/yyyy}", uiRadDatePickerFrom.SelectedDate));
+                        rep_params9[1] = new Microsoft.Reporting.WebForms.ReportParameter("To", string.Format("{0:MM/dd/yyyy}", uiRadDatePickerTo.SelectedDate));
+                        ReportViewer8.LocalReport.SetParameters(rep_params9);  
+                        ReportViewer8.LocalReport.DataSources.Add(rds);  
+                        ReportViewer8.LocalReport.Refresh();  
+                        ReportViewer1.Visible = false;
+                        ReportViewer2.Visible = false;
+                        ReportViewer3.Visible = false;
+                        ReportViewer4.Visible = false;
+                        ReportViewer5.Visible = false;
+                        ReportViewer6.Visible = false;
+                        ReportViewer7.Visible = false;
+                        ReportViewer8.Visible = true;                        
+                        ReportViewer9.Visible = false;
+                        ReportViewer10.Visible = false;
+                        break;
+                    case "11":
+                        rds.Name = "PilotNightCityDataSet";
+                        Pilot pilots = new Pilot();
+                        pilots.LoadAll();
+                        DataTable allPilotsData = new DataTable();
+                        allPilotsData.Columns.Add("PilotID", typeof(Int32));
+                        allPilotsData.Columns.Add("CityID", typeof(Int32));
+                        allPilotsData.Columns.Add("PilotName", typeof(string));
+                        allPilotsData.Columns.Add("CityName", typeof(string));
+                        allPilotsData.Columns.Add("Date", typeof(DateTime));
+                        allPilotsData.PrimaryKey = new DataColumn[] { allPilotsData.Columns[0], allPilotsData.Columns[1], allPilotsData.Columns[4] };
+                        for (int i = 0; i < pilots.RowCount; i++)
+                        {                       
+                            foreach (DataRow item in Common.CalculationUtils.GetPilotNightCity(pilots.PilotID, From, To).Rows)
+	                        {
+		                        allPilotsData.ImportRow(item);
+	                        }
+                            
+                            pilots.MoveNext();
+                        }
+                        rds.Value = allPilotsData;
+                        ReportParameter[] rep_params11 = new ReportParameter[2];
+                        rep_params11[0] = new Microsoft.Reporting.WebForms.ReportParameter("From", string.Format("{0:MM/dd/yyyy}", uiRadDatePickerFrom.SelectedDate));
+                        rep_params11[1] = new Microsoft.Reporting.WebForms.ReportParameter("To", string.Format("{0:MM/dd/yyyy}", uiRadDatePickerTo.SelectedDate));
+                        ReportViewer10.LocalReport.SetParameters(rep_params11);
+                        ReportViewer10.LocalReport.DataSources.Add(rds);
+                        ReportViewer10.LocalReport.Refresh();
+                        ReportViewer1.Visible = false;
+                        ReportViewer2.Visible = false;
+                        ReportViewer3.Visible = false;
+                        ReportViewer4.Visible = false;
+                        ReportViewer5.Visible = false;
+                        ReportViewer6.Visible = false;
+                        ReportViewer7.Visible = false;
+                        ReportViewer8.Visible = false;
+                        ReportViewer9.Visible = false;
+                        ReportViewer10.Visible = true;
 
+                        break;
+                    case "10":
+                        rds.Name = "PilotSummaryDataSet";
+                        rds.Value = pilotSummary.GetData(From, To);
+                        ReportParameter[] rep_params10 = new ReportParameter[2];
+                        rep_params10[0] = new Microsoft.Reporting.WebForms.ReportParameter("From", string.Format("{0:MM/dd/yyyy}", uiRadDatePickerFrom.SelectedDate));
+                        rep_params10[1] = new Microsoft.Reporting.WebForms.ReportParameter("To", string.Format("{0:MM/dd/yyyy}", uiRadDatePickerTo.SelectedDate));
+                        ReportViewer9.LocalReport.SetParameters(rep_params10);  
+                        ReportViewer9.LocalReport.DataSources.Add(rds);  
+                        ReportViewer9.LocalReport.Refresh();  
+                        ReportViewer1.Visible = false;
+                        ReportViewer2.Visible = false;
+                        ReportViewer3.Visible = false;
+                        ReportViewer4.Visible = false;
+                        ReportViewer5.Visible = false;
+                        ReportViewer6.Visible = false;
+                        ReportViewer7.Visible = false;
+                        ReportViewer8.Visible = false;                        
+                        ReportViewer9.Visible = true;
+                        ReportViewer10.Visible = false;
+                        break;
                     default:
                         break;
                 }

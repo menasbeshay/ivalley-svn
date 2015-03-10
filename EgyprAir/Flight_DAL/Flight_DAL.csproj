@@ -44,11 +44,13 @@
     <Compile Include="ActivitiesLog.cs" />
     <Compile Include="AirPlane.cs" />
     <Compile Include="AirPort.cs" />
+    <Compile Include="Announcement.cs" />
     <Compile Include="CompanyPosition.cs" />
     <Compile Include="Course.cs" />
     <Compile Include="CourseDetail.cs" />
     <Compile Include="Crew.cs" />
     <Compile Include="CrewNightCity.cs" />
+    <Compile Include="CrewTransaction.cs" />
     <Compile Include="Days.cs" />
     <Compile Include="Delay.cs" />
     <Compile Include="Flight.cs" />
@@ -63,6 +65,7 @@
     <Compile Include="IOSA_SubQuestion.cs" />
     <Compile Include="IOSA_Version.cs" />
     <Compile Include="LogType.cs" />
+    <Compile Include="Manual.cs" />
     <Compile Include="Pilot.cs" />
     <Compile Include="PilotAirCraft.cs" />
     <Compile Include="PilotCourse.cs" />

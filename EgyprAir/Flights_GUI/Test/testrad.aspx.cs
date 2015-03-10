@@ -14,7 +14,7 @@ namespace Flights_GUI.Test
         {
             if (!IsPostBack)
             {
-                BindReportData();
+                //BindReportData();
             }
         }
 

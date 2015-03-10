@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/E_CabinCrew.Master" AutoEventWireup="true" CodeBehind="ManageCrewProfile.aspx.cs" Inherits="Flights_GUI.CabinCrew.ManageCrewProfile" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/IFlights.Master" AutoEventWireup="true" CodeBehind="ManageCrewProfile.aspx.cs" Inherits="Flights_GUI.CabinCrew.ManageCrewProfile" %>
 <%@ Register assembly="Telerik.Web.UI" namespace="Telerik.Web.UI" tagprefix="telerik" %>
-<%@ MasterType VirtualPath="~/MasterPages/E_CabinCrew.Master"  %>
+<%@ MasterType VirtualPath="~/MasterPages/IFlights.Master"  %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>

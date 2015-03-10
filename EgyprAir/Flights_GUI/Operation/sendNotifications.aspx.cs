@@ -28,7 +28,34 @@ namespace Flights_GUI
 
         private void SearchFlights()
         {
-            Sector SectorsObj = new Sector();
+            Sector AllToNotify = new Sector();
+
+            Sector FlightsWithinRange = new Sector();
+
+            // build namse guide
+            Pilot pilots = new Pilot();
+            pilots.LoadAll();
+
+            Crew crew = new Crew();
+            crew.LoadAll();
+
+            string ALLPilotsCrewNames = "";
+
+            ALLPilotsCrewNames = "<table cellpadding='0' cellspacing='0' width='100%' border='0'><tr><td> <h5>Pilots</h5><ul>";
+            for (int i = 0; i < pilots.RowCount; i++)
+            {
+                ALLPilotsCrewNames += "<li>" + pilots.ShortName + " - " + pilots.FirstName + " " + pilots.SecondName + " " + pilots.SureName + "</li>";
+                pilots.MoveNext();
+            }
+            ALLPilotsCrewNames += "</ul></td>";
+
+            ALLPilotsCrewNames += "<td><h5>Crew</h5><ul>";
+            for (int i = 0; i < crew.RowCount; i++)
+            {
+                ALLPilotsCrewNames += "<li>" + crew.ShortName + " - " + crew.Name + "</li>";
+                crew.MoveNext();
+            }
+            ALLPilotsCrewNames += "</ul></td></tr></table>";
 
             if (Request.QueryString["F"] != null && uiRadDatePickerFrom.SelectedDate == null)
             {
@@ -51,9 +78,12 @@ namespace Flights_GUI
             }
 
 
-            SectorsObj.GetPilotsAndCrewToNotify( (uiRadDatePickerFrom.SelectedDate != null) ? uiRadDatePickerFrom.SelectedDate.Value : DateTime.ParseExact("01/" + DateTime.Now.Month.ToString("00") + "/" + DateTime.Now.Year.ToString(), "dd/MM/yyyy", null)
+            AllToNotify.GetPilotsAndCrewInfoToNotify( (uiRadDatePickerFrom.SelectedDate != null) ? uiRadDatePickerFrom.SelectedDate.Value : DateTime.ParseExact("01/" + DateTime.Now.Month.ToString("00") + "/" + DateTime.Now.Year.ToString(), "dd/MM/yyyy", null)
                 , (uiRadDatePickerTo.SelectedDate != null) ? uiRadDatePickerTo.SelectedDate.Value : DateTime.ParseExact(((DateTime.Now.Month != 2) ? "30" : "28") + "/" + DateTime.Now.Month.ToString("00") + "/" + DateTime.Now.Year.ToString(), "dd/MM/yyyy", null));
 
+
+            FlightsWithinRange.SearchBatchSectors("", (uiRadDatePickerFrom.SelectedDate != null) ? uiRadDatePickerFrom.SelectedDate.Value : DateTime.ParseExact("01/" + DateTime.Now.Month.ToString("00") + "/" + DateTime.Now.Year.ToString(), "dd/MM/yyyy", null)
+                , (uiRadDatePickerTo.SelectedDate != null) ? uiRadDatePickerTo.SelectedDate.Value : DateTime.ParseExact(((DateTime.Now.Month != 2) ? "30" : "28") + "/" + DateTime.Now.Month.ToString("00") + "/" + DateTime.Now.Year.ToString(), "dd/MM/yyyy", null));
 
             if (uiRadDatePickerFrom.SelectedDate == null)
             {
@@ -64,21 +94,81 @@ namespace Flights_GUI
                 uiRadDatePickerTo.SelectedDate = DateTime.ParseExact(((DateTime.Now.Month != 2) ? "30" : "28") + "/" + DateTime.Now.Month.ToString("00") + "/" + DateTime.Now.Year.ToString(), "dd/MM/yyyy", null);
             }
 
-            for (int i = 0; i < SectorsObj.RowCount; i++)
+            // build html table for flights within range
+            string AllFlightsWithinRangeHTML = "";
+            AllFlightsWithinRangeHTML += GetLocalResourceObject("HeaderFlights").ToString();
+            for (int i = 0; i < FlightsWithinRange.RowCount; i++)
+            {
+                AllFlightsWithinRangeHTML += string.Format(GetLocalResourceObject("FlightTemplate").ToString(), FlightsWithinRange.SectorDate.ToString("dd/MM/yyyy"), FlightsWithinRange.FlightNo, FlightsWithinRange.STD.ToString("HH:mm"), FlightsWithinRange.STA.ToString("HH:mm"), FlightsWithinRange.GetColumn("FromA").ToString(), FlightsWithinRange.GetColumn("TOA"), Server.HtmlDecode(FlightsWithinRange.GetColumn("Pilots").ToString()), Server.HtmlDecode(FlightsWithinRange.GetColumn("Crew").ToString()));
+                FlightsWithinRange.MoveNext();
+            }
+            AllFlightsWithinRangeHTML += GetLocalResourceObject("FooterFlights").ToString();
+
+            for (int i = 0; i < AllToNotify.RowCount; i++)
             {
                 try
                 {
-                    
                     MailMessage msg = new MailMessage();
                     string mail = GetLocalResourceObject("mail").ToString();
-                    string mailto = SectorsObj.GetColumn("Email").ToString();
+                    string mailto = AllToNotify.GetColumn("Email").ToString();
                     msg.To.Add(mailto);
                     msg.From = new MailAddress(mail);
                     msg.Subject = GetLocalResourceObject("subject").ToString();
                     msg.IsBodyHtml = true;
                     msg.BodyEncoding = System.Text.Encoding.UTF8;
 
-                    msg.Body = string.Format(GetLocalResourceObject("MailBody").ToString(), SectorsObj.GetColumn("DisplayName").ToString(), Server.HtmlDecode(SectorsObj.GetColumn("FlightInfo").ToString()));
+                    msg.Body = string.Format(GetLocalResourceObject("MailBody").ToString(), AllToNotify.GetColumn("DisplayName").ToString());
+
+
+                    if (AllToNotify.GetColumn("Pilot").ToString() == "1") // pilot
+                    {                        
+                        Pilot pt = new Pilot();
+                        pt.GetPilotTransactions( Convert.ToInt32(AllToNotify.GetColumn("PilotID").ToString()),
+                                                (uiRadDatePickerFrom.SelectedDate != null) ? uiRadDatePickerFrom.SelectedDate.Value : DateTime.ParseExact("01/" + DateTime.Now.Month.ToString("00") + "/" + DateTime.Now.Year.ToString(), "dd/MM/yyyy", null)
+                                              , (uiRadDatePickerTo.SelectedDate != null) ? uiRadDatePickerTo.SelectedDate.Value : DateTime.ParseExact(((DateTime.Now.Month != 2) ? "30" : "28") + "/" + DateTime.Now.Month.ToString("00") + "/" + DateTime.Now.Year.ToString(), "dd/MM/yyyy", null));
+
+                        msg.Body += GetLocalResourceObject("HeaderStatus").ToString();
+                        for (int j = 0; j < pt.RowCount; j++)
+                        {
+                            msg.Body += string.Format(GetLocalResourceObject("StatusTemplate").ToString(), Convert.ToDateTime(pt.GetColumn("day").ToString()).ToString("dd/MM/yyyy"), 
+                                                                                                            pt.GetColumn("StatusDay").ToString(),
+                                                                                                            pt.IsColumnNull("PilotID") ? "Day off" : pt.GetColumn("StatusType").ToString(),
+                                                                                                            pt.GetColumn("FlightNo").ToString(),
+                                                                                                            pt.GetColumn("Route").ToString(), 
+                                                                                                            pt.IsColumnNull("STD") ? "" : Convert.ToDateTime(pt.GetColumn("STD").ToString()).ToString("HH:mm"),
+                                                                                                            pt.IsColumnNull("STA") ? "" : Convert.ToDateTime(pt.GetColumn("STA").ToString()).ToString("HH:mm"), 
+                                                                                                            pt.GetColumn("City").ToString());
+                            pt.MoveNext();
+                        }
+                        msg.Body += GetLocalResourceObject("FooterStatus").ToString();
+                    }
+                    else if (AllToNotify.GetColumn("Pilot").ToString() == "0") // crew
+                    {
+                        Crew pt = new Crew();
+                        pt.GetCrewTransactions(Convert.ToInt32(AllToNotify.GetColumn("PilotID").ToString()),
+                                                (uiRadDatePickerFrom.SelectedDate != null) ? uiRadDatePickerFrom.SelectedDate.Value : DateTime.ParseExact("01/" + DateTime.Now.Month.ToString("00") + "/" + DateTime.Now.Year.ToString(), "dd/MM/yyyy", null)
+                                              , (uiRadDatePickerTo.SelectedDate != null) ? uiRadDatePickerTo.SelectedDate.Value : DateTime.ParseExact(((DateTime.Now.Month != 2) ? "30" : "28") + "/" + DateTime.Now.Month.ToString("00") + "/" + DateTime.Now.Year.ToString(), "dd/MM/yyyy", null));
+
+                        msg.Body += GetLocalResourceObject("HeaderStatus").ToString();
+                        for (int j = 0; j < pt.RowCount; j++)
+                        {
+                            msg.Body += string.Format(GetLocalResourceObject("StatusTemplate").ToString(), Convert.ToDateTime(pt.GetColumn("day").ToString()).ToString("dd/MM/yyyy"),
+                                                                                                            pt.GetColumn("StatusDay").ToString(),
+                                                                                                            pt.IsColumnNull("CrewID") ? "Day off" : pt.GetColumn("StatusType").ToString(),
+                                                                                                            pt.GetColumn("FlightNo").ToString(),
+                                                                                                            pt.GetColumn("Route").ToString(),
+                                                                                                            pt.IsColumnNull("STD") ? "" : Convert.ToDateTime(pt.GetColumn("STD").ToString()).ToString("HH:mm"),
+                                                                                                            pt.IsColumnNull("STA") ? "" : Convert.ToDateTime(pt.GetColumn("STA").ToString()).ToString("HH:mm"), 
+                                                                                                            pt.GetColumn("City").ToString());
+                            pt.MoveNext();
+                        }
+                        msg.Body += GetLocalResourceObject("FooterStatus").ToString();
+                    }
+
+
+                    msg.Body += "<p>&nbsp;</p>" + AllFlightsWithinRangeHTML;
+
+                    msg.Body += "<p>&nbsp;</p>" + ALLPilotsCrewNames;
 
                     SmtpClient client = new SmtpClient(GetLocalResourceObject("server").ToString(), 587);
                     client.EnableSsl = true;
@@ -88,11 +178,11 @@ namespace Flights_GUI
                     client.Send(msg);
 
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    continue;
+                    throw;
                 }
-                SectorsObj.MoveNext();
+                AllToNotify.MoveNext();
             }
 
             uiPanelSuccess.Visible = true;

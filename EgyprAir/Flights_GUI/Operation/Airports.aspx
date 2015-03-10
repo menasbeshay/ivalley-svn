@@ -1,5 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/E_Admin.Master" AutoEventWireup="true" CodeBehind="Airports.aspx.cs" Inherits="Flights_GUI.Operation.Airports" %>
-<%@ MasterType VirtualPath="~/MasterPages/E_Admin.Master" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/IFlights.Master" AutoEventWireup="true" CodeBehind="Airports.aspx.cs" Inherits="Flights_GUI.Operation.Airports" %>
+<%@ MasterType VirtualPath="~/MasterPages/IFlights.Master" %>
 
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
 
@@ -7,8 +7,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Panel ID="uiPanelViewAll" runat="server">
-    <div class="span3 clearfix">
+    <div class="span2 clearfix pull-right">
         <asp:LinkButton ID="uiLinkButtonAdd" runat="server" CssClass="btn btn-primary" OnClick="uiLinkButtonAdd_Click">Add new airport</asp:LinkButton>
+        <div class="clearfix">&nbsp;  </div>
     </div>
     <div class="span12 clearfix">
         <telerik:RadGrid ID="uiRadGridAirports" runat="server" AllowPaging="True" 
@@ -56,6 +57,6 @@
              <div class="span4">
                  <asp:LinkButton ID="uiLinkButtonCancel" runat="server" CssClass="btn btn-primary" OnClick="uiLinkButtonCancel_Click">Cancel</asp:LinkButton></div>
              </div>
-         </div>
+         
      </asp:Panel>
 </asp:Content>
