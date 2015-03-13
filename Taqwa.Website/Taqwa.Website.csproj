@@ -45,16 +45,19 @@
   <ItemGroup>
     <Reference Include="AjaxControlToolkit, Version=1.0.20229.20821, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\sources\AjaxControlToolKit\AjaxControlToolkit2\SampleWebSite\Bin\AjaxControlToolkit.dll</HintPath>
+      <HintPath>..\..\..\lib\AjaxControlToolkit.dll</HintPath>
     </Reference>
-    <Reference Include="FredCK.FCKeditorV2">
-      <HintPath>..\..\..\..\sources\FCK Editor\dll\FredCK.FCKeditorV2.dll</HintPath>
+    <Reference Include="FredCK.FCKeditorV2, Version=2.6.3.3964, Culture=neutral, PublicKeyToken=4f86767c9b519a06, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\FredCK.FCKeditorV2.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET 2.0 AJAX Extensions\v1.0.61025\System.Web.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
@@ -69,6 +72,7 @@
     <Content Include="Admin\promotestudents.aspx" />
     <Content Include="Admin\stats.aspx" />
     <Content Include="ClassAttachment.aspx" />
+    <Content Include="ContactRespon.aspx" />
     <Content Include="gpage.aspx" />
     <Content Include="Admin\AdminCP.aspx" />
     <Content Include="Admin\Controls\ucAttendanceReport.ascx" />
@@ -1393,6 +1397,13 @@
     </Compile>
     <Compile Include="ClassAttachment.aspx.designer.cs">
       <DependentUpon>ClassAttachment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ContactRespon.aspx.cs">
+      <DependentUpon>ContactRespon.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContactRespon.aspx.designer.cs">
+      <DependentUpon>ContactRespon.aspx</DependentUpon>
     </Compile>
     <Compile Include="gpage.aspx.cs">
       <DependentUpon>gpage.aspx</DependentUpon>

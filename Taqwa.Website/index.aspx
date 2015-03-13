@@ -80,71 +80,22 @@
 						<div class="f_items">
 							<div class="portfolio_carousel">
 								<div class="anyClass">
-									<ul>
-										<li>
-											<img src="images/assets/portfolio1.jpg" alt="#">
-											<div class="f_hover">
-												<div class="f_links">
-													<a class="tbutton small" href="images/assets/portfolio1.jpg" data-gal="lightbox[folio]"><span><i class="arrow_expand"></i></span></a>
-													
-												</div>
-												<h5></h5>
-											</div>
-										</li><!-- portfolio item -->
-										<li>
-											<img src="images/assets/portfolio2.jpg" alt="#">
-											<div class="f_hover">
-												<div class="f_links">
-													<a class="tbutton small" href="images/assets/portfolio2.jpg" data-gal="lightbox[folio]"><span><i class="arrow_expand"></i></span></a>
-													
-												</div>
-												<h5></h5>
-											</div>
-										</li><!-- portfolio item -->
-										<li>
-											<img src="images/assets/portfolio3.jpg" alt="#">
-											<div class="f_hover">
-												<div class="f_links">
-													<a class="tbutton small" href="images/assets/portfolio3.jpg" data-gal="lightbox[folio]"><span><i class="arrow_expand"></i></span></a>
-													
-												</div>
-												<h5></h5>
-											</div>
-										</li><!-- portfolio item -->
-										<li>
-											<img src="images/assets/portfolio4.jpg" alt="#">
-											<div class="f_hover">
-												<h5> <a href="#">Sed ut perspiciatis unde</a> </h5>
-											<div class="f_hover">
-												<div class="f_links">
-													<a class="tbutton small" href="images/assets/portfolio4.jpg" data-gal="lightbox[folio]"><span><i class="arrow_expand"></i></span></a>
-													
-												</div>
-												<h5></h5>
-											</div>
-											</div>
-										</li><!-- portfolio item -->
-										<li>
-											<img src="images/assets/portfolio5.jpg" alt="#">
-											<div class="f_hover">
-												<div class="f_links">
-													<a class="tbutton small" href="images/assets/portfolio5.jpg" data-gal="lightbox[folio]"><span><i class="arrow_expand"></i></span></a>
-													
-												</div>
-												<h5></h5>
-											</div>
-										</li><!-- portfolio item -->
-										<li>
-											<img src="images/assets/portfolio6.jpg" alt="#">
-											<div class="f_hover">
-												<div class="f_links">
-													<a class="tbutton small" href="images/assets/portfolio6.jpg" data-gal="lightbox[folio]"><span><i class="arrow_expand"></i></span></a>
-													
-												</div>
-												<h5></h5>
-											</div>
-										</li><!-- portfolio item -->
-									</ul>
+                                    <ul>
+                                        <asp:Repeater ID="RepeaterHomePhotos" runat="server">
+                                            <ItemTemplate>
+                                                <li>
+                                                    <img src='<%# Eval("PhotoPath") %>' alt="#">
+                                                    <div class="f_hover">
+                                                        <div class="f_links">
+                                                            <a class="tbutton small" href="images/assets/portfolio6.jpg" data-gal="lightbox[folio]">
+                                                                <span><i class="arrow_expand"></i></span>
+                                                            </a>
+                                                        </div>
+                                                        <h5></h5>
+                                                    </div>
+                                                </li>
+                                            </ItemTemplate>
+                                        </asp:Repeater>									</ul>
 								</div>
 								<div class="preve"><i class="fa-angle-left"></i></div><!-- portfolio carousel left -->
 								<div class="nexte"><i class="fa-angle-right"></i></div><!-- portfolio carousel right -->

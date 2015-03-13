@@ -524,6 +524,11 @@ namespace Taqwa.BLL
             return SqlHelper.ExecuteDataset(ConnectionString, "GetStudentByUserNameAndSecertCode", UserName, SecertCode);
         }
 
+        //public DataSet GetStudentActiveOrNot(string UserName)
+        //{
+        //    return SqlHelper.ExecuteDataset(ConnectionString, "GetStudentActiveOrNot", UserName);
+        //}
+
         public DataSet GetAllStudentsByClassRoom(int ClassRoomID)
         {
             return SqlHelper.ExecuteDataset(ConnectionString, "GetAllStudentsByClassRoom", ClassRoomID);
@@ -1287,12 +1292,12 @@ namespace Taqwa.BLL
         #endregion
 
         #region  GalleryPhoto Methods
-        public bool AddGalleryPhoto(string EnTitle, string ArTitle, string PicturePath, int CategoryID)
+        public bool AddGalleryPhoto(string EnTitle, string ArTitle, string PicturePath, int CategoryID, bool ShowInHome)
         {
             int rows = 0;
             try
             {
-                rows = SqlHelper.ExecuteNonQuery(ConnectionString, "AddGalleryPhoto", EnTitle, ArTitle, PicturePath, CategoryID);
+                rows = SqlHelper.ExecuteNonQuery(ConnectionString, "AddGalleryPhoto", EnTitle, ArTitle, PicturePath, CategoryID, ShowInHome);
                 return (rows > 0);
             }
             catch (Exception)
@@ -1330,6 +1335,10 @@ namespace Taqwa.BLL
             return SqlHelper.ExecuteDataset(ConnectionString, "GetAllGalleryPhoto");
         }
 
+        public DataSet GetHomePhotos()
+        {
+            return SqlHelper.ExecuteDataset(ConnectionString, "GetHomePhotos");
+        }
 
         public bool DeleteGalleryPhoto(int GalleryPhotoID)
         {

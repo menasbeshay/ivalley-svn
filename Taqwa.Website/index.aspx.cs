@@ -29,6 +29,9 @@ namespace Taqwa.Website
 
                     uiLiteralIFrame.Text = "<iframe id='player' type='text/html' src='http://www.youtube.com/embed/" + vid + "?enablejsapi=1' frameborder='0' style='max-width:100%;min-height:400px;width:450px;'></iframe>";
                 }
+                DBLayer db2 = new DBLayer();
+                RepeaterHomePhotos.DataSource = db2.GetHomePhotos();
+                RepeaterHomePhotos.DataBind();
             }
         }
     }
