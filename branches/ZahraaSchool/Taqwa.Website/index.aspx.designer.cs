@@ -22,6 +22,15 @@ namespace Taqwa.Website {
         protected global::Taqwa.Website.Controls.News News1;
         
         /// <summary>
+        /// RepeaterHomePhotos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater RepeaterHomePhotos;
+        
+        /// <summary>
         /// uiImageVideoThumb control.
         /// </summary>
         /// <remarks>

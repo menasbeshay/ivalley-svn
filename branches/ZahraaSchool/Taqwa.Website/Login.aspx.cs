@@ -26,10 +26,17 @@ namespace Taqwa.Website
             DataSet ds = new DataSet();
             ds = db.GetStudentByUserNameAndSecertCode(uiTextBoxUserName.Text, uiTextBoxSecertCode.Text);
 
+            //DataSet dsActive = new DataSet();
+            //dsActive = db.GetStudentActiveOrNot(uiTextBoxUserName.Text);
+
             if (ds.Tables[0].Rows.Count > 0)
             {
                 Session["CurrentLoggedInStudent"] = ds.Tables[0].Rows[0]["StudentID"].ToString();
                 Response.Redirect("MyAccount.aspx");
+            }
+            else
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "يوجد خطأ فى تفاصيل الدخول (اسم المستخدم / كلمة المرور)  او المستخدم غير نشط - برجاء مراجعة مدير الموقع" + "');", true);
             }
         }
     }

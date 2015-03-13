@@ -82,3 +82,17 @@ D:\SmartValley\El-Taqwa School\zahraaSchool\svn\Taqwa.Website\bin\zh-CHT\AjaxCon
 D:\SmartValley\El-Taqwa School\zahraaSchool\svn\Taqwa.Website\obj\Debug\Taqwa.Website.csprojResolveAssemblyReference.cache
 D:\SmartValley\El-Taqwa School\zahraaSchool\svn\Taqwa.Website\obj\Debug\Taqwa.Website.dll
 D:\SmartValley\El-Taqwa School\zahraaSchool\svn\Taqwa.Website\obj\Debug\Taqwa.Website.pdb
+D:\CS\SVN Data\I-Valley\ZahraaSchool\Taqwa.Website\obj\Debug\Taqwa.Website.csprojResolveAssemblyReference.cache
+D:\CS\SVN Data\I-Valley\ZahraaSchool\Taqwa.Website\obj\Debug\Taqwa.Website.dll
+D:\CS\SVN Data\I-Valley\ZahraaSchool\Taqwa.Website\obj\Debug\Taqwa.Website.pdb
+D:\CS\SVN Data\I-Valley\ZahraaSchool\Taqwa.Website\bin\js\modernizr.custom.js
+D:\CS\SVN Data\I-Valley\ZahraaSchool\Taqwa.Website\bin\Taqwa.Website.dll.config
+D:\CS\SVN Data\I-Valley\ZahraaSchool\Taqwa.Website\bin\Taqwa.Website.dll
+D:\CS\SVN Data\I-Valley\ZahraaSchool\Taqwa.Website\bin\Taqwa.Website.pdb
+D:\CS\SVN Data\I-Valley\ZahraaSchool\Taqwa.Website\bin\AjaxControlToolkit.dll
+D:\CS\SVN Data\I-Valley\ZahraaSchool\Taqwa.Website\bin\FredCK.FCKeditorV2.dll
+D:\CS\SVN Data\I-Valley\ZahraaSchool\Taqwa.Website\bin\Taqwa.BLL.dll
+D:\CS\SVN Data\I-Valley\ZahraaSchool\Taqwa.Website\bin\Microsoft.ApplicationBlocks.Data.dll
+D:\CS\SVN Data\I-Valley\ZahraaSchool\Taqwa.Website\bin\Taqwa.BLL.pdb
+D:\CS\SVN Data\I-Valley\ZahraaSchool\Taqwa.Website\bin\Microsoft.ApplicationBlocks.Data.pdb
+D:\CS\SVN Data\I-Valley\ZahraaSchool\Taqwa.Website\bin\Microsoft.ApplicationBlocks.Data.xml

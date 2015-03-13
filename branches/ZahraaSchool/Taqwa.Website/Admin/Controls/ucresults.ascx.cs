@@ -91,6 +91,7 @@ namespace Taqwa.Website.Admin.Controls
             if (!IsPostBack)
             {
                 LoadDDLs();
+
             }
         }
 
@@ -125,15 +126,12 @@ namespace Taqwa.Website.Admin.Controls
                 uiLabelClass.Text = StudentClass.Tables[0].Rows[0]["ArName"].ToString();
                 uiHiddenFieldClassID.Value = StudentClass.Tables[0].Rows[0]["ClassID"].ToString();
                
-
                 BindResults(Convert.ToInt32(StudentClassRoom.Tables[0].Rows[0]["ClassID"].ToString()));
-                
             }            
         }
 
         public void BindResults(int classID)
         {
-            
             DBLayer db = new DBLayer();
             CurrentStudentResults = db.GetResultByStudentIDAndSchoolYearForAdmin(CurrentActiveStudent, Convert.ToInt32(uiDropDownListSchoolYear.SelectedValue));
             uiRepeaterResults.DataSource = db.GetAllCoursesByClass(classID);
@@ -145,7 +143,10 @@ namespace Taqwa.Website.Admin.Controls
                     DataRow[] resultFMT = CurrentStudentResults.Tables[0].Select("courseid = 1000000 and FirstHalfMidTerm = 1");
                     if (resultFMT.Length > 0)
                     {
-                        uiDropDownListEvalTotal.SelectedValue = resultFMT[0]["Evaluation"].ToString();
+                        if (!(classID==1 ||classID==2))
+                        {
+                            uiDropDownListEvalTotal.SelectedValue = resultFMT[0]["Evaluation"].ToString();
+                        }
                         uiHiddenFieldTotalResultID.Value = resultFMT[0]["ResultID"].ToString();
                     }
 
@@ -154,7 +155,10 @@ namespace Taqwa.Website.Admin.Controls
                     DataRow[] resultFT = CurrentStudentResults.Tables[0].Select("courseid = 1000000 and FirstHalfFinal = 1");
                     if (resultFT.Length > 0)
                     {
-                        uiDropDownListEvalTotal.SelectedValue = resultFT[0]["Evaluation"].ToString();
+                        if (!(classID == 1 || classID == 2))
+                        {
+                            uiDropDownListEvalTotal.SelectedValue = resultFT[0]["Evaluation"].ToString();
+                        }
                         uiHiddenFieldTotalResultID.Value = resultFT[0]["ResultID"].ToString();
                     }
                     break;
@@ -162,7 +166,10 @@ namespace Taqwa.Website.Admin.Controls
                     DataRow[] resultSMT = CurrentStudentResults.Tables[0].Select("courseid = 1000000 and SecondHalfMidTerm = 1");
                     if (resultSMT.Length > 0)
                     {
-                        uiDropDownListEvalTotal.SelectedValue = resultSMT[0]["Evaluation"].ToString();
+                        if (!(classID == 1 || classID == 2))
+                        {
+                            uiDropDownListEvalTotal.SelectedValue = resultSMT[0]["Evaluation"].ToString();
+                        }
                         uiHiddenFieldTotalResultID.Value = resultSMT[0]["ResultID"].ToString();
                     }
                     break;
@@ -170,15 +177,16 @@ namespace Taqwa.Website.Admin.Controls
                     DataRow[] resultST = CurrentStudentResults.Tables[0].Select("courseid = 1000000 and SecondHalfFinal = 1");
                     if (resultST.Length > 0)
                     {
-                        uiDropDownListEvalTotal.SelectedValue = resultST[0]["Evaluation"].ToString();
+                        if (!(classID == 1 || classID == 2))
+                        {
+                            uiDropDownListEvalTotal.SelectedValue = resultST[0]["Evaluation"].ToString();
+                        }
                         uiHiddenFieldTotalResultID.Value = resultST[0]["ResultID"].ToString();
                     }
                     break;
                 default:
                     break;
             }
-
-
         }
 
         protected void uiButtonUpdate_Click(object sender, EventArgs e)
@@ -188,10 +196,41 @@ namespace Taqwa.Website.Admin.Controls
             foreach (RepeaterItem item in uiRepeaterResults.Items)
             {
                 TextBox grade = (TextBox)item.FindControl("uiTextBoxGrade");
-                DropDownList eval = (DropDownList)item.FindControl("uiDropDownListEval");
+                DropDownList drpDwneval = (DropDownList)item.FindControl("uiDropDownListEval");
                 HiddenField CourseId = (HiddenField)item.FindControl("uiHiddenFieldResultID");
                 HiddenField ResultId = (HiddenField)item.FindControl("uiHiddenFieldCourseID");
                 HiddenField MaxGrade = (HiddenField)item.FindControl("uiHiddenFieldMaxGrade");
+                string eval = "";
+
+                //if (Page.FindControl("uiDropDownListEval")!=null )
+                //{
+                //    eval = drpDwneval.SelectedItem.ToString();
+                //}
+                //else
+                //{
+                    decimal evalPerc = (decimal.Parse(grade.Text)) / (decimal.Parse(MaxGrade.Value.ToString()));
+
+                    if (evalPerc < decimal.Parse("0.5"))
+                    {
+                        eval = "دون المستوي";
+                    }
+                    else if (evalPerc > decimal.Parse("0.5") && evalPerc < decimal.Parse("0.65"))
+                    {
+                        eval = "مقبول";
+                    }
+                    else if (evalPerc > decimal.Parse("0.65") && evalPerc < decimal.Parse("0.75"))
+                    {
+                        eval = "جيد";
+                    }
+                    else if (evalPerc > decimal.Parse("0.75") && evalPerc < decimal.Parse("0.85"))
+                    {
+                        eval = "جيد جداً";
+                    }
+                    else if (evalPerc > decimal.Parse("0.85"))
+                    {
+                        eval = "ممتاز";
+                    }
+                //}
 
                 if (string.IsNullOrEmpty(MaxGrade.Value))
                     MaxGrade.Value = "1000";
@@ -200,13 +239,13 @@ namespace Taqwa.Website.Admin.Controls
                     if (decimal.Parse(grade.Text) <= decimal.Parse(MaxGrade.Value))
                     {
 
-                        if (ResultId.Value != "0" && !string.IsNullOrEmpty(grade.Text) && !string.IsNullOrEmpty(eval.Text))
+                        if (ResultId.Value != "0" && !string.IsNullOrEmpty(grade.Text) && !string.IsNullOrEmpty(eval))
                         {
-                            db.UpdateResult(Convert.ToInt32(ResultId.Value), CurrentActiveStudent, Convert.ToInt32(CourseId.Value), decimal.Parse(grade.Text), eval.Text, (CurrentResultType == 1), (CurrentResultType == 2), (CurrentResultType == 3), (CurrentResultType == 4), Convert.ToInt32(uiDropDownListSchoolYear.SelectedValue));
+                            db.UpdateResult(Convert.ToInt32(ResultId.Value), CurrentActiveStudent, Convert.ToInt32(CourseId.Value), decimal.Parse(grade.Text), eval, (CurrentResultType == 1), (CurrentResultType == 2), (CurrentResultType == 3), (CurrentResultType == 4), Convert.ToInt32(uiDropDownListSchoolYear.SelectedValue));
                         }
-                        else if (!string.IsNullOrEmpty(grade.Text) && !string.IsNullOrEmpty(eval.Text))
+                        else if (!string.IsNullOrEmpty(grade.Text) && !string.IsNullOrEmpty(eval))
                         {
-                            db.AddResult(CurrentActiveStudent, Convert.ToInt32(CourseId.Value), decimal.Parse(grade.Text), eval.Text, (CurrentResultType == 1), (CurrentResultType == 2), (CurrentResultType == 3), (CurrentResultType == 4), Convert.ToInt32(uiDropDownListSchoolYear.SelectedValue));
+                            db.AddResult(CurrentActiveStudent, Convert.ToInt32(CourseId.Value), decimal.Parse(grade.Text), eval, (CurrentResultType == 1), (CurrentResultType == 2), (CurrentResultType == 3), (CurrentResultType == 4), Convert.ToInt32(uiDropDownListSchoolYear.SelectedValue));
                         }
 
                     }

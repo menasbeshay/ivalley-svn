@@ -44,9 +44,9 @@ namespace Taqwa.Website.Admin
             string path = "";
             if (uiFileUploadPhoto.HasFile)
             {
-                path = "/UserFiles/Gallery/" + uiDropDownListCat.SelectedValue+ "_"+DateTime.Now.ToString("ddMMhhmmss")+"_"+uiFileUploadPhoto.FileName;
+                path = "/UserFiles/Gallery/" + uiDropDownListCat.SelectedValue+ "_" + DateTime.Now.ToString("ddMMhhmmss") + "_"+uiFileUploadPhoto.FileName;
                 uiFileUploadPhoto.SaveAs(Server.MapPath("~" + path));
-                db.AddGalleryPhoto(uiTextBoxEnNewsTitle.Text, uiTextBoxArNewsTitle.Text, path, Convert.ToInt32(uiDropDownListCat.SelectedValue));
+                db.AddGalleryPhoto(uiTextBoxEnNewsTitle.Text, uiTextBoxArNewsTitle.Text, path, Convert.ToInt32(uiDropDownListCat.SelectedValue),chkShowInHome.Checked);
                 BindData();
             }
         }

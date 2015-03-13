@@ -94,7 +94,11 @@
     <li>
      <asp:HyperLink ID="HyperLink10" runat="server" 
             NavigateUrl="~/ClassAttachment.aspx">ملفات وفيديو</asp:HyperLink>
-    </li> 
+    </li>
+        <li>
+                 <asp:HyperLink ID="HyperLink11" runat="server" 
+            NavigateUrl="~/ContactRespon.aspx">مراسلة المسئولين</asp:HyperLink>
+        </li>
     </ul>
     <div class="clear" style="height:5px;">&nbsp;</div>
     </div>

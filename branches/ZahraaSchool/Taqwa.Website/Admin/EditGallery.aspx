@@ -69,6 +69,17 @@
         <div class="clear"></div>
 
         <div class="AdminLeft">
+            <asp:Label ID="Label3" CssClass="Label" runat="server" Text="اظهار فى الصفحة الرئيسية :"></asp:Label>
+        </div>
+        <div class="AdminMiddle">
+            <asp:CheckBox ID="chkShowInHome" runat="server" />
+        </div>
+        <div class="AdminRight">
+        </div>
+
+        <div class="clear"></div>
+
+        <div class="AdminLeft">
             &nbsp;
         </div>
         <div class="AdminMiddle">
