@@ -6,7 +6,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>D:\SmartValley\V-Studio\MTSA\MTSA\publish</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\I-Valley\v-studio\MTSA\MTSA\publish</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="About.aspx">
@@ -196,7 +196,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/11/2014 19:00:10</publishTime>
     </File>
     <File Include="bin/MTSA.dll">
-      <publishTime>01/08/2015 17:23:49</publishTime>
+      <publishTime>03/14/2015 17:59:54</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>11/11/2014 19:00:38</publishTime>
@@ -274,10 +274,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/19/2014 23:00:02</publishTime>
     </File>
     <File Include="css/screen.css">
-      <publishTime>01/08/2015 18:07:38</publishTime>
+      <publishTime>03/13/2015 16:25:34</publishTime>
     </File>
     <File Include="css/screen_ar.css">
-      <publishTime>01/08/2015 18:07:46</publishTime>
+      <publishTime>03/13/2015 16:28:54</publishTime>
     </File>
     <File Include="css/ytp-regular.eot">
       <publishTime>11/15/2014 12:46:47</publishTime>
@@ -492,6 +492,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="images/banner-ads.svg">
       <publishTime>11/11/2014 18:44:49</publishTime>
     </File>
+    <File Include="images/contact.jpg">
+      <publishTime>01/16/2015 14:44:51</publishTime>
+    </File>
     <File Include="images/crafted_1_left.jpg">
       <publishTime>11/11/2014 18:44:49</publishTime>
     </File>
@@ -502,7 +505,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/11/2014 18:44:49</publishTime>
     </File>
     <File Include="images/crafted_2_left.jpg">
-      <publishTime>11/10/2014 18:14:09</publishTime>
+      <publishTime>11/11/2014 18:47:09</publishTime>
     </File>
     <File Include="images/crafted_2_middle.jpg">
       <publishTime>11/11/2014 18:44:49</publishTime>
@@ -691,7 +694,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/08/2015 14:57:58</publishTime>
     </File>
     <File Include="images/Icons/try.png">
-      <publishTime>01/08/2015 14:57:58</publishTime>
+      <publishTime>03/13/2015 14:27:13</publishTime>
+    </File>
+    <File Include="images/Icons/try_a.png">
+      <publishTime>03/13/2015 14:28:46</publishTime>
     </File>
     <File Include="images/Icons/web.png">
       <publishTime>01/08/2015 14:57:58</publishTime>
@@ -706,7 +712,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/26/2014 17:20:12</publishTime>
     </File>
     <File Include="images/mtsa3d1.png">
-      <publishTime>11/15/2014 21:48:35</publishTime>
+      <publishTime>11/14/2014 12:41:34</publishTime>
     </File>
     <File Include="images/MTSALogo.png">
       <publishTime>11/11/2014 18:44:49</publishTime>
@@ -976,7 +982,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/21/2014 00:15:03</publishTime>
     </File>
     <File Include="images/products/multitouchscreens/classic22.png">
-      <publishTime>11/25/2014 20:41:09</publishTime>
+      <publishTime>11/19/2014 20:14:08</publishTime>
     </File>
     <File Include="images/products/multitouchscreens/Classic46.jpg">
       <publishTime>11/20/2014 22:26:51</publishTime>
@@ -1045,13 +1051,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/26/2014 19:47:32</publishTime>
     </File>
     <File Include="images/products/multitouchscreens/Page3/POS32.png">
-      <publishTime>11/26/2014 19:47:32</publishTime>
+      <publishTime>02/11/2015 18:01:27</publishTime>
     </File>
     <File Include="images/products/multitouchscreens/pos.JPG">
       <publishTime>11/21/2014 00:00:23</publishTime>
     </File>
     <File Include="images/products/multitouchscreens/pos32.png">
-      <publishTime>11/19/2014 20:15:09</publishTime>
+      <publishTime>02/02/2015 17:32:14</publishTime>
     </File>
     <File Include="images/products/multitouchscreens/pos_small.jpg">
       <publishTime>11/21/2014 00:15:03</publishTime>
@@ -1084,7 +1090,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/25/2014 17:17:45</publishTime>
     </File>
     <File Include="images/products/simply2_ar.png">
-      <publishTime>12/26/2014 19:26:28</publishTime>
+      <publishTime>02/02/2015 17:32:14</publishTime>
     </File>
     <File Include="images/projects/1.jpg">
       <publishTime>11/11/2014 18:51:02</publishTime>
@@ -1099,7 +1105,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/27/2014 21:05:01</publishTime>
     </File>
     <File Include="images/sager-logo.png">
-      <publishTime>12/25/2014 21:59:30</publishTime>
+      <publishTime>03/12/2015 22:17:48</publishTime>
     </File>
     <File Include="images/slides/Slide-1.jpg">
       <publishTime>11/11/2014 18:50:54</publishTime>
@@ -1114,25 +1120,25 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/11/2014 18:50:54</publishTime>
     </File>
     <File Include="images/slides/Slide-3.jpg">
-      <publishTime>11/10/2014 18:14:09</publishTime>
+      <publishTime>11/11/2014 18:47:09</publishTime>
     </File>
     <File Include="images/slides/Slide-4.jpg">
-      <publishTime>11/10/2014 18:14:09</publishTime>
+      <publishTime>11/11/2014 18:47:09</publishTime>
     </File>
     <File Include="images/slides/Slide-5.jpg">
-      <publishTime>11/10/2014 18:14:09</publishTime>
+      <publishTime>11/11/2014 18:47:09</publishTime>
     </File>
     <File Include="images/slides/Slide-6.jpg">
-      <publishTime>11/10/2014 18:14:09</publishTime>
+      <publishTime>11/11/2014 18:47:09</publishTime>
     </File>
     <File Include="images/slides/slide-7.jpg">
-      <publishTime>11/10/2014 18:14:09</publishTime>
+      <publishTime>11/11/2014 18:47:09</publishTime>
     </File>
     <File Include="images/slides/slide-8.jpg">
-      <publishTime>11/10/2014 18:14:09</publishTime>
+      <publishTime>11/11/2014 18:47:09</publishTime>
     </File>
     <File Include="images/slides/Slide-9.jpg">
-      <publishTime>11/10/2014 18:14:09</publishTime>
+      <publishTime>11/11/2014 18:47:09</publishTime>
     </File>
     <File Include="images/slides/slide1.png">
       <publishTime>10/30/2014 21:33:01</publishTime>
@@ -1204,7 +1210,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/11/2014 18:44:49</publishTime>
     </File>
     <File Include="images/VanDirections.gif">
-      <publishTime>11/10/2014 18:14:09</publishTime>
+      <publishTime>11/11/2014 18:47:09</publishTime>
     </File>
     <File Include="images/vstudiologo.png">
       <publishTime>11/11/2014 18:51:23</publishTime>
@@ -1222,10 +1228,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/19/2014 22:31:43</publishTime>
     </File>
     <File Include="MasterPages/Full.Master">
-      <publishTime>01/08/2015 17:59:24</publishTime>
+      <publishTime>03/14/2015 18:09:28</publishTime>
     </File>
     <File Include="MasterPages/FullAr.Master">
-      <publishTime>01/08/2015 17:59:34</publishTime>
+      <publishTime>03/14/2015 18:09:33</publishTime>
     </File>
     <File Include="MasterPages/Main.Master">
       <publishTime>11/11/2014 18:51:38</publishTime>
@@ -1255,7 +1261,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/11/2014 18:51:31</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
-      <publishTime>11/10/2014 18:14:30</publishTime>
+      <publishTime>11/11/2014 18:51:30</publishTime>
     </File>
     <File Include="Scripts/bootstrap.min.js">
       <publishTime>11/11/2014 18:51:33</publishTime>
@@ -1264,28 +1270,28 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/11/2014 18:51:33</publishTime>
     </File>
     <File Include="Scripts/classie.js">
-      <publishTime>11/10/2014 18:14:30</publishTime>
+      <publishTime>11/11/2014 18:51:30</publishTime>
     </File>
     <File Include="Scripts/imagesloaded.pkgd.min.js">
-      <publishTime>11/10/2014 18:14:30</publishTime>
+      <publishTime>11/11/2014 18:51:30</publishTime>
     </File>
     <File Include="Scripts/jquery-1.10.2.js">
       <publishTime>11/11/2014 18:51:33</publishTime>
     </File>
     <File Include="Scripts/jquery-1.10.2.min.js">
-      <publishTime>11/10/2014 18:14:30</publishTime>
+      <publishTime>11/11/2014 18:51:30</publishTime>
     </File>
     <File Include="Scripts/jquery-1.10.2.min.map">
-      <publishTime>11/10/2014 18:14:30</publishTime>
+      <publishTime>11/11/2014 18:51:30</publishTime>
     </File>
     <File Include="Scripts/jquery-migrate-1.2.1.min.js">
-      <publishTime>11/10/2014 18:14:30</publishTime>
+      <publishTime>11/11/2014 18:51:30</publishTime>
     </File>
     <File Include="Scripts/jquery.cycle2.carousel.min.js">
       <publishTime>11/11/2014 18:51:33</publishTime>
     </File>
     <File Include="Scripts/jquery.cycle2.min.js">
-      <publishTime>11/10/2014 18:14:30</publishTime>
+      <publishTime>11/11/2014 18:51:30</publishTime>
     </File>
     <File Include="Scripts/jquery.easings.min.js">
       <publishTime>11/11/2014 18:51:33</publishTime>
@@ -1309,13 +1315,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/13/2014 15:30:08</publishTime>
     </File>
     <File Include="Scripts/jquery.slimscroll.min.js">
-      <publishTime>11/10/2014 18:14:30</publishTime>
+      <publishTime>11/11/2014 18:51:30</publishTime>
     </File>
     <File Include="Scripts/jquery.zoom.min.js">
       <publishTime>11/16/2014 11:14:51</publishTime>
     </File>
     <File Include="Scripts/libs2.js">
-      <publishTime>11/10/2014 18:14:30</publishTime>
+      <publishTime>11/11/2014 18:51:30</publishTime>
     </File>
     <File Include="Scripts/lightbox.min.js">
       <publishTime>11/19/2014 22:31:15</publishTime>
@@ -1333,13 +1339,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/11/2014 18:51:33</publishTime>
     </File>
     <File Include="Scripts/modernizr-2.6.2.js">
-      <publishTime>11/10/2014 18:14:30</publishTime>
+      <publishTime>11/11/2014 18:51:30</publishTime>
     </File>
     <File Include="Scripts/modernizr.custom.js">
-      <publishTime>11/10/2014 18:14:30</publishTime>
+      <publishTime>11/11/2014 18:51:30</publishTime>
     </File>
     <File Include="Scripts/respond.js">
-      <publishTime>11/10/2014 18:14:30</publishTime>
+      <publishTime>11/11/2014 18:51:30</publishTime>
     </File>
     <File Include="Scripts/respond.min.js">
       <publishTime>11/11/2014 18:51:33</publishTime>
