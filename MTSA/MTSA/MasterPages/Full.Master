@@ -47,7 +47,7 @@
 <body>
     <header id="header" class="">
     <div class="innerWrapper">
-      <div id="logo">
+      <div id="logo" onclick="$.fn.fullpage.moveTo(1,0);">
          
       </div>
       <div id="lang" style="width:50px;position:absolute;top:30px;color:#fff;right:10px;font-size:20px;" class="jf">
@@ -102,8 +102,8 @@
              <li>
               <div>
                 <a href="#"></a>
-                <section>
-                    <img src="../images/vstudiologo.png" />
+                <section><a href="http://www.v-studio.co" target="_blank">
+                    <img src="../images/vstudiologo.png" style="border:0;"/></a>
                 </section>
               </div>
           </li>
@@ -647,7 +647,7 @@
                    </div>
 
                    <div class="fixwtu">&nbsp;</div>                   
-                   <div class="fixwtu" style="height:40px;">&nbsp;</div> 
+                   <div class="fixwtu">&nbsp;</div> 
                </div>
             </div>
         </div>
@@ -1151,13 +1151,13 @@ Available in the following versions:</p>
                                 <img src="../images/Icons/web.png"  style="margin:0;width:21.5%;"/>                               
                             </div>
 
-                        <div class="col-lg-6 col-sm-6 col-md-6 bottom " style="bottom:20px !important;">                        
+                        <div class="col-lg-6 col-sm-6 col-md-6 bottom " style="width:58.33333333% !important;bottom:20px !important;">                        
                                 <img src="../images/icons/png/large/10.png" style="margin:0 12px 0 0;width:12%;"/>
                                 <img src="../images/icons/png/large/12.png" style="margin:0 12px;width:12%;"/>
                                 <img src="../images/icons/png/large/6.png" style="margin:0 12px;width:12%;"/>
                                 <img src="../images/icons/png/large/2.png" style="margin:0 12px;width:12%;"/>
                                 <img src="../images/icons/png/large/9.png" style="margin:0 12px;width:12%;"/>
-                            <a href="../files/MTSA3DWayfindingpresentationG3.pdf" style="margin:0 12px;width:12.5%;float:right;display:block">
+                            <a href="../files/MTSA3DWayfindingpresentationG3.pdf" style="margin:0 12px;width:16.5%;float:right;display:block;padding-right:30px;">
                                 <img src="../images/Icons/try.png" style="width:100%" /></a>
                             </div>    
                     </div>
@@ -1179,11 +1179,9 @@ Available in the following versions:</p>
                         <div class="clearfix" style="height:1px;"></div>
                         <div class="col-lg-6 col-sm-6 col-md-6">
                             
-                            <video loop id="reflashvideo" preload="auto" style="width:100%">                                 <source type="video/mp4" src="../flash/3garatvideoEnglish.mp4" >
+                             <video loop id="reflashvideo" preload="auto" style="width:100%;transform:scaleY(1.4);padding-top:53px;">                                 <source type="video/mp4" src="../flash/3garatvideoEnglish.mp4" >
                              </video>  
-                            <div class="clearfix" style="height:2px;clear:both"></div>
-                             <a href="../files/3garaten.pdf" class="col-lg-12 col-sm-12 col-md-12" style="text-align:left;"><label class="touchscreenlabel"> Download</label> &nbsp;&nbsp;
-                                <img src="../images/products/digital_signage/Page1/present.png" /></a>                            
+                                                    
                         </div>
                         <div class="col-lg-6 col-sm-6 col-md-6" style="background-color:#eee;padding:5px;">                            
                               <div class="col-md-4 col-sm-4 col-lg-4 pull-left clearfix" style="padding:0px;">
@@ -1193,19 +1191,22 @@ Available in the following versions:</p>
                                 <span style="font-family: 'Ubuntu', sans-serif;font-weight:600;color:#6f647c;font-size:14px;">
                                 Real estate leasing/selling solution with 360° Virtual tour</span>
                               </div>
-                            <div class="clearfix" style="height:5px;clear:both"></div>                        
+                            <div class="clearfix" style="height:3px;clear:both"></div>                        
                             
-                            <p style="text-align:justify;">
+                            <p style="text-align:justify;position:relative;">
                                 3garat is a software/application developed by S.O. Sager International and marketed under the umbrella of MTSA products to help real estate development/management companies market and sell /lease their own/landlord properties.
  The software is a cloud database & installed on MTSA touchscreen kiosks providing a self-service property searching , buying or leasing service for public.
 S.O. Sager International provides complete unique self-service property marketing concept including software development, 360° virtual tours, touchscreen kiosks supply & maintenance, and the design/building of the stand/booth to place in public areas i.e. malls, shopping centers, hypermarkets, airports, medical cities/hospitals, universities stadiums and others. 
 3garat software doesn’t only provide property finding; it also takes the customer through a 360° photograph or video virtual tour to all offered properties all the way to reserving a property and down payment process. 3garat software with CMS enables operator to update/change data anytime. 
+                                <a href="../files/3garaten.pdf" class="col-lg-3 col-sm-3 col-md-3" style="right:0;bottom:-10px;position:absolute;text-align:right;padding-right:0;"><label class="touchscreenlabel"> Download</label> &nbsp;&nbsp;
+                                <img src="../images/products/digital_signage/Page1/present.png" style="max-width:30px;" /></a>    
                             </p>
-                            <div class="clearfix" style="height:15px;clear:both"></div>                        
+                            
+                            <div class="clearfix" style="height:5px;clear:both"></div>                        
                             <div class="col-lg-12 col-sm-12 col-md-12 " style="padding:0px">  
-                                <a href="../images/3ag_01.jpg" data-lightbox="roadtrip" style="margin:0 15px 0 0;width:30%;float:left;"><img src="../images/3ag_01.jpg" style="background-color:#aaa;max-width:100%;" class="thumbnail" /></a>
-                                <a href="../images/3ag_02.jpg" data-lightbox="roadtrip" style="margin:0 15px 0 0;width:30%;float:left;"><img src="../images/3ag_02.jpg" style="background-color:#aaa;max-width:100%;" class="thumbnail"/></a>
-                                <a href="../images/3ag_03.jpg" data-lightbox="roadtrip" style="margin:0 15px 0 0;width:30%;float:left;"><img src="../images/3ag_03.jpg" style="background-color:#aaa;max-width:100%;" class="thumbnail"/></a>                                
+                                <a href="../images/3ag_01.jpg" data-lightbox="roadtrip" style="margin:0 15px 0 0;width:30%;float:left;position:relative" class="agratlink"><img src="../images/3ag_01.jpg" style="background-color:#aaa;max-width:100%;" class="thumbnail" /><div class="myhoverdiv">3AGARAT <br />Gates to real estates</div></a>
+                                <a href="../images/3ag_02.jpg" data-lightbox="roadtrip" style="margin:0 15px 0 0;width:30%;float:left;position:relative" class="agratlink"><img src="../images/3ag_02.jpg" style="background-color:#aaa;max-width:100%;" class="thumbnail"/><div class="myhoverdiv">3AGARAT <br />Gates to real estates</div></a>
+                                <a href="../images/3ag_03.jpg" data-lightbox="roadtrip" style="margin:0 15px 0 0;width:30%;float:left;position:relative" class="agratlink"><img src="../images/3ag_03.jpg" style="background-color:#aaa;max-width:100%;" class="thumbnail"/><div class="myhoverdiv">3AGARAT <br />Gates to real estates</div></a>                                
                             </div>
                          </div>
                                                
@@ -1250,7 +1251,7 @@ If you are you looking for a rewarding business & willing to invest little money
                             Jameel Square, corner of Tahlia & Al Andalus Street<br />
                             P. O Box 40538 Jeddah 21511, Saudi Arabia     <br />
                             Tel: (+966) 12- 283 4088. <br />Fax: (+966) 12-660 8128<br />
-                            <a href="mailto:info@v-studio.co" >info@v-studio.co</a><br />
+                            <a href="mailto:info@MTSAkiosk.com" class="touchscreenlabel">info@MTSAkiosk.com</a><br />
                             <b>Branches:</b> Riyadh. Al Khobar
                            </div>
                           <div class="col-l g-4 col-md-4 col-sm-4"  style="padding-top:20px;">
@@ -1281,29 +1282,39 @@ If you are you looking for a rewarding business & willing to invest little money
                                           <div class="col-md-6 col-sm-6 col-lg-6 clearfix">
                                              <div class="form-group">
                                         
-                                                <input type="text" class="form-control" id="name" placeholder="name" required="required" />
+                                                <input type="text" class="form-control" id="name" placeholder="name *" required="required" />
                                             </div>
                                              <div class="form-group">
-                                                <input type="email" class="form-control" id="email" placeholder="email" required="required" />
+                                                <input type="email" class="form-control" id="email" placeholder="email *" required="required" />
                                             </div>
                                              <div class="form-group">
                                         
-                                            <input type="text" class="form-control" id="address" placeholder="address" required="required" />
+                                            <input type="text" class="form-control" id="address" placeholder="address *" required="required" />
                                     </div>
                                              <div class="form-group">                                        
-                                                <input type="text" class="form-control" id="tele" placeholder="telephone" required="required" />
+                                                <input type="text" class="form-control" id="tele" placeholder="telephone *" required="required" />
                                               </div>
+                                              <div class="form-group">
+                                                  
+                                                  <div class="col-md-5" style="padding: 0px;">
+                                                        <div style="margin: 0px; padding-top: 0px; line-height: 35px; font-size: 20px;" class="form-control text-center">J K L 7 8 O</div>
+                                                      </div>
+                                                  <div class="col-md-7" style="padding-right: 0px;">
+                                                        <input type="text" class="form-control" id="captcha" placeholder="type charchters here *" required="required" style="width:100%" />
+                                                      </div>
+                                                  
+                                                    </div>
                                           </div>
                                           <div class="col-md-6 col-sm-6 col-lg-6 clearfix">
                                              <div class="form-group">
                                         
-                                                <input type="text" class="form-control" id="mobile" placeholder="mobile" required="required" />
+                                                <input type="text" class="form-control" id="mobile" placeholder="mobile *" required="required" />
                                             </div>
                                              <div class="form-group">                                       
-                                                    <input type="text" class="form-control" id="subject" placeholder="subject" required="required" />
+                                                    <input type="text" class="form-control" id="subject" placeholder="subject *" required="required" />
                                             </div>
                                              <div class="form-group">                                        
-                                                <textarea class="form-control" id="msg" placeholder="message" required="required" rows="4" ></textarea>
+                                                <textarea class="form-control" id="msg" placeholder="message *" required="required" rows="6" ></textarea>
                                              </div>
                                             
                                           </div>
@@ -1319,7 +1330,7 @@ If you are you looking for a rewarding business & willing to invest little money
                               </div>
                           </div>
                           <div class="col-lg-5 col-md-5 col-sm-5" style="padding-top:20px;">
-                              <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d3710.9335362030365!2d39.153385!3d21.549454!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1419538982470&zoom=17" width="100%" height="250" frameborder="0" style="border:0"></iframe>
+                              <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script><div style="overflow:hidden;width:100%;"><div id="gmap_canvas" style="width:100%;height:250px;"></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><script type="text/javascript"> function init_map() { var myOptions = { zoom: 16, center: new google.maps.LatLng(21.549454, 39.153385), mapTypeId: google.maps.MapTypeId.ROADMAP }; map = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions); marker = new google.maps.Marker({ map: map, position: new google.maps.LatLng(21.549454, 39.153385) }); infowindow = new google.maps.InfoWindow({ content: "<b>MTSA</b> " }); google.maps.event.addListener(marker, "click", function () { infowindow.open(map, marker); }); } google.maps.event.addDomListener(window, 'load', init_map);</script>
                           </div>
                        </div>
                     </div>

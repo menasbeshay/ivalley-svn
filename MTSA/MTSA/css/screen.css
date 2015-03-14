@@ -4167,12 +4167,19 @@ li#contact-link a.nav-current h3, #contact-link a.nav-current i {
 .fixwtu {
     height:100px;
     width:100%;
+    clear:both;
 }
 
 @media screen and (max-height: 900px) {
    .fixwtu {
     height:240px;
-    width:100%;
+    width:100%;clear:both;
+}
+
+@media screen and (max-height: 768px) {
+   .fixwtu {
+    height:150px;
+    width:100%;clear:both;
 }
 
    
@@ -4217,6 +4224,10 @@ height:100%;
 }
 
 .mutliGallery:hover .myhoverdiv {
+   opacity:1;
+}
+
+.agratlink:hover .myhoverdiv {
    opacity:1;
 }
 

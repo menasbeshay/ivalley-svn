@@ -4181,6 +4181,13 @@ li#contact-link a.nav-current h3, #contact-link a.nav-current i {
 }
 
    
+@media screen and (max-height: 768px) {
+   .fixwtu {
+    height:150px;
+    width:100%;
+}
+
+   
 }
 
 @media screen and (height: 900px) {
@@ -4222,6 +4229,11 @@ height:100%;
 }
 
 .mutliGallery:hover .myhoverdiv {
+   opacity:1;
+}
+
+
+.agratlink:hover .myhoverdiv {
    opacity:1;
 }
 

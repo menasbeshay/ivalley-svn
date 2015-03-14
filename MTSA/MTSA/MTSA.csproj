@@ -204,6 +204,7 @@
     <Content Include="images\3garatlogoen.png" />
     <Content Include="images\aldaleel_mtsa.png" />
     <Content Include="images\banner-ads.svg" />
+    <Content Include="images\contact.jpg" />
     <Content Include="images\downen.png" />
     <Content Include="images\Icons\icon-01.png" />
     <Content Include="images\Icons\icon-02.png" />
@@ -256,6 +257,7 @@
     <Content Include="images\Icons\png\large\9.png" />
     <Content Include="images\Icons\print.png" />
     <Content Include="images\Icons\try.png" />
+    <Content Include="images\Icons\try_a.png" />
     <Content Include="images\Icons\web.png" />
     <Content Include="images\Logo.png" />
     <Content Include="images\Logo1.png" />
