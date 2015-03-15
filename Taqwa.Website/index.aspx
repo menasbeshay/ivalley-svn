@@ -87,7 +87,7 @@
                                                     <img src='<%# Eval("PhotoPath") %>' alt="#">
                                                     <div class="f_hover">
                                                         <div class="f_links">
-                                                            <a class="tbutton small" href="images/assets/portfolio6.jpg" data-gal="lightbox[folio]">
+                                                            <a class="tbutton small" href='<%# Eval("PhotoPath") %>' data-gal="lightbox[folio]">
                                                                 <span><i class="arrow_expand"></i></span>
                                                             </a>
                                                         </div>
