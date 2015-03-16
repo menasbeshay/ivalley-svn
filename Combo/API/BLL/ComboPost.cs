@@ -267,5 +267,20 @@ namespace Combo.BLL
                                     order by Likecount desc, commentCount desc , PostDate desc ");
         }
 
+        public virtual bool GetPostsByHashTagID(int id)
+        {           
+            return LoadFromRawSql(@"select P.* , U.UserName, A.Path ProfilePic, S.IsPostsDownloadable,
+                                    (select COUNT(c.ComboCommentID) 
+                                     from ComboComment C where P.ComboPostID = C.ComboPostID)  commentCount
+                                    ,(select COUNT(pl.ComboPostID) LikeCount 
+                                    from ComboPostLike PL where P.ComboPostID = PL.ComboPostID ) Likecount
+                                    from ComboPost P Inner Join ComboUser U on P.ComboUserID = U.ComboUserID
+                                    Left join Attachment A on U.ProfileImgID = A.AttachmentID
+                                    Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID
+                                    Inner Join PostHashTag PHT on P.ComboPostID = PHT.ComboPostID 
+                                    where PHT.HashTagID = {0}
+                                    order by Likecount desc, commentCount desc , PostDate desc ");
+        }
+
 	}
 }

@@ -186,4 +186,55 @@ Create Table UserActivityLog
 	CONSTRAINT User_Activity_index UNIQUE (Date, ComboUserID)
 )
 Go 
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'PostUserTag' and
+		        xtype = 'U')
+Drop Table PostUserTag
+Go
+Create Table PostUserTag
+(
+	PostUserTagID int not null
+			identity(1,1)
+			Primary Key,	
+	ComboUserID int foreign key references ComboUser(ComboUserID),
+	ComboPostID int foreign key references ComboPost(ComboPostID),
+	Offset int,
+	CONSTRAINT PostTag_index UNIQUE (ComboPostID, ComboUserID)
+)
+Go 
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'HashTag' and
+		        xtype = 'U')
+Drop Table HashTag
+Go
+Create Table HashTag
+(
+	HashTagID int not null primary key identity(1,1),		
+	Name nvarchar(200),
+	CONSTRAINT HashTag_index UNIQUE (Name)
+)
+Go 
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'PostHashTag' and
+		        xtype = 'U')
+Drop Table PostHashTag
+Go
+Create Table PostHashTag
+(
+	HashTagID int foreign key references HashTag(HashTagID),		
+	ComboPostID int foreign key references ComboPost(ComboPostID),
+	Offset int,
+	primary key (ComboPostID, HashTagID)
+)
+Go 
+		
+		
 		

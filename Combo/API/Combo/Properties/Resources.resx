@@ -136,6 +136,70 @@ Combo team.</value>
   <data name="port" xml:space="preserve">
     <value>25</value>
   </data>
+  <data name="registrationBody" xml:space="preserve">
+    <value>&lt;table cellpadding="20" cellspacing="0" align="center" style="background-color:#520975;width:600px;border-collapse:collapse;color:#fff;font-size:16px;" dir="rtl"&gt;
+        &lt;tr&gt;
+            &lt;td&gt;
+                
+                &lt;table cellpadding="0" cellspacing="0" style="width:100%" dir="ltr"&gt;
+                    &lt;tr&gt;
+                        &lt;td colspan="3" style="text-align:right;font-size:20px;font-weight:bold;"&gt;
+                            كومبو تطبيق تواصل إجتماعى
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+
+                    &lt;tr&gt;
+                        &lt;td&gt;&lt;img src="http://combomobile.com/img/logo.png" style="max-width:100px;" /&gt;&lt;/td&gt;
+                        &lt;td&gt;&lt;/td&gt;
+                        &lt;td style="text-align:right;"&gt;
+&lt;img src="http://combomobile.com/img/chat.png" style="max-height:30px;margin-left:20px;"/&gt;&amp;nbsp;&lt;img src="http://combomobile.com/img/msg.png" style="max-height:30px;margin-left:20px;"/&gt;&amp;nbsp;&lt;img src="http://combomobile.com/img/video.png" style="max-height:30px;margin-left:20px;"/&gt;&amp;nbsp;&lt;img src="http://combomobile.com/img/audio.png" style="max-height:30px;margin-left:20px;"/&gt;&amp;nbsp;&lt;img src="http://combomobile.com/img/Cam.png" style="max-height:30px;margin-left:20px;"/&gt;&amp;nbsp;
+
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/table&gt;
+            &lt;/td&gt;            
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td &gt;
+            مرحباً {0}    ،
+                &lt;br /&gt;
+                شكراً على التسجيل فى كومبو.&lt;br /&gt;
+                لايحتاج حسابك للتفعيل . مفعل تلقائياً.&lt;br /&gt;
+                تواصل مع أصدقائك والعالم الخارجى.
+            &lt;/td&gt;
+            
+        &lt;/tr&gt;
+       
+
+        &lt;tr&gt;
+            &lt;td &gt;
+كلمة الأمان الموجودة فى التسجيل هى : &lt;ul&gt;&lt;li&gt;لاسترجاع حسابك &lt;/li&gt;&lt;li&gt;تعديل كلمة السر&lt;/li&gt;&lt;li&gt;تعديل البريد الإلكترونى&lt;/li&gt;&lt;/ul&gt;
+
+                نرجو أن تحافظ عليها وتسجيلها خارج التطبيق ولاتعطى لأى شخص.
+            &lt;/td&gt;
+            
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td style="text-align:center;"&gt;
+                
+                &lt;img src="http://combomobile.com/img/facebook42.png" /&gt; &amp;nbsp;&amp;nbsp;&lt;img src="http://combomobile.com/img/twitter42.png" /&gt;
+                &lt;hr style="color:#fff;width:100%"/&gt;
+                
+                &lt;table style="border:0;" cellpadding="2"&gt;
+                    &lt;tr&gt;
+                        &lt;td&gt;جميع الحقوق محفوظة&lt;/td&gt;
+                        &lt;td&gt;COMBO&lt;/td&gt;
+                        &lt;td&gt;2015 &amp;copy;  &lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/table&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        
+    &lt;/table&gt;</value>
+  </data>
+  <data name="registrationSubject" xml:space="preserve">
+    <value>Welcome to Combo</value>
+  </data>
   <data name="subject" xml:space="preserve">
     <value>combo pass</value>
   </data>

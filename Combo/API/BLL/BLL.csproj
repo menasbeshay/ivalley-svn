@@ -63,6 +63,9 @@
     <Compile Include="Country.cs" />
     <Compile Include="ExternalIDType.cs" />
     <Compile Include="Gender.cs" />
+    <Compile Include="HashTag.cs" />
+    <Compile Include="PostHashTag.cs" />
+    <Compile Include="PostUserTag.cs" />
     <Compile Include="ProfileFollower.cs" />
     <Compile Include="ProfileLiker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -19,5 +19,7 @@ namespace Combo.Models
         public int CommentsCount { get; set; }
         public int ShareCount { get; set; }
         public bool IsDownloadable { get; set; }
+        public object HashTags { get; set; }
+        public object UserTags { get; set; }
     }
 }
