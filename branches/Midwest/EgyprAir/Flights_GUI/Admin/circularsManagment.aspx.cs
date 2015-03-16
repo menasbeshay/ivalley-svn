@@ -49,6 +49,7 @@ namespace Flights_GUI.Admin
                 uiTextBoxTitle.Text = objData.Title;
                 uiRadEditorContnet.Content = Server.HtmlDecode(objData.Content);
                 uiTextBoxCreatedBy.Text = objData.CreatedBy;
+                uiTextBoxBrief.Text = objData.Brief;
                 CurrentAnnouncement = objData;
                 uiPanelEdit.Visible = true;
                 uiPanelViewAll.Visible = false;
@@ -85,8 +86,16 @@ namespace Flights_GUI.Admin
             else
                 objdata = CurrentAnnouncement;
             objdata.Title = uiTextBoxTitle.Text;
+            objdata.Brief = uiTextBoxBrief.Text;
             objdata.CreatedBy = uiTextBoxCreatedBy.Text;
+            if (uiFileUploadImg.HasFile)
+            {
+                string path = "/fileuploads/circulars/" + Guid.NewGuid() + "_" + uiFileUploadImg.FileName;
+                uiFileUploadImg.SaveAs(Server.MapPath("~" + path));
+                objdata.MainPic = path;
+            }
             objdata.Content = Server.HtmlEncode(uiRadEditorContnet.Content);
+            objdata.CreatedDate = DateTime.Now;
             objdata.Save();
             BindData();
             CurrentAnnouncement = null;
@@ -121,7 +130,8 @@ namespace Flights_GUI.Admin
         {
             uiTextBoxTitle.Text = "";
             uiTextBoxCreatedBy.Text = "";
-            uiRadEditorContnet.Content = ""; 
+            uiRadEditorContnet.Content = "";
+            uiTextBoxBrief.Text = "";
         }
 
 

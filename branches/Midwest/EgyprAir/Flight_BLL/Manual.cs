@@ -11,5 +11,12 @@ namespace Flight_BLL
 		{
 		
 		}
+
+        public virtual bool GetManualsByCatID(int CatID)
+        {
+            this.Where.ManualCategoryID.Value = CatID;
+            this.Where.ManualCategoryID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+            return this.Query.Load();
+        }
 	}
 }

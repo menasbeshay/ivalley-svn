@@ -189,9 +189,9 @@ namespace Flights_GUI.Admin {
         /// <remarks>
         /// Auto-generated property.
         /// </remarks>
-        public new Flights_GUI.MasterPages.E_SuperAdmin Master {
+        public new Flights_GUI.MasterPages.IFlights Master {
             get {
-                return ((Flights_GUI.MasterPages.E_SuperAdmin)(base.Master));
+                return ((Flights_GUI.MasterPages.IFlights)(base.Master));
             }
         }
     }

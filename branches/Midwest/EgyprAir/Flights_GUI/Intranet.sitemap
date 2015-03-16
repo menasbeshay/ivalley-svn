@@ -1,7 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
     <siteMapNode url="" title="root"  description=""  roles="*" >
-        <siteMapNode url="~/Intranet/Circulars.aspx" title="Circulars" description="icon-bell-alt" />
+        <siteMapNode url="~/Intranet/Circulars.aspx" title="Circulars" description="icon-bullhorn" />
         <siteMapNode url="~/Intranet/Manuals.aspx" title="Manuals"  description="icon-book" />
+      <siteMapNode url="~/Admin/circularsManagment.aspx" title="Manage Circulars"  description="icon-edit" />
+      <siteMapNode url="~/Admin/ManualCats.aspx" title="Manuals Categories"  description="icon-tags" />
+      <siteMapNode url="~/Admin/ManualManagment.aspx" title="Manage Manuals"  description="icon-file" />
+      <siteMapNode url="~/Admin/UserManagement.aspx" title="Manage Users"  description="icon-group" />
     </siteMapNode>
 </siteMap>

@@ -9,8 +9,15 @@
         <asp:LinkButton ID="uiLinkButtonAdd" runat="server" CssClass="btn btn-primary" OnClick="uiLinkButtonAdd_Click">Add new root category</asp:LinkButton>
         <div class="clearfix">&nbsp;  </div>
     </div>
+           <div class="span4 clearfix pull-left">
+        <asp:LinkButton ID="uiLinkButtonGetRootCats" runat="server" CssClass="btn btn-primary" OnClick="uiLinkButtonGetRootCats_Click">load root categories</asp:LinkButton>
+        <div class="clearfix">&nbsp;  </div>
+    </div>
           <div class="span12 clearfix">
               <div class="span4">
+                  <h4>
+                      All categories
+                  </h4>
                   <telerik:RadTreeView ID="uiRadTreeViewCats" runat="server" OnNodeClick="uiRadTreeViewCats_NodeClick"></telerik:RadTreeView>
               </div>
     <div class="span8">
@@ -48,11 +55,7 @@
              <div class="span2">Title</div>
              <div class="span4">
                  <asp:TextBox ID="uiTextBoxTitle" runat="server"></asp:TextBox></div>
-         </div>
-         <div class="span12 clearfix" style="margin-left:0">
-             <div class="span2">Created By</div>
-             <div class="span4"><asp:TextBox ID="uiTextBoxCreatedBy" runat="server"></asp:TextBox></div>
-         </div>
+         </div>         
           <div class="span12 clearfix" style="margin-left:0">
              <div class="span2">Manual</div>
              <div class="span4">

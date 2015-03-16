@@ -46,6 +46,19 @@
              <div class="span4">
                  <asp:TextBox ID="uiTextBoxTitle" runat="server"></asp:TextBox></div>
          </div>
+         <div class="span12 clearfix">
+             <div class="span2">Brief</div>
+             <div class="span4">
+                 <asp:TextBox ID="uiTextBoxBrief" runat="server" TextMode="MultiLine" Rows="4" Columns="10"></asp:TextBox></div>
+         </div>
+         <div class="span12 clearfix">
+             <div class="span2">Main image</div>
+             <div class="span4">
+
+                 <asp:FileUpload ID="uiFileUploadImg" runat="server" />
+             </div>
+         </div>
+
          <div class="span12 clearfix" style="margin-left:0">
              <div class="span2">Created By</div>
              <div class="span4"><asp:TextBox ID="uiTextBoxCreatedBy" runat="server"></asp:TextBox></div>

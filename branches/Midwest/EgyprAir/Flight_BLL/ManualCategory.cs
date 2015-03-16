@@ -11,5 +11,19 @@ namespace Flight_BLL
 		{
 		
 		}
+
+
+        public virtual bool GetSubCatByCatID(int CatID)
+        {
+            if (CatID != 0)
+            {
+                this.Where.ParentCategoryID.Value = CatID;
+                this.Where.ParentCategoryID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+            }
+            else
+                this.Where.ParentCategoryID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.IsNull;
+
+            return this.Query.Load();
+        }
 	}
 }

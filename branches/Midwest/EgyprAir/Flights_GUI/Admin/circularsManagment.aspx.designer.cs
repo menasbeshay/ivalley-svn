@@ -58,6 +58,24 @@ namespace Flights_GUI.Admin {
         protected global::System.Web.UI.WebControls.TextBox uiTextBoxTitle;
         
         /// <summary>
+        /// uiTextBoxBrief control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxBrief;
+        
+        /// <summary>
+        /// uiFileUploadImg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload uiFileUploadImg;
+        
+        /// <summary>
         /// uiTextBoxCreatedBy control.
         /// </summary>
         /// <remarks>

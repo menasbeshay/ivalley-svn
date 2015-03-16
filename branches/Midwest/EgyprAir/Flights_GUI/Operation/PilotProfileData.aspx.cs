@@ -37,6 +37,19 @@ namespace Flights_GUI.Operation
                 uiPanelALL.Visible = true;
                 uiPanelEdit.Visible = false;
                 Master.PageTitle = "Pilot profile";
+                if (User.IsInRole("Pilot"))
+                {
+                    Pilot p = new Pilot();
+                    if (p.GetPilotByUserName(Page.User.Identity.Name))
+                    {
+                        CurrentPilot = p;
+                        FillPilotData();
+                        uiPanelEdit.Visible = true;
+                        uiPanelALL.Visible = false;
+                    }
+                    else
+                        Response.Redirect("default.aspx");
+                }
             }
         }
 
