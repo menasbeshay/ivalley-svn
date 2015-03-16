@@ -18,7 +18,7 @@ namespace Flights_GUI
                 {
                     Response.Redirect("~/Training/Default.aspx");
                 }
-                else */if (Roles.IsUserInRole(Page.User.Identity.Name, "Operation") || Roles.IsUserInRole(Page.User.Identity.Name, "Dispatch") || Roles.IsUserInRole(Page.User.Identity.Name, "Flight Data Entry") || Roles.IsUserInRole(Page.User.Identity.Name, "Hosting") || Roles.IsUserInRole(Page.User.Identity.Name, "Pilot"))
+                else if (Roles.IsUserInRole(Page.User.Identity.Name, "Operation") || Roles.IsUserInRole(Page.User.Identity.Name, "Dispatch") || Roles.IsUserInRole(Page.User.Identity.Name, "Flight Data Entry") || Roles.IsUserInRole(Page.User.Identity.Name, "Hosting") || Roles.IsUserInRole(Page.User.Identity.Name, "Pilot"))
                 {
                     Response.Redirect("~/Operation/Default.aspx");
                 }
@@ -32,7 +32,8 @@ namespace Flights_GUI
                 {
                     uipanelDefault.Visible = false;
                     uiPanelAdmin.Visible = true;
-                }
+                }*/
+                Response.Redirect("~/Intranet/Circulars.aspx");
             }
             else
             {

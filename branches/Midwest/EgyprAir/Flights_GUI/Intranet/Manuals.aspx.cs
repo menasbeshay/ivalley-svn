@@ -32,6 +32,9 @@ namespace Flights_GUI.Intranet
                 Master.ModuleTitle = "";
                 Master.PageTitle = "Manuals";
                 LoadCats();
+                uiRadTreeViewCats.Nodes[0].Selected = true;
+                currentManualCat = Convert.ToInt32(uiRadTreeViewCats.Nodes[0].Value);
+                BindData();
             }
         }
        

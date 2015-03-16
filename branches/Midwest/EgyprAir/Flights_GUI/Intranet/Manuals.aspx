@@ -12,6 +12,7 @@
                   <telerik:RadTreeView ID="uiRadTreeViewCats" runat="server" OnNodeClick="uiRadTreeViewCats_NodeClick"></telerik:RadTreeView>
             </div>
         <div class="span8">
+            <small>Please, select a category to see its manuals.</small>
         <telerik:RadGrid ID="uiRadGridmanuals" runat="server" AllowPaging="True" 
                         AutoGenerateColumns="False" CellSpacing="0" 
                         HorizontalAlign="Center" Skin="Office2007" Width="90%"                         
