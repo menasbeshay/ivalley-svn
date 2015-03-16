@@ -28,6 +28,7 @@ namespace Combo.Models
         UNFRIEND = 9,
         COMMENT_ON_MESSAGE = 10,
         LIKE_PROFILE = 11,
-        UNLIKE_PROFILE = 12
+        UNLIKE_PROFILE = 12,
+        TAG_USER_IN_POST = 13,
     }
 }

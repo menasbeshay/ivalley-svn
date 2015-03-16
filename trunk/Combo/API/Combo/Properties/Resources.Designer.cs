@@ -110,6 +110,33 @@ namespace Combo.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;table cellpadding=&quot;20&quot; cellspacing=&quot;0&quot; align=&quot;center&quot; style=&quot;background-color:#520975;width:600px;border-collapse:collapse;color:#fff;font-size:16px;&quot; dir=&quot;rtl&quot;&gt;
+        ///        &lt;tr&gt;
+        ///            &lt;td&gt;
+        ///                
+        ///                &lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; style=&quot;width:100%&quot; dir=&quot;ltr&quot;&gt;
+        ///                    &lt;tr&gt;
+        ///                        &lt;td colspan=&quot;3&quot; style=&quot;text-align:right;font-size:20px;font-weight:bold;&quot;&gt;
+        ///                            كومبو تطبيق تواصل إجتماعى
+        ///                        &lt;/td&gt;
+        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string registrationBody {
+            get {
+                return ResourceManager.GetString("registrationBody", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Welcome to Combo.
+        /// </summary>
+        internal static string registrationSubject {
+            get {
+                return ResourceManager.GetString("registrationSubject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to combo pass.
         /// </summary>
         internal static string subject {

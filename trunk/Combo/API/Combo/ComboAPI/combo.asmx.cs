@@ -372,7 +372,37 @@ namespace Combo.ComboAPI
 
             user.ComboUserID = newUser.ComboUserID;
             _response.Entity = new Models.ComboUser[]{ user};
-            
+
+            try
+            {
+                MailMessage msg = new MailMessage();
+                string body = Combo.Properties.Resources.registrationBody;
+                string mail = Combo.Properties.Resources.mail;
+
+                string mailto = user.Email;
+                msg.To.Add(mailto);
+                msg.From = new MailAddress(mail);
+                msg.Subject = Combo.Properties.Resources.registrationSubject;
+                msg.IsBodyHtml = true;
+                msg.BodyEncoding = System.Text.Encoding.UTF8;
+
+                msg.Body = string.Format(body, user.UserName);
+
+                SmtpClient client = new SmtpClient(Combo.Properties.Resources.mailserver, Convert.ToInt32(Combo.Properties.Resources.port));
+
+                client.UseDefaultCredentials = false;
+                //client.EnableSsl = true;
+                client.Credentials = new System.Net.NetworkCredential(mail, Combo.Properties.Resources.mailpass);
+                client.Send(msg);
+            }
+            catch (Exception ex)
+            {
+                //_response.ErrorCode = 9999;
+                //_response.ErrorMsg = "An Error Occured.Please try again.<br />" + ex.Message;
+                //_response.bool_result = false;
+            }
+
+
             SetContentResult(_response);
             return;
         }
@@ -871,6 +901,33 @@ namespace Combo.ComboAPI
                             ThumbsPath = r["ThumbsPath"].ToString()
                         };
                     }).ToList();
+
+                // get user mention 
+                PostUserTag userTags = new PostUserTag();
+                userTags.GetUserTagsByPostID(item.ComboPostID);
+                item.UserTags = userTags.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.PostUserTag
+                    {
+                        ComboPostID = Convert.ToInt32(r["ComboPostID"]),
+                        UserName = r["Username"].ToString(),
+                        ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                        Offset = Convert.ToInt32(r["Offset"])
+                    };
+                }).ToList();
+
+                // get hashtags 
+                PostHashTag hastags = new PostHashTag();
+                hastags.GetHashTagsByPostID(item.ComboPostID);
+                item.HashTags = hastags.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.PostHashTag
+                    {
+                        HashTagID = Convert.ToInt32(r["HashTagID"]),
+                        TagName = r["Name"].ToString(),                        
+                        Offset = Convert.ToInt32(r["Offset"])
+                    };
+                }).ToList();
             }
 
             _response.Entity = Posts;
@@ -1003,6 +1060,34 @@ namespace Combo.ComboAPI
                         ThumbsPath = r["ThumbsPath"].ToString()
                     };
                 }).ToList();
+
+
+                // get user mention 
+                PostUserTag userTags = new PostUserTag();
+                userTags.GetUserTagsByPostID(item.ComboPostID);
+                item.UserTags = userTags.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.PostUserTag
+                    {
+                        ComboPostID = Convert.ToInt32(r["ComboPostID"]),
+                        UserName = r["Username"].ToString(),
+                        ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                        Offset = Convert.ToInt32(r["Offset"])
+                    };
+                }).ToList();
+
+                // get hashtags 
+                PostHashTag hastags = new PostHashTag();
+                hastags.GetHashTagsByPostID(item.ComboPostID);
+                item.HashTags = hastags.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.PostHashTag
+                    {
+                        HashTagID = Convert.ToInt32(r["HashTagID"]),
+                        TagName = r["Name"].ToString(),
+                        Offset = Convert.ToInt32(r["Offset"])
+                    };
+                }).ToList();
             }
 
             _response.Entity = Posts;
@@ -1124,6 +1209,33 @@ namespace Combo.ComboAPI
                         Path = r["Path"].ToString(),
                         AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"]),
                         ThumbsPath = r["ThumbsPath"].ToString()
+                    };
+                }).ToList();
+
+                // get user mention 
+                PostUserTag userTags = new PostUserTag();
+                userTags.GetUserTagsByPostID(item.ComboPostID);
+                item.UserTags = userTags.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.PostUserTag
+                    {
+                        ComboPostID = Convert.ToInt32(r["ComboPostID"]),
+                        UserName = r["Username"].ToString(),
+                        ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                        Offset = Convert.ToInt32(r["Offset"])
+                    };
+                }).ToList();
+
+                // get hashtags 
+                PostHashTag hastags = new PostHashTag();
+                hastags.GetHashTagsByPostID(item.ComboPostID);
+                item.HashTags = hastags.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.PostHashTag
+                    {
+                        HashTagID = Convert.ToInt32(r["HashTagID"]),
+                        TagName = r["Name"].ToString(),
+                        Offset = Convert.ToInt32(r["Offset"])
                     };
                 }).ToList();
             }
@@ -1248,6 +1360,33 @@ namespace Combo.ComboAPI
                         ThumbsPath = r["ThumbsPath"].ToString()
                     };
                 }).ToList();
+
+                // get user mention 
+                PostUserTag userTags = new PostUserTag();
+                userTags.GetUserTagsByPostID(item.ComboPostID);
+                item.UserTags = userTags.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.PostUserTag
+                    {
+                        ComboPostID = Convert.ToInt32(r["ComboPostID"]),
+                        UserName = r["Username"].ToString(),
+                        ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                        Offset = Convert.ToInt32(r["Offset"])
+                    };
+                }).ToList();
+
+                // get hashtags 
+                PostHashTag hastags = new PostHashTag();
+                hastags.GetHashTagsByPostID(item.ComboPostID);
+                item.HashTags = hastags.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.PostHashTag
+                    {
+                        HashTagID = Convert.ToInt32(r["HashTagID"]),
+                        TagName = r["Name"].ToString(),
+                        Offset = Convert.ToInt32(r["Offset"])
+                    };
+                }).ToList();
             }
 
             _response.Entity = Posts;
@@ -1368,6 +1507,33 @@ namespace Combo.ComboAPI
                         Path = r["Path"].ToString(),
                         AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"]),
                         ThumbsPath = r["ThumbsPath"].ToString()
+                    };
+                }).ToList();
+
+                // get user mention 
+                PostUserTag userTags = new PostUserTag();
+                userTags.GetUserTagsByPostID(item.ComboPostID);
+                item.UserTags = userTags.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.PostUserTag
+                    {
+                        ComboPostID = Convert.ToInt32(r["ComboPostID"]),
+                        UserName = r["Username"].ToString(),
+                        ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                        Offset = Convert.ToInt32(r["Offset"])
+                    };
+                }).ToList();
+
+                // get hashtags 
+                PostHashTag hastags = new PostHashTag();
+                hastags.GetHashTagsByPostID(item.ComboPostID);
+                item.HashTags = hastags.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.PostHashTag
+                    {
+                        HashTagID = Convert.ToInt32(r["HashTagID"]),
+                        TagName = r["Name"].ToString(),
+                        Offset = Convert.ToInt32(r["Offset"])
                     };
                 }).ToList();
             }
@@ -1491,6 +1657,33 @@ namespace Combo.ComboAPI
                         ThumbsPath = r["ThumbsPath"].ToString()
                     };
                 }).ToList();
+
+                // get user mention 
+                PostUserTag userTags = new PostUserTag();
+                userTags.GetUserTagsByPostID(item.ComboPostID);
+                item.UserTags = userTags.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.PostUserTag
+                    {
+                        ComboPostID = Convert.ToInt32(r["ComboPostID"]),
+                        UserName = r["Username"].ToString(),
+                        ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                        Offset = Convert.ToInt32(r["Offset"])
+                    };
+                }).ToList();
+
+                // get hashtags 
+                PostHashTag hastags = new PostHashTag();
+                hastags.GetHashTagsByPostID(item.ComboPostID);
+                item.HashTags = hastags.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.PostHashTag
+                    {
+                        HashTagID = Convert.ToInt32(r["HashTagID"]),
+                        TagName = r["Name"].ToString(),
+                        Offset = Convert.ToInt32(r["Offset"])
+                    };
+                }).ToList();
             }
 
             _response.Entity = Posts;
@@ -1610,6 +1803,33 @@ namespace Combo.ComboAPI
                         Path = r["Path"].ToString(),
                         AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"]),
                         ThumbsPath = r["ThumbsPath"].ToString()
+                    };
+                }).ToList();
+
+                // get user mention 
+                PostUserTag userTags = new PostUserTag();
+                userTags.GetUserTagsByPostID(item.ComboPostID);
+                item.UserTags = userTags.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.PostUserTag
+                    {
+                        ComboPostID = Convert.ToInt32(r["ComboPostID"]),
+                        UserName = r["Username"].ToString(),
+                        ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                        Offset = Convert.ToInt32(r["Offset"])
+                    };
+                }).ToList();
+
+                // get hashtags 
+                PostHashTag hastags = new PostHashTag();
+                hastags.GetHashTagsByPostID(item.ComboPostID);
+                item.HashTags = hastags.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.PostHashTag
+                    {
+                        HashTagID = Convert.ToInt32(r["HashTagID"]),
+                        TagName = r["Name"].ToString(),
+                        Offset = Convert.ToInt32(r["Offset"])
                     };
                 }).ToList();
             }
@@ -1733,6 +1953,33 @@ namespace Combo.ComboAPI
                         ThumbsPath = r["ThumbsPath"].ToString()
                     };
                 }).ToList();
+
+                // get user mention 
+                PostUserTag userTags = new PostUserTag();
+                userTags.GetUserTagsByPostID(item.ComboPostID);
+                item.UserTags = userTags.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.PostUserTag
+                    {
+                        ComboPostID = Convert.ToInt32(r["ComboPostID"]),
+                        UserName = r["Username"].ToString(),
+                        ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                        Offset = Convert.ToInt32(r["Offset"])
+                    };
+                }).ToList();
+
+                // get hashtags 
+                PostHashTag hastags = new PostHashTag();
+                hastags.GetHashTagsByPostID(item.ComboPostID);
+                item.HashTags = hastags.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.PostHashTag
+                    {
+                        HashTagID = Convert.ToInt32(r["HashTagID"]),
+                        TagName = r["Name"].ToString(),
+                        Offset = Convert.ToInt32(r["Offset"])
+                    };
+                }).ToList();
             }
 
             _response.Entity = Posts;
@@ -1854,6 +2101,33 @@ namespace Combo.ComboAPI
                         ThumbsPath = r["ThumbsPath"].ToString()
                     };
                 }).ToList();
+
+                // get user mention 
+                PostUserTag userTags = new PostUserTag();
+                userTags.GetUserTagsByPostID(item.ComboPostID);
+                item.UserTags = userTags.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.PostUserTag
+                    {
+                        ComboPostID = Convert.ToInt32(r["ComboPostID"]),
+                        UserName = r["Username"].ToString(),
+                        ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                        Offset = Convert.ToInt32(r["Offset"])
+                    };
+                }).ToList();
+
+                // get hashtags 
+                PostHashTag hastags = new PostHashTag();
+                hastags.GetHashTagsByPostID(item.ComboPostID);
+                item.HashTags = hastags.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.PostHashTag
+                    {
+                        HashTagID = Convert.ToInt32(r["HashTagID"]),
+                        TagName = r["Name"].ToString(),
+                        Offset = Convert.ToInt32(r["Offset"])
+                    };
+                }).ToList();
             }
 
             _response.Entity = Posts;
@@ -1886,6 +2160,12 @@ namespace Combo.ComboAPI
             attachments.GetPostAttachmentsByPostID(post.ComboPostID);
             comments.GetPostCommentsByPostID(post.ComboPostID);
 
+            PostUserTag userTags = new PostUserTag();
+            userTags.GetUserTagsByPostID(post.ComboPostID);
+
+            PostHashTag hastags = new PostHashTag();
+            hastags.GetHashTagsByPostID(post.ComboPostID);
+
             ComboComment totalCount = new ComboComment();
             totalCount.GetPostCommentsCount(post.ComboPostID);
 
@@ -1907,7 +2187,7 @@ namespace Combo.ComboAPI
                     IsDownloadable = (row["IsPostsDownloadable"] == DBNull.Value) ? false : Convert.ToBoolean(row["IsPostsDownloadable"]),
                     CommentsCount = Convert.ToInt32(totalCount.GetColumn("TotalCount")),
                     ShareCount = Convert.ToInt32(shareCount.GetColumn("TotalCount")),
-                    Likes =  likes.DefaultView.Table.AsEnumerable().Select(r =>
+                    Likes = likes.DefaultView.Table.AsEnumerable().Select(r =>
                     {
                         return new Models.ComboPostLike
                         {
@@ -1927,7 +2207,7 @@ namespace Combo.ComboAPI
                             ComboUserName = r["UserName"].ToString(),
                             ProfilePic = r["ProfilePic"].ToString(),
                             CommentText = r["CommentText"].ToString(),
-                            CommentDate = Convert.ToDateTime(r["CommentDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,                            
+                            CommentDate = Convert.ToDateTime(r["CommentDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
                         };
                     }).Skip(CommentPage * CommentsPageSize).Take(CommentsPageSize).ToList(),
                     Attachments = attachments.DefaultView.Table.AsEnumerable().Select(r =>
@@ -1939,7 +2219,33 @@ namespace Combo.ComboAPI
                             AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"]),
                             ThumbsPath = r["ThumbsPath"].ToString()
                         };
+                    }).ToList(),
+
+                    // get user mention 
+
+                    UserTags = userTags.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.PostUserTag
+                        {
+                            ComboPostID = Convert.ToInt32(r["ComboPostID"]),
+                            UserName = r["Username"].ToString(),
+                            ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                            Offset = Convert.ToInt32(r["Offset"])
+                        };
+                    }).ToList(),
+
+                    // get hashtags 
+
+                    HashTags = hastags.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.PostHashTag
+                        {
+                            HashTagID = Convert.ToInt32(r["HashTagID"]),
+                            TagName = r["Name"].ToString(),
+                            Offset = Convert.ToInt32(r["Offset"])
+                        };
                     }).ToList()
+
                 };
             }).ToList();
 
@@ -1977,7 +2283,317 @@ namespace Combo.ComboAPI
             _response.Entity = Post;
             SetContentResult(_response);
 
-        }       
+        }
+
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        /// <summary>
+        /// Get All Posts by Userid
+        /// </summary>
+        /// <param name="ID">ID of Combo User</param>
+        /// <returns>ComboResponse object with List of all posts for User</returns>
+        public void GetPostsByHashTagName(string TagName,int Page)
+        {
+            Models.ComboResponse _response = new Models.ComboResponse();
+            _response.bool_result = true;
+            _response.ErrorCode = 0;
+            _response.ErrorMsg = "";
+
+            HashTag tag = new HashTag();
+            tag.GetHashTagByName(TagName);
+            if (tag.RowCount > 0)
+            {
+                ComboPost posts = new ComboPost();
+                posts.GetPostsByHashTagID(tag.HashTagID);
+                List<Models.ComboPost> Posts = posts.DefaultView.Table.AsEnumerable().Select(row =>
+                {
+                    return new Models.ComboPost
+                    {
+                        ComboPostID = Convert.ToInt32(row["ComboPostID"]),
+                        ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                        ComboUserName = row["UserName"].ToString(),
+                        ProfilePic = row["ProfilePic"].ToString(),
+                        PostText = row["PostText"].ToString(),
+                        PostDate = Convert.ToDateTime(row["PostDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                        IsDownloadable = (row["IsPostsDownloadable"] == DBNull.Value) ? false : Convert.ToBoolean(row["IsPostsDownloadable"])
+                    };
+                }).Skip(Page * PostsPageSize).Take(PostsPageSize).ToList();
+
+
+                foreach (Models.ComboPost item in Posts)
+                {
+                    ComboPostLike likes = new ComboPostLike();
+                    likes.GetPostLikesByPostID(item.ComboPostID);
+                    item.Likes = likes.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.ComboPostLike
+                        {
+                            ComboPostID = Convert.ToInt32(r["ComboPostID"]),
+                            ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                            UserName = r["UserName"].ToString(),
+                        };
+                    }).ToList();
+
+                    ComboComment totalCount = new ComboComment();
+                    totalCount.GetPostCommentsCount(item.ComboPostID);
+
+                    item.CommentsCount = Convert.ToInt32(totalCount.GetColumn("TotalCount"));
+
+                    ComboPostShare shareCount = new ComboPostShare();
+                    shareCount.GetPostShareCount(item.ComboPostID);
+
+                    item.ShareCount = Convert.ToInt32(shareCount.GetColumn("TotalCount"));
+
+                    ComboComment comments = new ComboComment();
+                    comments.GetTopPostCommentsByPostID(item.ComboPostID);
+                    // get top 3 comments for each post
+                    item.Comments = comments.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.ComboComment
+                        {
+                            ComboCommentID = Convert.ToInt32(r["ComboCommentID"]),
+                            ComboPostID = Convert.ToInt32(r["ComboPostID"]),
+                            ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                            ComboUserName = r["UserName"].ToString(),
+                            ProfilePic = r["ProfilePic"].ToString(),
+                            CommentText = r["CommentText"].ToString(),
+                            CommentDate = Convert.ToDateTime(r["CommentDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                        };
+                    }).ToList();
+
+                    List<Models.ComboComment> _comm = item.Comments as List<Models.ComboComment>;
+                    foreach (Models.ComboComment _itemcomm in _comm)
+                    {
+                        ComboCommentLike c_likes = new ComboCommentLike();
+                        ComboCommentAttachment c_attachments = new ComboCommentAttachment();
+                        c_likes.GetCommentLikesByCommentID(_itemcomm.ComboCommentID);
+                        c_attachments.GetCommentAttachmentsByCommentID(_itemcomm.ComboCommentID);
+                        _itemcomm.Likes = c_likes.DefaultView.Table.AsEnumerable().Select(r =>
+                        {
+                            return new Models.ComboCommentLike
+                            {
+                                ComboCommentID = Convert.ToInt32(r["ComboCommentID"]),
+                                ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                                UserName = r["UserName"].ToString(),
+                            };
+                        }).ToList();
+                        _itemcomm.Attachments = c_attachments.DefaultView.Table.AsEnumerable().Select(r =>
+                        {
+                            return new Models.Attachment
+                            {
+                                AttachmentID = Convert.ToInt32(r["AttachmentID"]),
+                                Path = r["Path"].ToString(),
+                                AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"]),
+                                ThumbsPath = r["ThumbsPath"].ToString()
+                            };
+                        }).ToList();
+                    }
+
+                    item.Comments = _comm;
+
+                    ComboPostAttachment attachments = new ComboPostAttachment();
+                    attachments.GetPostAttachmentsByPostID(item.ComboPostID);
+                    item.Attachments = attachments.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.Attachment
+                        {
+                            AttachmentID = Convert.ToInt32(r["AttachmentID"]),
+                            Path = r["Path"].ToString(),
+                            AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"]),
+                            ThumbsPath = r["ThumbsPath"].ToString()
+                        };
+                    }).ToList();
+
+                    // get user mention 
+                    PostUserTag userTags = new PostUserTag();
+                    userTags.GetUserTagsByPostID(item.ComboPostID);
+                    item.UserTags = userTags.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.PostUserTag
+                        {
+                            ComboPostID = Convert.ToInt32(r["ComboPostID"]),
+                            UserName = r["Username"].ToString(),
+                            ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                            Offset = Convert.ToInt32(r["Offset"])
+                        };
+                    }).ToList();
+
+                    // get hashtags 
+                    PostHashTag hastags = new PostHashTag();
+                    hastags.GetHashTagsByPostID(item.ComboPostID);
+                    item.HashTags = hastags.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.PostHashTag
+                        {
+                            HashTagID = Convert.ToInt32(r["HashTagID"]),
+                            TagName = r["Name"].ToString(),
+                            Offset = Convert.ToInt32(r["Offset"])
+                        };
+                    }).ToList();
+                }
+
+                _response.Entity = Posts;
+            }
+            else
+                _response.Entity = null;
+            SetContentResult(_response);
+            //return _response;
+
+        }
+
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        /// <summary>
+        /// Get All Posts by Userid
+        /// </summary>
+        /// <param name="ID">ID of Combo User</param>
+        /// <returns>ComboResponse object with List of all posts for User</returns>
+        public void GetPostsByHashTagID(int TagID, int Page)
+        {
+            Models.ComboResponse _response = new Models.ComboResponse();
+            _response.bool_result = true;
+            _response.ErrorCode = 0;
+            _response.ErrorMsg = "";
+
+            
+            ComboPost posts = new ComboPost();
+            posts.GetPostsByHashTagID(TagID);
+            List<Models.ComboPost> Posts = posts.DefaultView.Table.AsEnumerable().Select(row =>
+            {
+                return new Models.ComboPost
+                {
+                    ComboPostID = Convert.ToInt32(row["ComboPostID"]),
+                    ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                    ComboUserName = row["UserName"].ToString(),
+                    ProfilePic = row["ProfilePic"].ToString(),
+                    PostText = row["PostText"].ToString(),
+                    PostDate = Convert.ToDateTime(row["PostDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                    IsDownloadable = (row["IsPostsDownloadable"] == DBNull.Value) ? false : Convert.ToBoolean(row["IsPostsDownloadable"])
+                };
+            }).Skip(Page * PostsPageSize).Take(PostsPageSize).ToList();
+
+
+            foreach (Models.ComboPost item in Posts)
+            {
+                ComboPostLike likes = new ComboPostLike();
+                likes.GetPostLikesByPostID(item.ComboPostID);
+                item.Likes = likes.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.ComboPostLike
+                    {
+                        ComboPostID = Convert.ToInt32(r["ComboPostID"]),
+                        ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                        UserName = r["UserName"].ToString(),
+                    };
+                }).ToList();
+
+                ComboComment totalCount = new ComboComment();
+                totalCount.GetPostCommentsCount(item.ComboPostID);
+
+                item.CommentsCount = Convert.ToInt32(totalCount.GetColumn("TotalCount"));
+
+                ComboPostShare shareCount = new ComboPostShare();
+                shareCount.GetPostShareCount(item.ComboPostID);
+
+                item.ShareCount = Convert.ToInt32(shareCount.GetColumn("TotalCount"));
+
+                ComboComment comments = new ComboComment();
+                comments.GetTopPostCommentsByPostID(item.ComboPostID);
+                // get top 3 comments for each post
+                item.Comments = comments.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.ComboComment
+                    {
+                        ComboCommentID = Convert.ToInt32(r["ComboCommentID"]),
+                        ComboPostID = Convert.ToInt32(r["ComboPostID"]),
+                        ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                        ComboUserName = r["UserName"].ToString(),
+                        ProfilePic = r["ProfilePic"].ToString(),
+                        CommentText = r["CommentText"].ToString(),
+                        CommentDate = Convert.ToDateTime(r["CommentDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                    };
+                }).ToList();
+
+                List<Models.ComboComment> _comm = item.Comments as List<Models.ComboComment>;
+                foreach (Models.ComboComment _itemcomm in _comm)
+                {
+                    ComboCommentLike c_likes = new ComboCommentLike();
+                    ComboCommentAttachment c_attachments = new ComboCommentAttachment();
+                    c_likes.GetCommentLikesByCommentID(_itemcomm.ComboCommentID);
+                    c_attachments.GetCommentAttachmentsByCommentID(_itemcomm.ComboCommentID);
+                    _itemcomm.Likes = c_likes.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.ComboCommentLike
+                        {
+                            ComboCommentID = Convert.ToInt32(r["ComboCommentID"]),
+                            ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                            UserName = r["UserName"].ToString(),
+                        };
+                    }).ToList();
+                    _itemcomm.Attachments = c_attachments.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.Attachment
+                        {
+                            AttachmentID = Convert.ToInt32(r["AttachmentID"]),
+                            Path = r["Path"].ToString(),
+                            AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"]),
+                            ThumbsPath = r["ThumbsPath"].ToString()
+                        };
+                    }).ToList();
+                }
+
+                item.Comments = _comm;
+
+                ComboPostAttachment attachments = new ComboPostAttachment();
+                attachments.GetPostAttachmentsByPostID(item.ComboPostID);
+                item.Attachments = attachments.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.Attachment
+                    {
+                        AttachmentID = Convert.ToInt32(r["AttachmentID"]),
+                        Path = r["Path"].ToString(),
+                        AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"]),
+                        ThumbsPath = r["ThumbsPath"].ToString()
+                    };
+                }).ToList();
+
+                // get user mention 
+                PostUserTag userTags = new PostUserTag();
+                userTags.GetUserTagsByPostID(item.ComboPostID);
+                item.UserTags = userTags.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.PostUserTag
+                    {
+                        ComboPostID = Convert.ToInt32(r["ComboPostID"]),
+                        UserName = r["Username"].ToString(),
+                        ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                        Offset = Convert.ToInt32(r["Offset"])
+                    };
+                }).ToList();
+
+                // get hashtags 
+                PostHashTag hastags = new PostHashTag();
+                hastags.GetHashTagsByPostID(item.ComboPostID);
+                item.HashTags = hastags.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.PostHashTag
+                    {
+                        HashTagID = Convert.ToInt32(r["HashTagID"]),
+                        TagName = r["Name"].ToString(),
+                        Offset = Convert.ToInt32(r["Offset"])
+                    };
+                }).ToList();
+            }
+
+            _response.Entity = Posts;           
+            SetContentResult(_response);
+            //return _response;
+
+        }
+
+
 
         [WebMethod]
         /// <summary>
@@ -2025,6 +2641,89 @@ namespace Combo.ComboAPI
                 }
                 attachment.Save();
             }
+
+            Models.PostUserTag[] userTags = js.Deserialize<Models.PostUserTag[]>(js.Serialize(post.UserTags));
+            if (userTags != null)
+            {
+                PostUserTag usertag = new PostUserTag();
+                foreach (Models.PostUserTag item in userTags)
+                {
+                    usertag.AddNew();
+                    usertag.ComboUserID = item.ComboUserID;
+                    usertag.ComboPostID = newPost.ComboPostID;
+                    usertag.Offset = item.Offset;
+
+
+                    /**************************/
+                    // save notification and push it to device                     
+                    ComboUser creator = new ComboUser();
+                    ComboUser tagged = new ComboUser();
+                    creator.GetUserByUserId(newPost.ComboUserID);
+                    tagged.GetUserByUserId(item.ComboUserID);                    
+                    List<Models.PostUserTag> postTag = new List<Models.PostUserTag>();
+                    postTag.Add(new Models.PostUserTag
+                    {
+                        ComboPostID = newPost.ComboPostID,
+                        ComboUserID = tagged.ComboUserID,
+                        UserName = tagged.UserName,
+                        Offset = item.Offset
+                    });
+                    
+                    ComboNotification notification = new ComboNotification();
+                    notification.AddNew();
+                    notification.ComboUserID = post.ComboUserID;
+                    notification.NotificationType = (int)Combo.Models.NotificationType.TAG_USER_IN_POST; // tag user to post 
+                    notification.NotificationDate = DateTime.UtcNow;
+                    notification.NotificationBody = Newtonsoft.Json.JsonConvert.SerializeObject(postTag);
+                    notification.IsRead = false;
+                    notification.Save();
+
+                    List<Models.ComboNotification> notificationJson = notification.DefaultView.Table.AsEnumerable().Select(row =>
+                    {
+                        return new Models.ComboNotification
+                        {
+                            ComboNotificationID = Convert.ToInt32(row["ComboNotificationID"]),
+                            ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                            IsRead = Convert.ToBoolean(row["IsRead"]),
+                            NotificationBody = row["NotificationBody"].ToString(),
+                            NotificationDate = Convert.ToDateTime(row["NotificationDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                            NotificationType = Convert.ToInt32(row["NotificationType"])
+                        };
+                    }).ToList();
+
+                    SendGCMNotification(Newtonsoft.Json.JsonConvert.SerializeObject(notificationJson), tagged.DeviceID);
+                    
+                    /**************************/
+
+                }
+                usertag.Save();
+            }
+
+
+            Models.PostHashTag[] hashTags = js.Deserialize<Models.PostHashTag[]>(js.Serialize(post.HashTags));
+            if (hashTags != null)
+            {
+                PostHashTag posthashtag = new PostHashTag();
+                
+                foreach (Models.PostHashTag item in hashTags)
+                {
+                    HashTag currenttag = new HashTag();
+                    
+                    if (!currenttag.GetHashTagByName(item.TagName))
+                    {
+                        currenttag.AddNew();
+                        currenttag.Name = item.TagName;
+                        currenttag.Save();                        
+                    }
+                    
+                    posthashtag.AddNew();
+                    posthashtag.HashTagID = currenttag.HashTagID;
+                    posthashtag.ComboPostID = newPost.ComboPostID;
+                    posthashtag.Offset = item.Offset;
+                }
+                posthashtag.Save(); 
+            }
+
             post.ComboPostID = newPost.ComboPostID;
             post.PostDate = newPost.PostDate.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
             _response.Entity = new Models.ComboPost[] { post };
@@ -4262,5 +4961,39 @@ namespace Combo.ComboAPI
 
         }
         #endregion
+
+        #region HashTags
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        /// <summary>
+        /// Search hash tags 
+        /// </summary>
+        /// <returns>ComboResponse object with List of all hashtags matched</returns>
+        public void SearchHashTagByName(string hashTag)
+        {
+            Models.ComboResponse _response = new Models.ComboResponse();
+            _response.bool_result = true;
+            _response.ErrorCode = 0;
+            _response.ErrorMsg = "";
+
+            HashTag tags = new HashTag();
+            tags.GetHashTagByName(hashTag);
+            List<Models.HashTag> Tags = tags.DefaultView.Table.AsEnumerable().Select(row =>
+            {
+                return new Models.HashTag
+                {
+                    HashTagID = Convert.ToInt32(row["HashTagID"]),
+                    TagName = row["Name"].ToString()
+                };
+            }).ToList();
+
+
+            _response.Entity = Tags;
+            SetContentResult(_response);
+            //return _response;
+
+        }
+        #endregion
+
     }
 }
