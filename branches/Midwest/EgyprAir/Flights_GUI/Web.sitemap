@@ -11,6 +11,7 @@
     <siteMapNode url="~/Operation/FlightList.aspx" title="Flight List" description="icon-list" /> 
     <siteMapNode url="~/Operation/PilotProfileData.aspx" title="Pilot Profile Data" description="icon-user" /> 
     <siteMapNode url="~/operation/Airports.aspx" title="Airports List" description="icon-globe"  />
+    <siteMapNode url="~/operation/ManageTransactions.aspx" title="Transactions List" description="icon-list"  />
     <siteMapNode url="~/operation/Reports.aspx" title="Reports" description="icon-bar-chart" />
     <siteMapNode url="~/operation/Pilotschedule.aspx" title="Pilot Status" description="icon-calendar" />
     <siteMapNode url="~/operation/SendNotifications.aspx" title="Send notifications" description="icon-bullhorn" />

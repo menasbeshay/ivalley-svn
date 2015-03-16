@@ -85,6 +85,7 @@
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Admin\circularsManagment.aspx" />
+    <Content Include="Admin\ManualCats.aspx" />
     <Content Include="Admin\ManualManagment.aspx" />
     <Content Include="Admin\UserManagement.aspx" />
     <Content Include="assets\bootstrap-colorpicker\css\colorpicker.css" />
@@ -894,6 +895,7 @@
     <Content Include="Operation\FlightList.aspx" />
     <Content Include="Operation\FlightReport.aspx" />
     <Content Include="Operation\InitiateSector.aspx" />
+    <Content Include="Operation\ManageTransactions.aspx" />
     <Content Include="Operation\PAX.aspx" />
     <Content Include="Operation\PilotFlights.aspx" />
     <Content Include="Operation\PilotProfileData.aspx" />
@@ -1187,6 +1189,13 @@
     <Compile Include="Admin\circularsManagment.aspx.designer.cs">
       <DependentUpon>circularsManagment.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\ManualCats.aspx.cs">
+      <DependentUpon>ManualCats.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ManualCats.aspx.designer.cs">
+      <DependentUpon>ManualCats.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\ManualManagment.aspx.cs">
       <DependentUpon>ManualManagment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1458,6 +1467,13 @@
     </Compile>
     <Compile Include="Operation\InitiateSector.aspx.designer.cs">
       <DependentUpon>InitiateSector.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Operation\ManageTransactions.aspx.cs">
+      <DependentUpon>ManageTransactions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Operation\ManageTransactions.aspx.designer.cs">
+      <DependentUpon>ManageTransactions.aspx</DependentUpon>
     </Compile>
     <Compile Include="Operation\PAX.aspx.cs">
       <DependentUpon>PAX.aspx</DependentUpon>

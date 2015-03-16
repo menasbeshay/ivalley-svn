@@ -103,6 +103,15 @@ namespace Flights_GUI.MasterPages {
         protected global::System.Web.UI.WebControls.Label uiLabelModuleName;
         
         /// <summary>
+        /// uiLabelModuleName2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label uiLabelModuleName2;
+        
+        /// <summary>
         /// uiLabelTitle control.
         /// </summary>
         /// <remarks>

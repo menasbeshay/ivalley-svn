@@ -132,7 +132,25 @@ Create Table Manual
 	Title Nvarchar(500),
 	Path nvarchar(1000),
 	CreatedBy nvarchar(200),
-	createdDate Datetime
+	createdDate Datetime,
+	ManualCategoryID int foreign key references ManualCategory(ManualCategoryID)
+)
+Go  
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'ManualCategory' and
+		        xtype = 'U')
+Drop Table ManualCategory
+Go
+Create Table ManualCategory
+(
+	ManualCategoryID int not null
+			identity(1,1)
+			Primary Key,	
+	Title Nvarchar(500),
+	ParentCategoryID int foreign key references ManualCategory(ManualCategoryID)
 )
 Go  
 

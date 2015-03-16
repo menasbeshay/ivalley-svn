@@ -952,7 +952,7 @@ namespace Flights_GUI.Operation
 
                 if (uiDropDownListNightCity.SelectedIndex != 0)
                 {
-                    //objData.PilotCityID = Convert.ToInt32(uiDropDownListNightCity.SelectedValue);
+                    objData.PilotCityID = Convert.ToInt32(uiDropDownListNightCity.SelectedValue);
 
                 }
 
@@ -1106,6 +1106,7 @@ namespace Flights_GUI.Operation
                 objData.FlightNo = uiTextBoxSectorFlightNo.Text;
                 objData.IsHeavy = uiCheckBoxIsHeavy.Checked;
                 objData.AirCraft_AirPlaneID = Convert.ToInt32(uiDropDownListAirCraftRegistration.SelectedValue);
+                
                 if (uiDropDownListNightCity.SelectedIndex != 0)
                     objData.PilotCityID = Convert.ToInt32(uiDropDownListNightCity.SelectedValue);
 
