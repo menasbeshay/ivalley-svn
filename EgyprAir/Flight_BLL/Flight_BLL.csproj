@@ -65,6 +65,7 @@
     <Compile Include="IOSA\IOSA_Version.cs" />
     <Compile Include="LogType.cs" />
     <Compile Include="Manual.cs" />
+    <Compile Include="ManualCategory.cs" />
     <Compile Include="Pilot.cs" />
     <Compile Include="PilotAirCraft.cs" />
     <Compile Include="PilotCourse.cs" />

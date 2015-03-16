@@ -88,10 +88,10 @@
                         <asp:TextBox ID="uiTextBoxName" runat="server" Width="200px" CssClass="digits" 
                         ValidationGroup="CrewProfile"></asp:TextBox>
                         &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
-                        ErrorMessage="Required" ControlToValidate="uiTextBoxName" Display="None" 
+                        ErrorMessage="Required" ControlToValidate="uiTextBoxName" Display="None"  Enabled="false"
                         Font-Bold="True" ForeColor="Red" ValidationGroup="CrewProfile"></asp:RequiredFieldValidator>
                     <cc1:ValidatorCalloutExtender ID="RegularExpressionValidator1_ValidatorCalloutExtender"
-                        runat="server" Enabled="True" TargetControlID="RequiredFieldValidator1">
+                        runat="server" Enabled="false" TargetControlID="RequiredFieldValidator1">
                                             </cc1:ValidatorCalloutExtender>
                         </div>
                     <div class="span2">
@@ -105,9 +105,9 @@
 
 
                         &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Required"
-                        ControlToValidate="uiTextBoxStaffNo" Display="None" Font-Bold="True" ForeColor="Red"
+                        ControlToValidate="uiTextBoxStaffNo" Display="None" Font-Bold="True" ForeColor="Red" Enabled="false"
                         ValidationGroup="CrewProfile"></asp:RequiredFieldValidator>
-                    <cc1:ValidatorCalloutExtender ID="ValidatorCalloutExtender1" runat="server" Enabled="True"
+                    <cc1:ValidatorCalloutExtender ID="ValidatorCalloutExtender1" runat="server" Enabled="false"
                         TargetControlID="RequiredFieldValidator2">
                     </cc1:ValidatorCalloutExtender>
 
@@ -139,9 +139,9 @@
                          <asp:TextBox ID="uiTextBoxEmail" runat="server" Width="200px" 
                         CssClass="digits" ValidationGroup="CrewProfile"></asp:TextBox>
                         &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="Required"
-                        ControlToValidate="uiTextBoxEmail" Display="None" Font-Bold="True" ForeColor="Red"
+                        ControlToValidate="uiTextBoxEmail" Display="None" Font-Bold="True" ForeColor="Red" Enabled="false"
                         ValidationGroup="CrewProfile"></asp:RequiredFieldValidator>
-                    <cc1:ValidatorCalloutExtender ID="ValidatorCalloutExtender6" runat="server" Enabled="True"
+                    <cc1:ValidatorCalloutExtender ID="ValidatorCalloutExtender6" runat="server" Enabled="false"
                         TargetControlID="RequiredFieldValidator3">
                     </cc1:ValidatorCalloutExtender>
                     </div>
@@ -161,9 +161,9 @@
                         <asp:TextBox ID="uiTextBoxUserName" runat="server" Width="200px" 
                         CssClass="digits" ValidationGroup="CrewProfile"></asp:TextBox>                
                     &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Required"
-                        ControlToValidate="uiTextBoxUserName" Display="None" Font-Bold="True" ForeColor="Red"
+                        ControlToValidate="uiTextBoxUserName" Display="None" Font-Bold="True" ForeColor="Red" Enabled="false"
                         ValidationGroup="CrewProfile"></asp:RequiredFieldValidator>
-                    <cc1:ValidatorCalloutExtender ID="ValidatorCalloutExtender3" runat="server" Enabled="True"
+                    <cc1:ValidatorCalloutExtender ID="ValidatorCalloutExtender3" runat="server" Enabled="false"
                         TargetControlID="RequiredFieldValidator4">
                     </cc1:ValidatorCalloutExtender>
                         </div>
@@ -176,9 +176,9 @@
                      <asp:TextBox ID="uiTextBoxPassword" runat="server" Width="200px" 
                         CssClass="digits" ValidationGroup="CrewProfile" ></asp:TextBox>
                         &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Required"
-                        ControlToValidate="uiTextBoxPassword" Display="None" Font-Bold="True" ForeColor="Red"
+                        ControlToValidate="uiTextBoxPassword" Display="None" Font-Bold="True" ForeColor="Red" Enabled="false"
                         ValidationGroup="CrewProfile"></asp:RequiredFieldValidator>
-                    <cc1:ValidatorCalloutExtender ID="ValidatorCalloutExtender4" runat="server" Enabled="True"
+                    <cc1:ValidatorCalloutExtender ID="ValidatorCalloutExtender4" runat="server" Enabled="false"
                         TargetControlID="RequiredFieldValidator5">
                     </cc1:ValidatorCalloutExtender>
                 
@@ -211,9 +211,9 @@
                          <asp:TextBox ID="uiTextBoxLicenseNo" runat="server" Width="200px" 
                         CssClass="digits" ValidationGroup="CrewProfile"></asp:TextBox>
                         &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Required"
-                        ControlToValidate="uiTextBoxLicenseNo" Display="None" Font-Bold="True" ForeColor="Red"
+                        ControlToValidate="uiTextBoxLicenseNo" Display="None" Font-Bold="True" ForeColor="Red" Enabled="false"
                         ValidationGroup="CrewProfile"></asp:RequiredFieldValidator>
-                    <cc1:ValidatorCalloutExtender ID="ValidatorCalloutExtender2" runat="server" Enabled="True"
+                    <cc1:ValidatorCalloutExtender ID="ValidatorCalloutExtender2" runat="server" Enabled="false"
                         TargetControlID="RequiredFieldValidator3">
                     </cc1:ValidatorCalloutExtender>
                     </div>

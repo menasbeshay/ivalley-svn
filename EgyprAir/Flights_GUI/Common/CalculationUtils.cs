@@ -281,7 +281,7 @@ namespace Flights_GUI.Common
                                 }
                                 catch (Exception ex)
                                 {
-                                    CurrentDate.AddDays(1);
+                                    CurrentDate = CurrentDate.AddDays(1);
                                     continue;
                                     
                                 }

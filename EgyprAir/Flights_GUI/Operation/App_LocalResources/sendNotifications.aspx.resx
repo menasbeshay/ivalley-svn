@@ -131,7 +131,7 @@
     <value>mena@ivalley</value>
   </data>
   <data name="server" xml:space="preserve">
-    <value>smtp.gmail.com</value>
+    <value>smtp.gmai.com</value>
   </data>
   <data name="subject" xml:space="preserve">
     <value>FlyEgypt - flight schedule has been updated</value>

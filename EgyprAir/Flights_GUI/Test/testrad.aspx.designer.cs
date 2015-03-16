@@ -47,5 +47,23 @@ namespace Flights_GUI.Test {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadGrid uiRadGrid;
+        
+        /// <summary>
+        /// RadDateTimePicker1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadDateTimePicker RadDateTimePicker1;
+        
+        /// <summary>
+        /// RadTimeView1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadTimeView RadTimeView1;
     }
 }

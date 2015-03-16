@@ -223,6 +223,7 @@ Select S.FlightNo, S.SectorDate, S.STD, S.STA,FromA.IATACode FromA, ToA.IATACode
       inner join Pilot P2 on RP2.PilotID = P2.PilotID   
       Inner Join Position po on RP2.PositionID = po.PositionID
       where SS2.SectorID = S.SectorID   
+      order by po.PositionID
    for XML path('')),1,3,'') Pilots ,
     Stuff(( Select '   <br />' + po.Title + ' - ' + CC.ShortName 
       From Sector S2   
@@ -230,6 +231,7 @@ Select S.FlightNo, S.SectorDate, S.STD, S.STA,FromA.IATACode FromA, ToA.IATACode
       inner join Crew CC on CC.CrewID = C.CrewID   
       Inner Join Position po on c.PositionID = po.PositionID
       where S2.SectorID = S.SectorID   
+      order by po.PositionID
    for XML path('')),1,3,'') Crew
 from Sector S
 Inner Join AirPort FromA on FromA.AirPortID = S.From_AirportID
@@ -272,26 +274,12 @@ set @FromDate = '01/14/2015'
 set @ToDate = '01/19/2015'
 */
 Select distinct P.PilotID, P.FirstName + ' ' + P.SecondName DisplayName , p.Email, 1 as Pilot
-from Sector  S
-Inner Join AirPort af on s.From_AirportID = af.AirPortID
-Inner Join AirPort at on s.To_AirportID = at.AirPortID
-Inner Join SectorPilot SP on SP.SectorID = S.SectorID 
-inner join Pilot P on SP.PilotID = P.PilotID
-where   
-   S.SectorDate >= (ISNULL(@FromDate, '01/01/1900')) And   
-   S.SectorDate <= (ISNULL(@ToDate, '01/01/2500'))    
+from Pilot P 
 
 union
  
 Select distinct c.CrewID, c.Name DisplayName , c.Email , 0
-from Sector  S
-Inner Join AirPort af on s.From_AirportID = af.AirPortID
-Inner Join AirPort at on s.To_AirportID = at.AirPortID
-Inner Join SectorCrew SP on SP.SectorID = S.SectorID 
-Inner Join crew C on SP.crewID = C.CrewID
-where   
-   S.SectorDate >= (ISNULL(@FromDate, '01/01/1900')) And   
-   S.SectorDate <= (ISNULL(@ToDate, '01/01/2500'))
+from crew C 
 
 Go
 

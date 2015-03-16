@@ -260,7 +260,7 @@ display:none;
                         <telerik:GridBoundColumn DataField="StatusDay" HeaderText="Day" ></telerik:GridBoundColumn>                                                                                                    
                         <telerik:GridTemplateColumn HeaderText="Status">
                             <ItemTemplate>
-                                <%# string.IsNullOrEmpty(Eval("PilotID").ToString()) ? "Day Off" :  Eval("StatusType").ToString() %>
+                                <%# string.IsNullOrEmpty(Eval("StatusType").ToString()) ? "Day Off" :  Eval("StatusType").ToString() %>
                             </ItemTemplate>
                         </telerik:GridTemplateColumn>
                                                                                                                                

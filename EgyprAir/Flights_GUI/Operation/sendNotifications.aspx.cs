@@ -127,12 +127,57 @@ namespace Flights_GUI
                                                 (uiRadDatePickerFrom.SelectedDate != null) ? uiRadDatePickerFrom.SelectedDate.Value : DateTime.ParseExact("01/" + DateTime.Now.Month.ToString("00") + "/" + DateTime.Now.Year.ToString(), "dd/MM/yyyy", null)
                                               , (uiRadDatePickerTo.SelectedDate != null) ? uiRadDatePickerTo.SelectedDate.Value : DateTime.ParseExact(((DateTime.Now.Month != 2) ? "30" : "28") + "/" + DateTime.Now.Month.ToString("00") + "/" + DateTime.Now.Year.ToString(), "dd/MM/yyyy", null));
 
+                        // fix night city preview
+                        for (int j = 0; j < pt.RowCount; j++)
+                        {
+                            // has night city 
+                            if (!pt.IsColumnNull("City"))
+                            {
+                                Sector nextsector = new Sector();
+                                // get next sector in same flight
+                                if (!pt.IsColumnNull("SectorID"))
+                                {
+                                    nextsector.GetNextSector(Convert.ToInt32(pt.GetColumn("SectorID")));
+                                    DateTime CurrentDate = Convert.ToDateTime(pt.GetColumn("day"));
+                                    string currentCity = pt.GetColumn("city").ToString();
+                                    if (nextsector.RowCount > 0)
+                                    {
+                                        for (int k = 0; k < nextsector.SectorDate.Subtract(CurrentDate).Days; k++)
+                                        {
+
+                                            try
+                                            {
+                                                pt.SetColumn("city", currentCity);
+                                                pt.SetColumn("StatusType", "WORK");
+                                                pt.MoveNext();
+                                                j++;
+                                            }
+                                            catch (Exception ex)
+                                            {
+                                                // CurrentDate = CurrentDate.AddDays(1);
+                                                pt.MoveNext();
+                                                j++;
+
+                                            }
+                                            //CurrentDate = CurrentDate.AddDays(1);
+
+                                        }
+                                    }
+                                }
+
+                            }
+                            pt.MoveNext();
+                        }
+
+                        // back to 1st row
+                        pt.Rewind();
+
                         msg.Body += GetLocalResourceObject("HeaderStatus").ToString();
                         for (int j = 0; j < pt.RowCount; j++)
                         {
                             msg.Body += string.Format(GetLocalResourceObject("StatusTemplate").ToString(), Convert.ToDateTime(pt.GetColumn("day").ToString()).ToString("dd/MM/yyyy"), 
                                                                                                             pt.GetColumn("StatusDay").ToString(),
-                                                                                                            pt.IsColumnNull("PilotID") ? "Day off" : pt.GetColumn("StatusType").ToString(),
+                                                                                                            pt.IsColumnNull("StatusType") ? "Day off" : pt.GetColumn("StatusType").ToString(),
                                                                                                             pt.GetColumn("FlightNo").ToString(),
                                                                                                             pt.GetColumn("Route").ToString(), 
                                                                                                             pt.IsColumnNull("STD") ? "" : Convert.ToDateTime(pt.GetColumn("STD").ToString()).ToString("HH:mm"),
@@ -149,12 +194,58 @@ namespace Flights_GUI
                                                 (uiRadDatePickerFrom.SelectedDate != null) ? uiRadDatePickerFrom.SelectedDate.Value : DateTime.ParseExact("01/" + DateTime.Now.Month.ToString("00") + "/" + DateTime.Now.Year.ToString(), "dd/MM/yyyy", null)
                                               , (uiRadDatePickerTo.SelectedDate != null) ? uiRadDatePickerTo.SelectedDate.Value : DateTime.ParseExact(((DateTime.Now.Month != 2) ? "30" : "28") + "/" + DateTime.Now.Month.ToString("00") + "/" + DateTime.Now.Year.ToString(), "dd/MM/yyyy", null));
 
+
+                        // fix night city preview
+                        for (int j = 0; j < pt.RowCount; j++)
+                        {
+                            // has night city 
+                            if (!pt.IsColumnNull("City"))
+                            {
+                                Sector nextsector = new Sector();
+                                // get next sector in same flight
+                                if (!pt.IsColumnNull("SectorID"))
+                                {
+                                    nextsector.GetNextSector(Convert.ToInt32(pt.GetColumn("SectorID")));
+                                    DateTime CurrentDate = Convert.ToDateTime(pt.GetColumn("day"));
+                                    string currentCity = pt.GetColumn("city").ToString();
+                                    if (nextsector.RowCount > 0)
+                                    {
+                                        for (int k = 0; k < nextsector.SectorDate.Subtract(CurrentDate).Days; k++)
+                                        {
+
+                                            try
+                                            {
+                                                pt.SetColumn("city", currentCity);
+                                                pt.SetColumn("StatusType", "WORK");
+                                                pt.MoveNext();
+                                                j++;
+                                            }
+                                            catch (Exception ex)
+                                            {
+                                                // CurrentDate = CurrentDate.AddDays(1);
+                                                pt.MoveNext();
+                                                j++;
+
+                                            }
+                                            //CurrentDate = CurrentDate.AddDays(1);
+
+                                        }
+                                    }
+                                }
+
+                            }
+                            pt.MoveNext();
+                        }
+
+                        // back to 1st row
+                        pt.Rewind();
+
                         msg.Body += GetLocalResourceObject("HeaderStatus").ToString();
                         for (int j = 0; j < pt.RowCount; j++)
                         {
                             msg.Body += string.Format(GetLocalResourceObject("StatusTemplate").ToString(), Convert.ToDateTime(pt.GetColumn("day").ToString()).ToString("dd/MM/yyyy"),
                                                                                                             pt.GetColumn("StatusDay").ToString(),
-                                                                                                            pt.IsColumnNull("CrewID") ? "Day off" : pt.GetColumn("StatusType").ToString(),
+                                                                                                            pt.IsColumnNull("StatusType") ? "Day off" : pt.GetColumn("StatusType").ToString(),
                                                                                                             pt.GetColumn("FlightNo").ToString(),
                                                                                                             pt.GetColumn("Route").ToString(),
                                                                                                             pt.IsColumnNull("STD") ? "" : Convert.ToDateTime(pt.GetColumn("STD").ToString()).ToString("HH:mm"),
@@ -171,6 +262,7 @@ namespace Flights_GUI
                     msg.Body += "<p>&nbsp;</p>" + ALLPilotsCrewNames;
 
                     SmtpClient client = new SmtpClient(GetLocalResourceObject("server").ToString(), 587);
+                    //SmtpClient client = new SmtpClient(GetLocalResourceObject("server").ToString(), 25);
                     client.EnableSsl = true;
                     client.UseDefaultCredentials = false;
 

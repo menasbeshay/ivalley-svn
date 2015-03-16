@@ -43,6 +43,23 @@
                         </MasterTableView>                                      
                         <HeaderStyle HorizontalAlign="Center" />
                     </telerik:RadGrid>
+
+        <telerik:RadDateTimePicker ID="RadDateTimePicker1" runat="server" Culture="en-US" >
+<TimeView CellSpacing="-1" Interval="00:01:00"></TimeView>
+
+<TimePopupButton ImageUrl="" HoverImageUrl=""></TimePopupButton>
+
+<Calendar UseRowHeadersAsSelectors="False" UseColumnHeadersAsSelectors="False" ViewSelectorText="x"></Calendar>
+
+<DateInput DisplayDateFormat="M/d/yyyy" DateFormat="M/d/yyyy" LabelWidth="40%"></DateInput>
+
+<DatePopupButton ImageUrl="" HoverImageUrl=""></DatePopupButton>
+        </telerik:RadDateTimePicker>
+        <telerik:RadTimeView ID="RadTimeView1" Runat="server" EndTime="23:59:00" Interval="00:01:00">
+            <TimeTemplate>
+                
+            </TimeTemplate>
+        </telerik:RadTimeView>
     </div>
     </form>
 </body>

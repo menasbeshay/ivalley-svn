@@ -121,11 +121,11 @@
                     </ItemTemplate>
                     <FooterTemplate>
                         <li>
-                    <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutText="<span class='icon-box'><i class='icon-user'></i></span> Logout" />                    
+                    <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutText="<span class='icon-box'><i class='icon-user'></i></span> Logout" LoginText="<span class='icon-box'><i class='icon-user'></i></span> Login"/>                    
                 </li>
                     </FooterTemplate>
                 </asp:Repeater>
-                <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="False" SiteMapProvider="AspNetXmlSiteMapProvider" />
+                <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="False" SiteMapProvider="IflightsProvider" />
                 
             </ul>
             <!-- END SIDEBAR MENU -->
@@ -153,7 +153,8 @@
                         <ul class="breadcrumb">
                             <li><a href="#"><i class="icon-home"></i></a><span class="divider">&nbsp;</span>
                             </li>
-                            <li><a href="../Operation/Default.aspx">Operation</a> <span class="divider">&nbsp;</span> </li>
+                            <li><a href="../Operation/Default.aspx">
+                                <asp:Label ID="uiLabelModuleName2" runat="server" ></asp:Label></a> <span class="divider">&nbsp;</span> </li>
                             <li><a href="#">
                                 <asp:Label ID="uiLabelTitle" runat="server" ></asp:Label></a><span class="divider-last">&nbsp;</span></li>
                         </ul>

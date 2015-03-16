@@ -70,6 +70,47 @@ namespace Flights_GUI.Operation
             else
                 p.GetPilotTransactions(3, From, To);
 
+            for (int i = 0; i < p.RowCount; i++)
+            {
+                // has night city 
+                if (!p.IsColumnNull("City"))
+                {
+                    Sector nextsector = new Sector();
+                    // get next sector in same flight
+                    if (!p.IsColumnNull("SectorID"))
+                    {
+                        nextsector.GetNextSector(Convert.ToInt32(p.GetColumn("SectorID")));
+                        DateTime CurrentDate = Convert.ToDateTime(p.GetColumn("day"));
+                        string currentCity = p.GetColumn("city").ToString();
+                        if (nextsector.RowCount > 0)
+                        {
+                            for (int j = 0; j < nextsector.SectorDate.Subtract(CurrentDate).Days; j++)
+                            {
+
+                                try
+                                {
+                                    p.SetColumn("city", currentCity);                                    
+                                    p.SetColumn("StatusType", "WORK");
+                                    p.MoveNext();
+                                    i++;
+                                }
+                                catch (Exception ex)
+                                {
+                                   // CurrentDate = CurrentDate.AddDays(1);
+                                    p.MoveNext();
+                                    i++;
+
+                                }
+                                //CurrentDate = CurrentDate.AddDays(1);
+
+                            }
+                        }
+                    }
+                    
+                }
+                p.MoveNext();
+            }
+
 
             uiRadGridTrx.DataSource = p.DefaultView;
             uiRadGridTrx.DataBind();
