@@ -42,6 +42,14 @@ namespace Flights_GUI.Operation
             uiDropDownListPilots.DataValueField = "PilotID";
             uiDropDownListPilots.DataBind();
             uiDropDownListPilots.Items.Insert(0, new ListItem("Select Pilot", "0"));
+
+            if (User.IsInRole("Pilot"))
+            {
+                Pilot p = new Pilot();
+                p.GetPilotByUserName(Page.User.Identity.Name);
+                uiDropDownListPilots.SelectedValue = p.PilotID.ToString();
+                uiDropDownListPilots.Enabled = false;
+            }
         }
         protected void uiRadGridTrx_PageIndexChanged(object sender, Telerik.Web.UI.GridPageChangedEventArgs e)
         {

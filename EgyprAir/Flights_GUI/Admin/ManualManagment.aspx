@@ -10,6 +10,13 @@
         <div class="clearfix">&nbsp;  </div>
     </div>
     <div class="span12 clearfix">
+        <div class="span4">
+            <h4>
+                      All categories
+                  </h4>
+                  <telerik:RadTreeView ID="uiRadTreeViewCats" runat="server" OnNodeClick="uiRadTreeViewCats_NodeClick"></telerik:RadTreeView>
+            </div>
+        <div class="span8">
         <telerik:RadGrid ID="uiRadGridmanuals" runat="server" AllowPaging="True" 
                         AutoGenerateColumns="False" CellSpacing="0" 
                         HorizontalAlign="Center" Skin="Office2007" Width="90%"                         
@@ -38,6 +45,7 @@
                         <ItemStyle HorizontalAlign="Center" />
                        
                     </telerik:RadGrid>
+            </div>
     </div>
         </asp:Panel>
      <asp:Panel ID="uiPanelEdit" runat="server">

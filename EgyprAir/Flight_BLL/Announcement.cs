@@ -11,5 +11,11 @@ namespace Flight_BLL
 		{
 		
 		}
+
+        public virtual bool GetAllAnnouncements()
+        {
+            this.Query.AddOrderBy(ColumnNames.CreatedDate, MyGeneration.dOOdads.WhereParameter.Dir.DESC);
+            return this.Query.Load();
+        }
 	}
 }

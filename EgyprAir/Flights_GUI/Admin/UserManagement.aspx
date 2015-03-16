@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/E_SuperAdmin.Master" AutoEventWireup="true" CodeBehind="UserManagement.aspx.cs" Inherits="Flights_GUI.Admin.UserManagement" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/IFlights.Master" AutoEventWireup="true" CodeBehind="UserManagement.aspx.cs" Inherits="Flights_GUI.Admin.UserManagement" %>
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
-<%@ MasterType VirtualPath="~/MasterPages/E_SuperAdmin.Master" %>
+<%@ MasterType VirtualPath="~/MasterPages/IFlights.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         .checker + label {

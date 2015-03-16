@@ -14,11 +14,11 @@ namespace Flights_GUI
         {
             if (Request.IsAuthenticated)
             {
-                if (Roles.IsUserInRole(Page.User.Identity.Name, "Training Admin") || Roles.IsUserInRole(Page.User.Identity.Name, "Pilot"))
+                /*if (Roles.IsUserInRole(Page.User.Identity.Name, "Training Admin") || Roles.IsUserInRole(Page.User.Identity.Name, "Pilot"))
                 {
                     Response.Redirect("~/Training/Default.aspx");
                 }
-                else if (Roles.IsUserInRole(Page.User.Identity.Name, "Operation") || Roles.IsUserInRole(Page.User.Identity.Name, "Dispatch") || Roles.IsUserInRole(Page.User.Identity.Name, "Flight Data Entry") || Roles.IsUserInRole(Page.User.Identity.Name, "Hosting") || Roles.IsUserInRole(Page.User.Identity.Name, "Pilot"))
+                else */if (Roles.IsUserInRole(Page.User.Identity.Name, "Operation") || Roles.IsUserInRole(Page.User.Identity.Name, "Dispatch") || Roles.IsUserInRole(Page.User.Identity.Name, "Flight Data Entry") || Roles.IsUserInRole(Page.User.Identity.Name, "Hosting") || Roles.IsUserInRole(Page.User.Identity.Name, "Pilot"))
                 {
                     Response.Redirect("~/Operation/Default.aspx");
                 }

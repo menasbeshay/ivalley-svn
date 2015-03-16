@@ -761,8 +761,6 @@
     <Content Include="css\style_navy-blue.css" />
     <Content Include="css\style_purple.css" />
     <Content Include="css\style_responsive.css" />
-    <Content Include="FileUploads\Manuals\stub.txt" />
-    <Content Include="images\FE.jpg" />
     <Content Include="images\Accounting.png" />
     <Content Include="images\Courses.png" />
     <Content Include="images\Crew.gif" />
@@ -776,6 +774,7 @@
     <Content Include="images\Safety.png" />
     <Content Include="img\404.png" />
     <Content Include="img\500.png" />
+    <Content Include="img\announcement-icon.png" />
     <Content Include="img\avatar-mini.png" />
     <Content Include="img\avatar.png" />
     <Content Include="img\avatar1.jpg" />
@@ -895,7 +894,6 @@
     <Content Include="Operation\FlightList.aspx" />
     <Content Include="Operation\FlightReport.aspx" />
     <Content Include="Operation\InitiateSector.aspx" />
-    <Content Include="Operation\ManageTransactions.aspx" />
     <Content Include="Operation\PAX.aspx" />
     <Content Include="Operation\PilotFlights.aspx" />
     <Content Include="Operation\PilotProfileData.aspx" />
@@ -1468,13 +1466,6 @@
     <Compile Include="Operation\InitiateSector.aspx.designer.cs">
       <DependentUpon>InitiateSector.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Operation\ManageTransactions.aspx.cs">
-      <DependentUpon>ManageTransactions.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Operation\ManageTransactions.aspx.designer.cs">
-      <DependentUpon>ManageTransactions.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Operation\PAX.aspx.cs">
       <DependentUpon>PAX.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1685,6 +1676,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="FileUploads\Circulars\" />
+    <Folder Include="FileUploads\Manuals\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />

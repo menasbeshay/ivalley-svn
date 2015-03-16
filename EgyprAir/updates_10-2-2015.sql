@@ -116,6 +116,11 @@ Create Table Announcement
 )
 Go  
 
+alter table Announcement
+add MainPic nvarchar(500),
+	Brief nvarchar(1000) 
+Go
+
 
 
 If Exists (select Name 

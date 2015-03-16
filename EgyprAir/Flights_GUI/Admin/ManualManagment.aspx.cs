@@ -11,6 +11,21 @@ namespace Flights_GUI.Admin
     public partial class ManualManagment : System.Web.UI.Page
     {
         #region Properties
+        public int currentManualCat
+        {
+            get
+            {
+                object o = this.ViewState["_currentManualCat"];
+                if (o == null)
+                    return 0;
+                else
+                    return (int)o;
+            }
+            set
+            {
+                this.ViewState["_currentManualCat"] = value;
+            }
+        }
         public Manual CurrentManual
         {
             get
@@ -33,11 +48,13 @@ namespace Flights_GUI.Admin
             if (!IsPostBack)
             {
                 Master.PageTitle = "Manuals";
+                LoadCats();
                 BindData();
                 uiPanelViewAll.Visible = true;
                 uiPanelEdit.Visible = false;
             }
         }
+
 
         protected void uiRadGridmanuals_ItemCommand(object sender, Telerik.Web.UI.GridCommandEventArgs e)
         {
@@ -85,12 +102,15 @@ namespace Flights_GUI.Admin
                 objdata = CurrentManual;
             objdata.Title = uiTextBoxTitle.Text;
             objdata.CreatedBy = uiTextBoxCreatedBy.Text;
+            if (currentManualCat != 0)
+                objdata.ManualCategoryID = currentManualCat;
             if (uiFileUploadManual.HasFile)
             {
                 string path = "/fileUploads/manuals/" + Guid.NewGuid() + "_" + uiFileUploadManual.FileName;
                 uiFileUploadManual.SaveAs(Server.MapPath("~" + path));
                 objdata.Path = path;
             }
+            objdata.CreatedDate = DateTime.Now;
             objdata.Save();
             BindData();
             CurrentManual = null;
@@ -107,6 +127,18 @@ namespace Flights_GUI.Admin
             uiPanelEdit.Visible = false;
             ClearFields();
         }
+
+        protected void uiRadTreeViewCats_NodeClick(object sender, Telerik.Web.UI.RadTreeNodeEventArgs e)
+        {
+            currentManualCat = Convert.ToInt32(e.Node.Value);
+            BindData();
+        }
+
+        protected void uiRadGridmanuals_PageIndexChanged(object sender, Telerik.Web.UI.GridPageChangedEventArgs e)
+        {
+            uiRadGridmanuals.CurrentPageIndex = e.NewPageIndex;
+            BindData();
+        }
         #endregion
 
         #region Methods
@@ -114,7 +146,7 @@ namespace Flights_GUI.Admin
         private void BindData()
         {
             Manual objdata = new Manual();
-            objdata.LoadAll();
+            objdata.GetManualsByCatID(currentManualCat);
             uiRadGridmanuals.DataSource = objdata.DefaultView;
             uiRadGridmanuals.DataBind();
 
@@ -128,6 +160,22 @@ namespace Flights_GUI.Admin
         }
 
 
+        private void LoadCats()
+        {
+            ManualCategory cats = new ManualCategory();
+            cats.LoadAll();
+
+            uiRadTreeViewCats.DataSource = cats.DefaultView;
+            uiRadTreeViewCats.DataFieldID = ManualCategory.ColumnNames.ManualCategoryID;
+            uiRadTreeViewCats.DataFieldParentID = ManualCategory.ColumnNames.ParentCategoryID;
+            uiRadTreeViewCats.DataTextField = ManualCategory.ColumnNames.Title;
+            uiRadTreeViewCats.DataValueField = ManualCategory.ColumnNames.ManualCategoryID;
+            uiRadTreeViewCats.DataBind();
+        }
         #endregion
+
+      
+
+       
     }
 }

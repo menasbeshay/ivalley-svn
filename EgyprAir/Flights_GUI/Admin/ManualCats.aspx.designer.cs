@@ -31,6 +31,15 @@ namespace Flights_GUI.Admin {
         protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonAdd;
         
         /// <summary>
+        /// uiLinkButtonGetRootCats control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonGetRootCats;
+        
+        /// <summary>
         /// uiRadTreeViewCats control.
         /// </summary>
         /// <remarks>
@@ -65,15 +74,6 @@ namespace Flights_GUI.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox uiTextBoxTitle;
-        
-        /// <summary>
-        /// uiTextBoxCreatedBy control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uiTextBoxCreatedBy;
         
         /// <summary>
         /// uiFileUploadManual control.

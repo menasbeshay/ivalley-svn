@@ -139,6 +139,22 @@ namespace Flight_DAL
 				}
 			}
 			
+			public static SqlParameter MainPic
+			{
+				get
+				{
+					return new SqlParameter("@MainPic", SqlDbType.NVarChar, 500);
+				}
+			}
+			
+			public static SqlParameter Brief
+			{
+				get
+				{
+					return new SqlParameter("@Brief", SqlDbType.NVarChar, 1000);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -150,6 +166,8 @@ namespace Flight_DAL
             public const string Content = "Content";
             public const string CreatedBy = "CreatedBy";
             public const string CreatedDate = "createdDate";
+            public const string MainPic = "MainPic";
+            public const string Brief = "Brief";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -162,6 +180,8 @@ namespace Flight_DAL
 					ht[Content] = _Announcement.PropertyNames.Content;
 					ht[CreatedBy] = _Announcement.PropertyNames.CreatedBy;
 					ht[CreatedDate] = _Announcement.PropertyNames.CreatedDate;
+					ht[MainPic] = _Announcement.PropertyNames.MainPic;
+					ht[Brief] = _Announcement.PropertyNames.Brief;
 
 				}
 				return (string)ht[columnName];
@@ -179,6 +199,8 @@ namespace Flight_DAL
             public const string Content = "Content";
             public const string CreatedBy = "CreatedBy";
             public const string CreatedDate = "CreatedDate";
+            public const string MainPic = "MainPic";
+            public const string Brief = "Brief";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -191,6 +213,8 @@ namespace Flight_DAL
 					ht[Content] = _Announcement.ColumnNames.Content;
 					ht[CreatedBy] = _Announcement.ColumnNames.CreatedBy;
 					ht[CreatedDate] = _Announcement.ColumnNames.CreatedDate;
+					ht[MainPic] = _Announcement.ColumnNames.MainPic;
+					ht[Brief] = _Announcement.ColumnNames.Brief;
 
 				}
 				return (string)ht[propertyName];
@@ -208,6 +232,8 @@ namespace Flight_DAL
             public const string Content = "s_Content";
             public const string CreatedBy = "s_CreatedBy";
             public const string CreatedDate = "s_CreatedDate";
+            public const string MainPic = "s_MainPic";
+            public const string Brief = "s_Brief";
 
 		}
 		#endregion		
@@ -271,6 +297,30 @@ namespace Flight_DAL
 			set
 	        {
 				base.SetDateTime(ColumnNames.CreatedDate, value);
+			}
+		}
+
+		public virtual string MainPic
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.MainPic);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.MainPic, value);
+			}
+		}
+
+		public virtual string Brief
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.Brief);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.Brief, value);
 			}
 		}
 
@@ -351,6 +401,36 @@ namespace Flight_DAL
 					this.SetColumnNull(ColumnNames.CreatedDate);
 				else
 					this.CreatedDate = base.SetDateTimeAsString(ColumnNames.CreatedDate, value);
+			}
+		}
+
+		public virtual string s_MainPic
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.MainPic) ? string.Empty : base.GetstringAsString(ColumnNames.MainPic);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.MainPic);
+				else
+					this.MainPic = base.SetstringAsString(ColumnNames.MainPic, value);
+			}
+		}
+
+		public virtual string s_Brief
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.Brief) ? string.Empty : base.GetstringAsString(ColumnNames.Brief);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.Brief);
+				else
+					this.Brief = base.SetstringAsString(ColumnNames.Brief, value);
 			}
 		}
 
@@ -437,6 +517,26 @@ namespace Flight_DAL
 					}
 				}
 
+				public WhereParameter MainPic
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.MainPic, Parameters.MainPic);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter Brief
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.Brief, Parameters.Brief);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -502,11 +602,37 @@ namespace Flight_DAL
 				}
 			}
 
+			public WhereParameter MainPic
+		    {
+				get
+		        {
+					if(_MainPic_W == null)
+	        	    {
+						_MainPic_W = TearOff.MainPic;
+					}
+					return _MainPic_W;
+				}
+			}
+
+			public WhereParameter Brief
+		    {
+				get
+		        {
+					if(_Brief_W == null)
+	        	    {
+						_Brief_W = TearOff.Brief;
+					}
+					return _Brief_W;
+				}
+			}
+
 			private WhereParameter _AnnouncementID_W = null;
 			private WhereParameter _Title_W = null;
 			private WhereParameter _Content_W = null;
 			private WhereParameter _CreatedBy_W = null;
 			private WhereParameter _CreatedDate_W = null;
+			private WhereParameter _MainPic_W = null;
+			private WhereParameter _Brief_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -515,6 +641,8 @@ namespace Flight_DAL
 				_Content_W = null;
 				_CreatedBy_W = null;
 				_CreatedDate_W = null;
+				_MainPic_W = null;
+				_Brief_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -621,6 +749,26 @@ namespace Flight_DAL
 					}
 				}
 
+				public AggregateParameter MainPic
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.MainPic, Parameters.MainPic);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter Brief
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Brief, Parameters.Brief);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -686,11 +834,37 @@ namespace Flight_DAL
 				}
 			}
 
+			public AggregateParameter MainPic
+		    {
+				get
+		        {
+					if(_MainPic_W == null)
+	        	    {
+						_MainPic_W = TearOff.MainPic;
+					}
+					return _MainPic_W;
+				}
+			}
+
+			public AggregateParameter Brief
+		    {
+				get
+		        {
+					if(_Brief_W == null)
+	        	    {
+						_Brief_W = TearOff.Brief;
+					}
+					return _Brief_W;
+				}
+			}
+
 			private AggregateParameter _AnnouncementID_W = null;
 			private AggregateParameter _Title_W = null;
 			private AggregateParameter _Content_W = null;
 			private AggregateParameter _CreatedBy_W = null;
 			private AggregateParameter _CreatedDate_W = null;
+			private AggregateParameter _MainPic_W = null;
+			private AggregateParameter _Brief_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -699,6 +873,8 @@ namespace Flight_DAL
 				_Content_W = null;
 				_CreatedBy_W = null;
 				_CreatedDate_W = null;
+				_MainPic_W = null;
+				_Brief_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -791,6 +967,14 @@ namespace Flight_DAL
 
 			p = cmd.Parameters.Add(Parameters.CreatedDate);
 			p.SourceColumn = ColumnNames.CreatedDate;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.MainPic);
+			p.SourceColumn = ColumnNames.MainPic;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.Brief);
+			p.SourceColumn = ColumnNames.Brief;
 			p.SourceVersion = DataRowVersion.Current;
 
 
