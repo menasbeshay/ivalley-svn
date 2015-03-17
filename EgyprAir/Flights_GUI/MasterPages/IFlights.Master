@@ -24,14 +24,20 @@
     <link href="../css/style_default.css" rel="stylesheet" id="style_color" />
     <link href="../assets/fancybox/source/jquery.fancybox.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="../assets/uniform/css/uniform.default.css" />
-
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:300' rel='stylesheet' type='text/css'>
+    <link href="../css/style8.css" rel="stylesheet" />
     <script src="../js/jquery-1.8.3.min.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .rgMasterTable, .RadTreeView_Default {
+            font-family:'Ubuntu', sans-serif !important;
+        }
+    </style>
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
-<body class="fixed-top">
+<body class="fixed-top" >
     <form id="form1" runat="server">
     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
     </asp:ToolkitScriptManager>
@@ -42,7 +48,7 @@
             <div class="container-fluid">
                 <!-- BEGIN LOGO -->
                 <a class="brand" href="../Default.aspx">
-                    <img src="../img/flyegypt.png" alt="Fly Egypt" style="max-height:45px;" />
+                    <img src="../img/flyegypt.png" alt="Fly Egypt" />
                 </a>
                 <!-- END LOGO -->
                 <!-- BEGIN RESPONSIVE MENU TOGGLER -->
@@ -52,45 +58,57 @@
                 <!-- END RESPONSIVE MENU TOGGLER -->
                 <div id="top_menu" class="nav notify-row">
                     <!-- BEGIN NOTIFICATION -->
-                    <ul class="nav top-menu">                       
+                    
                         <asp:Repeater ID="uiRepeaterInteranetMenu" runat="server" DataSourceID="SiteMapDataSource2">
-                    <ItemTemplate>
-                        <li class="dropdown"><a href='<%# Eval("url") %>' class="dropdown-toggle element" data-original-title='<%# Eval("title") %>' data-placement="bottom"><i class='<%# Eval("description") %>'></i> </a></li>
+                    <HeaderTemplate>
+                        <ul class="ca-menu">                    
+                    </HeaderTemplate>
+                            <FooterTemplate>
+                                </ul>
+                            </FooterTemplate>
+                            <ItemTemplate>
+                                <li id='mi_top_<%# Eval("[htmlID]") %>'>
+                        <a href='<%# Eval("url") %>'  style="text-decoration:none !important;"><span class='ca-icon <%# Eval("description") %>'></span>
+                            <div class="ca-content">
+                                <h2 class="ca-main"> <%# Eval("title") %> </h2>                                
+                            </div>
+                            </a>
+                                    <asp:Repeater runat="server" DataSource='<%# ((SiteMapNode) Container.DataItem).ChildNodes %>'>
+                            <HeaderTemplate>
+                                <ul>
+                            </HeaderTemplate>
+
+                            <ItemTemplate>
+                                <li>
+                                    <a href='<%# Eval("url") %>'><%# Eval("title") %></a>
+                                </li>
+                            </ItemTemplate>
+
+                            <FooterTemplate>
+                                </ul>
+                            </FooterTemplate>
+                        </asp:Repeater>
+                                    </li>
                     </ItemTemplate>                   
                 </asp:Repeater>
                 <asp:SiteMapDataSource ID="SiteMapDataSource2" runat="server" ShowStartingNode="False" SiteMapProvider="IntranetProvider" />
-                    </ul>
+                    
                 </div>
                 <!-- END  NOTIFICATION -->
                 <div class="top-nav ">
-                    <ul class="nav pull-right top-menu">
+                    <ul class="nav pull-right ">
                         <!-- BEGIN SUPPORT -->
-                        <li class="dropdown mtop5"><a class="dropdown-toggle element" data-placement="bottom"
-                            data-toggle="tooltip" href="#" data-original-title="Chat"><i class="icon-comments-alt">
-                            </i></a></li>
-                        <li class="dropdown mtop5"><a class="dropdown-toggle element" data-placement="bottom"
-                            data-toggle="tooltip" href="#" data-original-title="Help"><i class="icon-headphones">
-                            </i></a></li>
+                        
                         <!-- END SUPPORT -->
                         <!-- BEGIN USER LOGIN DROPDOWN -->
-                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="../img/avatar1_small.jpg" alt="">
+                        <li >
                             
                             <asp:LoginView ID="LoginView2" runat="server">
-                                <LoggedInTemplate>
-                                    <span class="username">
-                                    <asp:LoginName ID="LoginName1" runat="server" />
-                                    </span><b class="caret"></b>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
-                                        <li><a href="#"><i class="icon-tasks"></i> My Tasks</a></li>
-                                        <li><a href="#"><i class="icon-calendar"></i> Calendar</a></li>
-                                        <li class="divider"></li>
-                                        <li><asp:LoginStatus runat="server" LogoutText="<i class='icon-key'></i> Logout"/></li>
-                                    </ul>
+                                <LoggedInTemplate>                                                                                                                  
+                                    <asp:LoginStatus runat="server" LogoutText="<i class='icon-key'></i> Logout"/>                                   
                                 </LoggedInTemplate>
                             </asp:LoginView>
-                            </a>
+                            
                             
                         </li>
                         <!-- END USER LOGIN DROPDOWN -->
@@ -110,14 +128,36 @@
             </div>
            
             <!-- BEGIN SIDEBAR MENU -->
-            <ul class="sidebar-menu">
+            <ul class="sidebar-menu" style="font-size:14px;">
                 <%--<li><a href="../Default.aspx"><span class="icon-box"><i class="icon-home"></i></span>
                      Home</a></li>
 
                 <asp:Literal ID="uiLiteralMenu" runat="server"></asp:Literal>--%>
                 <asp:Repeater ID="uiRepeaterMenu" runat="server" DataSourceID="SiteMapDataSource1">
                     <ItemTemplate>
-                        <li><a href='<%# Eval("url") %>'><span class='icon-box'><i class='<%# Eval("description") %>'></i></span> <%# Eval("title") %></a></li>
+                        <li class="<%# ((SiteMapNode) Container.DataItem).ChildNodes.Count > 0 ? "has-sub" : "" %>"><a href='<%# ((SiteMapNode) Container.DataItem).ChildNodes.Count > 0 ? "#" : Eval("url") %>'><span class='icon-box'><i class='<%# Eval("description") %>'></i></span> <%# Eval("title") %>
+                            <%# ((SiteMapNode) Container.DataItem).ChildNodes.Count > 0 ? "<span class='arrow'></span>" : "" %>
+
+                                            </a>
+
+                         <asp:Repeater runat="server" DataSource='<%# ((SiteMapNode) Container.DataItem).ChildNodes %>'>
+                            <HeaderTemplate>
+                                <ul class="sub">
+                            </HeaderTemplate>
+
+                            <ItemTemplate>
+                                <li>
+                                    <a href='<%# Eval("url") %>'><%# Eval("title") %></a>
+                                </li>
+                            </ItemTemplate>
+
+                            <FooterTemplate>
+                                </ul>
+                            </FooterTemplate>
+                        </asp:Repeater>
+
+                        </li>
+
                     </ItemTemplate>
                     <FooterTemplate>
                         <li>
