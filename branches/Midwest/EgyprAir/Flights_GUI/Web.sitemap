@@ -2,16 +2,22 @@
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >  
   <siteMapNode url="" title="root"  description=""  roles="*" >
     <siteMapNode url="~/CabinCrew/default.aspx" title="Home"  description="icon-home"/>     
-    <siteMapNode url="~/CabinCrew/ManageCrewProfile.aspx" title="Crew Profile Data" description="icon-user" />
+    <siteMapNode url="~/Operation/default.aspx" title="Home"  description="icon-home"/> 
+    
+    <siteMapNode url="#" title="System data" description="icon-dashboard">
+      <siteMapNode url="~/Operation/PilotProfileData.aspx" title="Pilot Profile Data" description="icon-user" /> 
+      <siteMapNode url="~/CabinCrew/ManageCrewProfile.aspx" title="Crew Profile Data" description="icon-user" />    
+      <siteMapNode url="~/operation/Airports.aspx" title="Airports List" description="icon-globe"  />
+      <siteMapNode url="~/operation/ManageTransactions.aspx" title="Transactions List" description="icon-list"  />  
+    </siteMapNode>
+    
     <!--<siteMapNode url="~/CabinCrew/Profile.aspx" title="Profile" description="icon-user" />-->    
     <siteMapNode url="~/CabinCrew/CrewTrx.aspx" title="Crew Transactions" description="icon-tasks" /> 
     <siteMapNode url="~/CabinCrew/Reports.aspx" title="Reports" description="icon-bar-chart" /> 
+        
     
-    <siteMapNode url="~/Operation/default.aspx" title="Home"  description="icon-home"/> 
     <siteMapNode url="~/Operation/FlightList.aspx" title="Flight List" description="icon-list" /> 
-    <siteMapNode url="~/Operation/PilotProfileData.aspx" title="Pilot Profile Data" description="icon-user" /> 
-    <siteMapNode url="~/operation/Airports.aspx" title="Airports List" description="icon-globe"  />
-    <siteMapNode url="~/operation/ManageTransactions.aspx" title="Transactions List" description="icon-list"  />
+    
     <siteMapNode url="~/operation/Reports.aspx" title="Reports" description="icon-bar-chart" />
     <siteMapNode url="~/operation/Pilotschedule.aspx" title="Pilot Status" description="icon-calendar" />
     <siteMapNode url="~/operation/SendNotifications.aspx" title="Send notifications" description="icon-bullhorn" />

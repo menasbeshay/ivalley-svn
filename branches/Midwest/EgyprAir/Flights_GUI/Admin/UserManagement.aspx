@@ -7,6 +7,13 @@
         display:inline !important;
         }
     </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.notify-row .btn-inverse').removeClass("active");
+            $('#mi_top_Manage_Users').addClass("active");
+        });
+    </script>
+    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="span12 clearfix">

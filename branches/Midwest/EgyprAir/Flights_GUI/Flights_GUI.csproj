@@ -752,10 +752,14 @@
     <Content Include="CabinCrew\Reports.aspx" />
     <Content Include="ChangePassword.aspx" />
     <Content Include="Common\Controls\SectorInfo.ascx" />
+    <Content Include="Common\Safety.aspx" />
     <Content Include="Common\SectorClients.aspx" />
+    <Content Include="Common\Thumb.aspx" />
     <Content Include="Common\Tickets.aspx" />
+    <Content Include="Common\Training.aspx" />
     <Content Include="css\editor.css" />
     <Content Include="css\style.css" />
+    <Content Include="css\style8.css" />
     <Content Include="css\style_default.css" />
     <Content Include="css\style_gray.css" />
     <Content Include="css\style_navy-blue.css" />
@@ -801,6 +805,7 @@
     <Content Include="img\bread-crumb-bg.jpg" />
     <Content Include="img\bread-crumb-divider.jpg" />
     <Content Include="img\bread-crumb-last.jpg" />
+    <Content Include="img\flight-procedures-1.jpg" />
     <Content Include="img\flyegypt.png" />
     <Content Include="img\gallery\photo1.jpg" />
     <Content Include="img\gallery\photo2.jpg" />
@@ -821,6 +826,7 @@
     <Content Include="img\overlay-icon.png" />
     <Content Include="img\photo.jpg" />
     <Content Include="img\profile-pic.jpg" />
+    <Content Include="img\safety.jpg" />
     <Content Include="img\side-bar-list-bg.png" />
     <Content Include="img\submenu_border.png" />
     <Content Include="img\submenu_hover.png" />
@@ -1293,6 +1299,14 @@
     <Compile Include="Common\Controls\SectorInfo.ascx.designer.cs">
       <DependentUpon>SectorInfo.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Common\ImageResize.cs" />
+    <Compile Include="Common\Safety.aspx.cs">
+      <DependentUpon>Safety.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\Safety.aspx.designer.cs">
+      <DependentUpon>Safety.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Common\SectorClients.aspx.cs">
       <DependentUpon>SectorClients.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1300,12 +1314,26 @@
     <Compile Include="Common\SectorClients.aspx.designer.cs">
       <DependentUpon>SectorClients.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Common\Thumb.aspx.cs">
+      <DependentUpon>Thumb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\Thumb.aspx.designer.cs">
+      <DependentUpon>Thumb.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Common\Tickets.aspx.cs">
       <DependentUpon>Tickets.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Common\Tickets.aspx.designer.cs">
       <DependentUpon>Tickets.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Common\Training.aspx.cs">
+      <DependentUpon>Training.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common\Training.aspx.designer.cs">
+      <DependentUpon>Training.aspx</DependentUpon>
     </Compile>
     <Compile Include="Intranet\Circulars.aspx.cs">
       <DependentUpon>Circulars.aspx</DependentUpon>
@@ -1956,7 +1984,9 @@
     <None Include="img\.DS_Store" />
     <None Include="img\blog\.DS_Store" />
     <None Include="img\gallery\.DS_Store" />
-    <Content Include="Intranet.sitemap" />
+    <Content Include="Intranet.sitemap">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="js\.DS_Store" />
     <Content Include="MasterPages\E_Start.Master" />
     <Content Include="MasterPages\E_Admin.Master" />

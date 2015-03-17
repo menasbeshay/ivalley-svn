@@ -3,6 +3,12 @@
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
 <%@ MasterType VirtualPath="~/MasterPages/IFlights.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.notify-row .btn-inverse').removeClass("active");
+            $('#mi_top_Circulars').addClass("active");
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Panel runat="server" ID="uiPanelViewAll">
@@ -24,10 +30,10 @@
         <ItemTemplate>
             
             <div class="row-fluid blog">
-                                <div class="span4">
-                                    <img src='<%# string.IsNullOrEmpty(Eval("MainPic").ToString()) ? "../img/announcement-icon.png" : Eval("MainPic") %>' alt="" style="max-height:190px;max-width:100%;width:auto;margin:0 auto 10px ;display:block">
+                                <div class="span3">
+                                    <img src='<%# "../common/thumb.aspx?Image=" + (string.IsNullOrEmpty(Eval("MainPic").ToString()) ? "../img/announcement-icon.png" : Eval("MainPic")) %>' alt="" style="max-height:150px;max-width:100%;width:auto;margin:0 auto 10px ;display:block">
                                 </div>
-                                <div class="span8">
+                                <div class="span9">
                                     <div class="date">
                                         <p class="day"><%# Convert.ToDateTime(Eval("createdDate").ToString()).ToString("dd") %></p>
                                         <p class="month"><%# Convert.ToDateTime(Eval("createdDate").ToString()).ToString("MMM") %></p>
@@ -46,7 +52,9 @@
                                 </div>
                             </div>
         </ItemTemplate>
-        
+        <ItemSeparatorTemplate>
+            <hr />
+        </ItemSeparatorTemplate>
     </telerik:RadListView>
     </asp:Panel>
     <asp:Panel runat="server" ID="uiPanelCurrent">

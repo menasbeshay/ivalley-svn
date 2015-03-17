@@ -1,11 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
     <siteMapNode url="" title="root"  description=""  roles="*" >
-        <siteMapNode url="~/Intranet/Circulars.aspx" title="Circulars" description="icon-bullhorn" />
-        <siteMapNode url="~/Intranet/Manuals.aspx" title="Manuals"  description="icon-book" />
-      <siteMapNode url="~/Admin/circularsManagment.aspx" title="Manage Circulars"  description="icon-edit" />
-      <siteMapNode url="~/Admin/ManualCats.aspx" title="Manuals Categories"  description="icon-tags" />
-      <siteMapNode url="~/Admin/ManualManagment.aspx" title="Manage Manuals"  description="icon-file" />
-      <siteMapNode url="~/Admin/UserManagement.aspx" title="Manage Users"  description="icon-group" />
+        <siteMapNode url="~/Intranet/Circulars.aspx" title="Circulars" description="icon-bullhorn" htmlID="Circulars"/>
+        <siteMapNode url="~/Intranet/Manuals.aspx" title="Manuals"  description="icon-book" htmlID="Manuals"/>
+        <siteMapNode url="~/common/safety.aspx" title="Safety"  description="icon-lock" htmlID="safety"/>
+        <siteMapNode url="~/common/training.aspx" title="Training"  description="icon-check" htmlID="training"/>
+        <siteMapNode url="#" title="System data"  description="icon-dashboard" htmlID="Sys">
+          <siteMapNode url="~/Admin/circularsManagment.aspx" title="Manage Circulars"  description="icon-edit" htmlID="Manage_Circulars"/>
+          <siteMapNode url="~/Admin/ManualCats.aspx" title="Manuals Categories"  description="icon-tags" htmlID="Manuals_Categories"/>
+          <siteMapNode url="~/Admin/ManualManagment.aspx" title="Manage Manuals"  description="icon-file" htmlID="Manage_Manuals"/>
+          <siteMapNode url="~/Admin/UserManagement.aspx" title="Manage Users"  description="icon-group" htmlID="Manage_Users"/>
+        </siteMapNode>
+      
     </siteMapNode>
 </siteMap>
