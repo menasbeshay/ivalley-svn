@@ -32,7 +32,7 @@ namespace Combo.Models
         public bool IsFollower { get; set; }
         public bool IsFollowing { get; set; }
         public bool IsFriend { get; set; }
-        public bool IsFriendRequestSent { get; set; }
+        public int FriendRequestSent { get; set; }
         public string SecurityQuestion { get; set; }
         public string SecurityAnswer { get; set; }
         public int UserRankID { get; set; }
@@ -47,6 +47,7 @@ namespace Combo.Models
         public string Location { get; set; }
         public int CommentsCount { get; set; }
         public int TotalActivityDays { get; set; }
+        public bool IsPrivateAccount { get; set; }
 
     }
 }

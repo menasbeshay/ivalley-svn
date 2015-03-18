@@ -48,9 +48,9 @@ namespace Combo.BLL
 				                                       else 'false' end IsFriend, 
                                                        case PF.ComboFollowerID when {1} then 'true' else 'false' end IsFollower, 
                                                        case PF2.ComboFollowerID when {0} then 'true' else 'false' end IsFollowing,
-                                                       case F2.ComboUserID when {0} then 'true' 
-				                                                           when {1} then 'true' 
-				                                       else 'false' end IsFriendRequestSent 
+                                                       case F2.ComboUserID when {0} then 2 
+				                                                           when {1} then 1 
+				                                       else 0 end IsFriendRequestSent 
                                     from ComboUser CU                                                              
                                     Left join Attachment A on CU.ProfileImgID = A.AttachmentID
                                     Left join Attachment A2 on CU.CoverImgID = A2.AttachmentID

@@ -307,6 +307,14 @@ namespace Combo.DAL
 				}
 			}
 			
+			public static SqlParameter IsPrivateAccount
+			{
+				get
+				{
+					return new SqlParameter("@IsPrivateAccount", SqlDbType.Bit, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -339,6 +347,7 @@ namespace Combo.DAL
             public const string Website = "Website";
             public const string CountryID = "CountryID";
             public const string Location = "Location";
+            public const string IsPrivateAccount = "IsPrivateAccount";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -372,6 +381,7 @@ namespace Combo.DAL
 					ht[Website] = _ComboUser.PropertyNames.Website;
 					ht[CountryID] = _ComboUser.PropertyNames.CountryID;
 					ht[Location] = _ComboUser.PropertyNames.Location;
+					ht[IsPrivateAccount] = _ComboUser.PropertyNames.IsPrivateAccount;
 
 				}
 				return (string)ht[columnName];
@@ -410,6 +420,7 @@ namespace Combo.DAL
             public const string Website = "Website";
             public const string CountryID = "CountryID";
             public const string Location = "Location";
+            public const string IsPrivateAccount = "IsPrivateAccount";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -443,6 +454,7 @@ namespace Combo.DAL
 					ht[Website] = _ComboUser.ColumnNames.Website;
 					ht[CountryID] = _ComboUser.ColumnNames.CountryID;
 					ht[Location] = _ComboUser.ColumnNames.Location;
+					ht[IsPrivateAccount] = _ComboUser.ColumnNames.IsPrivateAccount;
 
 				}
 				return (string)ht[propertyName];
@@ -481,6 +493,7 @@ namespace Combo.DAL
             public const string Website = "s_Website";
             public const string CountryID = "s_CountryID";
             public const string Location = "s_Location";
+            public const string IsPrivateAccount = "s_IsPrivateAccount";
 
 		}
 		#endregion		
@@ -796,6 +809,18 @@ namespace Combo.DAL
 			set
 	        {
 				base.Setstring(ColumnNames.Location, value);
+			}
+		}
+
+		public virtual bool IsPrivateAccount
+	    {
+			get
+	        {
+				return base.Getbool(ColumnNames.IsPrivateAccount);
+			}
+			set
+	        {
+				base.Setbool(ColumnNames.IsPrivateAccount, value);
 			}
 		}
 
@@ -1194,6 +1219,21 @@ namespace Combo.DAL
 			}
 		}
 
+		public virtual string s_IsPrivateAccount
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.IsPrivateAccount) ? string.Empty : base.GetboolAsString(ColumnNames.IsPrivateAccount);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.IsPrivateAccount);
+				else
+					this.IsPrivateAccount = base.SetboolAsString(ColumnNames.IsPrivateAccount, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -1482,6 +1522,16 @@ namespace Combo.DAL
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.Location, Parameters.Location);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter IsPrivateAccount
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.IsPrivateAccount, Parameters.IsPrivateAccount);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -1804,6 +1854,18 @@ namespace Combo.DAL
 				}
 			}
 
+			public WhereParameter IsPrivateAccount
+		    {
+				get
+		        {
+					if(_IsPrivateAccount_W == null)
+	        	    {
+						_IsPrivateAccount_W = TearOff.IsPrivateAccount;
+					}
+					return _IsPrivateAccount_W;
+				}
+			}
+
 			private WhereParameter _ComboUserID_W = null;
 			private WhereParameter _UserName_W = null;
 			private WhereParameter _DisplayName_W = null;
@@ -1830,6 +1892,7 @@ namespace Combo.DAL
 			private WhereParameter _Website_W = null;
 			private WhereParameter _CountryID_W = null;
 			private WhereParameter _Location_W = null;
+			private WhereParameter _IsPrivateAccount_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -1859,6 +1922,7 @@ namespace Combo.DAL
 				_Website_W = null;
 				_CountryID_W = null;
 				_Location_W = null;
+				_IsPrivateAccount_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -2170,6 +2234,16 @@ namespace Combo.DAL
 					get
 					{
 							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Location, Parameters.Location);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter IsPrivateAccount
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.IsPrivateAccount, Parameters.IsPrivateAccount);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -2492,6 +2566,18 @@ namespace Combo.DAL
 				}
 			}
 
+			public AggregateParameter IsPrivateAccount
+		    {
+				get
+		        {
+					if(_IsPrivateAccount_W == null)
+	        	    {
+						_IsPrivateAccount_W = TearOff.IsPrivateAccount;
+					}
+					return _IsPrivateAccount_W;
+				}
+			}
+
 			private AggregateParameter _ComboUserID_W = null;
 			private AggregateParameter _UserName_W = null;
 			private AggregateParameter _DisplayName_W = null;
@@ -2518,6 +2604,7 @@ namespace Combo.DAL
 			private AggregateParameter _Website_W = null;
 			private AggregateParameter _CountryID_W = null;
 			private AggregateParameter _Location_W = null;
+			private AggregateParameter _IsPrivateAccount_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -2547,6 +2634,7 @@ namespace Combo.DAL
 				_Website_W = null;
 				_CountryID_W = null;
 				_Location_W = null;
+				_IsPrivateAccount_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -2723,6 +2811,10 @@ namespace Combo.DAL
 
 			p = cmd.Parameters.Add(Parameters.Location);
 			p.SourceColumn = ColumnNames.Location;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.IsPrivateAccount);
+			p.SourceColumn = ColumnNames.IsPrivateAccount;
 			p.SourceVersion = DataRowVersion.Current;
 
 

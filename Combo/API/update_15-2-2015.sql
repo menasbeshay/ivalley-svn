@@ -237,4 +237,5 @@ Create Table PostHashTag
 Go 
 		
 		
-		
+alter table Combouser
+add IsPrivateAccount bit
