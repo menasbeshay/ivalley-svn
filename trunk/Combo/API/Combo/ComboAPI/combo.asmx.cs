@@ -121,7 +121,7 @@ namespace Combo.ComboAPI
                     IsFriend = Convert.ToBoolean(row["IsFriend"]),
                     IsFollower = Convert.ToBoolean(row["IsFollower"]),
                     IsFollowing = Convert.ToBoolean(row["IsFollowing"]),
-                    IsFriendRequestSent = Convert.ToBoolean(row["IsFriendRequestSent"]),
+                    FriendRequestSent = Convert.ToInt32(row["IsFriendRequestSent"]),
                     ProfilePic = row["ProfilePic"].ToString(),
                     CoverPic = row["CoverPic"].ToString(),
                     UserRankID = Convert.ToInt32(row["UserRankID"]),
@@ -131,7 +131,8 @@ namespace Combo.ComboAPI
                     Phone = row["Phone"].ToString(),
                     Website = row["Website"].ToString(),
                     CountryFlagPath = row["CountryFlagPath"].ToString(),
-                    Location = row["Location"].ToString()
+                    Location = row["Location"].ToString(),
+                    IsPrivateAccount = Convert.ToBoolean(row["IsPrivateAccount"])
                 };
             }).ToList();
 
@@ -368,6 +369,16 @@ namespace Combo.ComboAPI
             if (!string.IsNullOrEmpty(user.Location))
                 newUser.Location = user.Location;
 
+
+            try
+            {
+                newUser.IsPrivateAccount = user.IsPrivateAccount;
+            }
+            catch (Exception ex)
+            {
+                
+            }
+
             newUser.Save();
 
             user.ComboUserID = newUser.ComboUserID;
@@ -464,7 +475,16 @@ namespace Combo.ComboAPI
                 newUser.CountryID = user.CountryID;
             if (!string.IsNullOrEmpty(user.Location))
                 newUser.Location = user.Location;
-            
+
+            try
+            {
+                newUser.IsPrivateAccount = user.IsPrivateAccount;
+            }
+            catch (Exception ex)
+            {
+
+            }
+
             newUser.Save();
 
             user.ComboUserID = newUser.ComboUserID;

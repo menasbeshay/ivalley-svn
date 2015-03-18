@@ -97,7 +97,7 @@
        // $(document).ready(getUsers);
 
         function addUser() {
-            var user = { user: { ComboUserID: 0, UserName: $('#text').val(), Password: $('#pass').val(), Email: $('#email').val(), SecurityWord: $('#text').val() } };
+            var user = { user: { ComboUserID: 0, UserName: $('#text').val(), Password: $('#pass').val(), Email: $('#email').val(), SecurityWord: $('#text').val(), IsPrivateAccount:true } };
             var json = JSON.stringify(user);
 
             $.ajax({
