@@ -132,7 +132,7 @@ namespace Combo.ComboAPI
                     Website = row["Website"].ToString(),
                     CountryFlagPath = row["CountryFlagPath"].ToString(),
                     Location = row["Location"].ToString(),
-                    IsPrivateAccount = Convert.ToBoolean(row["IsPrivateAccount"])
+                    IsPrivateAccount = row.IsNull("IsPrivateAccount") ? false : Convert.ToBoolean(row["IsPrivateAccount"])
                 };
             }).ToList();
 
