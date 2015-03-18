@@ -12,7 +12,7 @@ body {
     font-family: 'Ubuntu', sans-serif !important;
     padding: 0px !important;
     margin: 0px !important;
-    font-size:13px;
+    font-size:15px;
 }
 
 /* fix for font awesome icon classes */
@@ -237,6 +237,7 @@ a.icon.huge i{
 
 .notify-row {
     float: left;
+    width:83.5%;
     padding: 5px;
 }
 
@@ -248,7 +249,7 @@ a,a:focus, a:hover, a:active {
 /*logo*/
 #header .brand {
     /*background:#333333;*/
-    background:#fff;
+    background:#f5f5f5;
     margin-top: 0px !important;
     opacity:1;
     filter:alpha(opacity=100);
@@ -329,7 +330,7 @@ a,a:focus, a:hover, a:active {
 #header.navbar-inverse .navbar-inner {
     height: 110px;
     border:none !important;
-    background: none #fff !important;
+    background: none #f5f5f5 !important;
 }
 
 #header.navbar-inverse .divider-vertical {
@@ -3533,11 +3534,16 @@ ul.amounts li {
 .ca-menu > li > ul > li {
     width:150px;
     height:25px;
+    padding-left:10px;
 }
 .ca-menu > li > ul  a {
     border:none;
     text-decoration:none !important;
     color:#fff;
+
+}
+.ca-menu a {
+    text-decoration:none !important;
 }
 
 .ca-menu > li > ul > li:hover a{    

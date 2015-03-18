@@ -33,6 +33,18 @@
         .rgMasterTable, .RadTreeView_Default {
             font-family:'Ubuntu', sans-serif !important;
         }
+            .RadTreeView_Default .rtSelected .rtIn {
+                background:none #32C2CD !important;
+            }
+            .RadTreeView_Default .rtHover .rtIn {
+                background:none #3be1ee !important;
+            }
+            .RadTreeView_Default, .RadTreeView_Default a.rtIn, .RadTreeView_Default .rtEdit .rtIn input {
+                font-size:inherit !important;
+            }
+        .RadGrid_Office2007, .RadGrid_Office2007 .rgMasterTable, .RadGrid_Office2007 .rgDetailTable, .RadGrid_Office2007 .rgGroupPanel table, .RadGrid_Office2007 .rgCommandRow table, .RadGrid_Office2007 .rgEditForm table, .RadGrid_Office2007 .rgPager table, .GridToolTip_Office2007 {
+            font-size:13px !important;
+        }
     </style>
 </head>
 <!-- END HEAD -->
@@ -64,6 +76,16 @@
                         <ul class="ca-menu">                    
                     </HeaderTemplate>
                             <FooterTemplate>
+                                <li style="float:right">
+                            
+                            <asp:LoginView ID="LoginView2" runat="server">
+                                <LoggedInTemplate>                                                                                                                  
+                                    <asp:LoginStatus runat="server" LogoutText="<span class='ca-icon icon-key'></span>  <div class='ca-content'><h2 class='ca-main'> Logout </h2> </div> "/>                                   
+                                </LoggedInTemplate>
+                            </asp:LoginView>
+                            
+                            
+                        </li>
                                 </ul>
                             </FooterTemplate>
                             <ItemTemplate>
@@ -80,7 +102,7 @@
 
                             <ItemTemplate>
                                 <li>
-                                    <a href='<%# Eval("url") %>'><%# Eval("title") %></a>
+                                    <a href='<%# Eval("url") %>' target='<%# Eval("[target]") %>'><%# Eval("title") %></a>
                                 </li>
                             </ItemTemplate>
 
@@ -95,26 +117,7 @@
                     
                 </div>
                 <!-- END  NOTIFICATION -->
-                <div class="top-nav ">
-                    <ul class="nav pull-right ">
-                        <!-- BEGIN SUPPORT -->
-                        
-                        <!-- END SUPPORT -->
-                        <!-- BEGIN USER LOGIN DROPDOWN -->
-                        <li >
-                            
-                            <asp:LoginView ID="LoginView2" runat="server">
-                                <LoggedInTemplate>                                                                                                                  
-                                    <asp:LoginStatus runat="server" LogoutText="<i class='icon-key'></i> Logout"/>                                   
-                                </LoggedInTemplate>
-                            </asp:LoginView>
-                            
-                            
-                        </li>
-                        <!-- END USER LOGIN DROPDOWN -->
-                    </ul>
-                    <!-- END TOP NAVIGATION MENU -->
-                </div>
+                
             </div>
         </div>
         <!-- END TOP NAVIGATION BAR -->

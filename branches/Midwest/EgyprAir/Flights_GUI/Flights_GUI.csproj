@@ -805,7 +805,6 @@
     <Content Include="img\bread-crumb-bg.jpg" />
     <Content Include="img\bread-crumb-divider.jpg" />
     <Content Include="img\bread-crumb-last.jpg" />
-    <Content Include="img\flight-procedures-1.jpg" />
     <Content Include="img\flyegypt.png" />
     <Content Include="img\gallery\photo1.jpg" />
     <Content Include="img\gallery\photo2.jpg" />
@@ -826,7 +825,6 @@
     <Content Include="img\overlay-icon.png" />
     <Content Include="img\photo.jpg" />
     <Content Include="img\profile-pic.jpg" />
-    <Content Include="img\safety.jpg" />
     <Content Include="img\side-bar-list-bg.png" />
     <Content Include="img\submenu_border.png" />
     <Content Include="img\submenu_hover.png" />

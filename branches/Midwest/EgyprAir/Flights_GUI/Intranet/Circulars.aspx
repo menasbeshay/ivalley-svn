@@ -31,7 +31,8 @@
             
             <div class="row-fluid blog">
                                 <div class="span3">
-                                    <img src='<%# "../common/thumb.aspx?Image=" + (string.IsNullOrEmpty(Eval("MainPic").ToString()) ? "../img/announcement-icon.png" : Eval("MainPic")) %>' alt="" style="max-height:150px;max-width:100%;width:auto;margin:0 auto 10px ;display:block">
+                                    <a href='Circulars.aspx?cid=<%# Eval("AnnouncementID") %>'>
+                                    <img src='<%# "../common/thumb.aspx?Image=" + (string.IsNullOrEmpty(Eval("MainPic").ToString()) ? "../img/announcement-icon.png" : Eval("MainPic")) %>' alt="" style="max-height:150px;max-width:100%;width:auto;margin:0 auto 10px ;display:block"></a>
                                 </div>
                                 <div class="span9">
                                     <div class="date">
