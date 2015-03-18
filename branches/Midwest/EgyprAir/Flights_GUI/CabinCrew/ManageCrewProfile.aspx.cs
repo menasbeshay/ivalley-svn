@@ -156,13 +156,14 @@ namespace Flights_GUI.CabinCrew
                 default:
                     break;
             }
-            if (!Roles.IsUserInRole(uiTextBoxUserName.Text, "CabinCrew") && success)
-            {
-                Roles.AddUserToRole(uiTextBoxUserName.Text, "CabinCrew");
-            }
+            
 
             if (success)
             {
+                if (!Roles.IsUserInRole(uiTextBoxUserName.Text, "CabinCrew") && !string.IsNullOrEmpty(uiTextBoxUserName.Text))
+                {
+                    Roles.AddUserToRole(uiTextBoxUserName.Text, "CabinCrew");
+                }
                 Crew objData = new Crew();
                 objData.AddNew();
                 objData.Name = uiTextBoxName.Text;
@@ -244,9 +245,9 @@ namespace Flights_GUI.CabinCrew
             uiTextBoxUserName.Enabled = true;
             uiTextBoxPassword.Enabled = true;
             uiTextBoxCPassword.Enabled = true;
-            RequiredFieldValidator4.Enabled = true;
-            RequiredFieldValidator5.Enabled = true;
-            CompareValidator1.Enabled = true;
+            //RequiredFieldValidator4.Enabled = true;
+            //RequiredFieldValidator5.Enabled = true;
+            //CompareValidator1.Enabled = true;
 
             uiTextBoxPassword.Text = "";
             uiTextBoxUserName.Text = "";
