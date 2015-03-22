@@ -132,7 +132,9 @@ namespace Combo.ComboAPI
                     Website = row["Website"].ToString(),
                     CountryFlagPath = row["CountryFlagPath"].ToString(),
                     Location = row["Location"].ToString(),
-                    IsPrivateAccount = row.IsNull("IsPrivateAccount") ? false : Convert.ToBoolean(row["IsPrivateAccount"])
+                    IsPrivateAccount = row.IsNull("IsPrivateAccount") ? false : Convert.ToBoolean(row["IsPrivateAccount"]),
+                    IsFollowingRequestSent = Convert.ToBoolean(row["IsFollowingRequestSent"]),
+                    IsFollowerRequestSent = Convert.ToBoolean(row["IsFollowerRequestSent"]),
                 };
             }).ToList();
 
@@ -3548,6 +3550,7 @@ namespace Combo.ComboAPI
                 follower.AddNew();
                 follower.ComboFollowerID = FollowerId;
                 follower.ComboUserID = userId;
+                follower.IsRequestApproved = true;
                 follower.Save();
                 follow = true;
             }
@@ -3573,7 +3576,7 @@ namespace Combo.ComboAPI
             else
                 notification.NotificationType = (int)Combo.Models.NotificationType.UNFOLLOW_FRIEND; // unfollow friend
             notification.NotificationDate = DateTime.UtcNow;
-            notification.NotificationBody = Newtonsoft.Json.JsonConvert.SerializeObject("[{'ComboUserID':" + creator.ComboUserID + ",'ComboFriendID':" + commentor.ComboUserID + ",'ComboUsername:'" + commentor.UserName + "'" + ",'ComboDisplayName:'" + commentor.DisplayName +"', 'IsFollowUser' : " + follow + "}]");
+            notification.NotificationBody = Newtonsoft.Json.JsonConvert.SerializeObject("[{\"ComboUserID\":" + creator.ComboUserID + ",\"ComboFriendID\":" + commentor.ComboUserID + ",\"ComboUsername\":\"" + commentor.UserName + "\",\"ComboDisplayName\":\"" + commentor.DisplayName +"\", \"IsFollowUser\" : " + follow + "}]");
             notification.IsRead = false;
             notification.Save();
 
@@ -3596,7 +3599,152 @@ namespace Combo.ComboAPI
             _response.Entity = null;
             SetContentResult(_response);
 
-        }       
+        }
+
+        [WebMethod]
+        /// <summary>
+        /// Toggle follow user 
+        /// </summary>
+        /// <param name="UserID">UserID to be followed</param>
+        /// <param name="FollowerID">follower ID</param>
+        /// <returns>ComboResponse object with result</returns>
+        public void RequestFollowFriend(int userId, int FollowerId)
+        {
+            Models.ComboResponse _response = new Models.ComboResponse();
+            _response.bool_result = true;
+            _response.ErrorCode = 0;
+            _response.ErrorMsg = "";
+            bool follow = false;
+
+            ProfileFollower follower = new ProfileFollower();
+            if (!follower.LoadByPrimaryKey(userId, FollowerId))
+            {
+                follower.AddNew();
+                follower.ComboFollowerID = FollowerId;
+                follower.ComboUserID = userId;
+                follower.IsRequestApproved = false;
+                follower.Save();
+                follow = true;
+            }
+            else
+            {
+                follower.MarkAsDeleted();
+                follower.Save();
+            }
+
+
+            /**************************/
+            // save notification and push it to device             
+            ComboUser creator = new ComboUser();
+            ComboUser commentor = new ComboUser();
+            creator.LoadByPrimaryKey(userId);
+            commentor.LoadByPrimaryKey(FollowerId);
+
+            ComboNotification notification = new ComboNotification();
+            notification.AddNew();
+            notification.ComboUserID = creator.ComboUserID;
+            if (follow)
+                notification.NotificationType = (int)Combo.Models.NotificationType.FOLLOW_FIREND; // follow friend
+            else
+                notification.NotificationType = (int)Combo.Models.NotificationType.UNFOLLOW_FRIEND; // unfollow friend
+            notification.NotificationDate = DateTime.UtcNow;
+            notification.NotificationBody = Newtonsoft.Json.JsonConvert.SerializeObject("[{\"ComboUserID\":" + creator.ComboUserID + ",\"ComboFriendID\":" + commentor.ComboUserID + ",\"ComboUsername\":\"" + commentor.UserName + "\",\"ComboDisplayName\":\"" + commentor.DisplayName + "\", \"IsFollowUser\" : " + follow + "}]");
+            notification.IsRead = false;
+            notification.Save();
+
+            List<Models.ComboNotification> notificationJson = notification.DefaultView.Table.AsEnumerable().Select(row =>
+            {
+                return new Models.ComboNotification
+                {
+                    ComboNotificationID = Convert.ToInt32(row["ComboNotificationID"]),
+                    ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                    IsRead = Convert.ToBoolean(row["IsRead"]),
+                    NotificationBody = row["NotificationBody"].ToString(),
+                    NotificationDate = Convert.ToDateTime(row["NotificationDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                    NotificationType = Convert.ToInt32(row["NotificationType"])
+                };
+            }).ToList();
+
+            SendGCMNotification(Newtonsoft.Json.JsonConvert.SerializeObject(notificationJson), creator.DeviceID);
+            /**************************/
+
+            _response.Entity = null;
+            SetContentResult(_response);
+
+        }
+
+
+        [WebMethod]
+        /// <summary>
+        /// Toggle follow user 
+        /// </summary>
+        /// <param name="UserID">UserID to be followed</param>
+        /// <param name="FollowerID">follower ID</param>
+        /// <returns>ComboResponse object with result</returns>
+        public void RespondToRequestFollowFriend(int userId, int FollowerId, bool IsApproved)
+        {
+            Models.ComboResponse _response = new Models.ComboResponse();
+            _response.bool_result = true;
+            _response.ErrorCode = 0;
+            _response.ErrorMsg = "";
+            bool follow = false;
+
+            ProfileFollower follower = new ProfileFollower();
+            follower.LoadByPrimaryKey(userId, FollowerId); 
+            if (IsApproved)
+            {                               
+                follower.IsRequestApproved = IsApproved;
+                follower.Save();
+                follow = true;
+            }
+            else
+            {
+                follower.MarkAsDeleted();
+                follower.Save();
+            }
+
+
+            /**************************/
+            // save notification and push it to device 
+            if (IsApproved)
+            {            
+                ComboUser creator = new ComboUser();
+                ComboUser commentor = new ComboUser();
+                creator.LoadByPrimaryKey(userId);
+                commentor.LoadByPrimaryKey(FollowerId);
+            
+                ComboNotification notification = new ComboNotification();
+                notification.AddNew();
+                notification.ComboUserID = commentor.ComboUserID;
+
+                notification.NotificationType = (int)Combo.Models.NotificationType.ACCEPT_FOLLOW_REQUEST; // accept follow friend
+                notification.NotificationDate = DateTime.UtcNow;
+                notification.NotificationBody = Newtonsoft.Json.JsonConvert.SerializeObject("[{\"ComboUserID\":" + commentor.ComboUserID + ",\"ComboFriendID\":" + creator.ComboUserID + ",\"ComboUsername\":\"" + creator.UserName + "\",\"ComboDisplayName\":\"" + creator.DisplayName + "\", \"IsFollowUser\" : " + follow + "}]");
+                notification.IsRead = false;
+                notification.Save();
+
+                List<Models.ComboNotification> notificationJson = notification.DefaultView.Table.AsEnumerable().Select(row =>
+                {
+                    return new Models.ComboNotification
+                    {
+                        ComboNotificationID = Convert.ToInt32(row["ComboNotificationID"]),
+                        ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                        IsRead = Convert.ToBoolean(row["IsRead"]),
+                        NotificationBody = row["NotificationBody"].ToString(),
+                        NotificationDate = Convert.ToDateTime(row["NotificationDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                        NotificationType = Convert.ToInt32(row["NotificationType"])
+                    };
+                }).ToList();
+
+                SendGCMNotification(Newtonsoft.Json.JsonConvert.SerializeObject(notificationJson), commentor.DeviceID);
+            }
+            /**************************/
+
+            _response.Entity = null;
+            SetContentResult(_response);
+
+        }
+
         #endregion
 
         #region Friends
@@ -3736,7 +3884,52 @@ namespace Combo.ComboAPI
             //return _response;
 
         }
-       
+
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        /// <summary>
+        /// Get All combo Users following user with specified id 
+        /// </summary>
+        /// <returns>ComboResponse object with List of all followers Users </returns>
+        public void SearchForTagging(int userID, string searchText, int postID, int pageIndex)
+        {
+            Models.ComboResponse _response = new Models.ComboResponse();
+            _response.bool_result = true;
+            _response.ErrorCode = 0;
+            _response.ErrorMsg = "";
+
+            ComboUserFriend user = new ComboUserFriend();
+            user.SearchForTaggingByUserID(userID, searchText, postID);
+            List<Models.ComboUser> Users = user.DefaultView.Table.AsEnumerable().Select(row =>
+            {
+                return new Models.ComboUser
+                {
+                    ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                    UserName = row["UserName"].ToString(),
+                    DisplayName = row["DisplayName"].ToString(),
+                    Password = row["Password"].ToString(),
+                    Email = row["Email"].ToString(),
+                    Bio = row["Bio"].ToString(),
+                    ProfileImgID = row.IsNull("ProfileImgID") ? 0 : Convert.ToInt32(row["ProfileImgID"]),
+                    CoverImgID = row.IsNull("CoverImgID") ? 0 : Convert.ToInt32(row["CoverImgID"]),
+                    GenderID = row.IsNull("GenderID") ? 0 : Convert.ToInt32(row["GenderID"]),
+                    IsActivated = row.IsNull("IsActivated") ? false : Convert.ToBoolean(row["IsActivated"]),
+                    ExternalIDType = row.IsNull("ExternalIDType") ? 0 : Convert.ToInt32(row["ExternalIDType"]),
+                    ExternalID = row["ExternalID"].ToString(),
+                    DeviceID = row["DeviceID"].ToString(),
+                    ActivationCode = row.IsNull("ActivationCode") ? Guid.Empty : new Guid(row["ActivationCode"].ToString()),
+                    PassResetCode = row.IsNull("PassResetCode") ? Guid.Empty : new Guid(row["PassResetCode"].ToString()),
+                    ProfilePic = row["ProfilePic"].ToString(),
+                };
+            }).Skip(pageIndex * FriendsPageSize).Take(FriendsPageSize).ToList();
+
+
+            _response.Entity = Users;
+            SetContentResult(_response);
+            //return _response;
+
+        }
 
         [WebMethod]
         /// <summary>

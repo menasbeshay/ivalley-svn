@@ -39,7 +39,7 @@ namespace Combo.BLL
                                     Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID
                                     Where P.ComboUserID in (select ComboFollowerID from ProfileFollower PF where PF.ComboUserID = {0}) and 
                                     (P.IsDeleted <> 1 or P.IsDeleted is null)
-                                    union
+                                    /*union
                                     Select P.*, U.UserName, A.Path ProfilePic, S.IsPostsDownloadable 
                                     from ComboPost P
                                     Inner Join ComboUser U on P.ComboUserID = U.ComboUserID and
@@ -63,7 +63,7 @@ namespace Combo.BLL
 								                                      CFF.ComboFriendID = {0} and
                                                                       CFF.RequestApproved = 1 and
                                                                       (CFF.IsBanned <> 1 or CFF.IsBanned is null)
-                                    where (P.IsDeleted <> 1 or P.IsDeleted is null)
+                                    where (P.IsDeleted <> 1 or P.IsDeleted is null)*/
                                     order by P.PostDate Desc", userid);
         }
 
@@ -220,7 +220,7 @@ namespace Combo.BLL
                                     Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID
                                     Where P.ComboUserID in (select ComboFollowerID from ProfileFollower PF where PF.ComboUserID = {1}) and 
                                     (P.IsDeleted <> 1 or P.IsDeleted is null) and P.PostText like '%' + {0} + '%' 
-                                    union
+                                    /*union
                                     Select P.*, U.UserName, A.Path ProfilePic, S.IsPostsDownloadable 
                                     from ComboPost P
                                     Inner Join ComboUser U on P.ComboUserID = U.ComboUserID and
@@ -244,7 +244,7 @@ namespace Combo.BLL
 								                                      CFF.ComboFriendID = {1} and
                                                                       CFF.RequestApproved = 1 and
                                                                       (CFF.IsBanned <> 1 or CFF.IsBanned is null)
-                                    where P.PostText like '%' + {0} + '%' and  (P.IsDeleted <> 1 or P.IsDeleted is null)
+                                    where P.PostText like '%' + {0} + '%' and  (P.IsDeleted <> 1 or P.IsDeleted is null)*/
                                     union
                                     Select P.*, U.UserName, A.Path ProfilePic, S.IsPostsDownloadable from ComboPost P
                                     Inner Join ComboUser U on P.ComboUserID = U.ComboUserID

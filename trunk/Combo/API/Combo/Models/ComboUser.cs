@@ -48,6 +48,8 @@ namespace Combo.Models
         public int CommentsCount { get; set; }
         public int TotalActivityDays { get; set; }
         public bool IsPrivateAccount { get; set; }
+        public bool IsFollowingRequestSent { get; set; }
+        public bool IsFollowerRequestSent { get; set; }
 
     }
 }

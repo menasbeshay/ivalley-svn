@@ -30,5 +30,6 @@ namespace Combo.Models
         LIKE_PROFILE = 11,
         UNLIKE_PROFILE = 12,
         TAG_USER_IN_POST = 13,
+        ACCEPT_FOLLOW_REQUEST = 14        
     }
 }

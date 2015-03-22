@@ -77,5 +77,14 @@ namespace Combo.BLL
             parameters.Add(new SqlParameter("@FilterText", SqlDbType.NVarChar, 200), searchText);
             return LoadFromSql("SearchOnFriends", parameters);
         }
+
+        public virtual bool SearchForTaggingByUserID(int userid, string searchText, int postid)
+        {
+            ListDictionary parameters = new ListDictionary();
+            parameters.Add(new SqlParameter("@UserID", SqlDbType.Int, 0), userid);
+            parameters.Add(new SqlParameter("@FilterText", SqlDbType.NVarChar, 200), searchText);
+            parameters.Add(new SqlParameter("@PostID", SqlDbType.Int, 0), postid);
+            return LoadFromSql("SearchForTaging", parameters);
+        }
 	}
 }
