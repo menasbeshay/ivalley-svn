@@ -239,3 +239,56 @@ Go
 		
 alter table Combouser
 add IsPrivateAccount bit
+
+alter table ProfileFollower
+add IsRequestApproved bit
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'SearchForTaging' and
+		        xtype = 'P')
+Drop Procedure SearchForTaging
+Go
+Create Procedure SearchForTaging @UserID int, 
+								 @FilterText nvarchar(200) = '',
+								 @PostID int = 0
+as
+
+Select CU.*, A.Path ProfilePic from ComboPost PF
+Inner Join ComboUser CU on PF.ComboUserID = CU.ComboUserID and
+                            (CU.IsDeactivated <> 1 or CU.IsDeactivated is null) and 
+                            (PF.ComboPostID = @PostID)
+Left join Attachment A on CU.ProfileImgID = A.AttachmentID
+Where CU.Username like '%'  + @FilterText +  '%'
+Union 
+Select CU.*, A.Path ProfilePic from PostUserTag PF
+Inner Join ComboUser CU on PF.ComboUserID = CU.ComboUserID and
+                            (CU.IsDeactivated <> 1 or CU.IsDeactivated is null) and 
+                            (PF.ComboPostID = @PostID)
+Left join Attachment A on CU.ProfileImgID = A.AttachmentID
+Where CU.Username like '%'  + @FilterText +  '%'
+Union
+Select CU.*, A.Path ProfilePic from ComboComment PF
+Inner Join ComboUser CU on PF.ComboUserID = CU.ComboUserID and
+                            (CU.IsDeactivated <> 1 or CU.IsDeactivated is null) and 
+                            (PF.ComboPostID = @PostID)
+Left join Attachment A on CU.ProfileImgID = A.AttachmentID
+Where CU.Username like '%'  + @FilterText +  '%'
+Union
+Select CU.*, A.Path ProfilePic from ProfileFollower PF
+Inner Join ComboUser CU on PF.ComboFollowerID = CU.ComboUserID and
+                            (CU.IsDeactivated <> 1 or CU.IsDeactivated is null)
+Left join Attachment A on CU.ProfileImgID = A.AttachmentID
+Where PF.ComboUserID = @UserID and CU.Username like '%'  + @FilterText +  '%'
+union
+Select CU.*, A.Path ProfilePic from ProfileFollower PF
+Inner Join ComboUser CU on PF.ComboUserID = CU.ComboUserID and
+                            (CU.IsDeactivated <> 1 or CU.IsDeactivated is null)
+Left join Attachment A on CU.ProfileImgID = A.AttachmentID
+Where PF.ComboFollowerID = @UserID and CU.Username like '%'  + @FilterText +  '%'
+union 
+Select CU.*, A.Path ProfilePic from ComboUser CU                                                                                    
+Left join Attachment A on CU.ProfileImgID = A.AttachmentID
+where CU.Username like '%'  + @FilterText +  '%' and (CU.IsDeactivated <> 1 or CU.IsDeactivated is null)
+Go 

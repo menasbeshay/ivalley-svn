@@ -117,6 +117,14 @@ parameters.Add(Parameters.ComboFollowerID, ComboFollowerID);
 				}
 			}
 			
+			public static SqlParameter IsRequestApproved
+			{
+				get
+				{
+					return new SqlParameter("@IsRequestApproved", SqlDbType.Bit, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -125,6 +133,7 @@ parameters.Add(Parameters.ComboFollowerID, ComboFollowerID);
 		{  
             public const string ComboUserID = "ComboUserID";
             public const string ComboFollowerID = "ComboFollowerID";
+            public const string IsRequestApproved = "IsRequestApproved";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -134,6 +143,7 @@ parameters.Add(Parameters.ComboFollowerID, ComboFollowerID);
 					
 					ht[ComboUserID] = _ProfileFollower.PropertyNames.ComboUserID;
 					ht[ComboFollowerID] = _ProfileFollower.PropertyNames.ComboFollowerID;
+					ht[IsRequestApproved] = _ProfileFollower.PropertyNames.IsRequestApproved;
 
 				}
 				return (string)ht[columnName];
@@ -148,6 +158,7 @@ parameters.Add(Parameters.ComboFollowerID, ComboFollowerID);
 		{  
             public const string ComboUserID = "ComboUserID";
             public const string ComboFollowerID = "ComboFollowerID";
+            public const string IsRequestApproved = "IsRequestApproved";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -157,6 +168,7 @@ parameters.Add(Parameters.ComboFollowerID, ComboFollowerID);
 					
 					ht[ComboUserID] = _ProfileFollower.ColumnNames.ComboUserID;
 					ht[ComboFollowerID] = _ProfileFollower.ColumnNames.ComboFollowerID;
+					ht[IsRequestApproved] = _ProfileFollower.ColumnNames.IsRequestApproved;
 
 				}
 				return (string)ht[propertyName];
@@ -171,6 +183,7 @@ parameters.Add(Parameters.ComboFollowerID, ComboFollowerID);
 		{  
             public const string ComboUserID = "s_ComboUserID";
             public const string ComboFollowerID = "s_ComboFollowerID";
+            public const string IsRequestApproved = "s_IsRequestApproved";
 
 		}
 		#endregion		
@@ -198,6 +211,18 @@ parameters.Add(Parameters.ComboFollowerID, ComboFollowerID);
 			set
 	        {
 				base.Setint(ColumnNames.ComboFollowerID, value);
+			}
+		}
+
+		public virtual bool IsRequestApproved
+	    {
+			get
+	        {
+				return base.Getbool(ColumnNames.IsRequestApproved);
+			}
+			set
+	        {
+				base.Setbool(ColumnNames.IsRequestApproved, value);
 			}
 		}
 
@@ -233,6 +258,21 @@ parameters.Add(Parameters.ComboFollowerID, ComboFollowerID);
 					this.SetColumnNull(ColumnNames.ComboFollowerID);
 				else
 					this.ComboFollowerID = base.SetintAsString(ColumnNames.ComboFollowerID, value);
+			}
+		}
+
+		public virtual string s_IsRequestApproved
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.IsRequestApproved) ? string.Empty : base.GetboolAsString(ColumnNames.IsRequestApproved);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.IsRequestApproved);
+				else
+					this.IsRequestApproved = base.SetboolAsString(ColumnNames.IsRequestApproved, value);
 			}
 		}
 
@@ -289,6 +329,16 @@ parameters.Add(Parameters.ComboFollowerID, ComboFollowerID);
 					}
 				}
 
+				public WhereParameter IsRequestApproved
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.IsRequestApproved, Parameters.IsRequestApproved);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -318,13 +368,27 @@ parameters.Add(Parameters.ComboFollowerID, ComboFollowerID);
 				}
 			}
 
+			public WhereParameter IsRequestApproved
+		    {
+				get
+		        {
+					if(_IsRequestApproved_W == null)
+	        	    {
+						_IsRequestApproved_W = TearOff.IsRequestApproved;
+					}
+					return _IsRequestApproved_W;
+				}
+			}
+
 			private WhereParameter _ComboUserID_W = null;
 			private WhereParameter _ComboFollowerID_W = null;
+			private WhereParameter _IsRequestApproved_W = null;
 
 			public void WhereClauseReset()
 			{
 				_ComboUserID_W = null;
 				_ComboFollowerID_W = null;
+				_IsRequestApproved_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -401,6 +465,16 @@ parameters.Add(Parameters.ComboFollowerID, ComboFollowerID);
 					}
 				}
 
+				public AggregateParameter IsRequestApproved
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.IsRequestApproved, Parameters.IsRequestApproved);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -430,13 +504,27 @@ parameters.Add(Parameters.ComboFollowerID, ComboFollowerID);
 				}
 			}
 
+			public AggregateParameter IsRequestApproved
+		    {
+				get
+		        {
+					if(_IsRequestApproved_W == null)
+	        	    {
+						_IsRequestApproved_W = TearOff.IsRequestApproved;
+					}
+					return _IsRequestApproved_W;
+				}
+			}
+
 			private AggregateParameter _ComboUserID_W = null;
 			private AggregateParameter _ComboFollowerID_W = null;
+			private AggregateParameter _IsRequestApproved_W = null;
 
 			public void AggregateClauseReset()
 			{
 				_ComboUserID_W = null;
 				_ComboFollowerID_W = null;
+				_IsRequestApproved_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -517,6 +605,10 @@ parameters.Add(Parameters.ComboFollowerID, ComboFollowerID);
 
 			p = cmd.Parameters.Add(Parameters.ComboFollowerID);
 			p.SourceColumn = ColumnNames.ComboFollowerID;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.IsRequestApproved);
+			p.SourceColumn = ColumnNames.IsRequestApproved;
 			p.SourceVersion = DataRowVersion.Current;
 
 
