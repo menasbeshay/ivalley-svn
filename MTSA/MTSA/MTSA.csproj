@@ -166,6 +166,8 @@
     <Content Include="css\font-awesome.min.css" />
     <Content Include="css\ie8.css" />
     <Content Include="css\ipad.css" />
+    <Content Include="css\jquery.fullPage.css" />
+    <Content Include="Scripts\jquery.fullPage.min.js" />
     <Content Include="css\lightbox.css" />
     <Content Include="css\screen_ar.css" />
     <Content Include="css\screen.css" />
@@ -410,6 +412,7 @@
     <Content Include="images\projects\1.jpg" />
     <Content Include="images\projects\2.jpg" />
     <Content Include="images\projects\3.jpg" />
+    <Content Include="images\sager-logo.JPG" />
     <Content Include="images\sager-logo.png" />
     <Content Include="images\slides\Slide-1.jpg" />
     <Content Include="images\slides\Slide-10.jpg" />
@@ -560,14 +563,16 @@
     <Content Include="Scripts\cbpGridGallery.js" />
     <Content Include="Scripts\classie.js" />
     <Content Include="Scripts\imagesloaded.pkgd.min.js" />
+    <Content Include="css\javascript.fullPage.css" />
+    <Content Include="Scripts\javascript.fullPage.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-migrate-1.2.1.min.js" />
     <Content Include="Scripts\jquery.cycle2.carousel.min.js" />
     <Content Include="Scripts\jquery.cycle2.min.js" />
-    <Content Include="css\jquery.fullPage.css" />
+    <Content Include="css\jquery.fullPage_v2.4.css" />
     <Content Include="Scripts\jquery.easings.min.js" />
-    <Content Include="Scripts\jquery.fullPage.min.js" />
+    <Content Include="Scripts\jquery.fullPage.min_v2.4.js" />
     <Content Include="Scripts\jquery.hoverdir.js" />
     <Content Include="Scripts\jquery.mb.YTPlayer.js" />
     <Content Include="Scripts\jquery.nicescroll.min.js" />

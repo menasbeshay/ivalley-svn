@@ -718,7 +718,7 @@ All screens of MTSA digital signage feature the following properties:
                      <div class="BackToHome"><i class="fa fa-arrow-circle-left"></i></div>                      
                     <div class="MoveRight"><i class="fa fa-arrow-circle-right"></i></div>
 
-                    <div class="col-lg-11 col-sm-12 col-md-12" style="padding:10px 20px 0 40px;margin:0 auto;float:none;position:relative;">
+                    <div class="col-lg-11 col-sm-12 col-md-12" style="padding:10px 20px 0 20px;margin:0 auto;float:none;position:relative;">
                         <div class="col-lg-12 col-sm-12 col-md-12" style="padding:0 !important">
                             <label class="slideHeaderBlack">INDOOR</label>
                             <div class="clearfix" style="height:1px;"></div>
@@ -741,7 +741,7 @@ specifically designed for trouble-free continuous use. Each model in PHEX series
                         
                     </div>
                     <div class="col-lg-8 col-sm-8 col-md-8 bottom " style="width:67%">
-                        <img src="../images/products/digital_signage/Page2/screen.png" class="anim animleft" style="margin-bottom:-20px;width:initial !important"/>
+                        <img src="../images/products/digital_signage/Page2/screen.png" class="anim animleft" style="margin-bottom:-20px;width:initial !important;width:auto !important;"/>
                             <img src="../images/products/digital_signage/Page2/icon1.png" style="width:9%;"/><img src="../images/products/digital_signage/Page2/icon2.png" /><img src="../images/products/digital_signage/Page2/icon3.png" /><img src="../images/products/digital_signage/Page2/icon4.png" /><img src="../images/products/digital_signage/Page2/icon5.png" /><img src="../images/products/digital_signage/Page2/icon6.png" /><img src="../images/products/digital_signage/Page2/icon7.png" /><img src="../images/products/digital_signage/Page2/icon8.png" /><img src="../images/products/digital_signage/Page3/icon9.png" />
                         </div>
                 </div>
@@ -892,7 +892,7 @@ All kiosks can be equipped up on request with many unique optional features i.e.
                         
                     </div>
                     <div class="col-lg-8 col-sm-8 col-md-8 bottom " style="width:67%">
-                        <img src="../images/products/kiosk/Page1/screen.png" class="anim animleft" style="margin-bottom:-20px;width:initial !important"/>
+                        <img src="../images/products/kiosk/Page1/screen.png" class="anim animleft" style="margin-bottom:-20px;width:initial !important;width:auto !important;"/>
                             <img src="../images/products/digital_signage/page2/icon1.png" style="width:9%;" /><img src="../images/products/kiosk/page1/icon2.png" /><img src="../images/products/kiosk/page1/icon3.png" /><img src="../images/products/kiosk/page1/icon4.png" /><img src="../images/products/kiosk/page1/icon5.png" /><img src="../images/products/kiosk/page1/icon6.png" /><img src="../images/products/kiosk/page1/icon7.png" /><img src="../images/products/kiosk/page1/icon8.png" />
                         </div>
                 </div>
@@ -919,7 +919,7 @@ All kiosks can be equipped up on request with many unique optional features i.e.
 The aluminum profile developed specifically for this info-terminal emphasizes its thin form factor (6 cm) and at the same still provides a high level of stability. The integrated PC system is based on notebook technology and is characterized by the small amount of heat it generates and its extremely low level of energy consumption (25 watts).
 Possible uses of the ISIS model include providing general information, for Wayfinding, as a POI/POS, for providing employee information, as a virtual porter, or for trade shows and multimedia presentations.
                                  <br />
-                            <a href="../files/ISIS.pdf" class="col-lg-12 col-sm-12 col-md-12" style="text-align:right;"><label class="touchscreenlabel"> Download</label> &nbsp;&nbsp;
+                            <a href="../files/ISIS.pdf" class="checkindex col-lg-12 col-sm-12 col-md-12 " style="text-align:right;"><label class="touchscreenlabel"> Download</label> &nbsp;&nbsp;
                                 <img src="../images/products/digital_signage/Page2/down.png" /></a> 
                              </p>
                                                              
@@ -944,7 +944,7 @@ Possible uses of the ISIS model include providing general information, for Wayfi
                         
                     </div>
                     <div class="col-lg-8 col-sm-8 col-md-8 bottom " style="width:67%">
-                        <img src="../images/products/kiosk/Page2/screen.png" class="anim animleft" style="margin-bottom:-20px;width:initial !important;max-height:150px;"/>
+                        <img src="../images/products/kiosk/Page2/screen.png" class="anim animleft" style="margin-bottom:-20px;width:initial !important;max-height:150px;width:auto !important;"/>
                             <img src="../images/products/digital_signage/page2/icon1.png" style="width:9%;margin-left:20px;" /><img src="../images/products/kiosk/page1/icon2.png" /><img src="../images/products/kiosk/page1/icon3.png" /><img src="../images/products/kiosk/page1/icon4.png" /><img src="../images/products/kiosk/page1/icon5.png" /><img src="../images/products/kiosk/page1/icon6.png" /><img src="../images/products/kiosk/page1/icon7.png" /><img src="../images/products/kiosk/page1/icon8.png" />
                         </div>
                 </div>
@@ -971,7 +971,7 @@ Possible uses of the ISIS model include providing general information, for Wayfi
 The integrated PC system is based on notebook technology and is characterized by the small amount of heat it generates and its extremely low level of energy consumption(25 watts).
 Numerous branding options allow the device to be perfectly integrated into its surroundings.
                                  <br />
-                            <a href="../files/ERU.pdf" class="col-lg-12 col-sm-12 col-md-12" style="text-align:right;"><label class="touchscreenlabel"> Download</label> &nbsp;&nbsp;
+                            <a href="../files/ERU.pdf" class="col-lg-12 col-sm-12 col-md-12 checkindex" style="text-align:right;"><label class="touchscreenlabel"> Download</label> &nbsp;&nbsp;
                                 <img src="../images/products/digital_signage/Page2/down.png" /></a> 
                              </p>
                                                              
@@ -998,7 +998,7 @@ Numerous branding options allow the device to be perfectly integrated into its s
                         
                     </div>
                     <div class="col-lg-8 col-sm-8 col-md-8 bottom " style="width:67%">
-                        <img src="../images/products/kiosk/Page3/screen.png" class="anim animleft" style="margin-bottom:-20px;width:initial !important"/>
+                        <img src="../images/products/kiosk/Page3/screen.png" class="anim animleft" style="margin-bottom:-20px;width:initial !important;width:auto !important;"/>
                             <img src="../images/products/digital_signage/page2/icon1.png" style="width:9%" /><img src="../images/products/kiosk/page1/icon2.png" /><img src="../images/products/kiosk/page1/icon3.png" /><img src="../images/products/kiosk/page1/icon4.png" /><img src="../images/products/kiosk/page1/icon5.png" /><img src="../images/products/kiosk/page1/icon6.png" /><img src="../images/products/kiosk/page1/icon7.png" /><img src="../images/products/kiosk/page1/icon8.png" />
                         </div>
                 </div>
@@ -1010,7 +1010,7 @@ Numerous branding options allow the device to be perfectly integrated into its s
                 <div class="anyPage innerslide" style="position:relative;">       
                     <div class="BackToHome"><i class="fa fa-arrow-circle-left"></i></div>                 
                     
-                    <div class="col-lg-11 col-sm-12 col-md-12" style="padding:10px 15px 0 30px;margin:0 auto;float:none;position:relative;">
+                    <div class="col-lg-11 col-sm-12 col-md-12" style="padding:10px 15px 0 15px;margin:0 auto;float:none;position:relative;">
                         <div class="col-lg-12 col-sm-12 col-md-12" style="padding:0 !important">
                             <label class="slideHeaderBlack">INDOOR</label>
                             <div class="clearfix" style="height:1px;"></div>
@@ -1026,7 +1026,7 @@ For instance, a A4 printer, a card reader, and even a fingerprint reader can all
 The door on the front side of the machine allows easy access to all components, which means you can refill paper in the printer, for instance, without moving the machine away from the wall. Both a high quality security lock as well as the stable
 construction using steel plates and aluminum enables the use of the kiosk in unattended, heavily trafficked indoor areas. Possible uses of the HERA model include providing general information, for Wayfinding, as a POI or POS, for time recording, for providing employee information, as a virtual porter, or for trade shows and multimedia presentations.
                                  <br />
-                            <a href="../files/HERA.pdf" class="col-lg-12 col-sm-12 col-md-12" style="text-align:right;"><label class="touchscreenlabel"> Download</label> &nbsp;&nbsp;
+                            <a href="../files/HERA.pdf" class="col-lg-12 col-sm-12 col-md-12 checkindex" style="text-align:right;"><label class="touchscreenlabel"> Download</label> &nbsp;&nbsp;
                                 <img src="../images/products/digital_signage/Page2/down.png" /></a> 
                              </p>
                                                              
@@ -1055,7 +1055,7 @@ construction using steel plates and aluminum enables the use of the kiosk in una
                         
                     </div>
                     <div class="col-lg-8 col-sm-8 col-md-8 bottom " style="width:67%">
-                        <img src="../images/products/kiosk/Page4/screen.png" class="anim animleft" style="margin-bottom:-20px;width:initial !important"/>
+                        <img src="../images/products/kiosk/Page4/screen.png" class="anim animleft" style="margin-bottom:-20px;width:initial !important;width:auto !important;"/>
                             <img src="../images/products/digital_signage/page2/icon1.png" style="margin-left:30px;width:9%"/><img src="../images/products/kiosk/page1/icon2.png" /><img src="../images/products/kiosk/page1/icon3.png" /><img src="../images/products/kiosk/page1/icon4.png" /><img src="../images/products/kiosk/page1/icon5.png" /><img src="../images/products/kiosk/page1/icon6.png" /><img src="../images/products/kiosk/page1/icon7.png" /><img src="../images/products/kiosk/page1/icon8.png" />
                         </div>
                 </div>
@@ -1101,7 +1101,7 @@ Available in the following versions:</p>
                         
                     </div>
                     <div class="col-lg-8 col-sm-8 col-md-8 bottom " style="width:67%">
-                        <img src="../images/products/electronic_doors/screen.png" class="anim animleft" style="margin-bottom:-20px;width:initial !important;"/>
+                        <img src="../images/products/electronic_doors/screen.png" class="anim animleft" style="margin-bottom:-20px;width:initial !important;width:auto !important;"/>
                             <img src="../images/products/digital_signage/page3/icon4.png" style="margin-left:50px;"/><img src="../images/products/digital_signage/page3/icon8.png" /><img src="../images/products/digital_signage/page3/icon9.png" /><img src="../images/products/electronic_doors/7.png" style="width:6.2%;margin-bottom:5px;" /><img src="../images/products/electronic_doors/5.png" style="width:6.2%;margin-bottom:5px;"/>
                         </div>
                 </div>
@@ -1121,7 +1121,7 @@ Available in the following versions:</p>
                         <div class="clearfix" style="height:1px;"></div>
                         <div class="col-lg-12 col-sm-12 col-md-12" style="padding:0;">
                         <div class="col-lg-7 col-sm-7 col-md-7">
-                            <video loop id="3dflashvideo" preload="auto" style="max-width:100%">                                 <source type="video/mp4" src="../flash/3DWayfinding.mp4" >
+                            <video loop id="3dflashvideo" preload="auto" style="max-width:100%;transform:scaleX(1.06)">                                 <source type="video/mp4" src="../flash/3DWayfinding.mp4" >
                              </video>  
                             <div class="clearfix" style="height:2px;clear:both"></div>
                                                         
@@ -1138,7 +1138,7 @@ Available in the following versions:</p>
                             <div class="clearfix" style="height:15px;clear:both"></div>                        
                             
                             <p style="text-align:justify">
-                                <span class="mtsa">MTSA</span>, a product of S.O. Sager International offers a unique 3D Wayfinding products & services for public buildings i.e. shopping malls, airports, universities, medical complex, big campus and others. 3D Wayfinding helps visitors find their way to destinations they want to reach easily, stress-free and quickly. 3D Wayfinding is an interactive touchscreen kiosk App    and available as a mobile App or web-based. <a href="../files/MTSA3DWayfindingpresentationG3.pdf" class="touchscreenlabel" style="text-decoration:underline;"> Download presentation for more details.&nbsp;<img src="../images/products/digital_signage/Page1/present.png" /></a>
+                                <span class="mtsa">MTSA</span>, a product of S.O. Sager International offers a unique 3D Wayfinding products & services for public buildings i.e. shopping malls, airports, universities, medical complex, big campus and others. 3D Wayfinding helps visitors find their way to destinations they want to reach easily, stress-free and quickly. 3D Wayfinding is an interactive touchscreen kiosk App    and available as a mobile App or web-based. <a href="../files/MTSA3DWayfindingpresentationG3.pdf" class="touchscreenlabel" style="text-decoration:underline;"> Download presentation for more details.&nbsp;<img src="../images/products/digital_signage/Page1/present.png" style="max-width:30px;"/></a>
                             </p>
                             <div class="clearfix" style="height:15px;clear:both"></div>                                                    
                             </div>
@@ -1157,7 +1157,7 @@ Available in the following versions:</p>
                                 <img src="../images/icons/png/large/6.png" style="margin:0 12px;width:12%;"/>
                                 <img src="../images/icons/png/large/2.png" style="margin:0 12px;width:12%;"/>
                                 <img src="../images/icons/png/large/9.png" style="margin:0 12px;width:12%;"/>
-                            <a href="../files/MTSA3DWayfindingpresentationG3.pdf" style="margin:0 12px;width:16.5%;float:right;display:block;padding-right:30px;">
+                            <a href="../files/MTSA3DWayfindingpresentationG3.pdf" style="margin:0 25px;width:16.5%;float:right;display:block;padding-left:30px;">
                                 <img src="../images/Icons/try.png" style="width:100%" /></a>
                             </div>    
                     </div>
@@ -1237,7 +1237,7 @@ If you are you looking for a rewarding business & willing to invest little money
                       <div class="col-lg-3 col-md-3 col-sm-3 pull-right" style="text-align:center;">
                           <span class="clearfix"><label class="mtsa">MTSA</label> is a product of</span>
                           <div class="clearfix"  style="height:1px"></div>
-                          <img src="../images/sager-logo.png" style="margin-left:-10px;width:52%;"/>
+                          <img src="../images/sager-logo.jpg" style="margin-left:-10px;width:52%;"/>
                       </div>
                              <div style="background-color:#aaa; height:120px;width:1px;float:right;">&nbsp;</div>
                             </div>
@@ -1352,7 +1352,7 @@ If you are you looking for a rewarding business & willing to invest little money
       <%--<div id="keys" class="keys_down_active"></div>--%>
       <span id="subline"><span class="video"></span><span id="sublineContent"><i class="fa fa-cubes" style="font-size:1.5em"></i> Bridge your business gaps With smart Apps</span></span>
       <div id="nextTopic"><span></span></div>
-      <div class="slideFooter ds" id="ds_p1">
+      <div class="slideFooter ds" id="ds_p1" style="right:-10px;">
                     <div class="col-lg-12 col-sm-12 col-md-12">
                     <label class="touchscreenlabel">PHEX Stand & Stand Dual/Triple Models & Sizes</label>
                     <p class="text-justify">
@@ -1453,7 +1453,7 @@ ticket dispenser, for time recording, or for access control, for example.
                         </div>
                 </div>
 
-        <div class="slideFooter ks" id="k_p3" style="width:515px;right:-15px;padding:0 !important;">
+        <div class="slideFooter ks" id="k_p3" style="width:515px;right:-45px;padding:0 !important;">
                     <div class="col-lg-12 col-sm-12 col-md-12">
                     <label class="touchscreenlabel">RUTI </label>
                     <p class="text-justify">
