@@ -86,6 +86,10 @@ namespace Flights_GUI.Operation
             ReportViewer5.LocalReport.DataSources.Clear();
             ReportViewer6.LocalReport.DataSources.Clear();
             ReportViewer7.LocalReport.DataSources.Clear();
+            ReportViewer8.LocalReport.DataSources.Clear();
+            ReportViewer9.LocalReport.DataSources.Clear();
+            ReportViewer10.LocalReport.DataSources.Clear();
+            ReportViewer11.LocalReport.DataSources.Clear();
             Microsoft.Reporting.WebForms.ReportDataSource rds = new Microsoft.Reporting.WebForms.ReportDataSource();
             Microsoft.Reporting.WebForms.ReportDataSource rds2 = new Microsoft.Reporting.WebForms.ReportDataSource();                        
             
@@ -93,6 +97,7 @@ namespace Flights_GUI.Operation
             GetPilotReportWithinRangeTableAdapter pilotHoursWithinRange = new GetPilotReportWithinRangeTableAdapter();
             GetPilotDHDWithinRangeTableAdapter pilotDHDHoursWithinRange = new GetPilotDHDWithinRangeTableAdapter();
             GetAllPilotsHours_SummaryTableAdapter pilotSummary = new GetAllPilotsHours_SummaryTableAdapter();
+            GetPilotSimulationHoursWithinRangeTableAdapter pilotSim = new GetPilotSimulationHoursWithinRangeTableAdapter();
 
             GetPAXReportTableAdapter taP = new GetPAXReportTableAdapter();
             GetFlyHoursReportTableAdapter taF = new GetFlyHoursReportTableAdapter();
@@ -107,6 +112,7 @@ namespace Flights_GUI.Operation
             pilotHoursWithinRange.ClearBeforeFill = true;
             pilotDHDHoursWithinRange.ClearBeforeFill = true;
             pilotSummary.ClearBeforeFill = true;
+            pilotSim.ClearBeforeFill = true;
 
             taP.ClearBeforeFill = true;
             taF.ClearBeforeFill = true;
@@ -151,6 +157,7 @@ namespace Flights_GUI.Operation
                         ReportViewer8.Visible = false;
                         ReportViewer9.Visible = false;
                         ReportViewer10.Visible = false;
+                        ReportViewer11.Visible = false;
                         break;
                     case "8":
                         rds.Name = "PilotDataSet";
@@ -174,6 +181,7 @@ namespace Flights_GUI.Operation
                         ReportViewer8.Visible = false;
                         ReportViewer9.Visible = false;
                         ReportViewer10.Visible = false;
+                        ReportViewer11.Visible = false;
                         break;
                     case "1":
                         rds.Name = "PAXDataSet";
@@ -196,6 +204,7 @@ namespace Flights_GUI.Operation
                         ReportViewer8.Visible = false;
                         ReportViewer9.Visible = false;
                         ReportViewer10.Visible = false;
+                        ReportViewer11.Visible = false;
                         break;
                     case "2":
                         rds.Name = "FlyHoursDataSet";
@@ -216,6 +225,7 @@ namespace Flights_GUI.Operation
                         ReportViewer8.Visible = false;
                         ReportViewer9.Visible = false;
                         ReportViewer10.Visible = false;
+                        ReportViewer11.Visible = false;
                         break;
                     case "3":
                         rds.Name = "ScheduleDataSet";
@@ -243,6 +253,7 @@ namespace Flights_GUI.Operation
                         ReportViewer8.Visible = false;
                         ReportViewer9.Visible = false;
                         ReportViewer10.Visible = false;
+                        ReportViewer11.Visible = false;
                         break;
                     case "4":
                         rds.Name = "PerDiemDataSet";
@@ -265,6 +276,7 @@ namespace Flights_GUI.Operation
                         ReportViewer8.Visible = false;
                         ReportViewer9.Visible = false;
                         ReportViewer10.Visible = false;
+                        ReportViewer11.Visible = false;
                         break;
                     case "5":
                         rds.Name = "PerDiemDataSet";
@@ -287,6 +299,7 @@ namespace Flights_GUI.Operation
                         ReportViewer8.Visible = false;
                         ReportViewer9.Visible = false;
                         ReportViewer10.Visible = false;
+                        ReportViewer11.Visible = false;
                         break;
                     case "6":
                         rds.Name = "AirplaneActualBurnOffDataSet";
@@ -307,6 +320,7 @@ namespace Flights_GUI.Operation
                         ReportViewer8.Visible = false;
                         ReportViewer9.Visible = false;
                         ReportViewer10.Visible = false;
+                        ReportViewer11.Visible = false;
                         break;
                     case "7":
                         rds.Name = "SectorActualBurnOffDataSet";
@@ -329,6 +343,7 @@ namespace Flights_GUI.Operation
                         ReportViewer8.Visible = false;
                         ReportViewer9.Visible = false;
                         ReportViewer10.Visible = false;
+                        ReportViewer11.Visible = false;
                         break;
                     case "9":
                         rds.Name = "PilotNightCityDataSet";
@@ -349,6 +364,7 @@ namespace Flights_GUI.Operation
                         ReportViewer8.Visible = true;                        
                         ReportViewer9.Visible = false;
                         ReportViewer10.Visible = false;
+                        ReportViewer11.Visible = false;
                         break;
                     case "11":
                         rds.Name = "PilotNightCityDataSet";
@@ -387,6 +403,7 @@ namespace Flights_GUI.Operation
                         ReportViewer8.Visible = false;
                         ReportViewer9.Visible = false;
                         ReportViewer10.Visible = true;
+                        ReportViewer11.Visible = false;
 
                         break;
                     case "10":
@@ -408,6 +425,28 @@ namespace Flights_GUI.Operation
                         ReportViewer8.Visible = false;                        
                         ReportViewer9.Visible = true;
                         ReportViewer10.Visible = false;
+                        ReportViewer11.Visible = false;
+                        break;
+                   case "12":
+                        rds.Name = "PilotSimulationDataSet";
+                        rds.Value = pilotSim.GetData(Convert.ToInt32(uiDropDownListPilots.SelectedValue),From, To);
+                        ReportParameter[] rep_params12 = new ReportParameter[2];
+                        rep_params12[0] = new Microsoft.Reporting.WebForms.ReportParameter("From", string.Format("{0:MM/dd/yyyy}", uiRadDatePickerFrom.SelectedDate));
+                        rep_params12[1] = new Microsoft.Reporting.WebForms.ReportParameter("To", string.Format("{0:MM/dd/yyyy}", uiRadDatePickerTo.SelectedDate));
+                        ReportViewer11.LocalReport.SetParameters(rep_params12);  
+                        ReportViewer11.LocalReport.DataSources.Add(rds);  
+                        ReportViewer11.LocalReport.Refresh();  
+                        ReportViewer1.Visible = false;
+                        ReportViewer2.Visible = false;
+                        ReportViewer3.Visible = false;
+                        ReportViewer4.Visible = false;
+                        ReportViewer5.Visible = false;
+                        ReportViewer6.Visible = false;
+                        ReportViewer7.Visible = false;
+                        ReportViewer8.Visible = false;                        
+                        ReportViewer9.Visible = false;
+                        ReportViewer10.Visible = false;
+                        ReportViewer11.Visible = true;
                         break;
                     default:
                         break;

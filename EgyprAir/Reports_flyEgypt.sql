@@ -754,11 +754,13 @@ Create Procedure GetAllPilotsHours_Summary
 as 
 
 
-Select FirstName + ' ' + SecondName + ' ' + SureName Name,shortName,
+Select FirstName + ' ' + SureName Name,shortName,
 (select grandtotalhours from GetPilotReportWithinRangeAsTable(PilotID,@StartDate, @EndDate)) WorkHours,
 (select grandtotalmins from GetPilotReportWithinRangeAsTable(PilotID,@StartDate, @EndDate)) WorkMins,
 (select GrandTotalDHDHours from GetPilotDHDWithinRangeAsTable(PilotID,@StartDate, @EndDate)) DHDHours,
-(select GrandTotalDHDMins from GetPilotDHDWithinRangeAsTable(PilotID,@StartDate, @EndDate)) DHDMins
+(select GrandTotalDHDMins from GetPilotDHDWithinRangeAsTable(PilotID,@StartDate, @EndDate)) DHDMins,
+(select GrandTotalSimHours from GetPilotSimulationWithinRangeAsTable(PilotID,@StartDate, @EndDate)) SimHours,
+(select GrandTotalSimMins from GetPilotSimulationWithinRangeAsTable(PilotID,@StartDate, @EndDate)) SimMins
  from Pilot
  Go
  
@@ -789,3 +791,101 @@ Select Name,shortName,
 
 
 
+
+
+/*
+ get pilot hours within range 
+*/
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'GetPilotSimulationHoursWithinRange' and
+		        xtype = 'P')
+Drop Procedure GetPilotSimulationHoursWithinRange
+Go
+
+CREATE Procedure GetPilotSimulationHoursWithinRange @PilotID int,  
+													@StartDate DateTime = null,  
+													@EndDate DateTime = null  
+as  
+  
+  
+Declare @TotalH int,  
+  @TotalMin int  
+  
+select  @TotalMin = sum(DiffM)
+From(  
+Select   
+  sum(DATEDIFF(MINUTE, DateFrom,DateTo)) DiffM
+from PilotTransaction PT
+Inner join Pilot P on PT.PilotID = P.PilotID
+Where P.PilotID = @PilotID and   
+   PT.DateFrom >= ISNULL(@StartDate, '01/01/1900') and   
+   PT.DateTo <= ISNULL(@EndDate, '01/01/2500') and 
+   TransactionsID = 11
+   
+) as A  
+
+  
+/* grand totals ( totals within start date and end date ) */  
+Select @TotalH = (@TotalMin/ 60)  
+Select @TotalMin = @TotalMin - (@TotalMin/60)*60  
+  
+  
+  
+Select P.FirstName , P.SecondName , P.SureName , P.LicenseNo,P.ShortName , P.IsPilot,
+@TotalH GrandTotalHours , @TotalMin GrandTotalMin
+, DateFrom, DateTo, DATEDIFF(MINUTE,DateFrom, DateTo )/60 TotalHours, (DATEDIFF(MINUTE,DateFrom, DateTo )) - (DATEDIFF(MINUTE,DateFrom, DateTo )/60)*60 TotalMin
+from PilotTransaction PT
+Inner join Pilot P on PT.PilotID = P.PilotID
+Where P.PilotID = @PilotID and   
+   PT.DateFrom >= ISNULL(@StartDate, '01/01/1900') and   
+   PT.DateTo <= ISNULL(@EndDate, '01/01/2500') and 
+   TransactionsID = 11
+Order by DateFrom
+
+Go
+
+
+
+  If Exists (select Name 
+		   from sysobjects 
+		   where name = 'GetPilotSimulationWithinRangeAsTable' and
+		        xtype = 'FT')
+Drop function GetPilotSimulationWithinRangeAsTable
+Go
+
+CREATE function GetPilotSimulationWithinRangeAsTable (@PilotID int,  
+        @StartDate DateTime = null,  
+        @EndDate DateTime = null)
+returns @result table
+(
+	GrandTotalSimHours int, 
+	GrandTotalSimMins int
+)
+as  
+Begin
+Declare @TotalH int,  
+  @TotalMin int  
+  
+select  @TotalMin = sum(DiffM)
+From(  
+Select   
+  sum(DATEDIFF(MINUTE, DateFrom,DateTo)) DiffM
+from PilotTransaction PT
+Inner join Pilot P on PT.PilotID = P.PilotID
+Where P.PilotID = @PilotID and   
+   PT.DateFrom >= ISNULL(@StartDate, '01/01/1900') and   
+   PT.DateTo <= ISNULL(@EndDate, '01/01/2500') and 
+   TransactionsID = 11
+) as A  
+
+  
+/* grand totals ( totals within start date and end date ) */  
+Select @TotalH = (@TotalMin/ 60)  
+Select @TotalMin = @TotalMin - (@TotalMin/60)*60 
+
+ insert @result
+Select isnull(@TotalH,0)  ,      
+    isnull(@TotalMin ,0)
+    return 
+End
