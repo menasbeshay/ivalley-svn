@@ -256,6 +256,15 @@ namespace Flights_GUI.Operation {
         protected global::Microsoft.Reporting.WebForms.ReportViewer ReportViewer9;
         
         /// <summary>
+        /// ReportViewer11 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Microsoft.Reporting.WebForms.ReportViewer ReportViewer11;
+        
+        /// <summary>
         /// Master property.
         /// </summary>
         /// <remarks>

@@ -64,6 +64,8 @@ namespace Flights_GUI {
         
         private GetAllCrewHours_SummaryDataTable tableGetAllCrewHours_Summary;
         
+        private GetPilotSimulationHoursWithinRangeDataTable tableGetPilotSimulationHoursWithinRange;
+        
         private PilotNightCityDataTable tablePilotNightCity;
         
         private CrewNightCityDataTable tableCrewNightCity;
@@ -155,6 +157,9 @@ namespace Flights_GUI {
                 }
                 if ((ds.Tables["GetAllCrewHours_Summary"] != null)) {
                     base.Tables.Add(new GetAllCrewHours_SummaryDataTable(ds.Tables["GetAllCrewHours_Summary"]));
+                }
+                if ((ds.Tables["GetPilotSimulationHoursWithinRange"] != null)) {
+                    base.Tables.Add(new GetPilotSimulationHoursWithinRangeDataTable(ds.Tables["GetPilotSimulationHoursWithinRange"]));
                 }
                 if ((ds.Tables["PilotNightCity"] != null)) {
                     base.Tables.Add(new PilotNightCityDataTable(ds.Tables["PilotNightCity"]));
@@ -384,6 +389,16 @@ namespace Flights_GUI {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public GetPilotSimulationHoursWithinRangeDataTable GetPilotSimulationHoursWithinRange {
+            get {
+                return this.tableGetPilotSimulationHoursWithinRange;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public PilotNightCityDataTable PilotNightCity {
             get {
                 return this.tablePilotNightCity;
@@ -526,6 +541,9 @@ namespace Flights_GUI {
                 }
                 if ((ds.Tables["GetAllCrewHours_Summary"] != null)) {
                     base.Tables.Add(new GetAllCrewHours_SummaryDataTable(ds.Tables["GetAllCrewHours_Summary"]));
+                }
+                if ((ds.Tables["GetPilotSimulationHoursWithinRange"] != null)) {
+                    base.Tables.Add(new GetPilotSimulationHoursWithinRangeDataTable(ds.Tables["GetPilotSimulationHoursWithinRange"]));
                 }
                 if ((ds.Tables["PilotNightCity"] != null)) {
                     base.Tables.Add(new PilotNightCityDataTable(ds.Tables["PilotNightCity"]));
@@ -686,6 +704,12 @@ namespace Flights_GUI {
                     this.tableGetAllCrewHours_Summary.InitVars();
                 }
             }
+            this.tableGetPilotSimulationHoursWithinRange = ((GetPilotSimulationHoursWithinRangeDataTable)(base.Tables["GetPilotSimulationHoursWithinRange"]));
+            if ((initTable == true)) {
+                if ((this.tableGetPilotSimulationHoursWithinRange != null)) {
+                    this.tableGetPilotSimulationHoursWithinRange.InitVars();
+                }
+            }
             this.tablePilotNightCity = ((PilotNightCityDataTable)(base.Tables["PilotNightCity"]));
             if ((initTable == true)) {
                 if ((this.tablePilotNightCity != null)) {
@@ -748,6 +772,8 @@ namespace Flights_GUI {
             base.Tables.Add(this.tableGetAllPilotsHours_Summary);
             this.tableGetAllCrewHours_Summary = new GetAllCrewHours_SummaryDataTable();
             base.Tables.Add(this.tableGetAllCrewHours_Summary);
+            this.tableGetPilotSimulationHoursWithinRange = new GetPilotSimulationHoursWithinRangeDataTable();
+            base.Tables.Add(this.tableGetPilotSimulationHoursWithinRange);
             this.tablePilotNightCity = new PilotNightCityDataTable();
             base.Tables.Add(this.tablePilotNightCity);
             this.tableCrewNightCity = new CrewNightCityDataTable();
@@ -871,6 +897,12 @@ namespace Flights_GUI {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeGetAllCrewHours_Summary() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeGetPilotSimulationHoursWithinRange() {
             return false;
         }
         
@@ -1000,6 +1032,9 @@ namespace Flights_GUI {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void GetAllCrewHours_SummaryRowChangeEventHandler(object sender, GetAllCrewHours_SummaryRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void GetPilotSimulationHoursWithinRangeRowChangeEventHandler(object sender, GetPilotSimulationHoursWithinRangeRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void PilotNightCityRowChangeEventHandler(object sender, PilotNightCityRowChangeEvent e);
@@ -12788,6 +12823,10 @@ namespace Flights_GUI {
             
             private global::System.Data.DataColumn columnDHDMins;
             
+            private global::System.Data.DataColumn columnSimHours;
+            
+            private global::System.Data.DataColumn columnSimMins;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public GetAllPilotsHours_SummaryDataTable() {
@@ -12871,6 +12910,22 @@ namespace Flights_GUI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SimHoursColumn {
+                get {
+                    return this.columnSimHours;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SimMinsColumn {
+                get {
+                    return this.columnSimMins;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -12906,7 +12961,7 @@ namespace Flights_GUI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GetAllPilotsHours_SummaryRow AddGetAllPilotsHours_SummaryRow(string Name, string shortName, int WorkHours, int WorkMins, int DHDHours, int DHDMins) {
+            public GetAllPilotsHours_SummaryRow AddGetAllPilotsHours_SummaryRow(string Name, string shortName, int WorkHours, int WorkMins, int DHDHours, int DHDMins, int SimHours, int SimMins) {
                 GetAllPilotsHours_SummaryRow rowGetAllPilotsHours_SummaryRow = ((GetAllPilotsHours_SummaryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Name,
@@ -12914,7 +12969,9 @@ namespace Flights_GUI {
                         WorkHours,
                         WorkMins,
                         DHDHours,
-                        DHDMins};
+                        DHDMins,
+                        SimHours,
+                        SimMins};
                 rowGetAllPilotsHours_SummaryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowGetAllPilotsHours_SummaryRow);
                 return rowGetAllPilotsHours_SummaryRow;
@@ -12943,6 +13000,8 @@ namespace Flights_GUI {
                 this.columnWorkMins = base.Columns["WorkMins"];
                 this.columnDHDHours = base.Columns["DHDHours"];
                 this.columnDHDMins = base.Columns["DHDMins"];
+                this.columnSimHours = base.Columns["SimHours"];
+                this.columnSimMins = base.Columns["SimMins"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12960,6 +13019,10 @@ namespace Flights_GUI {
                 base.Columns.Add(this.columnDHDHours);
                 this.columnDHDMins = new global::System.Data.DataColumn("DHDMins", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDHDMins);
+                this.columnSimHours = new global::System.Data.DataColumn("SimHours", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSimHours);
+                this.columnSimMins = new global::System.Data.DataColumn("SimMins", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSimMins);
                 this.columnName.ReadOnly = true;
                 this.columnName.MaxLength = 152;
                 this.columnshortName.MaxLength = 5;
@@ -12967,6 +13030,8 @@ namespace Flights_GUI {
                 this.columnWorkMins.ReadOnly = true;
                 this.columnDHDHours.ReadOnly = true;
                 this.columnDHDMins.ReadOnly = true;
+                this.columnSimHours.ReadOnly = true;
+                this.columnSimMins.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13376,6 +13441,416 @@ namespace Flights_GUI {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "GetAllCrewHours_SummaryDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class GetPilotSimulationHoursWithinRangeDataTable : global::System.Data.TypedTableBase<GetPilotSimulationHoursWithinRangeRow> {
+            
+            private global::System.Data.DataColumn columnFirstName;
+            
+            private global::System.Data.DataColumn columnSecondName;
+            
+            private global::System.Data.DataColumn columnSureName;
+            
+            private global::System.Data.DataColumn columnLicenseNo;
+            
+            private global::System.Data.DataColumn columnShortName;
+            
+            private global::System.Data.DataColumn columnGrandTotalHours;
+            
+            private global::System.Data.DataColumn columnGrandTotalMin;
+            
+            private global::System.Data.DataColumn columnDateFrom;
+            
+            private global::System.Data.DataColumn columnDateTo;
+            
+            private global::System.Data.DataColumn columnTotalHours;
+            
+            private global::System.Data.DataColumn columnTotalMin;
+            
+            private global::System.Data.DataColumn columnIsPilot;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public GetPilotSimulationHoursWithinRangeDataTable() {
+                this.TableName = "GetPilotSimulationHoursWithinRange";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal GetPilotSimulationHoursWithinRangeDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected GetPilotSimulationHoursWithinRangeDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FirstNameColumn {
+                get {
+                    return this.columnFirstName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SecondNameColumn {
+                get {
+                    return this.columnSecondName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SureNameColumn {
+                get {
+                    return this.columnSureName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn LicenseNoColumn {
+                get {
+                    return this.columnLicenseNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ShortNameColumn {
+                get {
+                    return this.columnShortName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn GrandTotalHoursColumn {
+                get {
+                    return this.columnGrandTotalHours;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn GrandTotalMinColumn {
+                get {
+                    return this.columnGrandTotalMin;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DateFromColumn {
+                get {
+                    return this.columnDateFrom;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DateToColumn {
+                get {
+                    return this.columnDateTo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TotalHoursColumn {
+                get {
+                    return this.columnTotalHours;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TotalMinColumn {
+                get {
+                    return this.columnTotalMin;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IsPilotColumn {
+                get {
+                    return this.columnIsPilot;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public GetPilotSimulationHoursWithinRangeRow this[int index] {
+                get {
+                    return ((GetPilotSimulationHoursWithinRangeRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event GetPilotSimulationHoursWithinRangeRowChangeEventHandler GetPilotSimulationHoursWithinRangeRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event GetPilotSimulationHoursWithinRangeRowChangeEventHandler GetPilotSimulationHoursWithinRangeRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event GetPilotSimulationHoursWithinRangeRowChangeEventHandler GetPilotSimulationHoursWithinRangeRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event GetPilotSimulationHoursWithinRangeRowChangeEventHandler GetPilotSimulationHoursWithinRangeRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddGetPilotSimulationHoursWithinRangeRow(GetPilotSimulationHoursWithinRangeRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public GetPilotSimulationHoursWithinRangeRow AddGetPilotSimulationHoursWithinRangeRow(string FirstName, string SecondName, string SureName, string LicenseNo, string ShortName, int GrandTotalHours, int GrandTotalMin, System.DateTime DateFrom, System.DateTime DateTo, int TotalHours, int TotalMin, bool IsPilot) {
+                GetPilotSimulationHoursWithinRangeRow rowGetPilotSimulationHoursWithinRangeRow = ((GetPilotSimulationHoursWithinRangeRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        FirstName,
+                        SecondName,
+                        SureName,
+                        LicenseNo,
+                        ShortName,
+                        GrandTotalHours,
+                        GrandTotalMin,
+                        DateFrom,
+                        DateTo,
+                        TotalHours,
+                        TotalMin,
+                        IsPilot};
+                rowGetPilotSimulationHoursWithinRangeRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowGetPilotSimulationHoursWithinRangeRow);
+                return rowGetPilotSimulationHoursWithinRangeRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                GetPilotSimulationHoursWithinRangeDataTable cln = ((GetPilotSimulationHoursWithinRangeDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new GetPilotSimulationHoursWithinRangeDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnFirstName = base.Columns["FirstName"];
+                this.columnSecondName = base.Columns["SecondName"];
+                this.columnSureName = base.Columns["SureName"];
+                this.columnLicenseNo = base.Columns["LicenseNo"];
+                this.columnShortName = base.Columns["ShortName"];
+                this.columnGrandTotalHours = base.Columns["GrandTotalHours"];
+                this.columnGrandTotalMin = base.Columns["GrandTotalMin"];
+                this.columnDateFrom = base.Columns["DateFrom"];
+                this.columnDateTo = base.Columns["DateTo"];
+                this.columnTotalHours = base.Columns["TotalHours"];
+                this.columnTotalMin = base.Columns["TotalMin"];
+                this.columnIsPilot = base.Columns["IsPilot"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnFirstName = new global::System.Data.DataColumn("FirstName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFirstName);
+                this.columnSecondName = new global::System.Data.DataColumn("SecondName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSecondName);
+                this.columnSureName = new global::System.Data.DataColumn("SureName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSureName);
+                this.columnLicenseNo = new global::System.Data.DataColumn("LicenseNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLicenseNo);
+                this.columnShortName = new global::System.Data.DataColumn("ShortName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnShortName);
+                this.columnGrandTotalHours = new global::System.Data.DataColumn("GrandTotalHours", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGrandTotalHours);
+                this.columnGrandTotalMin = new global::System.Data.DataColumn("GrandTotalMin", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGrandTotalMin);
+                this.columnDateFrom = new global::System.Data.DataColumn("DateFrom", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDateFrom);
+                this.columnDateTo = new global::System.Data.DataColumn("DateTo", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDateTo);
+                this.columnTotalHours = new global::System.Data.DataColumn("TotalHours", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotalHours);
+                this.columnTotalMin = new global::System.Data.DataColumn("TotalMin", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotalMin);
+                this.columnIsPilot = new global::System.Data.DataColumn("IsPilot", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIsPilot);
+                this.columnFirstName.MaxLength = 50;
+                this.columnSecondName.MaxLength = 50;
+                this.columnSureName.MaxLength = 50;
+                this.columnLicenseNo.MaxLength = 15;
+                this.columnShortName.MaxLength = 5;
+                this.columnGrandTotalHours.ReadOnly = true;
+                this.columnGrandTotalMin.ReadOnly = true;
+                this.columnTotalHours.ReadOnly = true;
+                this.columnTotalMin.ReadOnly = true;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public GetPilotSimulationHoursWithinRangeRow NewGetPilotSimulationHoursWithinRangeRow() {
+                return ((GetPilotSimulationHoursWithinRangeRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new GetPilotSimulationHoursWithinRangeRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(GetPilotSimulationHoursWithinRangeRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.GetPilotSimulationHoursWithinRangeRowChanged != null)) {
+                    this.GetPilotSimulationHoursWithinRangeRowChanged(this, new GetPilotSimulationHoursWithinRangeRowChangeEvent(((GetPilotSimulationHoursWithinRangeRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.GetPilotSimulationHoursWithinRangeRowChanging != null)) {
+                    this.GetPilotSimulationHoursWithinRangeRowChanging(this, new GetPilotSimulationHoursWithinRangeRowChangeEvent(((GetPilotSimulationHoursWithinRangeRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.GetPilotSimulationHoursWithinRangeRowDeleted != null)) {
+                    this.GetPilotSimulationHoursWithinRangeRowDeleted(this, new GetPilotSimulationHoursWithinRangeRowChangeEvent(((GetPilotSimulationHoursWithinRangeRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.GetPilotSimulationHoursWithinRangeRowDeleting != null)) {
+                    this.GetPilotSimulationHoursWithinRangeRowDeleting(this, new GetPilotSimulationHoursWithinRangeRowChangeEvent(((GetPilotSimulationHoursWithinRangeRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveGetPilotSimulationHoursWithinRangeRow(GetPilotSimulationHoursWithinRangeRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                FlightReportDataSet ds = new FlightReportDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "GetPilotSimulationHoursWithinRangeDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -27645,6 +28120,38 @@ namespace Flights_GUI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int SimHours {
+                get {
+                    try {
+                        return ((int)(this[this.tableGetAllPilotsHours_Summary.SimHoursColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SimHours\' in table \'GetAllPilotsHours_Summary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetAllPilotsHours_Summary.SimHoursColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int SimMins {
+                get {
+                    try {
+                        return ((int)(this[this.tableGetAllPilotsHours_Summary.SimMinsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SimMins\' in table \'GetAllPilotsHours_Summary\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetAllPilotsHours_Summary.SimMinsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsNameNull() {
                 return this.IsNull(this.tableGetAllPilotsHours_Summary.NameColumn);
             }
@@ -27713,6 +28220,30 @@ namespace Flights_GUI {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetDHDMinsNull() {
                 this[this.tableGetAllPilotsHours_Summary.DHDMinsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSimHoursNull() {
+                return this.IsNull(this.tableGetAllPilotsHours_Summary.SimHoursColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSimHoursNull() {
+                this[this.tableGetAllPilotsHours_Summary.SimHoursColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSimMinsNull() {
+                return this.IsNull(this.tableGetAllPilotsHours_Summary.SimMinsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSimMinsNull() {
+                this[this.tableGetAllPilotsHours_Summary.SimMinsColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -27896,6 +28427,369 @@ namespace Flights_GUI {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetDHDMinsNull() {
                 this[this.tableGetAllCrewHours_Summary.DHDMinsColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class GetPilotSimulationHoursWithinRangeRow : global::System.Data.DataRow {
+            
+            private GetPilotSimulationHoursWithinRangeDataTable tableGetPilotSimulationHoursWithinRange;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal GetPilotSimulationHoursWithinRangeRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableGetPilotSimulationHoursWithinRange = ((GetPilotSimulationHoursWithinRangeDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string FirstName {
+                get {
+                    try {
+                        return ((string)(this[this.tableGetPilotSimulationHoursWithinRange.FirstNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FirstName\' in table \'GetPilotSimulationHoursWithinRange\' is" +
+                                " DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetPilotSimulationHoursWithinRange.FirstNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string SecondName {
+                get {
+                    try {
+                        return ((string)(this[this.tableGetPilotSimulationHoursWithinRange.SecondNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SecondName\' in table \'GetPilotSimulationHoursWithinRange\' i" +
+                                "s DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetPilotSimulationHoursWithinRange.SecondNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string SureName {
+                get {
+                    try {
+                        return ((string)(this[this.tableGetPilotSimulationHoursWithinRange.SureNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SureName\' in table \'GetPilotSimulationHoursWithinRange\' is " +
+                                "DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetPilotSimulationHoursWithinRange.SureNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string LicenseNo {
+                get {
+                    try {
+                        return ((string)(this[this.tableGetPilotSimulationHoursWithinRange.LicenseNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'LicenseNo\' in table \'GetPilotSimulationHoursWithinRange\' is" +
+                                " DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetPilotSimulationHoursWithinRange.LicenseNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ShortName {
+                get {
+                    try {
+                        return ((string)(this[this.tableGetPilotSimulationHoursWithinRange.ShortNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ShortName\' in table \'GetPilotSimulationHoursWithinRange\' is" +
+                                " DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetPilotSimulationHoursWithinRange.ShortNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int GrandTotalHours {
+                get {
+                    try {
+                        return ((int)(this[this.tableGetPilotSimulationHoursWithinRange.GrandTotalHoursColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'GrandTotalHours\' in table \'GetPilotSimulationHoursWithinRan" +
+                                "ge\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetPilotSimulationHoursWithinRange.GrandTotalHoursColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int GrandTotalMin {
+                get {
+                    try {
+                        return ((int)(this[this.tableGetPilotSimulationHoursWithinRange.GrandTotalMinColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'GrandTotalMin\' in table \'GetPilotSimulationHoursWithinRange" +
+                                "\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetPilotSimulationHoursWithinRange.GrandTotalMinColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime DateFrom {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableGetPilotSimulationHoursWithinRange.DateFromColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DateFrom\' in table \'GetPilotSimulationHoursWithinRange\' is " +
+                                "DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetPilotSimulationHoursWithinRange.DateFromColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime DateTo {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableGetPilotSimulationHoursWithinRange.DateToColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DateTo\' in table \'GetPilotSimulationHoursWithinRange\' is DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetPilotSimulationHoursWithinRange.DateToColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int TotalHours {
+                get {
+                    try {
+                        return ((int)(this[this.tableGetPilotSimulationHoursWithinRange.TotalHoursColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TotalHours\' in table \'GetPilotSimulationHoursWithinRange\' i" +
+                                "s DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetPilotSimulationHoursWithinRange.TotalHoursColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int TotalMin {
+                get {
+                    try {
+                        return ((int)(this[this.tableGetPilotSimulationHoursWithinRange.TotalMinColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TotalMin\' in table \'GetPilotSimulationHoursWithinRange\' is " +
+                                "DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetPilotSimulationHoursWithinRange.TotalMinColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPilot {
+                get {
+                    try {
+                        return ((bool)(this[this.tableGetPilotSimulationHoursWithinRange.IsPilotColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'IsPilot\' in table \'GetPilotSimulationHoursWithinRange\' is D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetPilotSimulationHoursWithinRange.IsPilotColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFirstNameNull() {
+                return this.IsNull(this.tableGetPilotSimulationHoursWithinRange.FirstNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFirstNameNull() {
+                this[this.tableGetPilotSimulationHoursWithinRange.FirstNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSecondNameNull() {
+                return this.IsNull(this.tableGetPilotSimulationHoursWithinRange.SecondNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSecondNameNull() {
+                this[this.tableGetPilotSimulationHoursWithinRange.SecondNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSureNameNull() {
+                return this.IsNull(this.tableGetPilotSimulationHoursWithinRange.SureNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSureNameNull() {
+                this[this.tableGetPilotSimulationHoursWithinRange.SureNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLicenseNoNull() {
+                return this.IsNull(this.tableGetPilotSimulationHoursWithinRange.LicenseNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLicenseNoNull() {
+                this[this.tableGetPilotSimulationHoursWithinRange.LicenseNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsShortNameNull() {
+                return this.IsNull(this.tableGetPilotSimulationHoursWithinRange.ShortNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetShortNameNull() {
+                this[this.tableGetPilotSimulationHoursWithinRange.ShortNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGrandTotalHoursNull() {
+                return this.IsNull(this.tableGetPilotSimulationHoursWithinRange.GrandTotalHoursColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGrandTotalHoursNull() {
+                this[this.tableGetPilotSimulationHoursWithinRange.GrandTotalHoursColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGrandTotalMinNull() {
+                return this.IsNull(this.tableGetPilotSimulationHoursWithinRange.GrandTotalMinColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGrandTotalMinNull() {
+                this[this.tableGetPilotSimulationHoursWithinRange.GrandTotalMinColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDateFromNull() {
+                return this.IsNull(this.tableGetPilotSimulationHoursWithinRange.DateFromColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDateFromNull() {
+                this[this.tableGetPilotSimulationHoursWithinRange.DateFromColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDateToNull() {
+                return this.IsNull(this.tableGetPilotSimulationHoursWithinRange.DateToColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDateToNull() {
+                this[this.tableGetPilotSimulationHoursWithinRange.DateToColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTotalHoursNull() {
+                return this.IsNull(this.tableGetPilotSimulationHoursWithinRange.TotalHoursColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTotalHoursNull() {
+                this[this.tableGetPilotSimulationHoursWithinRange.TotalHoursColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTotalMinNull() {
+                return this.IsNull(this.tableGetPilotSimulationHoursWithinRange.TotalMinColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTotalMinNull() {
+                this[this.tableGetPilotSimulationHoursWithinRange.TotalMinColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsIsPilotNull() {
+                return this.IsNull(this.tableGetPilotSimulationHoursWithinRange.IsPilotColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetIsPilotNull() {
+                this[this.tableGetPilotSimulationHoursWithinRange.IsPilotColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -28875,6 +29769,40 @@ namespace Flights_GUI {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public GetAllCrewHours_SummaryRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class GetPilotSimulationHoursWithinRangeRowChangeEvent : global::System.EventArgs {
+            
+            private GetPilotSimulationHoursWithinRangeRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public GetPilotSimulationHoursWithinRangeRowChangeEvent(GetPilotSimulationHoursWithinRangeRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public GetPilotSimulationHoursWithinRangeRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -33169,6 +34097,8 @@ namespace Flights_GUI.FlightReportDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("WorkMins", "WorkMins");
             tableMapping.ColumnMappings.Add("DHDHours", "DHDHours");
             tableMapping.ColumnMappings.Add("DHDMins", "DHDMins");
+            tableMapping.ColumnMappings.Add("SimHours", "SimHours");
+            tableMapping.ColumnMappings.Add("SimMins", "SimMins");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -33435,6 +34365,224 @@ namespace Flights_GUI.FlightReportDataSetTableAdapters {
                 this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             FlightReportDataSet.GetAllCrewHours_SummaryDataTable dataTable = new FlightReportDataSet.GetAllCrewHours_SummaryDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class GetPilotSimulationHoursWithinRangeTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public GetPilotSimulationHoursWithinRangeTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "GetPilotSimulationHoursWithinRange";
+            tableMapping.ColumnMappings.Add("FirstName", "FirstName");
+            tableMapping.ColumnMappings.Add("SecondName", "SecondName");
+            tableMapping.ColumnMappings.Add("SureName", "SureName");
+            tableMapping.ColumnMappings.Add("LicenseNo", "LicenseNo");
+            tableMapping.ColumnMappings.Add("ShortName", "ShortName");
+            tableMapping.ColumnMappings.Add("GrandTotalHours", "GrandTotalHours");
+            tableMapping.ColumnMappings.Add("GrandTotalMin", "GrandTotalMin");
+            tableMapping.ColumnMappings.Add("DateFrom", "DateFrom");
+            tableMapping.ColumnMappings.Add("DateTo", "DateTo");
+            tableMapping.ColumnMappings.Add("TotalHours", "TotalHours");
+            tableMapping.ColumnMappings.Add("TotalMin", "TotalMin");
+            tableMapping.ColumnMappings.Add("IsPilot", "IsPilot");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["FlightReportConnectionString"].ConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "dbo.GetPilotSimulationHoursWithinRange";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PilotID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StartDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 23, 3, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EndDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 23, 3, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(FlightReportDataSet.GetPilotSimulationHoursWithinRangeDataTable dataTable, global::System.Nullable<int> PilotID, global::System.Nullable<global::System.DateTime> StartDate, global::System.Nullable<global::System.DateTime> EndDate) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((PilotID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(PilotID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((StartDate.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(StartDate.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((EndDate.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((System.DateTime)(EndDate.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual FlightReportDataSet.GetPilotSimulationHoursWithinRangeDataTable GetData(global::System.Nullable<int> PilotID, global::System.Nullable<global::System.DateTime> StartDate, global::System.Nullable<global::System.DateTime> EndDate) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((PilotID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(PilotID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((StartDate.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(StartDate.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((EndDate.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((System.DateTime)(EndDate.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            FlightReportDataSet.GetPilotSimulationHoursWithinRangeDataTable dataTable = new FlightReportDataSet.GetPilotSimulationHoursWithinRangeDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

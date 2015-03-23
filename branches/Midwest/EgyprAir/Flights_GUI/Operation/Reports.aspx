@@ -15,7 +15,7 @@
         $('#<%= uiRadioButtonListReports.ClientID %>').change(function () {
             var selectedvalue = $(this).val();
 
-            if (selectedvalue == 0 || selectedvalue == 4 || selectedvalue == 5 || selectedvalue == 8 || selectedvalue == 9) {
+            if (selectedvalue == 0 || selectedvalue == 4 || selectedvalue == 5 || selectedvalue == 8 || selectedvalue == 9 || selectedvalue == 12) {
                 $('#pilotdiv').css('display', 'block');
 
                 if (selectedvalue == 4 || selectedvalue == 5)
@@ -62,6 +62,7 @@
                                     <asp:ListItem Value="8">Pilot DHD Hours</asp:ListItem>                                                                                             
                                     <asp:ListItem Value="9">Pilot Night city</asp:ListItem>
                                     <%--<asp:ListItem Value="11">Pilot Night city - Summary</asp:ListItem>--%>
+                                     <asp:ListItem Value="12">Pilot Simulation hours</asp:ListItem>
                                     <asp:ListItem Value="10">Pilots hours summary</asp:ListItem>
                                     <%--<asp:ListItem Value="4">Per diem</asp:ListItem>--%>
                                    <%-- <asp:ListItem Value="5">Actual Per diem</asp:ListItem>--%>
@@ -272,6 +273,15 @@
                                     Font-Names="Verdana" Font-Size="8pt" InteractiveDeviceInfos="(Collection)" 
                                     WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" ShowParameterPrompts="true">
                                     <LocalReport ReportPath="Reports\AllPilotsSummary.rdlc">                                    
+                                    
+                                    </LocalReport>
+                                    
+                                    
+                                </rsweb:ReportViewer>
+                                 <rsweb:ReportViewer ID="ReportViewer11" runat="server" Width="100%" 
+                                    Font-Names="Verdana" Font-Size="8pt" InteractiveDeviceInfos="(Collection)" 
+                                    WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt" ShowParameterPrompts="true">
+                                    <LocalReport ReportPath="Reports\PilotSimulationHours.rdlc">                                    
                                     
                                     </LocalReport>
                                     
