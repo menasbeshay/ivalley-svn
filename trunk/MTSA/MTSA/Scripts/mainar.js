@@ -440,7 +440,7 @@
             {
                 'title': 'مشاهدة التفاصيل',
                 'MainTitle': 'أنظمة نقـاط البيـع',
-                'description': '<p style="direction:rtl">إجمع بين تجارتك الإلكترونية والبيع داخل المتجر وأعمل على زيادة عرض منتجاتك . الشاشة بحجمها الذكي وعمقها المحدود هي حل مثالي لللإستخدام في نقاط البيع بشكل عام . </p><p><span class="label label-default" style="direction:rtl">أماكن الإستخدام </span></p><ul class="applist" style="direction:rtl"><li>البيع داخل المتاجر</li> <li>الدليل الإرشادي التفاعلي</li><li>إستشارات البيع ونقاط البيع</li><li>الدفع الذاتي / صرّاف العملاء بإضافة الطابعة الحرارية</li></ul>',
+                'description': '<p style="direction:rtl">إجمع بين تجارتك الإلكترونية والبيع داخل المتجر وأعمل على زيادة عرض منتجاتك . الشاشة بحجمها الذكي وعمقها المحدود هي حل مثالي لللإستخدام في نقاط البيع بشكل عام . </p><p><span class="label label-default" style="direction:rtl;display:inline-block;">أماكن الإستخدام </span></p><ul class="applist" style="direction:rtl"><li>البيع داخل المتاجر</li> <li>الدليل الإرشادي التفاعلي</li><li>إستشارات البيع ونقاط البيع</li><li>الدفع الذاتي / صرّاف العملاء بإضافة الطابعة الحرارية</li></ul>',
                 'thumbnail': ['../images/products/multitouchscreens/pos_small.jpg'],
                 'large': ['../images/products/multitouchscreens/pos.jpg'],
                 'button_list': [],
@@ -451,7 +451,7 @@
             {
                 'title': 'مشاهدة التفاصيل',
                 'MainTitle': 'الضيافة/نقاط الطلب والشراء',
-                'description': '<p style="direction:rtl">تستطيعPolytouch®  المساهمة في عدة مجالات خاصة بقطاع الضيافة ونفاط الطلب والشراء. يمكن إستخدامها مثلا للتسجيل الذاتي الكامل للدخول أو المغادرة بالفنادق بقصد إختصار وقت التسجيل وإجراءات الدفع.</p><p><span class="label label-default" style="direction:rtl">أماكن الإستخدام  </span></p><ul class="applist" style="direction:rtl"><li>نظام التسجيل والمغادرة الذاتي بالفنادق</li> <li>خدمة معلومات النزلاء</li><li> أنظمة الترفيه الشخصي</li><li>إدارة الحملات باستخدام رمز  QR</li><li>اللوحات الإعلانية الرقمية والعروض</li></ul>',
+                'description': '<p style="direction:rtl">تستطيعPolytouch®  المساهمة في عدة مجالات خاصة بقطاع الضيافة ونفاط الطلب والشراء. يمكن إستخدامها مثلا للتسجيل الذاتي الكامل للدخول أو المغادرة بالفنادق بقصد إختصار وقت التسجيل وإجراءات الدفع.</p><p><span class="label label-default" style="direction:rtl;display:inline-block;">أماكن الإستخدام </span></p><ul class="applist" style="direction:rtl"><li>نظام التسجيل والمغادرة الذاتي بالفنادق</li> <li>خدمة معلومات النزلاء</li><li> أنظمة الترفيه الشخصي</li><li>إدارة الحملات باستخدام رمز  QR</li><li>اللوحات الإعلانية الرقمية والعروض</li></ul>',
                 'thumbnail': ['../images/products/multitouchscreens/hospitality_small.jpg'],
                 'large': ['../images/products/multitouchscreens/hospitality.jpg'],
                 'button_list': [],
@@ -461,7 +461,7 @@
             {
                 'title': 'مشاهدة التفاصيل',
                 'MainTitle': 'التســويق',
-                'description': '<p style="direction:rtl">قم بعرض المحتويات الخاصة بأعمالك باسلوب تفاعلي وأخلق تجربة تسوق جديدة كما في مراكز التسوق العامة</p><p><span class="label label-default" style="direction:rtl">أماكن الإستخدام </span></p><ul class="applist" style="direction:rtl"><li>عرض الفيديو والمنتجات التفاعلي</li> <li>توضيح تفاصيل المنتجات والإختيارات المتاحة</li><li>الإدارات القيادية</li><li>إدارة محتويات التسويق كالفيديو والعروض والمعلومات</li></ul>',
+                'description': '<p style="direction:rtl">قم بعرض المحتويات الخاصة بأعمالك باسلوب تفاعلي وأخلق تجربة تسوق جديدة كما في مراكز التسوق العامة</p><p><span class="label label-default" style="direction:rtl;display:inline-block;">أماكن الإستخدام </span></p><ul class="applist" style="direction:rtl"><li>عرض الفيديو والمنتجات التفاعلي</li> <li>توضيح تفاصيل المنتجات والإختيارات المتاحة</li><li>الإدارات القيادية</li><li>إدارة محتويات التسويق كالفيديو والعروض والمعلومات</li></ul>',
                 'thumbnail': ['../images/products/multitouchscreens/communication_small.jpg'],
                 'large': ['../images/products/multitouchscreens/communication.jpg'],
                 'button_list': [],
@@ -473,7 +473,7 @@
             {
                 'title': 'مشاهدة التفاصيل',
                 'MainTitle': 'الأعمال البنكيّة',
-                'description': '<p style="direction:rtl">يزداد الطلب على العروض التفاعلية المبتكرة وخصوصا في القطاع البنكي .  العملاء يتوقعون أن تكون عروض المنتجات متفاعلة ومتوافقة مع  ميولهم. بولي تتش  Polytouch ®  تضيف هذا البعد لعروض المنتجات.</p><p><span class="label label-default" style="direction:rtl">أماكن الإستخدام </span></p><ul class="applist" style="direction:rtl"><li>الخدمات المصـرفيّة</li> <li>خدمات التأمين</li><li>القطاع العقــاري</li></ul>',
+                'description': '<p style="direction:rtl">يزداد الطلب على العروض التفاعلية المبتكرة وخصوصا في القطاع البنكي .  العملاء يتوقعون أن تكون عروض المنتجات متفاعلة ومتوافقة مع  ميولهم. بولي تتش  Polytouch ®  تضيف هذا البعد لعروض المنتجات.</p><p><span class="label label-default" style="direction:rtl;display:inline-block;">أماكن الإستخدام </span></p><ul class="applist" style="direction:rtl"><li>الخدمات المصـرفيّة</li> <li>خدمات التأمين</li><li>القطاع العقــاري</li></ul>',
                 'thumbnail': ['../images/products/multitouchscreens/banking_small.jpg'],
                 'large': ['../images/products/multitouchscreens/banking.jpg'],
                 'button_list': [],
@@ -484,7 +484,7 @@
             {
                 'title': 'مشاهدة التفاصيل',
                 'MainTitle': 'التذاكر/آلات الخدمة الذاتية',
-                'description': '<p style="direction:rtl">الإستخدامات المصحوبة بحركة طلب عالية وخيارات سهلة من المنتجات تقدم Polytouch ®  لعملاء تلك الإستخدامات حلول شاملة وسريعة  لشراء التذاكر أو المساهمة في زيادة مبيعات المنتج من خلال تبسيط عملية الشراء.</p><p><span class="label label-default" style="direction:rtl">أماكن الإستخدام</span></p><ul class="applist" style="direction:rtl"><li>نقاط بيع التذاكر</li> <li>الخدمات الإرشاديّة والمعلوماتيّة</li><li>المبيعات خارج المتجر</li></ul>',
+                'description': '<p style="direction:rtl">الإستخدامات المصحوبة بحركة طلب عالية وخيارات سهلة من المنتجات تقدم Polytouch ®  لعملاء تلك الإستخدامات حلول شاملة وسريعة  لشراء التذاكر أو المساهمة في زيادة مبيعات المنتج من خلال تبسيط عملية الشراء.</p><p><span class="label label-default" style="direction:rtl;display:inline-block;">أماكن الإستخدام </span></p><ul class="applist" style="direction:rtl"><li>نقاط بيع التذاكر</li> <li>الخدمات الإرشاديّة والمعلوماتيّة</li><li>المبيعات خارج المتجر</li></ul>',
                 'thumbnail': ['../images/products/multitouchscreens/tiketing_small.jpg'],
                 'large': ['../images/products/multitouchscreens/tiketing.jpg'],
                 'button_list': [],

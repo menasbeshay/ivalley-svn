@@ -4171,9 +4171,11 @@ li#contact-link a.nav-current h3, #contact-link a.nav-current i {
 }
 
 @media screen and (max-height: 900px) {
-   .fixwtu {
-    height:240px;
-    width:100%;clear:both;
+    .fixwtu {
+        height: 240px;
+        width: 100%;
+        clear: both;
+    }
 }
 
 @media screen and (max-height: 768px) {
@@ -4271,7 +4273,9 @@ height:100%;
     bottom:80px;
     left:0;
     text-align:left;
+    z-index:0;
 }
+
 
     .bottom img {
         margin:0 5px;
@@ -4281,6 +4285,13 @@ height:100%;
 
         .bottom img:first-child {
         }
+
+
+checkindex {
+    z-index:1;
+    position:absolute !important;
+    display:block;
+}
 
 .left {
     position: absolute;

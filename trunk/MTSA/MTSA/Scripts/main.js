@@ -440,7 +440,7 @@
             {
                 'title': 'View details',
                 'MainTitle': 'POS / Kiosk systems',
-                'description': '<p>Combine e-commerce with in-store commerce and extend your shelf space.The short installation depth and flat surface are ideal for integration at the point of sale.</p><span class="label label-default">Application areas : </span><ul class="applist"><li>in-store e-commerce</li> <li>interactive guide</li><li>product consultant / POS terminal</li><li>self-check-out / customer terminal (integrated POS thermal printer)</li></ul>',
+                'description': '<p>Combine e-commerce with in-store commerce and extend your shelf space.The short installation depth and flat surface are ideal for integration at the point of sale.</p><span class="label label-default" style="display:inline-block">Application areas : </span><ul class="applist"><li>in-store e-commerce</li> <li>interactive guide</li><li>product consultant / POS terminal</li><li>self-check-out / customer terminal (integrated POS thermal printer)</li></ul>',
                 'thumbnail': ['../images/products/multitouchscreens/pos_small.jpg'],
                 'large': ['../images/products/multitouchscreens/pos.jpg'],
                 'button_list': [],
@@ -451,7 +451,7 @@
             {
                 'title': 'View details',
                 'MainTitle': 'Hospitality/Order terminals',
-                'description': '<p>Polytouch® can also assist you in many areas of the sector of Hospitality/Order terminals. Present your standard processes such as check-in easily on the Polytouch®  and reduce the time for payment processes considerably.</p><span class="label label-default">Application areas : </span><ul class="applist"><li>check-in/check-out terminal</li> <li>concierge system</li><li> personal entertainment system</li><li>campaign management via QR codes</li><li>product presentations and digital signage</li></ul>',
+                'description': '<p>Polytouch® can also assist you in many areas of the sector of Hospitality/Order terminals. Present your standard processes such as check-in easily on the Polytouch®  and reduce the time for payment processes considerably.</p><span class="label label-default" style="display:inline-block">Application areas : </span><ul class="applist"><li>check-in/check-out terminal</li> <li>concierge system</li><li> personal entertainment system</li><li>campaign management via QR codes</li><li>product presentations and digital signage</li></ul>',
                 'thumbnail': ['../images/products/multitouchscreens/hospitality_small.jpg'],
                 'large': ['../images/products/multitouchscreens/hospitality.jpg'],
                 'button_list': [],
@@ -461,7 +461,7 @@
             {
                 'title': 'View details',
                 'MainTitle': 'Communication',
-                'description': '<p>Showcase your interactive content and create new shopping experiences, e.g., in shopping malls.</p><span class="label label-default">Application areas : </span><ul class="applist"><li>interactive videos and product demonstrations</li> <li>visualization of details and product options</li><li>lead management </li><li>content handling (data sheets, videos, etc.)</li></ul>',
+                'description': '<p>Showcase your interactive content and create new shopping experiences, e.g., in shopping malls.</p><span class="label label-default" style="display:inline-block">Application areas : </span><ul class="applist"><li>interactive videos and product demonstrations</li> <li>visualization of details and product options</li><li>lead management </li><li>content handling (data sheets, videos, etc.)</li></ul>',
                 'thumbnail': ['../images/products/multitouchscreens/communication_small.jpg'],
                 'large': ['../images/products/multitouchscreens/communication.jpg'],
                 'button_list': [],
@@ -473,7 +473,7 @@
             {
                 'title': 'View details',
                 'MainTitle': 'Banking',
-                'description': '<p>The demand for innovative and interactive presentation possibilities is on the rise, particularly in the banking sector. Customers expect product presentations to appeal to their emotions. Polytouch® adds this new dimension to product presentation!</p><span class="label label-default">Application areas : </span><ul class="applist"><li>financial services</li> <li>insurances services</li><li>real estate sector</li></ul>',
+                'description': '<p>The demand for innovative and interactive presentation possibilities is on the rise, particularly in the banking sector. Customers expect product presentations to appeal to their emotions. Polytouch® adds this new dimension to product presentation!</p><span class="label label-default" style="display:inline-block">Application areas : </span><ul class="applist"><li>financial services</li> <li>insurances services</li><li>real estate sector</li></ul>',
                 'thumbnail': ['../images/products/multitouchscreens/banking_small.jpg'],
                 'large': ['../images/products/multitouchscreens/banking.jpg'],
                 'button_list': [],
@@ -484,7 +484,7 @@
             {
                 'title': 'View details',
                 'MainTitle': 'Vending/Ticketing',
-                'description': '<p>Especially for applications with high frequency and an easily comprehensible choice of products. Polytouch® offers your customers a convenient and fast carrying out of the purchase process of tickets as well as excellent cross and upselling potentials.</p><span class="label label-default">Application areas : </span><ul class="applist"><li>ticketing terminal</li> <li>directions terminal</li><li> alternative outlets out of the stores</li></ul>',
+                'description': '<p>Especially for applications with high frequency and an easily comprehensible choice of products. Polytouch® offers your customers a convenient and fast carrying out of the purchase process of tickets as well as excellent cross and upselling potentials.</p><span class="label label-default" style="display:inline-block">Application areas : </span><ul class="applist"><li>ticketing terminal</li> <li>directions terminal</li><li> alternative outlets out of the stores</li></ul>',
                 'thumbnail': ['../images/products/multitouchscreens/tiketing_small.jpg'],
                 'large': ['../images/products/multitouchscreens/tiketing.jpg'],
                 'button_list': [],
