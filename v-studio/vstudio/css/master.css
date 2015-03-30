@@ -615,7 +615,7 @@ width: auto; height: auto; z-index: -100;
 {
 	width:100%;
 	overflow:hidden;
-	background:#fff;
+	background:#d3d3d3;
 	background-repeat:no-repeat;
 	background-position:50% 50%;
 	background-size:100% 100%;
@@ -1348,7 +1348,7 @@ input:-ms-input-placeholder, textarea:-ms-input-placeholder {
 	line-height:18px;
 	color:#fff;
 }
-#contactus span
+#contactus span.contactus_span
 {
 	font-size:18px;
 	line-height:36px;
@@ -1776,7 +1776,7 @@ border-radius:0px;
 	-webkit-user-select: none;
 	-webkit-touch-callout: none;
 }
-.3dway:hover, .3dway:active, .3dway:focus
+._3dway:hover, ._3dway:active, ._3dway:focus
 {
 	 background:rgba(255,255,255,0.05);	
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -1814,8 +1814,8 @@ border-radius:0px;
 	position:relative;
 	z-index:1;
 	width:1000px;
-	height:320px;
-        margin:0 auto 0 auto;
+	/*height:320px;*/
+    margin:0 auto 0 auto;
     overflow:hidden;
 }
 
@@ -2084,7 +2084,7 @@ margin-bottom:6px;
 
 .portfolio_grid, .testmon_grid {
     overflow:hidden;
-    height:320px;
+    height:395px;
     text-align:center;
     width:680px;    
     display:none;
@@ -2096,4 +2096,28 @@ margin-bottom:6px;
 
 .open-gallery img {
     max-width:100%;
+}
+
+
+.bottom {
+    position:absolute;
+    bottom:80px;
+    left:0;
+    text-align:left;
+    z-index:0;
+}
+
+
+    .bottom img {
+        margin:0 5px;
+        vertical-align:bottom;
+        width:7.5%;
+    }
+
+    
+.slideHeaderWhite {
+    color:#fff;
+    font-family:Verdana;
+    font-weight:bold;
+    font-size:25px;   
 }

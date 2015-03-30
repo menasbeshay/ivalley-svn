@@ -160,7 +160,9 @@
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\imageflow.packed.css" />
     <Content Include="css\jGalleryTree.css" />
+    <Content Include="css\lightbox.css" />
     <Content Include="css\master.css" />
+    <Content Include="css\YTPlayer.css" />
     <Content Include="fonts.html" />
     <Content Include="fonts\al-jazeera-arabic-regular-webfont.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -183,6 +185,34 @@
     <Content Include="fonts\shroqwebfont\stylesheet.css" />
     <Content Include="home.aspx" />
     <Content Include="HtmlPage1.html" />
+    <Content Include="images\aldaleel_mtsa.png" />
+    <Content Include="images\icons\Kiosk.png" />
+    <Content Include="images\icons\mobile.png" />
+    <Content Include="images\icons\play.png" />
+    <Content Include="images\icons\png\large\1.png" />
+    <Content Include="images\icons\png\large\10.png" />
+    <Content Include="images\icons\png\large\11.png" />
+    <Content Include="images\icons\png\large\12.png" />
+    <Content Include="images\icons\png\large\13.png" />
+    <Content Include="images\icons\png\large\14.png" />
+    <Content Include="images\icons\png\large\15.png" />
+    <Content Include="images\icons\png\large\16.png" />
+    <Content Include="images\icons\png\large\2.png" />
+    <Content Include="images\icons\png\large\3.png" />
+    <Content Include="images\icons\png\large\4.png" />
+    <Content Include="images\icons\png\large\5.png" />
+    <Content Include="images\icons\png\large\6.png" />
+    <Content Include="images\icons\png\large\7.png" />
+    <Content Include="images\icons\png\large\8.png" />
+    <Content Include="images\icons\png\large\9.png" />
+    <Content Include="images\icons\print.png" />
+    <Content Include="images\icons\try.png" />
+    <Content Include="images\icons\try_a.png" />
+    <Content Include="images\icons\web.png" />
+    <Content Include="images\present.png" />
+    <Content Include="images\projects\3garatlogoen.png" />
+    <Content Include="images\projects\barrak_logo.png" />
+    <Content Include="images\projects\barrak_prev.jpeg" />
     <Content Include="img\1.jpg" />
     <Content Include="img\10.jpg" />
     <Content Include="img\1a.png" />
@@ -378,6 +408,7 @@
     <Content Include="img\rectangle.png" />
     <Content Include="img\remaining_screens.png" />
     <Content Include="img\S O Sager Logo 6.png" />
+    <Content Include="img\sager-logo.JPG" />
     <Content Include="img\sager-logo.png" />
     <Content Include="img\screen.jpg" />
     <Content Include="img\service-arrow-a.png" />
@@ -437,6 +468,7 @@
     <None Include="media\media1.mp4" />
     <None Include="media\media2.mp4" />
     <None Include="media\Video.mp4" />
+    <Content Include="media\3dwayfinding.mp4" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -555,7 +587,9 @@
     <Content Include="Scripts\jquery-migrate-1.2.1.min.js" />
     <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\jquery.fullPage.min.js" />
+    <Content Include="Scripts\jquery.mb.YTPlayer.js" />
     <Content Include="Scripts\jquery.slimscroll.min.js" />
+    <Content Include="Scripts\lightbox.min.js" />
     <Content Include="Scripts\modernizer.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\parallax.js" />
@@ -596,6 +630,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Site.Mobile.Master" />
     <Content Include="Scripts\jquery-1.11.1.min.map" />
+    <Content Include="Scripts\lightbox.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

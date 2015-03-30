@@ -382,7 +382,7 @@ function scrollAllow() {
         $(".services").bind('click', function () {
             parallax["services"].bottom();
         });
-        $(".3dway").bind('click', function () {
+        $("._3dway").bind('click', function () {
             parallax["wayfinding"].bottom();
         });
         $(".contact").bind('click', function () {
@@ -396,7 +396,13 @@ function scrollAllow() {
         });
     }
     function resetMenu() {
-        $(".products, .services, .3dway, .multi, .contact").removeAttr("style", "background-color:rgba(255,255,255,0.05);");
+        $(".products, .services, ._3dway, .multi, .contact").removeAttr("style", "background-color:rgba(255,255,255,0.05);");
+
+        // reset all youtube videos 
+        try {
+            $('#testmon_vedio').stopYTP();
+            $('#testmon_play').fadeIn("slow");
+        } catch (err) { }
     }
 
     parallax.home.onload = function () {
@@ -446,7 +452,7 @@ function scrollAllow() {
             parallax["polytouch"].bottom();
             $("#home-wrap").fadeOut(100);
         });
-        $(".3dway, .hp").bind('click', function () {
+        $("._3dway, .hp").bind('click', function () {
             parallax["wayfinding"].bottom();
             $("#home-wrap").fadeOut(100);
         });
@@ -880,7 +886,10 @@ function scrollAllow() {
     };
 
     parallax.wayfinding.onload = function () {
-        mediaPlayer5 = document.getElementById('way-vid');
+        //mediaPlayer5 = document.getElementById('way-vid');
+        mediaPlayer5 = document.getElementById('3dflashvideo');
+        mediaPlayer5.load();
+        mediaPlayer5.play();
         $('#wayfinding').removeAttr("style", "position:absolute");
         $("#wayfinding-cover").fadeIn(300);
         $('#wayfinding').bind('mousewheel', function (e) {
@@ -935,7 +944,7 @@ function scrollAllow() {
         resetMenu();
         $(".cbs, .pds").hide();
         $(".ps, .jus").show();
-        $(".3dway").attr("style", "background-color:rgba(255,255,255,0.05);");
+        $("._3dway").attr("style", "background-color:rgba(255,255,255,0.05);");
         $("#way-left").fadeIn(300);
         $("#way-left").animate({ left: "7.4%" }, 200);
         $("#way-right").fadeIn(300);
@@ -1087,6 +1096,9 @@ function scrollAllow() {
         });
         setRight("portfolio", "Portfolio");
         setTop("wayfinding", "3D Wayfiniding");
+        var center = map.getCenter();
+        google.maps.event.trigger(map, "resize");
+        map.setCenter(center);
     };
 
     parallax.portfolio.onload = function () {

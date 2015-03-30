@@ -31,7 +31,7 @@
 					<li id="menu-services" class="services"><a href="#"><img src="img/menu-2.png" width="32px" height="32px"/><br /><span style="line-height:32px;">&nbsp;</span></a></li>                    
 					<li id="menu-cb" class="cbs"><a href="#"><span style="line-height:32px;">&nbsp;</span></a></li>
                     <li id="menu-multi" class="multi"><a href="#"><img src="img/menu-4.png" width="32px" height="32px"/></a></li>
-					<li id="menu-way" class="3dway"><a href="#"><img src="img/menu-3.png" width="32px" height="32px"/></a></li>
+					<li id="menu-way" class="_3dway"><a href="#"><img src="img/menu-3.png" width="32px" height="32px"/></a></li>
                     <li id="menu-mtsa" class="mtsa"><a href="#"><img src="img/menu-mtsa.png" width="32px" height="32px"/><br /><span style="line-height:32px;">&nbsp;</span></a></li>
 					<li id="menu-contact" class="contact"><a href="#"><img src="img/menu-6.png" width="32px" height="32px"/></a></li>
 					<li id="menu-portfolio" class="ps"><a href="#"><span style="line-height:32px;">&nbsp;</span></a></li>
@@ -53,7 +53,7 @@
 					<li id="menu-services" class="services" style="padding-top:14px;padding-bottom:14px"><a href="#">خدمات الوسائط<br /> الإعلامية المتعددة</a></li>
 					<li id="menu-cb" class="cbs"><a href="#">العلامات التجارية للشركات</a></li>
 					<li id="menu-multi" class="multi"><a href="#">الشاشات تعددية اللمس</a></li>
-					<li id="menu-way" class="3dway"><a href="#">الدليل ثلاثي الأبعاد للمباني</a></li>
+					<li id="menu-way" class="_3dway"><a href="#">الدليل ثلاثي الأبعاد للمباني</a></li>
                     <li id="menu-mtsa" class="mtsa"><a href="#">منصات الشاشات باللمس <br />واللوحات الإعلانية الرقمية</a></li>
 					<li id="menu-contact" class="contact"><a href="#">إتصل بنا</a></li>
 					<li id="menu-portfolio" class="ps"><a href="#">أعمالنا وعملاؤنا</a></li>
@@ -706,7 +706,7 @@ Your browser does not support the video tag
 	</section>
 	<section id="wayfinding" style="display:none; direction: rtl; font-family: 'Alj'; unicode-bidi: embed;">
 		<div id="wayfinding-cover">
-			<div class="container-fluid">
+			<div class="col-lg-12 col-sm-12 col-md-12 clearfix" style="padding:15px;">
   <div id="wayModel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -749,7 +749,7 @@ Your browser does not support the video tag
                                        <img src="img/arrow_right_violet.png" width="65" height="63" alt="Left Arrow"/>
 				</div>
 -->
-				<div class="row" style="height:100px; left:9.3%; position:relative;">
+				<%--<div class="row" style="height:100px; left:9.3%; position:relative;">
 					<div class="page-heading col-md-5" style="width:auto;">
 						<h1 class="text-left heading4 vs_header" style="width:auto;text-align:right; display:none;font-weight:bold;font-size:35px;"><img width="150" height="47" src="img/3D-Wayfinding_logo.png"> الدليل ثلاثي الأبعاد للمباني </h1>
 						
@@ -818,8 +818,62 @@ Your browser does not support the video tag
 							</div>
 						</div>
 					</div>
-				</div>
+				</div>--%>
+                <div class="col-lg-11 col-sm-11 col-md-11 clearfix" style="margin:0px;float:right;height:100%;">
+                        
+                        
+                        <div class="col-lg-12 col-sm-12 col-md-12" style="padding:0;margin-top:15px;">
+                        <div class="col-lg-7 col-sm-7 col-md-7 pull-right" style="margin-top:25px;">
+                            <video loop id="3dflashvideo" preload="auto" style="max-width:100%;transform:scaleX(1.1) scaleY(1.2);">                                 <source type="video/mp4" src="../media/3DWayfinding.mp4" >
+                             </video>  
+                            <div class="clearfix" style="height:2px;clear:both"></div>
+                                                        
+                        </div>
+                        <div class="col-lg-5 col-sm-5 col-md-5" style="margin-left:-30px;" >
+                            
+                            <div class="col-md-4 col-sm-4 col-lg-4 pull-right" style="padding:0;">
+                                <img src="../images/aldaleel_mtsa.png" style="max-width:100%;"/>
+                                <br />
+                                <span style="font-family: 'Ubuntu', sans-serif;font-weight:600;color:#6f647c;font-size:17px;">
+                                3D WAYFINDING</span><br />
+                                
+                            </div> 
+                            <div class="col-lg-10 col-md-10 col-sm-10 pull-right" style="text-align:right;">
+                                <label style="color:#fff;font-weight:bold;font-size:18px;">الدليل ثلاثى الأبعاد للمبانى العامة</label>
+                            </div>   
+                            <div class="clearfix" style="height:15px;clear:both"></div>                        
+                            
+                            <p style="text-align:justify;font-size:18px;line-height:24px;direction:rtl">
+                            تقدّم MTSA  إم تي اس آي ( أحد أعمال صقر الدولية ) خدمة ومنتجات الدليل ثلاثي الأبعاد للمباني العامة كالمراكز التجارية والمطارات والجامعات والمستشفبات الكبيرة ومجمّعات المباني . الدليل ثلاثي الأبعاد هو تطبيق يساعد زوار المباني الكبيرة على إيجاد الطريق لجهة الوصول المطلوبة بسهولة وبسرعة ودون عناء.  الدليل ثلاثي الأبعاد تطبيق تفاعلي يتم تثبيته على شاشاتنا باللمس ، يتوفر ايضا كتطبيق على الهواتف الذكية او على موقع بالانترنت.<br /> <a href="../files/MTSA3DWayfindingpresentationG3.pdf" class="touchscreenlabel " style="text-decoration:underline;">قم بتحميل العرض لمزيد من التفاصيل&nbsp;<img src="../images/present.png" style="max-width:30px;"/></a>
+                            </p>
+                            <div class="clearfix" style="height:15px;clear:both"></div>                                                    
+                            </div>
+                            
+                         </div>
+                            
+                    </div>
 			</div>
+            <div class="col-lg-12 col-sm-12 col-md-12 clearfix bottom">
+                <div class="col-lg-11 col-sm-11 col-md-11 pull-right" style="padding:0;width:95%">
+            <div class="col-lg-5 col-sm-5 col-md-5 ">  
+                                <img src="../images/Icons/Kiosk.png" style="margin:0 15px 0 0;width:21.5%;"/>
+                                <img src="../images/Icons/mobile.png" style="margin:0 15px 0 0;width:21.5%;" />
+                                <img src="../images/Icons/print.png" style="margin:0 15px 0 0;width:21.5%;"/>
+                                <img src="../images/Icons/web.png"  style="margin:0;width:21.5%;"/>                               
+                            </div>
+
+                        <div class="col-lg-6 col-sm-6 col-md-6 " style="width:58.33333333% !important;">    
+                            <a href="../files/MTSA3DWayfindingpresentationG3.pdf" style="margin:0 25px 0 0px;width:16.5%;float:left;display:block;padding-right:20px;">
+                                <img src="../images/Icons/try_a.png" style="width:100%" /></a>                    
+                                <img src="../images/icons/png/large/10.png" style="margin:0 12px 0 0;width:12%;"/>
+                                <img src="../images/icons/png/large/12.png" style="margin:0 12px;width:12%;"/>
+                                <img src="../images/icons/png/large/6.png" style="margin:0 12px;width:12%;"/>
+                                <img src="../images/icons/png/large/2.png" style="margin:0 12px;width:12%;"/>
+                                <img src="../images/icons/png/large/9.png" style="margin:0 12px;width:12%;"/>
+                            
+                            </div>
+                    </div>
+        </div>
 		</div>
 	</section>
 	<section id="polytouch"  style="display:none; direction: rtl; font-family: 'Alj'; unicode-bidi: embed;">
@@ -971,9 +1025,9 @@ Your browser does not support the video tag
 					<div class="col-md-3" style="float:right;">
 						
 						<div class="media vs_content">
-                            <span>في ستديو إحدى أعمال</span><br />
+                            <span class="contactus_span">في ستديو إحدى أعمال</span><br />
 									<a href="#" class="pull-right">
-										<img src="img/sager-logo.png" class="media-object img-responsive"/>
+										<img src="img/sager-logo.jpg" class="media-object img-responsive" style="max-width:125px;"/>
 									</a>
 									
 								</div>
@@ -987,7 +1041,7 @@ Your browser does not support the video tag
 							<div class="col-md-4" style="float:right;">
 								<div class="media">
 									<a href="#" class="pull-right" style="width:46px; text-align:center">
-<span class="glyphicon glyphicon-map-marker"></span>
+<span class="glyphicon glyphicon-map-marker contactus_span"></span>
 										<!--<img class="media-object" src="img/mapmarker.png" class="img-responsive"/>-->
 									</a>
 									<div class="media-body vs_content">
@@ -1120,20 +1174,13 @@ info@v-studio.co                                      <br />
 				</div>
 				<div class="row">
 					<div class="col-md-12 text-center vs_content">
-						<span>نسعد بلقاء عملائنا  ونرغب في منحهم الوقت الكافي ، لذى نقّدر لهم تفهمهم وترتيب موعد مسبق للزيارة . </span>
+						<span class="contactus_span">نسعد بلقاء عملائنا  ونرغب في منحهم الوقت الكافي ، لذى نقّدر لهم تفهمهم وترتيب موعد مسبق للزيارة . </span>
 					</div>
 				</div>
 				
 			</div>
 
-			<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script><div style="overflow:hidden;height:150px;width:100%;"><div id="gmap_canvas" style="height:150px;width:100%;"></div>
-<style>
-    #gmap_canvas img {
-        max-width: none !important;
-        background: none !important;
-    }
-</style><a class="google-map-code" href="http://www.trivoo.net/gutscheine/sheego/" id="get-map-data">sheego gutscheine</a></div>
-<script type="text/javascript"> function init_map() { var myOptions = { zoom: 17, center: new google.maps.LatLng(21.54957663258917, 39.153857253767455), mapTypeId: google.maps.MapTypeId.ROADMAP }; map = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions); marker = new google.maps.Marker({ map: map, position: new google.maps.LatLng(21.54957663258917, 39.153857253767455) }); infowindow = new google.maps.InfoWindow({ content: "<b>V-Studio</b><br/>&#1588;&#1575;&#1585;&#1593; &#1575;&#1604;&#1571;&#1605;&#1610;&#1585; &#1605;&#1581;&#1605;&#1583; &#1576;&#1606; &#1593;&#1576;&#1583; &#1575;&#1604;&#1593;&#1586;&#1610;&#1586;<br/> jedda" }); google.maps.event.addListener(marker, "click", function () { infowindow.open(map, marker); }); } google.maps.event.addDomListener(window, 'load', init_map);</script>
+			<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script><div style="overflow:hidden;width:100%;"><div id="gmap_canvas" style="width:100%;height:140px;"></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div><script type="text/javascript"> function init_map() { var myOptions = { zoom: 16, center: new google.maps.LatLng(21.549454, 39.153385), mapTypeId: google.maps.MapTypeId.ROADMAP }; map = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions); marker = new google.maps.Marker({ map: map, position: new google.maps.LatLng(21.549454, 39.153385) }); infowindow = new google.maps.InfoWindow({ content: "<b>MTSA</b> " }); google.maps.event.addListener(marker, "click", function () { infowindow.open(map, marker); }); } google.maps.event.addDomListener(window, 'load', init_map);</script>			
 
 		</div>
 		<div class="right-icons" id="watch-port">
@@ -1148,28 +1195,28 @@ info@v-studio.co                                      <br />
 				</div>
 				<div class="row" style="height:100px;">
 					<div class="col-md-12 text-center page-heading">
-						<h1  class="heading7" style="color:#dfd9e6;text-align:center; display:none;">PORTFOLIO & TESTIMONIALS</h1>
+						<h1  class="heading7" style="color:#dfd9e6;text-align:center; display:none;margin-top:0;">PORTFOLIO & TESTIMONIALS</h1>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-12 text-center">
-						<h2 class="vs_header">شاهد أحدث أعمالنا وماذا يقول عملاؤنا عنا</h2>
+						<h2 class="vs_header" style="margin-top:-20px;">شاهد أحدث أعمالنا وماذا يقول عملاؤنا عنا</h2>
 					</div>
 				</div>
-				<br>
+				
 				<div class="row" id="portfolio-carousel" >
-					<div class="center-block" style="overflow:hidden;height:320px;text-align:center;" id="default_port">					 	
-						<img src="img/portfolio_def2.jpg" style="max-height:470px;margin-top:-40px;"/>
+					<div class="center-block" style="overflow:hidden;height:385px;text-align:center;margin-bottom:5px;" id="default_port">					 	
+						<img src="img/portfolio_def2.jpg" style="max-height:460px;margin-top:-40px;"/>
 					</div>
 
                     <div class="portfolio_grid center-block" id="portfolio_grid">
                         <div class="galleryContainer customizable">
                             <div class="col-lg-12 col-md-12 col-sm-12 clearfix">
                             <a href="#" class="gallery-back" style="float:left;">
-                                <img src="img/arrow_left.png" style="max-width:40px;"/></a>
+                                <img src="img/arrow_left.png" style="max-width:30px;"/></a>
 
                             <a href="#" style="float:right;" class="closePortfolio">
-                                <img src="img/close.png" style="max-width:40px;"/></a>
+                                <img src="img/close.png" style="max-width:20px;"/></a>
                             <!-- Back button -->
                             </div>
                             <ul class="gallery-grid column3">
@@ -1178,18 +1225,17 @@ info@v-studio.co                                      <br />
                                     <!-- Grid Item 1 -->
                                     <div class="child-container">
                                         <!-- Grid Item Container -->
-                                        Item -1
-                                    <a href="#" class="open-gallery"><img src="img/portfolio/1.jpg" /></a>
-                                        <span class="item-caption">text caption 1</span>
+                                       3AGARAT
+                                    <a href="#" class="open-gallery"><img src="images/projects/3garatlogoen.png" /></a>
+                                        <span class="item-caption">برتامج وتطبيق عقارات لتأجير وبيع العقارات</span>
                                         <!-- Button to expand its gallery -->
                                     </div>
 
-                                    <ul class="gallery-grid subgallery">
+                                    <ul class="gallery-grid subgallery column1">
                                         <!-- Subgallery of Grid Item 1 having 4 columns -->
-                                        <li class="col-lg-12 col-md-12 col-sm-12">
-                                            <div class="child-container">
-                                                Sub gallery item -1(Grid item -1 )                            
-                                            </div>
+                                        <li >
+                                             <img src="images/icons/play.png" style="max-width:150px;position:absolute;top:30%;left:40%;z-index:1;cursor:pointer" id="3agarat_play" />
+                                            <div id="3agrat_video" style="width:100%;height:355px;" data-vedioid="40NG_t5aJNs"></div>
 
                                         </li>
 
@@ -1201,19 +1247,17 @@ info@v-studio.co                                      <br />
                                     <!-- Grid Item 1 -->
                                     <div class="child-container">
                                         <!-- Grid Item Container -->
-                                        Item -2
-                                    <a href="#" class="open-gallery"><img src="img/portfolio/1.jpg" /></a>
-                                        <span class="item-caption">text caption 2</span>
-                                        <!-- Button to expand its gallery -->
+                                         مجموعة البراك الصناعية
+                                    <a href="#" class="open-gallery">
+                                        <img src="images/projects/barrak_logo.png" /></a>
+                                        <span class="item-caption">Al-Barrak was established in 1993 by Eng. Saleh A. Al-Barrak, and has since then, operated as a privately owned company.</span>
+                                       <!-- Button to expand its gallery -->
                                     </div>
 
-                                    <ul class="gallery-grid subgallery">
+                                    <ul class="gallery-grid subgallery column1">
                                         <!-- Subgallery of Grid Item 1 having 4 columns -->
-                                        <li class="col-lg-12 col-md-12 col-sm-12">
-                                            <div class="child-container">
-                                                Sub gallery item -1(Grid item -1 )
-                                            </div>
-
+                                        <li>
+                                            <a href="images/projects/barrak_prev.jpeg" data-lightbox="roadtrip"> <img src="images/projects/barrak_prev.jpeg" /></a>
                                         </li>
 
                                     </ul>
@@ -1395,35 +1439,21 @@ info@v-studio.co                                      <br />
                     <div class="testmon_grid center-block" id="testmon_grid">
                         <div class="galleryContainer customizable " style="max-width:100% !important;">
                             <div class="col-lg-12 col-md-12 col-sm-12 clearfix">
-                            <a href="#" class="gallery-back_test" style="float:left;">
-                                <img src="img/arrow_left.png" style="max-width:40px;"/></a>
+                            
 
                             <a href="#" style="float:right;" class="closetestmon">
-                                <img src="img/close.png" style="max-width:40px;"/></a>
+                                <img src="img/close.png" style="max-width:20px;"/></a>
                             <!-- Back button -->
                             </div>
                             <ul class="gallery-grid column1">
                                 <!-- Main grid container having 3 columns -->
                                 <li>
                                     <!-- Grid Item 1 -->
-                                    <div class="child-container">
-                                        <!-- Grid Item Container -->
-                                        Item -1
-                                    <a href="#" class="open-gallery_test"><img src="img/portfolio/1.jpg" /></a>
-                                        <span class="item-caption">text caption 1</span>
-                                        <!-- Button to expand its gallery -->
-                                    </div>
-
-                                    <ul class="gallery-grid subgallery">
-                                        <!-- Subgallery of Grid Item 1 having 4 columns -->
-                                        <li class="col-lg-12 col-md-12 col-sm-12">
-                                            <div class="child-container">
-                                                Sub gallery item -1(Grid item -1 )                            
-                                            </div>
-
-                                        </li>
-
-                                    </ul>
+                                    <img src="images/icons/play.png" style="max-width:150px;position:absolute;top:30%;left:40%;z-index:1;cursor:pointer" id="testmon_play" />
+                                    <div id="testmon_vedio" style="width:100%;height:355px;" data-vedioid="RYcb-PrkAqg"></div>
+                                       <%--<iframe width="560" height="355" src="https://www.youtube.com/embed/RYcb-PrkAqg" frameborder="0" allowfullscreen></iframe>--%>
+                                    
+                                   
 
                                 </li>                                
 
@@ -1434,16 +1464,15 @@ info@v-studio.co                                      <br />
                         </div>
                     </div>
 					    
-				</div>
-                                <br>
+				</div>                                
 				<div class="row">
 					<div class="col-md-12 text-center">
-                         <a href="#" class="btn btn-default vs_content" style="width:150px;font-weight:bold;" onclick="$('#portfolio_grid').fadeIn();$('#default_port').fadeOut();$('#testmon_grid').fadeOut();">أعمــال حديثـة</a> &nbsp; &nbsp; &nbsp; 
-                        <a href="#" class="btn btn-default vs_content" style="width:150px;font-weight:bold;"  onclick="$('#testmon_grid').fadeIn();$('#default_port').fadeOut();$('#portfolio_grid').fadeOut();">شهادات العملاء</a>
+                         <a href="#" class="btn btn-default vs_content" style="width:150px;font-weight:bold;" onclick="$('#portfolio_grid').delay(300).fadeIn(300);$('#default_port').fadeOut(300);$('#testmon_grid').fadeOut(300);">أعمــال حديثـة</a> &nbsp; &nbsp; &nbsp; 
+                        <a href="#" class="btn btn-default vs_content" style="width:150px;font-weight:bold;"  onclick="$('#testmon_grid').delay(300).fadeIn(300);$('#default_port').fadeOut(300);$('#portfolio_grid').fadeOut(300);">شهادات العملاء</a>
                         <br />
 						<img src="img/comma.png" width="18" height="17"/>
 						<p class="vs_content" id="port-text-def">إختر أحد أحدث أعمالنا من خدمات الوسائط الإعلامية أو أحد مشاريع منتجاتنا الحديثة وأنقر على الصورة للمشاهدة وقراءة المزيد من التفاصيل 
-تستطيع أيضا وبالفيديو الإطلاع على بعض شهاددات عملائنا وبدون اي تزييف لشهادات عملاء وهميين. </p>
+تستطيع أيضا وبالفيديو الإطلاع على بعض شهادات عملائنا وبدون اي تزييف لشهادات عملاء وهميين. </p>
                         <p id="port-text-caption"></p>
 					</div>
 				</div>

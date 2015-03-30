@@ -16,6 +16,8 @@
     <link href="css/master.css" rel="stylesheet" />
     <link href="css/jGalleryTree.css" rel="stylesheet" />
     <%--<link href="css/jquery.fullPage.css" rel="stylesheet" />--%>
+    <link href="css/lightbox.css" rel="stylesheet" />
+    <link href="css/YTPlayer.css" rel="stylesheet" />
     <script src="Scripts/jquery-1.11.1.min.js"></script>
     <script src="Scripts/jquery-migrate-1.2.1.min.js"></script>
     <script src="Scripts/portfolio.js"></script>
@@ -27,6 +29,8 @@
     <script src="Scripts/video.js"></script>
     <script src="Scripts/jquery.slimscroll.min.js"></script>
     <script src="Scripts/jGalleryTree.js"></script>
+    <script src="Scripts/jquery.mb.YTPlayer.js"></script>
+    <script src="Scripts/lightbox.min.js"></script>    
     <script src="Scripts/init.js"></script>
     <!--[if lt IE 7]>
 <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE7.js"></script>
