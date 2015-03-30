@@ -13,8 +13,8 @@
 	-moz-box-sizing : border-box;
 	
 	border : 1px solid #DCDCDC;
-	padding : 5px 5px 15px;
-	
+	padding : 5px 5px;
+	min-height:135px;
 	
 	
 }
@@ -32,7 +32,7 @@
     -moz-box-sizing: border-box;
 	padding: 8px;
     position: relative;
-    width: 100%;
+    width: 85%;
 }
 
 .galleryContainer .column2{
@@ -60,9 +60,9 @@
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    padding: 8px;
+    padding: 3px;
     position: relative;
-    width: 33.333%;
+    width: 25.5%;
 }
 
 
@@ -134,12 +134,13 @@
 	-moz-box-sizing : border-box;
 	-webkit-box-sizing : border-box;
 	-o-box-sizing : border-box;
-	padding : 8px;
+	padding : 3px;
 	overflow : hidden;
 	display : inline-block;
 	font-size : 13px;
 	vertical-align : middle;
 	word-spacing : 0;
+    min-height:140px;
 }
 
 .galleryContainer ul.gallery-grid>*{
