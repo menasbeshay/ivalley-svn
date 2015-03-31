@@ -2121,3 +2121,35 @@ margin-bottom:6px;
     font-weight:bold;
     font-size:25px;   
 }
+
+.downloadLink {
+    width:100%;    
+    background-color:#0E76BC;
+    color:#A8CEED;
+    display:block;
+    border:1px solid #09385A;
+    border-radius:5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    -ms-border-radius:5px;
+    position:relative;
+    text-decoration:none !important;
+    padding:10px;
+    padding-right:45px;
+}
+
+
+.downloadLink:after {
+    content: "";
+    background-image:url(../images/present.png);
+    float:right;
+    display:block;
+    right:8px;
+    width:30px;
+    height:30px;
+    position:absolute;
+    }
+    .downloadLink:hover {
+         background-color:#A8CEED;
+    color:#0E76BC;
+    }
