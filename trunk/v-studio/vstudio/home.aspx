@@ -834,7 +834,7 @@ Your browser does not support the video tag
                             <div class="clearfix" style="height:15px;clear:both"></div>                        
                             
                             <p style="text-align:justify;font-size:18px;line-height:22px;">
-                                <span class="mtsa">MTSA</span>, a product of S.O. Sager International offers a unique 3D Wayfinding products & services for public buildings i.e. shopping malls, airports, universities, medical complex, big campus and others. 3D Wayfinding helps visitors find their way to destinations they want to reach easily, stress-free and quickly. 3D Wayfinding is an interactive touchscreen kiosk App    and available as a mobile App or web-based. <br /><a href="../files/MTSA3DWayfindingpresentationG3.pdf" class="touchscreenlabel" style="text-decoration:underline;font-weight:bold;font-size:16px;"> Download presentation for more details.&nbsp;<img src="../images/present.png" style="max-width:30px;"/></a>
+                                <span class="mtsa">MTSA</span>, a product of S.O. Sager International offers a unique 3D Wayfinding products & services for public buildings i.e. shopping malls, airports, universities, medical complex, big campus and others. 3D Wayfinding helps visitors find their way to destinations they want to reach easily, stress-free and quickly. 3D Wayfinding is an interactive touchscreen kiosk App    and available as a mobile App or web-based. <br /><a href="../files/MTSA3DWayfindingpresentationG3.pdf" class="downloadLink" > Download presentation for more details.</a>
                             </p>
                             <div class="clearfix" style="height:15px;clear:both"></div>                                                    
                             </div>
@@ -912,8 +912,8 @@ Your browser does not support the video tag
                                        <img src="img/arrow_left_violet.png" width="65" height="63" alt="Left Arrow"/>
 				</div>
 -->
-				<div class="row" style="height:100px;left:9.3%; position:relative;">
-					<div class="col-md-12 page-heading">
+				<div class="row" style="height:100px;left:8.8%; position:relative;">
+					<div class="col-md-12 page-heading" style="padding-left:0px;">
 						<h1 class="heading5" style="display:none; padding-left:5px;"><img width="236" height="49" src="img/polytouch-logo.png"/></h1>
 						
 					</div>
