@@ -41,12 +41,12 @@ using MyGeneration.dOOdads;
 
 namespace Combo.DAL
 {
-	public abstract class _ComboUserSettings : SqlClientEntity
+	public abstract class _CommentUserTag : SqlClientEntity
 	{
-		public _ComboUserSettings()
+		public _CommentUserTag()
 		{
-			this.QuerySource = "ComboUserSettings";
-			this.MappingName = "ComboUserSettings";
+			this.QuerySource = "CommentUserTag";
+			this.MappingName = "CommentUserTag";
 
 		}	
 
@@ -78,7 +78,7 @@ namespace Combo.DAL
 		{
 			ListDictionary parameters = null;
 			
-			return base.LoadFromSql("[" + this.SchemaStoredProcedure + "proc_ComboUserSettingsLoadAll]", parameters);
+			return base.LoadFromSql("[" + this.SchemaStoredProcedure + "proc_CommentUserTagLoadAll]", parameters);
 		}
 	
 		//=================================================================
@@ -86,24 +86,24 @@ namespace Combo.DAL
 		//=================================================================
 		//  Loads a single row of via the primary key
 		//=================================================================
-		public virtual bool LoadByPrimaryKey(int ComboUserSettingsID)
+		public virtual bool LoadByPrimaryKey(int CommentUserTagID)
 		{
 			ListDictionary parameters = new ListDictionary();
-			parameters.Add(Parameters.ComboUserSettingsID, ComboUserSettingsID);
+			parameters.Add(Parameters.CommentUserTagID, CommentUserTagID);
 
 		
-			return base.LoadFromSql("[" + this.SchemaStoredProcedure + "proc_ComboUserSettingsLoadByPrimaryKey]", parameters);
+			return base.LoadFromSql("[" + this.SchemaStoredProcedure + "proc_CommentUserTagLoadByPrimaryKey]", parameters);
 		}
 		
 		#region Parameters
 		protected class Parameters
 		{
 			
-			public static SqlParameter ComboUserSettingsID
+			public static SqlParameter CommentUserTagID
 			{
 				get
 				{
-					return new SqlParameter("@ComboUserSettingsID", SqlDbType.Int, 0);
+					return new SqlParameter("@CommentUserTagID", SqlDbType.Int, 0);
 				}
 			}
 			
@@ -115,19 +115,19 @@ namespace Combo.DAL
 				}
 			}
 			
-			public static SqlParameter IsPostsDownloadable
+			public static SqlParameter ComboCommentID
 			{
 				get
 				{
-					return new SqlParameter("@IsPostsDownloadable", SqlDbType.Bit, 0);
+					return new SqlParameter("@ComboCommentID", SqlDbType.Int, 0);
 				}
 			}
 			
-			public static SqlParameter ReceiveNotificationType
+			public static SqlParameter Offset
 			{
 				get
 				{
-					return new SqlParameter("@ReceiveNotificationType", SqlDbType.SmallInt, 0);
+					return new SqlParameter("@Offset", SqlDbType.Int, 0);
 				}
 			}
 			
@@ -137,10 +137,10 @@ namespace Combo.DAL
 		#region ColumnNames
 		public class ColumnNames
 		{  
-            public const string ComboUserSettingsID = "ComboUserSettingsID";
+            public const string CommentUserTagID = "CommentUserTagID";
             public const string ComboUserID = "ComboUserID";
-            public const string IsPostsDownloadable = "IsPostsDownloadable";
-            public const string ReceiveNotificationType = "ReceiveNotificationType";
+            public const string ComboCommentID = "ComboCommentID";
+            public const string Offset = "Offset";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -148,10 +148,10 @@ namespace Combo.DAL
 				{
 					ht = new Hashtable();
 					
-					ht[ComboUserSettingsID] = _ComboUserSettings.PropertyNames.ComboUserSettingsID;
-					ht[ComboUserID] = _ComboUserSettings.PropertyNames.ComboUserID;
-					ht[IsPostsDownloadable] = _ComboUserSettings.PropertyNames.IsPostsDownloadable;
-					ht[ReceiveNotificationType] = _ComboUserSettings.PropertyNames.ReceiveNotificationType;
+					ht[CommentUserTagID] = _CommentUserTag.PropertyNames.CommentUserTagID;
+					ht[ComboUserID] = _CommentUserTag.PropertyNames.ComboUserID;
+					ht[ComboCommentID] = _CommentUserTag.PropertyNames.ComboCommentID;
+					ht[Offset] = _CommentUserTag.PropertyNames.Offset;
 
 				}
 				return (string)ht[columnName];
@@ -164,10 +164,10 @@ namespace Combo.DAL
 		#region PropertyNames
 		public class PropertyNames
 		{  
-            public const string ComboUserSettingsID = "ComboUserSettingsID";
+            public const string CommentUserTagID = "CommentUserTagID";
             public const string ComboUserID = "ComboUserID";
-            public const string IsPostsDownloadable = "IsPostsDownloadable";
-            public const string ReceiveNotificationType = "ReceiveNotificationType";
+            public const string ComboCommentID = "ComboCommentID";
+            public const string Offset = "Offset";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -175,10 +175,10 @@ namespace Combo.DAL
 				{
 					ht = new Hashtable();
 					
-					ht[ComboUserSettingsID] = _ComboUserSettings.ColumnNames.ComboUserSettingsID;
-					ht[ComboUserID] = _ComboUserSettings.ColumnNames.ComboUserID;
-					ht[IsPostsDownloadable] = _ComboUserSettings.ColumnNames.IsPostsDownloadable;
-					ht[ReceiveNotificationType] = _ComboUserSettings.ColumnNames.ReceiveNotificationType;
+					ht[CommentUserTagID] = _CommentUserTag.ColumnNames.CommentUserTagID;
+					ht[ComboUserID] = _CommentUserTag.ColumnNames.ComboUserID;
+					ht[ComboCommentID] = _CommentUserTag.ColumnNames.ComboCommentID;
+					ht[Offset] = _CommentUserTag.ColumnNames.Offset;
 
 				}
 				return (string)ht[propertyName];
@@ -191,25 +191,25 @@ namespace Combo.DAL
 		#region StringPropertyNames
 		public class StringPropertyNames
 		{  
-            public const string ComboUserSettingsID = "s_ComboUserSettingsID";
+            public const string CommentUserTagID = "s_CommentUserTagID";
             public const string ComboUserID = "s_ComboUserID";
-            public const string IsPostsDownloadable = "s_IsPostsDownloadable";
-            public const string ReceiveNotificationType = "s_ReceiveNotificationType";
+            public const string ComboCommentID = "s_ComboCommentID";
+            public const string Offset = "s_Offset";
 
 		}
 		#endregion		
 		
 		#region Properties
 	
-		public virtual int ComboUserSettingsID
+		public virtual int CommentUserTagID
 	    {
 			get
 	        {
-				return base.Getint(ColumnNames.ComboUserSettingsID);
+				return base.Getint(ColumnNames.CommentUserTagID);
 			}
 			set
 	        {
-				base.Setint(ColumnNames.ComboUserSettingsID, value);
+				base.Setint(ColumnNames.CommentUserTagID, value);
 			}
 		}
 
@@ -225,27 +225,27 @@ namespace Combo.DAL
 			}
 		}
 
-		public virtual bool IsPostsDownloadable
+		public virtual int ComboCommentID
 	    {
 			get
 	        {
-				return base.Getbool(ColumnNames.IsPostsDownloadable);
+				return base.Getint(ColumnNames.ComboCommentID);
 			}
 			set
 	        {
-				base.Setbool(ColumnNames.IsPostsDownloadable, value);
+				base.Setint(ColumnNames.ComboCommentID, value);
 			}
 		}
 
-		public virtual short ReceiveNotificationType
+		public virtual int Offset
 	    {
 			get
 	        {
-				return base.Getshort(ColumnNames.ReceiveNotificationType);
+				return base.Getint(ColumnNames.Offset);
 			}
 			set
 	        {
-				base.Setshort(ColumnNames.ReceiveNotificationType, value);
+				base.Setint(ColumnNames.Offset, value);
 			}
 		}
 
@@ -254,18 +254,18 @@ namespace Combo.DAL
 		
 		#region String Properties
 	
-		public virtual string s_ComboUserSettingsID
+		public virtual string s_CommentUserTagID
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.ComboUserSettingsID) ? string.Empty : base.GetintAsString(ColumnNames.ComboUserSettingsID);
+				return this.IsColumnNull(ColumnNames.CommentUserTagID) ? string.Empty : base.GetintAsString(ColumnNames.CommentUserTagID);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.ComboUserSettingsID);
+					this.SetColumnNull(ColumnNames.CommentUserTagID);
 				else
-					this.ComboUserSettingsID = base.SetintAsString(ColumnNames.ComboUserSettingsID, value);
+					this.CommentUserTagID = base.SetintAsString(ColumnNames.CommentUserTagID, value);
 			}
 		}
 
@@ -284,33 +284,33 @@ namespace Combo.DAL
 			}
 		}
 
-		public virtual string s_IsPostsDownloadable
+		public virtual string s_ComboCommentID
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.IsPostsDownloadable) ? string.Empty : base.GetboolAsString(ColumnNames.IsPostsDownloadable);
+				return this.IsColumnNull(ColumnNames.ComboCommentID) ? string.Empty : base.GetintAsString(ColumnNames.ComboCommentID);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.IsPostsDownloadable);
+					this.SetColumnNull(ColumnNames.ComboCommentID);
 				else
-					this.IsPostsDownloadable = base.SetboolAsString(ColumnNames.IsPostsDownloadable, value);
+					this.ComboCommentID = base.SetintAsString(ColumnNames.ComboCommentID, value);
 			}
 		}
 
-		public virtual string s_ReceiveNotificationType
+		public virtual string s_Offset
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.ReceiveNotificationType) ? string.Empty : base.GetshortAsString(ColumnNames.ReceiveNotificationType);
+				return this.IsColumnNull(ColumnNames.Offset) ? string.Empty : base.GetintAsString(ColumnNames.Offset);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.ReceiveNotificationType);
+					this.SetColumnNull(ColumnNames.Offset);
 				else
-					this.ReceiveNotificationType = base.SetshortAsString(ColumnNames.ReceiveNotificationType, value);
+					this.Offset = base.SetintAsString(ColumnNames.Offset, value);
 			}
 		}
 
@@ -347,11 +347,11 @@ namespace Combo.DAL
 				}
 				
 				
-				public WhereParameter ComboUserSettingsID
+				public WhereParameter CommentUserTagID
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.ComboUserSettingsID, Parameters.ComboUserSettingsID);
+							WhereParameter where = new WhereParameter(ColumnNames.CommentUserTagID, Parameters.CommentUserTagID);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -367,21 +367,21 @@ namespace Combo.DAL
 					}
 				}
 
-				public WhereParameter IsPostsDownloadable
+				public WhereParameter ComboCommentID
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.IsPostsDownloadable, Parameters.IsPostsDownloadable);
+							WhereParameter where = new WhereParameter(ColumnNames.ComboCommentID, Parameters.ComboCommentID);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
 				}
 
-				public WhereParameter ReceiveNotificationType
+				public WhereParameter Offset
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.ReceiveNotificationType, Parameters.ReceiveNotificationType);
+							WhereParameter where = new WhereParameter(ColumnNames.Offset, Parameters.Offset);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -392,15 +392,15 @@ namespace Combo.DAL
 			}
 			#endregion
 		
-			public WhereParameter ComboUserSettingsID
+			public WhereParameter CommentUserTagID
 		    {
 				get
 		        {
-					if(_ComboUserSettingsID_W == null)
+					if(_CommentUserTagID_W == null)
 	        	    {
-						_ComboUserSettingsID_W = TearOff.ComboUserSettingsID;
+						_CommentUserTagID_W = TearOff.CommentUserTagID;
 					}
-					return _ComboUserSettingsID_W;
+					return _CommentUserTagID_W;
 				}
 			}
 
@@ -416,41 +416,41 @@ namespace Combo.DAL
 				}
 			}
 
-			public WhereParameter IsPostsDownloadable
+			public WhereParameter ComboCommentID
 		    {
 				get
 		        {
-					if(_IsPostsDownloadable_W == null)
+					if(_ComboCommentID_W == null)
 	        	    {
-						_IsPostsDownloadable_W = TearOff.IsPostsDownloadable;
+						_ComboCommentID_W = TearOff.ComboCommentID;
 					}
-					return _IsPostsDownloadable_W;
+					return _ComboCommentID_W;
 				}
 			}
 
-			public WhereParameter ReceiveNotificationType
+			public WhereParameter Offset
 		    {
 				get
 		        {
-					if(_ReceiveNotificationType_W == null)
+					if(_Offset_W == null)
 	        	    {
-						_ReceiveNotificationType_W = TearOff.ReceiveNotificationType;
+						_Offset_W = TearOff.Offset;
 					}
-					return _ReceiveNotificationType_W;
+					return _Offset_W;
 				}
 			}
 
-			private WhereParameter _ComboUserSettingsID_W = null;
+			private WhereParameter _CommentUserTagID_W = null;
 			private WhereParameter _ComboUserID_W = null;
-			private WhereParameter _IsPostsDownloadable_W = null;
-			private WhereParameter _ReceiveNotificationType_W = null;
+			private WhereParameter _ComboCommentID_W = null;
+			private WhereParameter _Offset_W = null;
 
 			public void WhereClauseReset()
 			{
-				_ComboUserSettingsID_W = null;
+				_CommentUserTagID_W = null;
 				_ComboUserID_W = null;
-				_IsPostsDownloadable_W = null;
-				_ReceiveNotificationType_W = null;
+				_ComboCommentID_W = null;
+				_Offset_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -507,11 +507,11 @@ namespace Combo.DAL
 				}
 				
 				
-				public AggregateParameter ComboUserSettingsID
+				public AggregateParameter CommentUserTagID
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.ComboUserSettingsID, Parameters.ComboUserSettingsID);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.CommentUserTagID, Parameters.CommentUserTagID);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -527,21 +527,21 @@ namespace Combo.DAL
 					}
 				}
 
-				public AggregateParameter IsPostsDownloadable
+				public AggregateParameter ComboCommentID
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.IsPostsDownloadable, Parameters.IsPostsDownloadable);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.ComboCommentID, Parameters.ComboCommentID);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
 				}
 
-				public AggregateParameter ReceiveNotificationType
+				public AggregateParameter Offset
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.ReceiveNotificationType, Parameters.ReceiveNotificationType);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Offset, Parameters.Offset);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -552,15 +552,15 @@ namespace Combo.DAL
 			}
 			#endregion
 		
-			public AggregateParameter ComboUserSettingsID
+			public AggregateParameter CommentUserTagID
 		    {
 				get
 		        {
-					if(_ComboUserSettingsID_W == null)
+					if(_CommentUserTagID_W == null)
 	        	    {
-						_ComboUserSettingsID_W = TearOff.ComboUserSettingsID;
+						_CommentUserTagID_W = TearOff.CommentUserTagID;
 					}
-					return _ComboUserSettingsID_W;
+					return _CommentUserTagID_W;
 				}
 			}
 
@@ -576,41 +576,41 @@ namespace Combo.DAL
 				}
 			}
 
-			public AggregateParameter IsPostsDownloadable
+			public AggregateParameter ComboCommentID
 		    {
 				get
 		        {
-					if(_IsPostsDownloadable_W == null)
+					if(_ComboCommentID_W == null)
 	        	    {
-						_IsPostsDownloadable_W = TearOff.IsPostsDownloadable;
+						_ComboCommentID_W = TearOff.ComboCommentID;
 					}
-					return _IsPostsDownloadable_W;
+					return _ComboCommentID_W;
 				}
 			}
 
-			public AggregateParameter ReceiveNotificationType
+			public AggregateParameter Offset
 		    {
 				get
 		        {
-					if(_ReceiveNotificationType_W == null)
+					if(_Offset_W == null)
 	        	    {
-						_ReceiveNotificationType_W = TearOff.ReceiveNotificationType;
+						_Offset_W = TearOff.Offset;
 					}
-					return _ReceiveNotificationType_W;
+					return _Offset_W;
 				}
 			}
 
-			private AggregateParameter _ComboUserSettingsID_W = null;
+			private AggregateParameter _CommentUserTagID_W = null;
 			private AggregateParameter _ComboUserID_W = null;
-			private AggregateParameter _IsPostsDownloadable_W = null;
-			private AggregateParameter _ReceiveNotificationType_W = null;
+			private AggregateParameter _ComboCommentID_W = null;
+			private AggregateParameter _Offset_W = null;
 
 			public void AggregateClauseReset()
 			{
-				_ComboUserSettingsID_W = null;
+				_CommentUserTagID_W = null;
 				_ComboUserID_W = null;
-				_IsPostsDownloadable_W = null;
-				_ReceiveNotificationType_W = null;
+				_ComboCommentID_W = null;
+				_Offset_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -642,12 +642,12 @@ namespace Combo.DAL
 		
 			SqlCommand cmd = new SqlCommand();
 			cmd.CommandType = CommandType.StoredProcedure;
-			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_ComboUserSettingsInsert]";
+			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_CommentUserTagInsert]";
 	
 			CreateParameters(cmd);
 			
 			SqlParameter p;
-			p = cmd.Parameters[Parameters.ComboUserSettingsID.ParameterName];
+			p = cmd.Parameters[Parameters.CommentUserTagID.ParameterName];
 			p.Direction = ParameterDirection.Output;
     
 			return cmd;
@@ -658,7 +658,7 @@ namespace Combo.DAL
 		
 			SqlCommand cmd = new SqlCommand();
 			cmd.CommandType = CommandType.StoredProcedure;
-			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_ComboUserSettingsUpdate]";
+			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_CommentUserTagUpdate]";
 	
 			CreateParameters(cmd);
 			      
@@ -670,11 +670,11 @@ namespace Combo.DAL
 		
 			SqlCommand cmd = new SqlCommand();
 			cmd.CommandType = CommandType.StoredProcedure;
-			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_ComboUserSettingsDelete]";
+			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_CommentUserTagDelete]";
 	
 			SqlParameter p;
-			p = cmd.Parameters.Add(Parameters.ComboUserSettingsID);
-			p.SourceColumn = ColumnNames.ComboUserSettingsID;
+			p = cmd.Parameters.Add(Parameters.CommentUserTagID);
+			p.SourceColumn = ColumnNames.CommentUserTagID;
 			p.SourceVersion = DataRowVersion.Current;
 
   
@@ -685,20 +685,20 @@ namespace Combo.DAL
 		{
 			SqlParameter p;
 		
-			p = cmd.Parameters.Add(Parameters.ComboUserSettingsID);
-			p.SourceColumn = ColumnNames.ComboUserSettingsID;
+			p = cmd.Parameters.Add(Parameters.CommentUserTagID);
+			p.SourceColumn = ColumnNames.CommentUserTagID;
 			p.SourceVersion = DataRowVersion.Current;
 
 			p = cmd.Parameters.Add(Parameters.ComboUserID);
 			p.SourceColumn = ColumnNames.ComboUserID;
 			p.SourceVersion = DataRowVersion.Current;
 
-			p = cmd.Parameters.Add(Parameters.IsPostsDownloadable);
-			p.SourceColumn = ColumnNames.IsPostsDownloadable;
+			p = cmd.Parameters.Add(Parameters.ComboCommentID);
+			p.SourceColumn = ColumnNames.ComboCommentID;
 			p.SourceVersion = DataRowVersion.Current;
 
-			p = cmd.Parameters.Add(Parameters.ReceiveNotificationType);
-			p.SourceColumn = ColumnNames.ReceiveNotificationType;
+			p = cmd.Parameters.Add(Parameters.Offset);
+			p.SourceColumn = ColumnNames.Offset;
 			p.SourceVersion = DataRowVersion.Current;
 
 

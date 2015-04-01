@@ -10,6 +10,7 @@ namespace Combo.BLL
 {
 	public class ComboUser : _ComboUser
 	{
+        
 		public ComboUser()
 		{
 		

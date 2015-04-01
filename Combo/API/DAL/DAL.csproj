@@ -60,10 +60,14 @@
     <Compile Include="ComboUserFriend.cs" />
     <Compile Include="ComboUserMsg.cs" />
     <Compile Include="ComboUserSettings.cs" />
+    <Compile Include="CommentHashTag.cs" />
+    <Compile Include="CommentUserTag.cs" />
     <Compile Include="Country.cs" />
     <Compile Include="ExternalIDType.cs" />
     <Compile Include="Gender.cs" />
     <Compile Include="HashTag.cs" />
+    <Compile Include="NotificationType.cs" />
+    <Compile Include="NotificationUserSettings.cs" />
     <Compile Include="PostHashTag.cs" />
     <Compile Include="PostUserTag.cs" />
     <Compile Include="ProfileFollower.cs" />

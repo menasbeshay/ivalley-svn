@@ -18,5 +18,21 @@ namespace Combo.BLL
             this.Where.ComboUserID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
             return this.Query.Load();
         }
+
+        public bool CanGetNotification(int userID, int senderID)
+        {
+            bool canNotified = false;
+            if (IsColumnNull(ColumnNames.ReceiveNotificationType))
+                canNotified = true;
+            else if (ReceiveNotificationType == 2)
+                canNotified = true;
+            else
+            {
+                ProfileFollower follower = new ProfileFollower();
+                if (follower.LoadByPrimaryKey(senderID, userID) && ReceiveNotificationType == 1)
+                    canNotified = true;
+            }
+            return canNotified;
+        }
 	}
 }
