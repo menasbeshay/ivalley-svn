@@ -337,7 +337,39 @@
                        }
 
                 });
-            }
+        }
+
+
+        function SetNotificationSetting() {
+            var user = { NotificationUserSetting: [{ NotificationTypeID: 1, ComboUserID: 5, Status: 0 }, { NotificationTypeID: 2, ComboUserID: 5, Status: 0 }] };
+            var json = JSON.stringify(user);
+
+            $.ajax({
+                url: 'ComboAPI/combo.asmx/SetNotificationSettings',
+                cache: false,
+                type: 'POST',
+                data: json,
+                contentType: 'application/json; charset=utf-8',
+                success:
+                   function (data) {
+                       if (data.bool_result != false) {
+
+                           // Add a table row for the product.
+                           var row = '<td>' + data.Entity.ComboUserID + '</td><td>' + data.Entity.UserName + '</td>';
+                           $('<tr/>', { html: row })  // Append the name.
+                               .appendTo($('#users'));
+
+                       }
+                       else {
+                           $('#error').css('display', 'block');
+                           $('#error').html(data.ErrorMsg);
+                       }
+
+
+                   }
+
+            });
+        }
         
     </script>
 </head>
@@ -356,7 +388,8 @@
     <input id="Button1" type="button" value="get user by id" onclick="getuserbyid()" />
     <input id="Button1" type="button" value="get all users" onclick="getUsers()" />
     <input id="Button1" type="button" value="get all posts" onclick="getPosts()" />
-
+    <input id="button2" type="button" value="set notifications settings" onclick="SetNotificationSetting()" />
+ 
 
     
         <input type="file" id="afile"/>        
