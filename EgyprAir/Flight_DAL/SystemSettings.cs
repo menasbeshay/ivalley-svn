@@ -115,6 +115,14 @@ namespace Flight_DAL
 				}
 			}
 			
+			public static SqlParameter EnableFlightTimeLimitaion
+			{
+				get
+				{
+					return new SqlParameter("@EnableFlightTimeLimitaion", SqlDbType.Bit, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -123,6 +131,7 @@ namespace Flight_DAL
 		{  
             public const string SystemSettingsID = "SystemSettingsID";
             public const string FlightNoPrefix = "FlightNoPrefix";
+            public const string EnableFlightTimeLimitaion = "EnableFlightTimeLimitaion";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -132,6 +141,7 @@ namespace Flight_DAL
 					
 					ht[SystemSettingsID] = _SystemSettings.PropertyNames.SystemSettingsID;
 					ht[FlightNoPrefix] = _SystemSettings.PropertyNames.FlightNoPrefix;
+					ht[EnableFlightTimeLimitaion] = _SystemSettings.PropertyNames.EnableFlightTimeLimitaion;
 
 				}
 				return (string)ht[columnName];
@@ -146,6 +156,7 @@ namespace Flight_DAL
 		{  
             public const string SystemSettingsID = "SystemSettingsID";
             public const string FlightNoPrefix = "FlightNoPrefix";
+            public const string EnableFlightTimeLimitaion = "EnableFlightTimeLimitaion";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -155,6 +166,7 @@ namespace Flight_DAL
 					
 					ht[SystemSettingsID] = _SystemSettings.ColumnNames.SystemSettingsID;
 					ht[FlightNoPrefix] = _SystemSettings.ColumnNames.FlightNoPrefix;
+					ht[EnableFlightTimeLimitaion] = _SystemSettings.ColumnNames.EnableFlightTimeLimitaion;
 
 				}
 				return (string)ht[propertyName];
@@ -169,6 +181,7 @@ namespace Flight_DAL
 		{  
             public const string SystemSettingsID = "s_SystemSettingsID";
             public const string FlightNoPrefix = "s_FlightNoPrefix";
+            public const string EnableFlightTimeLimitaion = "s_EnableFlightTimeLimitaion";
 
 		}
 		#endregion		
@@ -196,6 +209,18 @@ namespace Flight_DAL
 			set
 	        {
 				base.Setstring(ColumnNames.FlightNoPrefix, value);
+			}
+		}
+
+		public virtual bool EnableFlightTimeLimitaion
+	    {
+			get
+	        {
+				return base.Getbool(ColumnNames.EnableFlightTimeLimitaion);
+			}
+			set
+	        {
+				base.Setbool(ColumnNames.EnableFlightTimeLimitaion, value);
 			}
 		}
 
@@ -231,6 +256,21 @@ namespace Flight_DAL
 					this.SetColumnNull(ColumnNames.FlightNoPrefix);
 				else
 					this.FlightNoPrefix = base.SetstringAsString(ColumnNames.FlightNoPrefix, value);
+			}
+		}
+
+		public virtual string s_EnableFlightTimeLimitaion
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.EnableFlightTimeLimitaion) ? string.Empty : base.GetboolAsString(ColumnNames.EnableFlightTimeLimitaion);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.EnableFlightTimeLimitaion);
+				else
+					this.EnableFlightTimeLimitaion = base.SetboolAsString(ColumnNames.EnableFlightTimeLimitaion, value);
 			}
 		}
 
@@ -287,6 +327,16 @@ namespace Flight_DAL
 					}
 				}
 
+				public WhereParameter EnableFlightTimeLimitaion
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.EnableFlightTimeLimitaion, Parameters.EnableFlightTimeLimitaion);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -316,13 +366,27 @@ namespace Flight_DAL
 				}
 			}
 
+			public WhereParameter EnableFlightTimeLimitaion
+		    {
+				get
+		        {
+					if(_EnableFlightTimeLimitaion_W == null)
+	        	    {
+						_EnableFlightTimeLimitaion_W = TearOff.EnableFlightTimeLimitaion;
+					}
+					return _EnableFlightTimeLimitaion_W;
+				}
+			}
+
 			private WhereParameter _SystemSettingsID_W = null;
 			private WhereParameter _FlightNoPrefix_W = null;
+			private WhereParameter _EnableFlightTimeLimitaion_W = null;
 
 			public void WhereClauseReset()
 			{
 				_SystemSettingsID_W = null;
 				_FlightNoPrefix_W = null;
+				_EnableFlightTimeLimitaion_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -399,6 +463,16 @@ namespace Flight_DAL
 					}
 				}
 
+				public AggregateParameter EnableFlightTimeLimitaion
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.EnableFlightTimeLimitaion, Parameters.EnableFlightTimeLimitaion);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -428,13 +502,27 @@ namespace Flight_DAL
 				}
 			}
 
+			public AggregateParameter EnableFlightTimeLimitaion
+		    {
+				get
+		        {
+					if(_EnableFlightTimeLimitaion_W == null)
+	        	    {
+						_EnableFlightTimeLimitaion_W = TearOff.EnableFlightTimeLimitaion;
+					}
+					return _EnableFlightTimeLimitaion_W;
+				}
+			}
+
 			private AggregateParameter _SystemSettingsID_W = null;
 			private AggregateParameter _FlightNoPrefix_W = null;
+			private AggregateParameter _EnableFlightTimeLimitaion_W = null;
 
 			public void AggregateClauseReset()
 			{
 				_SystemSettingsID_W = null;
 				_FlightNoPrefix_W = null;
+				_EnableFlightTimeLimitaion_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -515,6 +603,10 @@ namespace Flight_DAL
 
 			p = cmd.Parameters.Add(Parameters.FlightNoPrefix);
 			p.SourceColumn = ColumnNames.FlightNoPrefix;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.EnableFlightTimeLimitaion);
+			p.SourceColumn = ColumnNames.EnableFlightTimeLimitaion;
 			p.SourceVersion = DataRowVersion.Current;
 
 

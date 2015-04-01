@@ -8,6 +8,7 @@ using Flight_BLL;
 using System.Data;
 using System.Net.Mail;
 using System.Net;
+using Helper;
 
 namespace Flights_GUI.Operation
 {
@@ -46,12 +47,27 @@ namespace Flights_GUI.Operation
             SectorCrew Member = new SectorCrew();
             if (!CrewExists(Convert.ToInt32(uiDropDownListCrew.SelectedValue)))
             {
-                Member.AddNew();
-                Member.SectorID = CurrentSector.SectorID;
-                Member.PositionID = Convert.ToInt32(uiDropDownListCrewPos.SelectedValue);
-                Member.CrewID = Convert.ToInt32(uiDropDownListCrew.SelectedValue);
-                Member.Save();
-                BindCrew();
+                ValidationMsg vMsg = new ValidationMsg();
+                Validation validate = new Validation ();
+                vMsg = validate.IsCrewValidToDuty(Convert.ToInt32(uiDropDownListCrew.SelectedValue), CurrentSector.SectorDate);
+                if (vMsg.IsValid)
+                {
+                    Member.AddNew();
+                    Member.SectorID = CurrentSector.SectorID;
+                    Member.PositionID = Convert.ToInt32(uiDropDownListCrewPos.SelectedValue);
+                    Member.CrewID = Convert.ToInt32(uiDropDownListCrew.SelectedValue);
+                    Member.Save();
+                    BindCrew();
+                }
+                else
+                {
+                    string errorMsg = "";
+                    foreach (string item in vMsg.Messages)
+                    {
+                        errorMsg = errorMsg + item + "<br />";
+                    }
+                    Alert.ShowMessage("Error", errorMsg);
+                }
                 // send mail to pilot
                 /*try
                 {

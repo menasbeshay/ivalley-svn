@@ -71,6 +71,11 @@ namespace Flight_BLL
 
         }
 
+        public virtual bool GetPilotHoursWithinRange(int CrewID, DateTime StartDate, DateTime EndDate)
+        {
+            return LoadFromRawSql(@"select * from GetCrewHoursWithinRangeAsTable({0},{1},{2})", CrewID, StartDate, EndDate);
+        }
+
         
 	}
 }
