@@ -237,6 +237,42 @@ Create Table PostHashTag
 Go 
 		
 		
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'CommentHashTag' and
+		        xtype = 'U')
+Drop Table CommentHashTag
+Go
+Create Table CommentHashTag
+(
+	HashTagID int foreign key references HashTag(HashTagID),		
+	ComboCommentID int foreign key references ComboComment(ComboCommentID),
+	Offset int,
+	primary key (ComboCommentID, HashTagID)
+)
+Go 
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'CommentUserTag' and
+		        xtype = 'U')
+Drop Table CommentUserTag
+Go
+Create Table CommentUserTag
+(
+	CommentUserTagID int not null
+			identity(1,1)
+			Primary Key,	
+	ComboUserID int foreign key references ComboUser(ComboUserID),
+	ComboCommentID int foreign key references ComboComment(ComboCommentID),
+	Offset int,
+	CONSTRAINT CommentTag_index UNIQUE (ComboCommentID, ComboUserID)
+)
+Go 
+
+		
+		
 alter table Combouser
 add IsPrivateAccount bit
 
@@ -255,40 +291,42 @@ Create Procedure SearchForTaging @UserID int,
 								 @PostID int = 0
 as
 
-Select CU.*, A.Path ProfilePic from ComboPost PF
+Select CU.*, A.Path ProfilePic, 0 OrderField from ComboPost PF
 Inner Join ComboUser CU on PF.ComboUserID = CU.ComboUserID and
                             (CU.IsDeactivated <> 1 or CU.IsDeactivated is null) and 
                             (PF.ComboPostID = @PostID)
 Left join Attachment A on CU.ProfileImgID = A.AttachmentID
 Where CU.Username like '%'  + @FilterText +  '%'
 Union 
-Select CU.*, A.Path ProfilePic from PostUserTag PF
+Select CU.*, A.Path ProfilePic , 1 from PostUserTag PF
 Inner Join ComboUser CU on PF.ComboUserID = CU.ComboUserID and
                             (CU.IsDeactivated <> 1 or CU.IsDeactivated is null) and 
                             (PF.ComboPostID = @PostID)
 Left join Attachment A on CU.ProfileImgID = A.AttachmentID
 Where CU.Username like '%'  + @FilterText +  '%'
 Union
-Select CU.*, A.Path ProfilePic from ComboComment PF
+Select CU.*, A.Path ProfilePic, 2 from ComboComment PF
 Inner Join ComboUser CU on PF.ComboUserID = CU.ComboUserID and
                             (CU.IsDeactivated <> 1 or CU.IsDeactivated is null) and 
                             (PF.ComboPostID = @PostID)
 Left join Attachment A on CU.ProfileImgID = A.AttachmentID
 Where CU.Username like '%'  + @FilterText +  '%'
 Union
-Select CU.*, A.Path ProfilePic from ProfileFollower PF
+Select CU.*, A.Path ProfilePic, 3 from ProfileFollower PF
 Inner Join ComboUser CU on PF.ComboFollowerID = CU.ComboUserID and
                             (CU.IsDeactivated <> 1 or CU.IsDeactivated is null)
 Left join Attachment A on CU.ProfileImgID = A.AttachmentID
 Where PF.ComboUserID = @UserID and CU.Username like '%'  + @FilterText +  '%'
 union
-Select CU.*, A.Path ProfilePic from ProfileFollower PF
+Select CU.*, A.Path ProfilePic, 4 from ProfileFollower PF
 Inner Join ComboUser CU on PF.ComboUserID = CU.ComboUserID and
                             (CU.IsDeactivated <> 1 or CU.IsDeactivated is null)
 Left join Attachment A on CU.ProfileImgID = A.AttachmentID
 Where PF.ComboFollowerID = @UserID and CU.Username like '%'  + @FilterText +  '%'
 union 
-Select CU.*, A.Path ProfilePic from ComboUser CU                                                                                    
+Select CU.*, A.Path ProfilePic, 5 from ComboUser CU                                                                                    
 Left join Attachment A on CU.ProfileImgID = A.AttachmentID
 where CU.Username like '%'  + @FilterText +  '%' and (CU.IsDeactivated <> 1 or CU.IsDeactivated is null)
+
+order by OrderField
 Go 

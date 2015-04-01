@@ -373,11 +373,16 @@
     <Compile Include="Models\ComboResponse.cs" />
     <Compile Include="Models\ComboSharePost.cs" />
     <Compile Include="Models\ComboUser.cs" />
+    <Compile Include="Models\CommentHashTag.cs" />
+    <Compile Include="Models\CommentUserTag.cs" />
     <Compile Include="Models\Country.cs" />
+    <Compile Include="Models\FollowRequest.cs" />
     <Compile Include="Models\FriendRequest.cs" />
     <Compile Include="Models\HashTag.cs" />
+    <Compile Include="Models\NotificationUserSetting.cs" />
     <Compile Include="Models\PostHashTag.cs" />
     <Compile Include="Models\PostUserTag.cs" />
+    <Compile Include="Models\UserRankUpdated.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

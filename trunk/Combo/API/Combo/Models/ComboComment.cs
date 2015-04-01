@@ -19,5 +19,8 @@ namespace Combo.Models
         public object Likes { get; set; }
         public object Attachments { get; set; }
         public bool IsRead { get; set; }
+        public object HashTags { get; set; }
+        public object UserTags { get; set; }
+        public object PostAttachemnts { get; set; }
     }
 }

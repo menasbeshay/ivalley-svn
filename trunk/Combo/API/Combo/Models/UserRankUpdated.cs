@@ -5,14 +5,15 @@ using System.Web;
 
 namespace Combo.Models
 {
-    public class ComboPostLike
+    public class UserRankUpdated
     {
-        public int ComboPostID { get; set; }
         public int ComboUserID { get; set; }
         public string UserName { get; set; }
         public string ProfilePic { get; set; }
         public string DisplayName { get; set; }
-        public string PostText { get; set; }
-        public object Attachments { get; set; }
+        public int OldUserRankID { get; set; }
+        public string OldRankName { get; set; }
+        public string NewRankName { get; set; }
+        public int NewUserRankID { get; set; }
     }
 }

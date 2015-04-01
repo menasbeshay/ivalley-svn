@@ -266,3 +266,39 @@ select *
 from ComboUser
 where (UserName = @UserName Or Email = @UserName) 
 Go
+
+Alter table combousersettings
+add ReceisveNotificationType smallint
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'NotificationType' and
+		        xtype = 'U')
+Drop Table NotificationType
+Go
+Create Table NotificationType
+(
+	NotificationTypeID int not null
+			identity(1,1)
+			Primary Key,	
+	Name Nvarchar(200)
+)
+Go
+
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'NotificationUserSettings' and
+		        xtype = 'U')
+Drop Table NotificationUserSettings
+Go
+Create Table NotificationUserSettings
+(
+	ComboUserID int foreign key references ComboUser(ComboUserID) not null,
+	NotificationTypeID int foreign key references NotificationType(NotificationTypeID) not null,
+	Status smallint,
+	Primary key (ComboUserID,NotificationTypeID)
+)
+Go

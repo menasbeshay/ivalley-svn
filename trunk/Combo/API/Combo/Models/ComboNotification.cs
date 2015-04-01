@@ -30,6 +30,16 @@ namespace Combo.Models
         LIKE_PROFILE = 11,
         UNLIKE_PROFILE = 12,
         TAG_USER_IN_POST = 13,
-        ACCEPT_FOLLOW_REQUEST = 14        
+        ACCEPT_FOLLOW_REQUEST = 14 ,
+        UPDATE_USER_RANK = 15,
+        FOLLOWER_BIRTHDAY = 16
+    }
+
+
+    public enum ReceivingNotificationType
+    {
+        NO_NOTIFICATIONS = 0,
+        GET_NOTIFICATIONS_FROM_FOLLOWINGS = 1,
+        GET_NOTIFICATIONS_FROM_ALL= 2
     }
 }

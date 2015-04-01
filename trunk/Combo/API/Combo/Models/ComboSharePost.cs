@@ -13,5 +13,7 @@ namespace Combo.Models
         public int ComboFriendID { get; set; }
         public string ComboFriendName { get; set; }
         public string ComboFriendDisplayName { get; set; }
+        public string PostText { get; set; }
+        public object Attachments { get; set; }
     }
 }

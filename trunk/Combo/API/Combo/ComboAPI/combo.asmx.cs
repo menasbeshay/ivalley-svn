@@ -15,6 +15,7 @@ using System.Text;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading;
 
+
 namespace Combo.ComboAPI
 {
     /// <summary>
@@ -737,8 +738,8 @@ namespace Combo.ComboAPI
         private void UpdateUserRank(int UserID)
         {
             ComboUser user = new ComboUser();
-            user.LoadByPrimaryKey(UserID);
-
+            user.GetUserByUserId(UserID);
+            
             UserActivityLog log = new UserActivityLog();
             log.GetActivityDaysByUserID(user.ComboUserID);
 
@@ -759,6 +760,8 @@ namespace Combo.ComboAPI
 
             ProfileLiker profileLikes = new ProfileLiker();
             profileLikes.GetProfileLikerCountByUserID(user.ComboUserID);
+
+            int oldRank = user.UserRankID;
 
             if (Convert.ToInt32(log.GetColumn("TotalActivityDays")) > 365 ||
                 Convert.ToInt32(posts.GetColumn("TotalPostCount")) > 3000 ||
@@ -802,6 +805,56 @@ namespace Combo.ComboAPI
             }
 
             user.Save();
+            if (user.UserRankID > oldRank)
+            {
+                /**************************/
+                // save notification and push it to device                            
+                UserRank old = new UserRank();
+                old.LoadByPrimaryKey(oldRank);
+
+                UserRank newrank = new UserRank();
+                newrank.LoadByPrimaryKey(user.UserRankID);
+
+                List<Models.UserRankUpdated> arequest = user.DefaultView.Table.AsEnumerable().Select(row =>
+                {
+                    return new Models.UserRankUpdated
+                    {                        
+                        ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                        UserName = user.UserName,
+                        DisplayName = user.DisplayName,
+                        OldUserRankID = oldRank,
+                        NewUserRankID = user.UserRankID,
+                        OldRankName = old.Name,
+                        NewRankName = newrank.Name,
+                        ProfilePic = row["ProfilePic"].ToString()
+                    };
+                }).ToList();
+
+                ComboNotification notification = new ComboNotification();
+                notification.AddNew();
+                notification.ComboUserID = user.ComboUserID;
+                notification.NotificationType = (int)Combo.Models.NotificationType.UPDATE_USER_RANK; // update rank 
+                notification.NotificationDate = DateTime.UtcNow;
+                notification.NotificationBody = Newtonsoft.Json.JsonConvert.SerializeObject(arequest);
+                notification.IsRead = false;
+                notification.Save();
+
+                List<Models.ComboNotification> notificationJson = notification.DefaultView.Table.AsEnumerable().Select(row =>
+                {
+                    return new Models.ComboNotification
+                    {
+                        ComboNotificationID = Convert.ToInt32(row["ComboNotificationID"]),
+                        ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                        IsRead = Convert.ToBoolean(row["IsRead"]),
+                        NotificationBody = row["NotificationBody"].ToString(),
+                        NotificationDate = Convert.ToDateTime(row["NotificationDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                        NotificationType = Convert.ToInt32(row["NotificationType"])
+                    };
+                }).ToList();
+
+                SendGCMNotification(Newtonsoft.Json.JsonConvert.SerializeObject(notificationJson), user.DeviceID);
+                /**************************/
+            }
 
         }
         #endregion
@@ -888,6 +941,7 @@ namespace Combo.ComboAPI
                     ComboCommentAttachment c_attachments = new ComboCommentAttachment();
                     c_likes.GetCommentLikesByCommentID(_itemcomm.ComboCommentID);
                     c_attachments.GetCommentAttachmentsByCommentID(_itemcomm.ComboCommentID);
+
                     _itemcomm.Likes = c_likes.DefaultView.Table.AsEnumerable().Select(r =>
                     {
                         return new Models.ComboCommentLike
@@ -905,6 +959,34 @@ namespace Combo.ComboAPI
                             Path = r["Path"].ToString(),
                             AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"]),
                             ThumbsPath = r["ThumbsPath"].ToString()
+                        };
+                    }).ToList();
+
+
+                    // get user mention 
+                    CommentUserTag CommentuserTags = new CommentUserTag();
+                    CommentuserTags.GetUserTagsByCommentID(_itemcomm.ComboCommentID);
+                    _itemcomm.UserTags = CommentuserTags.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.CommentUserTag
+                        {
+                            ComboCommentID = Convert.ToInt32(r["ComboCommentID"]),
+                            UserName = r["Username"].ToString(),
+                            ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                            Offset = Convert.ToInt32(r["Offset"])
+                        };
+                    }).ToList();
+
+                    // get hashtags 
+                    CommentHashTag Commenthastags = new CommentHashTag();
+                    Commenthastags.GetHashTagsByCommnetID(_itemcomm.ComboCommentID);
+                    _itemcomm.HashTags = Commenthastags.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.CommentHashTag
+                        {
+                            HashTagID = Convert.ToInt32(r["HashTagID"]),
+                            TagName = r["Name"].ToString(),
+                            Offset = Convert.ToInt32(r["Offset"])
                         };
                     }).ToList();
                 }
@@ -956,10 +1038,12 @@ namespace Combo.ComboAPI
             SetContentResult(_response);
 
             // calculate user rank in another thread
+            // and send notifications with followers birthday 
             ThreadPool.QueueUserWorkItem(delegate
             {
                 if (AddActivityLog(UserID, DateTime.Now.Date))
                 {
+                    SendFollowersBirthdaysNotifications(UserID);
                     UpdateUserRank(UserID);
                 }
             });
@@ -967,6 +1051,7 @@ namespace Combo.ComboAPI
             //return _response;
 
         }
+
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
@@ -1066,6 +1151,35 @@ namespace Combo.ComboAPI
                             ThumbsPath = r["ThumbsPath"].ToString()
                         };
                     }).ToList();
+
+                    // get user mention 
+                    CommentUserTag CommentuserTags = new CommentUserTag();
+                    CommentuserTags.GetUserTagsByCommentID(_itemcomm.ComboCommentID);
+                    _itemcomm.UserTags = CommentuserTags.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.CommentUserTag
+                        {
+                            ComboCommentID = Convert.ToInt32(r["ComboCommentID"]),
+                            UserName = r["Username"].ToString(),
+                            ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                            Offset = Convert.ToInt32(r["Offset"])
+                        };
+                    }).ToList();
+
+                    // get hashtags 
+                    CommentHashTag Commenthastags = new CommentHashTag();
+                    Commenthastags.GetHashTagsByCommnetID(_itemcomm.ComboCommentID);
+                    _itemcomm.HashTags = Commenthastags.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.CommentHashTag
+                        {
+                            HashTagID = Convert.ToInt32(r["HashTagID"]),
+                            TagName = r["Name"].ToString(),
+                            Offset = Convert.ToInt32(r["Offset"])
+                        };
+                    }).ToList();
+
+
                 }
 
                 item.Comments = _comm;
@@ -1217,6 +1331,33 @@ namespace Combo.ComboAPI
                             ThumbsPath = r["ThumbsPath"].ToString()
                         };
                     }).ToList();
+
+                    // get user mention 
+                    CommentUserTag CommentuserTags = new CommentUserTag();
+                    CommentuserTags.GetUserTagsByCommentID(_itemcomm.ComboCommentID);
+                    _itemcomm.UserTags = CommentuserTags.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.CommentUserTag
+                        {
+                            ComboCommentID = Convert.ToInt32(r["ComboCommentID"]),
+                            UserName = r["Username"].ToString(),
+                            ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                            Offset = Convert.ToInt32(r["Offset"])
+                        };
+                    }).ToList();
+
+                    // get hashtags 
+                    CommentHashTag Commenthastags = new CommentHashTag();
+                    Commenthastags.GetHashTagsByCommnetID(_itemcomm.ComboCommentID);
+                    _itemcomm.HashTags = Commenthastags.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.CommentHashTag
+                        {
+                            HashTagID = Convert.ToInt32(r["HashTagID"]),
+                            TagName = r["Name"].ToString(),
+                            Offset = Convert.ToInt32(r["Offset"])
+                        };
+                    }).ToList();
                 }
 
                 item.Comments = _comm;
@@ -1364,6 +1505,34 @@ namespace Combo.ComboAPI
                             Path = r["Path"].ToString(),
                             AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"]),
                             ThumbsPath = r["ThumbsPath"].ToString()
+                        };
+                    }).ToList();
+
+
+                    // get user mention 
+                    CommentUserTag CommentuserTags = new CommentUserTag();
+                    CommentuserTags.GetUserTagsByCommentID(_itemcomm.ComboCommentID);
+                    _itemcomm.UserTags = CommentuserTags.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.CommentUserTag
+                        {
+                            ComboCommentID = Convert.ToInt32(r["ComboCommentID"]),
+                            UserName = r["Username"].ToString(),
+                            ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                            Offset = Convert.ToInt32(r["Offset"])
+                        };
+                    }).ToList();
+
+                    // get hashtags 
+                    CommentHashTag Commenthastags = new CommentHashTag();
+                    Commenthastags.GetHashTagsByCommnetID(_itemcomm.ComboCommentID);
+                    _itemcomm.HashTags = Commenthastags.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.CommentHashTag
+                        {
+                            HashTagID = Convert.ToInt32(r["HashTagID"]),
+                            TagName = r["Name"].ToString(),
+                            Offset = Convert.ToInt32(r["Offset"])
                         };
                     }).ToList();
                 }
@@ -1515,6 +1684,33 @@ namespace Combo.ComboAPI
                             ThumbsPath = r["ThumbsPath"].ToString()
                         };
                     }).ToList();
+
+                    // get user mention 
+                    CommentUserTag CommentuserTags = new CommentUserTag();
+                    CommentuserTags.GetUserTagsByCommentID(_itemcomm.ComboCommentID);
+                    _itemcomm.UserTags = CommentuserTags.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.CommentUserTag
+                        {
+                            ComboCommentID = Convert.ToInt32(r["ComboCommentID"]),
+                            UserName = r["Username"].ToString(),
+                            ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                            Offset = Convert.ToInt32(r["Offset"])
+                        };
+                    }).ToList();
+
+                    // get hashtags 
+                    CommentHashTag Commenthastags = new CommentHashTag();
+                    Commenthastags.GetHashTagsByCommnetID(_itemcomm.ComboCommentID);
+                    _itemcomm.HashTags = Commenthastags.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.CommentHashTag
+                        {
+                            HashTagID = Convert.ToInt32(r["HashTagID"]),
+                            TagName = r["Name"].ToString(),
+                            Offset = Convert.ToInt32(r["Offset"])
+                        };
+                    }).ToList();
                 }
 
                 item.Comments = _comm;
@@ -1661,6 +1857,33 @@ namespace Combo.ComboAPI
                             Path = r["Path"].ToString(),
                             AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"]),
                             ThumbsPath = r["ThumbsPath"].ToString()
+                        };
+                    }).ToList();
+
+                    // get user mention 
+                    CommentUserTag CommentuserTags = new CommentUserTag();
+                    CommentuserTags.GetUserTagsByCommentID(_itemcomm.ComboCommentID);
+                    _itemcomm.UserTags = CommentuserTags.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.CommentUserTag
+                        {
+                            ComboCommentID = Convert.ToInt32(r["ComboCommentID"]),
+                            UserName = r["Username"].ToString(),
+                            ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                            Offset = Convert.ToInt32(r["Offset"])
+                        };
+                    }).ToList();
+
+                    // get hashtags 
+                    CommentHashTag Commenthastags = new CommentHashTag();
+                    Commenthastags.GetHashTagsByCommnetID(_itemcomm.ComboCommentID);
+                    _itemcomm.HashTags = Commenthastags.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.CommentHashTag
+                        {
+                            HashTagID = Convert.ToInt32(r["HashTagID"]),
+                            TagName = r["Name"].ToString(),
+                            Offset = Convert.ToInt32(r["Offset"])
                         };
                     }).ToList();
                 }
@@ -1811,6 +2034,33 @@ namespace Combo.ComboAPI
                             ThumbsPath = r["ThumbsPath"].ToString()
                         };
                     }).ToList();
+
+                    // get user mention 
+                    CommentUserTag CommentuserTags = new CommentUserTag();
+                    CommentuserTags.GetUserTagsByCommentID(_itemcomm.ComboCommentID);
+                    _itemcomm.UserTags = CommentuserTags.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.CommentUserTag
+                        {
+                            ComboCommentID = Convert.ToInt32(r["ComboCommentID"]),
+                            UserName = r["Username"].ToString(),
+                            ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                            Offset = Convert.ToInt32(r["Offset"])
+                        };
+                    }).ToList();
+
+                    // get hashtags 
+                    CommentHashTag Commenthastags = new CommentHashTag();
+                    Commenthastags.GetHashTagsByCommnetID(_itemcomm.ComboCommentID);
+                    _itemcomm.HashTags = Commenthastags.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.CommentHashTag
+                        {
+                            HashTagID = Convert.ToInt32(r["HashTagID"]),
+                            TagName = r["Name"].ToString(),
+                            Offset = Convert.ToInt32(r["Offset"])
+                        };
+                    }).ToList();
                 }
 
                 item.Comments = _comm;
@@ -1959,6 +2209,33 @@ namespace Combo.ComboAPI
                             ThumbsPath = r["ThumbsPath"].ToString()
                         };
                     }).ToList();
+
+                    // get user mention 
+                    CommentUserTag CommentuserTags = new CommentUserTag();
+                    CommentuserTags.GetUserTagsByCommentID(_itemcomm.ComboCommentID);
+                    _itemcomm.UserTags = CommentuserTags.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.CommentUserTag
+                        {
+                            ComboCommentID = Convert.ToInt32(r["ComboCommentID"]),
+                            UserName = r["Username"].ToString(),
+                            ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                            Offset = Convert.ToInt32(r["Offset"])
+                        };
+                    }).ToList();
+
+                    // get hashtags 
+                    CommentHashTag Commenthastags = new CommentHashTag();
+                    Commenthastags.GetHashTagsByCommnetID(_itemcomm.ComboCommentID);
+                    _itemcomm.HashTags = Commenthastags.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.CommentHashTag
+                        {
+                            HashTagID = Convert.ToInt32(r["HashTagID"]),
+                            TagName = r["Name"].ToString(),
+                            Offset = Convert.ToInt32(r["Offset"])
+                        };
+                    }).ToList();
                 }
 
                 item.Comments = _comm;
@@ -2105,6 +2382,33 @@ namespace Combo.ComboAPI
                             Path = r["Path"].ToString(),
                             AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"]),
                             ThumbsPath = r["ThumbsPath"].ToString()
+                        };
+                    }).ToList();
+
+                    // get user mention 
+                    CommentUserTag CommentuserTags = new CommentUserTag();
+                    CommentuserTags.GetUserTagsByCommentID(_itemcomm.ComboCommentID);
+                    _itemcomm.UserTags = CommentuserTags.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.CommentUserTag
+                        {
+                            ComboCommentID = Convert.ToInt32(r["ComboCommentID"]),
+                            UserName = r["Username"].ToString(),
+                            ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                            Offset = Convert.ToInt32(r["Offset"])
+                        };
+                    }).ToList();
+
+                    // get hashtags 
+                    CommentHashTag Commenthastags = new CommentHashTag();
+                    Commenthastags.GetHashTagsByCommnetID(_itemcomm.ComboCommentID);
+                    _itemcomm.HashTags = Commenthastags.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.CommentHashTag
+                        {
+                            HashTagID = Convert.ToInt32(r["HashTagID"]),
+                            TagName = r["Name"].ToString(),
+                            Offset = Convert.ToInt32(r["Offset"])
                         };
                     }).ToList();
                 }
@@ -2299,6 +2603,33 @@ namespace Combo.ComboAPI
                             ThumbsPath = r["ThumbsPath"].ToString()
                         };
                     }).ToList();
+
+                    // get user mention 
+                    CommentUserTag CommentuserTags = new CommentUserTag();
+                    CommentuserTags.GetUserTagsByCommentID(comm[i].ComboCommentID);
+                    comm[i].UserTags = CommentuserTags.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.CommentUserTag
+                        {
+                            ComboCommentID = Convert.ToInt32(r["ComboCommentID"]),
+                            UserName = r["Username"].ToString(),
+                            ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                            Offset = Convert.ToInt32(r["Offset"])
+                        };
+                    }).ToList();
+
+                    // get hashtags 
+                    CommentHashTag Commenthastags = new CommentHashTag();
+                    Commenthastags.GetHashTagsByCommnetID(comm[i].ComboCommentID);
+                    comm[i].HashTags = Commenthastags.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.CommentHashTag
+                        {
+                            HashTagID = Convert.ToInt32(r["HashTagID"]),
+                            TagName = r["Name"].ToString(),
+                            Offset = Convert.ToInt32(r["Offset"])
+                        };
+                    }).ToList();
                 }
                 
             }
@@ -2408,6 +2739,33 @@ namespace Combo.ComboAPI
                                 Path = r["Path"].ToString(),
                                 AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"]),
                                 ThumbsPath = r["ThumbsPath"].ToString()
+                            };
+                        }).ToList();
+
+                        // get user mention 
+                        CommentUserTag CommentuserTags = new CommentUserTag();
+                        CommentuserTags.GetUserTagsByCommentID(_itemcomm.ComboCommentID);
+                        _itemcomm.UserTags = CommentuserTags.DefaultView.Table.AsEnumerable().Select(r =>
+                        {
+                            return new Models.CommentUserTag
+                            {
+                                ComboCommentID = Convert.ToInt32(r["ComboCommentID"]),
+                                UserName = r["Username"].ToString(),
+                                ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                                Offset = Convert.ToInt32(r["Offset"])
+                            };
+                        }).ToList();
+
+                        // get hashtags 
+                        CommentHashTag Commenthastags = new CommentHashTag();
+                        Commenthastags.GetHashTagsByCommnetID(_itemcomm.ComboCommentID);
+                        _itemcomm.HashTags = Commenthastags.DefaultView.Table.AsEnumerable().Select(r =>
+                        {
+                            return new Models.CommentHashTag
+                            {
+                                HashTagID = Convert.ToInt32(r["HashTagID"]),
+                                TagName = r["Name"].ToString(),
+                                Offset = Convert.ToInt32(r["Offset"])
                             };
                         }).ToList();
                     }
@@ -2564,6 +2922,33 @@ namespace Combo.ComboAPI
                             ThumbsPath = r["ThumbsPath"].ToString()
                         };
                     }).ToList();
+
+                    // get user mention 
+                    CommentUserTag CommentuserTags = new CommentUserTag();
+                    CommentuserTags.GetUserTagsByCommentID(_itemcomm.ComboCommentID);
+                    _itemcomm.UserTags = CommentuserTags.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.CommentUserTag
+                        {
+                            ComboCommentID = Convert.ToInt32(r["ComboCommentID"]),
+                            UserName = r["Username"].ToString(),
+                            ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                            Offset = Convert.ToInt32(r["Offset"])
+                        };
+                    }).ToList();
+
+                    // get hashtags 
+                    CommentHashTag Commenthastags = new CommentHashTag();
+                    Commenthastags.GetHashTagsByCommnetID(_itemcomm.ComboCommentID);
+                    _itemcomm.HashTags = Commenthastags.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.CommentHashTag
+                        {
+                            HashTagID = Convert.ToInt32(r["HashTagID"]),
+                            TagName = r["Name"].ToString(),
+                            Offset = Convert.ToInt32(r["Offset"])
+                        };
+                    }).ToList();
                 }
 
                 item.Comments = _comm;
@@ -2664,6 +3049,9 @@ namespace Combo.ComboAPI
                 attachment.Save();
             }
 
+            ComboPostAttachment notificationAtt = new ComboPostAttachment();
+            notificationAtt.GetPostAttachmentsByPostID(newPost.ComboPostID);
+
             Models.PostUserTag[] userTags = js.Deserialize<Models.PostUserTag[]>(js.Serialize(post.UserTags));
             if (userTags != null)
             {
@@ -2675,7 +3063,7 @@ namespace Combo.ComboAPI
                     usertag.ComboPostID = newPost.ComboPostID;
                     usertag.Offset = item.Offset;
 
-
+                    
                     /**************************/
                     // save notification and push it to device                     
                     ComboUser creator = new ComboUser();
@@ -2686,35 +3074,58 @@ namespace Combo.ComboAPI
                     postTag.Add(new Models.PostUserTag
                     {
                         ComboPostID = newPost.ComboPostID,
+                        CreatorUserName = creator.UserName,
+                        CreatorProfilePic = creator.GetColumn("ProfilePic").ToString(),
                         ComboUserID = tagged.ComboUserID,
                         UserName = tagged.UserName,
-                        Offset = item.Offset
+                        ProfilePic = tagged.GetColumn("ProfilePic").ToString(),
+                        PostText = newPost.PostText,
+                        Offset = item.Offset,
+                        Attachments = notificationAtt.DefaultView.Table.AsEnumerable().Select(r =>
+                        {
+                            return new Models.Attachment
+                            {
+                                AttachmentID = Convert.ToInt32(r["AttachmentID"]),
+                                Path = r["Path"].ToString(),
+                                AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"]),
+                                ThumbsPath = r["ThumbsPath"].ToString()
+                            };
+                        }).ToList(),
                     });
                     
                     ComboNotification notification = new ComboNotification();
                     notification.AddNew();
-                    notification.ComboUserID = post.ComboUserID;
+                    notification.ComboUserID = tagged.ComboUserID;
                     notification.NotificationType = (int)Combo.Models.NotificationType.TAG_USER_IN_POST; // tag user to post 
                     notification.NotificationDate = DateTime.UtcNow;
                     notification.NotificationBody = Newtonsoft.Json.JsonConvert.SerializeObject(postTag);
                     notification.IsRead = false;
                     notification.Save();
 
-                    List<Models.ComboNotification> notificationJson = notification.DefaultView.Table.AsEnumerable().Select(row =>
+                    NotificationUserSettings settings = new NotificationUserSettings();
+                    settings.LoadByPrimaryKey(tagged.ComboUserID, (int)Combo.Models.NotificationType.TAG_USER_IN_POST);
+                    bool notify = false;
+                    if (settings.RowCount == 0)
+                        notify = true;
+                    else
+                        notify = settings.CanGetNotification(item.ComboUserID, newPost.ComboUserID, (int)Combo.Models.NotificationType.TAG_USER_IN_POST);
+                    if (notify)
                     {
-                        return new Models.ComboNotification
+                        List<Models.ComboNotification> notificationJson = notification.DefaultView.Table.AsEnumerable().Select(row =>
                         {
-                            ComboNotificationID = Convert.ToInt32(row["ComboNotificationID"]),
-                            ComboUserID = Convert.ToInt32(row["ComboUserID"]),
-                            IsRead = Convert.ToBoolean(row["IsRead"]),
-                            NotificationBody = row["NotificationBody"].ToString(),
-                            NotificationDate = Convert.ToDateTime(row["NotificationDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
-                            NotificationType = Convert.ToInt32(row["NotificationType"])
-                        };
-                    }).ToList();
+                            return new Models.ComboNotification
+                            {
+                                ComboNotificationID = Convert.ToInt32(row["ComboNotificationID"]),
+                                ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                                IsRead = Convert.ToBoolean(row["IsRead"]),
+                                NotificationBody = row["NotificationBody"].ToString(),
+                                NotificationDate = Convert.ToDateTime(row["NotificationDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                                NotificationType = Convert.ToInt32(row["NotificationType"])
+                            };
+                        }).ToList();
 
-                    SendGCMNotification(Newtonsoft.Json.JsonConvert.SerializeObject(notificationJson), tagged.DeviceID);
-                    
+                        SendGCMNotification(Newtonsoft.Json.JsonConvert.SerializeObject(notificationJson), tagged.DeviceID);
+                    }
                     /**************************/
 
                 }
@@ -2838,6 +3249,8 @@ namespace Combo.ComboAPI
             _response.ErrorCode = 0;
             _response.ErrorMsg = "";
 
+            ComboPostAttachment att = new ComboPostAttachment();
+            att.GetPostAttachmentsByPostID(id);
             
             ComboPostLike likes = new ComboPostLike();
             if (!likes.LoadByPrimaryKey(userid, id))
@@ -2853,7 +3266,7 @@ namespace Combo.ComboAPI
                 ComboUser creator = new ComboUser();
                 ComboUser liker = new ComboUser();
                 creator.LoadByPrimaryKey(post.ComboUserID);
-                liker.LoadByPrimaryKey(userid);
+                liker.GetUserByUserId(userid);
                 if (creator.ComboUserID != liker.ComboUserID)
                 {
                     List<Models.ComboPostLike> alike = likes.DefaultView.Table.AsEnumerable().Select(row =>
@@ -2863,10 +3276,21 @@ namespace Combo.ComboAPI
                                 ComboPostID = Convert.ToInt32(row["ComboPostID"]),
                                 ComboUserID = Convert.ToInt32(row["ComboUserID"]),
                                 UserName = liker.UserName,
-                                DisplayName = liker.DisplayName
+                                DisplayName = liker.DisplayName,
+                                PostText = post.PostText,
+                                ProfilePic = liker.GetColumn("ProfilePic").ToString(),
+                                Attachments = att.DefaultView.Table.AsEnumerable().Select(r =>
+                                {
+                                    return new Models.Attachment
+                                    {
+                                        AttachmentID = Convert.ToInt32(r["AttachmentID"]),
+                                        Path = r["Path"].ToString(),
+                                        AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"]),
+                                        ThumbsPath = r["ThumbsPath"].ToString()
+                                    };
+                                }).ToList(),
                             };
-                        }
-                        ).ToList();
+                        }).ToList();
 
                     ComboNotification notification = new ComboNotification();
                     notification.AddNew();
@@ -2877,21 +3301,31 @@ namespace Combo.ComboAPI
                     notification.IsRead = false;
                     notification.Save();
 
-                    List<Models.ComboNotification> notificationJson = notification.DefaultView.Table.AsEnumerable().Select(row =>
-                        {
-                            return new Models.ComboNotification
+                    NotificationUserSettings settings = new NotificationUserSettings();
+                    settings.LoadByPrimaryKey(creator.ComboUserID, (int)Combo.Models.NotificationType.LIKE);
+                    bool notify = false;
+                    if (settings.RowCount == 0)
+                        notify = true;
+                    else
+                        notify = settings.CanGetNotification(creator.ComboUserID, liker.ComboUserID, (int)Combo.Models.NotificationType.LIKE);
+                    if (notify)
+                    {
+                        List<Models.ComboNotification> notificationJson = notification.DefaultView.Table.AsEnumerable().Select(row =>
                             {
-                                ComboNotificationID = Convert.ToInt32(row["ComboNotificationID"]),
-                                ComboUserID = Convert.ToInt32(row["ComboUserID"]),
-                                IsRead = Convert.ToBoolean(row["IsRead"]),
-                                NotificationBody = row["NotificationBody"].ToString(),
-                                NotificationDate = Convert.ToDateTime(row["NotificationDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
-                                NotificationType = Convert.ToInt32(row["NotificationType"])
-                            };
-                        }
-                        ).ToList();
+                                return new Models.ComboNotification
+                                {
+                                    ComboNotificationID = Convert.ToInt32(row["ComboNotificationID"]),
+                                    ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                                    IsRead = Convert.ToBoolean(row["IsRead"]),
+                                    NotificationBody = row["NotificationBody"].ToString(),
+                                    NotificationDate = Convert.ToDateTime(row["NotificationDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                                    NotificationType = Convert.ToInt32(row["NotificationType"])
+                                };
+                            }
+                            ).ToList();
 
-                    string notification_response = SendGCMNotification(Newtonsoft.Json.JsonConvert.SerializeObject(notificationJson), creator.DeviceID);
+                        string notification_response = SendGCMNotification(Newtonsoft.Json.JsonConvert.SerializeObject(notificationJson), creator.DeviceID);
+                    }
                 }
             }
             else
@@ -3214,7 +3648,10 @@ namespace Combo.ComboAPI
             // save notification and push it to device  
             ComboPost ref_post = new ComboPost();
             ref_post.LoadByPrimaryKey(PostId);
-   
+
+            ComboPostAttachment att = new ComboPostAttachment();
+            att.GetPostAttachmentsByPostID(PostId);
+
             ComboUser creator = new ComboUser();
             ComboUser requester = new ComboUser();
             creator.LoadByPrimaryKey(ref_post.ComboUserID);
@@ -3230,7 +3667,18 @@ namespace Combo.ComboAPI
                         ComboUserName = creator.UserName,
                         ComboFriendName = requester.UserName,
                         ComboFriendDisplayName = requester.DisplayName,
-                        ComboPostID = Convert.ToInt32(row["ComboPostID"].ToString())
+                        ComboPostID = Convert.ToInt32(row["ComboPostID"].ToString()),
+                        PostText = ref_post.PostText,
+                        Attachments = att.DefaultView.Table.AsEnumerable().Select(r =>
+                        {
+                            return new Models.Attachment
+                            {
+                                AttachmentID = Convert.ToInt32(r["AttachmentID"]),
+                                Path = r["Path"].ToString(),
+                                AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"]),
+                                ThumbsPath = r["ThumbsPath"].ToString()
+                            };
+                        }).ToList(),
                     };
                 }).ToList();
 
@@ -3243,20 +3691,30 @@ namespace Combo.ComboAPI
                 notification.IsRead = false;
                 notification.Save();
 
-                List<Models.ComboNotification> notificationJson = notification.DefaultView.Table.AsEnumerable().Select(row =>
+                NotificationUserSettings settings = new NotificationUserSettings();
+                settings.LoadByPrimaryKey(creator.ComboUserID, (int)Combo.Models.NotificationType.SHARE_POST);
+                bool notify = false;
+                if (settings.RowCount == 0)
+                    notify = true;
+                else
+                    notify = settings.CanGetNotification(creator.ComboUserID, requester.ComboUserID, (int)Combo.Models.NotificationType.SHARE_POST);
+                if (notify)
                 {
-                    return new Models.ComboNotification
+                    List<Models.ComboNotification> notificationJson = notification.DefaultView.Table.AsEnumerable().Select(row =>
                     {
-                        ComboNotificationID = Convert.ToInt32(row["ComboNotificationID"]),
-                        ComboUserID = Convert.ToInt32(row["ComboUserID"]),
-                        IsRead = Convert.ToBoolean(row["IsRead"]),
-                        NotificationBody = row["NotificationBody"].ToString(),
-                        NotificationDate = Convert.ToDateTime(row["NotificationDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
-                        NotificationType = Convert.ToInt32(row["NotificationType"])
-                    };
-                }).ToList();
+                        return new Models.ComboNotification
+                        {
+                            ComboNotificationID = Convert.ToInt32(row["ComboNotificationID"]),
+                            ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                            IsRead = Convert.ToBoolean(row["IsRead"]),
+                            NotificationBody = row["NotificationBody"].ToString(),
+                            NotificationDate = Convert.ToDateTime(row["NotificationDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                            NotificationType = Convert.ToInt32(row["NotificationType"])
+                        };
+                    }).ToList();
 
-                SendGCMNotification(Newtonsoft.Json.JsonConvert.SerializeObject(notificationJson), creator.DeviceID);
+                    SendGCMNotification(Newtonsoft.Json.JsonConvert.SerializeObject(notificationJson), creator.DeviceID);
+                }
             }
             /**************************/
 
@@ -3313,57 +3771,6 @@ namespace Combo.ComboAPI
 
             newComment.Save();
 
-
-            /**************************/
-            // save notification and push it to device 
-            ComboPost post = new ComboPost();
-            post.LoadByPrimaryKey(comment.ComboPostID);
-            ComboUser creator = new ComboUser();
-            ComboUser commentor = new ComboUser();
-            creator.GetUserByUserId(post.ComboUserID);
-            commentor.GetUserByUserId(comment.ComboUserID);
-            if (creator.ComboUserID != commentor.ComboUserID)
-            {
-                List<Models.ComboComment> acomment = newComment.DefaultView.Table.AsEnumerable().Select(row =>
-                {
-                    return new Models.ComboComment
-                    {
-                        ComboPostID = Convert.ToInt32(row["ComboPostID"]),
-                        ComboUserID = Convert.ToInt32(row["ComboUserID"]),
-                        ComboUserName = commentor.UserName,
-                        ComboDisplayName = commentor.DisplayName,
-                        CommentText = newComment.CommentText,
-                        CommentDate = newComment.CommentDate.Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
-                        ProfilePic = commentor.GetColumn("ProfilePic").ToString()
-                    };
-                }).ToList();
-
-                ComboNotification notification = new ComboNotification();
-                notification.AddNew();
-                notification.ComboUserID = post.ComboUserID;
-                notification.NotificationType = (int)Combo.Models.NotificationType.COMMENT_ON_POST; // add comment to post 
-                notification.NotificationDate = DateTime.UtcNow;
-                notification.NotificationBody = Newtonsoft.Json.JsonConvert.SerializeObject(acomment);
-                notification.IsRead = false;
-                notification.Save();
-
-                List<Models.ComboNotification> notificationJson = notification.DefaultView.Table.AsEnumerable().Select(row =>
-                {
-                    return new Models.ComboNotification
-                    {
-                        ComboNotificationID = Convert.ToInt32(row["ComboNotificationID"]),
-                        ComboUserID = Convert.ToInt32(row["ComboUserID"]),
-                        IsRead = Convert.ToBoolean(row["IsRead"]),
-                        NotificationBody = row["NotificationBody"].ToString(),
-                        NotificationDate = Convert.ToDateTime(row["NotificationDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
-                        NotificationType = Convert.ToInt32(row["NotificationType"])
-                    };
-                }).ToList();
-
-                SendGCMNotification(Newtonsoft.Json.JsonConvert.SerializeObject(notificationJson), creator.DeviceID);
-            }
-            /**************************/
-
             JavaScriptSerializer js = new JavaScriptSerializer();
             Models.Attachment[] att = js.Deserialize<Models.Attachment[]>(js.Serialize(comment.Attachments));
             if (att != null)
@@ -3378,6 +3785,189 @@ namespace Combo.ComboAPI
                 }
                 attachment.Save();
             }
+
+            ComboCommentAttachment notificationAtt = new ComboCommentAttachment ();
+            notificationAtt.GetCommentAttachmentsByCommentID(newComment.ComboCommentID);
+
+            Models.CommentUserTag[] userTags = js.Deserialize<Models.CommentUserTag[]>(js.Serialize(comment.UserTags));
+            if (userTags != null)
+            {
+                CommentUserTag usertag = new CommentUserTag();
+                foreach (Models.CommentUserTag item in userTags)
+                {
+                    usertag.AddNew();
+                    usertag.ComboUserID = item.ComboUserID;
+                    usertag.ComboCommentID = newComment.ComboCommentID;
+                    usertag.Offset = item.Offset;
+
+
+                    /**************************/
+                    // save notification and push it to device                     
+                    ComboUser commentcreator = new ComboUser();
+                    ComboUser tagged = new ComboUser();
+                    commentcreator.GetUserByUserId(newComment.ComboUserID);
+                    tagged.GetUserByUserId(item.ComboUserID);
+                    List<Models.CommentUserTag> postTag = new List<Models.CommentUserTag>();
+                    postTag.Add(new Models.CommentUserTag
+                    {
+                        ComboCommentID = newComment.ComboCommentID,
+                        ComboUserID = tagged.ComboUserID,
+                        UserName = tagged.UserName,
+                        Offset = item.Offset,
+                        ComboPostID = newComment.ComboPostID,
+                        CreatorUserID = commentcreator.ComboUserID,
+                        CreatorUserName= commentcreator.UserName,
+                        CreatorProfilePic = commentcreator.GetColumn("ProfilePic").ToString(),
+                        CommentText = newComment.CommentText,
+                        Attachments = notificationAtt.DefaultView.Table.AsEnumerable().Select(r =>
+                        {
+                            return new Models.Attachment
+                            {
+                                AttachmentID = Convert.ToInt32(r["AttachmentID"]),
+                                Path = r["Path"].ToString(),
+                                AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"]),
+                                ThumbsPath = r["ThumbsPath"].ToString()
+                            };
+                        }).ToList(),
+                    });
+
+                    ComboNotification notification = new ComboNotification();
+                    notification.AddNew();
+                    notification.ComboUserID = tagged.ComboUserID;
+                    notification.NotificationType = (int)Combo.Models.NotificationType.TAG_USER_IN_POST; // tag user to post 
+                    notification.NotificationDate = DateTime.UtcNow;
+                    notification.NotificationBody = Newtonsoft.Json.JsonConvert.SerializeObject(postTag);
+                    notification.IsRead = false;
+                    notification.Save();
+
+                    NotificationUserSettings settings = new NotificationUserSettings();
+                    settings.LoadByPrimaryKey(tagged.ComboUserID, (int)Combo.Models.NotificationType.TAG_USER_IN_POST);
+                    bool notify = false;
+                    if (settings.RowCount == 0)
+                        notify = true;
+                    else
+                        notify = settings.CanGetNotification(tagged.ComboUserID, commentcreator.ComboUserID, (int)Combo.Models.NotificationType.TAG_USER_IN_POST);
+                    if (notify)
+                    {
+                        List<Models.ComboNotification> notificationJson = notification.DefaultView.Table.AsEnumerable().Select(row =>
+                        {
+                            return new Models.ComboNotification
+                            {
+                                ComboNotificationID = Convert.ToInt32(row["ComboNotificationID"]),
+                                ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                                IsRead = Convert.ToBoolean(row["IsRead"]),
+                                NotificationBody = row["NotificationBody"].ToString(),
+                                NotificationDate = Convert.ToDateTime(row["NotificationDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                                NotificationType = Convert.ToInt32(row["NotificationType"])
+                            };
+                        }).ToList();
+
+                        SendGCMNotification(Newtonsoft.Json.JsonConvert.SerializeObject(notificationJson), tagged.DeviceID);
+                    }
+                    /**************************/
+
+                }
+                usertag.Save();
+            }
+
+
+            Models.CommentHashTag[] hashTags = js.Deserialize<Models.CommentHashTag[]>(js.Serialize(comment.HashTags));
+            if (hashTags != null)
+            {
+                CommentHashTag commentthashtag = new CommentHashTag();
+
+                foreach (Models.CommentHashTag item in hashTags)
+                {
+                    HashTag currenttag = new HashTag();
+
+                    if (!currenttag.GetHashTagByName(item.TagName))
+                    {
+                        currenttag.AddNew();
+                        currenttag.Name = item.TagName;
+                        currenttag.Save();
+                    }
+
+                    commentthashtag.AddNew();
+                    commentthashtag.HashTagID = currenttag.HashTagID;
+                    commentthashtag.ComboCommentID = newComment.ComboCommentID;
+                    commentthashtag.Offset = item.Offset;
+                }
+                commentthashtag.Save();
+            }
+
+
+            /**************************/
+            // save notification and push it to device 
+            ComboPost post = new ComboPost();
+            post.LoadByPrimaryKey(comment.ComboPostID);
+            ComboUser creator = new ComboUser();
+            ComboUser commentor = new ComboUser();
+            ComboPostAttachment postatt = new ComboPostAttachment();
+            postatt.GetPostAttachmentsByPostID(comment.ComboPostID);
+            creator.GetUserByUserId(post.ComboUserID);
+            commentor.GetUserByUserId(comment.ComboUserID);
+            if (creator.ComboUserID != commentor.ComboUserID)
+            {
+                List<Models.ComboComment> acomment = newComment.DefaultView.Table.AsEnumerable().Select(row =>
+                {
+                    return new Models.ComboComment
+                    {
+                        ComboPostID = Convert.ToInt32(row["ComboPostID"]),
+                        ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                        ComboUserName = commentor.UserName,
+                        ComboDisplayName = commentor.DisplayName,
+                        CommentText = newComment.CommentText,
+                        CommentDate = newComment.CommentDate.Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                        ProfilePic = commentor.GetColumn("ProfilePic").ToString(),
+                        PostAttachemnts = postatt.DefaultView.Table.AsEnumerable().Select(r =>
+                        {
+                            return new Models.Attachment
+                            {
+                                AttachmentID = Convert.ToInt32(r["AttachmentID"]),
+                                Path = r["Path"].ToString(),
+                                AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"]),
+                                ThumbsPath = r["ThumbsPath"].ToString()
+                            };
+                        }).ToList(),
+                    };
+                }).ToList();
+
+                ComboNotification notification = new ComboNotification();
+                notification.AddNew();
+                notification.ComboUserID = post.ComboUserID;
+                notification.NotificationType = (int)Combo.Models.NotificationType.COMMENT_ON_POST; // add comment to post 
+                notification.NotificationDate = DateTime.UtcNow;
+                notification.NotificationBody = Newtonsoft.Json.JsonConvert.SerializeObject(acomment);
+                notification.IsRead = false;
+                notification.Save();
+
+                NotificationUserSettings settings = new NotificationUserSettings();
+                settings.LoadByPrimaryKey(creator.ComboUserID, (int)Combo.Models.NotificationType.COMMENT_ON_POST);
+                bool notify = false;
+                if (settings.RowCount == 0)
+                    notify = true;
+                else
+                    notify = settings.CanGetNotification(creator.ComboUserID, commentor.ComboUserID, (int)Combo.Models.NotificationType.COMMENT_ON_POST);
+                if (notify)
+                {
+                    List<Models.ComboNotification> notificationJson = notification.DefaultView.Table.AsEnumerable().Select(row =>
+                    {
+                        return new Models.ComboNotification
+                        {
+                            ComboNotificationID = Convert.ToInt32(row["ComboNotificationID"]),
+                            ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                            IsRead = Convert.ToBoolean(row["IsRead"]),
+                            NotificationBody = row["NotificationBody"].ToString(),
+                            NotificationDate = Convert.ToDateTime(row["NotificationDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                            NotificationType = Convert.ToInt32(row["NotificationType"])
+                        };
+                    }).ToList();
+
+                    SendGCMNotification(Newtonsoft.Json.JsonConvert.SerializeObject(notificationJson), creator.DeviceID);
+                }
+            }
+            /**************************/
+
             comment.ComboCommentID = newComment.ComboCommentID;
             comment.CommentDate = newComment.CommentDate.Subtract(new DateTime(1970, 1, 1)).TotalSeconds;
             _response.Entity = new Models.ComboComment[] { comment };
@@ -3565,8 +4155,22 @@ namespace Combo.ComboAPI
             // save notification and push it to device             
             ComboUser creator = new ComboUser();
             ComboUser commentor = new ComboUser();
-            creator.LoadByPrimaryKey(userId);
-            commentor.LoadByPrimaryKey(FollowerId);            
+            creator.GetUserByUserId(userId);
+            commentor.GetUserByUserId(FollowerId);
+
+            List<Models.FollowRequest> arequest = follower.DefaultView.Table.AsEnumerable().Select(row =>
+            {
+                return new Models.FollowRequest
+                {
+                    ComboFriendID = Convert.ToInt32(row["ComboFollowerID"]),
+                    ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                    ComboUserName = commentor.UserName,
+                    ComboDisplayName = commentor.DisplayName,
+                    ProfilePic= creator.GetColumn("ProfilePic").ToString(),
+                    FriendProfilePic = commentor.GetColumn("ProfilePic").ToString(),
+                    IsFollowUser = follow
+                };
+            }).ToList();
 
             ComboNotification notification = new ComboNotification();
             notification.AddNew();
@@ -3576,24 +4180,34 @@ namespace Combo.ComboAPI
             else
                 notification.NotificationType = (int)Combo.Models.NotificationType.UNFOLLOW_FRIEND; // unfollow friend
             notification.NotificationDate = DateTime.UtcNow;
-            notification.NotificationBody = Newtonsoft.Json.JsonConvert.SerializeObject("[{\"ComboUserID\":" + creator.ComboUserID + ",\"ComboFriendID\":" + commentor.ComboUserID + ",\"ComboUsername\":\"" + commentor.UserName + "\",\"ComboDisplayName\":\"" + commentor.DisplayName +"\", \"IsFollowUser\" : " + follow + "}]");
+            notification.NotificationBody = Newtonsoft.Json.JsonConvert.SerializeObject(arequest);
             notification.IsRead = false;
             notification.Save();
 
-            List<Models.ComboNotification> notificationJson = notification.DefaultView.Table.AsEnumerable().Select(row =>
+            NotificationUserSettings settings = new NotificationUserSettings();
+            settings.LoadByPrimaryKey(creator.ComboUserID, (int)Combo.Models.NotificationType.FOLLOW_FIREND);
+            bool notify = false;
+            if (settings.RowCount == 0)
+                notify = true;
+            else
+                notify = settings.CanGetNotification(creator.ComboUserID, commentor.ComboUserID, (int)Combo.Models.NotificationType.FOLLOW_FIREND);
+            if (notify)
             {
-                return new Models.ComboNotification
+                List<Models.ComboNotification> notificationJson = notification.DefaultView.Table.AsEnumerable().Select(row =>
                 {
-                    ComboNotificationID = Convert.ToInt32(row["ComboNotificationID"]),
-                    ComboUserID = Convert.ToInt32(row["ComboUserID"]),
-                    IsRead = Convert.ToBoolean(row["IsRead"]),
-                    NotificationBody = row["NotificationBody"].ToString(),
-                    NotificationDate = Convert.ToDateTime(row["NotificationDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
-                    NotificationType = Convert.ToInt32(row["NotificationType"])
-                };
-            }).ToList();
+                    return new Models.ComboNotification
+                    {
+                        ComboNotificationID = Convert.ToInt32(row["ComboNotificationID"]),
+                        ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                        IsRead = Convert.ToBoolean(row["IsRead"]),
+                        NotificationBody = row["NotificationBody"].ToString(),
+                        NotificationDate = Convert.ToDateTime(row["NotificationDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                        NotificationType = Convert.ToInt32(row["NotificationType"])
+                    };
+                }).ToList();
 
-            SendGCMNotification(Newtonsoft.Json.JsonConvert.SerializeObject(notificationJson), creator.DeviceID);
+                SendGCMNotification(Newtonsoft.Json.JsonConvert.SerializeObject(notificationJson), creator.DeviceID);
+            }
             /**************************/
 
             _response.Entity = null;
@@ -3637,8 +4251,22 @@ namespace Combo.ComboAPI
             // save notification and push it to device             
             ComboUser creator = new ComboUser();
             ComboUser commentor = new ComboUser();
-            creator.LoadByPrimaryKey(userId);
-            commentor.LoadByPrimaryKey(FollowerId);
+            creator.GetUserByUserId(userId);
+            commentor.GetUserByUserId(FollowerId);
+
+            List<Models.FollowRequest> arequest = follower.DefaultView.Table.AsEnumerable().Select(row =>
+            {
+                return new Models.FollowRequest
+                {
+                    ComboFriendID = Convert.ToInt32(row["ComboFollowerID"]),
+                    ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                    ComboUserName = commentor.UserName,
+                    ComboDisplayName = commentor.DisplayName,
+                    ProfilePic = creator.GetColumn("ProfilePic").ToString(),
+                    FriendProfilePic = commentor.GetColumn("ProfilePic").ToString(),
+                    IsFollowUser = follow
+                };
+            }).ToList();
 
             ComboNotification notification = new ComboNotification();
             notification.AddNew();
@@ -3648,24 +4276,34 @@ namespace Combo.ComboAPI
             else
                 notification.NotificationType = (int)Combo.Models.NotificationType.UNFOLLOW_FRIEND; // unfollow friend
             notification.NotificationDate = DateTime.UtcNow;
-            notification.NotificationBody = Newtonsoft.Json.JsonConvert.SerializeObject("[{\"ComboUserID\":" + creator.ComboUserID + ",\"ComboFriendID\":" + commentor.ComboUserID + ",\"ComboUsername\":\"" + commentor.UserName + "\",\"ComboDisplayName\":\"" + commentor.DisplayName + "\", \"IsFollowUser\" : " + follow + "}]");
+            notification.NotificationBody = Newtonsoft.Json.JsonConvert.SerializeObject(arequest);
             notification.IsRead = false;
             notification.Save();
 
-            List<Models.ComboNotification> notificationJson = notification.DefaultView.Table.AsEnumerable().Select(row =>
+            NotificationUserSettings settings = new NotificationUserSettings();
+            settings.LoadByPrimaryKey(creator.ComboUserID, (int)Combo.Models.NotificationType.FOLLOW_FIREND);
+            bool notify = false;
+            if (settings.RowCount == 0)
+                notify = true;
+            else
+                notify = settings.CanGetNotification(creator.ComboUserID, commentor.ComboUserID, (int)Combo.Models.NotificationType.FOLLOW_FIREND);
+            if (notify)
             {
-                return new Models.ComboNotification
+                List<Models.ComboNotification> notificationJson = notification.DefaultView.Table.AsEnumerable().Select(row =>
                 {
-                    ComboNotificationID = Convert.ToInt32(row["ComboNotificationID"]),
-                    ComboUserID = Convert.ToInt32(row["ComboUserID"]),
-                    IsRead = Convert.ToBoolean(row["IsRead"]),
-                    NotificationBody = row["NotificationBody"].ToString(),
-                    NotificationDate = Convert.ToDateTime(row["NotificationDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
-                    NotificationType = Convert.ToInt32(row["NotificationType"])
-                };
-            }).ToList();
+                    return new Models.ComboNotification
+                    {
+                        ComboNotificationID = Convert.ToInt32(row["ComboNotificationID"]),
+                        ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                        IsRead = Convert.ToBoolean(row["IsRead"]),
+                        NotificationBody = row["NotificationBody"].ToString(),
+                        NotificationDate = Convert.ToDateTime(row["NotificationDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                        NotificationType = Convert.ToInt32(row["NotificationType"])
+                    };
+                }).ToList();
 
-            SendGCMNotification(Newtonsoft.Json.JsonConvert.SerializeObject(notificationJson), creator.DeviceID);
+                SendGCMNotification(Newtonsoft.Json.JsonConvert.SerializeObject(notificationJson), creator.DeviceID);
+            }
             /**************************/
 
             _response.Entity = null;
@@ -3710,33 +4348,57 @@ namespace Combo.ComboAPI
             {            
                 ComboUser creator = new ComboUser();
                 ComboUser commentor = new ComboUser();
-                creator.LoadByPrimaryKey(userId);
-                commentor.LoadByPrimaryKey(FollowerId);
-            
+                creator.GetUserByUserId(userId);
+                commentor.GetUserByUserId(FollowerId);
+
+                List<Models.FollowRequest> arequest = follower.DefaultView.Table.AsEnumerable().Select(row =>
+                {
+                    return new Models.FollowRequest
+                    {
+                        ComboFriendID = Convert.ToInt32(row["ComboFollowerID"]),
+                        ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                        ComboUserName = commentor.UserName,
+                        ComboDisplayName = commentor.DisplayName,
+                        ProfilePic = creator.GetColumn("ProfilePic").ToString(),
+                        FriendProfilePic = commentor.GetColumn("ProfilePic").ToString(),
+                        IsFollowUser = follow
+                    };
+                }).ToList();
+
                 ComboNotification notification = new ComboNotification();
                 notification.AddNew();
                 notification.ComboUserID = commentor.ComboUserID;
 
                 notification.NotificationType = (int)Combo.Models.NotificationType.ACCEPT_FOLLOW_REQUEST; // accept follow friend
                 notification.NotificationDate = DateTime.UtcNow;
-                notification.NotificationBody = Newtonsoft.Json.JsonConvert.SerializeObject("[{\"ComboUserID\":" + commentor.ComboUserID + ",\"ComboFriendID\":" + creator.ComboUserID + ",\"ComboUsername\":\"" + creator.UserName + "\",\"ComboDisplayName\":\"" + creator.DisplayName + "\", \"IsFollowUser\" : " + follow + "}]");
+                notification.NotificationBody = Newtonsoft.Json.JsonConvert.SerializeObject(arequest);
                 notification.IsRead = false;
                 notification.Save();
 
-                List<Models.ComboNotification> notificationJson = notification.DefaultView.Table.AsEnumerable().Select(row =>
+                NotificationUserSettings settings = new NotificationUserSettings();
+                settings.LoadByPrimaryKey(commentor.ComboUserID, (int)Combo.Models.NotificationType.FOLLOW_FIREND);
+                bool notify = false;
+                if (settings.RowCount == 0)
+                    notify = true;
+                else
+                    notify = settings.CanGetNotification(commentor.ComboUserID, creator.ComboUserID, (int)Combo.Models.NotificationType.FOLLOW_FIREND);
+                if (notify)
                 {
-                    return new Models.ComboNotification
+                    List<Models.ComboNotification> notificationJson = notification.DefaultView.Table.AsEnumerable().Select(row =>
                     {
-                        ComboNotificationID = Convert.ToInt32(row["ComboNotificationID"]),
-                        ComboUserID = Convert.ToInt32(row["ComboUserID"]),
-                        IsRead = Convert.ToBoolean(row["IsRead"]),
-                        NotificationBody = row["NotificationBody"].ToString(),
-                        NotificationDate = Convert.ToDateTime(row["NotificationDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
-                        NotificationType = Convert.ToInt32(row["NotificationType"])
-                    };
-                }).ToList();
+                        return new Models.ComboNotification
+                        {
+                            ComboNotificationID = Convert.ToInt32(row["ComboNotificationID"]),
+                            ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                            IsRead = Convert.ToBoolean(row["IsRead"]),
+                            NotificationBody = row["NotificationBody"].ToString(),
+                            NotificationDate = Convert.ToDateTime(row["NotificationDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                            NotificationType = Convert.ToInt32(row["NotificationType"])
+                        };
+                    }).ToList();
 
-                SendGCMNotification(Newtonsoft.Json.JsonConvert.SerializeObject(notificationJson), commentor.DeviceID);
+                    SendGCMNotification(Newtonsoft.Json.JsonConvert.SerializeObject(notificationJson), commentor.DeviceID);
+                }
             }
             /**************************/
 
@@ -4296,20 +4958,32 @@ namespace Combo.ComboAPI
                 notification.IsRead = false;
                 notification.Save();
 
-                List<Models.ComboNotification> notificationJson = notification.DefaultView.Table.AsEnumerable().Select(row =>
-                {
-                    return new Models.ComboNotification
-                    {
-                        ComboNotificationID = Convert.ToInt32(row["ComboNotificationID"]),
-                        ComboUserID = Convert.ToInt32(row["ComboUserID"]),
-                        IsRead = Convert.ToBoolean(row["IsRead"]),
-                        NotificationBody = row["NotificationBody"].ToString(),
-                        NotificationDate = Convert.ToDateTime(row["NotificationDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
-                        NotificationType = Convert.ToInt32(row["NotificationType"])
-                    };
-                }).ToList();
+                commentor.GetUserByUserId(Convert.ToInt32(item));
 
-                SendGCMNotification(Newtonsoft.Json.JsonConvert.SerializeObject(notificationJson), creator.DeviceID);
+                NotificationUserSettings settings = new NotificationUserSettings();
+                settings.LoadByPrimaryKey(Convert.ToInt32(item), (int)Combo.Models.NotificationType.RECEIVE_MSG);
+                bool notify = false;
+                if (settings.RowCount == 0)
+                    notify = true;
+                else
+                    notify = settings.CanGetNotification(commentor.ComboUserID, creator.ComboUserID, (int)Combo.Models.NotificationType.FOLLOW_FIREND);
+                if (notify)
+                {
+                    List<Models.ComboNotification> notificationJson = notification.DefaultView.Table.AsEnumerable().Select(row =>
+                    {
+                        return new Models.ComboNotification
+                        {
+                            ComboNotificationID = Convert.ToInt32(row["ComboNotificationID"]),
+                            ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                            IsRead = Convert.ToBoolean(row["IsRead"]),
+                            NotificationBody = row["NotificationBody"].ToString(),
+                            NotificationDate = Convert.ToDateTime(row["NotificationDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                            NotificationType = Convert.ToInt32(row["NotificationType"])
+                        };
+                    }).ToList();
+
+                    SendGCMNotification(Newtonsoft.Json.JsonConvert.SerializeObject(notificationJson), commentor.DeviceID);
+                }
             }
             /**************************/
 
@@ -4411,20 +5085,30 @@ namespace Combo.ComboAPI
                 notification.IsRead = false;
                 notification.Save();
 
-                List<Models.ComboNotification> notificationJson = notification.DefaultView.Table.AsEnumerable().Select(row =>
+                NotificationUserSettings settings = new NotificationUserSettings();
+                settings.LoadByPrimaryKey(creator.ComboUserID, (int)Combo.Models.NotificationType.COMMENT_ON_MESSAGE);
+                bool notify = false;
+                if (settings.RowCount == 0)
+                    notify = true;
+                else
+                    notify = settings.CanGetNotification(creator.ComboUserID, commentor.ComboUserID, (int)Combo.Models.NotificationType.COMMENT_ON_MESSAGE);
+                if (notify)
                 {
-                    return new Models.ComboNotification
+                    List<Models.ComboNotification> notificationJson = notification.DefaultView.Table.AsEnumerable().Select(row =>
                     {
-                        ComboNotificationID = Convert.ToInt32(row["ComboNotificationID"]),
-                        ComboUserID = Convert.ToInt32(row["ComboUserID"]),
-                        IsRead = Convert.ToBoolean(row["IsRead"]),
-                        NotificationBody = row["NotificationBody"].ToString(),
-                        NotificationDate = Convert.ToDateTime(row["NotificationDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
-                        NotificationType = Convert.ToInt32(row["NotificationType"])
-                    };
-                }).ToList();
+                        return new Models.ComboNotification
+                        {
+                            ComboNotificationID = Convert.ToInt32(row["ComboNotificationID"]),
+                            ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                            IsRead = Convert.ToBoolean(row["IsRead"]),
+                            NotificationBody = row["NotificationBody"].ToString(),
+                            NotificationDate = Convert.ToDateTime(row["NotificationDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                            NotificationType = Convert.ToInt32(row["NotificationType"])
+                        };
+                    }).ToList();
 
-                SendGCMNotification(Newtonsoft.Json.JsonConvert.SerializeObject(notificationJson), creator.DeviceID);
+                    SendGCMNotification(Newtonsoft.Json.JsonConvert.SerializeObject(notificationJson), creator.DeviceID);
+                }
             }
             /**************************/
 
@@ -5072,6 +5756,77 @@ namespace Combo.ComboAPI
             SetContentResult(_response);
 
         }
+
+
+        private void SendFollowersBirthdaysNotifications(int UserID)
+        {
+            ProfileFollower followers = new ProfileFollower();
+            ComboUser NotifiedUser = new ComboUser();
+            NotifiedUser.GetUserByUserId(UserID);
+            followers.GetProfileFollowersByUserID(UserID);
+            for (int i = 0; i < followers.RowCount; i++)
+            {
+                ComboUser current = new ComboUser();
+                current.GetUserByUserId(followers.ComboFollowerID);
+
+                List<Models.ComboUser> info = current.DefaultView.Table.AsEnumerable().Select(row =>
+                {
+                    return new Models.ComboUser
+                    {
+                        ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                        UserName = row["UserName"].ToString(),
+                        DisplayName = row["DisplayName"].ToString(),
+                        Password = row["Password"].ToString(),
+                        Email = row["Email"].ToString(),
+                        Bio = row["Bio"].ToString(),
+                        ProfileImgID = row.IsNull("ProfileImgID") ? 0 : Convert.ToInt32(row["ProfileImgID"]),
+                        CoverImgID = row.IsNull("CoverImgID") ? 0 : Convert.ToInt32(row["CoverImgID"]),
+                        GenderID = row.IsNull("GenderID") ? 0 : Convert.ToInt32(row["GenderID"]),
+                        IsActivated = row.IsNull("IsActivated") ? false : Convert.ToBoolean(row["IsActivated"]),
+                        ExternalIDType = row.IsNull("ExternalIDType") ? 0 : Convert.ToInt32(row["ExternalIDType"]),
+                        ExternalID = row["ExternalID"].ToString(),
+                        DeviceID = row["DeviceID"].ToString(),
+                        ProfilePic = row["ProfilePic"].ToString(),
+                        CoverPic = row["CoverPic"].ToString(),
+                        UserRankID = Convert.ToInt32(row["UserRankID"]),
+                        BirthDate = row.IsNull("BirthDate") ? DateTime.MinValue : Convert.ToDateTime(row["BirthDate"]),
+                        Country = row["Country"].ToString(),
+                        Phone = row["Phone"].ToString(),
+                        Website = row["Website"].ToString(),
+                        CountryFlagPath = row["CountryFlagPath"].ToString(),
+                        Location = row["Location"].ToString(),
+                        IsPrivateAccount = row.IsNull("IsPrivateAccount") ? false : Convert.ToBoolean(row["IsPrivateAccount"]),
+                    };
+                }).ToList();
+
+                ComboNotification notification = new ComboNotification();
+                notification.AddNew();
+                notification.ComboUserID = NotifiedUser.ComboUserID;
+                notification.NotificationType = (int)Combo.Models.NotificationType.FOLLOWER_BIRTHDAY; // like 
+                notification.NotificationDate = DateTime.UtcNow;
+                notification.NotificationBody = Newtonsoft.Json.JsonConvert.SerializeObject(info);
+                notification.IsRead = false;
+                notification.Save();
+
+
+                List<Models.ComboNotification> notificationJson = notification.DefaultView.Table.AsEnumerable().Select(row =>
+                {
+                    return new Models.ComboNotification
+                    {
+                        ComboNotificationID = Convert.ToInt32(row["ComboNotificationID"]),
+                        ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                        IsRead = Convert.ToBoolean(row["IsRead"]),
+                        NotificationBody = row["NotificationBody"].ToString(),
+                        NotificationDate = Convert.ToDateTime(row["NotificationDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                        NotificationType = Convert.ToInt32(row["NotificationType"])
+                    };
+                }).ToList();
+
+                SendGCMNotification(Newtonsoft.Json.JsonConvert.SerializeObject(notificationJson), NotifiedUser.DeviceID);
+
+                followers.MoveNext();
+            }
+        }
         #endregion
 
         #region UserSettings
@@ -5106,6 +5861,82 @@ namespace Combo.ComboAPI
 
             _response.Entity = null;
             SetContentResult(_response);
+
+        }
+
+        [WebMethod]
+        /// <summary>
+        /// Set from who user need to receive notifications By ID
+        /// </summary>        
+        /// <param name="ID">userid of user</param>
+        /// <returns>ComboResponse object with user settings</returns>
+        public void SetNotificationSettings(object NotificationUserSetting)
+        {
+            Models.ComboResponse _response = new Models.ComboResponse();
+            _response.bool_result = true;
+            _response.ErrorCode = 0;
+            _response.ErrorMsg = "";
+
+
+            NotificationUserSettings setting = new NotificationUserSettings();
+            JavaScriptSerializer js = new JavaScriptSerializer();
+            Models.NotificationUserSetting[] usersettings = js.Deserialize<Models.NotificationUserSetting[]>(js.Serialize(NotificationUserSetting));
+            if (usersettings != null)
+            {
+                foreach (Models.NotificationUserSetting item in usersettings)
+	            {
+                    if (!setting.LoadByPrimaryKey(item.ComboUserID, item.NotificationTypeID))
+                    {
+                        setting.AddNew();
+                        setting.NotificationTypeID = item.NotificationTypeID;
+                        setting.ComboUserID = item.ComboUserID;
+                        setting.Status = item.Status;
+                        setting.Save();
+                    }
+                    else
+                    {
+                        setting.Status = item.Status;
+                        setting.Save();
+                    }
+	            }
+                
+            }
+
+
+            _response.Entity = null;
+            SetContentResult(_response);
+
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        /// <summary>
+        /// Get All combo User notifications settings with specified id 
+        /// </summary>
+        /// <returns>ComboResponse object with List of all notifications settings</returns>
+        public void GetNotificationSettings(int userID)
+        {
+            Models.ComboResponse _response = new Models.ComboResponse();
+            _response.bool_result = true;
+            _response.ErrorCode = 0;
+            _response.ErrorMsg = "";
+
+            NotificationUserSettings settings = new NotificationUserSettings();
+            settings.GetNotificationSettingsbyUserId(userID);
+            List<Models.NotificationUserSetting> allnotifications = settings.DefaultView.Table.AsEnumerable().Select(row =>
+            {
+                return new Models.NotificationUserSetting
+                {
+                    ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                    NotificationTypeID = Convert.ToInt32(row["NotificationTypeID"]),
+                    Status = Convert.ToInt16(row["Status"])
+                };
+            }).ToList();
+
+
+            _response.Entity = allnotifications;
+            SetContentResult(_response);
+            //return _response;
 
         }
         #endregion 
