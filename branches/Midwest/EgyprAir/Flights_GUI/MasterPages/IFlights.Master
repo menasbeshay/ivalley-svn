@@ -53,6 +53,25 @@
     <form id="form1" runat="server">
     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
     </asp:ToolkitScriptManager>
+
+    <!-- Modal -->
+    <div class="modal fade" id="GeneralModal" tabindex="-1" role="dialog" aria-labelledby="GeneralModalTitle" aria-hidden="true" style="width:620px;">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="GeneralModalTitle"></h4>
+          </div>
+          <div class="modal-body">
+            <div id="GeneralModalBody"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>            
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- BEGIN HEADER -->
     <div id="header" class="navbar navbar-inverse navbar-fixed-top">
         <!-- BEGIN TOP NAVIGATION BAR -->
@@ -258,6 +277,8 @@
         });
     </script>
     <!-- END JAVASCRIPTS -->
+
+    
     </form>
 </body>
 </html>

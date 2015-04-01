@@ -88,5 +88,10 @@ namespace Flight_BLL
             return LoadFromSql("SearchPilot", parameters);
 
         }
+
+        public virtual bool GetPilotHoursWithinRange(int PilotID, DateTime StartDate, DateTime EndDate)
+        {
+            return LoadFromRawSql(@"select * from GetPilotReportWithinRangeAsTable({0},{1},{2})", PilotID, StartDate, EndDate);
+        }
 	}
 }

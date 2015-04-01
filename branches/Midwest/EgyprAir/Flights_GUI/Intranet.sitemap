@@ -16,6 +16,7 @@
           <siteMapNode url="~/Admin/ManualCats.aspx" title="Manuals Categories"  description="icon-tags" htmlID="Manuals_Categories"/>
           <siteMapNode url="~/Admin/ManualManagment.aspx" title="Manage Manuals"  description="icon-file" htmlID="Manage_Manuals"/>
           <siteMapNode url="~/Admin/UserManagement.aspx" title="Manage Users"  description="icon-group" htmlID="Manage_Users"/>
+          <siteMapNode url="~/Admin/GeneralSettings.aspx" title="General settings"  description="icon-group" htmlID="Manage_Settings"/>
         </siteMapNode>
       
     </siteMapNode>

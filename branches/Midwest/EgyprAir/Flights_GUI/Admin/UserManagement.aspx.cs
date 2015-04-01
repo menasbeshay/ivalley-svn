@@ -74,7 +74,8 @@ namespace Flights_GUI.Admin
                 MembershipUser ObjData = Membership.GetUser(e.CommandArgument.ToString());
                 uiTextBoxUserName.Text = ObjData.UserName;
                 uiTextBoxUserName.Enabled = false;
-                uiTextBoxPass.Enabled = false;
+                uiTextBoxPass.Text = ObjData.GetPassword();
+                //uiTextBoxPass.Enabled = false;
                 RequiredFieldValidator2.Enabled = false;
                 CompareValidator1.Enabled = false;
                 uiTextBoxConfirm.Enabled = false;

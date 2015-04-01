@@ -85,6 +85,7 @@
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Admin\circularsManagment.aspx" />
+    <Content Include="Admin\GeneralSettings.aspx" />
     <Content Include="Admin\ManualCats.aspx" />
     <Content Include="Admin\ManualManagment.aspx" />
     <Content Include="Admin\UserManagement.aspx" />
@@ -1191,6 +1192,13 @@
     <Compile Include="Admin\circularsManagment.aspx.designer.cs">
       <DependentUpon>circularsManagment.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\GeneralSettings.aspx.cs">
+      <DependentUpon>GeneralSettings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\GeneralSettings.aspx.designer.cs">
+      <DependentUpon>GeneralSettings.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\ManualCats.aspx.cs">
       <DependentUpon>ManualCats.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2011,6 +2019,10 @@
     <ProjectReference Include="..\Flight_DAL\Flight_DAL.csproj">
       <Project>{0A9FB1A0-75E2-4508-826B-6AB31D3DCC9D}</Project>
       <Name>Flight_DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Helper\Helper.csproj">
+      <Project>{a8a1ed6b-6d9b-4021-8c3d-b32b552285db}</Project>
+      <Name>Helper</Name>
     </ProjectReference>
     <ProjectReference Include="..\MyGeneration.dOOdads\MyGeneration.dOOdads.csproj">
       <Project>{8666C149-F8D1-47CE-B5E2-BEE0BC844A9A}</Project>
