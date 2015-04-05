@@ -1,0 +1,199 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="ar.master.cs" Inherits="brotherssolidarity.MasterPages.ar" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Brothers Solidarity</title>
+		<meta name="description" content="EXCEPTION – Responsive Business HTML Template">
+		<meta name="author" content="EXCEPTION">
+		
+		<!-- Mobile Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		    	
+		<!-- CSS StyleSheets -->
+		<link rel="stylesheet" href="../css/font-awesome.min.css">
+		<link rel="stylesheet" href="../css/animate.css">
+		<link rel="stylesheet" href="../css/prettyPhoto.css">
+		<link rel="stylesheet" href="../css/slick.css">
+		<link rel="stylesheet" href="../rs-plugin/css/settings.css">
+		<link rel="stylesheet" href="../css/style.css">
+		
+		<link rel="stylesheet" href="../css/responsive.css">
+		
+		<!-- RTL Support -->
+		<link rel="stylesheet" href="../css/rtl.css">
+
+		<!--[if lt IE 9]>
+	    	<link rel="stylesheet" href="../css/ie.css">
+	    	<script type="text/javascript" src="../js/html5.js"></script>
+	    <![endif]-->
+
+
+		<!-- Skin style (** you can change the link below with the one you need from skins folder in the css folder **) -->
+		<link rel="stylesheet" href="../css/skins/default.css">
+
+        
+	    <!-- Load JS siles -->	
+ 		<script type="text/javascript" src="../js/jquery.min.js"></script>
+	    
+	    <!-- Waypoints script -->
+		<script type="text/javascript" src="../js/waypoints.min.js"></script>
+		
+		<!-- SLIDER REVOLUTION SCRIPTS  -->
+		<script type="text/javascript" src="../rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+		<script type="text/javascript" src="../rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+		
+		<!-- Animate numbers increment -->
+		<script type="text/javascript" src="../js/jquery.animateNumber.min.js"></script>
+		
+		<!-- slick slider carousel -->
+		<script type="text/javascript" src="../js/slick.min.js"></script>
+		
+		<!-- Animate numbers increment -->
+		<script type="text/javascript" src="../js/jquery.easypiechart.min.js"></script>
+		
+		<!-- PrettyPhoto script -->
+		<script type="text/javascript" src="../js/jquery.prettyPhoto.js"></script>
+		
+		<!-- Share post plugin script -->
+		<script type="text/javascript" src="../js/jquery.sharrre.min.js"></script>
+		
+		<!-- Product images zoom plugin -->
+		<script type="text/javascript" src="../js/jquery.elevateZoom-3.0.8.min.js"></script>
+		
+		<!-- Input placeholder plugin -->
+		<script type="text/javascript" src="../js/jquery.placeholder.js"></script>
+		
+		<!-- Tweeter API plugin -->
+		<script type="text/javascript" src="../js/twitterfeed.js"></script>
+		
+		<!-- Flickr API plugin -->
+		<script type="text/javascript" src="../js/jflickrfeed.min.js"></script>
+
+		<!-- MailChimp plugin -->
+		<script type="text/javascript" src="../js/mailChimp.js"></script>
+		
+		<!-- NiceScroll plugin -->
+		<script type="text/javascript" src="../js/jquery.nicescroll.min.js"></script>
+		
+		
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <!-- site preloader start -->
+	    <div class="page-loader">
+	    	<div class="loader-in"></div>
+	    </div>
+	    <!-- site preloader end -->
+	      <div class="pageWrapper">
+		     <form id="form1" runat="server">
+		   
+			<!-- Header Start -->
+			<div id="headWrapper" class="clearfix">
+		    	
+		    	
+			    
+			    <!-- Logo, global navigation menu and search start -->
+			    <header class="top-head" data-sticky="true">
+				    <div class="container">
+					    <div class="row">
+					    	<div class="logo cell-3">
+						    	<a href="home.html"></a>
+						    </div>
+						    <div class="cell-9 top-menu">
+							    
+							    <!-- top navigation menu start -->
+							    <nav class="top-nav">
+								    <ul>
+								      <li id="mi_home" ><a href="../default.aspx"><i class="fa fa-home"></i><span>الرئيسية</span></a>									      
+								      </li>
+								     
+								      <li id="mi_about"><a href="../About.aspx"><i class="fa fa-question"></i><span>عن الشركة</span></a>
+								      		
+								      </li>
+								      <li id="mi_projects"><a href="#"><i class="fa fa-suitcase"></i><span>مشروعات</span></a>
+								      		
+								      </li>
+								      
+								      <li id="mi_inv"><a href="#"><i class="fa fa-users"></i><span>مستثمرين</span></a>
+								      		
+								      </li>
+								      <li id="mi_contact"><a href="../Contact.aspx"><i class="fa fa-phone"></i><span>اتصل بنا</span></a></li>
+								    </ul>
+							    </nav>
+							    <!-- top navigation menu end -->
+							    
+							    
+							</div>
+					    </div>
+				    </div>
+			    </header>
+			    <!-- Logo, Global navigation menu and search end -->
+			    
+			</div>
+			<!-- Header End -->
+			
+			<!-- Content Start -->
+			<div id="contentWrapper">
+				
+               
+     
+              
+                <asp:ContentPlaceHolder ID="uiContentPlaceHolderSlider" runat="server">
+        
+                </asp:ContentPlaceHolder>
+                <asp:ContentPlaceHolder ID="uiContentPlaceHolderContent" runat="server">
+        
+                </asp:ContentPlaceHolder>
+                
+
+				
+			</div>
+			<!-- Content End -->
+			
+			<!-- Footer start -->
+		    <footer id="footWrapper">
+		    	
+			    
+			    <!-- footer bottom bar start -->
+			    <div class="footer-bottom">
+				    <div class="container">
+                        <div class="row">
+                            <span><a href="privacy.html">الرئيسية</a> | <a href="terms.html">عن الشركة</a></span>
+                        </div>
+			    		<div class="row">
+				    		<!-- footer copyrights left cell -->
+				    		<div class="copyrights cell-5">&copy; جميع الحقوق محفوظة ل <b>MTG</b>.  </div>
+				    		
+				    		<!-- footer social links right cell start -->
+						    <div class="cell-7">
+							    <ul class="social-list right">								    
+								    <li class="skew-25"><a href="#" data-title="facebook" data-tooltip="true"><span class="fa fa-facebook skew25"></span></a></li>								    
+								    <li class="skew-25"><a href="#" data-title="twitter" data-tooltip="true"><span class="fa fa-twitter skew25"></span></a></li>								    
+							    </ul>
+						    </div>
+						    <!-- footer social links right cell end -->
+						    
+			    		</div>
+				    </div>
+			    </div>
+			    <!-- footer bottom bar end -->
+			    
+		    </footer>
+		    <!-- Footer end -->
+		    
+			<!-- Back to top Link -->
+			<div id="to-top" class="main-bg"><span class="fa fa-chevron-up"></span></div>
+		    </form>
+	    </div>
+        <!-- general script file -->
+		<script type="text/javascript" src="../js/script.js"></script>
+    <asp:ContentPlaceHolder ID="uiContentPlaceHolderScript" runat="server">
+        
+                </asp:ContentPlaceHolder>
+                
+</body>
+</html>
