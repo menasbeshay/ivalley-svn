@@ -76,10 +76,7 @@ namespace Helper
         {
             int weekhours = 0;
             int weekmins = 0;
-            int monthhours = 0;
-            int monthmins = 0;
-            int yearhours = 0;
-            int yearmins = 0;
+            
             ValidationMsg validationMsg = new ValidationMsg();
             validationMsg.IsValid = true;
             if (EnableFlightTimeValidation)
@@ -89,20 +86,20 @@ namespace Helper
                 int.TryParse(currentCrew.GetColumn("GrandTotalHours").ToString(), out weekhours);
                 int.TryParse(currentCrew.GetColumn("GrandTotalMins").ToString(), out weekmins);
 
-                currentCrew.GetPilotHoursWithinRange(CrewID, DutyDate.AddDays(-30), DutyDate);
+                /*currentCrew.GetPilotHoursWithinRange(CrewID, DutyDate.AddDays(-30), DutyDate);
                 int.TryParse(currentCrew.GetColumn("GrandTotalHours").ToString(), out monthhours);
                 int.TryParse(currentCrew.GetColumn("GrandTotalMins").ToString(), out monthmins);
 
                 currentCrew.GetPilotHoursWithinRange(CrewID, DutyDate.AddDays(-365), DutyDate);
                 int.TryParse(currentCrew.GetColumn("GrandTotalHours").ToString(), out yearhours);
-                int.TryParse(currentCrew.GetColumn("GrandTotalMins").ToString(), out yearmins);
+                int.TryParse(currentCrew.GetColumn("GrandTotalMins").ToString(), out yearmins);*/
 
-                if (weekhours >= 50)
+                if (weekhours >= 55)
                 {
                     validationMsg.Messages.Add(Helper.EnumUtils.ToDescriptionString(ValidationMessages.WEEK_HOURS_EXCCEDED));
                     validationMsg.IsValid = false;
                 }
-                if (monthhours >= 100)
+               /* if (monthhours >= 100)
                 {
                     validationMsg.Messages.Add(Helper.EnumUtils.ToDescriptionString(ValidationMessages.MONTH_HOURS_EXCCEDED));
                     validationMsg.IsValid = false;
@@ -111,7 +108,7 @@ namespace Helper
                 {
                     validationMsg.Messages.Add(Helper.EnumUtils.ToDescriptionString(ValidationMessages.YEAR_HOURS_EXCCEDED));
                     validationMsg.IsValid = false;
-                }
+                }*/
             }
             return validationMsg;
         }

@@ -456,7 +456,7 @@ namespace Flights_GUI.Operation
             }
             catch (Exception ex)
             {
-
+                //throw;
             }            
         }
 
