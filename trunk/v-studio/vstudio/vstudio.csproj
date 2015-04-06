@@ -467,6 +467,12 @@
     <None Include="media\demo1.mpeg" />
     <None Include="media\media1.mp4" />
     <None Include="media\media2.mp4" />
+    <Content Include="media\presentation\3DWayfindingpresentationG3.pdf" />
+    <Content Include="media\presentation\VstudioCMARolluppresentation.pdf" />
+    <Content Include="media\presentation\VStudioHoloconicHologrampresentation.pdf" />
+    <Content Include="media\presentation\Vstudiohostalkpresentation.pdf" />
+    <Content Include="media\presentation\Vstudioservicespresentation.pdf" />
+    <Content Include="media\presentation\VstudioWinshowrearprojectionpresentation.pdf" />
     <None Include="media\Video.mp4" />
     <Content Include="media\3dwayfinding.mp4" />
     <Content Include="packages.config" />

@@ -218,7 +218,7 @@ body
 }
 #menu ul li
 {
-	padding:9px 0 9px 0;
+	padding:7px 0 6px 0;
 }
 #contact
 {
@@ -255,7 +255,7 @@ body
 #menu1 ul li
 {
 	width:210px;
-	padding:9px 0 9px 15px;
+	padding:7px 0 6px 15px;
 }
 #contact1
 {
@@ -2144,12 +2144,44 @@ margin-bottom:6px;
     background-image:url(../images/present.png);
     float:right;
     display:block;
-    right:8px;
+    right:15px;
     width:30px;
     height:30px;
     position:absolute;
+    top:8px;
+    }
+.arabic.downloadLink {
+    padding:10px;
+    padding-left:45px;
+}
+
+.arabic.downloadLink:after {
+    content: "";
+    background-image:url(../images/present.png);
+    float:left;
+    display:block;
+    left:15px;
+    right:auto !important;
+    right:initial !important;
+    width:30px;
+    height:30px;
+    position:absolute;
+    top:8px;
     }
     .downloadLink:hover {
          background-color:#A8CEED;
     color:#0E76BC;
+    }
+
+.slideup {
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    height:0px;
+    overflow-y:hidden;
+}
+
+    .slideup.active {
+        height:60px;
     }

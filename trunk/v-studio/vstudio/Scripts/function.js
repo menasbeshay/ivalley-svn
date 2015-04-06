@@ -398,14 +398,41 @@ function scrollAllow() {
     function resetMenu() {
         $(".products, .services, ._3dway, .multi, .contact").removeAttr("style", "background-color:rgba(255,255,255,0.05);");
 
+        
+    }
+
+    function resetAllVideos() {
+        mediaPlayer0 = document.getElementById('media-video');
+        mediaPlayer0.pause();
+        mediaPlayer1 = document.getElementById('holo-video');
+        mediaPlayer9 = document.getElementById('presenter-video');
+        mediaPlayer1.pause();
+        mediaPlayer9.pause();
+        mediaPlayer4 = document.getElementById('product-des-video');
+        mediaPlayer4.pause();
+        mediaPlayer2 = document.getElementById('service-video-cont');
+        mediaPlayer2.pause();
+        mediaPlayer5 = document.getElementById('3dflashvideo');
+        mediaPlayer5.pause();
+        mediaPlayer6 = document.getElementById('poly-vid');
+        mediaPlayer6.pause();
         // reset all youtube videos 
         try {
             $('#testmon_vedio').stopYTP();
             $('#testmon_play').fadeIn("slow");
         } catch (err) { }
+
+        try {
+            $('.subgallery.column1.gridsInPlace #_3agarat_play').stopYTP();
+            $('.subgallery.column1.gridsInPlace #_3agarat_play').fadeIn("slow");
+        } catch (err) { }
+
+        //reset css
+        $('#port-text-def').removeClass('active');
     }
 
     parallax.home.onload = function () {
+        resetAllVideos();
         navClick();
         $('#home').bind('mousewheel', function (e) {
             if (e.originalEvent.wheelDelta < 0) {
@@ -476,6 +503,7 @@ function scrollAllow() {
     };
 
     parallax.video.onload = function () {
+        resetAllVideos();
         $("#video-cover").show(100);
         mediaPlayer0 = document.getElementById('media-video');
         navClick();
@@ -504,6 +532,7 @@ function scrollAllow() {
     };
 
     parallax.holography.onload = function () {
+        resetAllVideos();
         mediaPlayer1 = document.getElementById('holo-video');
         mediaPlayer9 = document.getElementById('presenter-video');
         mediaPlayer9.src = "media/3MB.mp4";
@@ -718,6 +747,7 @@ function scrollAllow() {
     };
 
     parallax.productdes.onload = function () {
+        resetAllVideos();
         mediaPlayer4 = document.getElementById('product-des-video');
         mediaPlayer4.src = "media/demo1.mp4";
         mediaPlayer4.load();
@@ -742,6 +772,7 @@ function scrollAllow() {
     };
 
     parallax.services.onload = function () {
+        resetAllVideos();
         mediaPlayer2 = document.getElementById('service-video-cont');
         $("#services-cover").fadeIn();
 
@@ -863,6 +894,7 @@ function scrollAllow() {
     };
 
     parallax.corporate.onload = function () {
+        resetAllVideos();
         $(".pds").hide();
         $(".ps, .jus").show();
         navClick();
@@ -886,6 +918,7 @@ function scrollAllow() {
     };
 
     parallax.wayfinding.onload = function () {
+        resetAllVideos();
         //mediaPlayer5 = document.getElementById('way-vid');
         mediaPlayer5 = document.getElementById('3dflashvideo');
         mediaPlayer5.load();
@@ -966,6 +999,7 @@ function scrollAllow() {
         setBottom("contactus", "contactus Us");
     };
     parallax.polytouch.onload = function () {
+        resetAllVideos();
         $("#polytouch-cover").fadeIn(300);
         $('#polytouch').bind('mousewheel', function (e) {
             if (e.originalEvent.wheelDelta < 0) {
@@ -1042,6 +1076,7 @@ function scrollAllow() {
     };
 
     parallax.contactus.onload = function () {
+        resetAllVideos();
         $('#contactus').bind('mousewheel', function (e) {
             if (e.originalEvent.wheelDelta < 0) {
                 //scroll down
@@ -1102,8 +1137,11 @@ function scrollAllow() {
     };
 
     parallax.portfolio.onload = function () {
+        resetAllVideos();
         navClick();
         resetMenu();
+       
+        $('#port-text-def').addClass('active');
         $(".ps, .jus").show();
         $(".cbs, .pds").hide();
         $(".contact").attr("style", "background-color:rgba(255,255,255,0.05);");
@@ -1123,7 +1161,9 @@ function scrollAllow() {
         $('#port-text-def').fadeIn();
         $('#port-text-caption').fadeOut();
     };
+    
     parallax.join.onload = function () {
+        resetAllVideos();
         $(".ps, .jus").show();
         $(".cbs, .pds").hide();
         navClick();

@@ -39,8 +39,8 @@ $(document).ready(function () {
         $('#port-text-caption').fadeOut(300);
         $('#port-text-caption').html('');
         try {
-            $('#3agrat_video').stopYTP();
-            $('#3agarat_play').fadeIn("slow");
+            $('#_3agrat_video').stopYTP();
+            $('#_3agarat_play').fadeIn("slow");
         } catch (err) { }
 
     });
@@ -57,8 +57,8 @@ $(document).ready(function () {
         $('#port-text-def').delay(300).fadeIn(300);        
         $('#port-text-caption').html('');
         try {
-            $('#3agrat_video').stopYTP();
-            $('#3agarat_play').fadeIn("slow");
+            $('.subgallery.column1.gridsInPlace #_3agrat_video').stopYTP();
+            $('.subgallery.column1.gridsInPlace #_3agarat_play').fadeIn("slow");
         } catch (err) { }
         
     });
@@ -95,11 +95,14 @@ $(document).ready(function () {
         $("#testmon_vedio").playYTP();
     });
 
-    $('#3agarat_play').click(function () {
-        $('#3agarat_play').fadeOut("slow");
-        $("#3agrat_video").playYTP();
+    $('#_3agarat_play').click(function () {
+        $('.subgallery.column1.gridsInPlace #_3agarat_play').fadeOut("slow");
+        if (!$(".subgallery.column1.gridsInPlace #_3agrat_video").getPlayer())
+            $(".subgallery.column1.gridsInPlace #_3agrat_video").mb_YTPlayer({ videoURL: $('#_3agrat_video').attr('data-vedioid'), containment: '.subgallery.column1.gridsInPlace #_3agrat_video', loop: false, autoPlay: true });
+       // $(".subgallery.column1.gridsInPlace #_3agrat_video").playYTP();
     });
 
+    
     $("#testmon_vedio").mb_YTPlayer({ videoURL: $('#testmon_vedio').attr('data-vedioid'), containment: '#testmon_vedio', loop: false, autoPlay: false });
-    $("#3agrat_video").mb_YTPlayer({ videoURL: $('#3agrat_video').attr('data-vedioid'), containment: '#3agrat_video', loop: false, autoPlay: false });
+    
 });
