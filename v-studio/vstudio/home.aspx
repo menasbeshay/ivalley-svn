@@ -142,7 +142,7 @@ Your browser does not support the video tag
 <br><br><br><br><br>
                                         </div>
 					<div class="text-center icon-rotate">
-						<a href="media/videos/arabic/home.mp4"><img src="img/download-catalouge-1.png"/></a>
+						<a href="media/videos/arabic/home.mp4" download="download" target="_blank"><img src="img/download-catalouge-1.png"/></a>
 					</div>
 				</div>
 				
@@ -350,7 +350,7 @@ Your browser does not support the video tag
 </ul></p>
 						<br>
 						<span class="span-text">
-                            <a target="_blank" href="media/catalogue.pdf" class="pull-left"><img src="img/d_flash.png" /> Download Flash Video</a>
+                            <a target="_blank" href="media/presentation/VStudioHoloconicHologrampresentation.pdf" download="download" class="pull-left"><img src="img/d_flash.png" /> Download Flash Video</a>
 						    <a href="#" data-toggle="modal" data-target="#myModal" class="pull-right" style="margin-top:10px;"><img src="img/3d-image-icon1.png"/> View Presentation</a>
 						</span>
   <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -401,7 +401,7 @@ Your browser does not support the video tag
 						<hr>
 						<p>V-Studio brings to you WINSHOW™, a seamless rear projection solution for all your shop’s window display needs. Just paste the V-Studio RT-RPF film on a transparent surface and mold the application with the appropriate surrounding lighting environment and distance between Winshow™ projector and surface & your product or service video display on your window is ready to impress all! No computer/laptop or video player is required.</p>
 						<br>
-						<span class="span-text"><a target="_blank" href="media/catalogue.pdf" class="pull-left"><img src="img/d_flash.png" /> Download Flash Video</a>
+						<span class="span-text"><a target="_blank" href="media/presentation/VstudioWinshowrearprojectionpresentation.pdf" download="download" class="pull-left"><img src="img/d_flash.png" /> Download Flash Video</a>
 						<a href="#" data-toggle="modal" data-target="#myModal1" class="pull-right" style="margin-top:10px;"><img src="img/3d-image-icon1.png" /> View Presentation</a>
 						</span>
   <div id="myModal1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -454,7 +454,7 @@ Your browser does not support the video tag
 						</h3>
 						<hr>
 						<p>Create an incredible experience for your target audience with a unique video screen Roll Up banner having V-Studio RT-RPF film coating & our Winshow™ projector. No computer/laptop or video is required. It is 1.1m or 0.8 wide x 2m in height and is available in full screen or ½ screens with print graphics.</p><br>
-												<span class="span-text"><a target="_blank" href="media/catalogue.pdf" class="pull-left"><img src="img/d_flash.png" /> Download Flash Video</a>
+												<span class="span-text"><a target="_blank" href="media/presentation/VstudioCMARolluppresentation.pdf" download="download" class="pull-left"><img src="img/d_flash.png" /> Download Flash Video</a>
 						<a href="#" data-toggle="modal" data-target="#myModal2" class="pull-right" style="margin-top:10px;"><img src="img/3d-image-icon1.png"/> View Presentation</a>
 						</span>
   <div id="myModal2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -504,7 +504,7 @@ Your browser does not support the video tag
 						</h3>
 						<hr>
 						<p>Give the ultimate boost to your campaign with the help of HOSTALK™, the virtual mannequin speaker by V-Studio, powered by the latest rear projection techniques. Let your virtual speaker grab endless opportunities for you in the marketplace through providing a warm-up prior to events, presenting vital information uniquely, and rendering unparalleled entertainment to the audience.	</p><br>
-						<span class="span-text"><a target="_blank" href="media/catalogue.pdf"class="pull-left"><img src="img/d_flash.png" /> Download Flash Video</a>
+						<span class="span-text"><a target="_blank" href="media/presentation/Vstudiohostalkpresentation.pdf" download="download" class="pull-left"><img src="img/d_flash.png" /> Download Flash Video</a>
 						<a href="#" data-toggle="modal" data-target="#myModal3" class="pull-right" style="margin-top:10px;"><img src="img/3d-image-icon1.png"/> View Presentation</a>
 						</span>
   <div id="myModal3" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -834,7 +834,7 @@ Your browser does not support the video tag
                             <div class="clearfix" style="height:15px;clear:both"></div>                        
                             
                             <p style="text-align:justify;font-size:18px;line-height:22px;">
-                                <span class="mtsa">MTSA</span>, a product of S.O. Sager International offers a unique 3D Wayfinding products & services for public buildings i.e. shopping malls, airports, universities, medical complex, big campus and others. 3D Wayfinding helps visitors find their way to destinations they want to reach easily, stress-free and quickly. 3D Wayfinding is an interactive touchscreen kiosk App    and available as a mobile App or web-based. <br /><a href="../files/MTSA3DWayfindingpresentationG3.pdf" class="downloadLink" > Download presentation for more details.</a>
+                                <span class="mtsa">MTSA</span>, a product of S.O. Sager International offers a unique 3D Wayfinding products & services for public buildings i.e. shopping malls, airports, universities, medical complex, big campus and others. 3D Wayfinding helps visitors find their way to destinations they want to reach easily, stress-free and quickly. 3D Wayfinding is an interactive touchscreen kiosk App    and available as a mobile App or web-based. <br /><a href="media/presentation/3DWayfindingpresentationG3.pdf" download="download" target="_blank" class="downloadLink" > Download presentation for more details.</a>
                             </p>
                             <div class="clearfix" style="height:15px;clear:both"></div>                                                    
                             </div>
@@ -1220,9 +1220,9 @@ info@v-studio.co
 
                                     <ul class="gallery-grid subgallery column1">
                                         <!-- Subgallery of Grid Item 1 having 4 columns -->
-                                        <li>
-                                            <img src="images/icons/play.png" style="max-width:150px;position:absolute;top:30%;left:40%;z-index:1;cursor:pointer" id="3agarat_play" />
-                                            <div id="3agrat_video" style="width:100%;height:355px;" data-vedioid="40NG_t5aJNs"></div>
+                                        <li >
+                                            <img src="images/icons/play.png" style="max-width:150px;position:absolute;top:30%;left:40%;z-index:1;cursor:pointer" id="_3agarat_play" />
+                                            <div id="_3agrat_video" style="width:100%;height:355px;" data-vedioid="40NG_t5aJNs"></div>
                                         </li>
 
                                     </ul>
@@ -1457,7 +1457,7 @@ info@v-studio.co
                         <a href="#" class="btn btn-default" style="width:140px;font-weight:bold;"  onclick="$('#testmon_grid').delay(300).fadeIn(300);$('#default_port').fadeOut(300);$('#portfolio_grid').fadeOut(300);">Testimonials</a>
                         <br />
 						<img src="img/comma.png" width="18" height="17"/>
-						<p id="port-text-def">Select any of our recent multimedia services or products’ projects and click on thumbnail to view and read more details. <br />You can also view our customers testimonials in video , no fake letters or statements </p>
+						<p id="port-text-def" class="slideup">Select any of our recent multimedia services or products’ projects and click on thumbnail to view and read more details. <br />You can also view our customers testimonials in video , no fake letters or statements </p>
                         <p id="port-text-caption"></p>
 					</div>
 				</div>

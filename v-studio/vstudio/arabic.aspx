@@ -11,6 +11,12 @@
         #menu1 ul li {
             font-family:'JF_Flat_Regular' !important;
         }
+         #menu .services, #menu .mtsa {
+            line-height:18px !important;
+        }
+          #menu1 .services, #menu1 .mtsa {
+            line-height:25px !important;
+        }
         </style>
   
 </asp:Content>
@@ -28,11 +34,11 @@
 				<ul class="list-unstyled hover-both">
 					<li id="menu-products" class="products"><a href="#"><img src="img/menu-1.png" width="32px" height="32px"/></a></li>
 					<li id="menu-pd" class="pds"><a href="#"><span style="line-height:32px;">&nbsp;</span></a></li>
-					<li id="menu-services" class="services"><a href="#"><img src="img/menu-2.png" width="32px" height="32px"/><br /><span style="line-height:32px;">&nbsp;</span></a></li>                    
+					<li id="menu-services" class="services"><a href="#"><img src="img/menu-2.png" width="32px" height="32px"/><br /><span style="line-height:18px;">&nbsp;</span></a></li>                    
 					<li id="menu-cb" class="cbs"><a href="#"><span style="line-height:32px;">&nbsp;</span></a></li>
                     <li id="menu-multi" class="multi"><a href="#"><img src="img/menu-4.png" width="32px" height="32px"/></a></li>
 					<li id="menu-way" class="_3dway"><a href="#"><img src="img/menu-3.png" width="32px" height="32px"/></a></li>
-                    <li id="menu-mtsa" class="mtsa"><a href="#"><img src="img/menu-mtsa.png" width="32px" height="32px"/><br /><span style="line-height:32px;">&nbsp;</span></a></li>
+                    <li id="menu-mtsa" class="mtsa"><a href="#"><img src="img/menu-mtsa.png" width="32px" height="32px"/><br /><span style="line-height:18px;">&nbsp;</span></a></li>
 					<li id="menu-contact" class="contact"><a href="#"><img src="img/menu-6.png" width="32px" height="32px"/></a></li>
 					<li id="menu-portfolio" class="ps"><a href="#"><span style="line-height:32px;">&nbsp;</span></a></li>
 					<li id="menu-join" class="jus"><a href="#"><span style="line-height:32px;">&nbsp;</span></a></li>
@@ -50,7 +56,7 @@
 				<ul class="list-unstyled hover-both">
 					<li id="menu-products" class="products"><a href="#">هولوجرام والعرض الضوئي </a></li>
 					<li id="menu-pd" class="pds"><a href="#">وصف المنتجات</a></li>
-					<li id="menu-services" class="services" style="padding-top:14px;padding-bottom:14px"><a href="#">خدمات الوسائط<br /> الإعلامية المتعددة</a></li>
+					<li id="menu-services" class="services" ><a href="#">خدمات الوسائط<br /> الإعلامية المتعددة</a></li>
 					<li id="menu-cb" class="cbs"><a href="#">العلامات التجارية للشركات</a></li>
 					<li id="menu-multi" class="multi"><a href="#">الشاشات تعددية اللمس</a></li>
 					<li id="menu-way" class="_3dway"><a href="#">الدليل ثلاثي الأبعاد للمباني</a></li>
@@ -155,7 +161,7 @@ Your browser does not support the video tag
 <br><br><br><br><br>
                                         </div>
 					<div class="text-center icon-rotate">
-						<a href="media/videos/arabic/home.mp4"><img src="img/download-catalouge-1-a.png"/></a>
+						<a href="media/videos/arabic/home.mp4" download="download" target="_blank"><img src="img/download-catalouge-1-a.png"/></a>
 					</div>
 				</div>
 				
@@ -359,7 +365,7 @@ Your browser does not support the video tag
 <li class="vs_content">فعالّة ومتوافقة للعمل مع تقنيات أخرى </li>
 </ul></p>
 						<br>
-						<span class="span-text"><a target="_blank" href="media/catalogue.pdf"  class="pull-right vs_content"><img src="img/d_flash.png" /> تحميل الفيديو فلاش </a>
+						<span class="span-text"><a target="_blank" href="media/presentation/VStudioHoloconicHologrampresentation.pdf" download="download"  class="pull-right vs_content"><img src="img/d_flash.png" /> تحميل الفيديو فلاش </a>
 						<a href="#" data-toggle="modal" data-target="#myModal" class="pull-left vs_content" style="margin-top:10px;"><img src="img/3d-image-icon1.png"/> تحميل العرض التفصيلي </a>
 						</span>
   <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -410,7 +416,7 @@ Your browser does not support the video tag
 						<hr>
 						<p class="vs_content">في ستيديو V-Studio  تقدّم أنظمة العرض الضوئي المبتكرة "وينشــو ™"  حلٌ سلس لجميع متطلبات العرض ، فقط نقوم بلصق الفيلم V-Studio RT-RPF الناقل للصورة المسقطة من الخلف على واجهة محلك التجاري الزجاجية ونقوم بضبط جهاز نقل الصورة Winshow™ Projector حسب المسافة وشدة الإضاءة وعرض الفيديو الخاص بمنتجاتك أو خدماتك على واجهة محلك التجاري دون الحاجة لكمبيوتر أو جهاز فيديو أو أي جهاز آخر .</p>
 						<br>
-						<span class="span-text"><a target="_blank" href="media/catalogue.pdf"  class="pull-right vs_content"><img src="img/d_flash.png" /> تحميل الفيديو فلاش </a>
+						<span class="span-text"><a target="_blank" href="media/presentation/VstudioWinshowrearprojectionpresentation.pdf" download="download" class="pull-right vs_content"><img src="img/d_flash.png" /> تحميل الفيديو فلاش </a>
 						<a href="#" data-toggle="modal" data-target="#myModal1" class="pull-left vs_content" style="margin-top:10px;"><img src="img/3d-image-icon1.png" /> تحميل العرض التفصيلي </a>
 						</span>
   <div id="myModal1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -463,7 +469,7 @@ Your browser does not support the video tag
 						</h3>
 						<hr>
 						<p style="text-align:justify;" class="vs_content">الآن أخلق تجربة لاتنسى لجمهورك المستهدف مع لوحتنا الإعلانية القابلة للطي (سي ما رول أب™) بشاشة عرض فيديو ذاتية بإستخدام أنظمتنا للعرض الضوئي من خلال الفيلم V-Studio RT-RPF  الخاص بنا والملصق على اللوحة وجهاز العرض  Winshow™ Projector الخاص بنا  ودون الحاجة لكمبيوتر أو  جهاز فيديو أو أي جهاز آخر.  أبعاد اللوحة 1,1م  أو 0،8 م عرض × 2 م إرتفاع وتتوفر بطرازين مختلفين واحد بشاشة عرض فيديو كاملة،  والطراز الثاني يحتوي على نصف شاشة عرض فيدو والنصف الآخر للرسالة الإعلانية المطبوعة .</p><br>
-												<span class="span-text"><a target="_blank" href="media/catalogue.pdf"  class="pull-right vs_content"><img src="img/d_flash.png" /> تحميل الفيديو فلاش </a>
+												<span class="span-text"><a target="_blank" href="media/presentation/VstudioCMARolluppresentation.pdf" download="download"  class="pull-right vs_content"><img src="img/d_flash.png" /> تحميل الفيديو فلاش </a>
 						<a href="#" data-toggle="modal" data-target="#myModal2" class="pull-left vs_content" style="margin-top:10px;"><img src="img/3d-image-icon1.png"/> تحميل العرض التفصيلي </a>
 						</span>
   <div id="myModal2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -513,7 +519,7 @@ Your browser does not support the video tag
 						</h3>
 						<hr>
 						<p style="text-align:justify;" class="vs_content">إدعم حملتك التسويقية بقوة وسحر "هوست توك™ " المتحدّث الإفتراضي (مانيكان)  من V-Studio في ستيديو الذي يعمل بأحدث تقنيات العرض الضوئي والصورة المسقطة من الخلف .  أترك المهمة للمتحدث الإفتراضي هوست توك™ لإنتزاع فرص لانهائية لأعمالك للتوهّج بالسوق من خلال إلقاء تحية متميزة لجمهورك بالمناسبات والمعارض والمؤتمرات  أو التحدث إليهم عن منتجاتك أو خدماتك وتقديم معلومات هامة لهم بشكل متميّز  أو حتى الترفيه عنهم بشكل غير مسبوق.	</p><br>
-						<span class="span-text"><a target="_blank" href="media/catalogue.pdf"  class="pull-right vs_content"><img src="img/d_flash.png" /> تحميل الفيديو فلاش </a>
+						<span class="span-text"><a target="_blank" href="media/presentation/Vstudiohostalkpresentation.pdf" download="download"  class="pull-right vs_content"><img src="img/d_flash.png" /> تحميل الفيديو فلاش </a>
 						<a href="#" data-toggle="modal" data-target="#myModal3" class="pull-left vs_content" style="margin-top:10px;"><img src="img/3d-image-icon1.png"/> تحميل العرض التفصيلي </a>
 						</span>
   <div id="myModal3" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -844,7 +850,8 @@ Your browser does not support the video tag
                             <div class="clearfix" style="height:15px;clear:both"></div>                        
                             
                             <p style="text-align:justify;font-size:18px;line-height:24px;direction:rtl">
-                            تقدّم MTSA  إم تي اس آي ( أحد أعمال صقر الدولية ) خدمة ومنتجات الدليل ثلاثي الأبعاد للمباني العامة كالمراكز التجارية والمطارات والجامعات والمستشفبات الكبيرة ومجمّعات المباني . الدليل ثلاثي الأبعاد هو تطبيق يساعد زوار المباني الكبيرة على إيجاد الطريق لجهة الوصول المطلوبة بسهولة وبسرعة ودون عناء.  الدليل ثلاثي الأبعاد تطبيق تفاعلي يتم تثبيته على شاشاتنا باللمس ، يتوفر ايضا كتطبيق على الهواتف الذكية او على موقع بالانترنت.<br /> <a href="../files/MTSA3DWayfindingpresentationG3.pdf" class="touchscreenlabel " style="text-decoration:underline;">قم بتحميل العرض لمزيد من التفاصيل&nbsp;<img src="../images/present.png" style="max-width:30px;"/></a>
+                            تقدّم MTSA  إم تي اس آي ( أحد أعمال صقر الدولية ) خدمة ومنتجات الدليل ثلاثي الأبعاد للمباني العامة كالمراكز التجارية والمطارات والجامعات والمستشفبات الكبيرة ومجمّعات المباني . الدليل ثلاثي الأبعاد هو تطبيق يساعد زوار المباني الكبيرة على إيجاد الطريق لجهة الوصول المطلوبة بسهولة وبسرعة ودون عناء.  الدليل ثلاثي الأبعاد تطبيق تفاعلي يتم تثبيته على شاشاتنا باللمس ، يتوفر ايضا كتطبيق على الهواتف الذكية او على موقع بالانترنت.
+                                <br /><a target="_blank" href="media/presentation/3DWayfindingpresentationG3.pdf" download="download" class="arabic downloadLink" > قم بتحميل العرض لمزيد من التفاصيل</a>
                             </p>
                             <div class="clearfix" style="height:15px;clear:both"></div>                                                    
                             </div>
@@ -1224,7 +1231,7 @@ info@v-studio.co                                      <br />
                                 <li>
                                     <!-- Grid Item 1 -->
                                     <div class="child-container">
-                                        <!-- Grid Item Container -->
+                                        <!-- Grid Item Container --> 
                                        3AGARAT
                                     <a href="#" class="open-gallery"><img src="images/projects/3garatlogoen.png" /></a>
                                         <span class="item-caption">برتامج وتطبيق عقارات لتأجير وبيع العقارات</span>
@@ -1234,8 +1241,8 @@ info@v-studio.co                                      <br />
                                     <ul class="gallery-grid subgallery column1">
                                         <!-- Subgallery of Grid Item 1 having 4 columns -->
                                         <li >
-                                             <img src="images/icons/play.png" style="max-width:150px;position:absolute;top:30%;left:40%;z-index:1;cursor:pointer" id="3agarat_play" />
-                                            <div id="3agrat_video" style="width:100%;height:355px;" data-vedioid="40NG_t5aJNs"></div>
+                                             <img src="images/icons/play.png" style="max-width:150px;position:absolute;top:30%;left:40%;z-index:1;cursor:pointer" id="_3agarat_play" />
+                                            <div id="_3agrat_video" style="width:100%;height:355px;" data-vedioid="40NG_t5aJNs"></div>
 
                                         </li>
 
