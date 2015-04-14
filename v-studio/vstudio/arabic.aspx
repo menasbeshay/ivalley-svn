@@ -365,8 +365,8 @@ Your browser does not support the video tag
 <li class="vs_content">فعالّة ومتوافقة للعمل مع تقنيات أخرى </li>
 </ul></p>
 						<br>
-						<span class="span-text"><a target="_blank" href="media/presentation/VStudioHoloconicHologrampresentation.pdf" download="download"  class="pull-right vs_content"><img src="img/d_flash.png" /> تحميل الفيديو فلاش </a>
-						<a href="#" data-toggle="modal" data-target="#myModal" class="pull-left vs_content" style="margin-top:10px;"><img src="img/3d-image-icon1.png"/> تحميل العرض التفصيلي </a>
+						<span class="span-text"><a target="_blank" href="https://www.dropbox.com/s/xcvypohpsxhu798/V-Studio%20Holoconic%20Hologram%20video%20Arabic.swf?dl=0" download="download"  class="pull-right vs_content"><img src="img/d_flash.png" /> تحميل الفيديو فلاش </a>
+						<a target="_blank" href="media/presentation/VStudioHoloconicHologrampresentation.pdf" download="download"  class="pull-left vs_content" style="margin-top:10px;"><img src="img/3d-image-icon1.png"/> تحميل العرض التفصيلي </a>
 						</span>
   <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -416,8 +416,8 @@ Your browser does not support the video tag
 						<hr>
 						<p class="vs_content">في ستيديو V-Studio  تقدّم أنظمة العرض الضوئي المبتكرة "وينشــو ™"  حلٌ سلس لجميع متطلبات العرض ، فقط نقوم بلصق الفيلم V-Studio RT-RPF الناقل للصورة المسقطة من الخلف على واجهة محلك التجاري الزجاجية ونقوم بضبط جهاز نقل الصورة Winshow™ Projector حسب المسافة وشدة الإضاءة وعرض الفيديو الخاص بمنتجاتك أو خدماتك على واجهة محلك التجاري دون الحاجة لكمبيوتر أو جهاز فيديو أو أي جهاز آخر .</p>
 						<br>
-						<span class="span-text"><a target="_blank" href="media/presentation/VstudioWinshowrearprojectionpresentation.pdf" download="download" class="pull-right vs_content"><img src="img/d_flash.png" /> تحميل الفيديو فلاش </a>
-						<a href="#" data-toggle="modal" data-target="#myModal1" class="pull-left vs_content" style="margin-top:10px;"><img src="img/3d-image-icon1.png" /> تحميل العرض التفصيلي </a>
+						<span class="span-text"><a target="_blank" href="https://www.dropbox.com/s/36xxmricz1zszsn/Winshow_arabic_%20video%20with%20logo.swf?dl" download="download" class="pull-right vs_content"><img src="img/d_flash.png" /> تحميل الفيديو فلاش </a>
+						<a target="_blank" href="media/presentation/VstudioWinshowrearprojectionpresentation.pdf" class="pull-left vs_content" style="margin-top:10px;"><img src="img/3d-image-icon1.png" /> تحميل العرض التفصيلي </a>
 						</span>
   <div id="myModal1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -469,8 +469,8 @@ Your browser does not support the video tag
 						</h3>
 						<hr>
 						<p style="text-align:justify;" class="vs_content">الآن أخلق تجربة لاتنسى لجمهورك المستهدف مع لوحتنا الإعلانية القابلة للطي (سي ما رول أب™) بشاشة عرض فيديو ذاتية بإستخدام أنظمتنا للعرض الضوئي من خلال الفيلم V-Studio RT-RPF  الخاص بنا والملصق على اللوحة وجهاز العرض  Winshow™ Projector الخاص بنا  ودون الحاجة لكمبيوتر أو  جهاز فيديو أو أي جهاز آخر.  أبعاد اللوحة 1,1م  أو 0،8 م عرض × 2 م إرتفاع وتتوفر بطرازين مختلفين واحد بشاشة عرض فيديو كاملة،  والطراز الثاني يحتوي على نصف شاشة عرض فيدو والنصف الآخر للرسالة الإعلانية المطبوعة .</p><br>
-												<span class="span-text"><a target="_blank" href="media/presentation/VstudioCMARolluppresentation.pdf" download="download"  class="pull-right vs_content"><img src="img/d_flash.png" /> تحميل الفيديو فلاش </a>
-						<a href="#" data-toggle="modal" data-target="#myModal2" class="pull-left vs_content" style="margin-top:10px;"><img src="img/3d-image-icon1.png"/> تحميل العرض التفصيلي </a>
+												<span class="span-text"><a target="_blank" href="https://www.dropbox.com/s/tdy0mixkcofkzfs/V-Studio%20C.MA.Roll%20Up%20Video%20Arabic.swf?dl=0" download="download"  class="pull-right vs_content"><img src="img/d_flash.png" /> تحميل الفيديو فلاش </a>
+						<a target="_blank" href="media/presentation/VstudioCMARolluppresentation.pdf" download="download" class="pull-left vs_content" style="margin-top:10px;"><img src="img/3d-image-icon1.png"/> تحميل العرض التفصيلي </a>
 						</span>
   <div id="myModal2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -519,8 +519,8 @@ Your browser does not support the video tag
 						</h3>
 						<hr>
 						<p style="text-align:justify;" class="vs_content">إدعم حملتك التسويقية بقوة وسحر "هوست توك™ " المتحدّث الإفتراضي (مانيكان)  من V-Studio في ستيديو الذي يعمل بأحدث تقنيات العرض الضوئي والصورة المسقطة من الخلف .  أترك المهمة للمتحدث الإفتراضي هوست توك™ لإنتزاع فرص لانهائية لأعمالك للتوهّج بالسوق من خلال إلقاء تحية متميزة لجمهورك بالمناسبات والمعارض والمؤتمرات  أو التحدث إليهم عن منتجاتك أو خدماتك وتقديم معلومات هامة لهم بشكل متميّز  أو حتى الترفيه عنهم بشكل غير مسبوق.	</p><br>
-						<span class="span-text"><a target="_blank" href="media/presentation/Vstudiohostalkpresentation.pdf" download="download"  class="pull-right vs_content"><img src="img/d_flash.png" /> تحميل الفيديو فلاش </a>
-						<a href="#" data-toggle="modal" data-target="#myModal3" class="pull-left vs_content" style="margin-top:10px;"><img src="img/3d-image-icon1.png"/> تحميل العرض التفصيلي </a>
+						<span class="span-text"><a target="_blank" href="https://www.dropbox.com/s/8jo62pai4vur564/V-Studio%20Hostalk%20Video%20Arabic.swf?dl=0" download="download"  class="pull-right vs_content"><img src="img/d_flash.png" /> تحميل الفيديو فلاش </a>
+						<a target="_blank" href="media/presentation/Vstudiohostalkpresentation.pdf" download="download" class="pull-left vs_content" style="margin-top:10px;"><img src="img/3d-image-icon1.png"/> تحميل العرض التفصيلي </a>
 						</span>
   <div id="myModal3" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
