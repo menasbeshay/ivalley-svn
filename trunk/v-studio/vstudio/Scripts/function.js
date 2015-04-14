@@ -670,6 +670,7 @@ function scrollAllow() {
                 mediaPlayer1.src = "media/videos/arabic/holo1.mp4";
             mediaPlayer1.load();
             mediaPlayer1.play();
+            mediaPlayer9.pause();
 
         });
         $(".vid-hover1").click(function () {
@@ -678,6 +679,7 @@ function scrollAllow() {
                 mediaPlayer1.src = "media/videos/arabic/holo2.mp4";
             mediaPlayer1.load();
             mediaPlayer1.play();
+            mediaPlayer9.pause();
 
         });
         $(".vid-hover2").click(function () {
@@ -686,6 +688,7 @@ function scrollAllow() {
                 mediaPlayer1.src = "media/videos/arabic/holo3.mp4";
             mediaPlayer1.load();
             mediaPlayer1.play();
+            mediaPlayer9.pause();
         });
         $(".vid-hover3").click(function () {
             mediaPlayer1.src = "media/videos/holo4.mp4";
@@ -693,6 +696,7 @@ function scrollAllow() {
                 mediaPlayer1.src = "media/videos/arabic/holo4.mp4";
             mediaPlayer1.load();
             mediaPlayer1.play();
+            mediaPlayer9.pause();
         });
         $(".vid-hover4").click(function () {
             mediaPlayer1.src = "media/videos/holo5.mp4";
@@ -700,7 +704,7 @@ function scrollAllow() {
                 mediaPlayer1.src = "media/videos/arabic/holo5.mp4";
             mediaPlayer1.load();
             mediaPlayer1.play();
-
+            mediaPlayer9.pause();
         });
         $(".vid-hover5").click(function () {
             mediaPlayer1.src = "media/videos/holo6.mp4";
@@ -708,7 +712,7 @@ function scrollAllow() {
                 mediaPlayer1.src = "media/videos/arabic/holo6.mp4";
             mediaPlayer1.load();
             mediaPlayer1.play();
-
+            mediaPlayer9.pause();
         });
         $(".vid-hover6").click(function () {
             mediaPlayer1.src = "media/videos/holo7.mp4";
@@ -716,6 +720,7 @@ function scrollAllow() {
                 mediaPlayer1.src = "media/videos/arabic/holo7.mp4";
             mediaPlayer1.load();
             mediaPlayer1.play();
+            mediaPlayer9.pause();
         });
         $(".vid-hover7").click(function () {
             mediaPlayer1.src = "media/videos/holo8.mp4";
@@ -723,6 +728,7 @@ function scrollAllow() {
                 mediaPlayer1.src = "media/videos/arabic/holo8.mp4";
             mediaPlayer1.load();
             mediaPlayer1.play();
+            mediaPlayer9.pause();
         });
         $(document).keydown(function (e) {
             if (e.keyCode == 40 || e.keyCode == 39 || e.keyCode == 38) {
@@ -1036,7 +1042,8 @@ function scrollAllow() {
         });
         mediaPlayer6 = document.getElementById('poly-vid');
         $("#poly-tv, #poly-button-2").click(function () {
-
+            if ($.browser.mozilla == true)
+                return;
             mediaPlayer6.src = "media/videos/polytouch.mp4";
             if (document.location.href.indexOf("arabic") > -1)
                 mediaPlayer6.src = "media/videos/arabic/polytouch.mp4";

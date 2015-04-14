@@ -348,10 +348,10 @@ Your browser does not support the video tag
 <li>Advanced gesture-recognition technologies</li>
 <li>Networkable, customizable and effectively memorable</li>
 </ul></p>
-						<br>
+						
 						<span class="span-text">
-                            <a target="_blank" href="media/presentation/VStudioHoloconicHologrampresentation.pdf" download="download" class="pull-left"><img src="img/d_flash.png" /> Download Flash Video</a>
-						    <a href="#" data-toggle="modal" data-target="#myModal" class="pull-right" style="margin-top:10px;"><img src="img/3d-image-icon1.png"/> View Presentation</a>
+                            <a target="_blank" href="https://www.dropbox.com/s/tzt39b9524x7r31/V-Studio%20Holoconic%20Hologram%20Video%20English.swf?dl=0" download="download" class="pull-left"><img src="img/d_flash.png" /> Download Flash Video</a>
+						    <a target="_blank" href="media/presentation/VStudioHoloconicHologrampresentation.pdf" download="download" class="pull-right" style="margin-top:10px;"><img src="img/3d-image-icon1.png"/> View Presentation</a>
 						</span>
   <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -401,8 +401,8 @@ Your browser does not support the video tag
 						<hr>
 						<p>V-Studio brings to you WINSHOW™, a seamless rear projection solution for all your shop’s window display needs. Just paste the V-Studio RT-RPF film on a transparent surface and mold the application with the appropriate surrounding lighting environment and distance between Winshow™ projector and surface & your product or service video display on your window is ready to impress all! No computer/laptop or video player is required.</p>
 						<br>
-						<span class="span-text"><a target="_blank" href="media/presentation/VstudioWinshowrearprojectionpresentation.pdf" download="download" class="pull-left"><img src="img/d_flash.png" /> Download Flash Video</a>
-						<a href="#" data-toggle="modal" data-target="#myModal1" class="pull-right" style="margin-top:10px;"><img src="img/3d-image-icon1.png" /> View Presentation</a>
+						<span class="span-text"><a target="_blank" href="https://www.dropbox.com/s/82bh6akmlw6g5ro/Winshow_English_%20video%20with%20logo.swf?dl=0" download="download" class="pull-left"><img src="img/d_flash.png" /> Download Flash Video</a>
+						<a target="_blank" href="media/presentation/VstudioWinshowrearprojectionpresentation.pdf" download="download" class="pull-right" style="margin-top:10px;"><img src="img/3d-image-icon1.png" /> View Presentation</a>
 						</span>
   <div id="myModal1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -442,8 +442,7 @@ Your browser does not support the video tag
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
 					</div>
-				</div>
-				<br>
+				</div>				
 				<div class="row">
 					<div class="col-md-5 col-md-offset-1 productWrapper" >
 						<h2>C. MA. Roll Up ™
@@ -454,8 +453,8 @@ Your browser does not support the video tag
 						</h3>
 						<hr>
 						<p>Create an incredible experience for your target audience with a unique video screen Roll Up banner having V-Studio RT-RPF film coating & our Winshow™ projector. No computer/laptop or video is required. It is 1.1m or 0.8 wide x 2m in height and is available in full screen or ½ screens with print graphics.</p><br>
-												<span class="span-text"><a target="_blank" href="media/presentation/VstudioCMARolluppresentation.pdf" download="download" class="pull-left"><img src="img/d_flash.png" /> Download Flash Video</a>
-						<a href="#" data-toggle="modal" data-target="#myModal2" class="pull-right" style="margin-top:10px;"><img src="img/3d-image-icon1.png"/> View Presentation</a>
+												<span class="span-text"><a target="_blank" href="https://www.dropbox.com/s/6dxo7oevn27lvzj/V-Studio%20C.MA%20Roll%20up%20Video%20English.swf?dl=0" download="download" class="pull-left"><img src="img/d_flash.png" /> Download Flash Video</a>
+						<a target="_blank" href="media/presentation/VstudioCMARolluppresentation.pdf" download="download" class="pull-right" style="margin-top:10px;"><img src="img/3d-image-icon1.png"/> View Presentation</a>
 						</span>
   <div id="myModal2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -504,8 +503,8 @@ Your browser does not support the video tag
 						</h3>
 						<hr>
 						<p>Give the ultimate boost to your campaign with the help of HOSTALK™, the virtual mannequin speaker by V-Studio, powered by the latest rear projection techniques. Let your virtual speaker grab endless opportunities for you in the marketplace through providing a warm-up prior to events, presenting vital information uniquely, and rendering unparalleled entertainment to the audience.	</p><br>
-						<span class="span-text"><a target="_blank" href="media/presentation/Vstudiohostalkpresentation.pdf" download="download" class="pull-left"><img src="img/d_flash.png" /> Download Flash Video</a>
-						<a href="#" data-toggle="modal" data-target="#myModal3" class="pull-right" style="margin-top:10px;"><img src="img/3d-image-icon1.png"/> View Presentation</a>
+						<span class="span-text"><a target="_blank" href="https://www.dropbox.com/s/bbopdhyvg13yk75/V-Studio%20Hostalk%20video%20English.swf?dl=0" download="download" class="pull-left"><img src="img/d_flash.png" /> Download Flash Video</a>
+						<a target="_blank" href="media/presentation/Vstudiohostalkpresentation.pdf" download="download" class="pull-right" style="margin-top:10px;"><img src="img/3d-image-icon1.png"/> View Presentation</a>
 						</span>
   <div id="myModal3" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -967,7 +966,7 @@ Your browser does not support the video tag
 								</div>
 								<div class="col-md-4" id="poly-button-2">
 									<div id="b-effect" href="#" >
-										<button id="poly-2-no-hover" class="poly-button"><img src="img/poly-play.png"/> &nbsp; Watch Video</button>
+										<button id="poly-2-no-hover" class="poly-button" type="button"><img src="img/poly-play.png"/> &nbsp; Watch Video</button>
 									</div>
 									
 								</div>

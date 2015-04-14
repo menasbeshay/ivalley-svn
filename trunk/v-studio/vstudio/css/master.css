@@ -1080,7 +1080,7 @@ width: auto; height: auto; z-index: -100;
 }
 #join-wrap
 {
-	background:rgba(0,0,0,0.5);
+	background:rgba(0,0,0,0.3);
 	background-repeat:no-repeat;
 	background-position:40% 50%;
 	background-size:100% 100%;
