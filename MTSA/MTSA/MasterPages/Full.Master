@@ -600,7 +600,7 @@
                                  future-proof
                              </p>
                              <div class="clearfix" style="height:10px;"></div>
-                             <a href="../files/Polytouchcatalogue.pdf" title="Download catalogue" style="display:block;text-decoration:none;">
+                             <a href="../files/Polytouchcatalogue.pdf" title="Download catalogue" style="display:block;text-decoration:none;" download="download" target="_blank">
                                  <label class="touchscreenlabel"> Download</label>
                                  <img src="../images/products/multitouchscreens/Page3/download.png" />
                              </a>
@@ -670,11 +670,11 @@ In addition to products, MTSA provides total solutions of applications/software 
                              </div>
                              <div class="col-lg-12 col-sm-12 col-md-12">
                                  <div class="col-lg-6 col-sm-6 col-md-6 ">
-                                     <a href="../files/MTSAPresentation.pdf" class=""><label class="touchscreenlabel"> Download</label><br />
+                                     <a href="../files/MTSAPresentation.pdf" class="" download="download" target="_blank"><label class="touchscreenlabel"> Download</label><br />
                              <img src="../images/products/digital_signage/Page1/present.png" /></a>
                                      </div>
                                  <div class="col-lg-6 col-sm-6 col-md-6 ">
-                                      <a href="../files/MTSAgeneralcatalogue.pdf" class=""><label class="touchscreenlabel"> Download</label><br />
+                                      <a href="../files/MTSAgeneralcatalogue.pdf" class="" download="download" target="_blank"><label class="touchscreenlabel"> Download</label><br />
                              <img src="../images/products/digital_signage/Page1/down.png" />
                                           </a>
                                      </div>
@@ -919,7 +919,7 @@ All kiosks can be equipped up on request with many unique optional features i.e.
 The aluminum profile developed specifically for this info-terminal emphasizes its thin form factor (6 cm) and at the same still provides a high level of stability. The integrated PC system is based on notebook technology and is characterized by the small amount of heat it generates and its extremely low level of energy consumption (25 watts).
 Possible uses of the ISIS model include providing general information, for Wayfinding, as a POI/POS, for providing employee information, as a virtual porter, or for trade shows and multimedia presentations.
                                  <br />
-                            <a href="../files/ISIS.pdf" class="checkindex col-lg-12 col-sm-12 col-md-12 " style="text-align:right;"><label class="touchscreenlabel"> Download</label> &nbsp;&nbsp;
+                            <a href="../files/ISIS.pdf" class="checkindex col-lg-12 col-sm-12 col-md-12 " style="text-align:right;" download="download" target="_blank"><label class="touchscreenlabel"> Download</label> &nbsp;&nbsp;
                                 <img src="../images/products/digital_signage/Page2/down.png" /></a> 
                              </p>
                                                              
@@ -971,7 +971,7 @@ Possible uses of the ISIS model include providing general information, for Wayfi
 The integrated PC system is based on notebook technology and is characterized by the small amount of heat it generates and its extremely low level of energy consumption(25 watts).
 Numerous branding options allow the device to be perfectly integrated into its surroundings.
                                  <br />
-                            <a href="../files/ERU.pdf" class="col-lg-12 col-sm-12 col-md-12 checkindex" style="text-align:right;"><label class="touchscreenlabel"> Download</label> &nbsp;&nbsp;
+                            <a href="../files/ERU.pdf" class="col-lg-12 col-sm-12 col-md-12 checkindex" style="text-align:right;" download="download" target="_blank"><label class="touchscreenlabel"> Download</label> &nbsp;&nbsp;
                                 <img src="../images/products/digital_signage/Page2/down.png" /></a> 
                              </p>
                                                              
@@ -1026,7 +1026,7 @@ For instance, a A4 printer, a card reader, and even a fingerprint reader can all
 The door on the front side of the machine allows easy access to all components, which means you can refill paper in the printer, for instance, without moving the machine away from the wall. Both a high quality security lock as well as the stable
 construction using steel plates and aluminum enables the use of the kiosk in unattended, heavily trafficked indoor areas. Possible uses of the HERA model include providing general information, for Wayfinding, as a POI or POS, for time recording, for providing employee information, as a virtual porter, or for trade shows and multimedia presentations.
                                  <br />
-                            <a href="../files/HERA.pdf" class="col-lg-12 col-sm-12 col-md-12 checkindex" style="text-align:right;"><label class="touchscreenlabel"> Download</label> &nbsp;&nbsp;
+                            <a href="../files/HERA.pdf" class="col-lg-12 col-sm-12 col-md-12 checkindex" style="text-align:right;" download="download" target="_blank"><label class="touchscreenlabel"> Download</label> &nbsp;&nbsp;
                                 <img src="../images/products/digital_signage/Page2/down.png" /></a> 
                              </p>
                                                              
@@ -1138,7 +1138,7 @@ Available in the following versions:</p>
                             <div class="clearfix" style="height:15px;clear:both"></div>                        
                             
                             <p style="text-align:justify">
-                                <span class="mtsa">MTSA</span>, a product of S.O. Sager International offers a unique 3D Wayfinding products & services for public buildings i.e. shopping malls, airports, universities, medical complex, big campus and others. 3D Wayfinding helps visitors find their way to destinations they want to reach easily, stress-free and quickly. 3D Wayfinding is an interactive touchscreen kiosk App    and available as a mobile App or web-based. <a href="../files/MTSA3DWayfindingpresentationG3.pdf" class="touchscreenlabel" style="text-decoration:underline;"> Download presentation for more details.&nbsp;<img src="../images/products/digital_signage/Page1/present.png" style="max-width:30px;"/></a>
+                                <span class="mtsa">MTSA</span>, a product of S.O. Sager International offers a unique 3D Wayfinding products & services for public buildings i.e. shopping malls, airports, universities, medical complex, big campus and others. 3D Wayfinding helps visitors find their way to destinations they want to reach easily, stress-free and quickly. 3D Wayfinding is an interactive touchscreen kiosk App    and available as a mobile App or web-based. <a href="../files/MTSA3DWayfindingpresentationG3.pdf" class="touchscreenlabel" style="text-decoration:underline;" download="download" target="_blank"> Download presentation for more details.&nbsp;<img src="../images/products/digital_signage/Page1/present.png" style="max-width:30px;"/></a>
                             </p>
                             <div class="clearfix" style="height:15px;clear:both"></div>                                                    
                             </div>
@@ -1198,7 +1198,7 @@ Available in the following versions:</p>
  The software is a cloud database & installed on MTSA touchscreen kiosks providing a self-service property searching , buying or leasing service for public.
 S.O. Sager International provides complete unique self-service property marketing concept including software development, 360° virtual tours, touchscreen kiosks supply & maintenance, and the design/building of the stand/booth to place in public areas i.e. malls, shopping centers, hypermarkets, airports, medical cities/hospitals, universities stadiums and others. 
 3garat software doesn’t only provide property finding; it also takes the customer through a 360° photograph or video virtual tour to all offered properties all the way to reserving a property and down payment process. 3garat software with CMS enables operator to update/change data anytime. 
-                                <a href="../files/3garaten.pdf" class="col-lg-3 col-sm-3 col-md-3" style="right:0;bottom:-10px;position:absolute;text-align:right;padding-right:0;"><label class="touchscreenlabel"> Download</label> &nbsp;&nbsp;
+                                <a href="../files/3garaten.pdf" class="col-lg-3 col-sm-3 col-md-3" download="download" target="_blank" style="right:0;bottom:-10px;position:absolute;text-align:right;padding-right:0;"><label class="touchscreenlabel"> Download</label> &nbsp;&nbsp;
                                 <img src="../images/products/digital_signage/Page1/present.png" style="max-width:30px;" /></a>    
                             </p>
                             
@@ -1260,10 +1260,10 @@ If you are you looking for a rewarding business & willing to invest little money
                                 <div class="col-md-8 col-sm-8 col-lg-8 clearfix" style="margin-top:20px;">
                                     <div class="form-group">
                                         
-                                        <input type="text" class="form-control" id="name1" placeholder="name" required="required" data-toggle="modal" data-target="#contactModal" />
+                                        <input type="text" class="form-control" id="name1" placeholder="name"  data-toggle="modal" data-target="#contactModal" />
                                     </div>
                                     <div class="form-group">                                                                                
-                                            <input type="email" class="form-control" id="email1" placeholder="email" data-toggle="modal" data-target="#contactModal" required="required" style="border-bottom-left-radius:4px;border-top-left-radius:4px;border-bottom-right-radius:0px;border-top-right-radius:0px;"/>
+                                            <input type="email" class="form-control" id="email1" placeholder="email" data-toggle="modal" data-target="#contactModal" style="border-bottom-left-radius:4px;border-top-left-radius:4px;border-bottom-right-radius:0px;border-top-right-radius:0px;"/>
                                     </div>                                    
                                 </div>
                                                                 
@@ -1362,7 +1362,7 @@ If you are you looking for a rewarding business & willing to invest little money
                         PHEX Dual/Triple: with multi 46” screens, other sizes are available up on request.
                         All models are available with great selection of options including: touchscreen, stereo sound system, WI FI , protection glass panel etc. 
                         <br />
-                            <a href="../files/PHEX.pdf" class="col-lg-12 col-sm-12 col-md-12" style="text-align:right;"><label class="touchscreenlabel"> Download</label> &nbsp;&nbsp;
+                            <a href="../files/PHEX.pdf" class="col-lg-12 col-sm-12 col-md-12" style="text-align:right;" download="download" target="_blank"><label class="touchscreenlabel"> Download</label> &nbsp;&nbsp;
                                 <img src="../images/products/digital_signage/Page2/down.png" /></a> 
                     </p>
                         </div>
@@ -1377,7 +1377,7 @@ If you are you looking for a rewarding business & willing to invest little money
                         PHEX Wall: The PHEX Wall is technologically identical to the PHEX Stand. It was designed to be mounted to a wall or ceiling, and is available in both vertical and horizontal formats.
 All models are available with great selection of options including: touchscreen, stereo sound system, WI FI , protection glass panel etc.
                         <br />
-                            <a href="../files/PHEX.pdf" class="col-lg-12 col-sm-12 col-md-12" style="text-align:right;"><label class="touchscreenlabel"> Download</label> &nbsp;&nbsp;
+                            <a href="../files/PHEX.pdf" class="col-lg-12 col-sm-12 col-md-12" download="download" target="_blank" style="text-align:right;"><label class="touchscreenlabel"> Download</label> &nbsp;&nbsp;
                                 <img src="../images/products/digital_signage/Page2/down.png" /></a> 
                     </p>
                         </div>
@@ -1393,7 +1393,7 @@ All  SELKET models can optionally be equipped with  touchscreen. Available in di
                     <br />
                         FARO: Functionality, design and a small form factor are characteristic for the model FARO. It´s particularly suitable for wall mount. 19” screen’s size. 
                             <br />
-                            <a href="../files/MTSAoutdoor.pdf" class="col-lg-12 col-sm-12 col-md-12" style="text-align:right;"><label class="touchscreenlabel"> Download</label> &nbsp;&nbsp;
+                            <a href="../files/MTSAoutdoor.pdf" class="col-lg-12 col-sm-12 col-md-12" download="download" target="_blank" style="text-align:right;"><label class="touchscreenlabel"> Download</label> &nbsp;&nbsp;
                                 <img src="../images/products/digital_signage/Page2/down.png" /></a> 
                     </p>
                         </div>
@@ -1425,7 +1425,7 @@ webcam, or various audio components.
 Further possible use are as a virtual porter, for providing tourist information, for occupational safety, as a POI or POS, for providing employee
 information, for time recording, and for multimedia presentations.  
                          <br />
-                            <a href="../files/VANA.pdf" class="col-lg-12 col-sm-12 col-md-12" style="text-align:right;"><label class="touchscreenlabel"> Download</label> &nbsp;&nbsp;
+                            <a href="../files/VANA.pdf" class="col-lg-12 col-sm-12 col-md-12" download="download" target="_blank" style="text-align:right;"><label class="touchscreenlabel"> Download</label> &nbsp;&nbsp;
                                 <img src="../images/products/digital_signage/Page2/down.png" /></a>                       
                     </p>
                         </div>
@@ -1447,7 +1447,7 @@ The version with a receipt printer,
 card reader, etc. can be used as a
 ticket dispenser, for time recording, or for access control, for example.
                       <br />
-                            <a href="../files/MITRA.pdf" class="col-lg-12 col-sm-12 col-md-12" style="text-align:right;"><label class="touchscreenlabel"> Download</label> &nbsp;&nbsp;
+                            <a href="../files/MITRA.pdf" class="col-lg-12 col-sm-12 col-md-12" download="download" target="_blank" style="text-align:right;"><label class="touchscreenlabel"> Download</label> &nbsp;&nbsp;
                                 <img src="../images/products/digital_signage/Page2/down.png" /></a> 
                     </p>
                         </div>

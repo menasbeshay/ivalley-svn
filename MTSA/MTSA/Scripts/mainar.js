@@ -5,6 +5,7 @@
         scrollOverflow: true,
         slidesNavigation: false,        
         resize: false,
+        css3:false,
         verticalCentered: false,        
         afterLoad: function (anchorLink, index) {
             $.fn.fullpage.setAllowScrolling(false);
