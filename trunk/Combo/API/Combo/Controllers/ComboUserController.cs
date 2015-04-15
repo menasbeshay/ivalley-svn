@@ -8,6 +8,7 @@ using Combo.BLL;
 using System.Resources;
 using System.Data;
 using System.Net.Mail;
+using System.Net.Http.Formatting;
 
 namespace Combo.Controllers
 {
@@ -63,8 +64,8 @@ namespace Combo.Controllers
         /// </summary>
         /// <param name="ID">ID of Combo User</param>
         /// <returns>ComboResponse object with requested User object </returns>
-        [Route("GetUser/ID:int")]
-        public HttpResponseMessage GetUser(int ID)
+        [Route("GetUser")]
+        public HttpResponseMessage GetUser([FromBody]int ID)
         {
             Models.ComboResponse _response = new Models.ComboResponse();
             _response.bool_result = true;
@@ -117,20 +118,20 @@ namespace Combo.Controllers
         /// <param name="Password">password</param>
         /// <returns>ComboResponse object with requested User object</returns>
         [HttpPost]
-        [Route("GetUser/{username}/{password}")]
-        public HttpResponseMessage GetUser(string UserName, string Password)
+        [Route("GetUser")]
+        public HttpResponseMessage GetUser(Models.ComboUser _user)
         {
             Models.ComboResponse _response = new Models.ComboResponse();
             _response.bool_result = true;
             _response.ErrorCode = 0;
             _response.ErrorMsg = "";
             ComboUser user = new ComboUser();
-            if (!user.GetUserByUserNameAndPassword(UserName, Password))
+            if (!user.GetUserByUserNameAndPassword(_user.UserName, _user.Password))
             {
                 _response.ErrorCode = 11;
                 _response.ErrorMsg = "User doesn't exist";
                 _response.bool_result = false;
-                if (user.GetUserByUserName(UserName))
+                if (user.GetUserByUserName(_user.UserName))
                 {
                     _response.ErrorCode = 10;
                     _response.ErrorMsg = "Password not correct";

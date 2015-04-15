@@ -136,6 +136,7 @@ namespace Combo.ComboAPI
                     IsPrivateAccount = row.IsNull("IsPrivateAccount") ? false : Convert.ToBoolean(row["IsPrivateAccount"]),
                     IsFollowingRequestSent = Convert.ToBoolean(row["IsFollowingRequestSent"]),
                     IsFollowerRequestSent = Convert.ToBoolean(row["IsFollowerRequestSent"]),
+                    IsBlocked = Convert.ToBoolean(row["IsBlocked"])
                 };
             }).ToList();
 
@@ -735,6 +736,57 @@ namespace Combo.ComboAPI
 
         }
 
+        [WebMethod]
+        /// <summary>
+        /// Toggle Block user 
+        /// </summary>
+        /// <param name="UserID">UserID </param>
+        /// <param name="FollowerID">Bloced User ID</param>
+        /// <returns>ComboResponse object with result</returns>
+        public void ToggleBlockUser(int userId, int BlockedUserID)
+        {
+            Models.ComboResponse _response = new Models.ComboResponse();
+            _response.bool_result = true;
+            _response.ErrorCode = 0;
+            _response.ErrorMsg = "";
+            bool block = false;
+
+            BlockedUser blocked = new BlockedUser();
+            if (!blocked.LoadByPrimaryKey(userId, BlockedUserID))
+            {
+                blocked.AddNew();
+                blocked.BlockedUserID = BlockedUserID;
+                blocked.ComboUserID = userId;
+                blocked.Save();
+                block = true;
+            }
+            else
+            {
+                blocked.MarkAsDeleted();
+                blocked.Save();
+            }
+
+            if (block)
+            {
+                ProfileFollower _1stfollow = new ProfileFollower();
+                ProfileFollower _2ndfollow = new ProfileFollower();
+                if (_1stfollow.LoadByPrimaryKey(userId, BlockedUserID))
+                {
+                    _1stfollow.MarkAsDeleted();
+                    _1stfollow.Save();
+                }
+                if (_2ndfollow.LoadByPrimaryKey(BlockedUserID, userId))
+                {
+                    _2ndfollow.MarkAsDeleted();
+                    _2ndfollow.Save();
+                }
+            }
+
+            _response.Entity = null;
+            SetContentResult(_response);
+
+        }
+
         private void UpdateUserRank(int UserID)
         {
             ComboUser user = new ComboUser();
@@ -860,8 +912,8 @@ namespace Combo.ComboAPI
         #endregion
 
         #region Posts
-        const int PostsPageSize = 50;
-        const int CommentsPageSize = 20;
+        const int PostsPageSize = 20;
+        const int CommentsPageSize = 10;
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         /// <summary>
@@ -888,7 +940,11 @@ namespace Combo.ComboAPI
                     ProfilePic = row["ProfilePic"].ToString(),
                     PostText = row["PostText"].ToString(),
                     PostDate = Convert.ToDateTime(row["PostDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
-                    IsDownloadable = (row["IsPostsDownloadable"] == DBNull.Value) ? false : Convert.ToBoolean(row["IsPostsDownloadable"])
+                    IsDownloadable = (row["IsPostsDownloadable"] == DBNull.Value) ? false : Convert.ToBoolean(row["IsPostsDownloadable"]),
+                    Source = Convert.ToInt32(row["Source"]),
+                    IsFavourite = Convert.ToBoolean(row["IsFavourite"]),
+                    IsLike = Convert.ToBoolean(row["IsLike"]),
+                    UserRankID = Convert.ToInt32(row["UserRankID"]),
                 };
             }).Skip(Page * PostsPageSize).Take(PostsPageSize).ToList();
 
@@ -1079,7 +1135,10 @@ namespace Combo.ComboAPI
                     ProfilePic = row["ProfilePic"].ToString(),
                     PostText = row["PostText"].ToString(),
                     PostDate = Convert.ToDateTime(row["PostDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
-                    IsDownloadable = (row["IsPostsDownloadable"] == DBNull.Value) ? false : Convert.ToBoolean(row["IsPostsDownloadable"])
+                    IsDownloadable = (row["IsPostsDownloadable"] == DBNull.Value) ? false : Convert.ToBoolean(row["IsPostsDownloadable"]),
+                    IsFavourite = Convert.ToBoolean(row["IsFavourite"]),
+                    IsLike = Convert.ToBoolean(row["IsLike"]),
+                    UserRankID = Convert.ToInt32(row["UserRankID"]),
                 };
             }).Skip(Page * PostsPageSize).Take(PostsPageSize).ToList();
 
@@ -1240,7 +1299,7 @@ namespace Combo.ComboAPI
         /// </summary>
         /// <param name="ID">ID of Combo User</param>
         /// <returns>ComboResponse object with List of all posts for User</returns>
-        public void ExplorePosts(int Page)
+        public void ExplorePosts(int Page, int UserID)
         {
             Models.ComboResponse _response = new Models.ComboResponse();
             _response.bool_result = true;
@@ -1248,7 +1307,7 @@ namespace Combo.ComboAPI
             _response.ErrorMsg = "";
 
             ComboPost posts = new ComboPost();
-            posts.ExplorePosts();
+            posts.ExplorePosts(UserID);
             List<Models.ComboPost> Posts = posts.DefaultView.Table.AsEnumerable().Select(row =>
             {
                 return new Models.ComboPost
@@ -1259,7 +1318,9 @@ namespace Combo.ComboAPI
                     ProfilePic = row["ProfilePic"].ToString(),
                     PostText = row["PostText"].ToString(),
                     PostDate = Convert.ToDateTime(row["PostDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
-                    IsDownloadable = (row["IsPostsDownloadable"] == DBNull.Value) ? false : Convert.ToBoolean(row["IsPostsDownloadable"])
+                    IsDownloadable = (row["IsPostsDownloadable"] == DBNull.Value) ? false : Convert.ToBoolean(row["IsPostsDownloadable"]),                                                            
+                    IsLike = Convert.ToBoolean(row["IsLike"]),
+                    UserRankID = Convert.ToInt32(row["UserRankID"]),
                 };
             }).Skip(Page * PostsPageSize).Take(PostsPageSize).ToList();
 
@@ -1612,7 +1673,10 @@ namespace Combo.ComboAPI
                     ProfilePic = row["ProfilePic"].ToString(),
                     PostText = row["PostText"].ToString(),
                     PostDate = Convert.ToDateTime(row["PostDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
-                    IsDownloadable = (row["IsPostsDownloadable"] == DBNull.Value) ? false : Convert.ToBoolean(row["IsPostsDownloadable"])
+                    IsDownloadable = (row["IsPostsDownloadable"] == DBNull.Value) ? false : Convert.ToBoolean(row["IsPostsDownloadable"]),
+                    IsFavourite = Convert.ToBoolean(row["IsFavourite"]),
+                    IsLike = Convert.ToBoolean(row["IsLike"]),
+                    UserRankID = Convert.ToInt32(row["UserRankID"]),
                 };
             }).Skip(Page * PostsPageSize).Take(PostsPageSize).ToList();
 
@@ -1787,7 +1851,10 @@ namespace Combo.ComboAPI
                     ProfilePic = row["ProfilePic"].ToString(),
                     PostText = row["PostText"].ToString(),
                     PostDate = Convert.ToDateTime(row["PostDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
-                    IsDownloadable = (row["IsPostsDownloadable"] == DBNull.Value) ? false : Convert.ToBoolean(row["IsPostsDownloadable"])
+                    IsDownloadable = (row["IsPostsDownloadable"] == DBNull.Value) ? false : Convert.ToBoolean(row["IsPostsDownloadable"]),
+                    IsFavourite = Convert.ToBoolean(row["IsFavourite"]),
+                    IsLike = Convert.ToBoolean(row["IsLike"]),
+                    UserRankID = Convert.ToInt32(row["UserRankID"]),
                 };
             }).Skip(Page * PostsPageSize).Take(PostsPageSize).ToList();
 
@@ -1962,7 +2029,10 @@ namespace Combo.ComboAPI
                     ProfilePic = row["ProfilePic"].ToString(),
                     PostText = row["PostText"].ToString(),
                     PostDate = Convert.ToDateTime(row["PostDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
-                    IsDownloadable = (row["IsPostsDownloadable"] == DBNull.Value) ? false : Convert.ToBoolean(row["IsPostsDownloadable"])
+                    IsDownloadable = (row["IsPostsDownloadable"] == DBNull.Value) ? false : Convert.ToBoolean(row["IsPostsDownloadable"]),
+                    IsFavourite = Convert.ToBoolean(row["IsFavourite"]),
+                    IsLike = Convert.ToBoolean(row["IsLike"]),
+                    UserRankID = Convert.ToInt32(row["UserRankID"]),
                 };
             }).Skip(Page * PostsPageSize).Take(PostsPageSize).ToList();
 
@@ -2137,7 +2207,10 @@ namespace Combo.ComboAPI
                     ProfilePic = row["ProfilePic"].ToString(),
                     PostText = row["PostText"].ToString(),
                     PostDate = Convert.ToDateTime(row["PostDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
-                    IsDownloadable = (row["IsPostsDownloadable"] == DBNull.Value) ? false : Convert.ToBoolean(row["IsPostsDownloadable"])
+                    IsDownloadable = (row["IsPostsDownloadable"] == DBNull.Value) ? false : Convert.ToBoolean(row["IsPostsDownloadable"]),
+                    IsFavourite = Convert.ToBoolean(row["IsFavourite"]),
+                    IsLike = Convert.ToBoolean(row["IsLike"]),
+                    UserRankID = Convert.ToInt32(row["UserRankID"]),
                 };
             }).Skip(Page * PostsPageSize).Take(PostsPageSize).ToList();
 
@@ -2312,7 +2385,10 @@ namespace Combo.ComboAPI
                     ProfilePic = row["ProfilePic"].ToString(),
                     PostText = row["PostText"].ToString(),
                     PostDate = Convert.ToDateTime(row["PostDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
-                    IsDownloadable = (row["IsPostsDownloadable"] == DBNull.Value) ? false : Convert.ToBoolean(row["IsPostsDownloadable"])
+                    IsDownloadable = (row["IsPostsDownloadable"] == DBNull.Value) ? false : Convert.ToBoolean(row["IsPostsDownloadable"]),
+                    IsFavourite = Convert.ToBoolean(row["IsFavourite"]),
+                    IsLike = Convert.ToBoolean(row["IsLike"]),
+                    UserRankID = Convert.ToInt32(row["UserRankID"]),
                 };
             }).Skip(Page * PostsPageSize).Take(PostsPageSize).ToList();
 
@@ -2465,6 +2541,186 @@ namespace Combo.ComboAPI
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         /// <summary>
+        /// Get All Posts by Userid
+        /// </summary>
+        /// <param name="ID">ID of Combo User</param>
+        /// <returns>ComboResponse object with List of all posts for User</returns>
+        public void GetFavouritePosts(int UserID, int Page)
+        {
+            Models.ComboResponse _response = new Models.ComboResponse();
+            _response.bool_result = true;
+            _response.ErrorCode = 0;
+            _response.ErrorMsg = "";
+
+            ComboPost posts = new ComboPost();
+            posts.GetFavPostByUserID(UserID);
+            List<Models.ComboPost> Posts = posts.DefaultView.Table.AsEnumerable().Select(row =>
+            {
+                return new Models.ComboPost
+                {
+                    ComboPostID = Convert.ToInt32(row["ComboPostID"]),
+                    ComboUserID = Convert.ToInt32(row["ComboUserID"]),
+                    ComboUserName = row["UserName"].ToString(),
+                    ProfilePic = row["ProfilePic"].ToString(),
+                    PostText = row["PostText"].ToString(),
+                    PostDate = Convert.ToDateTime(row["PostDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                    IsDownloadable = (row["IsPostsDownloadable"] == DBNull.Value) ? false : Convert.ToBoolean(row["IsPostsDownloadable"]),
+                    IsFavourite = Convert.ToBoolean(row["IsFavourite"]),
+                    IsLike = Convert.ToBoolean(row["IsLike"]),
+                    UserRankID = Convert.ToInt32(row["UserRankID"]),
+                };
+            }).Skip(Page * PostsPageSize).Take(PostsPageSize).ToList();
+
+
+            foreach (Models.ComboPost item in Posts)
+            {
+                ComboPostLike likes = new ComboPostLike();
+                likes.GetPostLikesByPostID(item.ComboPostID);
+                item.Likes = likes.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.ComboPostLike
+                    {
+                        ComboPostID = Convert.ToInt32(r["ComboPostID"]),
+                        ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                        UserName = r["UserName"].ToString(),
+                    };
+                }).ToList();
+
+                ComboComment totalCount = new ComboComment();
+                totalCount.GetPostCommentsCount(item.ComboPostID);
+
+                item.CommentsCount = Convert.ToInt32(totalCount.GetColumn("TotalCount"));
+
+                ComboPostShare shareCount = new ComboPostShare();
+                shareCount.GetPostShareCount(item.ComboPostID);
+
+                item.ShareCount = Convert.ToInt32(shareCount.GetColumn("TotalCount"));
+
+                ComboComment comments = new ComboComment();
+                comments.GetTopPostCommentsByPostID(item.ComboPostID);
+                // get top 3 comments for each post
+                item.Comments = comments.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.ComboComment
+                    {
+                        ComboCommentID = Convert.ToInt32(r["ComboCommentID"]),
+                        ComboPostID = Convert.ToInt32(r["ComboPostID"]),
+                        ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                        ComboUserName = r["UserName"].ToString(),
+                        ProfilePic = r["ProfilePic"].ToString(),
+                        CommentText = r["CommentText"].ToString(),
+                        CommentDate = Convert.ToDateTime(r["CommentDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
+                    };
+                }).ToList();
+
+                List<Models.ComboComment> _comm = item.Comments as List<Models.ComboComment>;
+                foreach (Models.ComboComment _itemcomm in _comm)
+                {
+                    ComboCommentLike c_likes = new ComboCommentLike();
+                    ComboCommentAttachment c_attachments = new ComboCommentAttachment();
+                    c_likes.GetCommentLikesByCommentID(_itemcomm.ComboCommentID);
+                    c_attachments.GetCommentAttachmentsByCommentID(_itemcomm.ComboCommentID);
+                    _itemcomm.Likes = c_likes.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.ComboCommentLike
+                        {
+                            ComboCommentID = Convert.ToInt32(r["ComboCommentID"]),
+                            ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                            UserName = r["UserName"].ToString(),
+                        };
+                    }).ToList();
+                    _itemcomm.Attachments = c_attachments.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.Attachment
+                        {
+                            AttachmentID = Convert.ToInt32(r["AttachmentID"]),
+                            Path = r["Path"].ToString(),
+                            AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"]),
+                            ThumbsPath = r["ThumbsPath"].ToString()
+                        };
+                    }).ToList();
+
+                    // get user mention 
+                    CommentUserTag CommentuserTags = new CommentUserTag();
+                    CommentuserTags.GetUserTagsByCommentID(_itemcomm.ComboCommentID);
+                    _itemcomm.UserTags = CommentuserTags.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.CommentUserTag
+                        {
+                            ComboCommentID = Convert.ToInt32(r["ComboCommentID"]),
+                            UserName = r["Username"].ToString(),
+                            ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                            Offset = Convert.ToInt32(r["Offset"])
+                        };
+                    }).ToList();
+
+                    // get hashtags 
+                    CommentHashTag Commenthastags = new CommentHashTag();
+                    Commenthastags.GetHashTagsByCommnetID(_itemcomm.ComboCommentID);
+                    _itemcomm.HashTags = Commenthastags.DefaultView.Table.AsEnumerable().Select(r =>
+                    {
+                        return new Models.CommentHashTag
+                        {
+                            HashTagID = Convert.ToInt32(r["HashTagID"]),
+                            TagName = r["Name"].ToString(),
+                            Offset = Convert.ToInt32(r["Offset"])
+                        };
+                    }).ToList();
+                }
+
+                item.Comments = _comm;
+
+                ComboPostAttachment attachments = new ComboPostAttachment();
+                attachments.GetPostAttachmentsByPostID(item.ComboPostID);
+                item.Attachments = attachments.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.Attachment
+                    {
+                        AttachmentID = Convert.ToInt32(r["AttachmentID"]),
+                        Path = r["Path"].ToString(),
+                        AttachmentTypeID = Convert.ToInt32(r["AttachmentTypeID"]),
+                        ThumbsPath = r["ThumbsPath"].ToString()
+                    };
+                }).ToList();
+
+                // get user mention 
+                PostUserTag userTags = new PostUserTag();
+                userTags.GetUserTagsByPostID(item.ComboPostID);
+                item.UserTags = userTags.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.PostUserTag
+                    {
+                        ComboPostID = Convert.ToInt32(r["ComboPostID"]),
+                        UserName = r["Username"].ToString(),
+                        ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                        Offset = Convert.ToInt32(r["Offset"])
+                    };
+                }).ToList();
+
+                // get hashtags 
+                PostHashTag hastags = new PostHashTag();
+                hastags.GetHashTagsByPostID(item.ComboPostID);
+                item.HashTags = hastags.DefaultView.Table.AsEnumerable().Select(r =>
+                {
+                    return new Models.PostHashTag
+                    {
+                        HashTagID = Convert.ToInt32(r["HashTagID"]),
+                        TagName = r["Name"].ToString(),
+                        Offset = Convert.ToInt32(r["Offset"])
+                    };
+                }).ToList();
+            }
+
+            _response.Entity = Posts;
+            SetContentResult(_response);
+            //return _response;
+
+        }
+
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        /// <summary>
         /// Get Post By ID
         /// </summary>
         /// <param name="ID">ID of Post</param>
@@ -2570,7 +2826,8 @@ namespace Combo.ComboAPI
                             TagName = r["Name"].ToString(),
                             Offset = Convert.ToInt32(r["Offset"])
                         };
-                    }).ToList()
+                    }).ToList(),                                        
+                    UserRankID = Convert.ToInt32(row["UserRankID"]),
 
                 };
             }).ToList();
@@ -2669,7 +2926,8 @@ namespace Combo.ComboAPI
                         ProfilePic = row["ProfilePic"].ToString(),
                         PostText = row["PostText"].ToString(),
                         PostDate = Convert.ToDateTime(row["PostDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
-                        IsDownloadable = (row["IsPostsDownloadable"] == DBNull.Value) ? false : Convert.ToBoolean(row["IsPostsDownloadable"])
+                        IsDownloadable = (row["IsPostsDownloadable"] == DBNull.Value) ? false : Convert.ToBoolean(row["IsPostsDownloadable"]),                        
+                        UserRankID = Convert.ToInt32(row["UserRankID"]),
                     };
                 }).Skip(Page * PostsPageSize).Take(PostsPageSize).ToList();
 
@@ -2850,7 +3108,8 @@ namespace Combo.ComboAPI
                     ProfilePic = row["ProfilePic"].ToString(),
                     PostText = row["PostText"].ToString(),
                     PostDate = Convert.ToDateTime(row["PostDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
-                    IsDownloadable = (row["IsPostsDownloadable"] == DBNull.Value) ? false : Convert.ToBoolean(row["IsPostsDownloadable"])
+                    IsDownloadable = (row["IsPostsDownloadable"] == DBNull.Value) ? false : Convert.ToBoolean(row["IsPostsDownloadable"]),                    
+                    UserRankID = Convert.ToInt32(row["UserRankID"]),
                 };
             }).Skip(Page * PostsPageSize).Take(PostsPageSize).ToList();
 
@@ -3379,7 +3638,10 @@ namespace Combo.ComboAPI
                     ProfilePic = row["ProfilePic"].ToString(),
                     PostText = row["PostText"].ToString(),
                     PostDate = Convert.ToDateTime(row["PostDate"].ToString()).Subtract(new DateTime(1970, 1, 1)).TotalSeconds,
-                    IsDownloadable = (row["IsPostsDownloadable"] == DBNull.Value) ? false : Convert.ToBoolean(row["IsPostsDownloadable"])
+                    IsDownloadable = (row["IsPostsDownloadable"] == DBNull.Value) ? false : Convert.ToBoolean(row["IsPostsDownloadable"]),
+                    IsFavourite = Convert.ToBoolean(row["IsFavourite"]),
+                    IsLike = Convert.ToBoolean(row["IsLike"]),
+                    UserRankID = Convert.ToInt32(row["UserRankID"]),
                 };
             }).Skip(Page * PostsPageSize).Take(PostsPageSize).ToList();
 
@@ -3722,8 +3984,41 @@ namespace Combo.ComboAPI
             _response.Entity = null;
             SetContentResult(_response);
 
-        }       
+        }
 
+        [WebMethod]
+        /// <summary>
+        /// Toggle Fav Post By ID
+        /// </summary>
+        /// <param name="ID">ID of Post</param>
+        /// <param name="ID">userid of user</param>
+        /// <returns>ComboResponse object  </returns>
+        public void ToggleFavouritePostByID(int id, int userid)
+        {
+            Models.ComboResponse _response = new Models.ComboResponse();
+            _response.bool_result = true;
+            _response.ErrorCode = 0;
+            _response.ErrorMsg = "";
+            
+            ComboPostFav fav = new ComboPostFav();
+            if (!fav.LoadByPrimaryKey(userid, id))
+            {
+                fav.AddNew();
+                fav.ComboPostID = id;
+                fav.ComboUserID = userid;
+                fav.Save();
+
+            }
+            else
+            {
+                fav.MarkAsDeleted();
+                fav.Save();
+            }            
+
+            _response.Entity = null;
+            SetContentResult(_response);
+
+        }
        
         #endregion
 
@@ -4363,8 +4658,8 @@ namespace Combo.ComboAPI
                     {
                         ComboFriendID = Convert.ToInt32(row["ComboFollowerID"]),
                         ComboUserID = Convert.ToInt32(row["ComboUserID"]),
-                        ComboUserName = commentor.UserName,
-                        ComboDisplayName = commentor.DisplayName,
+                        ComboUserName = creator.UserName,
+                        ComboDisplayName = creator.DisplayName,
                         ProfilePic = creator.GetColumn("ProfilePic").ToString(),
                         FriendProfilePic = commentor.GetColumn("ProfilePic").ToString(),
                         IsFollowUser = follow

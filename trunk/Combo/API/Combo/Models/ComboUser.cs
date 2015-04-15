@@ -50,6 +50,7 @@ namespace Combo.Models
         public bool IsPrivateAccount { get; set; }
         public bool IsFollowingRequestSent { get; set; }
         public bool IsFollowerRequestSent { get; set; }
+        public bool IsBlocked { get; set; }
 
     }
 }

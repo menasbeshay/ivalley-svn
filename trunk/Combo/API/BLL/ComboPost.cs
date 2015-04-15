@@ -15,30 +15,42 @@ namespace Combo.BLL
         // get user posts - shared posts - friends posts - following posts
         public virtual bool GetPostByUserID(int userid)
         {
-            return LoadFromRawSql(@"Select P.*, U.UserName, A.Path ProfilePic, S.IsPostsDownloadable from ComboPost P
+            return LoadFromRawSql(@"Select P.*, U.UserName, A.Path ProfilePic, S.IsPostsDownloadable , case when PV.ComboPostID is null then 'False' else 'True' end IsFavourite, case when PL.ComboPostID is null then 'False' else 'True' end IsLike,U.UserRankID, 0 Source from ComboPost P
                                     Inner Join ComboUser U on P.ComboUserID = U.ComboUserID and 
                                                               (U.IsDeactivated <> 1 or U.IsDeactivated is null)
                                     Left join Attachment A on U.ProfileImgID = A.AttachmentID
                                     Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID 
+                                    Left join ComboPostFav PV on P.ComboPostID = PV.ComboPostID and PV.ComboUserID = {0}
+                                    Left join ComboPostLike PL on P.ComboPostID = PL.ComboPostID and PL.ComboUserID = {0}
                                     Where P.ComboUserID = {0} and 
-                                    (P.IsDeleted <> 1 or P.IsDeleted is null) 
-                                    union
-                                    Select P.*, U.UserName, A.Path ProfilePic, S.IsPostsDownloadable from ComboPost P                                                                        
+                                    (P.IsDeleted <> 1 or P.IsDeleted is null) and 
+                                    P.ComboUserID not in (select BlockedUserID from BlockedUser where ComboUserID = {0}) and 
+                                    P.ComboUserID not in (select ComboUserID from BlockedUser where BlockedUserID = {0})
+                                    union all
+                                    Select P.ComboPostID, P.ComboUserID, P.PostText, PS.ShareDate PostDate, P.IsDeleted, U.UserName, A.Path ProfilePic, S.IsPostsDownloadable, case when PV.ComboPostID is null then 'False' else 'True' end, case when PL.ComboPostID is null then 'False' else 'True' end,U.UserRankID, 1 from ComboPost P                                                                        
                                     Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID 
                                     Inner join ComboPostShare PS on PS.ComboPostID = P.ComboPostID and 
 																	PS.ComboUserID = {0}
                                     Inner Join ComboUser U on P.ComboUserID = U.ComboUserID and															   
                                                               (U.IsDeactivated <> 1 or U.IsDeactivated is null)
+                                    Left join ComboPostFav PV on P.ComboPostID = PV.ComboPostID and PV.ComboUserID = {0}
+                                    Left join ComboPostLike PL on P.ComboPostID = PL.ComboPostID and PL.ComboUserID = {0}
 									Left join Attachment A on U.ProfileImgID = A.AttachmentID
-                                    Where (P.IsDeleted <> 1 or P.IsDeleted is null)
-                                    union
-                                    Select P.*, U.UserName, A.Path ProfilePic , S.IsPostsDownloadable from ComboPost P
+                                    Where (P.IsDeleted <> 1 or P.IsDeleted is null) and 
+                                    P.ComboUserID not in (select BlockedUserID from BlockedUser where ComboUserID = {0}) and 
+                                    P.ComboUserID not in (select ComboUserID from BlockedUser where BlockedUserID = {0})
+                                    union all
+                                    Select P.*, U.UserName, A.Path ProfilePic , S.IsPostsDownloadable, case when PV.ComboPostID is null then 'False' else 'True' end, case when PL.ComboPostID is null then 'False' else 'True' end ,U.UserRankID, 2 from ComboPost P
                                     Inner Join ComboUser U on P.ComboUserID = U.ComboUserID and 
                                                               (U.IsDeactivated <> 1 or U.IsDeactivated is null)
                                     Left join Attachment A on U.ProfileImgID = A.AttachmentID
                                     Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID
+                                    Left join ComboPostFav PV on P.ComboPostID = PV.ComboPostID and PV.ComboUserID = {0}
+                                    Left join ComboPostLike PL on P.ComboPostID = PL.ComboPostID and PL.ComboUserID = {0}
                                     Where P.ComboUserID in (select ComboFollowerID from ProfileFollower PF where PF.ComboUserID = {0}) and 
-                                    (P.IsDeleted <> 1 or P.IsDeleted is null)
+                                    (P.IsDeleted <> 1 or P.IsDeleted is null) and 
+                                    P.ComboUserID not in (select BlockedUserID from BlockedUser where ComboUserID = {0}) and 
+                                    P.ComboUserID not in (select ComboUserID from BlockedUser where BlockedUserID = {0})
                                     /*union
                                     Select P.*, U.UserName, A.Path ProfilePic, S.IsPostsDownloadable 
                                     from ComboPost P
@@ -64,16 +76,18 @@ namespace Combo.BLL
                                                                       CFF.RequestApproved = 1 and
                                                                       (CFF.IsBanned <> 1 or CFF.IsBanned is null)
                                     where (P.IsDeleted <> 1 or P.IsDeleted is null)*/
-                                    order by P.PostDate Desc", userid);
+                                    order by PostDate Desc", userid);
         }
 
         public virtual bool GetUserPostByUserID(int userid)
         {
-            return LoadFromRawSql(@"Select P.*, U.UserName, A.Path ProfilePic, S.IsPostsDownloadable from ComboPost P
+            return LoadFromRawSql(@"Select P.*, U.UserName, A.Path ProfilePic, S.IsPostsDownloadable, case when PV.ComboPostID is null then 'False' else 'True' end IsFavourite, case when PL.ComboPostID is null then 'False' else 'True' end IsLike,U.UserRankID from ComboPost P
                                     Inner Join ComboUser U on P.ComboUserID = U.ComboUserID and 
                                                               (U.IsDeactivated <> 1 or U.IsDeactivated is null)
                                     Left join Attachment A on U.ProfileImgID = A.AttachmentID
                                     Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID 
+                                    Left join ComboPostFav PV on P.ComboPostID = PV.ComboPostID and PV.ComboUserID = {0}
+                                    Left join ComboPostLike PL on P.ComboPostID = PL.ComboPostID and PL.ComboUserID = {0}
                                     Where P.ComboUserID = {0} and 
                                     (P.IsDeleted <> 1 or P.IsDeleted is null)                                                                         
                                     order by P.PostDate Desc", userid);
@@ -90,11 +104,13 @@ namespace Combo.BLL
 
         public virtual bool GetPhotoPostsByUserID(int userid)
         {
-            return LoadFromRawSql(@"Select P.*, U.UserName, A.Path ProfilePic, S.IsPostsDownloadable from ComboPost P
+            return LoadFromRawSql(@"Select P.*, U.UserName, A.Path ProfilePic, S.IsPostsDownloadable, case when PV.ComboPostID is null then 'False' else 'True' end IsFavourite, case when PL.ComboPostID is null then 'False' else 'True' end IsLike,U.UserRankID from ComboPost P
                                     Inner Join ComboUser U on P.ComboUserID = U.ComboUserID and 
                                                               (U.IsDeactivated <> 1 or U.IsDeactivated is null)
                                     Left join Attachment A on U.ProfileImgID = A.AttachmentID
                                     Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID
+                                    Left join ComboPostFav PV on P.ComboPostID = PV.ComboPostID and PV.ComboUserID = {0}
+                                    Left join ComboPostLike PL on P.ComboPostID = PL.ComboPostID and PL.ComboUserID = {0}
                                     Inner Join ComboPostAttachment PA on P.ComboPostID = PA.ComboPostID
                                     inner Join Attachment AA on PA.AttachmentID = AA.AttachmentID and 
                                                                 AA.AttachmentTypeID = 1 
@@ -105,11 +121,13 @@ namespace Combo.BLL
 
         public virtual bool GetAudioPostsByUserID(int userid)
         {
-            return LoadFromRawSql(@"Select P.*, U.UserName, A.Path ProfilePic, S.IsPostsDownloadable from ComboPost P
+            return LoadFromRawSql(@"Select P.*, U.UserName, A.Path ProfilePic, S.IsPostsDownloadable, case when PV.ComboPostID is null then 'False' else 'True' end IsFavourite, case when PL.ComboPostID is null then 'False' else 'True' end IsLike,U.UserRankID from ComboPost P
                                     Inner Join ComboUser U on P.ComboUserID = U.ComboUserID and 
                                                               (U.IsDeactivated <> 1 or U.IsDeactivated is null)
                                     Left join Attachment A on U.ProfileImgID = A.AttachmentID
                                     Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID
+                                    Left join ComboPostFav PV on P.ComboPostID = PV.ComboPostID and PV.ComboUserID = {0}
+                                    Left join ComboPostLike PL on P.ComboPostID = PL.ComboPostID and PL.ComboUserID = {0}
                                     Inner Join ComboPostAttachment PA on P.ComboPostID = PA.ComboPostID
                                     inner Join Attachment AA on PA.AttachmentID = AA.AttachmentID and 
                                                                 AA.AttachmentTypeID = 2 
@@ -120,11 +138,13 @@ namespace Combo.BLL
 
         public virtual bool GetVedioPostsByUserID(int userid)
         {
-            return LoadFromRawSql(@"Select P.*, U.UserName, A.Path ProfilePic, S.IsPostsDownloadable from ComboPost P
+            return LoadFromRawSql(@"Select P.*, U.UserName, A.Path ProfilePic, S.IsPostsDownloadable, case when PV.ComboPostID is null then 'False' else 'True' end IsFavourite, case when PL.ComboPostID is null then 'False' else 'True' end IsLike,U.UserRankID from ComboPost P
                                     Inner Join ComboUser U on P.ComboUserID = U.ComboUserID and 
                                                               (U.IsDeactivated <> 1 or U.IsDeactivated is null)
                                     Left join Attachment A on U.ProfileImgID = A.AttachmentID
                                     Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID
+                                    Left join ComboPostFav PV on P.ComboPostID = PV.ComboPostID and PV.ComboUserID = {0}
+                                    Left join ComboPostLike PL on P.ComboPostID = PL.ComboPostID and PL.ComboUserID = {0}
                                     Inner Join ComboPostAttachment PA on P.ComboPostID = PA.ComboPostID
                                     inner Join Attachment AA on PA.AttachmentID = AA.AttachmentID and 
                                                                 AA.AttachmentTypeID = 3 
@@ -135,11 +155,13 @@ namespace Combo.BLL
 
         public virtual bool GetTextPostsByUserID(int userid)
         {
-            return LoadFromRawSql(@"Select P.*, U.UserName, A.Path ProfilePic, S.IsPostsDownloadable from ComboPost P
+            return LoadFromRawSql(@"Select P.*, U.UserName, A.Path ProfilePic, S.IsPostsDownloadable, case when PV.ComboPostID is null then 'False' else 'True' end IsFavourite, case when PL.ComboPostID is null then 'False' else 'True' end IsLike,U.UserRankID from ComboPost P
                                     Inner Join ComboUser U on P.ComboUserID = U.ComboUserID and 
                                                               (U.IsDeactivated <> 1 or U.IsDeactivated is null)
                                     Left join Attachment A on U.ProfileImgID = A.AttachmentID
                                     Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID
+                                    Left join ComboPostFav PV on P.ComboPostID = PV.ComboPostID and PV.ComboUserID = {0}
+                                    Left join ComboPostLike PL on P.ComboPostID = PL.ComboPostID and PL.ComboUserID = {0}
                                     left outer Join ComboPostAttachment PA on P.ComboPostID = PA.ComboPostID                                                                           
                                     Where P.ComboUserID = {0} and PA.ComboPostID is null and
                                     (P.IsDeleted <> 1 or P.IsDeleted is null)                                     
@@ -148,27 +170,34 @@ namespace Combo.BLL
 
         public virtual bool GetLikedPostByUserID(int userid)
         {
-            return LoadFromRawSql(@"Select P.*, U.UserName, A.Path ProfilePic , S.IsPostsDownloadable
+            return LoadFromRawSql(@"Select P.*, U.UserName, A.Path ProfilePic , S.IsPostsDownloadable, case when PV.ComboPostID is null then 'False' else 'True' end IsFavourite, case when PL.ComboPostID is null then 'False' else 'True' end IsLike,U.UserRankID
                                     from ComboPost P
                                     Inner Join ComboUser U on P.ComboUserID = U.ComboUserID and 
                                                               (U.IsDeactivated <> 1 or U.IsDeactivated is null)                                    
                                     Inner Join ComboPostLike PL on PL.ComboPostID = P.ComboPostID and 
 							                                       PL.ComboUserID = {0}
                                     Left join Attachment A on U.ProfileImgID = A.AttachmentID
+                                    Left join ComboPostFav PV on P.ComboPostID = PV.ComboPostID and PV.ComboUserID = {0}                                    
                                     Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID
-                                    Where (P.IsDeleted <> 1 or P.IsDeleted is null) 
+                                    Where (P.IsDeleted <> 1 or P.IsDeleted is null) and 
+                                    P.ComboUserID not in (select BlockedUserID from BlockedUser where ComboUserID = {0}) and 
+                                    P.ComboUserID not in (select ComboUserID from BlockedUser where BlockedUserID = {0})
                                     order by P.PostDate Desc", userid);
         }
 
         public virtual bool GetFollowingPostsByUserID(int userid)
         {
-            return LoadFromRawSql(@"Select P.*, U.UserName, A.Path ProfilePic , S.IsPostsDownloadable from ComboPost P
+            return LoadFromRawSql(@"Select P.*, U.UserName, A.Path ProfilePic , S.IsPostsDownloadable, case when PV.ComboPostID is null then 'False' else 'True' end IsFavourite, case when PL.ComboPostID is null then 'False' else 'True' end IsLike,U.UserRankID from ComboPost P
                                     Inner Join ComboUser U on P.ComboUserID = U.ComboUserID and 
                                                               (U.IsDeactivated <> 1 or U.IsDeactivated is null)
                                     Left join Attachment A on U.ProfileImgID = A.AttachmentID
                                     Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID
+                                    Left join ComboPostFav PV on P.ComboPostID = PV.ComboPostID and PV.ComboUserID = {0}
+                                    Left join ComboPostLike PL on P.ComboPostID = PL.ComboPostID and PL.ComboUserID = {0}
                                     Where P.ComboUserID in (select ComboFollowerID from ProfileFollower PF where PF.ComboUserID = {0}) and 
-                                    (P.IsDeleted <> 1 or P.IsDeleted is null)
+                                    (P.IsDeleted <> 1 or P.IsDeleted is null) and 
+                                    P.ComboUserID not in (select BlockedUserID from BlockedUser where ComboUserID = {0}) and 
+                                    P.ComboUserID not in (select ComboUserID from BlockedUser where BlockedUserID = {0})
                                     order by P.PostDate Desc", userid);
         }
 
@@ -203,7 +232,7 @@ namespace Combo.BLL
 
         public virtual bool GetPostByID(int pid)
         {
-            return LoadFromRawSql(@"Select P.*, U.UserName, A.Path ProfilePic, S.IsPostsDownloadable from ComboPost P
+            return LoadFromRawSql(@"Select P.*, U.UserName, A.Path ProfilePic, S.IsPostsDownloadable,U.UserRankID from ComboPost P
                                     Inner Join ComboUser U on P.ComboUserID = U.ComboUserID
                                     Left join Attachment A on U.ProfileImgID = A.AttachmentID
                                     Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID
@@ -219,7 +248,9 @@ namespace Combo.BLL
                                     Left join Attachment A on U.ProfileImgID = A.AttachmentID
                                     Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID
                                     Where P.ComboUserID in (select ComboFollowerID from ProfileFollower PF where PF.ComboUserID = {1}) and 
-                                    (P.IsDeleted <> 1 or P.IsDeleted is null) and P.PostText like '%' + {0} + '%' 
+                                    (P.IsDeleted <> 1 or P.IsDeleted is null) and P.PostText like '%' + {0} + '%' and 
+                                    P.ComboUserID not in (select BlockedUserID from BlockedUser where ComboUserID = {1}) and 
+                                    P.ComboUserID not in (select ComboUserID from BlockedUser where BlockedUserID = {1})
                                     /*union
                                     Select P.*, U.UserName, A.Path ProfilePic, S.IsPostsDownloadable 
                                     from ComboPost P
@@ -251,12 +282,14 @@ namespace Combo.BLL
                                     Left join Attachment A on U.ProfileImgID = A.AttachmentID
                                     Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID
                                     Where P.PostText like '%' + {0} + '%' and 
-                                    (P.IsDeleted <> 1 or P.IsDeleted is null) ", filterText, requester);
+                                    (P.IsDeleted <> 1 or P.IsDeleted is null) and 
+                                    P.ComboUserID not in (select BlockedUserID from BlockedUser where ComboUserID = {1}) and 
+                                    P.ComboUserID not in (select ComboUserID from BlockedUser where BlockedUserID = {1})", filterText, requester);
         }
 
-        public virtual bool ExplorePosts()
+        public virtual bool ExplorePosts(int userID)
         {
-            return LoadFromRawSql(@"select P.* , U.UserName, A.Path ProfilePic, S.IsPostsDownloadable,
+            return LoadFromRawSql(@"select P.* , U.UserName, A.Path ProfilePic, S.IsPostsDownloadable,U.UserRankID, case when PL.ComboPostID is null then 'False' else 'True' end IsLike,
                                     (select COUNT(c.ComboCommentID) 
                                      from ComboComment C where P.ComboPostID = C.ComboPostID)  commentCount
                                     ,(select COUNT(pl.ComboPostID) LikeCount 
@@ -264,12 +297,15 @@ namespace Combo.BLL
                                     from ComboPost P Inner Join ComboUser U on P.ComboUserID = U.ComboUserID
                                     Left join Attachment A on U.ProfileImgID = A.AttachmentID
                                     Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID
+                                    Left join ComboPostLike PL on P.ComboPostID = PL.ComboPostID and PL.ComboUserID = {0} 
+                                    where P.ComboUserID not in (select BlockedUserID from BlockedUser where ComboUserID = {0}) and 
+                                    P.ComboUserID not in (select ComboUserID from BlockedUser where BlockedUserID = {0})
                                     order by Likecount desc, commentCount desc , PostDate desc ");
         }
 
         public virtual bool GetPostsByHashTagID(int id)
-        {           
-            return LoadFromRawSql(@"select P.* , U.UserName, A.Path ProfilePic, S.IsPostsDownloadable,
+        {
+            return LoadFromRawSql(@"select P.* , U.UserName, A.Path ProfilePic, S.IsPostsDownloadable,U.UserRankID
                                     (select COUNT(c.ComboCommentID) 
                                      from ComboComment C where P.ComboPostID = C.ComboPostID)  commentCount
                                     ,(select COUNT(pl.ComboPostID) LikeCount 
@@ -280,6 +316,24 @@ namespace Combo.BLL
                                     Inner Join PostHashTag PHT on P.ComboPostID = PHT.ComboPostID 
                                     where PHT.HashTagID = {0}
                                     order by Likecount desc, commentCount desc , PostDate desc ");
+        }
+
+        public virtual bool GetFavPostByUserID(int userid)
+        {
+            return LoadFromRawSql(@"Select P.*, U.UserName, A.Path ProfilePic , S.IsPostsDownloadable, case when PV.ComboPostID is null then 'False' else 'True' end IsFavourite, case when PL.ComboPostID is null then 'False' else 'True' end IsLike,U.UserRankID
+                                    from ComboPost P
+                                    Inner Join ComboUser U on P.ComboUserID = U.ComboUserID and 
+                                                              (U.IsDeactivated <> 1 or U.IsDeactivated is null)                                    
+                                    Inner Join ComboPostFav PL on PL.ComboPostID = P.ComboPostID and 
+							                                       PL.ComboUserID = {0}
+                                    Left join Attachment A on U.ProfileImgID = A.AttachmentID
+                                    Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID
+                                    Left join ComboPostFav PV on P.ComboPostID = PV.ComboPostID and PV.ComboUserID = {0}
+                                    Left join ComboPostLike PL on P.ComboPostID = PL.ComboPostID and PL.ComboUserID = {0}
+                                    Where (P.IsDeleted <> 1 or P.IsDeleted is null) and 
+                                    P.ComboUserID not in (select BlockedUserID from BlockedUser where ComboUserID = {0}) and 
+                                    P.ComboUserID not in (select ComboUserID from BlockedUser where BlockedUserID = {0})
+                                    order by P.PostDate Desc", userid);
         }
 
 	}

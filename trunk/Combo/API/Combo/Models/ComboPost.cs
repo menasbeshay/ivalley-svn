@@ -21,5 +21,9 @@ namespace Combo.Models
         public bool IsDownloadable { get; set; }
         public object HashTags { get; set; }
         public object UserTags { get; set; }
+        public bool IsFavourite { get; set; }
+        public int Source { get; set; }
+        public bool IsLike { get; set; }
+        public int UserRankID { get; set; }
     }
 }
