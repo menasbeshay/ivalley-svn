@@ -359,6 +359,7 @@
     <Compile Include="ComboAPI\images.aspx.designer.cs">
       <DependentUpon>images.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\ComboPostController.cs" />
     <Compile Include="Controllers\ComboUserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -369,6 +370,7 @@
     <Compile Include="Models\ComboMessage.cs" />
     <Compile Include="Models\ComboNotification.cs" />
     <Compile Include="Models\ComboPost.cs" />
+    <Compile Include="Models\ComboPostFav.cs" />
     <Compile Include="Models\ComboPostLike.cs" />
     <Compile Include="Models\ComboResponse.cs" />
     <Compile Include="Models\ComboSharePost.cs" />

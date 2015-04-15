@@ -302,3 +302,34 @@ Create Table NotificationUserSettings
 	Primary key (ComboUserID,NotificationTypeID)
 )
 Go
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'ComboPostFav' and
+		        xtype = 'U')
+Drop Table ComboPostFav
+Go
+Create Table ComboPostFav
+(		
+	ComboUserID int foreign key references ComboUser(ComboUserID) not null,
+	ComboPostID int foreign key references ComboPost(ComboPostID) not null,
+	Primary key (ComboUserID,ComboPostID)
+)
+Go
+
+
+
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'BlockedUser' and
+		        xtype = 'U')
+Drop Table BlockedUser
+Go
+Create Table BlockedUser
+(		
+	ComboUserID int foreign key references ComboUser(ComboUserID) not null,
+	BlockedUserID int foreign key references ComboUser(ComboUserID) not null,
+	Primary key (ComboUserID,BlockedUserID)
+)
+Go

@@ -6,7 +6,7 @@
     <script src="js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript">
         function getUsers() {
-             $.getJSON("ComboAPI/combo.asmx/GetUsers",
+             $.getJSON("api/combouser/GetUsers",
                 function (data) {
                     $('#users').empty(); // Clear the table body.
 
@@ -29,11 +29,11 @@
 
         function getuserbyid()
         {
-            var user = { id: 9 }
+            var user = { ID: 7 }
             var json = JSON.stringify(user);
 
             $.ajax({
-                url: 'ComboAPI/combo.asmx/GetUserByID',
+                url: 'api/combouser/GetUser',
                 cache: false,
                 type: 'Post',
                 data: json,
@@ -63,11 +63,11 @@
 
         function getuserbyuernameandpass()
         {
-            var user = { username : "awe", password :"666", DeviceID : "abcdefg" }
-            var json = JSON.stringify(user);
+            var _user = { Username: "awe", Password: "666", deviceID: "abcdefg" }
+            var json = JSON.stringify(_user);
 
             $.ajax({
-                url: 'ComboAPI/combo.asmx/GetUser',
+                url: 'api/combouser/GetUser',
                 cache: false,
                 type: 'Post',
                 data: json,
@@ -309,15 +309,17 @@
         }
 
         function getPosts() {
-                var comment = { UserID: 7, Page: 0 };
+                var comment = { UserID: 27, Page: 0 };
                 var json = JSON.stringify(comment);
 
                 $.ajax({
-                    url: 'ComboAPI/combo.asmx/GetPosts',
+                    url: 'http://combomobile.com/ComboAPI/combo.asmx/GetPosts',                    
                     cache: false,
+                    async: false,
                     type: 'POST',
-                    data: json,
-                    contentType: 'application/json; charset=utf-8',
+                    data: 'UserID=27&Page=0',
+                   
+                    crossDomain: true,
                     success:
                        function (data) {
                            if (data.bool_result != false) {
@@ -339,7 +341,40 @@
                 });
         }
 
+        function getPostsWebApi() {
+            var comment = { UserID: 27, Page: 0 };
+            var json = JSON.stringify(comment);
 
+            $.ajax({
+                url: 'http://combomobile.com/api/combopost/GetPosts/27/0',
+                cache: false,
+                async: false,
+                type: 'GET',
+                data: json,
+                contentType: 'multipart/form-data; charset=utf-8',
+                crossDomain: true,
+                success:
+                   function (data) {
+                       if (data.bool_result != false) {
+
+                           // Add a table row for the product.
+                           //var row = '<td>' + data.Entity.ComboUserID + '</td><td>' + data.Entity.UserName + '</td>';
+                           //$('<tr/>', { html: row })  // Append the name.
+                           //    .appendTo($('#users'));
+
+                       }
+                       else {
+                           $('#error').css('display', 'block');
+                           $('#error').html(data.ErrorMsg);
+                       }
+
+
+                   }
+
+            });
+
+
+        }
         function SetNotificationSetting() {
             var user = { NotificationUserSetting: [{ NotificationTypeID: 1, ComboUserID: 5, Status: 0 }, { NotificationTypeID: 2, ComboUserID: 5, Status: 0 }] };
             var json = JSON.stringify(user);
@@ -388,6 +423,7 @@
     <input id="Button1" type="button" value="get user by id" onclick="getuserbyid()" />
     <input id="Button1" type="button" value="get all users" onclick="getUsers()" />
     <input id="Button1" type="button" value="get all posts" onclick="getPosts()" />
+    <input id="Button1" type="button" value="get all posts web api" onclick="getPostsWebApi()" />
     <input id="button2" type="button" value="set notifications settings" onclick="SetNotificationSetting()" />
  
 

@@ -53,7 +53,8 @@ namespace Combo.BLL
                                                        case when (PF2.ComboFollowerID = {0} and PF2.IsRequestApproved <> 1 ) then 'true' else 'false' end IsFollowerRequestSent,
                                                        case F2.ComboUserID when {0} then 2 
                                                                            when {1} then 1 
-                                                       else 0 end IsFriendRequestSent 
+                                                       else 0 end IsFriendRequestSent ,
+                                                       case BU.ComboUserID when {1} then 'true' else 'false' end IsBlocked
                                 from ComboUser CU                                                              
                                 Left join Attachment A on CU.ProfileImgID = A.AttachmentID
                                 Left join Attachment A2 on CU.CoverImgID = A2.AttachmentID
@@ -63,7 +64,8 @@ namespace Combo.BLL
                                 left join ProfileFollower PF on PF.ComboUserID = {0} and PF.ComboFollowerID = {1}  																		
                                 left join ProfileFollower PF2 on PF2.ComboUserID = {1} and PF2.ComboFollowerID = {0}  									
                                 Left Join ComboUserFriend F2 on (CU.ComboUserID = F2.ComboUserID and F2.ComboFriendID = {1} and F2.ComboUserID = {0} )
-                                                             Or (CU.ComboUserID = F2.ComboFriendID and F2.ComboFriendID = {0} and F2.ComboUserID = {1} )
+                                                             Or (CU.ComboUserID = F2.ComboFriendID and F2.ComboFriendID = {0} and F2.ComboUserID = {1} )                                  																		
+                                left join BlockedUser BU on BU.ComboUserID = {1} and BU.BlockedUserID = {0}
                                 where CU.combouserid = {0}", id, requester);
 
         }
