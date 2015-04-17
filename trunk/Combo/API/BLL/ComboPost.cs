@@ -47,7 +47,7 @@ namespace Combo.BLL
                                     Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID
                                     Left join ComboPostFav PV on P.ComboPostID = PV.ComboPostID and PV.ComboUserID = {0}
                                     Left join ComboPostLike PL on P.ComboPostID = PL.ComboPostID and PL.ComboUserID = {0}
-                                    Where P.ComboUserID in (select ComboFollowerID from ProfileFollower PF where PF.ComboUserID = {0}) and 
+                                    Where P.ComboUserID in (select ComboUserID from ProfileFollower PF where PF.ComboFollowerID = {0}) and 
                                     (P.IsDeleted <> 1 or P.IsDeleted is null) and 
                                     P.ComboUserID not in (select BlockedUserID from BlockedUser where ComboUserID = {0}) and 
                                     P.ComboUserID not in (select ComboUserID from BlockedUser where BlockedUserID = {0})
@@ -89,7 +89,7 @@ namespace Combo.BLL
                                     Left join ComboPostFav PV on P.ComboPostID = PV.ComboPostID and PV.ComboUserID = {0}
                                     Left join ComboPostLike PL on P.ComboPostID = PL.ComboPostID and PL.ComboUserID = {0}
                                     Where P.ComboUserID = {0} and 
-                                    (P.IsDeleted <> 1 or P.IsDeleted is null)                                                                         
+                                    (P.IsDeleted <> 1 or P.IsDeleted is null)                                                                          
                                     order by P.PostDate Desc", userid);
         }
 
@@ -194,7 +194,7 @@ namespace Combo.BLL
                                     Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID
                                     Left join ComboPostFav PV on P.ComboPostID = PV.ComboPostID and PV.ComboUserID = {0}
                                     Left join ComboPostLike PL on P.ComboPostID = PL.ComboPostID and PL.ComboUserID = {0}
-                                    Where P.ComboUserID in (select ComboFollowerID from ProfileFollower PF where PF.ComboUserID = {0}) and 
+                                    Where P.ComboUserID in (select ComboUserID from ProfileFollower PF where PF.ComboFollowerID = {0}) and 
                                     (P.IsDeleted <> 1 or P.IsDeleted is null) and 
                                     P.ComboUserID not in (select BlockedUserID from BlockedUser where ComboUserID = {0}) and 
                                     P.ComboUserID not in (select ComboUserID from BlockedUser where BlockedUserID = {0})
