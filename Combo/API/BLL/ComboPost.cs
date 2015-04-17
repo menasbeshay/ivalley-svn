@@ -324,11 +324,10 @@ namespace Combo.BLL
                                     from ComboPost P
                                     Inner Join ComboUser U on P.ComboUserID = U.ComboUserID and 
                                                               (U.IsDeactivated <> 1 or U.IsDeactivated is null)                                    
-                                    Inner Join ComboPostFav PL on PL.ComboPostID = P.ComboPostID and 
-							                                       PL.ComboUserID = {0}
+                                    Inner Join ComboPostFav PV on PV.ComboPostID = P.ComboPostID and 
+							                                       PV.ComboUserID = {0}
                                     Left join Attachment A on U.ProfileImgID = A.AttachmentID
-                                    Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID
-                                    Left join ComboPostFav PV on P.ComboPostID = PV.ComboPostID and PV.ComboUserID = {0}
+                                    Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID                                    
                                     Left join ComboPostLike PL on P.ComboPostID = PL.ComboPostID and PL.ComboUserID = {0}
                                     Where (P.IsDeleted <> 1 or P.IsDeleted is null) and 
                                     P.ComboUserID not in (select BlockedUserID from BlockedUser where ComboUserID = {0}) and 
