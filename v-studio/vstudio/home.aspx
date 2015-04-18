@@ -19,7 +19,7 @@
 					<li id="menu-cb" class="cbs"><a href="#"><span style="line-height:32px;">&nbsp;</span></a></li>
                     <li id="menu-multi" class="multi"><a href="#"><img src="img/menu-4.png" width="32px" height="32px"/></a></li>
 					<li id="menu-way" class="_3dway"><a href="#"><img src="img/menu-3.png" width="32px" height="32px"/></a></li>
-                    <li id="menu-mtsa" class="mtsa"><a href="#"><img src="img/menu-mtsa.png" width="32px" height="32px"/><br /><span style="line-height:32px;">&nbsp;</span></a></li>
+                    <li id="menu-mtsa" class="mtsa"><a href="http://www.mtsakiosk.com" target="_blank"><img src="img/menu-mtsa.png" width="32px" height="32px"/><br /><span style="line-height:32px;">&nbsp;</span></a></li>
 					<li id="menu-contact" class="contact"><a href="#"><img src="img/menu-6.png" width="32px" height="32px"/></a></li>
 					<li id="menu-portfolio" class="ps"><a href="#"><span style="line-height:32px;">&nbsp;</span></a></li>
 					<li id="menu-join" class="jus"><a href="#"><span style="line-height:32px;">&nbsp;</span></a></li>
@@ -41,7 +41,7 @@
 					<li id="menu-cb" class="cbs"><a href="#">Corporate Branding</a></li>
 					<li id="menu-multi" class="multi"><a href="#">Multi Touchscreens</a></li>
 					<li id="menu-way" class="_3dway"><a href="#">3D Wayfinding</a></li>
-                    <li id="menu-mtsa" class="mtsa"><a href="#">MTSA <br /><span style="font-family:'Ubuntu-Light'; font-size:11px;">Info kiosk systems & digital signage</span></a></li>
+                    <li id="menu-mtsa" class="mtsa"><a href="http://www.mtsakiosk.com" target="_blank">MTSA <br /><span style="font-family:'Ubuntu-Light'; font-size:11px;">Info kiosk systems & digital signage</span></a></li>
 					<li id="menu-contact" class="contact"><a href="#">Contact Us</a></li>
 					<li id="menu-portfolio" class="ps"><a href="#">Portfolio</a></li>
 					<li id="menu-join" class="jus"><a href="#">Join Us</a></li>
@@ -1179,7 +1179,7 @@ info@v-studio.co
                                 <div id="arrow-portfolio" class="arrow" style="position:absolute; top:45%; z-index:99; ">
                                        <img src="img/arrow_left.png" width="77" height="75" alt="Left Arrow"/>
 				</div>
-				<div class="row" style="height:100px;">
+				<div class="row" style="height:90px;">
 					<div class="col-md-12 text-center page-heading">
 						<h1  class="heading7" style="color:#dfd9e6; text-align:center; display:none;margin-top:0;">PORTFOLIO & TESTIMONIALS</h1>
 					</div>
@@ -1211,17 +1211,25 @@ info@v-studio.co
                                     <!-- Grid Item 1 -->
                                     <div class="child-container">
                                         <!-- Grid Item Container -->
-                                        3AGARAT
-                                    <a href="#" class="open-gallery"><img src="images/projects/3garatlogoen.png" /></a>
-                                        <span class="item-caption">3garat real estate marketing software/application</span>
+                                        
+                                    <a href="#" class="open-gallery">
+                                        <img src="img/portfolio/logos/logo1_8.png" />
+                                    </a>
+                                        <span class="item-caption">30 minutes of safety & health orientation 3 videos production in 4 different languages (Arabic, English, Urdu & Tagalog). 
+The videos were filmed at Ma’aden different mines and head office by V-Studio crew in 7 working days. Many professional photographs were taken during filming to use in the videos. Ma’aden aims to use these videos in training, seminars, workshops and prior to receiving visitors or contractors at sites. 
+</span>
+                                         <div class="inner_caption">
+                                        Video Production
+                                            </div>
                                         <!-- Button to expand its gallery -->
                                     </div>
 
                                     <ul class="gallery-grid subgallery column1">
                                         <!-- Subgallery of Grid Item 1 having 4 columns -->
                                         <li >
-                                            <img src="images/icons/play.png" style="max-width:150px;position:absolute;top:30%;left:40%;z-index:1;cursor:pointer" id="_3agarat_play" />
-                                            <div id="_3agrat_video" style="width:100%;height:355px;" data-vedioid="40NG_t5aJNs"></div>
+                                            <img src="http://img.youtube.com/vi/r-FsskjxINU/0.jpg" id="logo1_thumb" />
+                                            <img src="images/icons/play.png" style="max-width:150px;position:absolute;top:20%;left:40%;z-index:1;cursor:pointer" id="logo1_play" />
+                                            <div id="logo1_video" style="width:100%;height:355px;" data-vedioid="r-FsskjxINU"></div>
                                         </li>
 
                                     </ul>
@@ -1232,17 +1240,25 @@ info@v-studio.co
                                     <!-- Grid Item 1 -->
                                     <div class="child-container">
                                         <!-- Grid Item Container -->
-                                        Al Barrak industrial group - website
+                                        
                                     <a href="#" class="open-gallery">
-                                        <img src="images/projects/barrak_logo.png" /></a>
-                                        <span class="item-caption">Al-Barrak was established in 1993 by Eng. Saleh A. Al-Barrak, and has since then, operated as a privately owned company.</span>
+                                        <img src="img/portfolio/logos/Logo2.png" /></a>
+                                        <span class="item-caption">5 minutes introduction video of Saudi Electricity Company portable power generating new service operates on plug and play method. The video was filmed at Saudi Electricity Company premises as well as on driving trucks & produced only in Arabic. The Company aims to introduce public to their new unique emergency service.
+The video was filmed in 3 working days using cranes and in-truck cameras in addition to other standard equipment.  
+</span>
+                                        <div class="inner_caption">
+                                        Video Production
+                                            </div>
+                                        
                                         <!-- Button to expand its gallery -->
                                     </div>
 
                                     <ul class="gallery-grid subgallery column1">
                                         <!-- Subgallery of Grid Item 1 having 4 columns -->
                                         <li>
-                                            <a href="images/projects/barrak_prev.jpeg" data-lightbox="roadtrip"> <img src="images/projects/barrak_prev.jpeg" /></a>
+                                            <img src="http://img.youtube.com/vi/EgGuaAveLRg/0.jpg" id="logo2_thumb" />
+                                           <img src="images/icons/play.png" style="max-width:150px;position:absolute;top:20%;left:40%;z-index:1;cursor:pointer" id="logo2_play" />
+                                            <div id="logo2_video" style="width:100%;height:355px;" data-vedioid="EgGuaAveLRg"></div>
                                         </li>
 
                                     </ul>
@@ -1253,19 +1269,23 @@ info@v-studio.co
                                     <!-- Grid Item 1 -->
                                     <div class="child-container">
                                         <!-- Grid Item Container -->
-                                        Item -3
-                    <a href="#" class="open-gallery"><img src="img/portfolio/1.jpg" /></a>
-                                        <span class="item-caption">text caption 3</span>
+                                        
+                    <a href="#" class="open-gallery">
+                        <img src="img/portfolio/logos/logo03.jpg" />
+                        </a>
+                                        <span class="item-caption">5 minutes introduction video of Al khaleejion kitchens presence at Saudi décor fair Jeddah, as a leading kitchens manufacturer in Saudi Arabia; the company wanted to film the event and keep their customers updated of their activities. The video was filmed during the event and various interviews with the company management team and customers were made. </span>
+                                        <div class="inner_caption">
+                                        Video Production
+                                            </div>
                                         <!-- Button to expand its gallery -->
                                     </div>
 
-                                    <ul class="gallery-grid subgallery">
+                                    <ul class="gallery-grid subgallery column1">
                                         <!-- Subgallery of Grid Item 1 having 4 columns -->
-                                        <li class="col-lg-12 col-md-12 col-sm-12">
-                                            <div class="child-container">
-                                                Sub gallery item -1(Grid item -1 )
-                                            </div>
-
+                                        <li>
+                                            <img src="http://img.youtube.com/vi/VLFDXCoeWwc/0.jpg" id="logo3_thumb" />
+                                            <img src="images/icons/play.png" style="max-width:150px;position:absolute;top:20%;left:40%;z-index:1;cursor:pointer" id="logo3_play" />
+                                            <div id="logo3_video" style="width:100%;height:355px;" data-vedioid="VLFDXCoeWwc"></div>
                                         </li>
 
                                     </ul>
@@ -1276,19 +1296,23 @@ info@v-studio.co
                                     <!-- Grid Item 1 -->
                                     <div class="child-container">
                                         <!-- Grid Item Container -->
-                                        Item -4
-                    <a href="#" class="open-gallery"><img src="img/portfolio/1.jpg" /></a>
-                                        <span class="item-caption">text caption 4</span>
+                                        
+                    <a href="#" class="open-gallery">
+                        <img src="img/portfolio/logos/logo04_07.jpg" />
+                        </a>
+                                        <span class="item-caption">5 minutes introduction video of Al-Barrak industrial group various factories and products, a leading Saudi Arabian manufacturer of automatic doors, glass, plastic cloth and gases based in the Eastern province of Saudi Arabia. The video was filmed in 3 days at various factories of the group and included an interview with the C.E.O; 3D visualization production was integrated in the video. </span>
+                                        <div class="inner_caption">
+                                        Video Production
+                                            </div>
                                         <!-- Button to expand its gallery -->
                                     </div>
 
-                                    <ul class="gallery-grid subgallery">
+                                     <ul class="gallery-grid subgallery column1">
                                         <!-- Subgallery of Grid Item 1 having 4 columns -->
-                                        <li class="col-lg-12 col-md-12 col-sm-12">
-                                            <div class="child-container">
-                                                Sub gallery item -1(Grid item -1 )
-                                            </div>
-
+                                        <li>
+                                            <img src="http://img.youtube.com/vi/DaJoEl81_uc/0.jpg" id="logo4_thumb" />
+                                            <img src="images/icons/play.png" style="max-width:150px;position:absolute;top:20%;left:40%;z-index:1;cursor:pointer" id="logo4_play" />
+                                            <div id="logo4_video" style="width:100%;height:355px;" data-vedioid="DaJoEl81_uc"></div>
                                         </li>
 
                                     </ul>
@@ -1299,19 +1323,22 @@ info@v-studio.co
                                     <!-- Grid Item 1 -->
                                     <div class="child-container">
                                         <!-- Grid Item Container -->
-                                        Item -5
-                    <a href="#" class="open-gallery"><img src="img/portfolio/1.jpg" /></a>
-                                        <span class="item-caption">text caption 5</span>
+                                        
+                    <a href="#" class="open-gallery">
+                        <img src="img/portfolio/logos/logo5.png" /></a>
+                                        <span class="item-caption">1 minute of 2D animation creation and production of the general department of traffic Saudi Arabia introducing “SAHER” objection. This animation was created and delivered in 5 days to e-enterprises a leading developer and solutions provider in Saudi Arabia including voiceover in Arabic. The explainer animation guides public to how to use the ministry of interior e-gate and register an objection if ever received a traffic fine. </span>
+                                        <div class="inner_caption">
+                                        Animation production
+                                            </div>
                                         <!-- Button to expand its gallery -->
                                     </div>
 
-                                    <ul class="gallery-grid subgallery">
+                                    <ul class="gallery-grid subgallery column1">
                                         <!-- Subgallery of Grid Item 1 having 4 columns -->
-                                        <li class="col-lg-12 col-md-12 col-sm-12">
-                                            <div class="child-container">
-                                                Sub gallery item -1(Grid item -1 )
-                                            </div>
-
+                                        <li>
+                                            <img src="http://img.youtube.com/vi/F6VsJbjqHCs/0.jpg" id="logo5_thumb" />
+                                            <img src="images/icons/play.png" style="max-width:150px;position:absolute;top:20%;left:40%;z-index:1;cursor:pointer" id="logo5_play" />
+                                            <div id="logo5_video" style="width:100%;height:355px;" data-vedioid="F6VsJbjqHCs"></div>
                                         </li>
 
                                     </ul>
@@ -1322,19 +1349,21 @@ info@v-studio.co
                                     <!-- Grid Item 1 -->
                                     <div class="child-container">
                                         <!-- Grid Item Container -->
-                                        Item -6
-                    <a href="#" class="open-gallery"><img src="img/portfolio/1.jpg" /></a>
-                                        <span class="item-caption">text caption 6</span>
+                                       
+                    <a href="#" class="open-gallery">
+                        <img src="img/portfolio/logos/logo06.png" />
+                    </a>
+                                        <span class="item-caption">Out of the box, HTML5 interactive/parallax 1 page website technology, CMS, developed for a sister division of S.O. Sager International supplies info kiosk systems & digital signage and provides Apps development solutions. Like all websites we develop, no readymade template was used, every part and page of the website was carefully custom designed to deliver the message at its best appearance. The website design has also considered mobile devices compatibility to ensure maximum traffic and views.   Click <a href="http://www.mtsakiosk.com" target="_blank"> here </a>to visit the website</span>
+                                        <div class="inner_caption">
+                                        Web Design 
+                                            </div>
                                         <!-- Button to expand its gallery -->
                                     </div>
 
-                                    <ul class="gallery-grid subgallery">
+                                    <ul class="gallery-grid subgallery column1">
                                         <!-- Subgallery of Grid Item 1 having 4 columns -->
-                                        <li class="col-lg-12 col-md-12 col-sm-12">
-                                            <div class="child-container">
-                                                Sub gallery item -1(Grid item -1 )
-                                            </div>
-
+                                        <li>
+                                            <img src="img/portfolio/logos/Portfolio06.jpg" />
                                         </li>
 
                                     </ul>
@@ -1345,19 +1374,21 @@ info@v-studio.co
                                     <!-- Grid Item 1 -->
                                     <div class="child-container">
                                         <!-- Grid Item Container -->
-                                        Item -7
-                    <a href="#" class="open-gallery"><img src="img/portfolio/1.jpg" /></a>
-                                        <span class="item-caption">text caption 7</span>
+                                             
+                    <a href="#" class="open-gallery">
+                        <img src="img/portfolio/logos/logo04_07.jpg" />
+                    </a>
+                                        <span class="item-caption">Over 30 pages of an interactive website, CMS, with various flash banners, introduction video & programmable features. The website focuses on introducing clients with Al-Barrak industrial group & products. Like all websites we develop, no readymade template was used, every part and page of the website was carefully custom designed to deliver the message at its best appearance. Click <a href="http://www.al-barrakgroup.com" target="_blank"> here </a>to visit the website</span>
+                                        <div class="inner_caption">
+                                        Web Design 
+                                            </div>
                                         <!-- Button to expand its gallery -->
                                     </div>
 
-                                    <ul class="gallery-grid subgallery">
+                                    <ul class="gallery-grid subgallery column1">
                                         <!-- Subgallery of Grid Item 1 having 4 columns -->
-                                        <li class="col-lg-12 col-md-12 col-sm-12">
-                                            <div class="child-container">
-                                                Sub gallery item -1(Grid item -1 )
-                                            </div>
-
+                                        <li>
+                                            <img src="img/portfolio/logos/Portfolio07.jpg" />
                                         </li>
 
                                     </ul>
@@ -1368,19 +1399,49 @@ info@v-studio.co
                                     <!-- Grid Item 1 -->
                                     <div class="child-container">
                                         <!-- Grid Item Container -->
-                                        Item -8
-                    <a href="#" class="open-gallery"><img src="img/portfolio/1.jpg" /></a>
-                                        <span class="item-caption">text caption 8</span>
+                                            
+                    <a href="#" class="open-gallery">
+                        <img src="img/portfolio/logos/logo1_8.png" /></a>
+                                        <span class="item-caption">6 minute of 2D animation creation and production. This educational video was produced for Ma’aden gold as part of their social responsibility. The purpose of the video is to increase students’ knowledge of Ma’aden role in the national economy development. The video contains mines information, mining process & visitor’s safety orientation.  </span>
+                                        <div class="inner_caption">
+                                        Animation production
+                                            </div>
                                         <!-- Button to expand its gallery -->
                                     </div>
 
-                                    <ul class="gallery-grid subgallery">
+                                    <ul class="gallery-grid subgallery column1">
                                         <!-- Subgallery of Grid Item 1 having 4 columns -->
-                                        <li class="col-lg-12 col-md-12 col-sm-12">
-                                            <div class="child-container">
-                                                Sub gallery item -1(Grid item -1 )
-                                            </div>
+                                        <li>
+                                            <img src="http://img.youtube.com/vi/rft4CS57Uyg/0.jpg" id="logo8_thumb" />
+                                            <img src="images/icons/play.png" style="max-width:150px;position:absolute;top:20%;left:40%;z-index:1;cursor:pointer" id="logo8_play" />
+                                            <div id="logo8_video" style="width:100%;height:355px;" data-vedioid="rft4CS57Uyg"></div>
+                                        </li>
 
+                                    </ul>
+
+
+                                </li>
+
+                                <li>
+                                    <!-- Grid Item 1 -->
+                                    <div class="child-container">
+                                        <!-- Grid Item Container -->
+                                             
+                    <a href="#" class="open-gallery">
+                        <img src="img/portfolio/logos/logo09.png" /></a>
+                                        <span class="item-caption">Taif University had a unique presence during the event of higher education exhibition held in Riyadh in 2014. Using our Holoconic hologram showcase and Hostalk virtual speaker has really turned audiences head and attracted the crowd. The 2 innovative tools were used to introduce the public to the university development history and future plans.  </span>
+                                        <div class="inner_caption">
+                                        Hologram & Virtual host
+                                            </div>
+                                        <!-- Button to expand its gallery -->
+                                    </div>
+
+                                    <ul class="gallery-grid subgallery column1">
+                                        <!-- Subgallery of Grid Item 1 having 4 columns -->
+                                        <li>
+                                            <img src="http://img.youtube.com/vi/sFbaauPL_iM/0.jpg" id="logo9_thumb" />
+                                            <img src="images/icons/play.png" style="max-width:150px;position:absolute;top:20%;left:40%;z-index:1;cursor:pointer" id="logo9_play" />
+                                            <div id="logo9_video" style="width:100%;height:355px;" data-vedioid="sFbaauPL_iM"></div>
                                         </li>
 
                                     </ul>
@@ -1391,25 +1452,27 @@ info@v-studio.co
                                     <!-- Grid Item 1 -->
                                     <div class="child-container">
                                         <!-- Grid Item Container -->
-                                        Item -9
-                    <a href="#" class="open-gallery"><img src="img/portfolio/1.jpg" /></a>
-                                        <span class="item-caption">text caption 9</span>
+                                        
+                    <a href="#" class="open-gallery">
+                         <img src="img/portfolio/logos/logo10.png" /></a>
+                                        <span class="item-caption">12 minutes introduction video of ZAN modern company, a leading survey instruments supplier in Saudi Arabia; the company wanted to introduce their customers to their products with some focus on their recent won prestigious project “Riyadh Metro”. The scope of work included the video script writing and the creation of the company slogan in addition to the filming and video production.</span>
+                                        <div class="inner_caption">
+                                        Video Production
+                                            </div>
                                         <!-- Button to expand its gallery -->
                                     </div>
 
-                                    <ul class="gallery-grid subgallery">
+                                     <ul class="gallery-grid subgallery column1">
                                         <!-- Subgallery of Grid Item 1 having 4 columns -->
-                                        <li class="col-lg-12 col-md-12 col-sm-12">
-                                            <div class="child-container">
-                                                Sub gallery item -1(Grid item -1 )
-                                            </div>
-
+                                        <li>
+                                            <img src="http://img.youtube.com/vi/kaM3kCv-UR0/0.jpg" id="logo10_thumb" />
+                                            <img src="images/icons/play.png" style="max-width:150px;position:absolute;top:20%;left:40%;z-index:1;cursor:pointer" id="logo10_play" />
+                                            <div id="logo10_video" style="width:100%;height:355px;" data-vedioid="kaM3kCv-UR0"></div>
                                         </li>
 
                                     </ul>
 
                                 </li>
-
 
 
                             </ul>

@@ -15,10 +15,16 @@
 	border : 1px solid #DCDCDC;
 	padding : 5px 5px;
 	min-height:135px;
-	
-	
+	position:relative;
+	padding-top:15px;
 }
 
+    .galleryContainer.customizable .inner_caption {
+        position:absolute;
+        bottom:5px;
+        text-align:center;
+        width:100%;
+    }
 
 
 .galleryContainer .column1{
