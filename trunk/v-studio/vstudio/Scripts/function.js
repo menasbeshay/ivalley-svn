@@ -422,10 +422,47 @@ function scrollAllow() {
             $('#testmon_play').fadeIn("slow");
         } catch (err) { }
 
-        try {
-            $('.subgallery.column1.gridsInPlace #_3agarat_play').stopYTP();
-            $('.subgallery.column1.gridsInPlace #_3agarat_play').fadeIn("slow");
-        } catch (err) { }
+            try {
+                $('.subgallery.column1.gridsInPlace #logo1_video').stopYTP();
+                $('.subgallery.column1.gridsInPlace #logo1_play').fadeIn("slow");
+                $('.subgallery.column1.gridsInPlace #logo1_thumb').fadeIn('slow');
+            } catch (err) { }
+            try {
+                $('.subgallery.column1.gridsInPlace #logo2_video').stopYTP();
+                $('.subgallery.column1.gridsInPlace #logo2_play').fadeIn("slow");
+                $('.subgallery.column1.gridsInPlace #logo2_thumb').fadeIn('slow');
+            } catch (err) { }
+            try {
+                $('.subgallery.column1.gridsInPlace #logo3_video').stopYTP();
+                $('.subgallery.column1.gridsInPlace #logo3_play').fadeIn("slow");
+                $('.subgallery.column1.gridsInPlace #logo3_thumb').fadeIn('slow');
+            } catch (err) { }
+            try {
+                $('.subgallery.column1.gridsInPlace #logo4_video').stopYTP();
+                $('.subgallery.column1.gridsInPlace #logo4_play').fadeIn("slow");
+                $('.subgallery.column1.gridsInPlace #logo4_thumb').fadeIn('slow');
+            } catch (err) { }
+            try {
+                $('.subgallery.column1.gridsInPlace #logo5_video').stopYTP();
+                $('.subgallery.column1.gridsInPlace #logo5_play').fadeIn("slow");
+                $('.subgallery.column1.gridsInPlace #logo5_thumb').fadeIn('slow');
+            } catch (err) { }
+            try {
+                $('.subgallery.column1.gridsInPlace #logo8_video').stopYTP();
+                $('.subgallery.column1.gridsInPlace #logo8_play').fadeIn("slow");
+                $('.subgallery.column1.gridsInPlace #logo8_thumb').fadeIn('slow');
+            } catch (err) { }
+            try {
+                $('.subgallery.column1.gridsInPlace #logo9_video').stopYTP();
+                $('.subgallery.column1.gridsInPlace #logo9_play').fadeIn("slow");
+                $('.subgallery.column1.gridsInPlace #logo9_thumb').fadeIn('slow');
+            } catch (err) { }
+            try {
+                $('.subgallery.column1.gridsInPlace #logo10_video').stopYTP();
+                $('.subgallery.column1.gridsInPlace #logo10_play').fadeIn("slow");
+                $('.subgallery.column1.gridsInPlace #logo10_thumb').fadeIn('slow');
+            } catch (err) { }
+
 
         //reset css
         $('#port-text-def').removeClass('active');
@@ -1163,10 +1200,11 @@ function scrollAllow() {
         });
         setLeft("contactus", "contactus Us");
         setRight("join", "Join");
-        $('#portfolio_grid').fadeOut();
-        $('#default_port').fadeIn();
-        $('#port-text-def').fadeIn();
-        $('#port-text-caption').fadeOut();
+        $('#portfolio_grid').fadeOut(300);        
+        $('#port-text-caption').fadeOut(300);
+        $('#testmon_grid').fadeOut(300);
+        $('#default_port').delay(300).fadeIn(300);
+        $('#port-text-def').delay(300).fadeIn(300);
     };
     
     parallax.join.onload = function () {

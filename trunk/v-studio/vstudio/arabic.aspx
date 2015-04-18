@@ -38,7 +38,7 @@
 					<li id="menu-cb" class="cbs"><a href="#"><span style="line-height:32px;">&nbsp;</span></a></li>
                     <li id="menu-multi" class="multi"><a href="#"><img src="img/menu-4.png" width="32px" height="32px"/></a></li>
 					<li id="menu-way" class="_3dway"><a href="#"><img src="img/menu-3.png" width="32px" height="32px"/></a></li>
-                    <li id="menu-mtsa" class="mtsa"><a href="#"><img src="img/menu-mtsa.png" width="32px" height="32px"/><br /><span style="line-height:18px;">&nbsp;</span></a></li>
+                    <li id="menu-mtsa" class="mtsa"><a href="http://www.mtsakiosk.com" target="_blank"><img src="img/menu-mtsa.png" width="32px" height="32px"/><br /><span style="line-height:18px;">&nbsp;</span></a></li>
 					<li id="menu-contact" class="contact"><a href="#"><img src="img/menu-6.png" width="32px" height="32px"/></a></li>
 					<li id="menu-portfolio" class="ps"><a href="#"><span style="line-height:32px;">&nbsp;</span></a></li>
 					<li id="menu-join" class="jus"><a href="#"><span style="line-height:32px;">&nbsp;</span></a></li>
@@ -60,7 +60,7 @@
 					<li id="menu-cb" class="cbs"><a href="#">العلامات التجارية للشركات</a></li>
 					<li id="menu-multi" class="multi"><a href="#">الشاشات تعددية اللمس</a></li>
 					<li id="menu-way" class="_3dway"><a href="#">الدليل ثلاثي الأبعاد للمباني</a></li>
-                    <li id="menu-mtsa" class="mtsa"><a href="#">منصات الشاشات باللمس <br />واللوحات الإعلانية الرقمية</a></li>
+                    <li id="menu-mtsa" class="mtsa"><a href="http://www.mtsakiosk.com" target="_blank">منصات الشاشات باللمس <br />واللوحات الإعلانية الرقمية</a></li>
 					<li id="menu-contact" class="contact"><a href="#">إتصل بنا</a></li>
 					<li id="menu-portfolio" class="ps"><a href="#">أعمالنا وعملاؤنا</a></li>
 					<li id="menu-join" class="jus"><a href="#">إنضم إلينا</a></li>
@@ -1232,18 +1232,25 @@ info@v-studio.co                                      <br />
                                     <!-- Grid Item 1 -->
                                     <div class="child-container">
                                         <!-- Grid Item Container --> 
-                                       3AGARAT
-                                    <a href="#" class="open-gallery"><img src="images/projects/3garatlogoen.png" /></a>
-                                        <span class="item-caption">برتامج وتطبيق عقارات لتأجير وبيع العقارات</span>
+                                      
+                    <a href="#" class="open-gallery">
+                         <img src="img/portfolio/logos/logo1_8.png" /></a>
+                                        <span class="item-caption">تصوير وإنتاج 3 أفلام مدتها 30 دقيقة عن تعليمات السلامة والصحة وبأربع لغات مختلفة (العربية والإنجليزية و الأردو والفلبينية) .
+تم التصوير من قبل طاقم صقر في ستديو بمناجم شركة معادن الذهب والمكتب الرئيسي للشركة ولمدة سبعة أيام عمل . تم التقاط الكثير من الصور الفوتوغرافية الإحترافية أثناء التصوير لإستخدامها في الإنتاج. 
+تنوي شركة معادن للذهب إستخدام هذه الأفلام في التدريب وورش العمل ولإرشاد الزوار والمقاولين بتعليمات السلامة قبل زيارتهم للمناجم. 
+.  </span>
+                                        <div class="inner_caption">
+                                        إنتـاج الفيديو
+                                            </div>
                                         <!-- Button to expand its gallery -->
                                     </div>
 
-                                    <ul class="gallery-grid subgallery column1">
+                                     <ul class="gallery-grid subgallery column1">
                                         <!-- Subgallery of Grid Item 1 having 4 columns -->
-                                        <li >
-                                             <img src="images/icons/play.png" style="max-width:150px;position:absolute;top:30%;left:40%;z-index:1;cursor:pointer" id="_3agarat_play" />
-                                            <div id="_3agrat_video" style="width:100%;height:355px;" data-vedioid="40NG_t5aJNs"></div>
-
+                                        <li>
+                                            <img src="http://img.youtube.com/vi/AI_npbN_ywQ/0.jpg" id="logo1_thumb" />
+                                            <img src="images/icons/play.png" style="max-width:150px;position:absolute;top:20%;left:40%;z-index:1;cursor:pointer" id="logo1_play" />
+                                            <div id="logo1_video" style="width:100%;height:355px;" data-vedioid="AI_npbN_ywQ"></div>
                                         </li>
 
                                     </ul>
@@ -1254,17 +1261,24 @@ info@v-studio.co                                      <br />
                                     <!-- Grid Item 1 -->
                                     <div class="child-container">
                                         <!-- Grid Item Container -->
-                                         مجموعة البراك الصناعية
+                                       
                                     <a href="#" class="open-gallery">
-                                        <img src="images/projects/barrak_logo.png" /></a>
-                                        <span class="item-caption">Al-Barrak was established in 1993 by Eng. Saleh A. Al-Barrak, and has since then, operated as a privately owned company.</span>
+                                        <img src="img/portfolio/logos/Logo2.png" /></a>
+                                        <span class="item-caption">تصوير وإنتاج فيلم مدته 5 دقائق يعمل على تعريف خدمة المولدات المتنقلة المستخدمة عند إنقطاع التيار الكهربائي كخدمة جديدة متميزة تقدمها الشركة السعودية للكهرباء للمشتركين. تم تصوير الفيديو في منشاءات الشركة السعودية للكهرباء ومن على شاحناتها اثناء القيادة ، وأنتج باللغة العربية فقط. تسعى الشركة من خلال هذا الفيديو لتعريف العامة بخدماتها الجديدة المبتكرة. 
+تم تصوير الفيلم في ثلاثة أيام عمل واستخدمت في التصوير كاميرات داخل الشاحنات ورافعات بالاضافة للمعدات الأخرى التقليدية.
+</span>
+                                         <div class="inner_caption">
+                                        إنتـاج الفيديو
+                                            </div>
                                        <!-- Button to expand its gallery -->
                                     </div>
 
                                     <ul class="gallery-grid subgallery column1">
                                         <!-- Subgallery of Grid Item 1 having 4 columns -->
                                         <li>
-                                            <a href="images/projects/barrak_prev.jpeg" data-lightbox="roadtrip"> <img src="images/projects/barrak_prev.jpeg" /></a>
+                                            <img src="http://img.youtube.com/vi/EgGuaAveLRg/0.jpg" id="logo2_thumb" />
+                                            <img src="images/icons/play.png" style="max-width:150px;position:absolute;top:20%;left:40%;z-index:1;cursor:pointer" id="logo2_play" />
+                                            <div id="logo2_video" style="width:100%;height:355px;" data-vedioid="EgGuaAveLRg"></div>
                                         </li>
 
                                     </ul>
@@ -1275,19 +1289,25 @@ info@v-studio.co                                      <br />
                                     <!-- Grid Item 1 -->
                                     <div class="child-container">
                                         <!-- Grid Item Container -->
-                                        Item -3
-                    <a href="#" class="open-gallery"><img src="img/portfolio/1.jpg" /></a>
-                                        <span class="item-caption">text caption 3</span>
+                                        
+                    <a href="#" class="open-gallery">
+                        <img src="img/portfolio/logos/logo03.jpg" />
+                    </a>
+                                        <span class="item-caption">تصوير وإنتاج فيلم مدته 5 دقائق يعمل على تسليط الضوء على مشاركة الخليجيون للمطابخ بمعرض الديكور السعودي بجده ، 
+كشركة رائدة في تصنيع المطابخ في المملكة العربية السعودية ، رغبت الشركة في تصوير مشاركتها بالمعرض وتوثيقها وإطلاع عملائها على مشاركاتها بالفعاليات المختلفة . تم تصوير الفيلم أثناء الفعالية وشمل عدة لقاءات مع مديري الشركة وبعض عملائها .
+</span>
+                                        <div class="inner_caption">
+                                        إنتـاج الفيديو
+                                            </div>
                                         <!-- Button to expand its gallery -->
                                     </div>
 
-                                    <ul class="gallery-grid subgallery">
+                                     <ul class="gallery-grid subgallery column1">
                                         <!-- Subgallery of Grid Item 1 having 4 columns -->
-                                        <li class="col-lg-12 col-md-12 col-sm-12">
-                                            <div class="child-container">
-                                                Sub gallery item -1(Grid item -1 )
-                                            </div>
-
+                                        <li>
+                                            <img src="http://img.youtube.com/vi/VLFDXCoeWwc/0.jpg" id="logo3_thumb" />
+                                            <img src="images/icons/play.png" style="max-width:150px;position:absolute;top:20%;left:40%;z-index:1;cursor:pointer" id="logo3_play" />
+                                            <div id="logo3_video" style="width:100%;height:355px;" data-vedioid="VLFDXCoeWwc"></div>
                                         </li>
 
                                     </ul>
@@ -1298,19 +1318,22 @@ info@v-studio.co                                      <br />
                                     <!-- Grid Item 1 -->
                                     <div class="child-container">
                                         <!-- Grid Item Container -->
-                                        Item -4
-                    <a href="#" class="open-gallery"><img src="img/portfolio/1.jpg" /></a>
-                                        <span class="item-caption">text caption 4</span>
+                                        
+                    <a href="#" class="open-gallery">
+                         <img src="img/portfolio/logos/logo04_07.jpg" /></a>
+                                        <span class="item-caption">تصوير وإنتاج فيلم مدته 5 دقائق يعمل على تعريف العملاء بمصانع ومنتجات مجموعة البراك الصناعية ، إحدى الشركات الصناعية الرائدة في المملكة العربية السعودية المصنّعة للأبواب الأتوماتيكة ، والزجاج والبلاستيك القماش والغازات ومقرها الأحساء بالمنطقة الشرقية من المملكة العربية السعودية. تم تصوير الفيلم في 3 ايام في عدد من مصانع المجموعة وتضمن لقاء مع الرئيس التنفيذي وانتاج بعض فيديوهات المحاكاة التي أدمجت في الإنتاج النهائي للفيديو.  </span>
+                                        <div class="inner_caption">
+                                        إنتـاج الفيديو
+                                            </div>
                                         <!-- Button to expand its gallery -->
                                     </div>
 
-                                    <ul class="gallery-grid subgallery">
+                                     <ul class="gallery-grid subgallery column1">
                                         <!-- Subgallery of Grid Item 1 having 4 columns -->
-                                        <li class="col-lg-12 col-md-12 col-sm-12">
-                                            <div class="child-container">
-                                                Sub gallery item -1(Grid item -1 )
-                                            </div>
-
+                                        <li>
+                                            <img src="http://img.youtube.com/vi/3FNu7hJL9is/0.jpg" id="logo4_thumb" />
+                                            <img src="images/icons/play.png" style="max-width:150px;position:absolute;top:20%;left:40%;z-index:1;cursor:pointer" id="logo4_play" />
+                                            <div id="logo4_video" style="width:100%;height:355px;" data-vedioid="3FNu7hJL9is"></div>
                                         </li>
 
                                     </ul>
@@ -1321,19 +1344,25 @@ info@v-studio.co                                      <br />
                                     <!-- Grid Item 1 -->
                                     <div class="child-container">
                                         <!-- Grid Item Container -->
-                                        Item -5
-                    <a href="#" class="open-gallery"><img src="img/portfolio/1.jpg" /></a>
-                                        <span class="item-caption">text caption 5</span>
+                                        
+                    <a href="#" class="open-gallery">
+                        <img src="img/portfolio/logos/logo5.png" />
+                    </a>
+                                        <span class="item-caption">إنتاج  فيديو توضيحي من الرسوم المتحركة (أنيميشن) لحساب الإدارة العامة للمرور بالمملكة العربية السعودية لشرح نظام الإعتراض على مخالفات الرصد الآلي "ســاهر" . تم إنتاج الفيديو وتسليمه خلال خمسة أيام لشركة مشاريع التكنولوجيا إحدى الشركات السعودية الرائدة في تطوير البرامج والحلول التقنية بما في ذلك الصوت المقدّم باللغة العربية فقط . 
+الفيديو التوضيحي يعمل على إرشاد العامة لكيقية إستخدام بوابة وزارة الداخلية الإلكترونية وتسجيل إعتراض في حال إستلام سائق المركبة لمخالفة مرورية.
+</span>
+                                        <div class="inner_caption">
+                                        إنتاج الرسوم المتحركة
+                                            </div>
                                         <!-- Button to expand its gallery -->
                                     </div>
 
-                                    <ul class="gallery-grid subgallery">
+                                     <ul class="gallery-grid subgallery column1">
                                         <!-- Subgallery of Grid Item 1 having 4 columns -->
-                                        <li class="col-lg-12 col-md-12 col-sm-12">
-                                            <div class="child-container">
-                                                Sub gallery item -1(Grid item -1 )
-                                            </div>
-
+                                        <li>
+                                            <img src="http://img.youtube.com/vi/F6VsJbjqHCs/0.jpg" id="logo5_thumb" />
+                                            <img src="images/icons/play.png" style="max-width:150px;position:absolute;top:20%;left:40%;z-index:1;cursor:pointer" id="logo5_play" />
+                                            <div id="logo5_video" style="width:100%;height:355px;" data-vedioid="F6VsJbjqHCs"></div>
                                         </li>
 
                                     </ul>
@@ -1344,19 +1373,23 @@ info@v-studio.co                                      <br />
                                     <!-- Grid Item 1 -->
                                     <div class="child-container">
                                         <!-- Grid Item Container -->
-                                        Item -6
-                    <a href="#" class="open-gallery"><img src="img/portfolio/1.jpg" /></a>
-                                        <span class="item-caption">text caption 6</span>
+                                        
+                    <a href="#" class="open-gallery"><img src="img/portfolio/logos/logo06.png" /></a>
+                                        <span class="item-caption">
+                                            موقع الكتروني خارج المألوف  تم تصميمه بتقنية الموقع الصفحة الواحدة التفاعلي والمختلف المنظروبنظام التحكم في المحتوى لحساب MTSA وهي إحدى الأعمال الشقيقة ل V-Studio والتابعة  لصقر الدولية وتنتج أنظمة منصات الشاشات المعلوماتية التي تعمل باللمس واللوحات الإعلانية الرقمية  وتتطور برامج وتطبيقات للشاشات التي تعمل باللمس.
+كجميع تصاميمنا للمواقع الإلكترونية لا نستخدم قوالب مصممة مسبقا وانما تم تصميم كل صفحة وجزء بالموقع بعناية كاملة لإيصال الرسالة المطلوبة بافضل أشكالها . الموقع تم تصميمه بشكل يتوافق مع أجهزة الهواتف الذكية  والكمبيوتر اللوحي لضمان أكبر قدر من المشاهدة والتصفح. أنقر <a href="http://www.mtsakiosk.com" target="_blank"> هنـا</a> لزيارة الموقع
+
+                                        </span>
+                                        <div class="inner_caption">
+                                        تصميم مواقع الكترونية
+                                            </div>
                                         <!-- Button to expand its gallery -->
                                     </div>
 
-                                    <ul class="gallery-grid subgallery">
+                                    <ul class="gallery-grid subgallery column1">
                                         <!-- Subgallery of Grid Item 1 having 4 columns -->
-                                        <li class="col-lg-12 col-md-12 col-sm-12">
-                                            <div class="child-container">
-                                                Sub gallery item -1(Grid item -1 )
-                                            </div>
-
+                                        <li>
+                                            <img src="img/portfolio/logos/Portfolio06.jpg" />
                                         </li>
 
                                     </ul>
@@ -1367,19 +1400,22 @@ info@v-studio.co                                      <br />
                                     <!-- Grid Item 1 -->
                                     <div class="child-container">
                                         <!-- Grid Item Container -->
-                                        Item -7
-                    <a href="#" class="open-gallery"><img src="img/portfolio/1.jpg" /></a>
-                                        <span class="item-caption">text caption 7</span>
+                                        <a href="#" class="open-gallery"><img src="img/portfolio/logos/logo04_07.jpg" /></a>
+                                        <span class="item-caption">
+                                            موقع الكتروني من أكثر من 30 صفحة ، تفاعلي مع عدد من اللوحات الفلاش ، وفيديو وأعمال برمجة. ونظام التحكم بالمحتوى، الموقع يسلط الضوء على تعريف العملاء بمجموعة البراك الصناعية ومنتجاتها .
+كجميع تصاميمنا للمواقع الإلكترونية لا نستخدم قوالب مصممة مسبقا وانما تم تصميم كل صفحة وجزء بالموقع بعناية كاملة لإيصال الرسالة المطلوبة بافضل أشكالها ، أنقر <a href="http://www.al-barrakgroup.com" target="_blank"> هنـا</a> لزيارة الموقع
+
+                                        </span>
+                                        <div class="inner_caption">
+                                        تصميم مواقع الكترونية
+                                            </div>
                                         <!-- Button to expand its gallery -->
                                     </div>
 
-                                    <ul class="gallery-grid subgallery">
+                                    <ul class="gallery-grid subgallery column1">
                                         <!-- Subgallery of Grid Item 1 having 4 columns -->
-                                        <li class="col-lg-12 col-md-12 col-sm-12">
-                                            <div class="child-container">
-                                                Sub gallery item -1(Grid item -1 )
-                                            </div>
-
+                                        <li>
+                                            <img src="img/portfolio/logos/Portfolio07.jpg" />
                                         </li>
 
                                     </ul>
@@ -1390,19 +1426,27 @@ info@v-studio.co                                      <br />
                                     <!-- Grid Item 1 -->
                                     <div class="child-container">
                                         <!-- Grid Item Container -->
-                                        Item -8
-                    <a href="#" class="open-gallery"><img src="img/portfolio/1.jpg" /></a>
-                                        <span class="item-caption">text caption 8</span>
+                                       
+                    <a href="#" class="open-gallery">
+                        <img src="img/portfolio/logos/logo1_8.png" />
+                    </a>
+                                        <span class="item-caption">إنتاج  فيديو تعليمي من الرسوم المتحركة (أنيميشن) لحساب شركة معادن للذهب مدته 6 دقائق كجزء من مسئولية الشركة الإجتماعية.
+تهدف الشركة من وراء إنتاج هذا الفيديو إلى زيادة معرفة الطلاب بنشاط شركة معادن للذهب ودورها الفعال في المشاركة في تنمية الإقتصاد الوطني. 
+الفيديو تضمن معلومات عن مناجم الشركة وأعمال التعدين بالإضافة لتعليمات السلامة الخاصة بالزوار. 
+
+</span>
+                                        <div class="inner_caption">
+                                        إنتاج الرسوم المتحركة
+                                            </div>
                                         <!-- Button to expand its gallery -->
                                     </div>
 
-                                    <ul class="gallery-grid subgallery">
+                                     <ul class="gallery-grid subgallery column1">
                                         <!-- Subgallery of Grid Item 1 having 4 columns -->
-                                        <li class="col-lg-12 col-md-12 col-sm-12">
-                                            <div class="child-container">
-                                                Sub gallery item -1(Grid item -1 )
-                                            </div>
-
+                                        <li>
+                                            <img src="http://img.youtube.com/vi/rft4CS57Uyg/0.jpg" id="logo8_thumb" />
+                                            <img src="images/icons/play.png" style="max-width:150px;position:absolute;top:20%;left:40%;z-index:1;cursor:pointer" id="logo8_play" />
+                                            <div id="logo8_video" style="width:100%;height:355px;" data-vedioid="rft4CS57Uyg"></div>
                                         </li>
 
                                     </ul>
@@ -1413,25 +1457,53 @@ info@v-studio.co                                      <br />
                                     <!-- Grid Item 1 -->
                                     <div class="child-container">
                                         <!-- Grid Item Container -->
-                                        Item -9
-                    <a href="#" class="open-gallery"><img src="img/portfolio/1.jpg" /></a>
-                                        <span class="item-caption">text caption 9</span>
+                                      
+                    <a href="#" class="open-gallery">
+                        <img src="img/portfolio/logos/logo09.png" /></a>
+                                        <span class="item-caption">كانت مشاركة جامعة الطائف في معرض التعليم العالي بالرياض 2014 مميزة ولافتة لنظر الحضور. قامت الجامعة باستخدام وحدة عرض الهولوجرام "هولوكونيك" والمتحدث الإفتراضي "هوست توك" في جناحها مما اثار إعجاب الكثير من الجمهور وخلق تواجدا ضخما من الزوار حول الجناح. إستخدمت جامعة الطائف هذه الأدوات التسويقسة المبتكرة للتعريف بالجامعة وتاريخها وخططها المستقبلية التوسعية. </span>
+                                        <div class="inner_caption">
+                                        الهولوجرام والمتحدث الإفتراضي 
+                                            </div>
                                         <!-- Button to expand its gallery -->
                                     </div>
 
-                                    <ul class="gallery-grid subgallery">
+                                    <ul class="gallery-grid subgallery column1">
                                         <!-- Subgallery of Grid Item 1 having 4 columns -->
-                                        <li class="col-lg-12 col-md-12 col-sm-12">
-                                            <div class="child-container">
-                                                Sub gallery item -1(Grid item -1 )
-                                            </div>
-
+                                        <li>
+                                            <img src="http://img.youtube.com/vi/sFbaauPL_iM/0.jpg" id="logo9_thumb" />
+                                            <img src="images/icons/play.png" style="max-width:150px;position:absolute;top:20%;left:40%;z-index:1;cursor:pointer" id="logo9_play" />
+                                            <div id="logo9_video" style="width:100%;height:355px;" data-vedioid="sFbaauPL_iM"></div>
                                         </li>
 
                                     </ul>
 
                                 </li>
 
+                                <li>
+                                    <!-- Grid Item 1 -->
+                                    <div class="child-container">
+                                        <!-- Grid Item Container -->
+                                        
+                    <a href="#" class="open-gallery">
+                         <img src="img/portfolio/logos/logo10.png" /></a>
+                                        <span class="item-caption">تصوير وإنتاج فيلم مدته 12 دقيقة يعمل على تعريف العملاء بمنتجات شركة زان الحديثة المحدودة ، إحدى الشركات الرائدة في مجال توريد معدات المساحة في المملكة العربية السعودية ، مع التركيز على أحدث مشاريعها "/شروع قطار الرياض" . قامت في ستديو بصياغة نص الفيديو باللغة الإنجليزية بالإضافة لخلق الجملة التسويقية الخاصة بالشعار بالاضافة لتصوير وانتاج الفيديو </span>
+                                        <div class="inner_caption">
+                                        إنتـاج الفيديو
+                                            </div>
+                                        <!-- Button to expand its gallery -->
+                                    </div>
+
+                                     <ul class="gallery-grid subgallery column1">
+                                        <!-- Subgallery of Grid Item 1 having 4 columns -->
+                                        <li>
+                                            <img src="http://img.youtube.com/vi/kaM3kCv-UR0/0.jpg" id="logo10_thumb" />
+                                            <img src="images/icons/play.png" style="max-width:150px;position:absolute;top:20%;left:40%;z-index:1;cursor:pointer" id="logo10_play" />
+                                            <div id="logo10_video" style="width:100%;height:355px;" data-vedioid="kaM3kCv-UR0"></div>
+                                        </li>
+
+                                    </ul>
+
+                                </li>
 
 
                             </ul>

@@ -397,6 +397,16 @@
     <Content Include="img\portfolio\8.jpg" />
     <Content Include="img\portfolio\9.jpg" />
     <Content Include="img\portfolio\bg.png" />
+    <Content Include="img\portfolio\logos\logo03.jpg" />
+    <Content Include="img\portfolio\logos\logo04_07.jpg" />
+    <Content Include="img\portfolio\logos\logo06.png" />
+    <Content Include="img\portfolio\logos\logo09.png" />
+    <Content Include="img\portfolio\logos\logo10.png" />
+    <Content Include="img\portfolio\logos\logo1_8.png" />
+    <Content Include="img\portfolio\logos\Logo2.png" />
+    <Content Include="img\portfolio\logos\logo5.png" />
+    <Content Include="img\portfolio\logos\Portfolio06.jpg" />
+    <Content Include="img\portfolio\logos\Portfolio07.jpg" />
     <Content Include="img\portfolio_def.jpg" />
     <Content Include="img\presenter.png" />
     <Content Include="img\previous.png" />
