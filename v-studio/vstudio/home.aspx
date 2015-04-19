@@ -591,9 +591,10 @@ Your browser does not support the video tag
 				</div>
 				<div id="download-catalog" class="icon-rotate" >
 					<img src="img/service-download.png" style="max-height:40px;"/>
-					<p>Can't stream video ? <br />Download All Services video</p>
+					<p>Can't stream video ? <br />Download All Services video</p>                    
+                    <a href="media/presentation/Vstudioservicespresentation.pdf" target="_blank" download="download" style="text-decoration:none !important">
                     <img src="img/service-download.png" style="max-height:40px;"/>
-                    <p>Download Services <br />Presentation</p>
+                    <p>Download Services <br />Presentation</p></a>
 				</div>
 				<!--
 				<div id="service-hex-1">
@@ -842,7 +843,8 @@ Your browser does not support the video tag
                             
                     </div>
 			</div>
-            <div class="col-lg-12 col-sm-12 col-md-12 clearfix bottom">
+            <div style="clear:both;height:15px;width:100%">&nbsp;</div>
+            <div class="col-lg-12 col-sm-12 col-md-12 clearfix " style="margin-top:30px;">
                 <div class="col-lg-11 col-sm-11 col-md-11 pull-right" style="padding:0;width:95%">
             <div class="col-lg-5 col-sm-5 col-md-5 pull-right">  
                                 <img src="../images/Icons/Kiosk.png" style="margin:0 15px 0 0;width:21.5%;"/>
@@ -959,8 +961,8 @@ Your browser does not support the video tag
 							<br><br>
 							<div class="row" id="poly-buttons-bar">
 								<div class="col-md-4" id="poly-button-1">
-									<div id="b-effect" href="#" data-toggle="modal" data-target="#polyModel">
-										<button id="poly-1-no-hover" class="poly-button"><img src="img/poly-image.png"/> &nbsp; Catalogue</button>
+									<div id="b-effect" >                                        
+										<a id="poly-1-no-hover" class="poly-button" href="media/presentation/Polytouchcatalogue.pdf" download="download" target="_blank"><img src="img/poly-image.png"/> &nbsp; Catalogue</a>
 									</div>
 									
 								</div>
@@ -1499,7 +1501,7 @@ The video was filmed in 3 working days using cranes and in-truck cameras in addi
                                     <!-- Grid Item 1 -->
                                         <!-- Grid Item Container -->
                                         <img src="images/icons/play.png" style="max-width:150px;position:absolute;top:30%;left:40%;z-index:1;cursor:pointer" id="testmon_play" />
-                                        <div id="testmon_vedio" style="width:100%;height:355px;" data-vedioid="BefMB3TUMWU"></div>
+                                        <div id="testmon_vedio" style="width:100%;height:355px;" data-vedioid="-HZ878vEwA8"></div>
                                         <%--<iframe width="560" height="355" src="https://www.youtube.com/embed/BefMB3TUMWU" frameborder="0" allowfullscreen></iframe>--%>
                                         <!-- Button to expand its gallery -->
                                     
