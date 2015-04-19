@@ -1688,6 +1688,29 @@ border-radius:0px;
 	-webkit-touch-callout: none
 }
 
+#b-effect a
+{
+	display:block;
+    text-decoration:none !important;
+	transition-property: transform;
+    padding:5px 10px;
+	transition-duration: 0.5s;
+	transition-timing-function: linear;
+	cursor:pointer;
+}
+#b-effect a:hover
+{
+	-moz-transform: translateY(-10px);
+	-ms-transform: translateY(-10px);
+	-o-transform: translateY(-10px);
+	-webkit-transform: translateY(-10px); 
+	transform:  translateY(-10px);
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-webkit-user-select: none;
+	-webkit-touch-callout: none;
+    color:#fff;
+}
+
 .service-text p
 {
 	

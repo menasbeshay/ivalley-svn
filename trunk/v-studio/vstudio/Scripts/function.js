@@ -558,6 +558,8 @@ function scrollAllow() {
         });
         $(".start-video-again").click(function () {
             //mediaPlayer0.src = "media/demo1.mp4";
+            mediaPlayer0.load();
+            $("#video-cover").hide(500);
             mediaPlayer0.play();
 
         });
