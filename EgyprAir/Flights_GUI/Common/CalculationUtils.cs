@@ -263,7 +263,7 @@ namespace Flights_GUI.Common
                     {
                         Sector nextsector = new Sector();
                         // get next sector in same flight
-                        nextsector.GetNextSector(Sectors.SectorID);
+                        nextsector.GetNextPilotSector(Sectors.SectorID, PilotID);
                         DateTime CurrentDate = Sectors.SectorDate;
                         if (nextsector.RowCount > 0)
                         {
@@ -331,7 +331,7 @@ namespace Flights_GUI.Common
                     if (!Sectors.IsColumnNull(Sector.ColumnNames.PilotCityID))
                     {
                         Sector nextsector = new Sector();
-                        nextsector.GetNextSector(Sectors.SectorID);
+                        nextsector.GetNextCrewSector(Sectors.SectorID, CrewID);
                         DateTime CurrentDate = Sectors.SectorDate;
                         if (nextsector.RowCount > 0)
                         {

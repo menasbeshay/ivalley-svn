@@ -137,7 +137,7 @@ namespace Flights_GUI
                                 // get next sector in same flight
                                 if (!pt.IsColumnNull("SectorID"))
                                 {
-                                    nextsector.GetNextSector(Convert.ToInt32(pt.GetColumn("SectorID")));
+                                    nextsector.GetNextPilotSector(Convert.ToInt32(pt.GetColumn("SectorID")), Convert.ToInt32(AllToNotify.GetColumn("PilotID").ToString()));
                                     DateTime CurrentDate = Convert.ToDateTime(pt.GetColumn("day"));
                                     string currentCity = pt.GetColumn("city").ToString();
                                     if (nextsector.RowCount > 0)
@@ -177,7 +177,7 @@ namespace Flights_GUI
                         {
                             msg.Body += string.Format(GetLocalResourceObject("StatusTemplate").ToString(), Convert.ToDateTime(pt.GetColumn("day").ToString()).ToString("dd/MM/yyyy"), 
                                                                                                             pt.GetColumn("StatusDay").ToString(),
-                                                                                                            pt.IsColumnNull("StatusType") ? "Day off" : pt.GetColumn("StatusType").ToString(),
+                                                                                                            pt.IsColumnNull("StatusType") && pt.IsColumnNull("City") ? "Day off" : pt.GetColumn("StatusType").ToString(),
                                                                                                             pt.GetColumn("FlightNo").ToString(),
                                                                                                             pt.GetColumn("Route").ToString(), 
                                                                                                             pt.IsColumnNull("STD") ? "" : Convert.ToDateTime(pt.GetColumn("STD").ToString()).ToString("HH:mm"),
@@ -205,7 +205,7 @@ namespace Flights_GUI
                                 // get next sector in same flight
                                 if (!pt.IsColumnNull("SectorID"))
                                 {
-                                    nextsector.GetNextSector(Convert.ToInt32(pt.GetColumn("SectorID")));
+                                    nextsector.GetNextCrewSector(Convert.ToInt32(pt.GetColumn("SectorID")), Convert.ToInt32(AllToNotify.GetColumn("PilotID").ToString()));
                                     DateTime CurrentDate = Convert.ToDateTime(pt.GetColumn("day"));
                                     string currentCity = pt.GetColumn("city").ToString();
                                     if (nextsector.RowCount > 0)
@@ -245,7 +245,7 @@ namespace Flights_GUI
                         {
                             msg.Body += string.Format(GetLocalResourceObject("StatusTemplate").ToString(), Convert.ToDateTime(pt.GetColumn("day").ToString()).ToString("dd/MM/yyyy"),
                                                                                                             pt.GetColumn("StatusDay").ToString(),
-                                                                                                            pt.IsColumnNull("StatusType") ? "Day off" : pt.GetColumn("StatusType").ToString(),
+                                                                                                            pt.IsColumnNull("StatusType") && pt.IsColumnNull("City") ? "Day off" : pt.GetColumn("StatusType").ToString(),
                                                                                                             pt.GetColumn("FlightNo").ToString(),
                                                                                                             pt.GetColumn("Route").ToString(),
                                                                                                             pt.IsColumnNull("STD") ? "" : Convert.ToDateTime(pt.GetColumn("STD").ToString()).ToString("HH:mm"),

@@ -854,6 +854,7 @@
     <Content Include="Operation\Airports.aspx" />
     <Content Include="Operation\AllPilotStatus.aspx" />
     <Content Include="Operation\Default.aspx" />
+    <Content Include="Operation\DoReport.aspx" />
     <Content Include="Operation\FlightBatchs.aspx" />
     <Content Include="Operation\FlightDetails.aspx" />
     <Content Include="images\4.jpg" />
@@ -900,6 +901,7 @@
     <Content Include="Operation\FlightList.aspx" />
     <Content Include="Operation\FlightReport.aspx" />
     <Content Include="Operation\InitiateSector.aspx" />
+    <Content Include="Operation\ManageTransactions.aspx" />
     <Content Include="Operation\PAX.aspx" />
     <Content Include="Operation\PilotFlights.aspx" />
     <Content Include="Operation\PilotProfileData.aspx" />
@@ -1447,6 +1449,13 @@
     <Compile Include="Operation\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Operation\DoReport.aspx.cs">
+      <DependentUpon>DoReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Operation\DoReport.aspx.designer.cs">
+      <DependentUpon>DoReport.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Operation\FlightBatchs.aspx.cs">
       <DependentUpon>FlightBatchs.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1500,6 +1509,13 @@
     </Compile>
     <Compile Include="Operation\InitiateSector.aspx.designer.cs">
       <DependentUpon>InitiateSector.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Operation\ManageTransactions.aspx.cs">
+      <DependentUpon>ManageTransactions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Operation\ManageTransactions.aspx.designer.cs">
+      <DependentUpon>ManageTransactions.aspx</DependentUpon>
     </Compile>
     <Compile Include="Operation\PAX.aspx.cs">
       <DependentUpon>PAX.aspx</DependentUpon>
@@ -2031,7 +2047,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Reports\JournyFlightLog.rdlc">
+    <Content Include="Reports\JournyFlightLog_bakup.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Reports\PAXReport.rdlc">
@@ -2215,6 +2231,14 @@
     <Content Include="Reports\flyEgypt\SectorActualBurnOff.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Reports\JournyFlightLog.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Reports\GD.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
