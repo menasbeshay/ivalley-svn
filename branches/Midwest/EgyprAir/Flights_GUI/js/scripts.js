@@ -1663,14 +1663,14 @@ var App = function () {
         });
     }
 
-    var handleUniform = function () {
+    /*var handleUniform = function () {
         if (!jQuery().uniform) {
             return;
         }
         if (test = $("input[type=checkbox]:not(.toggle), input[type=radio]:not(.toggle)")) {
             test.uniform();
         }
-    }
+    }*/
 
     var handleWysihtml5 = function () {
         if (!jQuery().wysihtml5) {

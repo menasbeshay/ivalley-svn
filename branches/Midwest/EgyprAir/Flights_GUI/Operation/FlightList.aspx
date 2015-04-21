@@ -10,8 +10,13 @@
         border: solid 1px #A6ACB8;
     }
 
-        .radio + label{
-            display:inline;
+        .radio + label, input[type="radio"] + label{
+            display:inline-block;
+            margin-left:5px;
+        }
+
+        input[type="radio"] {
+            margin-top:-2px !important;
         }
 
         
@@ -255,6 +260,9 @@
                                     <ItemTemplate>
                                         <asp:LinkButton ID="uiLinkButtonView" runat="server" CommandArgument='<%# Eval("SectorID") %>'
                                             CommandName="ViewReport"><img src="../images/bar_chart.png" alt="View Report" title="View Report" style="border:0;float:none;" /></asp:LinkButton>
+                                        &nbsp; 
+                                        <a href='doreport.aspx?report=GD&SectorID=<%# Eval("SectorID") %>'>
+                                            <img src="../images/bar_chart.png" alt="View GD Report" title="View GD Report" style="border:0;float:none;" /></a>
                                         &nbsp;
                                         <asp:LinkButton ID="uiLinkButtonEdit" runat="server" CommandArgument='<%# Eval("SectorID") %>'
                                             CommandName="EditSectorDetails"><img src="../images/edit.png" alt="Edit Details" title="Edit Details" style="border:0;float:none;" /></asp:LinkButton>
@@ -313,6 +321,12 @@
                             </DateInput>
                             <DatePopupButton ImageUrl="" HoverImageUrl=""></DatePopupButton>
                         </telerik:raddatepicker>
+                        &nbsp;&nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server"
+                            ControlToValidate="uiRaddatepickerSectorDate" Display="Dynamic" ErrorMessage="Required"
+                            ForeColor="Red" ValidationGroup="Flight">*</asp:RequiredFieldValidator>
+                        <cc1:ValidatorCalloutExtender ID="ValidatorCalloutExtender1"
+                            runat="server" Enabled="True" TargetControlID="RequiredFieldValidator4">
+                        </cc1:ValidatorCalloutExtender>
                     </div>
                     
                 </div>

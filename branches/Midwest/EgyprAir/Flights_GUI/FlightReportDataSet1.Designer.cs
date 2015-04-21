@@ -66,6 +66,10 @@ namespace Flights_GUI {
         
         private GetPilotSimulationHoursWithinRangeDataTable tableGetPilotSimulationHoursWithinRange;
         
+        private GetSectorInfoDataTable tableGetSectorInfo;
+        
+        private GetSectorPilotInfoDataTable tableGetSectorPilotInfo;
+        
         private PilotNightCityDataTable tablePilotNightCity;
         
         private CrewNightCityDataTable tableCrewNightCity;
@@ -160,6 +164,12 @@ namespace Flights_GUI {
                 }
                 if ((ds.Tables["GetPilotSimulationHoursWithinRange"] != null)) {
                     base.Tables.Add(new GetPilotSimulationHoursWithinRangeDataTable(ds.Tables["GetPilotSimulationHoursWithinRange"]));
+                }
+                if ((ds.Tables["GetSectorInfo"] != null)) {
+                    base.Tables.Add(new GetSectorInfoDataTable(ds.Tables["GetSectorInfo"]));
+                }
+                if ((ds.Tables["GetSectorPilotInfo"] != null)) {
+                    base.Tables.Add(new GetSectorPilotInfoDataTable(ds.Tables["GetSectorPilotInfo"]));
                 }
                 if ((ds.Tables["PilotNightCity"] != null)) {
                     base.Tables.Add(new PilotNightCityDataTable(ds.Tables["PilotNightCity"]));
@@ -399,6 +409,26 @@ namespace Flights_GUI {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public GetSectorInfoDataTable GetSectorInfo {
+            get {
+                return this.tableGetSectorInfo;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public GetSectorPilotInfoDataTable GetSectorPilotInfo {
+            get {
+                return this.tableGetSectorPilotInfo;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public PilotNightCityDataTable PilotNightCity {
             get {
                 return this.tablePilotNightCity;
@@ -544,6 +574,12 @@ namespace Flights_GUI {
                 }
                 if ((ds.Tables["GetPilotSimulationHoursWithinRange"] != null)) {
                     base.Tables.Add(new GetPilotSimulationHoursWithinRangeDataTable(ds.Tables["GetPilotSimulationHoursWithinRange"]));
+                }
+                if ((ds.Tables["GetSectorInfo"] != null)) {
+                    base.Tables.Add(new GetSectorInfoDataTable(ds.Tables["GetSectorInfo"]));
+                }
+                if ((ds.Tables["GetSectorPilotInfo"] != null)) {
+                    base.Tables.Add(new GetSectorPilotInfoDataTable(ds.Tables["GetSectorPilotInfo"]));
                 }
                 if ((ds.Tables["PilotNightCity"] != null)) {
                     base.Tables.Add(new PilotNightCityDataTable(ds.Tables["PilotNightCity"]));
@@ -710,6 +746,18 @@ namespace Flights_GUI {
                     this.tableGetPilotSimulationHoursWithinRange.InitVars();
                 }
             }
+            this.tableGetSectorInfo = ((GetSectorInfoDataTable)(base.Tables["GetSectorInfo"]));
+            if ((initTable == true)) {
+                if ((this.tableGetSectorInfo != null)) {
+                    this.tableGetSectorInfo.InitVars();
+                }
+            }
+            this.tableGetSectorPilotInfo = ((GetSectorPilotInfoDataTable)(base.Tables["GetSectorPilotInfo"]));
+            if ((initTable == true)) {
+                if ((this.tableGetSectorPilotInfo != null)) {
+                    this.tableGetSectorPilotInfo.InitVars();
+                }
+            }
             this.tablePilotNightCity = ((PilotNightCityDataTable)(base.Tables["PilotNightCity"]));
             if ((initTable == true)) {
                 if ((this.tablePilotNightCity != null)) {
@@ -774,6 +822,10 @@ namespace Flights_GUI {
             base.Tables.Add(this.tableGetAllCrewHours_Summary);
             this.tableGetPilotSimulationHoursWithinRange = new GetPilotSimulationHoursWithinRangeDataTable();
             base.Tables.Add(this.tableGetPilotSimulationHoursWithinRange);
+            this.tableGetSectorInfo = new GetSectorInfoDataTable();
+            base.Tables.Add(this.tableGetSectorInfo);
+            this.tableGetSectorPilotInfo = new GetSectorPilotInfoDataTable();
+            base.Tables.Add(this.tableGetSectorPilotInfo);
             this.tablePilotNightCity = new PilotNightCityDataTable();
             base.Tables.Add(this.tablePilotNightCity);
             this.tableCrewNightCity = new CrewNightCityDataTable();
@@ -908,6 +960,18 @@ namespace Flights_GUI {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeGetSectorInfo() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeGetSectorPilotInfo() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializePilotNightCity() {
             return false;
         }
@@ -1035,6 +1099,12 @@ namespace Flights_GUI {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void GetPilotSimulationHoursWithinRangeRowChangeEventHandler(object sender, GetPilotSimulationHoursWithinRangeRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void GetSectorInfoRowChangeEventHandler(object sender, GetSectorInfoRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void GetSectorPilotInfoRowChangeEventHandler(object sender, GetSectorPilotInfoRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void PilotNightCityRowChangeEventHandler(object sender, PilotNightCityRowChangeEvent e);
@@ -6040,6 +6110,24 @@ namespace Flights_GUI {
             
             private global::System.Data.DataColumn columnTotalMins;
             
+            private global::System.Data.DataColumn columnFlightID;
+            
+            private global::System.Data.DataColumn columnIsReturnSector;
+            
+            private global::System.Data.DataColumn columnReturnSectorID;
+            
+            private global::System.Data.DataColumn columnClientID;
+            
+            private global::System.Data.DataColumn columnPilotCityID;
+            
+            private global::System.Data.DataColumn columnClass;
+            
+            private global::System.Data.DataColumn columnClass1;
+            
+            private global::System.Data.DataColumn columnTotalATAHours;
+            
+            private global::System.Data.DataColumn columnTotalATAMin;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public GetFlightLogDataTable() {
@@ -7035,6 +7123,78 @@ namespace Flights_GUI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FlightIDColumn {
+                get {
+                    return this.columnFlightID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IsReturnSectorColumn {
+                get {
+                    return this.columnIsReturnSector;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ReturnSectorIDColumn {
+                get {
+                    return this.columnReturnSectorID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ClientIDColumn {
+                get {
+                    return this.columnClientID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PilotCityIDColumn {
+                get {
+                    return this.columnPilotCityID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ClassColumn {
+                get {
+                    return this.columnClass;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Class1Column {
+                get {
+                    return this.columnClass1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TotalATAHoursColumn {
+                get {
+                    return this.columnTotalATAHours;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TotalATAMinColumn {
+                get {
+                    return this.columnTotalATAMin;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -7180,7 +7340,16 @@ namespace Flights_GUI {
                         System.DateTime CreatedDate9, 
                         System.DateTime LastModifiedDate9, 
                         int TotalHours, 
-                        int TotalMins) {
+                        int TotalMins, 
+                        int FlightID, 
+                        bool IsReturnSector, 
+                        int ReturnSectorID, 
+                        int ClientID, 
+                        int PilotCityID, 
+                        int Class, 
+                        int Class1, 
+                        int TotalATAHours, 
+                        int TotalATAMin) {
                 GetFlightLogRow rowGetFlightLogRow = ((GetFlightLogRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -7302,7 +7471,16 @@ namespace Flights_GUI {
                         CreatedDate9,
                         LastModifiedDate9,
                         TotalHours,
-                        TotalMins};
+                        TotalMins,
+                        FlightID,
+                        IsReturnSector,
+                        ReturnSectorID,
+                        ClientID,
+                        PilotCityID,
+                        Class,
+                        Class1,
+                        TotalATAHours,
+                        TotalATAMin};
                 rowGetFlightLogRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowGetFlightLogRow);
                 return rowGetFlightLogRow;
@@ -7445,6 +7623,15 @@ namespace Flights_GUI {
                 this.columnLastModifiedDate9 = base.Columns["LastModifiedDate9"];
                 this.columnTotalHours = base.Columns["TotalHours"];
                 this.columnTotalMins = base.Columns["TotalMins"];
+                this.columnFlightID = base.Columns["FlightID"];
+                this.columnIsReturnSector = base.Columns["IsReturnSector"];
+                this.columnReturnSectorID = base.Columns["ReturnSectorID"];
+                this.columnClientID = base.Columns["ClientID"];
+                this.columnPilotCityID = base.Columns["PilotCityID"];
+                this.columnClass = base.Columns["Class"];
+                this.columnClass1 = base.Columns["Class1"];
+                this.columnTotalATAHours = base.Columns["TotalATAHours"];
+                this.columnTotalATAMin = base.Columns["TotalATAMin"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7690,6 +7877,24 @@ namespace Flights_GUI {
                 base.Columns.Add(this.columnTotalHours);
                 this.columnTotalMins = new global::System.Data.DataColumn("TotalMins", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotalMins);
+                this.columnFlightID = new global::System.Data.DataColumn("FlightID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFlightID);
+                this.columnIsReturnSector = new global::System.Data.DataColumn("IsReturnSector", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIsReturnSector);
+                this.columnReturnSectorID = new global::System.Data.DataColumn("ReturnSectorID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnReturnSectorID);
+                this.columnClientID = new global::System.Data.DataColumn("ClientID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnClientID);
+                this.columnPilotCityID = new global::System.Data.DataColumn("PilotCityID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPilotCityID);
+                this.columnClass = new global::System.Data.DataColumn("Class", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnClass);
+                this.columnClass1 = new global::System.Data.DataColumn("Class1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnClass1);
+                this.columnTotalATAHours = new global::System.Data.DataColumn("TotalATAHours", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotalATAHours);
+                this.columnTotalATAMin = new global::System.Data.DataColumn("TotalATAMin", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotalATAMin);
                 this.columnSectorID.AutoIncrement = true;
                 this.columnSectorID.AutoIncrementSeed = -1;
                 this.columnSectorID.AutoIncrementStep = -1;
@@ -7764,6 +7969,8 @@ namespace Flights_GUI {
                 this.columnDescription8.MaxLength = 500;
                 this.columnTotalHours.ReadOnly = true;
                 this.columnTotalMins.ReadOnly = true;
+                this.columnTotalATAHours.ReadOnly = true;
+                this.columnTotalATAMin.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13851,6 +14058,621 @@ namespace Flights_GUI {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "GetPilotSimulationHoursWithinRangeDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class GetSectorInfoDataTable : global::System.Data.TypedTableBase<GetSectorInfoRow> {
+            
+            private global::System.Data.DataColumn columnSectorDate;
+            
+            private global::System.Data.DataColumn columnFlightNo;
+            
+            private global::System.Data.DataColumn columnAirCraft;
+            
+            private global::System.Data.DataColumn columnFromA;
+            
+            private global::System.Data.DataColumn columnToA;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public GetSectorInfoDataTable() {
+                this.TableName = "GetSectorInfo";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal GetSectorInfoDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected GetSectorInfoDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SectorDateColumn {
+                get {
+                    return this.columnSectorDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FlightNoColumn {
+                get {
+                    return this.columnFlightNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AirCraftColumn {
+                get {
+                    return this.columnAirCraft;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FromAColumn {
+                get {
+                    return this.columnFromA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ToAColumn {
+                get {
+                    return this.columnToA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public GetSectorInfoRow this[int index] {
+                get {
+                    return ((GetSectorInfoRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event GetSectorInfoRowChangeEventHandler GetSectorInfoRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event GetSectorInfoRowChangeEventHandler GetSectorInfoRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event GetSectorInfoRowChangeEventHandler GetSectorInfoRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event GetSectorInfoRowChangeEventHandler GetSectorInfoRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddGetSectorInfoRow(GetSectorInfoRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public GetSectorInfoRow AddGetSectorInfoRow(System.DateTime SectorDate, string FlightNo, string AirCraft, string FromA, string ToA) {
+                GetSectorInfoRow rowGetSectorInfoRow = ((GetSectorInfoRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        SectorDate,
+                        FlightNo,
+                        AirCraft,
+                        FromA,
+                        ToA};
+                rowGetSectorInfoRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowGetSectorInfoRow);
+                return rowGetSectorInfoRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                GetSectorInfoDataTable cln = ((GetSectorInfoDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new GetSectorInfoDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnSectorDate = base.Columns["SectorDate"];
+                this.columnFlightNo = base.Columns["FlightNo"];
+                this.columnAirCraft = base.Columns["AirCraft"];
+                this.columnFromA = base.Columns["FromA"];
+                this.columnToA = base.Columns["ToA"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnSectorDate = new global::System.Data.DataColumn("SectorDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSectorDate);
+                this.columnFlightNo = new global::System.Data.DataColumn("FlightNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFlightNo);
+                this.columnAirCraft = new global::System.Data.DataColumn("AirCraft", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAirCraft);
+                this.columnFromA = new global::System.Data.DataColumn("FromA", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFromA);
+                this.columnToA = new global::System.Data.DataColumn("ToA", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnToA);
+                this.columnFlightNo.MaxLength = 15;
+                this.columnAirCraft.MaxLength = 100;
+                this.columnFromA.MaxLength = 5;
+                this.columnToA.MaxLength = 5;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public GetSectorInfoRow NewGetSectorInfoRow() {
+                return ((GetSectorInfoRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new GetSectorInfoRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(GetSectorInfoRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.GetSectorInfoRowChanged != null)) {
+                    this.GetSectorInfoRowChanged(this, new GetSectorInfoRowChangeEvent(((GetSectorInfoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.GetSectorInfoRowChanging != null)) {
+                    this.GetSectorInfoRowChanging(this, new GetSectorInfoRowChangeEvent(((GetSectorInfoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.GetSectorInfoRowDeleted != null)) {
+                    this.GetSectorInfoRowDeleted(this, new GetSectorInfoRowChangeEvent(((GetSectorInfoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.GetSectorInfoRowDeleting != null)) {
+                    this.GetSectorInfoRowDeleting(this, new GetSectorInfoRowChangeEvent(((GetSectorInfoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveGetSectorInfoRow(GetSectorInfoRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                FlightReportDataSet ds = new FlightReportDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "GetSectorInfoDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class GetSectorPilotInfoDataTable : global::System.Data.TypedTableBase<GetSectorPilotInfoRow> {
+            
+            private global::System.Data.DataColumn columnSectorDate;
+            
+            private global::System.Data.DataColumn columnFlightNo;
+            
+            private global::System.Data.DataColumn columnPilotName;
+            
+            private global::System.Data.DataColumn columnTitle;
+            
+            private global::System.Data.DataColumn columnPassportNo;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public GetSectorPilotInfoDataTable() {
+                this.TableName = "GetSectorPilotInfo";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal GetSectorPilotInfoDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected GetSectorPilotInfoDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SectorDateColumn {
+                get {
+                    return this.columnSectorDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FlightNoColumn {
+                get {
+                    return this.columnFlightNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PilotNameColumn {
+                get {
+                    return this.columnPilotName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TitleColumn {
+                get {
+                    return this.columnTitle;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PassportNoColumn {
+                get {
+                    return this.columnPassportNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public GetSectorPilotInfoRow this[int index] {
+                get {
+                    return ((GetSectorPilotInfoRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event GetSectorPilotInfoRowChangeEventHandler GetSectorPilotInfoRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event GetSectorPilotInfoRowChangeEventHandler GetSectorPilotInfoRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event GetSectorPilotInfoRowChangeEventHandler GetSectorPilotInfoRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event GetSectorPilotInfoRowChangeEventHandler GetSectorPilotInfoRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddGetSectorPilotInfoRow(GetSectorPilotInfoRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public GetSectorPilotInfoRow AddGetSectorPilotInfoRow(System.DateTime SectorDate, string FlightNo, string PilotName, string Title, string PassportNo) {
+                GetSectorPilotInfoRow rowGetSectorPilotInfoRow = ((GetSectorPilotInfoRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        SectorDate,
+                        FlightNo,
+                        PilotName,
+                        Title,
+                        PassportNo};
+                rowGetSectorPilotInfoRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowGetSectorPilotInfoRow);
+                return rowGetSectorPilotInfoRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                GetSectorPilotInfoDataTable cln = ((GetSectorPilotInfoDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new GetSectorPilotInfoDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnSectorDate = base.Columns["SectorDate"];
+                this.columnFlightNo = base.Columns["FlightNo"];
+                this.columnPilotName = base.Columns["PilotName"];
+                this.columnTitle = base.Columns["Title"];
+                this.columnPassportNo = base.Columns["PassportNo"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnSectorDate = new global::System.Data.DataColumn("SectorDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSectorDate);
+                this.columnFlightNo = new global::System.Data.DataColumn("FlightNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFlightNo);
+                this.columnPilotName = new global::System.Data.DataColumn("PilotName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPilotName);
+                this.columnTitle = new global::System.Data.DataColumn("Title", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTitle);
+                this.columnPassportNo = new global::System.Data.DataColumn("PassportNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPassportNo);
+                this.columnFlightNo.MaxLength = 15;
+                this.columnPilotName.ReadOnly = true;
+                this.columnPilotName.MaxLength = 101;
+                this.columnTitle.MaxLength = 150;
+                this.columnPassportNo.MaxLength = 20;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public GetSectorPilotInfoRow NewGetSectorPilotInfoRow() {
+                return ((GetSectorPilotInfoRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new GetSectorPilotInfoRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(GetSectorPilotInfoRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.GetSectorPilotInfoRowChanged != null)) {
+                    this.GetSectorPilotInfoRowChanged(this, new GetSectorPilotInfoRowChangeEvent(((GetSectorPilotInfoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.GetSectorPilotInfoRowChanging != null)) {
+                    this.GetSectorPilotInfoRowChanging(this, new GetSectorPilotInfoRowChangeEvent(((GetSectorPilotInfoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.GetSectorPilotInfoRowDeleted != null)) {
+                    this.GetSectorPilotInfoRowDeleted(this, new GetSectorPilotInfoRowChangeEvent(((GetSectorPilotInfoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.GetSectorPilotInfoRowDeleting != null)) {
+                    this.GetSectorPilotInfoRowDeleting(this, new GetSectorPilotInfoRowChangeEvent(((GetSectorPilotInfoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveGetSectorPilotInfoRow(GetSectorPilotInfoRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                FlightReportDataSet ds = new FlightReportDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "GetSectorPilotInfoDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -19992,6 +20814,150 @@ namespace Flights_GUI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int FlightID {
+                get {
+                    try {
+                        return ((int)(this[this.tableGetFlightLog.FlightIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FlightID\' in table \'GetFlightLog\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetFlightLog.FlightIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsReturnSector {
+                get {
+                    try {
+                        return ((bool)(this[this.tableGetFlightLog.IsReturnSectorColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'IsReturnSector\' in table \'GetFlightLog\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetFlightLog.IsReturnSectorColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int ReturnSectorID {
+                get {
+                    try {
+                        return ((int)(this[this.tableGetFlightLog.ReturnSectorIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ReturnSectorID\' in table \'GetFlightLog\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetFlightLog.ReturnSectorIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int ClientID {
+                get {
+                    try {
+                        return ((int)(this[this.tableGetFlightLog.ClientIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ClientID\' in table \'GetFlightLog\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetFlightLog.ClientIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int PilotCityID {
+                get {
+                    try {
+                        return ((int)(this[this.tableGetFlightLog.PilotCityIDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PilotCityID\' in table \'GetFlightLog\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetFlightLog.PilotCityIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Class {
+                get {
+                    try {
+                        return ((int)(this[this.tableGetFlightLog.ClassColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Class\' in table \'GetFlightLog\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetFlightLog.ClassColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Class1 {
+                get {
+                    try {
+                        return ((int)(this[this.tableGetFlightLog.Class1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Class1\' in table \'GetFlightLog\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetFlightLog.Class1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int TotalATAHours {
+                get {
+                    try {
+                        return ((int)(this[this.tableGetFlightLog.TotalATAHoursColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TotalATAHours\' in table \'GetFlightLog\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetFlightLog.TotalATAHoursColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int TotalATAMin {
+                get {
+                    try {
+                        return ((int)(this[this.tableGetFlightLog.TotalATAMinColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TotalATAMin\' in table \'GetFlightLog\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetFlightLog.TotalATAMinColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsReportIDNull() {
                 return this.IsNull(this.tableGetFlightLog.ReportIDColumn);
             }
@@ -21380,6 +22346,114 @@ namespace Flights_GUI {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetTotalMinsNull() {
                 this[this.tableGetFlightLog.TotalMinsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFlightIDNull() {
+                return this.IsNull(this.tableGetFlightLog.FlightIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFlightIDNull() {
+                this[this.tableGetFlightLog.FlightIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsIsReturnSectorNull() {
+                return this.IsNull(this.tableGetFlightLog.IsReturnSectorColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetIsReturnSectorNull() {
+                this[this.tableGetFlightLog.IsReturnSectorColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsReturnSectorIDNull() {
+                return this.IsNull(this.tableGetFlightLog.ReturnSectorIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetReturnSectorIDNull() {
+                this[this.tableGetFlightLog.ReturnSectorIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsClientIDNull() {
+                return this.IsNull(this.tableGetFlightLog.ClientIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetClientIDNull() {
+                this[this.tableGetFlightLog.ClientIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPilotCityIDNull() {
+                return this.IsNull(this.tableGetFlightLog.PilotCityIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPilotCityIDNull() {
+                this[this.tableGetFlightLog.PilotCityIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsClassNull() {
+                return this.IsNull(this.tableGetFlightLog.ClassColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetClassNull() {
+                this[this.tableGetFlightLog.ClassColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsClass1Null() {
+                return this.IsNull(this.tableGetFlightLog.Class1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetClass1Null() {
+                this[this.tableGetFlightLog.Class1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTotalATAHoursNull() {
+                return this.IsNull(this.tableGetFlightLog.TotalATAHoursColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTotalATAHoursNull() {
+                this[this.tableGetFlightLog.TotalATAHoursColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTotalATAMinNull() {
+                return this.IsNull(this.tableGetFlightLog.TotalATAMinColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTotalATAMinNull() {
+                this[this.tableGetFlightLog.TotalATAMinColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -28796,6 +29870,316 @@ namespace Flights_GUI {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
+        public partial class GetSectorInfoRow : global::System.Data.DataRow {
+            
+            private GetSectorInfoDataTable tableGetSectorInfo;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal GetSectorInfoRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableGetSectorInfo = ((GetSectorInfoDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime SectorDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableGetSectorInfo.SectorDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SectorDate\' in table \'GetSectorInfo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetSectorInfo.SectorDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string FlightNo {
+                get {
+                    try {
+                        return ((string)(this[this.tableGetSectorInfo.FlightNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FlightNo\' in table \'GetSectorInfo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetSectorInfo.FlightNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string AirCraft {
+                get {
+                    try {
+                        return ((string)(this[this.tableGetSectorInfo.AirCraftColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AirCraft\' in table \'GetSectorInfo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetSectorInfo.AirCraftColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string FromA {
+                get {
+                    try {
+                        return ((string)(this[this.tableGetSectorInfo.FromAColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FromA\' in table \'GetSectorInfo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetSectorInfo.FromAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ToA {
+                get {
+                    try {
+                        return ((string)(this[this.tableGetSectorInfo.ToAColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ToA\' in table \'GetSectorInfo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetSectorInfo.ToAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSectorDateNull() {
+                return this.IsNull(this.tableGetSectorInfo.SectorDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSectorDateNull() {
+                this[this.tableGetSectorInfo.SectorDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFlightNoNull() {
+                return this.IsNull(this.tableGetSectorInfo.FlightNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFlightNoNull() {
+                this[this.tableGetSectorInfo.FlightNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAirCraftNull() {
+                return this.IsNull(this.tableGetSectorInfo.AirCraftColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAirCraftNull() {
+                this[this.tableGetSectorInfo.AirCraftColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFromANull() {
+                return this.IsNull(this.tableGetSectorInfo.FromAColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFromANull() {
+                this[this.tableGetSectorInfo.FromAColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsToANull() {
+                return this.IsNull(this.tableGetSectorInfo.ToAColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetToANull() {
+                this[this.tableGetSectorInfo.ToAColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class GetSectorPilotInfoRow : global::System.Data.DataRow {
+            
+            private GetSectorPilotInfoDataTable tableGetSectorPilotInfo;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal GetSectorPilotInfoRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableGetSectorPilotInfo = ((GetSectorPilotInfoDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime SectorDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableGetSectorPilotInfo.SectorDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SectorDate\' in table \'GetSectorPilotInfo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetSectorPilotInfo.SectorDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string FlightNo {
+                get {
+                    try {
+                        return ((string)(this[this.tableGetSectorPilotInfo.FlightNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FlightNo\' in table \'GetSectorPilotInfo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetSectorPilotInfo.FlightNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string PilotName {
+                get {
+                    try {
+                        return ((string)(this[this.tableGetSectorPilotInfo.PilotNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PilotName\' in table \'GetSectorPilotInfo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetSectorPilotInfo.PilotNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Title {
+                get {
+                    try {
+                        return ((string)(this[this.tableGetSectorPilotInfo.TitleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Title\' in table \'GetSectorPilotInfo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetSectorPilotInfo.TitleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string PassportNo {
+                get {
+                    try {
+                        return ((string)(this[this.tableGetSectorPilotInfo.PassportNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PassportNo\' in table \'GetSectorPilotInfo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetSectorPilotInfo.PassportNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSectorDateNull() {
+                return this.IsNull(this.tableGetSectorPilotInfo.SectorDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSectorDateNull() {
+                this[this.tableGetSectorPilotInfo.SectorDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFlightNoNull() {
+                return this.IsNull(this.tableGetSectorPilotInfo.FlightNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFlightNoNull() {
+                this[this.tableGetSectorPilotInfo.FlightNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPilotNameNull() {
+                return this.IsNull(this.tableGetSectorPilotInfo.PilotNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPilotNameNull() {
+                this[this.tableGetSectorPilotInfo.PilotNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTitleNull() {
+                return this.IsNull(this.tableGetSectorPilotInfo.TitleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTitleNull() {
+                this[this.tableGetSectorPilotInfo.TitleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPassportNoNull() {
+                return this.IsNull(this.tableGetSectorPilotInfo.PassportNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPassportNoNull() {
+                this[this.tableGetSectorPilotInfo.PassportNoColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
         public partial class PilotNightCityRow : global::System.Data.DataRow {
             
             private PilotNightCityDataTable tablePilotNightCity;
@@ -29803,6 +31187,74 @@ namespace Flights_GUI {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public GetPilotSimulationHoursWithinRangeRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class GetSectorInfoRowChangeEvent : global::System.EventArgs {
+            
+            private GetSectorInfoRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public GetSectorInfoRowChangeEvent(GetSectorInfoRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public GetSectorInfoRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class GetSectorPilotInfoRowChangeEvent : global::System.EventArgs {
+            
+            private GetSectorPilotInfoRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public GetSectorPilotInfoRowChangeEvent(GetSectorPilotInfoRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public GetSectorPilotInfoRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -32691,6 +34143,15 @@ namespace Flights_GUI.FlightReportDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("LastModifiedDate9", "LastModifiedDate9");
             tableMapping.ColumnMappings.Add("TotalHours", "TotalHours");
             tableMapping.ColumnMappings.Add("TotalMins", "TotalMins");
+            tableMapping.ColumnMappings.Add("FlightID", "FlightID");
+            tableMapping.ColumnMappings.Add("IsReturnSector", "IsReturnSector");
+            tableMapping.ColumnMappings.Add("ReturnSectorID", "ReturnSectorID");
+            tableMapping.ColumnMappings.Add("ClientID", "ClientID");
+            tableMapping.ColumnMappings.Add("PilotCityID", "PilotCityID");
+            tableMapping.ColumnMappings.Add("Class", "Class");
+            tableMapping.ColumnMappings.Add("Class1", "Class1");
+            tableMapping.ColumnMappings.Add("TotalATAHours", "TotalATAHours");
+            tableMapping.ColumnMappings.Add("TotalATAMin", "TotalATAMin");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -34583,6 +36044,376 @@ namespace Flights_GUI.FlightReportDataSetTableAdapters {
                 this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             FlightReportDataSet.GetPilotSimulationHoursWithinRangeDataTable dataTable = new FlightReportDataSet.GetPilotSimulationHoursWithinRangeDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class GetSectorInfoTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public GetSectorInfoTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "GetSectorInfo";
+            tableMapping.ColumnMappings.Add("SectorDate", "SectorDate");
+            tableMapping.ColumnMappings.Add("FlightNo", "FlightNo");
+            tableMapping.ColumnMappings.Add("AirCraft", "AirCraft");
+            tableMapping.ColumnMappings.Add("FromA", "FromA");
+            tableMapping.ColumnMappings.Add("ToA", "ToA");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["FlightReportConnectionString"].ConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "dbo.GetSectorInfo";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SectorID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(FlightReportDataSet.GetSectorInfoDataTable dataTable, global::System.Nullable<int> SectorID) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((SectorID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(SectorID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual FlightReportDataSet.GetSectorInfoDataTable GetData(global::System.Nullable<int> SectorID) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((SectorID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(SectorID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            FlightReportDataSet.GetSectorInfoDataTable dataTable = new FlightReportDataSet.GetSectorInfoDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class GetSectorPilotInfoTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public GetSectorPilotInfoTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "GetSectorPilotInfo";
+            tableMapping.ColumnMappings.Add("SectorDate", "SectorDate");
+            tableMapping.ColumnMappings.Add("FlightNo", "FlightNo");
+            tableMapping.ColumnMappings.Add("PilotName", "PilotName");
+            tableMapping.ColumnMappings.Add("Title", "Title");
+            tableMapping.ColumnMappings.Add("PassportNo", "PassportNo");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["FlightReportConnectionString"].ConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "dbo.GetSectorPilotInfo";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SectorID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(FlightReportDataSet.GetSectorPilotInfoDataTable dataTable, global::System.Nullable<int> SectorID) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((SectorID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(SectorID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual FlightReportDataSet.GetSectorPilotInfoDataTable GetData(global::System.Nullable<int> SectorID) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((SectorID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(SectorID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            FlightReportDataSet.GetSectorPilotInfoDataTable dataTable = new FlightReportDataSet.GetSectorPilotInfoDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

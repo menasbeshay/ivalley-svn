@@ -87,7 +87,7 @@ namespace Flights_GUI.Operation
                     // get next sector in same flight
                     if (!p.IsColumnNull("SectorID"))
                     {
-                        nextsector.GetNextSector(Convert.ToInt32(p.GetColumn("SectorID")));
+                        nextsector.GetNextPilotSector(Convert.ToInt32(p.GetColumn("SectorID")), current.PilotID);
                         DateTime CurrentDate = Convert.ToDateTime(p.GetColumn("day"));
                         string currentCity = p.GetColumn("city").ToString();
                         if (nextsector.RowCount > 0)
@@ -97,10 +97,13 @@ namespace Flights_GUI.Operation
 
                                 try
                                 {
-                                    p.SetColumn("city", currentCity);                                    
-                                    p.SetColumn("StatusType", "WORK");
-                                    p.MoveNext();
-                                    i++;
+                                    if (Convert.ToDateTime(p.GetColumn("day").ToString()) != CurrentDate && p.GetColumn("city").ToString() != currentCity)
+                                    {
+                                        p.SetColumn("city", currentCity);
+                                        p.SetColumn("StatusType", "WORK");
+                                        p.MoveNext();
+                                        i++;
+                                    }
                                 }
                                 catch (Exception ex)
                                 {
