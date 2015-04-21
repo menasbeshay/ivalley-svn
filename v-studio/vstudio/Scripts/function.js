@@ -933,6 +933,14 @@ function scrollAllow() {
 
         });
 
+        $('#d_services').click(function () {
+            $('#s1')[0].click();
+            $('#s2')[0].click();
+            $('#s3')[0].click();
+            $('#s4')[0].click();
+            $('#s5')[0].click();
+        });
+
         setTop("holography", "Holography Projection");
         setRight("corporate", "Corporate Branding");
         setBottom("polytouch", "Polytouch");
