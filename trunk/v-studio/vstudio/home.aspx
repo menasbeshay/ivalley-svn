@@ -590,12 +590,21 @@ Your browser does not support the video tag
 					<img id="discover-more" src="img/service-arrow.png"/>
 				</div>
 				<div id="download-catalog" class="icon-rotate" >
+                    <a href="#" id="d_services" style="text-decoration:none !important">
 					<img src="img/service-download.png" style="max-height:40px;"/>
 					<p>Can't stream video ? <br />Download All Services video</p>                    
+                    </a>
                     <a href="media/presentation/Vstudioservicespresentation.pdf" target="_blank" download="download" style="text-decoration:none !important">
                     <img src="img/service-download.png" style="max-height:40px;"/>
                     <p>Download Services <br />Presentation</p></a>
 				</div>
+                <div style="display:none">
+                    <a href="media/videos/s_mobile.mp4" target="_blank" download="s_mobile.mp4" id="s1">s1</a>
+                    <a href="media/videos/s_anim.mp4" target="_blank" download="s_anim.mp4" id="s2">s1</a>
+                    <a href="media/videos/s_vp.mp4" target="_blank" download="s_vp.mp4" id="s3">s1</a>
+                    <a href="media/videos/s_web.mp4" target="_blank" download="s_web.mp4" id="s4">s1</a>
+                    <a href="media/videos/s_3dv.mp4" target="_blank" download="s_3dv.mp4" id="s5">s1</a>
+                </div>
 				<!--
 				<div id="service-hex-1">
 				</div>

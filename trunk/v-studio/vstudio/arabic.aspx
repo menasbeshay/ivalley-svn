@@ -304,12 +304,12 @@ Your browser does not support the video tag
                             </div>
 						</div>
 					</div>
-					<div id="presenter" style="background:#fff; width:330px; position:absolute; right:70px;overflow:hidden"; >
-					<video style="height:550px; width:344px; background:#fff; background-position:0px 0px; background-repeat:no-repeat; background-size:110% 85%;" id='presenter-video' preload="none" >
+					<div id="presenter" style="background:#fff;width:300px; position:absolute; right:70px;top:300px;overflow:hidden"; >
+					<video style="/*height:550px; width:344px; */position:relative;left:-150px;width:200%; background:#fff; background-position:0px 0px; background-repeat:no-repeat; background-size:110% 85%;" id='presenter-video' preload="none" >
 				<source src='media/ar_webpres.mp4' >
 Your browser does not support the video tag
 			</video>
-						<div style="width:165px; height:51px; position:absolute; right:-5px; bottom:8%; padding:10px 0 0 20px;">
+						<div style="width:165px; height:51px; position:absolute; right:-5px; bottom:6%; padding:10px 0 0 20px;">
 							<ul class="list-inline" >
 								<li id="play"><div class="play" style="width:30px; text-align:center; background:#5f5f5f; padding:5px; color: #fff;font-size: 14px;" id="presenter-play"><span class="glyphicon glyphicon-pause"></span></div></li>
                                 <li id="pause1" style="display:none;"><div class="play" style="background:#5f5f5f; width:30px; text-align:center; padding:5px; color: #fff; font-size: 14px;" id="presenter-play"><span class="glyphicon glyphicon-play"></span></div></li>
@@ -606,12 +606,21 @@ Your browser does not support the video tag
 					<img id="discover-more" src="img/service-arrow-a.png"/>
 				</div>
 				<div id="download-catalog" class="icon-rotate " style="right:38%;">
+                    <a href="#" id="d_services" style="text-decoration:none !important">
 					<img src="img/service-download.png" style="max-height:40px;"/>
 					<p class="vs_content">لاتستطيع مشاهدة الفيديو؟<br />حمّل فيديو الخدمات  فلاش </p>
+                    </a>
                     <a href="media/presentation/Vstudioservicespresentation.pdf" target="_blank" download="download" style="text-decoration:none !important">
                     <img src="img/service-download.png" style="max-height:40px;"/>
                     <p class="vs_content">تحميل عرض<br /> جميع الخدمات </p></a>
 				</div>
+                <div style="display:none">
+                    <a href="media/videos/arabic/s_mobile.mp4" target="_blank" download="s_mobile.mp4" id="s1">s1</a>
+                    <a href="media/videos/arabic/s_anim.mp4" target="_blank" download="s_anim.mp4" id="s2">s1</a>
+                    <a href="media/videos/arabic/s_vp.mp4" target="_blank" download="s_vp.mp4" id="s3">s1</a>
+                    <a href="media/videos/arabic/s_web.mp4" target="_blank" download="s_web.mp4" id="s4">s1</a>
+                    <a href="media/videos/arabic/s_3dv.mp4" target="_blank" download="s_3dv.mp4" id="s5">s1</a>
+                </div>
 				<!--
 				<div id="service-hex-1">
 				</div>
@@ -994,7 +1003,7 @@ Your browser does not support the video tag
 								</div>
 								<div class="col-md-4" id="poly-button-2">
 									<div id="b-effect" href="#" >
-										<button id="poly-2-no-hover" class="poly-button vs_content"><img src="img/poly-play.png"/> &nbsp; شاهد الفيديو</button>
+										<button id="poly-2-no-hover" class="poly-button vs_content" type="button"><img src="img/poly-play.png"/> &nbsp; شاهد الفيديو</button>
 									</div>
 									
 								</div>
@@ -1055,11 +1064,11 @@ Your browser does not support the video tag
 									</a>
 									<div class="media-body vs_content">
 										<address>
-											الطابق التاسع ،  جميل سكوير<br>
+											  جميل سكوير<br>
 تقاطع شارع الأمير محمد بن عبد العزيز  (التحلية) وشارع الأندلس، جدة<br>
 ص.ب 40538 ، جدة 21511، المملكة العربية السعودية <br><br>
 
-هاتف: +966 12-283 4088  .  قاكس  : +966 12-660 8128<br>
+هاتف:<span style="direction:ltr;display:inline-block">  +966 12-283 4088 </span> <br />  قاكس  : <span style="direction:ltr;display:inline-block"> +966 12-660 8128</span><br>
 info@v-studio.co                                      <br />
                                             <br /><b>
 									فروعنا: مكتب الرياض.  مكتب الخبر                      </b>
