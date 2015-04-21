@@ -889,3 +889,39 @@ Select isnull(@TotalH,0)  ,
     isnull(@TotalMin ,0)
     return 
 End
+
+GO
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'GetSectorInfo' and
+		        xtype = 'P')
+Drop Procedure GetSectorInfo
+Go
+
+CREATE Procedure GetSectorInfo @SectorID int  
+as  
+
+Select S.SectorDate, S.FlightNo, A.Name AirCraft, FA.IATACode FromA, TA.IATACode ToA  from Sector S
+Inner Join AirPlane A on S.AirCraft_AirPlaneID =A.AirPlaneID
+Inner Join AirPort FA on S.From_AirportID = FA.AirPortID
+Inner Join AirPort TA on S.To_AirportID = TA.AirPortID
+where S.SectorID = @SectorID
+
+GO
+
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'GetSectorPilotInfo' and
+		        xtype = 'P')
+Drop Procedure GetSectorPilotInfo
+Go
+
+CREATE Procedure GetSectorPilotInfo @SectorID int  
+as  
+Select S.SectorDate, S.FlightNo , p.FirstName + ' ' + p.SureName PilotName, pos.Title, P.PassportNo from Sector S
+Inner join SectorPilot SP on S.SectorID = SP.SectorID
+Inner Join Pilot P on SP.PilotID = P.PilotID
+Inner Join Position pos on pos.PositionID = sp.PositionID
+where S.SectorID = @SectorID
+GO

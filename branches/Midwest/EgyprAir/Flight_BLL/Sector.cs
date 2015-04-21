@@ -125,11 +125,21 @@ namespace Flight_BLL
 
         }
 
-        public virtual bool GetNextSector(int SectorID)
+        public virtual bool GetNextPilotSector(int SectorID, int PilotID)
         {
             ListDictionary parameters = new ListDictionary();
             parameters.Add(new SqlParameter("@SectorID", SqlDbType.Int, 0), SectorID);
-            return LoadFromSql("GetNextSector", parameters);
+            parameters.Add(new SqlParameter("@PilotID", SqlDbType.Int, 0), PilotID);
+            return LoadFromSql("GetNextPilotSector", parameters);
+
+        }
+
+        public virtual bool GetNextCrewSector(int SectorID, int CrewID)
+        {
+            ListDictionary parameters = new ListDictionary();
+            parameters.Add(new SqlParameter("@SectorID", SqlDbType.Int, 0), SectorID);
+            parameters.Add(new SqlParameter("@CrewID", SqlDbType.Int, 0), CrewID);
+            return LoadFromSql("GetNextCrewSector", parameters);
 
         }
 	}
