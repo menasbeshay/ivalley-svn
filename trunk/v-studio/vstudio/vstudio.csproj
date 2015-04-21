@@ -184,7 +184,6 @@
     <Content Include="fonts\shroqwebfont\specimen_files\specimen_stylesheet.css" />
     <Content Include="fonts\shroqwebfont\stylesheet.css" />
     <Content Include="home.aspx" />
-    <Content Include="HtmlPage1.html" />
     <Content Include="images\aldaleel_mtsa.png" />
     <Content Include="images\icons\Kiosk.png" />
     <Content Include="images\icons\mobile.png" />
@@ -289,7 +288,6 @@
     <Content Include="img\ci-bg.jpg" />
     <Content Include="img\ci-bg.png" />
     <Content Include="img\ci-bg_a.jpg" />
-    <Content Include="img\close.png" />
     <Content Include="img\cma-rollup-1.jpg" />
     <Content Include="img\comma.png" />
     <Content Include="img\contact-bg.jpg" />
@@ -314,7 +312,6 @@
     <Content Include="img\holo\6.jpg" />
     <Content Include="img\holo\7.jpg" />
     <Content Include="img\holo\8.jpg" />
-    <Content Include="img\holo\holo.png" />
     <Content Include="img\hostalk-1.jpg" />
     <Content Include="img\hostalk-2.jpg" />
     <Content Include="img\hq.png" />
@@ -397,16 +394,6 @@
     <Content Include="img\portfolio\8.jpg" />
     <Content Include="img\portfolio\9.jpg" />
     <Content Include="img\portfolio\bg.png" />
-    <Content Include="img\portfolio\logos\logo03.jpg" />
-    <Content Include="img\portfolio\logos\logo04_07.jpg" />
-    <Content Include="img\portfolio\logos\logo06.png" />
-    <Content Include="img\portfolio\logos\logo09.png" />
-    <Content Include="img\portfolio\logos\logo10.png" />
-    <Content Include="img\portfolio\logos\logo1_8.png" />
-    <Content Include="img\portfolio\logos\Logo2.png" />
-    <Content Include="img\portfolio\logos\logo5.png" />
-    <Content Include="img\portfolio\logos\Portfolio06.jpg" />
-    <Content Include="img\portfolio\logos\Portfolio07.jpg" />
     <Content Include="img\portfolio_def.jpg" />
     <Content Include="img\presenter.png" />
     <Content Include="img\previous.png" />
@@ -471,20 +458,6 @@
     <Content Include="img\work-with-us-a.png" />
     <Content Include="img\work-with-us.png" />
     <Content Include="img\youtube.png" />
-    <None Include="media\3MB.mp4" />
-    <None Include="media\ar_webpres.mp4" />
-    <None Include="media\demo1.mp4" />
-    <None Include="media\demo1.mpeg" />
-    <None Include="media\media1.mp4" />
-    <None Include="media\media2.mp4" />
-    <Content Include="media\presentation\3DWayfindingpresentationG3.pdf" />
-    <Content Include="media\presentation\VstudioCMARolluppresentation.pdf" />
-    <Content Include="media\presentation\VStudioHoloconicHologrampresentation.pdf" />
-    <Content Include="media\presentation\Vstudiohostalkpresentation.pdf" />
-    <Content Include="media\presentation\Vstudioservicespresentation.pdf" />
-    <Content Include="media\presentation\VstudioWinshowrearprojectionpresentation.pdf" />
-    <None Include="media\Video.mp4" />
-    <Content Include="media\3dwayfinding.mp4" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -541,8 +514,6 @@
     <Content Include="fonts\Ubuntu-Regular.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="media\demo.webm" />
-    <None Include="media\demo1.webm" />
     <Content Include="fonts\Al-Jazeera-Arabic-Regular.eot">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -589,6 +560,7 @@
     <Content Include="fonts\shroqwebfont\shoroq_font-webfont.ttf" />
     <Content Include="fonts\shroqwebfont\shoroq_font-webfont.woff" />
     <Content Include="fonts\shroqwebfont\shoroq_font-webfont.woff2" />
+    <Content Include="media\presentation\Polytouchcatalogue.pdf" />
     <None Include="Properties\PublishProfiles\publish.pubxml" />
     <None Include="Properties\PublishProfiles\vstudio.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -765,6 +737,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="img\portfolio\logos\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

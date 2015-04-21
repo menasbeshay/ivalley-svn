@@ -1532,6 +1532,18 @@ The video was filmed in 3 working days using cranes and in-truck cameras in addi
 						<img src="img/comma.png" width="18" height="17"/>
 						<p id="port-text-def" class="slideup">Select any of our recent multimedia services or products’ projects and click on thumbnail to view and read more details. <br />You can also view our customers testimonials in video , no fake letters or statements </p>
                         <p id="port-text-caption"></p>
+                        <p id="testmon-text-caption1" class="testmon_txt">
+                            <strong>Saudi Electricity Company . </strong>
+                            We in the Saudi Electricity Company especially in the western region have introduced a new idea represented in mobile generators to serve subscribers in case of emergency outages. We wanted to highlight this new idea to internal or external clients whether they are subscribers or officials. We looked for a company to display this new thought, and found Sager V-Studio. Honestly speaking I have dealt with the company and it was of a high degree of professionalism. It produced an excellent product for us which we presented to the subscribers and met with great acclaim.
+                        </p>
+                        <p id="testmon-text-caption2" class="testmon_txt">
+                            <strong> Taif University . </strong>
+We, at Taif University worked with Sager V-Studio in the Exhibition of the Fifth International Conference of Higher Education, where they designed for us the virtual host and the Holoconic hologram unit. We were very pleased to deal with them. We have met with all the attention and appreciation of the company as clients, and it has shown great interest in our stand and its products. We have the utmost respect for them and all our thanks go to them and we wish them well in the future.
+                        </p>
+                        <p id="testmon-text-caption3" class="testmon_txt">
+                            <strong>In the name of God, Most Gracious, Most Merciful . </strong>
+We at Zan Modern Company Ltd., the leading company in the field of survey devices, when we thought to produce an introductory video about the company, we searched the Internet for the best companies in this regard and we chose Sager V-Studio. We were of the hope to have a good company to deal with. But when we started dealing with it we found it more than we have expected and this is an honest word I would like to say. They were decent people, they keep their appointments and have good experience and knowing what they do, as well as have accuracy in the selection of things and provided us with very good advices in a lot of things related to the video and I think, God willing, we have succeeded in our selection and I thank them. We look forward to work with them in the future in any video we want to produce.
+                        </p>                        
 					</div>
 				</div>
 			</div>
