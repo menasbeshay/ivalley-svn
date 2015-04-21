@@ -207,8 +207,12 @@ $(document).ready(function () {
 
     $('.closetestmon').click(function () {
         $('#testmon_grid').fadeOut(300);
+        $('#testmon-text-caption1').fadeOut(300);
+        $('#testmon-text-caption2').fadeOut(300);
+        $('#testmon-text-caption3').fadeOut(300);
         $('#default_port').delay(300).fadeIn(300);
         $('#port-text-def').delay(300).fadeIn(300);
+
         try {            
             $('#testmon_vedio').stopYTP();
             $('#testmon_play').fadeIn("slow");
@@ -224,6 +228,10 @@ $(document).ready(function () {
     $('#testmon_play').click(function () {
         $('#testmon_play').fadeOut("slow");
         $("#testmon_vedio").playYTP();
+        $('#port-text-def').fadeOut(300);
+        $('#testmon-text-caption1').delay(60000).fadeIn(300).delay(65000).fadeOut(300);
+        $('#testmon-text-caption2').delay(125000).fadeIn(300).delay(65000).fadeOut(300);
+        $('#testmon-text-caption3').delay(190000).fadeIn(300).delay(95000).fadeOut(300);
     });    
 
     

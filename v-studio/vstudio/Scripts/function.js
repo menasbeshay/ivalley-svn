@@ -1215,6 +1215,7 @@ function scrollAllow() {
         $('#testmon_grid').fadeOut(300);
         $('#default_port').delay(300).fadeIn(300);
         $('#port-text-def').delay(300).fadeIn(300);
+        $('.testmon_txt').fadeOut(300);
     };
     
     parallax.join.onload = function () {

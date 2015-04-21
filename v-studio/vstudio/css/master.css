@@ -2209,3 +2209,9 @@ margin-bottom:6px;
     .slideup.active {
         height:60px;
     }
+
+.testmon_txt {
+    display:none;
+    font-size:12px !important;
+    text-align:justify;
+}
