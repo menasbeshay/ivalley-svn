@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyGeneration.dOOdads", "MyG
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helper", "Helper\Helper.csproj", "{A8A1ED6B-6D9B-4021-8C3D-B32B552285DB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidationLayer", "ValidationLayer\ValidationLayer.csproj", "{3512E9FF-7B0A-4F35-83D8-425098CE3DED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{A8A1ED6B-6D9B-4021-8C3D-B32B552285DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8A1ED6B-6D9B-4021-8C3D-B32B552285DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8A1ED6B-6D9B-4021-8C3D-B32B552285DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3512E9FF-7B0A-4F35-83D8-425098CE3DED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3512E9FF-7B0A-4F35-83D8-425098CE3DED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3512E9FF-7B0A-4F35-83D8-425098CE3DED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3512E9FF-7B0A-4F35-83D8-425098CE3DED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
