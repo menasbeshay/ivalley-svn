@@ -25,5 +25,7 @@ namespace Combo.Models
         public int Source { get; set; }
         public bool IsLike { get; set; }
         public int UserRankID { get; set; }
+        public bool IsCommented  { get; set; }
+        public bool IsReposted { get; set; }
     }
 }

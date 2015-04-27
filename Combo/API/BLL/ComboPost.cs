@@ -15,19 +15,23 @@ namespace Combo.BLL
         // get user posts - shared posts - friends posts - following posts
         public virtual bool GetPostByUserID(int userid)
         {
-            return LoadFromRawSql(@"Select P.*, U.UserName, A.Path ProfilePic, S.IsPostsDownloadable , case when PV.ComboPostID is null then 'False' else 'True' end IsFavourite, case when PL.ComboPostID is null then 'False' else 'True' end IsLike,U.UserRankID, 0 Source from ComboPost P
+            return LoadFromRawSql(@"Select P.*, U.UserName, A.Path ProfilePic, S.IsPostsDownloadable , case when PV.ComboPostID is null then 'False' else 'True' end IsFavourite, case when PL.ComboPostID is null then 'False' else 'True' end IsLike,U.UserRankID, case when CC.ComboPostID is null then 'False' else 'True' end IsCommented, case when CPS.ComboPostID is null then 'False' else 'True' end IsReposted, 0 Source from ComboPost P
                                     Inner Join ComboUser U on P.ComboUserID = U.ComboUserID and 
                                                               (U.IsDeactivated <> 1 or U.IsDeactivated is null)
                                     Left join Attachment A on U.ProfileImgID = A.AttachmentID
                                     Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID 
                                     Left join ComboPostFav PV on P.ComboPostID = PV.ComboPostID and PV.ComboUserID = {0}
                                     Left join ComboPostLike PL on P.ComboPostID = PL.ComboPostID and PL.ComboUserID = {0}
+                                    left join ComboComment CC on P.ComboPostID = CC.ComboPostID and 
+                                                                 CC.ComboUserID = {0}
+                                    Left join ComboPostShare CPS on CPS.ComboPostID = P.ComboPostID and 
+                                                                    CPS.ComboUserID = {0}
                                     Where P.ComboUserID = {0} and 
                                     (P.IsDeleted <> 1 or P.IsDeleted is null) and 
                                     P.ComboUserID not in (select BlockedUserID from BlockedUser where ComboUserID = {0}) and 
                                     P.ComboUserID not in (select ComboUserID from BlockedUser where BlockedUserID = {0})
                                     union all
-                                    Select P.ComboPostID, P.ComboUserID, P.PostText, PS.ShareDate PostDate, P.IsDeleted, U.UserName, A.Path ProfilePic, S.IsPostsDownloadable, case when PV.ComboPostID is null then 'False' else 'True' end, case when PL.ComboPostID is null then 'False' else 'True' end,U.UserRankID, 1 from ComboPost P                                                                        
+                                    Select P.ComboPostID, P.ComboUserID, P.PostText, PS.ShareDate PostDate, P.IsDeleted, U.UserName, A.Path ProfilePic, S.IsPostsDownloadable, case when PV.ComboPostID is null then 'False' else 'True' end, case when PL.ComboPostID is null then 'False' else 'True' end,U.UserRankID,  case when CC.ComboPostID is null then 'False' else 'True' end , case when CPS.ComboPostID is null then 'False' else 'True' end , 1 from ComboPost P                                                                        
                                     Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID 
                                     Inner join ComboPostShare PS on PS.ComboPostID = P.ComboPostID and 
 																	PS.ComboUserID = {0}
@@ -36,17 +40,25 @@ namespace Combo.BLL
                                     Left join ComboPostFav PV on P.ComboPostID = PV.ComboPostID and PV.ComboUserID = {0}
                                     Left join ComboPostLike PL on P.ComboPostID = PL.ComboPostID and PL.ComboUserID = {0}
 									Left join Attachment A on U.ProfileImgID = A.AttachmentID
+                                    left join ComboComment CC on P.ComboPostID = CC.ComboPostID and 
+                                                                 CC.ComboUserID = {0}
+                                    Left join ComboPostShare CPS on CPS.ComboPostID = P.ComboPostID and 
+                                                                    CPS.ComboUserID = {0}
                                     Where (P.IsDeleted <> 1 or P.IsDeleted is null) and 
                                     P.ComboUserID not in (select BlockedUserID from BlockedUser where ComboUserID = {0}) and 
                                     P.ComboUserID not in (select ComboUserID from BlockedUser where BlockedUserID = {0})
                                     union all
-                                    Select P.*, U.UserName, A.Path ProfilePic , S.IsPostsDownloadable, case when PV.ComboPostID is null then 'False' else 'True' end, case when PL.ComboPostID is null then 'False' else 'True' end ,U.UserRankID, 2 from ComboPost P
+                                    Select P.*, U.UserName, A.Path ProfilePic , S.IsPostsDownloadable, case when PV.ComboPostID is null then 'False' else 'True' end, case when PL.ComboPostID is null then 'False' else 'True' end ,U.UserRankID,  case when CC.ComboPostID is null then 'False' else 'True' end , case when CPS.ComboPostID is null then 'False' else 'True' end , 2 from ComboPost P
                                     Inner Join ComboUser U on P.ComboUserID = U.ComboUserID and 
                                                               (U.IsDeactivated <> 1 or U.IsDeactivated is null)
                                     Left join Attachment A on U.ProfileImgID = A.AttachmentID
                                     Left join ComboUserSettings S on P.ComboUserID = S.ComboUserID
                                     Left join ComboPostFav PV on P.ComboPostID = PV.ComboPostID and PV.ComboUserID = {0}
                                     Left join ComboPostLike PL on P.ComboPostID = PL.ComboPostID and PL.ComboUserID = {0}
+                                    left join ComboComment CC on P.ComboPostID = CC.ComboPostID and 
+                                                                 CC.ComboUserID = {0}
+                                    Left join ComboPostShare CPS on CPS.ComboPostID = P.ComboPostID and 
+                                                                    CPS.ComboUserID = {0}
                                     Where P.ComboUserID in (select ComboUserID from ProfileFollower PF where PF.ComboFollowerID = {0}) and 
                                     (P.IsDeleted <> 1 or P.IsDeleted is null) and 
                                     P.ComboUserID not in (select BlockedUserID from BlockedUser where ComboUserID = {0}) and 
@@ -300,7 +312,7 @@ namespace Combo.BLL
                                     Left join ComboPostLike PL on P.ComboPostID = PL.ComboPostID and PL.ComboUserID = {0} 
                                     where P.ComboUserID not in (select BlockedUserID from BlockedUser where ComboUserID = {0}) and 
                                     P.ComboUserID not in (select ComboUserID from BlockedUser where BlockedUserID = {0})
-                                    order by Likecount desc, commentCount desc , PostDate desc ");
+                                    order by Likecount desc, commentCount desc , PostDate desc ", userID);
         }
 
         public virtual bool GetPostsByHashTagID(int id)
