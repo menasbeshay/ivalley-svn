@@ -21,5 +21,25 @@ namespace Combo.BLL
             return LoadFromRawSql(@"Select count(P.ComboPostShareID) TotalCount from ComboPostShare P                                    
                                     Where P.ComboPostID = {0}", pid);
         }
+
+
+        public virtual bool GetPostByUserIDAndPostID(int userID, int postID)
+        {
+            this.Where.ComboPostID.Value = postID;
+            this.Where.ComboPostID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+            this.Where.ComboUserID.Value = userID;
+            this.Where.ComboUserID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+            return this.Query.Load();
+        }
+
+        public virtual bool GetPostSharesByPostID(int pid, int userid)
+        {
+            return LoadFromRawSql(@"Select L.*, U.UserName, U.DisplayName , case when PF.ComboUserID is null then 'False' else 'True' end IsFollowing  
+                                    From ComboPostShare L 
+                                    inner join ComboUser U on L.ComboUserID = U.ComboUserID
+                                    left join ProfileFollower PF on U.ComboUserID = PF.ComboUserID and 
+                                                                    PF.ComboFollowerID = {1}
+                                    Where L.ComboPostID = {0}", pid, userid);
+        }
 	}
 }

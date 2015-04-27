@@ -945,6 +945,8 @@ namespace Combo.ComboAPI
                     IsFavourite = Convert.ToBoolean(row["IsFavourite"]),
                     IsLike = Convert.ToBoolean(row["IsLike"]),
                     UserRankID = Convert.ToInt32(row["UserRankID"]),
+                    IsCommented = Convert.ToBoolean(row["IsCommented"]),
+                    IsReposted = Convert.ToBoolean(row["IsReposted"]),
                 };
             }).Skip(Page * PostsPageSize).Take(PostsPageSize).ToList();
 
@@ -3492,6 +3494,29 @@ namespace Combo.ComboAPI
             _response.Entity = null;
             SetContentResult(_response);
 
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        /// <summary>
+        /// Delete Post By ID
+        /// </summary>
+        /// <param name="ID">ID of Post</param>
+        /// <returns>ComboResponse object </returns>
+        public void DeleteSharedPost(int UserID, int PostID)
+        {
+            Models.ComboResponse _response = new Models.ComboResponse();
+            _response.bool_result = true;
+            _response.ErrorCode = 0;
+            _response.ErrorMsg = "";
+
+            ComboPostShare post = new ComboPostShare();
+            post.GetPostByUserIDAndPostID(UserID, PostID);
+            post.MarkAsDeleted();
+            post.Save();
+            _response.Entity = null;
+            SetContentResult(_response);
+
         }       
 
         [WebMethod]
@@ -3611,6 +3636,7 @@ namespace Combo.ComboAPI
             SetContentResult(_response);
 
         }
+
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
@@ -4017,6 +4043,71 @@ namespace Combo.ComboAPI
 
             _response.Entity = null;
             SetContentResult(_response);
+
+        }
+
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        /// <summary>
+        /// Get All Posts by Userid
+        /// </summary>
+        /// <param name="ID">ID of Combo User</param>
+        /// <returns>ComboResponse object with List of all posts for User</returns>
+        public void GetPostLikes( int PostID,int UserID)
+        {
+            Models.ComboResponse _response = new Models.ComboResponse();
+            _response.bool_result = true;
+            _response.ErrorCode = 0;
+            _response.ErrorMsg = "";
+
+            ComboPostLike likes = new ComboPostLike();
+            likes.GetPostLikesByPostID(PostID, UserID);
+            object allLikes= likes.DefaultView.Table.AsEnumerable().Select(r =>
+            {
+                return new Models.ComboPostLike
+                {
+                    ComboPostID = Convert.ToInt32(r["ComboPostID"]),
+                    ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                    UserName = r["UserName"].ToString(),
+                    IsFollowing = Convert.ToBoolean(r["IsFollwoing"])
+                };
+            }).ToList();
+            _response.Entity = allLikes;
+            SetContentResult(_response);
+
+
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        /// <summary>
+        /// Get All Posts shares by Userid andPostID
+        /// </summary>
+        /// <param name="ID">ID of Combo User</param>
+        /// <returns>ComboResponse object with List of all posts for User</returns>
+        public void GetPostShares(int PostID, int UserID)
+        {
+            Models.ComboResponse _response = new Models.ComboResponse();
+            _response.bool_result = true;
+            _response.ErrorCode = 0;
+            _response.ErrorMsg = "";
+
+            ComboPostShare shares = new ComboPostShare();
+            shares.GetPostSharesByPostID(PostID, UserID);
+            object allShares = shares.DefaultView.Table.AsEnumerable().Select(r =>
+            {
+                return new Models.ComboSharePost
+                {
+                    ComboPostID = Convert.ToInt32(r["ComboPostID"]),
+                    ComboUserID = Convert.ToInt32(r["ComboUserID"]),
+                    ComboUserName = r["UserName"].ToString(),
+                    IsFollowing = Convert.ToBoolean(r["IsFollwoing"])
+                };
+            }).ToList();
+            _response.Entity = allShares;
+            SetContentResult(_response);
+
 
         }
        

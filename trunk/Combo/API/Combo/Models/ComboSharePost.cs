@@ -15,5 +15,6 @@ namespace Combo.Models
         public string ComboFriendDisplayName { get; set; }
         public string PostText { get; set; }
         public object Attachments { get; set; }
+        public bool IsFollowing { get; set; }
     }
 }

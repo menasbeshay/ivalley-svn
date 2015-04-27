@@ -19,6 +19,16 @@ namespace Combo.BLL
                                     Where L.ComboPostID = {0}", pid);
         }
 
+        public virtual bool GetPostLikesByPostID(int pid, int userid)
+        {
+            return LoadFromRawSql(@"Select L.*, U.UserName, U.DisplayName , case when PF.ComboUserID is null then 'False' else 'True' end IsFollowing  
+                                    From ComboPostLike L 
+                                    inner join ComboUser U on L.ComboUserID = U.ComboUserID
+                                    left join ProfileFollower PF on U.ComboUserID = PF.ComboUserID and 
+                                                                    PF.ComboFollowerID = {1}
+                                    Where L.ComboPostID = {0}", pid,userid);
+        }
+
 
         public virtual bool GetPostLikesCountByUserID(int uid)
         {
