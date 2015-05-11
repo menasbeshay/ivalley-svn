@@ -394,11 +394,11 @@
                                             
                     </div>
                     <div class="span1"></div>
-                    <div class="span2">
-                        
+                     <div class="span2">
+                        <asp:Label ID="Label4" runat="server" Text="F/O As PF" CssClass="Label"></asp:Label>
                     </div>
                     <div class="span3">
-                        
+                        <asp:CheckBox ID="uiCheckBoxFOASPF" runat="server" Style="margin-left: -4px;" />
                     </div>
                     
 
@@ -564,10 +564,32 @@
                         runat="server" Enabled="True" TargetControlID="RegularExpressionValidator1">
                     </cc1:ValidatorCalloutExtender>
                     </div>
-                    <div class="span6">
+                    <div class="span2"><asp:Label ID="Label7" runat="server" Text="Receipt no." CssClass="Label"></asp:Label>
+                    </div>
+                    <div class="span4">
+                         <asp:TextBox ID="uiTextBoxReceiptNo" runat="server" Width="100px" CssClass="digits"></asp:TextBox>  
+                        &nbsp;<asp:RegularExpressionValidator ID="RegularExpressionValidator12" runat="server"
+                        ControlToValidate="uiTextBoxReceiptNo" Display="Dynamic" ErrorMessage="Numbers only."
+                        ForeColor="Red" ValidationExpression="^[-+]?(\d)+$" ValidationGroup="Flight">*</asp:RegularExpressionValidator>
+                    <cc1:ValidatorCalloutExtender ID="ValidatorCalloutExtender3"
+                        runat="server" Enabled="True" TargetControlID="RegularExpressionValidator12">
+                    </cc1:ValidatorCalloutExtender>                       
                     </div>
                 </div>
-
+                <div class="span12 clearfix">
+                    <div class="span2"><asp:Label ID="Label26" runat="server" Text="On Board Fuel" CssClass="Label"></asp:Label>
+                    </div>
+                    <div class="span4">
+                         <asp:TextBox ID="uiTextBoxOnBoard" runat="server" Width="100px" CssClass="digits"></asp:TextBox>
+                         &nbsp;<asp:RegularExpressionValidator ID="RegularExpressionValidator11" runat="server"
+                        ControlToValidate="uiTextBoxOnBoard" Display="Dynamic" ErrorMessage="Numbers only."
+                        ForeColor="Red" ValidationExpression="^[-+]?(\d)+$" ValidationGroup="Flight">*</asp:RegularExpressionValidator>
+                    <cc1:ValidatorCalloutExtender ID="ValidatorCalloutExtender2"
+                        runat="server" Enabled="True" TargetControlID="RegularExpressionValidator11">
+                    </cc1:ValidatorCalloutExtender>
+                    </div>
+                    <div class="span6"></div>
+                </div>
                 <div class="span12 clearfix">
 
                     <div class="span2">

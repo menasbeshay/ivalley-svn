@@ -52,6 +52,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\ReportViewer\Microsoft.ReportViewer.WebForms.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
@@ -457,12 +461,21 @@
     <Content Include="assets\coming_soon\Source\Fonts\Monda\OFL.txt" />
     <Content Include="assets\coming_soon\Source\Fonts\Open Sans\LICENSE-2.0.txt" />
     <Content Include="assets\coming_soon\Source\Fonts\Roboto\Google Android License.txt" />
+    <Content Include="assets\data-tables\dataTables.editor.min.css" />
+    <Content Include="assets\data-tables\dataTables.editor.min.js" />
     <Content Include="assets\data-tables\DT_bootstrap.css" />
     <Content Include="assets\data-tables\DT_bootstrap.js" />
+    <Content Include="assets\data-tables\images\ajax-loader-small.gif" />
+    <Content Include="assets\data-tables\images\ajax-loader.gif" />
+    <Content Include="assets\data-tables\images\calender.png" />
+    <Content Include="assets\data-tables\images\close.png" />
+    <Content Include="assets\data-tables\images\shadow_left.png" />
+    <Content Include="assets\data-tables\images\shadow_right.png" />
     <Content Include="assets\data-tables\images\sort_asc.png" />
     <Content Include="assets\data-tables\images\sort_both.png" />
     <Content Include="assets\data-tables\images\sort_desc.png" />
     <Content Include="assets\data-tables\jquery.dataTables.js" />
+    <Content Include="assets\data-tables\table-editable.js" />
     <Content Include="assets\dropzone\css\basic.css" />
     <Content Include="assets\dropzone\css\dropzone.css" />
     <Content Include="assets\dropzone\dropzone-amd-module.js" />
@@ -621,6 +634,15 @@
     <Content Include="assets\gritter\index.html" />
     <Content Include="assets\gritter\js\jquery.gritter.js" />
     <Content Include="assets\gritter\js\jquery.gritter.min.js" />
+    <Content Include="assets\images\ajax-loader-small.gif" />
+    <Content Include="assets\images\ajax-loader.gif" />
+    <Content Include="assets\images\calender.png" />
+    <Content Include="assets\images\close.png" />
+    <Content Include="assets\images\shadow_left.png" />
+    <Content Include="assets\images\shadow_right.png" />
+    <Content Include="assets\images\sort_asc.png" />
+    <Content Include="assets\images\sort_both.png" />
+    <Content Include="assets\images\sort_desc.png" />
     <Content Include="assets\jquery-knob\index.html" />
     <Content Include="assets\jquery-knob\js\jquery.knob.js" />
     <Content Include="assets\jquery-slimscroll\examples\allow-page-scroll.html" />
@@ -752,6 +774,7 @@
     <Content Include="CabinCrew\Profile.aspx" />
     <Content Include="CabinCrew\Reports.aspx" />
     <Content Include="ChangePassword.aspx" />
+    <Content Include="Common\commonMethods.asmx" />
     <Content Include="Common\Controls\SectorInfo.ascx" />
     <Content Include="Common\Safety.aspx" />
     <Content Include="Common\SectorClients.aspx" />
@@ -1151,6 +1174,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Test\generaltest\WebForm1.aspx" />
+    <Content Include="WebForm2.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="About.aspx.cs">
@@ -1301,6 +1325,10 @@
       <DependentUpon>ChangePassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="Common\CalculationUtils.cs" />
+    <Compile Include="Common\commonMethods.asmx.cs">
+      <DependentUpon>commonMethods.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Common\Controls\SectorInfo.ascx.cs">
       <DependentUpon>SectorInfo.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1428,6 +1456,8 @@
     <Compile Include="MasterPages\Start.Master.designer.cs">
       <DependentUpon>Start.Master</DependentUpon>
     </Compile>
+    <Compile Include="Models\Airport.cs" />
+    <Compile Include="Models\Sector.cs" />
     <Compile Include="Operation\Airports.aspx.cs">
       <DependentUpon>Airports.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1723,6 +1753,13 @@
     </Compile>
     <Compile Include="Training\TrainingOrders.aspx.designer.cs">
       <DependentUpon>TrainingOrders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm2.aspx.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm2.aspx.designer.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -2045,6 +2082,10 @@
       <Project>{8666C149-F8D1-47CE-B5E2-BEE0BC844A9A}</Project>
       <Name>MyGeneration.dOOdads</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ValidationLayer\ValidationLayer.csproj">
+      <Project>{3512e9ff-7b0a-4f35-83d8-425098ce3ded}</Project>
+      <Name>ValidationLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Reports\JournyFlightLog_bakup.rdlc">
@@ -2238,7 +2279,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Reports\GD.rdlc" />
+    <Content Include="Reports\GD.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -919,7 +919,7 @@ Go
 
 CREATE Procedure GetSectorPilotInfo @SectorID int  
 as  
-Select S.SectorDate, S.FlightNo , p.FirstName + ' ' + p.SureName PilotName, pos.Title, P.PassportNo from Sector S
+Select S.SectorDate, S.FlightNo , p.FirstName + ' ' + p.SureName PilotName, pos.Title, P.PassportNo, P.DateOfBirth from Sector S
 Inner join SectorPilot SP on S.SectorID = SP.SectorID
 Inner Join Pilot P on SP.PilotID = P.PilotID
 Inner Join Position pos on pos.PositionID = sp.PositionID

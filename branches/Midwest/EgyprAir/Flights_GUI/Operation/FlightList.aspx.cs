@@ -600,6 +600,11 @@ namespace Flights_GUI.Operation
 
             uiTextBoxTOW.Text = "";
             uiTextBoxZFW.Text = "";
+            uiTextBoxOnBoard.Text = "";
+            uiTextBoxReceiptNo.Text = "";
+
+            uiCheckBoxFOASPF.Checked = false;
+            uiCheckBoxIsHeavy.Checked = false;
         }
 
         private void FillSectorData()
@@ -609,6 +614,17 @@ namespace Flights_GUI.Operation
             {
                 uiTextBoxFule.Text = CurrentSector.FuleUplifted.ToString();
             }
+
+            if (!CurrentSector.IsColumnNull("OnBoardFuel"))
+            {
+                uiTextBoxOnBoard.Text = CurrentSector.OnBoardFuel.ToString();
+            }
+
+            if (!CurrentSector.IsColumnNull("ReceiptNo"))
+            {
+                uiTextBoxReceiptNo.Text = CurrentSector.ReceiptNo.ToString();
+            }
+
             if (!CurrentSector.IsColumnNull("ActualBurnOff"))
             {
                 uiTextBoxActualBurn.Text = CurrentSector.ActualBurnOff.ToString();
@@ -743,7 +759,7 @@ namespace Flights_GUI.Operation
             }
             if (!CurrentSector.IsColumnNull("FlightNo"))
             {
-                uiTextBoxSectorFlightNo.Text = CurrentSector.FlightNo.Substring(3);                
+                uiTextBoxSectorFlightNo.Text = CurrentSector.FlightNo.Substring(uiLabelFlightPrefix.Text.Length);                
             }
 
             if (!CurrentSector.IsColumnNull("From_AirportID"))
@@ -757,6 +773,10 @@ namespace Flights_GUI.Operation
             }
 
             uiCheckBoxIsHeavy.Checked = CurrentSector.IsHeavy;
+            if (!CurrentSector.IsColumnNull("FO_AS_PilotFlying"))
+            {
+                uiCheckBoxFOASPF.Checked = CurrentSector.FO_AS_PilotFlying;
+            }
             if (!CurrentSector.IsColumnNull("AirCraft_AirPlaneID"))
             {
                 uiDropDownListAirCraftRegistration.SelectedValue = CurrentSector.AirCraft_AirPlaneID.ToString();
@@ -948,6 +968,7 @@ namespace Flights_GUI.Operation
                 objData.To_AirportID = Convert.ToInt32(uiDropDownListSectorTo.SelectedValue);
                 objData.FlightNo = uiLabelSectorPrefix.Text + uiTextBoxSectorFlightNo.Text;
                 objData.IsHeavy = uiCheckBoxIsHeavy.Checked;
+                objData.FO_AS_PilotFlying = uiCheckBoxFOASPF.Checked;
                 objData.AirCraft_AirPlaneID = Convert.ToInt32(uiDropDownListAirCraftRegistration.SelectedValue);
 
                 if (uiDropDownListNightCity.SelectedIndex != 0)
@@ -961,6 +982,16 @@ namespace Flights_GUI.Operation
                 if (!string.IsNullOrEmpty(uiTextBoxFule.Text))
                 {
                     objData.FuleUplifted = Convert.ToInt32(uiTextBoxFule.Text);
+                }
+
+                if (!string.IsNullOrEmpty(uiTextBoxOnBoard.Text))
+                {
+                    objData.OnBoardFuel = Convert.ToInt32(uiTextBoxOnBoard.Text);
+                }
+
+                if (!string.IsNullOrEmpty(uiTextBoxReceiptNo.Text))
+                {
+                    objData.ReceiptNo = Convert.ToInt32(uiTextBoxFule.Text);
                 }
 
                 if (!string.IsNullOrEmpty(uiTextBoxActualBurn.Text))
@@ -1103,8 +1134,9 @@ namespace Flights_GUI.Operation
                     objData.SectorDate = uiRaddatepickerSectorDate.SelectedDate.Value;
                 objData.From_AirportID = Convert.ToInt32(uiDropDownListSectorFrom.SelectedValue);
                 objData.To_AirportID = Convert.ToInt32(uiDropDownListSectorTo.SelectedValue);
-                objData.FlightNo = uiTextBoxSectorFlightNo.Text;
+                objData.FlightNo = uiLabelSectorPrefix.Text + uiTextBoxSectorFlightNo.Text;
                 objData.IsHeavy = uiCheckBoxIsHeavy.Checked;
+                objData.FO_AS_PilotFlying = uiCheckBoxFOASPF.Checked;
                 objData.AirCraft_AirPlaneID = Convert.ToInt32(uiDropDownListAirCraftRegistration.SelectedValue);
                 
                 if (uiDropDownListNightCity.SelectedIndex != 0)

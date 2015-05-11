@@ -507,6 +507,30 @@ namespace Flight_DAL
 				}
 			}
 			
+			public static SqlParameter OnBoardFuel
+			{
+				get
+				{
+					return new SqlParameter("@OnBoardFuel", SqlDbType.Int, 0);
+				}
+			}
+			
+			public static SqlParameter ReceiptNo
+			{
+				get
+				{
+					return new SqlParameter("@ReceiptNo", SqlDbType.Int, 0);
+				}
+			}
+			
+			public static SqlParameter FO_AS_PilotFlying
+			{
+				get
+				{
+					return new SqlParameter("@FO_AS_PilotFlying", SqlDbType.Bit, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -564,6 +588,9 @@ namespace Flight_DAL
             public const string ReturnSectorID = "ReturnSectorID";
             public const string ClientID = "ClientID";
             public const string PilotCityID = "PilotCityID";
+            public const string OnBoardFuel = "OnBoardFuel";
+            public const string ReceiptNo = "ReceiptNo";
+            public const string FO_AS_PilotFlying = "FO_AS_PilotFlying";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -622,6 +649,9 @@ namespace Flight_DAL
 					ht[ReturnSectorID] = _Sector.PropertyNames.ReturnSectorID;
 					ht[ClientID] = _Sector.PropertyNames.ClientID;
 					ht[PilotCityID] = _Sector.PropertyNames.PilotCityID;
+					ht[OnBoardFuel] = _Sector.PropertyNames.OnBoardFuel;
+					ht[ReceiptNo] = _Sector.PropertyNames.ReceiptNo;
+					ht[FO_AS_PilotFlying] = _Sector.PropertyNames.FO_AS_PilotFlying;
 
 				}
 				return (string)ht[columnName];
@@ -685,6 +715,9 @@ namespace Flight_DAL
             public const string ReturnSectorID = "ReturnSectorID";
             public const string ClientID = "ClientID";
             public const string PilotCityID = "PilotCityID";
+            public const string OnBoardFuel = "OnBoardFuel";
+            public const string ReceiptNo = "ReceiptNo";
+            public const string FO_AS_PilotFlying = "FO_AS_PilotFlying";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -743,6 +776,9 @@ namespace Flight_DAL
 					ht[ReturnSectorID] = _Sector.ColumnNames.ReturnSectorID;
 					ht[ClientID] = _Sector.ColumnNames.ClientID;
 					ht[PilotCityID] = _Sector.ColumnNames.PilotCityID;
+					ht[OnBoardFuel] = _Sector.ColumnNames.OnBoardFuel;
+					ht[ReceiptNo] = _Sector.ColumnNames.ReceiptNo;
+					ht[FO_AS_PilotFlying] = _Sector.ColumnNames.FO_AS_PilotFlying;
 
 				}
 				return (string)ht[propertyName];
@@ -806,6 +842,9 @@ namespace Flight_DAL
             public const string ReturnSectorID = "s_ReturnSectorID";
             public const string ClientID = "s_ClientID";
             public const string PilotCityID = "s_PilotCityID";
+            public const string OnBoardFuel = "s_OnBoardFuel";
+            public const string ReceiptNo = "s_ReceiptNo";
+            public const string FO_AS_PilotFlying = "s_FO_AS_PilotFlying";
 
 		}
 		#endregion		
@@ -1421,6 +1460,42 @@ namespace Flight_DAL
 			set
 	        {
 				base.Setint(ColumnNames.PilotCityID, value);
+			}
+		}
+
+		public virtual int OnBoardFuel
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.OnBoardFuel);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.OnBoardFuel, value);
+			}
+		}
+
+		public virtual int ReceiptNo
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.ReceiptNo);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.ReceiptNo, value);
+			}
+		}
+
+		public virtual bool FO_AS_PilotFlying
+	    {
+			get
+	        {
+				return base.Getbool(ColumnNames.FO_AS_PilotFlying);
+			}
+			set
+	        {
+				base.Setbool(ColumnNames.FO_AS_PilotFlying, value);
 			}
 		}
 
@@ -2194,6 +2269,51 @@ namespace Flight_DAL
 			}
 		}
 
+		public virtual string s_OnBoardFuel
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.OnBoardFuel) ? string.Empty : base.GetintAsString(ColumnNames.OnBoardFuel);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.OnBoardFuel);
+				else
+					this.OnBoardFuel = base.SetintAsString(ColumnNames.OnBoardFuel, value);
+			}
+		}
+
+		public virtual string s_ReceiptNo
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.ReceiptNo) ? string.Empty : base.GetintAsString(ColumnNames.ReceiptNo);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.ReceiptNo);
+				else
+					this.ReceiptNo = base.SetintAsString(ColumnNames.ReceiptNo, value);
+			}
+		}
+
+		public virtual string s_FO_AS_PilotFlying
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.FO_AS_PilotFlying) ? string.Empty : base.GetboolAsString(ColumnNames.FO_AS_PilotFlying);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.FO_AS_PilotFlying);
+				else
+					this.FO_AS_PilotFlying = base.SetboolAsString(ColumnNames.FO_AS_PilotFlying, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -2732,6 +2852,36 @@ namespace Flight_DAL
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.PilotCityID, Parameters.PilotCityID);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter OnBoardFuel
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.OnBoardFuel, Parameters.OnBoardFuel);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter ReceiptNo
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.ReceiptNo, Parameters.ReceiptNo);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter FO_AS_PilotFlying
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.FO_AS_PilotFlying, Parameters.FO_AS_PilotFlying);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -3354,6 +3504,42 @@ namespace Flight_DAL
 				}
 			}
 
+			public WhereParameter OnBoardFuel
+		    {
+				get
+		        {
+					if(_OnBoardFuel_W == null)
+	        	    {
+						_OnBoardFuel_W = TearOff.OnBoardFuel;
+					}
+					return _OnBoardFuel_W;
+				}
+			}
+
+			public WhereParameter ReceiptNo
+		    {
+				get
+		        {
+					if(_ReceiptNo_W == null)
+	        	    {
+						_ReceiptNo_W = TearOff.ReceiptNo;
+					}
+					return _ReceiptNo_W;
+				}
+			}
+
+			public WhereParameter FO_AS_PilotFlying
+		    {
+				get
+		        {
+					if(_FO_AS_PilotFlying_W == null)
+	        	    {
+						_FO_AS_PilotFlying_W = TearOff.FO_AS_PilotFlying;
+					}
+					return _FO_AS_PilotFlying_W;
+				}
+			}
+
 			private WhereParameter _SectorID_W = null;
 			private WhereParameter _FlightID_W = null;
 			private WhereParameter _From_AirportID_W = null;
@@ -3405,6 +3591,9 @@ namespace Flight_DAL
 			private WhereParameter _ReturnSectorID_W = null;
 			private WhereParameter _ClientID_W = null;
 			private WhereParameter _PilotCityID_W = null;
+			private WhereParameter _OnBoardFuel_W = null;
+			private WhereParameter _ReceiptNo_W = null;
+			private WhereParameter _FO_AS_PilotFlying_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -3459,6 +3648,9 @@ namespace Flight_DAL
 				_ReturnSectorID_W = null;
 				_ClientID_W = null;
 				_PilotCityID_W = null;
+				_OnBoardFuel_W = null;
+				_ReceiptNo_W = null;
+				_FO_AS_PilotFlying_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -4020,6 +4212,36 @@ namespace Flight_DAL
 					get
 					{
 							AggregateParameter aggregate = new AggregateParameter(ColumnNames.PilotCityID, Parameters.PilotCityID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter OnBoardFuel
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.OnBoardFuel, Parameters.OnBoardFuel);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter ReceiptNo
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.ReceiptNo, Parameters.ReceiptNo);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter FO_AS_PilotFlying
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.FO_AS_PilotFlying, Parameters.FO_AS_PilotFlying);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -4642,6 +4864,42 @@ namespace Flight_DAL
 				}
 			}
 
+			public AggregateParameter OnBoardFuel
+		    {
+				get
+		        {
+					if(_OnBoardFuel_W == null)
+	        	    {
+						_OnBoardFuel_W = TearOff.OnBoardFuel;
+					}
+					return _OnBoardFuel_W;
+				}
+			}
+
+			public AggregateParameter ReceiptNo
+		    {
+				get
+		        {
+					if(_ReceiptNo_W == null)
+	        	    {
+						_ReceiptNo_W = TearOff.ReceiptNo;
+					}
+					return _ReceiptNo_W;
+				}
+			}
+
+			public AggregateParameter FO_AS_PilotFlying
+		    {
+				get
+		        {
+					if(_FO_AS_PilotFlying_W == null)
+	        	    {
+						_FO_AS_PilotFlying_W = TearOff.FO_AS_PilotFlying;
+					}
+					return _FO_AS_PilotFlying_W;
+				}
+			}
+
 			private AggregateParameter _SectorID_W = null;
 			private AggregateParameter _FlightID_W = null;
 			private AggregateParameter _From_AirportID_W = null;
@@ -4693,6 +4951,9 @@ namespace Flight_DAL
 			private AggregateParameter _ReturnSectorID_W = null;
 			private AggregateParameter _ClientID_W = null;
 			private AggregateParameter _PilotCityID_W = null;
+			private AggregateParameter _OnBoardFuel_W = null;
+			private AggregateParameter _ReceiptNo_W = null;
+			private AggregateParameter _FO_AS_PilotFlying_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -4747,6 +5008,9 @@ namespace Flight_DAL
 				_ReturnSectorID_W = null;
 				_ClientID_W = null;
 				_PilotCityID_W = null;
+				_OnBoardFuel_W = null;
+				_ReceiptNo_W = null;
+				_FO_AS_PilotFlying_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -5023,6 +5287,18 @@ namespace Flight_DAL
 
 			p = cmd.Parameters.Add(Parameters.PilotCityID);
 			p.SourceColumn = ColumnNames.PilotCityID;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.OnBoardFuel);
+			p.SourceColumn = ColumnNames.OnBoardFuel;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.ReceiptNo);
+			p.SourceColumn = ColumnNames.ReceiptNo;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.FO_AS_PilotFlying);
+			p.SourceColumn = ColumnNames.FO_AS_PilotFlying;
 			p.SourceVersion = DataRowVersion.Current;
 
 

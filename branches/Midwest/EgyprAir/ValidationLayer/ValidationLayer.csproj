@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ValidationLayer</RootNamespace>
     <AssemblyName>ValidationLayer</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,6 +44,20 @@
     <Compile Include="ValidationBase.cs" />
     <Compile Include="ValitaionMaster.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Flight_BLL\Flight_BLL.csproj">
+      <Project>{c7751f04-3c3b-4b93-8198-f791f02682e1}</Project>
+      <Name>Flight_BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Flight_DAL\Flight_DAL.csproj">
+      <Project>{0a9fb1a0-75e2-4508-826b-6ab31d3dcc9d}</Project>
+      <Name>Flight_DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyGeneration.dOOdads\MyGeneration.dOOdads.csproj">
+      <Project>{8666c149-f8d1-47ce-b5e2-bee0bc844a9a}</Project>
+      <Name>MyGeneration.dOOdads</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -13,6 +13,33 @@ namespace Flights_GUI.Operation {
     public partial class FlightReport {
         
         /// <summary>
+        /// uiHiddenFieldExtraMembers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField uiHiddenFieldExtraMembers;
+        
+        /// <summary>
+        /// uiLinkButtonViewReport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonViewReport;
+        
+        /// <summary>
+        /// uiPanelAddGDExtraMembers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel uiPanelAddGDExtraMembers;
+        
+        /// <summary>
         /// uiReportViewer control.
         /// </summary>
         /// <remarks>
