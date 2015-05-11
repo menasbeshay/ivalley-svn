@@ -2192,7 +2192,7 @@ var App = function () {
             }*/
 
             handleScrollers(); // handles slim scrolling contents
-            handleUniform(); // handles uniform elements
+            //handleUniform(); // handles uniform elements
             handleClockfaceTimePickers(); //handles form clockface timepickers
             handleTagsInput() // handles tag input elements
             handleTables(); // handles data tables

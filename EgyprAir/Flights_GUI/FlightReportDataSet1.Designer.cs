@@ -50,10 +50,6 @@ namespace Flights_GUI {
         
         private GetFlightLogDataTable tableGetFlightLog;
         
-        private GetFlightLogCrewDataTable tableGetFlightLogCrew;
-        
-        private GetFlightLogPilotDataTable tableGetFlightLogPilot;
-        
         private GetPilotReportWithinRangeDataTable tableGetPilotReportWithinRange;
         
         private GetPilotDHDWithinRangeDataTable tableGetPilotDHDWithinRange;
@@ -69,6 +65,10 @@ namespace Flights_GUI {
         private GetSectorInfoDataTable tableGetSectorInfo;
         
         private GetSectorPilotInfoDataTable tableGetSectorPilotInfo;
+        
+        private GetFlightLogPilotDataTable tableGetFlightLogPilot;
+        
+        private GetFlightLogCrewDataTable tableGetFlightLogCrew;
         
         private PilotNightCityDataTable tablePilotNightCity;
         
@@ -141,12 +141,6 @@ namespace Flights_GUI {
                 if ((ds.Tables["GetFlightLog"] != null)) {
                     base.Tables.Add(new GetFlightLogDataTable(ds.Tables["GetFlightLog"]));
                 }
-                if ((ds.Tables["GetFlightLogCrew"] != null)) {
-                    base.Tables.Add(new GetFlightLogCrewDataTable(ds.Tables["GetFlightLogCrew"]));
-                }
-                if ((ds.Tables["GetFlightLogPilot"] != null)) {
-                    base.Tables.Add(new GetFlightLogPilotDataTable(ds.Tables["GetFlightLogPilot"]));
-                }
                 if ((ds.Tables["GetPilotReportWithinRange"] != null)) {
                     base.Tables.Add(new GetPilotReportWithinRangeDataTable(ds.Tables["GetPilotReportWithinRange"]));
                 }
@@ -170,6 +164,12 @@ namespace Flights_GUI {
                 }
                 if ((ds.Tables["GetSectorPilotInfo"] != null)) {
                     base.Tables.Add(new GetSectorPilotInfoDataTable(ds.Tables["GetSectorPilotInfo"]));
+                }
+                if ((ds.Tables["GetFlightLogPilot"] != null)) {
+                    base.Tables.Add(new GetFlightLogPilotDataTable(ds.Tables["GetFlightLogPilot"]));
+                }
+                if ((ds.Tables["GetFlightLogCrew"] != null)) {
+                    base.Tables.Add(new GetFlightLogCrewDataTable(ds.Tables["GetFlightLogCrew"]));
                 }
                 if ((ds.Tables["PilotNightCity"] != null)) {
                     base.Tables.Add(new PilotNightCityDataTable(ds.Tables["PilotNightCity"]));
@@ -329,26 +329,6 @@ namespace Flights_GUI {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public GetFlightLogCrewDataTable GetFlightLogCrew {
-            get {
-                return this.tableGetFlightLogCrew;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public GetFlightLogPilotDataTable GetFlightLogPilot {
-            get {
-                return this.tableGetFlightLogPilot;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public GetPilotReportWithinRangeDataTable GetPilotReportWithinRange {
             get {
                 return this.tableGetPilotReportWithinRange;
@@ -422,6 +402,26 @@ namespace Flights_GUI {
         public GetSectorPilotInfoDataTable GetSectorPilotInfo {
             get {
                 return this.tableGetSectorPilotInfo;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public GetFlightLogPilotDataTable GetFlightLogPilot {
+            get {
+                return this.tableGetFlightLogPilot;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public GetFlightLogCrewDataTable GetFlightLogCrew {
+            get {
+                return this.tableGetFlightLogCrew;
             }
         }
         
@@ -551,12 +551,6 @@ namespace Flights_GUI {
                 if ((ds.Tables["GetFlightLog"] != null)) {
                     base.Tables.Add(new GetFlightLogDataTable(ds.Tables["GetFlightLog"]));
                 }
-                if ((ds.Tables["GetFlightLogCrew"] != null)) {
-                    base.Tables.Add(new GetFlightLogCrewDataTable(ds.Tables["GetFlightLogCrew"]));
-                }
-                if ((ds.Tables["GetFlightLogPilot"] != null)) {
-                    base.Tables.Add(new GetFlightLogPilotDataTable(ds.Tables["GetFlightLogPilot"]));
-                }
                 if ((ds.Tables["GetPilotReportWithinRange"] != null)) {
                     base.Tables.Add(new GetPilotReportWithinRangeDataTable(ds.Tables["GetPilotReportWithinRange"]));
                 }
@@ -580,6 +574,12 @@ namespace Flights_GUI {
                 }
                 if ((ds.Tables["GetSectorPilotInfo"] != null)) {
                     base.Tables.Add(new GetSectorPilotInfoDataTable(ds.Tables["GetSectorPilotInfo"]));
+                }
+                if ((ds.Tables["GetFlightLogPilot"] != null)) {
+                    base.Tables.Add(new GetFlightLogPilotDataTable(ds.Tables["GetFlightLogPilot"]));
+                }
+                if ((ds.Tables["GetFlightLogCrew"] != null)) {
+                    base.Tables.Add(new GetFlightLogCrewDataTable(ds.Tables["GetFlightLogCrew"]));
                 }
                 if ((ds.Tables["PilotNightCity"] != null)) {
                     base.Tables.Add(new PilotNightCityDataTable(ds.Tables["PilotNightCity"]));
@@ -698,18 +698,6 @@ namespace Flights_GUI {
                     this.tableGetFlightLog.InitVars();
                 }
             }
-            this.tableGetFlightLogCrew = ((GetFlightLogCrewDataTable)(base.Tables["GetFlightLogCrew"]));
-            if ((initTable == true)) {
-                if ((this.tableGetFlightLogCrew != null)) {
-                    this.tableGetFlightLogCrew.InitVars();
-                }
-            }
-            this.tableGetFlightLogPilot = ((GetFlightLogPilotDataTable)(base.Tables["GetFlightLogPilot"]));
-            if ((initTable == true)) {
-                if ((this.tableGetFlightLogPilot != null)) {
-                    this.tableGetFlightLogPilot.InitVars();
-                }
-            }
             this.tableGetPilotReportWithinRange = ((GetPilotReportWithinRangeDataTable)(base.Tables["GetPilotReportWithinRange"]));
             if ((initTable == true)) {
                 if ((this.tableGetPilotReportWithinRange != null)) {
@@ -756,6 +744,18 @@ namespace Flights_GUI {
             if ((initTable == true)) {
                 if ((this.tableGetSectorPilotInfo != null)) {
                     this.tableGetSectorPilotInfo.InitVars();
+                }
+            }
+            this.tableGetFlightLogPilot = ((GetFlightLogPilotDataTable)(base.Tables["GetFlightLogPilot"]));
+            if ((initTable == true)) {
+                if ((this.tableGetFlightLogPilot != null)) {
+                    this.tableGetFlightLogPilot.InitVars();
+                }
+            }
+            this.tableGetFlightLogCrew = ((GetFlightLogCrewDataTable)(base.Tables["GetFlightLogCrew"]));
+            if ((initTable == true)) {
+                if ((this.tableGetFlightLogCrew != null)) {
+                    this.tableGetFlightLogCrew.InitVars();
                 }
             }
             this.tablePilotNightCity = ((PilotNightCityDataTable)(base.Tables["PilotNightCity"]));
@@ -806,10 +806,6 @@ namespace Flights_GUI {
             base.Tables.Add(this.tableGetCrewSchedule);
             this.tableGetFlightLog = new GetFlightLogDataTable();
             base.Tables.Add(this.tableGetFlightLog);
-            this.tableGetFlightLogCrew = new GetFlightLogCrewDataTable();
-            base.Tables.Add(this.tableGetFlightLogCrew);
-            this.tableGetFlightLogPilot = new GetFlightLogPilotDataTable();
-            base.Tables.Add(this.tableGetFlightLogPilot);
             this.tableGetPilotReportWithinRange = new GetPilotReportWithinRangeDataTable();
             base.Tables.Add(this.tableGetPilotReportWithinRange);
             this.tableGetPilotDHDWithinRange = new GetPilotDHDWithinRangeDataTable();
@@ -826,6 +822,10 @@ namespace Flights_GUI {
             base.Tables.Add(this.tableGetSectorInfo);
             this.tableGetSectorPilotInfo = new GetSectorPilotInfoDataTable();
             base.Tables.Add(this.tableGetSectorPilotInfo);
+            this.tableGetFlightLogPilot = new GetFlightLogPilotDataTable();
+            base.Tables.Add(this.tableGetFlightLogPilot);
+            this.tableGetFlightLogCrew = new GetFlightLogCrewDataTable();
+            base.Tables.Add(this.tableGetFlightLogCrew);
             this.tablePilotNightCity = new PilotNightCityDataTable();
             base.Tables.Add(this.tablePilotNightCity);
             this.tableCrewNightCity = new CrewNightCityDataTable();
@@ -912,18 +912,6 @@ namespace Flights_GUI {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeGetFlightLogCrew() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeGetFlightLogPilot() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeGetPilotReportWithinRange() {
             return false;
         }
@@ -967,6 +955,18 @@ namespace Flights_GUI {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private bool ShouldSerializeGetSectorPilotInfo() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeGetFlightLogPilot() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeGetFlightLogCrew() {
             return false;
         }
         
@@ -1077,12 +1077,6 @@ namespace Flights_GUI {
         public delegate void GetFlightLogRowChangeEventHandler(object sender, GetFlightLogRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void GetFlightLogCrewRowChangeEventHandler(object sender, GetFlightLogCrewRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void GetFlightLogPilotRowChangeEventHandler(object sender, GetFlightLogPilotRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void GetPilotReportWithinRangeRowChangeEventHandler(object sender, GetPilotReportWithinRangeRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -1105,6 +1099,12 @@ namespace Flights_GUI {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void GetSectorPilotInfoRowChangeEventHandler(object sender, GetSectorPilotInfoRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void GetFlightLogPilotRowChangeEventHandler(object sender, GetFlightLogPilotRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void GetFlightLogCrewRowChangeEventHandler(object sender, GetFlightLogCrewRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void PilotNightCityRowChangeEventHandler(object sender, PilotNightCityRowChangeEvent e);
@@ -6128,6 +6128,12 @@ namespace Flights_GUI {
             
             private global::System.Data.DataColumn columnTotalATAMin;
             
+            private global::System.Data.DataColumn columnOnBoardFuel;
+            
+            private global::System.Data.DataColumn columnReceiptNo;
+            
+            private global::System.Data.DataColumn columnFO_AS_PilotFlying;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public GetFlightLogDataTable() {
@@ -7195,6 +7201,30 @@ namespace Flights_GUI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn OnBoardFuelColumn {
+                get {
+                    return this.columnOnBoardFuel;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ReceiptNoColumn {
+                get {
+                    return this.columnReceiptNo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FO_AS_PilotFlyingColumn {
+                get {
+                    return this.columnFO_AS_PilotFlying;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -7349,7 +7379,10 @@ namespace Flights_GUI {
                         int Class, 
                         int Class1, 
                         int TotalATAHours, 
-                        int TotalATAMin) {
+                        int TotalATAMin, 
+                        int OnBoardFuel, 
+                        int ReceiptNo, 
+                        bool FO_AS_PilotFlying) {
                 GetFlightLogRow rowGetFlightLogRow = ((GetFlightLogRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -7480,7 +7513,10 @@ namespace Flights_GUI {
                         Class,
                         Class1,
                         TotalATAHours,
-                        TotalATAMin};
+                        TotalATAMin,
+                        OnBoardFuel,
+                        ReceiptNo,
+                        FO_AS_PilotFlying};
                 rowGetFlightLogRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowGetFlightLogRow);
                 return rowGetFlightLogRow;
@@ -7632,6 +7668,9 @@ namespace Flights_GUI {
                 this.columnClass1 = base.Columns["Class1"];
                 this.columnTotalATAHours = base.Columns["TotalATAHours"];
                 this.columnTotalATAMin = base.Columns["TotalATAMin"];
+                this.columnOnBoardFuel = base.Columns["OnBoardFuel"];
+                this.columnReceiptNo = base.Columns["ReceiptNo"];
+                this.columnFO_AS_PilotFlying = base.Columns["FO_AS_PilotFlying"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7895,6 +7934,12 @@ namespace Flights_GUI {
                 base.Columns.Add(this.columnTotalATAHours);
                 this.columnTotalATAMin = new global::System.Data.DataColumn("TotalATAMin", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotalATAMin);
+                this.columnOnBoardFuel = new global::System.Data.DataColumn("OnBoardFuel", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOnBoardFuel);
+                this.columnReceiptNo = new global::System.Data.DataColumn("ReceiptNo", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnReceiptNo);
+                this.columnFO_AS_PilotFlying = new global::System.Data.DataColumn("FO_AS_PilotFlying", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFO_AS_PilotFlying);
                 this.columnSectorID.AutoIncrement = true;
                 this.columnSectorID.AutoIncrementSeed = -1;
                 this.columnSectorID.AutoIncrementStep = -1;
@@ -8057,3083 +8102,6 @@ namespace Flights_GUI {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "GetFlightLogDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class GetFlightLogCrewDataTable : global::System.Data.TypedTableBase<GetFlightLogCrewRow> {
-            
-            private global::System.Data.DataColumn columnSectorID;
-            
-            private global::System.Data.DataColumn columnReportID;
-            
-            private global::System.Data.DataColumn columnFrom_AirportID;
-            
-            private global::System.Data.DataColumn columnTo_AirportID;
-            
-            private global::System.Data.DataColumn columnFuleUplifted;
-            
-            private global::System.Data.DataColumn columnSTD;
-            
-            private global::System.Data.DataColumn columnATD;
-            
-            private global::System.Data.DataColumn columnChoxOff;
-            
-            private global::System.Data.DataColumn columnSTA;
-            
-            private global::System.Data.DataColumn columnATA;
-            
-            private global::System.Data.DataColumn columnChoxOn;
-            
-            private global::System.Data.DataColumn columnStandardBurnOff;
-            
-            private global::System.Data.DataColumn columnActualBurnOff;
-            
-            private global::System.Data.DataColumn columnDepDelayID1;
-            
-            private global::System.Data.DataColumn columnDepDelayTime1;
-            
-            private global::System.Data.DataColumn columnDepDelayID2;
-            
-            private global::System.Data.DataColumn columnDepDelayTime2;
-            
-            private global::System.Data.DataColumn columnDepDelayID3;
-            
-            private global::System.Data.DataColumn columnDepDelayTime3;
-            
-            private global::System.Data.DataColumn columnArrDelayID1;
-            
-            private global::System.Data.DataColumn columnArrDelayTime1;
-            
-            private global::System.Data.DataColumn columnArrDelayID2;
-            
-            private global::System.Data.DataColumn columnArrDelayTime2;
-            
-            private global::System.Data.DataColumn columnArrDelayID3;
-            
-            private global::System.Data.DataColumn columnArrDelayTime3;
-            
-            private global::System.Data.DataColumn columnPilotFlying_CrewID;
-            
-            private global::System.Data.DataColumn columnPilotMonitoring_CrewID;
-            
-            private global::System.Data.DataColumn columnFlyAtDay;
-            
-            private global::System.Data.DataColumn columnFlyAtNight;
-            
-            private global::System.Data.DataColumn columnDepFule;
-            
-            private global::System.Data.DataColumn columnArrFule;
-            
-            private global::System.Data.DataColumn columnNoOfPax_A;
-            
-            private global::System.Data.DataColumn columnNoOfPax_C;
-            
-            private global::System.Data.DataColumn columnNoOfPax_I;
-            
-            private global::System.Data.DataColumn columnZFW;
-            
-            private global::System.Data.DataColumn columnTOW;
-            
-            private global::System.Data.DataColumn columnCreatedBy;
-            
-            private global::System.Data.DataColumn columnModifiedBy;
-            
-            private global::System.Data.DataColumn columnCreatedDate;
-            
-            private global::System.Data.DataColumn columnLastModifiedDate;
-            
-            private global::System.Data.DataColumn columnFlightNo;
-            
-            private global::System.Data.DataColumn columnIsPAX;
-            
-            private global::System.Data.DataColumn columnIsHeavy;
-            
-            private global::System.Data.DataColumn columnIsHeavyCrew;
-            
-            private global::System.Data.DataColumn columnComments;
-            
-            private global::System.Data.DataColumn columnAirCraft_AirPlaneID;
-            
-            private global::System.Data.DataColumn columnSectorDate;
-            
-            private global::System.Data.DataColumn columnReportCrewID;
-            
-            private global::System.Data.DataColumn columnCrewID;
-            
-            private global::System.Data.DataColumn columnPositionID;
-            
-            private global::System.Data.DataColumn columnNotes;
-            
-            private global::System.Data.DataColumn columnCreatedBy1;
-            
-            private global::System.Data.DataColumn columnModifiedBy1;
-            
-            private global::System.Data.DataColumn columnCreatedDate1;
-            
-            private global::System.Data.DataColumn columnLastModifiedDate1;
-            
-            private global::System.Data.DataColumn columnSectorID1;
-            
-            private global::System.Data.DataColumn columnCrewID1;
-            
-            private global::System.Data.DataColumn columnName;
-            
-            private global::System.Data.DataColumn columnStaffNo;
-            
-            private global::System.Data.DataColumn columnNotes1;
-            
-            private global::System.Data.DataColumn columnCreatedBy2;
-            
-            private global::System.Data.DataColumn columnModifiedBy2;
-            
-            private global::System.Data.DataColumn columnCreatedDate2;
-            
-            private global::System.Data.DataColumn columnLastModifiedDate2;
-            
-            private global::System.Data.DataColumn columnUsername;
-            
-            private global::System.Data.DataColumn columnRANK;
-            
-            private global::System.Data.DataColumn columnIDNO;
-            
-            private global::System.Data.DataColumn columnLicenseNo;
-            
-            private global::System.Data.DataColumn columnCompetenecycheck;
-            
-            private global::System.Data.DataColumn columnMEDICALLICENSEEXPIRYFrom;
-            
-            private global::System.Data.DataColumn columnMEDICALLICENSEEXPIRYTo;
-            
-            private global::System.Data.DataColumn columnInstructorRenewal;
-            
-            private global::System.Data.DataColumn columnTRANSITIONCOURSE;
-            
-            private global::System.Data.DataColumn columnRECURRENT12;
-            
-            private global::System.Data.DataColumn columnRECURRENT24;
-            
-            private global::System.Data.DataColumn columnSMS;
-            
-            private global::System.Data.DataColumn columnsecurity;
-            
-            private global::System.Data.DataColumn columnPositionID1;
-            
-            private global::System.Data.DataColumn columnTitle;
-            
-            private global::System.Data.DataColumn columnTitleShort;
-            
-            private global::System.Data.DataColumn columnDescription;
-            
-            private global::System.Data.DataColumn columnCreatedBy3;
-            
-            private global::System.Data.DataColumn columnModifiedBy3;
-            
-            private global::System.Data.DataColumn columnCreatedDate3;
-            
-            private global::System.Data.DataColumn columnLastModifiedDate3;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GetFlightLogCrewDataTable() {
-                this.TableName = "GetFlightLogCrew";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal GetFlightLogCrewDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected GetFlightLogCrewDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn SectorIDColumn {
-                get {
-                    return this.columnSectorID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ReportIDColumn {
-                get {
-                    return this.columnReportID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn From_AirportIDColumn {
-                get {
-                    return this.columnFrom_AirportID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn To_AirportIDColumn {
-                get {
-                    return this.columnTo_AirportID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn FuleUpliftedColumn {
-                get {
-                    return this.columnFuleUplifted;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn STDColumn {
-                get {
-                    return this.columnSTD;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ATDColumn {
-                get {
-                    return this.columnATD;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ChoxOffColumn {
-                get {
-                    return this.columnChoxOff;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn STAColumn {
-                get {
-                    return this.columnSTA;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ATAColumn {
-                get {
-                    return this.columnATA;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ChoxOnColumn {
-                get {
-                    return this.columnChoxOn;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn StandardBurnOffColumn {
-                get {
-                    return this.columnStandardBurnOff;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ActualBurnOffColumn {
-                get {
-                    return this.columnActualBurnOff;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn DepDelayID1Column {
-                get {
-                    return this.columnDepDelayID1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn DepDelayTime1Column {
-                get {
-                    return this.columnDepDelayTime1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn DepDelayID2Column {
-                get {
-                    return this.columnDepDelayID2;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn DepDelayTime2Column {
-                get {
-                    return this.columnDepDelayTime2;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn DepDelayID3Column {
-                get {
-                    return this.columnDepDelayID3;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn DepDelayTime3Column {
-                get {
-                    return this.columnDepDelayTime3;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ArrDelayID1Column {
-                get {
-                    return this.columnArrDelayID1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ArrDelayTime1Column {
-                get {
-                    return this.columnArrDelayTime1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ArrDelayID2Column {
-                get {
-                    return this.columnArrDelayID2;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ArrDelayTime2Column {
-                get {
-                    return this.columnArrDelayTime2;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ArrDelayID3Column {
-                get {
-                    return this.columnArrDelayID3;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ArrDelayTime3Column {
-                get {
-                    return this.columnArrDelayTime3;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn PilotFlying_CrewIDColumn {
-                get {
-                    return this.columnPilotFlying_CrewID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn PilotMonitoring_CrewIDColumn {
-                get {
-                    return this.columnPilotMonitoring_CrewID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn FlyAtDayColumn {
-                get {
-                    return this.columnFlyAtDay;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn FlyAtNightColumn {
-                get {
-                    return this.columnFlyAtNight;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn DepFuleColumn {
-                get {
-                    return this.columnDepFule;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ArrFuleColumn {
-                get {
-                    return this.columnArrFule;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn NoOfPax_AColumn {
-                get {
-                    return this.columnNoOfPax_A;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn NoOfPax_CColumn {
-                get {
-                    return this.columnNoOfPax_C;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn NoOfPax_IColumn {
-                get {
-                    return this.columnNoOfPax_I;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ZFWColumn {
-                get {
-                    return this.columnZFW;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn TOWColumn {
-                get {
-                    return this.columnTOW;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CreatedByColumn {
-                get {
-                    return this.columnCreatedBy;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ModifiedByColumn {
-                get {
-                    return this.columnModifiedBy;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CreatedDateColumn {
-                get {
-                    return this.columnCreatedDate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn LastModifiedDateColumn {
-                get {
-                    return this.columnLastModifiedDate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn FlightNoColumn {
-                get {
-                    return this.columnFlightNo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn IsPAXColumn {
-                get {
-                    return this.columnIsPAX;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn IsHeavyColumn {
-                get {
-                    return this.columnIsHeavy;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn IsHeavyCrewColumn {
-                get {
-                    return this.columnIsHeavyCrew;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CommentsColumn {
-                get {
-                    return this.columnComments;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn AirCraft_AirPlaneIDColumn {
-                get {
-                    return this.columnAirCraft_AirPlaneID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn SectorDateColumn {
-                get {
-                    return this.columnSectorDate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ReportCrewIDColumn {
-                get {
-                    return this.columnReportCrewID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CrewIDColumn {
-                get {
-                    return this.columnCrewID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn PositionIDColumn {
-                get {
-                    return this.columnPositionID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn NotesColumn {
-                get {
-                    return this.columnNotes;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CreatedBy1Column {
-                get {
-                    return this.columnCreatedBy1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ModifiedBy1Column {
-                get {
-                    return this.columnModifiedBy1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CreatedDate1Column {
-                get {
-                    return this.columnCreatedDate1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn LastModifiedDate1Column {
-                get {
-                    return this.columnLastModifiedDate1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn SectorID1Column {
-                get {
-                    return this.columnSectorID1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CrewID1Column {
-                get {
-                    return this.columnCrewID1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn NameColumn {
-                get {
-                    return this.columnName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn StaffNoColumn {
-                get {
-                    return this.columnStaffNo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Notes1Column {
-                get {
-                    return this.columnNotes1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CreatedBy2Column {
-                get {
-                    return this.columnCreatedBy2;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ModifiedBy2Column {
-                get {
-                    return this.columnModifiedBy2;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CreatedDate2Column {
-                get {
-                    return this.columnCreatedDate2;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn LastModifiedDate2Column {
-                get {
-                    return this.columnLastModifiedDate2;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn UsernameColumn {
-                get {
-                    return this.columnUsername;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn RANKColumn {
-                get {
-                    return this.columnRANK;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn IDNOColumn {
-                get {
-                    return this.columnIDNO;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn LicenseNoColumn {
-                get {
-                    return this.columnLicenseNo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CompetenecycheckColumn {
-                get {
-                    return this.columnCompetenecycheck;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn MEDICALLICENSEEXPIRYFromColumn {
-                get {
-                    return this.columnMEDICALLICENSEEXPIRYFrom;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn MEDICALLICENSEEXPIRYToColumn {
-                get {
-                    return this.columnMEDICALLICENSEEXPIRYTo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn InstructorRenewalColumn {
-                get {
-                    return this.columnInstructorRenewal;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn TRANSITIONCOURSEColumn {
-                get {
-                    return this.columnTRANSITIONCOURSE;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn RECURRENT12Column {
-                get {
-                    return this.columnRECURRENT12;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn RECURRENT24Column {
-                get {
-                    return this.columnRECURRENT24;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn SMSColumn {
-                get {
-                    return this.columnSMS;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn securityColumn {
-                get {
-                    return this.columnsecurity;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn PositionID1Column {
-                get {
-                    return this.columnPositionID1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn TitleColumn {
-                get {
-                    return this.columnTitle;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn TitleShortColumn {
-                get {
-                    return this.columnTitleShort;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn DescriptionColumn {
-                get {
-                    return this.columnDescription;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CreatedBy3Column {
-                get {
-                    return this.columnCreatedBy3;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ModifiedBy3Column {
-                get {
-                    return this.columnModifiedBy3;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CreatedDate3Column {
-                get {
-                    return this.columnCreatedDate3;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn LastModifiedDate3Column {
-                get {
-                    return this.columnLastModifiedDate3;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GetFlightLogCrewRow this[int index] {
-                get {
-                    return ((GetFlightLogCrewRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event GetFlightLogCrewRowChangeEventHandler GetFlightLogCrewRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event GetFlightLogCrewRowChangeEventHandler GetFlightLogCrewRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event GetFlightLogCrewRowChangeEventHandler GetFlightLogCrewRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event GetFlightLogCrewRowChangeEventHandler GetFlightLogCrewRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddGetFlightLogCrewRow(GetFlightLogCrewRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GetFlightLogCrewRow AddGetFlightLogCrewRow(
-                        int ReportID, 
-                        int From_AirportID, 
-                        int To_AirportID, 
-                        int FuleUplifted, 
-                        System.DateTime STD, 
-                        System.DateTime ATD, 
-                        System.DateTime ChoxOff, 
-                        System.DateTime STA, 
-                        System.DateTime ATA, 
-                        System.DateTime ChoxOn, 
-                        int StandardBurnOff, 
-                        int ActualBurnOff, 
-                        int DepDelayID1, 
-                        System.DateTime DepDelayTime1, 
-                        int DepDelayID2, 
-                        System.DateTime DepDelayTime2, 
-                        int DepDelayID3, 
-                        System.DateTime DepDelayTime3, 
-                        int ArrDelayID1, 
-                        System.DateTime ArrDelayTime1, 
-                        int ArrDelayID2, 
-                        System.DateTime ArrDelayTime2, 
-                        int ArrDelayID3, 
-                        System.DateTime ArrDelayTime3, 
-                        int PilotFlying_CrewID, 
-                        int PilotMonitoring_CrewID, 
-                        System.DateTime FlyAtDay, 
-                        System.DateTime FlyAtNight, 
-                        int DepFule, 
-                        int ArrFule, 
-                        int NoOfPax_A, 
-                        int NoOfPax_C, 
-                        int NoOfPax_I, 
-                        long ZFW, 
-                        long TOW, 
-                        System.Guid CreatedBy, 
-                        System.Guid ModifiedBy, 
-                        System.DateTime CreatedDate, 
-                        System.DateTime LastModifiedDate, 
-                        string FlightNo, 
-                        bool IsPAX, 
-                        bool IsHeavy, 
-                        bool IsHeavyCrew, 
-                        string Comments, 
-                        int AirCraft_AirPlaneID, 
-                        System.DateTime SectorDate, 
-                        int CrewID, 
-                        int PositionID, 
-                        string Notes, 
-                        System.Guid CreatedBy1, 
-                        System.Guid ModifiedBy1, 
-                        System.DateTime CreatedDate1, 
-                        System.DateTime LastModifiedDate1, 
-                        int SectorID1, 
-                        string Name, 
-                        int StaffNo, 
-                        string Notes1, 
-                        System.Guid CreatedBy2, 
-                        System.Guid ModifiedBy2, 
-                        System.DateTime CreatedDate2, 
-                        System.DateTime LastModifiedDate2, 
-                        string Username, 
-                        string RANK, 
-                        string IDNO, 
-                        string LicenseNo, 
-                        System.DateTime Competenecycheck, 
-                        System.DateTime MEDICALLICENSEEXPIRYFrom, 
-                        System.DateTime MEDICALLICENSEEXPIRYTo, 
-                        System.DateTime InstructorRenewal, 
-                        System.DateTime TRANSITIONCOURSE, 
-                        System.DateTime RECURRENT12, 
-                        System.DateTime RECURRENT24, 
-                        System.DateTime SMS, 
-                        System.DateTime security, 
-                        string Title, 
-                        string TitleShort, 
-                        string Description, 
-                        System.Guid CreatedBy3, 
-                        System.Guid ModifiedBy3, 
-                        System.DateTime CreatedDate3, 
-                        System.DateTime LastModifiedDate3) {
-                GetFlightLogCrewRow rowGetFlightLogCrewRow = ((GetFlightLogCrewRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        ReportID,
-                        From_AirportID,
-                        To_AirportID,
-                        FuleUplifted,
-                        STD,
-                        ATD,
-                        ChoxOff,
-                        STA,
-                        ATA,
-                        ChoxOn,
-                        StandardBurnOff,
-                        ActualBurnOff,
-                        DepDelayID1,
-                        DepDelayTime1,
-                        DepDelayID2,
-                        DepDelayTime2,
-                        DepDelayID3,
-                        DepDelayTime3,
-                        ArrDelayID1,
-                        ArrDelayTime1,
-                        ArrDelayID2,
-                        ArrDelayTime2,
-                        ArrDelayID3,
-                        ArrDelayTime3,
-                        PilotFlying_CrewID,
-                        PilotMonitoring_CrewID,
-                        FlyAtDay,
-                        FlyAtNight,
-                        DepFule,
-                        ArrFule,
-                        NoOfPax_A,
-                        NoOfPax_C,
-                        NoOfPax_I,
-                        ZFW,
-                        TOW,
-                        CreatedBy,
-                        ModifiedBy,
-                        CreatedDate,
-                        LastModifiedDate,
-                        FlightNo,
-                        IsPAX,
-                        IsHeavy,
-                        IsHeavyCrew,
-                        Comments,
-                        AirCraft_AirPlaneID,
-                        SectorDate,
-                        null,
-                        CrewID,
-                        PositionID,
-                        Notes,
-                        CreatedBy1,
-                        ModifiedBy1,
-                        CreatedDate1,
-                        LastModifiedDate1,
-                        SectorID1,
-                        null,
-                        Name,
-                        StaffNo,
-                        Notes1,
-                        CreatedBy2,
-                        ModifiedBy2,
-                        CreatedDate2,
-                        LastModifiedDate2,
-                        Username,
-                        RANK,
-                        IDNO,
-                        LicenseNo,
-                        Competenecycheck,
-                        MEDICALLICENSEEXPIRYFrom,
-                        MEDICALLICENSEEXPIRYTo,
-                        InstructorRenewal,
-                        TRANSITIONCOURSE,
-                        RECURRENT12,
-                        RECURRENT24,
-                        SMS,
-                        security,
-                        null,
-                        Title,
-                        TitleShort,
-                        Description,
-                        CreatedBy3,
-                        ModifiedBy3,
-                        CreatedDate3,
-                        LastModifiedDate3};
-                rowGetFlightLogCrewRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowGetFlightLogCrewRow);
-                return rowGetFlightLogCrewRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                GetFlightLogCrewDataTable cln = ((GetFlightLogCrewDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new GetFlightLogCrewDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal void InitVars() {
-                this.columnSectorID = base.Columns["SectorID"];
-                this.columnReportID = base.Columns["ReportID"];
-                this.columnFrom_AirportID = base.Columns["From_AirportID"];
-                this.columnTo_AirportID = base.Columns["To_AirportID"];
-                this.columnFuleUplifted = base.Columns["FuleUplifted"];
-                this.columnSTD = base.Columns["STD"];
-                this.columnATD = base.Columns["ATD"];
-                this.columnChoxOff = base.Columns["ChoxOff"];
-                this.columnSTA = base.Columns["STA"];
-                this.columnATA = base.Columns["ATA"];
-                this.columnChoxOn = base.Columns["ChoxOn"];
-                this.columnStandardBurnOff = base.Columns["StandardBurnOff"];
-                this.columnActualBurnOff = base.Columns["ActualBurnOff"];
-                this.columnDepDelayID1 = base.Columns["DepDelayID1"];
-                this.columnDepDelayTime1 = base.Columns["DepDelayTime1"];
-                this.columnDepDelayID2 = base.Columns["DepDelayID2"];
-                this.columnDepDelayTime2 = base.Columns["DepDelayTime2"];
-                this.columnDepDelayID3 = base.Columns["DepDelayID3"];
-                this.columnDepDelayTime3 = base.Columns["DepDelayTime3"];
-                this.columnArrDelayID1 = base.Columns["ArrDelayID1"];
-                this.columnArrDelayTime1 = base.Columns["ArrDelayTime1"];
-                this.columnArrDelayID2 = base.Columns["ArrDelayID2"];
-                this.columnArrDelayTime2 = base.Columns["ArrDelayTime2"];
-                this.columnArrDelayID3 = base.Columns["ArrDelayID3"];
-                this.columnArrDelayTime3 = base.Columns["ArrDelayTime3"];
-                this.columnPilotFlying_CrewID = base.Columns["PilotFlying_CrewID"];
-                this.columnPilotMonitoring_CrewID = base.Columns["PilotMonitoring_CrewID"];
-                this.columnFlyAtDay = base.Columns["FlyAtDay"];
-                this.columnFlyAtNight = base.Columns["FlyAtNight"];
-                this.columnDepFule = base.Columns["DepFule"];
-                this.columnArrFule = base.Columns["ArrFule"];
-                this.columnNoOfPax_A = base.Columns["NoOfPax_A"];
-                this.columnNoOfPax_C = base.Columns["NoOfPax_C"];
-                this.columnNoOfPax_I = base.Columns["NoOfPax_I"];
-                this.columnZFW = base.Columns["ZFW"];
-                this.columnTOW = base.Columns["TOW"];
-                this.columnCreatedBy = base.Columns["CreatedBy"];
-                this.columnModifiedBy = base.Columns["ModifiedBy"];
-                this.columnCreatedDate = base.Columns["CreatedDate"];
-                this.columnLastModifiedDate = base.Columns["LastModifiedDate"];
-                this.columnFlightNo = base.Columns["FlightNo"];
-                this.columnIsPAX = base.Columns["IsPAX"];
-                this.columnIsHeavy = base.Columns["IsHeavy"];
-                this.columnIsHeavyCrew = base.Columns["IsHeavyCrew"];
-                this.columnComments = base.Columns["Comments"];
-                this.columnAirCraft_AirPlaneID = base.Columns["AirCraft_AirPlaneID"];
-                this.columnSectorDate = base.Columns["SectorDate"];
-                this.columnReportCrewID = base.Columns["ReportCrewID"];
-                this.columnCrewID = base.Columns["CrewID"];
-                this.columnPositionID = base.Columns["PositionID"];
-                this.columnNotes = base.Columns["Notes"];
-                this.columnCreatedBy1 = base.Columns["CreatedBy1"];
-                this.columnModifiedBy1 = base.Columns["ModifiedBy1"];
-                this.columnCreatedDate1 = base.Columns["CreatedDate1"];
-                this.columnLastModifiedDate1 = base.Columns["LastModifiedDate1"];
-                this.columnSectorID1 = base.Columns["SectorID1"];
-                this.columnCrewID1 = base.Columns["CrewID1"];
-                this.columnName = base.Columns["Name"];
-                this.columnStaffNo = base.Columns["StaffNo"];
-                this.columnNotes1 = base.Columns["Notes1"];
-                this.columnCreatedBy2 = base.Columns["CreatedBy2"];
-                this.columnModifiedBy2 = base.Columns["ModifiedBy2"];
-                this.columnCreatedDate2 = base.Columns["CreatedDate2"];
-                this.columnLastModifiedDate2 = base.Columns["LastModifiedDate2"];
-                this.columnUsername = base.Columns["Username"];
-                this.columnRANK = base.Columns["RANK"];
-                this.columnIDNO = base.Columns["IDNO"];
-                this.columnLicenseNo = base.Columns["LicenseNo"];
-                this.columnCompetenecycheck = base.Columns["Competenecycheck"];
-                this.columnMEDICALLICENSEEXPIRYFrom = base.Columns["MEDICALLICENSEEXPIRYFrom"];
-                this.columnMEDICALLICENSEEXPIRYTo = base.Columns["MEDICALLICENSEEXPIRYTo"];
-                this.columnInstructorRenewal = base.Columns["InstructorRenewal"];
-                this.columnTRANSITIONCOURSE = base.Columns["TRANSITIONCOURSE"];
-                this.columnRECURRENT12 = base.Columns["RECURRENT12"];
-                this.columnRECURRENT24 = base.Columns["RECURRENT24"];
-                this.columnSMS = base.Columns["SMS"];
-                this.columnsecurity = base.Columns["security"];
-                this.columnPositionID1 = base.Columns["PositionID1"];
-                this.columnTitle = base.Columns["Title"];
-                this.columnTitleShort = base.Columns["TitleShort"];
-                this.columnDescription = base.Columns["Description"];
-                this.columnCreatedBy3 = base.Columns["CreatedBy3"];
-                this.columnModifiedBy3 = base.Columns["ModifiedBy3"];
-                this.columnCreatedDate3 = base.Columns["CreatedDate3"];
-                this.columnLastModifiedDate3 = base.Columns["LastModifiedDate3"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            private void InitClass() {
-                this.columnSectorID = new global::System.Data.DataColumn("SectorID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSectorID);
-                this.columnReportID = new global::System.Data.DataColumn("ReportID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnReportID);
-                this.columnFrom_AirportID = new global::System.Data.DataColumn("From_AirportID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFrom_AirportID);
-                this.columnTo_AirportID = new global::System.Data.DataColumn("To_AirportID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTo_AirportID);
-                this.columnFuleUplifted = new global::System.Data.DataColumn("FuleUplifted", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFuleUplifted);
-                this.columnSTD = new global::System.Data.DataColumn("STD", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSTD);
-                this.columnATD = new global::System.Data.DataColumn("ATD", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnATD);
-                this.columnChoxOff = new global::System.Data.DataColumn("ChoxOff", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnChoxOff);
-                this.columnSTA = new global::System.Data.DataColumn("STA", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSTA);
-                this.columnATA = new global::System.Data.DataColumn("ATA", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnATA);
-                this.columnChoxOn = new global::System.Data.DataColumn("ChoxOn", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnChoxOn);
-                this.columnStandardBurnOff = new global::System.Data.DataColumn("StandardBurnOff", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnStandardBurnOff);
-                this.columnActualBurnOff = new global::System.Data.DataColumn("ActualBurnOff", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnActualBurnOff);
-                this.columnDepDelayID1 = new global::System.Data.DataColumn("DepDelayID1", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDepDelayID1);
-                this.columnDepDelayTime1 = new global::System.Data.DataColumn("DepDelayTime1", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDepDelayTime1);
-                this.columnDepDelayID2 = new global::System.Data.DataColumn("DepDelayID2", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDepDelayID2);
-                this.columnDepDelayTime2 = new global::System.Data.DataColumn("DepDelayTime2", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDepDelayTime2);
-                this.columnDepDelayID3 = new global::System.Data.DataColumn("DepDelayID3", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDepDelayID3);
-                this.columnDepDelayTime3 = new global::System.Data.DataColumn("DepDelayTime3", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDepDelayTime3);
-                this.columnArrDelayID1 = new global::System.Data.DataColumn("ArrDelayID1", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnArrDelayID1);
-                this.columnArrDelayTime1 = new global::System.Data.DataColumn("ArrDelayTime1", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnArrDelayTime1);
-                this.columnArrDelayID2 = new global::System.Data.DataColumn("ArrDelayID2", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnArrDelayID2);
-                this.columnArrDelayTime2 = new global::System.Data.DataColumn("ArrDelayTime2", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnArrDelayTime2);
-                this.columnArrDelayID3 = new global::System.Data.DataColumn("ArrDelayID3", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnArrDelayID3);
-                this.columnArrDelayTime3 = new global::System.Data.DataColumn("ArrDelayTime3", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnArrDelayTime3);
-                this.columnPilotFlying_CrewID = new global::System.Data.DataColumn("PilotFlying_CrewID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPilotFlying_CrewID);
-                this.columnPilotMonitoring_CrewID = new global::System.Data.DataColumn("PilotMonitoring_CrewID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPilotMonitoring_CrewID);
-                this.columnFlyAtDay = new global::System.Data.DataColumn("FlyAtDay", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFlyAtDay);
-                this.columnFlyAtNight = new global::System.Data.DataColumn("FlyAtNight", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFlyAtNight);
-                this.columnDepFule = new global::System.Data.DataColumn("DepFule", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDepFule);
-                this.columnArrFule = new global::System.Data.DataColumn("ArrFule", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnArrFule);
-                this.columnNoOfPax_A = new global::System.Data.DataColumn("NoOfPax_A", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNoOfPax_A);
-                this.columnNoOfPax_C = new global::System.Data.DataColumn("NoOfPax_C", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNoOfPax_C);
-                this.columnNoOfPax_I = new global::System.Data.DataColumn("NoOfPax_I", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNoOfPax_I);
-                this.columnZFW = new global::System.Data.DataColumn("ZFW", typeof(long), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnZFW);
-                this.columnTOW = new global::System.Data.DataColumn("TOW", typeof(long), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTOW);
-                this.columnCreatedBy = new global::System.Data.DataColumn("CreatedBy", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCreatedBy);
-                this.columnModifiedBy = new global::System.Data.DataColumn("ModifiedBy", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnModifiedBy);
-                this.columnCreatedDate = new global::System.Data.DataColumn("CreatedDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCreatedDate);
-                this.columnLastModifiedDate = new global::System.Data.DataColumn("LastModifiedDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLastModifiedDate);
-                this.columnFlightNo = new global::System.Data.DataColumn("FlightNo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFlightNo);
-                this.columnIsPAX = new global::System.Data.DataColumn("IsPAX", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnIsPAX);
-                this.columnIsHeavy = new global::System.Data.DataColumn("IsHeavy", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnIsHeavy);
-                this.columnIsHeavyCrew = new global::System.Data.DataColumn("IsHeavyCrew", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnIsHeavyCrew);
-                this.columnComments = new global::System.Data.DataColumn("Comments", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnComments);
-                this.columnAirCraft_AirPlaneID = new global::System.Data.DataColumn("AirCraft_AirPlaneID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAirCraft_AirPlaneID);
-                this.columnSectorDate = new global::System.Data.DataColumn("SectorDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSectorDate);
-                this.columnReportCrewID = new global::System.Data.DataColumn("ReportCrewID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnReportCrewID);
-                this.columnCrewID = new global::System.Data.DataColumn("CrewID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCrewID);
-                this.columnPositionID = new global::System.Data.DataColumn("PositionID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPositionID);
-                this.columnNotes = new global::System.Data.DataColumn("Notes", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNotes);
-                this.columnCreatedBy1 = new global::System.Data.DataColumn("CreatedBy1", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCreatedBy1);
-                this.columnModifiedBy1 = new global::System.Data.DataColumn("ModifiedBy1", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnModifiedBy1);
-                this.columnCreatedDate1 = new global::System.Data.DataColumn("CreatedDate1", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCreatedDate1);
-                this.columnLastModifiedDate1 = new global::System.Data.DataColumn("LastModifiedDate1", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLastModifiedDate1);
-                this.columnSectorID1 = new global::System.Data.DataColumn("SectorID1", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSectorID1);
-                this.columnCrewID1 = new global::System.Data.DataColumn("CrewID1", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCrewID1);
-                this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnName);
-                this.columnStaffNo = new global::System.Data.DataColumn("StaffNo", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnStaffNo);
-                this.columnNotes1 = new global::System.Data.DataColumn("Notes1", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNotes1);
-                this.columnCreatedBy2 = new global::System.Data.DataColumn("CreatedBy2", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCreatedBy2);
-                this.columnModifiedBy2 = new global::System.Data.DataColumn("ModifiedBy2", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnModifiedBy2);
-                this.columnCreatedDate2 = new global::System.Data.DataColumn("CreatedDate2", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCreatedDate2);
-                this.columnLastModifiedDate2 = new global::System.Data.DataColumn("LastModifiedDate2", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLastModifiedDate2);
-                this.columnUsername = new global::System.Data.DataColumn("Username", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUsername);
-                this.columnRANK = new global::System.Data.DataColumn("RANK", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnRANK);
-                this.columnIDNO = new global::System.Data.DataColumn("IDNO", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnIDNO);
-                this.columnLicenseNo = new global::System.Data.DataColumn("LicenseNo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLicenseNo);
-                this.columnCompetenecycheck = new global::System.Data.DataColumn("Competenecycheck", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCompetenecycheck);
-                this.columnMEDICALLICENSEEXPIRYFrom = new global::System.Data.DataColumn("MEDICALLICENSEEXPIRYFrom", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMEDICALLICENSEEXPIRYFrom);
-                this.columnMEDICALLICENSEEXPIRYTo = new global::System.Data.DataColumn("MEDICALLICENSEEXPIRYTo", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMEDICALLICENSEEXPIRYTo);
-                this.columnInstructorRenewal = new global::System.Data.DataColumn("InstructorRenewal", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnInstructorRenewal);
-                this.columnTRANSITIONCOURSE = new global::System.Data.DataColumn("TRANSITIONCOURSE", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTRANSITIONCOURSE);
-                this.columnRECURRENT12 = new global::System.Data.DataColumn("RECURRENT12", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnRECURRENT12);
-                this.columnRECURRENT24 = new global::System.Data.DataColumn("RECURRENT24", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnRECURRENT24);
-                this.columnSMS = new global::System.Data.DataColumn("SMS", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSMS);
-                this.columnsecurity = new global::System.Data.DataColumn("security", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnsecurity);
-                this.columnPositionID1 = new global::System.Data.DataColumn("PositionID1", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPositionID1);
-                this.columnTitle = new global::System.Data.DataColumn("Title", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTitle);
-                this.columnTitleShort = new global::System.Data.DataColumn("TitleShort", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTitleShort);
-                this.columnDescription = new global::System.Data.DataColumn("Description", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDescription);
-                this.columnCreatedBy3 = new global::System.Data.DataColumn("CreatedBy3", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCreatedBy3);
-                this.columnModifiedBy3 = new global::System.Data.DataColumn("ModifiedBy3", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnModifiedBy3);
-                this.columnCreatedDate3 = new global::System.Data.DataColumn("CreatedDate3", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCreatedDate3);
-                this.columnLastModifiedDate3 = new global::System.Data.DataColumn("LastModifiedDate3", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLastModifiedDate3);
-                this.columnSectorID.AutoIncrement = true;
-                this.columnSectorID.AutoIncrementSeed = -1;
-                this.columnSectorID.AutoIncrementStep = -1;
-                this.columnSectorID.AllowDBNull = false;
-                this.columnSectorID.ReadOnly = true;
-                this.columnFlightNo.MaxLength = 15;
-                this.columnComments.MaxLength = 500;
-                this.columnReportCrewID.AutoIncrement = true;
-                this.columnReportCrewID.AutoIncrementSeed = -1;
-                this.columnReportCrewID.AutoIncrementStep = -1;
-                this.columnReportCrewID.AllowDBNull = false;
-                this.columnReportCrewID.ReadOnly = true;
-                this.columnCrewID.AllowDBNull = false;
-                this.columnNotes.MaxLength = 500;
-                this.columnCrewID1.AutoIncrement = true;
-                this.columnCrewID1.AutoIncrementSeed = -1;
-                this.columnCrewID1.AutoIncrementStep = -1;
-                this.columnCrewID1.AllowDBNull = false;
-                this.columnCrewID1.ReadOnly = true;
-                this.columnName.MaxLength = 150;
-                this.columnStaffNo.AllowDBNull = false;
-                this.columnNotes1.MaxLength = 500;
-                this.columnUsername.MaxLength = 50;
-                this.columnRANK.MaxLength = 10;
-                this.columnIDNO.MaxLength = 10;
-                this.columnLicenseNo.MaxLength = 10;
-                this.columnPositionID1.AutoIncrement = true;
-                this.columnPositionID1.AutoIncrementSeed = -1;
-                this.columnPositionID1.AutoIncrementStep = -1;
-                this.columnPositionID1.AllowDBNull = false;
-                this.columnPositionID1.ReadOnly = true;
-                this.columnTitle.MaxLength = 150;
-                this.columnTitleShort.MaxLength = 10;
-                this.columnDescription.MaxLength = 500;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GetFlightLogCrewRow NewGetFlightLogCrewRow() {
-                return ((GetFlightLogCrewRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new GetFlightLogCrewRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(GetFlightLogCrewRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.GetFlightLogCrewRowChanged != null)) {
-                    this.GetFlightLogCrewRowChanged(this, new GetFlightLogCrewRowChangeEvent(((GetFlightLogCrewRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.GetFlightLogCrewRowChanging != null)) {
-                    this.GetFlightLogCrewRowChanging(this, new GetFlightLogCrewRowChangeEvent(((GetFlightLogCrewRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.GetFlightLogCrewRowDeleted != null)) {
-                    this.GetFlightLogCrewRowDeleted(this, new GetFlightLogCrewRowChangeEvent(((GetFlightLogCrewRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.GetFlightLogCrewRowDeleting != null)) {
-                    this.GetFlightLogCrewRowDeleting(this, new GetFlightLogCrewRowChangeEvent(((GetFlightLogCrewRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveGetFlightLogCrewRow(GetFlightLogCrewRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                FlightReportDataSet ds = new FlightReportDataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "GetFlightLogCrewDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class GetFlightLogPilotDataTable : global::System.Data.TypedTableBase<GetFlightLogPilotRow> {
-            
-            private global::System.Data.DataColumn columnSectorID;
-            
-            private global::System.Data.DataColumn columnReportID;
-            
-            private global::System.Data.DataColumn columnFrom_AirportID;
-            
-            private global::System.Data.DataColumn columnTo_AirportID;
-            
-            private global::System.Data.DataColumn columnFuleUplifted;
-            
-            private global::System.Data.DataColumn columnSTD;
-            
-            private global::System.Data.DataColumn columnATD;
-            
-            private global::System.Data.DataColumn columnChoxOff;
-            
-            private global::System.Data.DataColumn columnSTA;
-            
-            private global::System.Data.DataColumn columnATA;
-            
-            private global::System.Data.DataColumn columnChoxOn;
-            
-            private global::System.Data.DataColumn columnStandardBurnOff;
-            
-            private global::System.Data.DataColumn columnActualBurnOff;
-            
-            private global::System.Data.DataColumn columnDepDelayID1;
-            
-            private global::System.Data.DataColumn columnDepDelayTime1;
-            
-            private global::System.Data.DataColumn columnDepDelayID2;
-            
-            private global::System.Data.DataColumn columnDepDelayTime2;
-            
-            private global::System.Data.DataColumn columnDepDelayID3;
-            
-            private global::System.Data.DataColumn columnDepDelayTime3;
-            
-            private global::System.Data.DataColumn columnArrDelayID1;
-            
-            private global::System.Data.DataColumn columnArrDelayTime1;
-            
-            private global::System.Data.DataColumn columnArrDelayID2;
-            
-            private global::System.Data.DataColumn columnArrDelayTime2;
-            
-            private global::System.Data.DataColumn columnArrDelayID3;
-            
-            private global::System.Data.DataColumn columnArrDelayTime3;
-            
-            private global::System.Data.DataColumn columnPilotFlying_CrewID;
-            
-            private global::System.Data.DataColumn columnPilotMonitoring_CrewID;
-            
-            private global::System.Data.DataColumn columnFlyAtDay;
-            
-            private global::System.Data.DataColumn columnFlyAtNight;
-            
-            private global::System.Data.DataColumn columnDepFule;
-            
-            private global::System.Data.DataColumn columnArrFule;
-            
-            private global::System.Data.DataColumn columnNoOfPax_A;
-            
-            private global::System.Data.DataColumn columnNoOfPax_C;
-            
-            private global::System.Data.DataColumn columnNoOfPax_I;
-            
-            private global::System.Data.DataColumn columnZFW;
-            
-            private global::System.Data.DataColumn columnTOW;
-            
-            private global::System.Data.DataColumn columnCreatedBy;
-            
-            private global::System.Data.DataColumn columnModifiedBy;
-            
-            private global::System.Data.DataColumn columnCreatedDate;
-            
-            private global::System.Data.DataColumn columnLastModifiedDate;
-            
-            private global::System.Data.DataColumn columnFlightNo;
-            
-            private global::System.Data.DataColumn columnIsPAX;
-            
-            private global::System.Data.DataColumn columnIsHeavy;
-            
-            private global::System.Data.DataColumn columnIsHeavyCrew;
-            
-            private global::System.Data.DataColumn columnComments;
-            
-            private global::System.Data.DataColumn columnAirCraft_AirPlaneID;
-            
-            private global::System.Data.DataColumn columnSectorDate;
-            
-            private global::System.Data.DataColumn columnReportPilotID;
-            
-            private global::System.Data.DataColumn columnPilotID;
-            
-            private global::System.Data.DataColumn columnPositionID;
-            
-            private global::System.Data.DataColumn columnNotes;
-            
-            private global::System.Data.DataColumn columnCreatedBy1;
-            
-            private global::System.Data.DataColumn columnModifiedBy1;
-            
-            private global::System.Data.DataColumn columnCreatedDate1;
-            
-            private global::System.Data.DataColumn columnLastModifiedDate1;
-            
-            private global::System.Data.DataColumn columnSectorID1;
-            
-            private global::System.Data.DataColumn columnPilotID1;
-            
-            private global::System.Data.DataColumn columnFirstName;
-            
-            private global::System.Data.DataColumn columnSecondName;
-            
-            private global::System.Data.DataColumn columnSureName;
-            
-            private global::System.Data.DataColumn columnTBF_Day_Hours;
-            
-            private global::System.Data.DataColumn columnTBF_Day_Mins;
-            
-            private global::System.Data.DataColumn columnTBF_Night_Hours;
-            
-            private global::System.Data.DataColumn columnTBF_Night_Mins;
-            
-            private global::System.Data.DataColumn columnTBF_Total_Hours;
-            
-            private global::System.Data.DataColumn columnTBF_Total_Mins;
-            
-            private global::System.Data.DataColumn columnLicenseNo;
-            
-            private global::System.Data.DataColumn columnLicenseStatus;
-            
-            private global::System.Data.DataColumn columnLicenseRenewDate;
-            
-            private global::System.Data.DataColumn columnStaffNo;
-            
-            private global::System.Data.DataColumn columnShortName;
-            
-            private global::System.Data.DataColumn columnIsPilot;
-            
-            private global::System.Data.DataColumn columnCreatedBy2;
-            
-            private global::System.Data.DataColumn columnModifiedBy2;
-            
-            private global::System.Data.DataColumn columnCreatedDate2;
-            
-            private global::System.Data.DataColumn columnLastModifiedDate2;
-            
-            private global::System.Data.DataColumn columnUserName;
-            
-            private global::System.Data.DataColumn columnPositionID1;
-            
-            private global::System.Data.DataColumn columnTitle;
-            
-            private global::System.Data.DataColumn columnTitleShort;
-            
-            private global::System.Data.DataColumn columnDescription;
-            
-            private global::System.Data.DataColumn columnCreatedBy3;
-            
-            private global::System.Data.DataColumn columnModifiedBy3;
-            
-            private global::System.Data.DataColumn columnCreatedDate3;
-            
-            private global::System.Data.DataColumn columnLastModifiedDate3;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GetFlightLogPilotDataTable() {
-                this.TableName = "GetFlightLogPilot";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal GetFlightLogPilotDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected GetFlightLogPilotDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn SectorIDColumn {
-                get {
-                    return this.columnSectorID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ReportIDColumn {
-                get {
-                    return this.columnReportID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn From_AirportIDColumn {
-                get {
-                    return this.columnFrom_AirportID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn To_AirportIDColumn {
-                get {
-                    return this.columnTo_AirportID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn FuleUpliftedColumn {
-                get {
-                    return this.columnFuleUplifted;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn STDColumn {
-                get {
-                    return this.columnSTD;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ATDColumn {
-                get {
-                    return this.columnATD;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ChoxOffColumn {
-                get {
-                    return this.columnChoxOff;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn STAColumn {
-                get {
-                    return this.columnSTA;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ATAColumn {
-                get {
-                    return this.columnATA;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ChoxOnColumn {
-                get {
-                    return this.columnChoxOn;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn StandardBurnOffColumn {
-                get {
-                    return this.columnStandardBurnOff;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ActualBurnOffColumn {
-                get {
-                    return this.columnActualBurnOff;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn DepDelayID1Column {
-                get {
-                    return this.columnDepDelayID1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn DepDelayTime1Column {
-                get {
-                    return this.columnDepDelayTime1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn DepDelayID2Column {
-                get {
-                    return this.columnDepDelayID2;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn DepDelayTime2Column {
-                get {
-                    return this.columnDepDelayTime2;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn DepDelayID3Column {
-                get {
-                    return this.columnDepDelayID3;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn DepDelayTime3Column {
-                get {
-                    return this.columnDepDelayTime3;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ArrDelayID1Column {
-                get {
-                    return this.columnArrDelayID1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ArrDelayTime1Column {
-                get {
-                    return this.columnArrDelayTime1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ArrDelayID2Column {
-                get {
-                    return this.columnArrDelayID2;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ArrDelayTime2Column {
-                get {
-                    return this.columnArrDelayTime2;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ArrDelayID3Column {
-                get {
-                    return this.columnArrDelayID3;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ArrDelayTime3Column {
-                get {
-                    return this.columnArrDelayTime3;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn PilotFlying_CrewIDColumn {
-                get {
-                    return this.columnPilotFlying_CrewID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn PilotMonitoring_CrewIDColumn {
-                get {
-                    return this.columnPilotMonitoring_CrewID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn FlyAtDayColumn {
-                get {
-                    return this.columnFlyAtDay;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn FlyAtNightColumn {
-                get {
-                    return this.columnFlyAtNight;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn DepFuleColumn {
-                get {
-                    return this.columnDepFule;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ArrFuleColumn {
-                get {
-                    return this.columnArrFule;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn NoOfPax_AColumn {
-                get {
-                    return this.columnNoOfPax_A;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn NoOfPax_CColumn {
-                get {
-                    return this.columnNoOfPax_C;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn NoOfPax_IColumn {
-                get {
-                    return this.columnNoOfPax_I;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ZFWColumn {
-                get {
-                    return this.columnZFW;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn TOWColumn {
-                get {
-                    return this.columnTOW;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CreatedByColumn {
-                get {
-                    return this.columnCreatedBy;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ModifiedByColumn {
-                get {
-                    return this.columnModifiedBy;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CreatedDateColumn {
-                get {
-                    return this.columnCreatedDate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn LastModifiedDateColumn {
-                get {
-                    return this.columnLastModifiedDate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn FlightNoColumn {
-                get {
-                    return this.columnFlightNo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn IsPAXColumn {
-                get {
-                    return this.columnIsPAX;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn IsHeavyColumn {
-                get {
-                    return this.columnIsHeavy;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn IsHeavyCrewColumn {
-                get {
-                    return this.columnIsHeavyCrew;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CommentsColumn {
-                get {
-                    return this.columnComments;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn AirCraft_AirPlaneIDColumn {
-                get {
-                    return this.columnAirCraft_AirPlaneID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn SectorDateColumn {
-                get {
-                    return this.columnSectorDate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ReportPilotIDColumn {
-                get {
-                    return this.columnReportPilotID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn PilotIDColumn {
-                get {
-                    return this.columnPilotID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn PositionIDColumn {
-                get {
-                    return this.columnPositionID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn NotesColumn {
-                get {
-                    return this.columnNotes;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CreatedBy1Column {
-                get {
-                    return this.columnCreatedBy1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ModifiedBy1Column {
-                get {
-                    return this.columnModifiedBy1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CreatedDate1Column {
-                get {
-                    return this.columnCreatedDate1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn LastModifiedDate1Column {
-                get {
-                    return this.columnLastModifiedDate1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn SectorID1Column {
-                get {
-                    return this.columnSectorID1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn PilotID1Column {
-                get {
-                    return this.columnPilotID1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn FirstNameColumn {
-                get {
-                    return this.columnFirstName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn SecondNameColumn {
-                get {
-                    return this.columnSecondName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn SureNameColumn {
-                get {
-                    return this.columnSureName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn TBF_Day_HoursColumn {
-                get {
-                    return this.columnTBF_Day_Hours;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn TBF_Day_MinsColumn {
-                get {
-                    return this.columnTBF_Day_Mins;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn TBF_Night_HoursColumn {
-                get {
-                    return this.columnTBF_Night_Hours;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn TBF_Night_MinsColumn {
-                get {
-                    return this.columnTBF_Night_Mins;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn TBF_Total_HoursColumn {
-                get {
-                    return this.columnTBF_Total_Hours;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn TBF_Total_MinsColumn {
-                get {
-                    return this.columnTBF_Total_Mins;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn LicenseNoColumn {
-                get {
-                    return this.columnLicenseNo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn LicenseStatusColumn {
-                get {
-                    return this.columnLicenseStatus;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn LicenseRenewDateColumn {
-                get {
-                    return this.columnLicenseRenewDate;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn StaffNoColumn {
-                get {
-                    return this.columnStaffNo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ShortNameColumn {
-                get {
-                    return this.columnShortName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn IsPilotColumn {
-                get {
-                    return this.columnIsPilot;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CreatedBy2Column {
-                get {
-                    return this.columnCreatedBy2;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ModifiedBy2Column {
-                get {
-                    return this.columnModifiedBy2;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CreatedDate2Column {
-                get {
-                    return this.columnCreatedDate2;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn LastModifiedDate2Column {
-                get {
-                    return this.columnLastModifiedDate2;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn UserNameColumn {
-                get {
-                    return this.columnUserName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn PositionID1Column {
-                get {
-                    return this.columnPositionID1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn TitleColumn {
-                get {
-                    return this.columnTitle;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn TitleShortColumn {
-                get {
-                    return this.columnTitleShort;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn DescriptionColumn {
-                get {
-                    return this.columnDescription;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CreatedBy3Column {
-                get {
-                    return this.columnCreatedBy3;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ModifiedBy3Column {
-                get {
-                    return this.columnModifiedBy3;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CreatedDate3Column {
-                get {
-                    return this.columnCreatedDate3;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn LastModifiedDate3Column {
-                get {
-                    return this.columnLastModifiedDate3;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GetFlightLogPilotRow this[int index] {
-                get {
-                    return ((GetFlightLogPilotRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event GetFlightLogPilotRowChangeEventHandler GetFlightLogPilotRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event GetFlightLogPilotRowChangeEventHandler GetFlightLogPilotRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event GetFlightLogPilotRowChangeEventHandler GetFlightLogPilotRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event GetFlightLogPilotRowChangeEventHandler GetFlightLogPilotRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddGetFlightLogPilotRow(GetFlightLogPilotRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GetFlightLogPilotRow AddGetFlightLogPilotRow(
-                        int ReportID, 
-                        int From_AirportID, 
-                        int To_AirportID, 
-                        int FuleUplifted, 
-                        System.DateTime STD, 
-                        System.DateTime ATD, 
-                        System.DateTime ChoxOff, 
-                        System.DateTime STA, 
-                        System.DateTime ATA, 
-                        System.DateTime ChoxOn, 
-                        int StandardBurnOff, 
-                        int ActualBurnOff, 
-                        int DepDelayID1, 
-                        System.DateTime DepDelayTime1, 
-                        int DepDelayID2, 
-                        System.DateTime DepDelayTime2, 
-                        int DepDelayID3, 
-                        System.DateTime DepDelayTime3, 
-                        int ArrDelayID1, 
-                        System.DateTime ArrDelayTime1, 
-                        int ArrDelayID2, 
-                        System.DateTime ArrDelayTime2, 
-                        int ArrDelayID3, 
-                        System.DateTime ArrDelayTime3, 
-                        int PilotFlying_CrewID, 
-                        int PilotMonitoring_CrewID, 
-                        System.DateTime FlyAtDay, 
-                        System.DateTime FlyAtNight, 
-                        int DepFule, 
-                        int ArrFule, 
-                        int NoOfPax_A, 
-                        int NoOfPax_C, 
-                        int NoOfPax_I, 
-                        long ZFW, 
-                        long TOW, 
-                        System.Guid CreatedBy, 
-                        System.Guid ModifiedBy, 
-                        System.DateTime CreatedDate, 
-                        System.DateTime LastModifiedDate, 
-                        string FlightNo, 
-                        bool IsPAX, 
-                        bool IsHeavy, 
-                        bool IsHeavyCrew, 
-                        string Comments, 
-                        int AirCraft_AirPlaneID, 
-                        System.DateTime SectorDate, 
-                        int PilotID, 
-                        int PositionID, 
-                        string Notes, 
-                        System.Guid CreatedBy1, 
-                        System.Guid ModifiedBy1, 
-                        System.DateTime CreatedDate1, 
-                        System.DateTime LastModifiedDate1, 
-                        int SectorID1, 
-                        string FirstName, 
-                        string SecondName, 
-                        string SureName, 
-                        int TBF_Day_Hours, 
-                        int TBF_Day_Mins, 
-                        int TBF_Night_Hours, 
-                        int TBF_Night_Mins, 
-                        int TBF_Total_Hours, 
-                        int TBF_Total_Mins, 
-                        string LicenseNo, 
-                        string LicenseStatus, 
-                        System.DateTime LicenseRenewDate, 
-                        int StaffNo, 
-                        string ShortName, 
-                        bool IsPilot, 
-                        System.Guid CreatedBy2, 
-                        System.Guid ModifiedBy2, 
-                        System.DateTime CreatedDate2, 
-                        System.DateTime LastModifiedDate2, 
-                        string UserName, 
-                        string Title, 
-                        string TitleShort, 
-                        string Description, 
-                        System.Guid CreatedBy3, 
-                        System.Guid ModifiedBy3, 
-                        System.DateTime CreatedDate3, 
-                        System.DateTime LastModifiedDate3) {
-                GetFlightLogPilotRow rowGetFlightLogPilotRow = ((GetFlightLogPilotRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        ReportID,
-                        From_AirportID,
-                        To_AirportID,
-                        FuleUplifted,
-                        STD,
-                        ATD,
-                        ChoxOff,
-                        STA,
-                        ATA,
-                        ChoxOn,
-                        StandardBurnOff,
-                        ActualBurnOff,
-                        DepDelayID1,
-                        DepDelayTime1,
-                        DepDelayID2,
-                        DepDelayTime2,
-                        DepDelayID3,
-                        DepDelayTime3,
-                        ArrDelayID1,
-                        ArrDelayTime1,
-                        ArrDelayID2,
-                        ArrDelayTime2,
-                        ArrDelayID3,
-                        ArrDelayTime3,
-                        PilotFlying_CrewID,
-                        PilotMonitoring_CrewID,
-                        FlyAtDay,
-                        FlyAtNight,
-                        DepFule,
-                        ArrFule,
-                        NoOfPax_A,
-                        NoOfPax_C,
-                        NoOfPax_I,
-                        ZFW,
-                        TOW,
-                        CreatedBy,
-                        ModifiedBy,
-                        CreatedDate,
-                        LastModifiedDate,
-                        FlightNo,
-                        IsPAX,
-                        IsHeavy,
-                        IsHeavyCrew,
-                        Comments,
-                        AirCraft_AirPlaneID,
-                        SectorDate,
-                        null,
-                        PilotID,
-                        PositionID,
-                        Notes,
-                        CreatedBy1,
-                        ModifiedBy1,
-                        CreatedDate1,
-                        LastModifiedDate1,
-                        SectorID1,
-                        null,
-                        FirstName,
-                        SecondName,
-                        SureName,
-                        TBF_Day_Hours,
-                        TBF_Day_Mins,
-                        TBF_Night_Hours,
-                        TBF_Night_Mins,
-                        TBF_Total_Hours,
-                        TBF_Total_Mins,
-                        LicenseNo,
-                        LicenseStatus,
-                        LicenseRenewDate,
-                        StaffNo,
-                        ShortName,
-                        IsPilot,
-                        CreatedBy2,
-                        ModifiedBy2,
-                        CreatedDate2,
-                        LastModifiedDate2,
-                        UserName,
-                        null,
-                        Title,
-                        TitleShort,
-                        Description,
-                        CreatedBy3,
-                        ModifiedBy3,
-                        CreatedDate3,
-                        LastModifiedDate3};
-                rowGetFlightLogPilotRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowGetFlightLogPilotRow);
-                return rowGetFlightLogPilotRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                GetFlightLogPilotDataTable cln = ((GetFlightLogPilotDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new GetFlightLogPilotDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal void InitVars() {
-                this.columnSectorID = base.Columns["SectorID"];
-                this.columnReportID = base.Columns["ReportID"];
-                this.columnFrom_AirportID = base.Columns["From_AirportID"];
-                this.columnTo_AirportID = base.Columns["To_AirportID"];
-                this.columnFuleUplifted = base.Columns["FuleUplifted"];
-                this.columnSTD = base.Columns["STD"];
-                this.columnATD = base.Columns["ATD"];
-                this.columnChoxOff = base.Columns["ChoxOff"];
-                this.columnSTA = base.Columns["STA"];
-                this.columnATA = base.Columns["ATA"];
-                this.columnChoxOn = base.Columns["ChoxOn"];
-                this.columnStandardBurnOff = base.Columns["StandardBurnOff"];
-                this.columnActualBurnOff = base.Columns["ActualBurnOff"];
-                this.columnDepDelayID1 = base.Columns["DepDelayID1"];
-                this.columnDepDelayTime1 = base.Columns["DepDelayTime1"];
-                this.columnDepDelayID2 = base.Columns["DepDelayID2"];
-                this.columnDepDelayTime2 = base.Columns["DepDelayTime2"];
-                this.columnDepDelayID3 = base.Columns["DepDelayID3"];
-                this.columnDepDelayTime3 = base.Columns["DepDelayTime3"];
-                this.columnArrDelayID1 = base.Columns["ArrDelayID1"];
-                this.columnArrDelayTime1 = base.Columns["ArrDelayTime1"];
-                this.columnArrDelayID2 = base.Columns["ArrDelayID2"];
-                this.columnArrDelayTime2 = base.Columns["ArrDelayTime2"];
-                this.columnArrDelayID3 = base.Columns["ArrDelayID3"];
-                this.columnArrDelayTime3 = base.Columns["ArrDelayTime3"];
-                this.columnPilotFlying_CrewID = base.Columns["PilotFlying_CrewID"];
-                this.columnPilotMonitoring_CrewID = base.Columns["PilotMonitoring_CrewID"];
-                this.columnFlyAtDay = base.Columns["FlyAtDay"];
-                this.columnFlyAtNight = base.Columns["FlyAtNight"];
-                this.columnDepFule = base.Columns["DepFule"];
-                this.columnArrFule = base.Columns["ArrFule"];
-                this.columnNoOfPax_A = base.Columns["NoOfPax_A"];
-                this.columnNoOfPax_C = base.Columns["NoOfPax_C"];
-                this.columnNoOfPax_I = base.Columns["NoOfPax_I"];
-                this.columnZFW = base.Columns["ZFW"];
-                this.columnTOW = base.Columns["TOW"];
-                this.columnCreatedBy = base.Columns["CreatedBy"];
-                this.columnModifiedBy = base.Columns["ModifiedBy"];
-                this.columnCreatedDate = base.Columns["CreatedDate"];
-                this.columnLastModifiedDate = base.Columns["LastModifiedDate"];
-                this.columnFlightNo = base.Columns["FlightNo"];
-                this.columnIsPAX = base.Columns["IsPAX"];
-                this.columnIsHeavy = base.Columns["IsHeavy"];
-                this.columnIsHeavyCrew = base.Columns["IsHeavyCrew"];
-                this.columnComments = base.Columns["Comments"];
-                this.columnAirCraft_AirPlaneID = base.Columns["AirCraft_AirPlaneID"];
-                this.columnSectorDate = base.Columns["SectorDate"];
-                this.columnReportPilotID = base.Columns["ReportPilotID"];
-                this.columnPilotID = base.Columns["PilotID"];
-                this.columnPositionID = base.Columns["PositionID"];
-                this.columnNotes = base.Columns["Notes"];
-                this.columnCreatedBy1 = base.Columns["CreatedBy1"];
-                this.columnModifiedBy1 = base.Columns["ModifiedBy1"];
-                this.columnCreatedDate1 = base.Columns["CreatedDate1"];
-                this.columnLastModifiedDate1 = base.Columns["LastModifiedDate1"];
-                this.columnSectorID1 = base.Columns["SectorID1"];
-                this.columnPilotID1 = base.Columns["PilotID1"];
-                this.columnFirstName = base.Columns["FirstName"];
-                this.columnSecondName = base.Columns["SecondName"];
-                this.columnSureName = base.Columns["SureName"];
-                this.columnTBF_Day_Hours = base.Columns["TBF_Day_Hours"];
-                this.columnTBF_Day_Mins = base.Columns["TBF_Day_Mins"];
-                this.columnTBF_Night_Hours = base.Columns["TBF_Night_Hours"];
-                this.columnTBF_Night_Mins = base.Columns["TBF_Night_Mins"];
-                this.columnTBF_Total_Hours = base.Columns["TBF_Total_Hours"];
-                this.columnTBF_Total_Mins = base.Columns["TBF_Total_Mins"];
-                this.columnLicenseNo = base.Columns["LicenseNo"];
-                this.columnLicenseStatus = base.Columns["LicenseStatus"];
-                this.columnLicenseRenewDate = base.Columns["LicenseRenewDate"];
-                this.columnStaffNo = base.Columns["StaffNo"];
-                this.columnShortName = base.Columns["ShortName"];
-                this.columnIsPilot = base.Columns["IsPilot"];
-                this.columnCreatedBy2 = base.Columns["CreatedBy2"];
-                this.columnModifiedBy2 = base.Columns["ModifiedBy2"];
-                this.columnCreatedDate2 = base.Columns["CreatedDate2"];
-                this.columnLastModifiedDate2 = base.Columns["LastModifiedDate2"];
-                this.columnUserName = base.Columns["UserName"];
-                this.columnPositionID1 = base.Columns["PositionID1"];
-                this.columnTitle = base.Columns["Title"];
-                this.columnTitleShort = base.Columns["TitleShort"];
-                this.columnDescription = base.Columns["Description"];
-                this.columnCreatedBy3 = base.Columns["CreatedBy3"];
-                this.columnModifiedBy3 = base.Columns["ModifiedBy3"];
-                this.columnCreatedDate3 = base.Columns["CreatedDate3"];
-                this.columnLastModifiedDate3 = base.Columns["LastModifiedDate3"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            private void InitClass() {
-                this.columnSectorID = new global::System.Data.DataColumn("SectorID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSectorID);
-                this.columnReportID = new global::System.Data.DataColumn("ReportID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnReportID);
-                this.columnFrom_AirportID = new global::System.Data.DataColumn("From_AirportID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFrom_AirportID);
-                this.columnTo_AirportID = new global::System.Data.DataColumn("To_AirportID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTo_AirportID);
-                this.columnFuleUplifted = new global::System.Data.DataColumn("FuleUplifted", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFuleUplifted);
-                this.columnSTD = new global::System.Data.DataColumn("STD", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSTD);
-                this.columnATD = new global::System.Data.DataColumn("ATD", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnATD);
-                this.columnChoxOff = new global::System.Data.DataColumn("ChoxOff", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnChoxOff);
-                this.columnSTA = new global::System.Data.DataColumn("STA", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSTA);
-                this.columnATA = new global::System.Data.DataColumn("ATA", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnATA);
-                this.columnChoxOn = new global::System.Data.DataColumn("ChoxOn", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnChoxOn);
-                this.columnStandardBurnOff = new global::System.Data.DataColumn("StandardBurnOff", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnStandardBurnOff);
-                this.columnActualBurnOff = new global::System.Data.DataColumn("ActualBurnOff", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnActualBurnOff);
-                this.columnDepDelayID1 = new global::System.Data.DataColumn("DepDelayID1", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDepDelayID1);
-                this.columnDepDelayTime1 = new global::System.Data.DataColumn("DepDelayTime1", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDepDelayTime1);
-                this.columnDepDelayID2 = new global::System.Data.DataColumn("DepDelayID2", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDepDelayID2);
-                this.columnDepDelayTime2 = new global::System.Data.DataColumn("DepDelayTime2", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDepDelayTime2);
-                this.columnDepDelayID3 = new global::System.Data.DataColumn("DepDelayID3", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDepDelayID3);
-                this.columnDepDelayTime3 = new global::System.Data.DataColumn("DepDelayTime3", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDepDelayTime3);
-                this.columnArrDelayID1 = new global::System.Data.DataColumn("ArrDelayID1", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnArrDelayID1);
-                this.columnArrDelayTime1 = new global::System.Data.DataColumn("ArrDelayTime1", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnArrDelayTime1);
-                this.columnArrDelayID2 = new global::System.Data.DataColumn("ArrDelayID2", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnArrDelayID2);
-                this.columnArrDelayTime2 = new global::System.Data.DataColumn("ArrDelayTime2", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnArrDelayTime2);
-                this.columnArrDelayID3 = new global::System.Data.DataColumn("ArrDelayID3", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnArrDelayID3);
-                this.columnArrDelayTime3 = new global::System.Data.DataColumn("ArrDelayTime3", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnArrDelayTime3);
-                this.columnPilotFlying_CrewID = new global::System.Data.DataColumn("PilotFlying_CrewID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPilotFlying_CrewID);
-                this.columnPilotMonitoring_CrewID = new global::System.Data.DataColumn("PilotMonitoring_CrewID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPilotMonitoring_CrewID);
-                this.columnFlyAtDay = new global::System.Data.DataColumn("FlyAtDay", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFlyAtDay);
-                this.columnFlyAtNight = new global::System.Data.DataColumn("FlyAtNight", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFlyAtNight);
-                this.columnDepFule = new global::System.Data.DataColumn("DepFule", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDepFule);
-                this.columnArrFule = new global::System.Data.DataColumn("ArrFule", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnArrFule);
-                this.columnNoOfPax_A = new global::System.Data.DataColumn("NoOfPax_A", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNoOfPax_A);
-                this.columnNoOfPax_C = new global::System.Data.DataColumn("NoOfPax_C", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNoOfPax_C);
-                this.columnNoOfPax_I = new global::System.Data.DataColumn("NoOfPax_I", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNoOfPax_I);
-                this.columnZFW = new global::System.Data.DataColumn("ZFW", typeof(long), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnZFW);
-                this.columnTOW = new global::System.Data.DataColumn("TOW", typeof(long), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTOW);
-                this.columnCreatedBy = new global::System.Data.DataColumn("CreatedBy", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCreatedBy);
-                this.columnModifiedBy = new global::System.Data.DataColumn("ModifiedBy", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnModifiedBy);
-                this.columnCreatedDate = new global::System.Data.DataColumn("CreatedDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCreatedDate);
-                this.columnLastModifiedDate = new global::System.Data.DataColumn("LastModifiedDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLastModifiedDate);
-                this.columnFlightNo = new global::System.Data.DataColumn("FlightNo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFlightNo);
-                this.columnIsPAX = new global::System.Data.DataColumn("IsPAX", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnIsPAX);
-                this.columnIsHeavy = new global::System.Data.DataColumn("IsHeavy", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnIsHeavy);
-                this.columnIsHeavyCrew = new global::System.Data.DataColumn("IsHeavyCrew", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnIsHeavyCrew);
-                this.columnComments = new global::System.Data.DataColumn("Comments", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnComments);
-                this.columnAirCraft_AirPlaneID = new global::System.Data.DataColumn("AirCraft_AirPlaneID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAirCraft_AirPlaneID);
-                this.columnSectorDate = new global::System.Data.DataColumn("SectorDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSectorDate);
-                this.columnReportPilotID = new global::System.Data.DataColumn("ReportPilotID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnReportPilotID);
-                this.columnPilotID = new global::System.Data.DataColumn("PilotID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPilotID);
-                this.columnPositionID = new global::System.Data.DataColumn("PositionID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPositionID);
-                this.columnNotes = new global::System.Data.DataColumn("Notes", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNotes);
-                this.columnCreatedBy1 = new global::System.Data.DataColumn("CreatedBy1", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCreatedBy1);
-                this.columnModifiedBy1 = new global::System.Data.DataColumn("ModifiedBy1", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnModifiedBy1);
-                this.columnCreatedDate1 = new global::System.Data.DataColumn("CreatedDate1", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCreatedDate1);
-                this.columnLastModifiedDate1 = new global::System.Data.DataColumn("LastModifiedDate1", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLastModifiedDate1);
-                this.columnSectorID1 = new global::System.Data.DataColumn("SectorID1", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSectorID1);
-                this.columnPilotID1 = new global::System.Data.DataColumn("PilotID1", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPilotID1);
-                this.columnFirstName = new global::System.Data.DataColumn("FirstName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFirstName);
-                this.columnSecondName = new global::System.Data.DataColumn("SecondName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSecondName);
-                this.columnSureName = new global::System.Data.DataColumn("SureName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSureName);
-                this.columnTBF_Day_Hours = new global::System.Data.DataColumn("TBF_Day_Hours", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTBF_Day_Hours);
-                this.columnTBF_Day_Mins = new global::System.Data.DataColumn("TBF_Day_Mins", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTBF_Day_Mins);
-                this.columnTBF_Night_Hours = new global::System.Data.DataColumn("TBF_Night_Hours", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTBF_Night_Hours);
-                this.columnTBF_Night_Mins = new global::System.Data.DataColumn("TBF_Night_Mins", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTBF_Night_Mins);
-                this.columnTBF_Total_Hours = new global::System.Data.DataColumn("TBF_Total_Hours", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTBF_Total_Hours);
-                this.columnTBF_Total_Mins = new global::System.Data.DataColumn("TBF_Total_Mins", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTBF_Total_Mins);
-                this.columnLicenseNo = new global::System.Data.DataColumn("LicenseNo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLicenseNo);
-                this.columnLicenseStatus = new global::System.Data.DataColumn("LicenseStatus", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLicenseStatus);
-                this.columnLicenseRenewDate = new global::System.Data.DataColumn("LicenseRenewDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLicenseRenewDate);
-                this.columnStaffNo = new global::System.Data.DataColumn("StaffNo", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnStaffNo);
-                this.columnShortName = new global::System.Data.DataColumn("ShortName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnShortName);
-                this.columnIsPilot = new global::System.Data.DataColumn("IsPilot", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnIsPilot);
-                this.columnCreatedBy2 = new global::System.Data.DataColumn("CreatedBy2", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCreatedBy2);
-                this.columnModifiedBy2 = new global::System.Data.DataColumn("ModifiedBy2", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnModifiedBy2);
-                this.columnCreatedDate2 = new global::System.Data.DataColumn("CreatedDate2", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCreatedDate2);
-                this.columnLastModifiedDate2 = new global::System.Data.DataColumn("LastModifiedDate2", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLastModifiedDate2);
-                this.columnUserName = new global::System.Data.DataColumn("UserName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUserName);
-                this.columnPositionID1 = new global::System.Data.DataColumn("PositionID1", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPositionID1);
-                this.columnTitle = new global::System.Data.DataColumn("Title", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTitle);
-                this.columnTitleShort = new global::System.Data.DataColumn("TitleShort", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTitleShort);
-                this.columnDescription = new global::System.Data.DataColumn("Description", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDescription);
-                this.columnCreatedBy3 = new global::System.Data.DataColumn("CreatedBy3", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCreatedBy3);
-                this.columnModifiedBy3 = new global::System.Data.DataColumn("ModifiedBy3", typeof(global::System.Guid), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnModifiedBy3);
-                this.columnCreatedDate3 = new global::System.Data.DataColumn("CreatedDate3", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCreatedDate3);
-                this.columnLastModifiedDate3 = new global::System.Data.DataColumn("LastModifiedDate3", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLastModifiedDate3);
-                this.columnSectorID.AutoIncrement = true;
-                this.columnSectorID.AutoIncrementSeed = -1;
-                this.columnSectorID.AutoIncrementStep = -1;
-                this.columnSectorID.AllowDBNull = false;
-                this.columnSectorID.ReadOnly = true;
-                this.columnFlightNo.MaxLength = 15;
-                this.columnComments.MaxLength = 500;
-                this.columnReportPilotID.AutoIncrement = true;
-                this.columnReportPilotID.AutoIncrementSeed = -1;
-                this.columnReportPilotID.AutoIncrementStep = -1;
-                this.columnReportPilotID.AllowDBNull = false;
-                this.columnReportPilotID.ReadOnly = true;
-                this.columnNotes.MaxLength = 500;
-                this.columnPilotID1.AutoIncrement = true;
-                this.columnPilotID1.AutoIncrementSeed = -1;
-                this.columnPilotID1.AutoIncrementStep = -1;
-                this.columnPilotID1.AllowDBNull = false;
-                this.columnPilotID1.ReadOnly = true;
-                this.columnFirstName.MaxLength = 50;
-                this.columnSecondName.MaxLength = 50;
-                this.columnSureName.MaxLength = 50;
-                this.columnTBF_Total_Hours.AllowDBNull = false;
-                this.columnTBF_Total_Mins.AllowDBNull = false;
-                this.columnLicenseNo.MaxLength = 15;
-                this.columnLicenseStatus.MaxLength = 50;
-                this.columnShortName.MaxLength = 5;
-                this.columnUserName.MaxLength = 50;
-                this.columnPositionID1.AutoIncrement = true;
-                this.columnPositionID1.AutoIncrementSeed = -1;
-                this.columnPositionID1.AutoIncrementStep = -1;
-                this.columnPositionID1.AllowDBNull = false;
-                this.columnPositionID1.ReadOnly = true;
-                this.columnTitle.MaxLength = 150;
-                this.columnTitleShort.MaxLength = 10;
-                this.columnDescription.MaxLength = 500;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GetFlightLogPilotRow NewGetFlightLogPilotRow() {
-                return ((GetFlightLogPilotRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new GetFlightLogPilotRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(GetFlightLogPilotRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.GetFlightLogPilotRowChanged != null)) {
-                    this.GetFlightLogPilotRowChanged(this, new GetFlightLogPilotRowChangeEvent(((GetFlightLogPilotRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.GetFlightLogPilotRowChanging != null)) {
-                    this.GetFlightLogPilotRowChanging(this, new GetFlightLogPilotRowChangeEvent(((GetFlightLogPilotRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.GetFlightLogPilotRowDeleted != null)) {
-                    this.GetFlightLogPilotRowDeleted(this, new GetFlightLogPilotRowChangeEvent(((GetFlightLogPilotRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.GetFlightLogPilotRowDeleting != null)) {
-                    this.GetFlightLogPilotRowDeleting(this, new GetFlightLogPilotRowChangeEvent(((GetFlightLogPilotRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveGetFlightLogPilotRow(GetFlightLogPilotRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                FlightReportDataSet ds = new FlightReportDataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "GetFlightLogPilotDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -14422,6 +11390,8 @@ namespace Flights_GUI {
             
             private global::System.Data.DataColumn columnPassportNo;
             
+            private global::System.Data.DataColumn columnDateOfBirth;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public GetSectorPilotInfoDataTable() {
@@ -14497,6 +11467,14 @@ namespace Flights_GUI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DateOfBirthColumn {
+                get {
+                    return this.columnDateOfBirth;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -14532,14 +11510,15 @@ namespace Flights_GUI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GetSectorPilotInfoRow AddGetSectorPilotInfoRow(System.DateTime SectorDate, string FlightNo, string PilotName, string Title, string PassportNo) {
+            public GetSectorPilotInfoRow AddGetSectorPilotInfoRow(System.DateTime SectorDate, string FlightNo, string PilotName, string Title, string PassportNo, System.DateTime DateOfBirth) {
                 GetSectorPilotInfoRow rowGetSectorPilotInfoRow = ((GetSectorPilotInfoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         SectorDate,
                         FlightNo,
                         PilotName,
                         Title,
-                        PassportNo};
+                        PassportNo,
+                        DateOfBirth};
                 rowGetSectorPilotInfoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowGetSectorPilotInfoRow);
                 return rowGetSectorPilotInfoRow;
@@ -14567,6 +11546,7 @@ namespace Flights_GUI {
                 this.columnPilotName = base.Columns["PilotName"];
                 this.columnTitle = base.Columns["Title"];
                 this.columnPassportNo = base.Columns["PassportNo"];
+                this.columnDateOfBirth = base.Columns["DateOfBirth"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14582,6 +11562,8 @@ namespace Flights_GUI {
                 base.Columns.Add(this.columnTitle);
                 this.columnPassportNo = new global::System.Data.DataColumn("PassportNo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPassportNo);
+                this.columnDateOfBirth = new global::System.Data.DataColumn("DateOfBirth", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDateOfBirth);
                 this.columnFlightNo.MaxLength = 15;
                 this.columnPilotName.ReadOnly = true;
                 this.columnPilotName.MaxLength = 101;
@@ -14673,6 +11655,562 @@ namespace Flights_GUI {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "GetSectorPilotInfoDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class GetFlightLogPilotDataTable : global::System.Data.TypedTableBase<GetFlightLogPilotRow> {
+            
+            private global::System.Data.DataColumn columnTitle;
+            
+            private global::System.Data.DataColumn columnFirstName;
+            
+            private global::System.Data.DataColumn columnSecondName;
+            
+            private global::System.Data.DataColumn columnSureName;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public GetFlightLogPilotDataTable() {
+                this.TableName = "GetFlightLogPilot";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal GetFlightLogPilotDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected GetFlightLogPilotDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TitleColumn {
+                get {
+                    return this.columnTitle;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FirstNameColumn {
+                get {
+                    return this.columnFirstName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SecondNameColumn {
+                get {
+                    return this.columnSecondName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SureNameColumn {
+                get {
+                    return this.columnSureName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public GetFlightLogPilotRow this[int index] {
+                get {
+                    return ((GetFlightLogPilotRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event GetFlightLogPilotRowChangeEventHandler GetFlightLogPilotRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event GetFlightLogPilotRowChangeEventHandler GetFlightLogPilotRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event GetFlightLogPilotRowChangeEventHandler GetFlightLogPilotRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event GetFlightLogPilotRowChangeEventHandler GetFlightLogPilotRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddGetFlightLogPilotRow(GetFlightLogPilotRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public GetFlightLogPilotRow AddGetFlightLogPilotRow(string Title, string FirstName, string SecondName, string SureName) {
+                GetFlightLogPilotRow rowGetFlightLogPilotRow = ((GetFlightLogPilotRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        Title,
+                        FirstName,
+                        SecondName,
+                        SureName};
+                rowGetFlightLogPilotRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowGetFlightLogPilotRow);
+                return rowGetFlightLogPilotRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                GetFlightLogPilotDataTable cln = ((GetFlightLogPilotDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new GetFlightLogPilotDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnTitle = base.Columns["Title"];
+                this.columnFirstName = base.Columns["FirstName"];
+                this.columnSecondName = base.Columns["SecondName"];
+                this.columnSureName = base.Columns["SureName"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnTitle = new global::System.Data.DataColumn("Title", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTitle);
+                this.columnFirstName = new global::System.Data.DataColumn("FirstName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFirstName);
+                this.columnSecondName = new global::System.Data.DataColumn("SecondName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSecondName);
+                this.columnSureName = new global::System.Data.DataColumn("SureName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSureName);
+                this.columnTitle.MaxLength = 150;
+                this.columnFirstName.MaxLength = 50;
+                this.columnSecondName.MaxLength = 50;
+                this.columnSureName.MaxLength = 50;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public GetFlightLogPilotRow NewGetFlightLogPilotRow() {
+                return ((GetFlightLogPilotRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new GetFlightLogPilotRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(GetFlightLogPilotRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.GetFlightLogPilotRowChanged != null)) {
+                    this.GetFlightLogPilotRowChanged(this, new GetFlightLogPilotRowChangeEvent(((GetFlightLogPilotRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.GetFlightLogPilotRowChanging != null)) {
+                    this.GetFlightLogPilotRowChanging(this, new GetFlightLogPilotRowChangeEvent(((GetFlightLogPilotRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.GetFlightLogPilotRowDeleted != null)) {
+                    this.GetFlightLogPilotRowDeleted(this, new GetFlightLogPilotRowChangeEvent(((GetFlightLogPilotRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.GetFlightLogPilotRowDeleting != null)) {
+                    this.GetFlightLogPilotRowDeleting(this, new GetFlightLogPilotRowChangeEvent(((GetFlightLogPilotRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveGetFlightLogPilotRow(GetFlightLogPilotRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                FlightReportDataSet ds = new FlightReportDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "GetFlightLogPilotDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class GetFlightLogCrewDataTable : global::System.Data.TypedTableBase<GetFlightLogCrewRow> {
+            
+            private global::System.Data.DataColumn columnName;
+            
+            private global::System.Data.DataColumn columnTitle;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public GetFlightLogCrewDataTable() {
+                this.TableName = "GetFlightLogCrew";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal GetFlightLogCrewDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected GetFlightLogCrewDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NameColumn {
+                get {
+                    return this.columnName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TitleColumn {
+                get {
+                    return this.columnTitle;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public GetFlightLogCrewRow this[int index] {
+                get {
+                    return ((GetFlightLogCrewRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event GetFlightLogCrewRowChangeEventHandler GetFlightLogCrewRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event GetFlightLogCrewRowChangeEventHandler GetFlightLogCrewRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event GetFlightLogCrewRowChangeEventHandler GetFlightLogCrewRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event GetFlightLogCrewRowChangeEventHandler GetFlightLogCrewRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddGetFlightLogCrewRow(GetFlightLogCrewRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public GetFlightLogCrewRow AddGetFlightLogCrewRow(string Name, string Title) {
+                GetFlightLogCrewRow rowGetFlightLogCrewRow = ((GetFlightLogCrewRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        Name,
+                        Title};
+                rowGetFlightLogCrewRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowGetFlightLogCrewRow);
+                return rowGetFlightLogCrewRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                GetFlightLogCrewDataTable cln = ((GetFlightLogCrewDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new GetFlightLogCrewDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnName = base.Columns["Name"];
+                this.columnTitle = base.Columns["Title"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnName);
+                this.columnTitle = new global::System.Data.DataColumn("Title", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTitle);
+                this.columnName.MaxLength = 150;
+                this.columnTitle.MaxLength = 150;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public GetFlightLogCrewRow NewGetFlightLogCrewRow() {
+                return ((GetFlightLogCrewRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new GetFlightLogCrewRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(GetFlightLogCrewRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.GetFlightLogCrewRowChanged != null)) {
+                    this.GetFlightLogCrewRowChanged(this, new GetFlightLogCrewRowChangeEvent(((GetFlightLogCrewRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.GetFlightLogCrewRowChanging != null)) {
+                    this.GetFlightLogCrewRowChanging(this, new GetFlightLogCrewRowChangeEvent(((GetFlightLogCrewRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.GetFlightLogCrewRowDeleted != null)) {
+                    this.GetFlightLogCrewRowDeleted(this, new GetFlightLogCrewRowChangeEvent(((GetFlightLogCrewRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.GetFlightLogCrewRowDeleting != null)) {
+                    this.GetFlightLogCrewRowDeleting(this, new GetFlightLogCrewRowChangeEvent(((GetFlightLogCrewRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveGetFlightLogCrewRow(GetFlightLogCrewRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                FlightReportDataSet ds = new FlightReportDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "GetFlightLogCrewDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -20958,6 +18496,54 @@ namespace Flights_GUI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int OnBoardFuel {
+                get {
+                    try {
+                        return ((int)(this[this.tableGetFlightLog.OnBoardFuelColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'OnBoardFuel\' in table \'GetFlightLog\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetFlightLog.OnBoardFuelColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int ReceiptNo {
+                get {
+                    try {
+                        return ((int)(this[this.tableGetFlightLog.ReceiptNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ReceiptNo\' in table \'GetFlightLog\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetFlightLog.ReceiptNoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool FO_AS_PilotFlying {
+                get {
+                    try {
+                        return ((bool)(this[this.tableGetFlightLog.FO_AS_PilotFlyingColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FO_AS_PilotFlying\' in table \'GetFlightLog\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetFlightLog.FO_AS_PilotFlyingColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsReportIDNull() {
                 return this.IsNull(this.tableGetFlightLog.ReportIDColumn);
             }
@@ -22455,4598 +20041,41 @@ namespace Flights_GUI {
             public void SetTotalATAMinNull() {
                 this[this.tableGetFlightLog.TotalATAMinColumn] = global::System.Convert.DBNull;
             }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class GetFlightLogCrewRow : global::System.Data.DataRow {
             
-            private GetFlightLogCrewDataTable tableGetFlightLogCrew;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal GetFlightLogCrewRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableGetFlightLogCrew = ((GetFlightLogCrewDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int SectorID {
-                get {
-                    return ((int)(this[this.tableGetFlightLogCrew.SectorIDColumn]));
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.SectorIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int ReportID {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogCrew.ReportIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ReportID\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.ReportIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int From_AirportID {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogCrew.From_AirportIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'From_AirportID\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.From_AirportIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int To_AirportID {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogCrew.To_AirportIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'To_AirportID\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.To_AirportIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int FuleUplifted {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogCrew.FuleUpliftedColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'FuleUplifted\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.FuleUpliftedColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime STD {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogCrew.STDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'STD\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.STDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime ATD {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogCrew.ATDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ATD\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.ATDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime ChoxOff {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogCrew.ChoxOffColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ChoxOff\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.ChoxOffColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime STA {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogCrew.STAColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'STA\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.STAColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime ATA {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogCrew.ATAColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ATA\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.ATAColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime ChoxOn {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogCrew.ChoxOnColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ChoxOn\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.ChoxOnColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int StandardBurnOff {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogCrew.StandardBurnOffColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'StandardBurnOff\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.StandardBurnOffColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int ActualBurnOff {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogCrew.ActualBurnOffColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ActualBurnOff\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.ActualBurnOffColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int DepDelayID1 {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogCrew.DepDelayID1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DepDelayID1\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.DepDelayID1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime DepDelayTime1 {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogCrew.DepDelayTime1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DepDelayTime1\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.DepDelayTime1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int DepDelayID2 {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogCrew.DepDelayID2Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DepDelayID2\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.DepDelayID2Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime DepDelayTime2 {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogCrew.DepDelayTime2Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DepDelayTime2\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.DepDelayTime2Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int DepDelayID3 {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogCrew.DepDelayID3Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DepDelayID3\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.DepDelayID3Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime DepDelayTime3 {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogCrew.DepDelayTime3Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DepDelayTime3\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.DepDelayTime3Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int ArrDelayID1 {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogCrew.ArrDelayID1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ArrDelayID1\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.ArrDelayID1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime ArrDelayTime1 {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogCrew.ArrDelayTime1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ArrDelayTime1\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.ArrDelayTime1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int ArrDelayID2 {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogCrew.ArrDelayID2Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ArrDelayID2\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.ArrDelayID2Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime ArrDelayTime2 {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogCrew.ArrDelayTime2Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ArrDelayTime2\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.ArrDelayTime2Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int ArrDelayID3 {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogCrew.ArrDelayID3Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ArrDelayID3\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.ArrDelayID3Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime ArrDelayTime3 {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogCrew.ArrDelayTime3Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ArrDelayTime3\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.ArrDelayTime3Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int PilotFlying_CrewID {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogCrew.PilotFlying_CrewIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PilotFlying_CrewID\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.PilotFlying_CrewIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int PilotMonitoring_CrewID {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogCrew.PilotMonitoring_CrewIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PilotMonitoring_CrewID\' in table \'GetFlightLogCrew\' is DBNu" +
-                                "ll.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.PilotMonitoring_CrewIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime FlyAtDay {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogCrew.FlyAtDayColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'FlyAtDay\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.FlyAtDayColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime FlyAtNight {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogCrew.FlyAtNightColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'FlyAtNight\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.FlyAtNightColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int DepFule {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogCrew.DepFuleColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DepFule\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.DepFuleColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int ArrFule {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogCrew.ArrFuleColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ArrFule\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.ArrFuleColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int NoOfPax_A {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogCrew.NoOfPax_AColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'NoOfPax_A\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.NoOfPax_AColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int NoOfPax_C {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogCrew.NoOfPax_CColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'NoOfPax_C\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.NoOfPax_CColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int NoOfPax_I {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogCrew.NoOfPax_IColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'NoOfPax_I\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.NoOfPax_IColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public long ZFW {
-                get {
-                    try {
-                        return ((long)(this[this.tableGetFlightLogCrew.ZFWColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ZFW\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.ZFWColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public long TOW {
-                get {
-                    try {
-                        return ((long)(this[this.tableGetFlightLogCrew.TOWColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TOW\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.TOWColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid CreatedBy {
-                get {
-                    try {
-                        return ((global::System.Guid)(this[this.tableGetFlightLogCrew.CreatedByColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CreatedBy\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.CreatedByColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid ModifiedBy {
-                get {
-                    try {
-                        return ((global::System.Guid)(this[this.tableGetFlightLogCrew.ModifiedByColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ModifiedBy\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.ModifiedByColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime CreatedDate {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogCrew.CreatedDateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CreatedDate\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.CreatedDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime LastModifiedDate {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogCrew.LastModifiedDateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'LastModifiedDate\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.LastModifiedDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string FlightNo {
-                get {
-                    try {
-                        return ((string)(this[this.tableGetFlightLogCrew.FlightNoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'FlightNo\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.FlightNoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPAX {
-                get {
-                    try {
-                        return ((bool)(this[this.tableGetFlightLogCrew.IsPAXColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'IsPAX\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.IsPAXColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsHeavy {
-                get {
-                    try {
-                        return ((bool)(this[this.tableGetFlightLogCrew.IsHeavyColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'IsHeavy\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.IsHeavyColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsHeavyCrew {
-                get {
-                    try {
-                        return ((bool)(this[this.tableGetFlightLogCrew.IsHeavyCrewColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'IsHeavyCrew\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.IsHeavyCrewColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Comments {
-                get {
-                    try {
-                        return ((string)(this[this.tableGetFlightLogCrew.CommentsColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Comments\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.CommentsColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int AirCraft_AirPlaneID {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogCrew.AirCraft_AirPlaneIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AirCraft_AirPlaneID\' in table \'GetFlightLogCrew\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.AirCraft_AirPlaneIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime SectorDate {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogCrew.SectorDateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'SectorDate\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.SectorDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int ReportCrewID {
-                get {
-                    return ((int)(this[this.tableGetFlightLogCrew.ReportCrewIDColumn]));
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.ReportCrewIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int CrewID {
-                get {
-                    return ((int)(this[this.tableGetFlightLogCrew.CrewIDColumn]));
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.CrewIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int PositionID {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogCrew.PositionIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PositionID\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.PositionIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Notes {
-                get {
-                    try {
-                        return ((string)(this[this.tableGetFlightLogCrew.NotesColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Notes\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.NotesColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid CreatedBy1 {
-                get {
-                    try {
-                        return ((global::System.Guid)(this[this.tableGetFlightLogCrew.CreatedBy1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CreatedBy1\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.CreatedBy1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid ModifiedBy1 {
-                get {
-                    try {
-                        return ((global::System.Guid)(this[this.tableGetFlightLogCrew.ModifiedBy1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ModifiedBy1\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.ModifiedBy1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime CreatedDate1 {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogCrew.CreatedDate1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CreatedDate1\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.CreatedDate1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime LastModifiedDate1 {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogCrew.LastModifiedDate1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'LastModifiedDate1\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.LastModifiedDate1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int SectorID1 {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogCrew.SectorID1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'SectorID1\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.SectorID1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int CrewID1 {
-                get {
-                    return ((int)(this[this.tableGetFlightLogCrew.CrewID1Column]));
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.CrewID1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Name {
-                get {
-                    try {
-                        return ((string)(this[this.tableGetFlightLogCrew.NameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Name\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.NameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int StaffNo {
-                get {
-                    return ((int)(this[this.tableGetFlightLogCrew.StaffNoColumn]));
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.StaffNoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Notes1 {
-                get {
-                    try {
-                        return ((string)(this[this.tableGetFlightLogCrew.Notes1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Notes1\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.Notes1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid CreatedBy2 {
-                get {
-                    try {
-                        return ((global::System.Guid)(this[this.tableGetFlightLogCrew.CreatedBy2Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CreatedBy2\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.CreatedBy2Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid ModifiedBy2 {
-                get {
-                    try {
-                        return ((global::System.Guid)(this[this.tableGetFlightLogCrew.ModifiedBy2Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ModifiedBy2\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.ModifiedBy2Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime CreatedDate2 {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogCrew.CreatedDate2Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CreatedDate2\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.CreatedDate2Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime LastModifiedDate2 {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogCrew.LastModifiedDate2Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'LastModifiedDate2\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.LastModifiedDate2Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Username {
-                get {
-                    try {
-                        return ((string)(this[this.tableGetFlightLogCrew.UsernameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Username\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.UsernameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string RANK {
-                get {
-                    try {
-                        return ((string)(this[this.tableGetFlightLogCrew.RANKColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'RANK\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.RANKColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string IDNO {
-                get {
-                    try {
-                        return ((string)(this[this.tableGetFlightLogCrew.IDNOColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'IDNO\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.IDNOColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string LicenseNo {
-                get {
-                    try {
-                        return ((string)(this[this.tableGetFlightLogCrew.LicenseNoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'LicenseNo\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.LicenseNoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime Competenecycheck {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogCrew.CompetenecycheckColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Competenecycheck\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.CompetenecycheckColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime MEDICALLICENSEEXPIRYFrom {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogCrew.MEDICALLICENSEEXPIRYFromColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'MEDICALLICENSEEXPIRYFrom\' in table \'GetFlightLogCrew\' is DB" +
-                                "Null.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.MEDICALLICENSEEXPIRYFromColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime MEDICALLICENSEEXPIRYTo {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogCrew.MEDICALLICENSEEXPIRYToColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'MEDICALLICENSEEXPIRYTo\' in table \'GetFlightLogCrew\' is DBNu" +
-                                "ll.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.MEDICALLICENSEEXPIRYToColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime InstructorRenewal {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogCrew.InstructorRenewalColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'InstructorRenewal\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.InstructorRenewalColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime TRANSITIONCOURSE {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogCrew.TRANSITIONCOURSEColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TRANSITIONCOURSE\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.TRANSITIONCOURSEColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime RECURRENT12 {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogCrew.RECURRENT12Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'RECURRENT12\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.RECURRENT12Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime RECURRENT24 {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogCrew.RECURRENT24Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'RECURRENT24\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.RECURRENT24Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime SMS {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogCrew.SMSColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'SMS\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.SMSColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime security {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogCrew.securityColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'security\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.securityColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int PositionID1 {
-                get {
-                    return ((int)(this[this.tableGetFlightLogCrew.PositionID1Column]));
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.PositionID1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Title {
-                get {
-                    try {
-                        return ((string)(this[this.tableGetFlightLogCrew.TitleColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Title\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.TitleColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string TitleShort {
-                get {
-                    try {
-                        return ((string)(this[this.tableGetFlightLogCrew.TitleShortColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TitleShort\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.TitleShortColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Description {
-                get {
-                    try {
-                        return ((string)(this[this.tableGetFlightLogCrew.DescriptionColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Description\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.DescriptionColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid CreatedBy3 {
-                get {
-                    try {
-                        return ((global::System.Guid)(this[this.tableGetFlightLogCrew.CreatedBy3Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CreatedBy3\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.CreatedBy3Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid ModifiedBy3 {
-                get {
-                    try {
-                        return ((global::System.Guid)(this[this.tableGetFlightLogCrew.ModifiedBy3Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ModifiedBy3\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.ModifiedBy3Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime CreatedDate3 {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogCrew.CreatedDate3Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CreatedDate3\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.CreatedDate3Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime LastModifiedDate3 {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogCrew.LastModifiedDate3Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'LastModifiedDate3\' in table \'GetFlightLogCrew\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogCrew.LastModifiedDate3Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsReportIDNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.ReportIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetReportIDNull() {
-                this[this.tableGetFlightLogCrew.ReportIDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsFrom_AirportIDNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.From_AirportIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetFrom_AirportIDNull() {
-                this[this.tableGetFlightLogCrew.From_AirportIDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsTo_AirportIDNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.To_AirportIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetTo_AirportIDNull() {
-                this[this.tableGetFlightLogCrew.To_AirportIDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsFuleUpliftedNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.FuleUpliftedColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetFuleUpliftedNull() {
-                this[this.tableGetFlightLogCrew.FuleUpliftedColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsSTDNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.STDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetSTDNull() {
-                this[this.tableGetFlightLogCrew.STDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsATDNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.ATDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetATDNull() {
-                this[this.tableGetFlightLogCrew.ATDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsChoxOffNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.ChoxOffColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetChoxOffNull() {
-                this[this.tableGetFlightLogCrew.ChoxOffColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsSTANull() {
-                return this.IsNull(this.tableGetFlightLogCrew.STAColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetSTANull() {
-                this[this.tableGetFlightLogCrew.STAColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsATANull() {
-                return this.IsNull(this.tableGetFlightLogCrew.ATAColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetATANull() {
-                this[this.tableGetFlightLogCrew.ATAColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsChoxOnNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.ChoxOnColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetChoxOnNull() {
-                this[this.tableGetFlightLogCrew.ChoxOnColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsStandardBurnOffNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.StandardBurnOffColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetStandardBurnOffNull() {
-                this[this.tableGetFlightLogCrew.StandardBurnOffColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsActualBurnOffNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.ActualBurnOffColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetActualBurnOffNull() {
-                this[this.tableGetFlightLogCrew.ActualBurnOffColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsDepDelayID1Null() {
-                return this.IsNull(this.tableGetFlightLogCrew.DepDelayID1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetDepDelayID1Null() {
-                this[this.tableGetFlightLogCrew.DepDelayID1Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsDepDelayTime1Null() {
-                return this.IsNull(this.tableGetFlightLogCrew.DepDelayTime1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetDepDelayTime1Null() {
-                this[this.tableGetFlightLogCrew.DepDelayTime1Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsDepDelayID2Null() {
-                return this.IsNull(this.tableGetFlightLogCrew.DepDelayID2Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetDepDelayID2Null() {
-                this[this.tableGetFlightLogCrew.DepDelayID2Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsDepDelayTime2Null() {
-                return this.IsNull(this.tableGetFlightLogCrew.DepDelayTime2Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetDepDelayTime2Null() {
-                this[this.tableGetFlightLogCrew.DepDelayTime2Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsDepDelayID3Null() {
-                return this.IsNull(this.tableGetFlightLogCrew.DepDelayID3Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetDepDelayID3Null() {
-                this[this.tableGetFlightLogCrew.DepDelayID3Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsDepDelayTime3Null() {
-                return this.IsNull(this.tableGetFlightLogCrew.DepDelayTime3Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetDepDelayTime3Null() {
-                this[this.tableGetFlightLogCrew.DepDelayTime3Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsArrDelayID1Null() {
-                return this.IsNull(this.tableGetFlightLogCrew.ArrDelayID1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetArrDelayID1Null() {
-                this[this.tableGetFlightLogCrew.ArrDelayID1Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsArrDelayTime1Null() {
-                return this.IsNull(this.tableGetFlightLogCrew.ArrDelayTime1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetArrDelayTime1Null() {
-                this[this.tableGetFlightLogCrew.ArrDelayTime1Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsArrDelayID2Null() {
-                return this.IsNull(this.tableGetFlightLogCrew.ArrDelayID2Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetArrDelayID2Null() {
-                this[this.tableGetFlightLogCrew.ArrDelayID2Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsArrDelayTime2Null() {
-                return this.IsNull(this.tableGetFlightLogCrew.ArrDelayTime2Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetArrDelayTime2Null() {
-                this[this.tableGetFlightLogCrew.ArrDelayTime2Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsArrDelayID3Null() {
-                return this.IsNull(this.tableGetFlightLogCrew.ArrDelayID3Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetArrDelayID3Null() {
-                this[this.tableGetFlightLogCrew.ArrDelayID3Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsArrDelayTime3Null() {
-                return this.IsNull(this.tableGetFlightLogCrew.ArrDelayTime3Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetArrDelayTime3Null() {
-                this[this.tableGetFlightLogCrew.ArrDelayTime3Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPilotFlying_CrewIDNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.PilotFlying_CrewIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPilotFlying_CrewIDNull() {
-                this[this.tableGetFlightLogCrew.PilotFlying_CrewIDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPilotMonitoring_CrewIDNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.PilotMonitoring_CrewIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPilotMonitoring_CrewIDNull() {
-                this[this.tableGetFlightLogCrew.PilotMonitoring_CrewIDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsFlyAtDayNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.FlyAtDayColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetFlyAtDayNull() {
-                this[this.tableGetFlightLogCrew.FlyAtDayColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsFlyAtNightNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.FlyAtNightColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetFlyAtNightNull() {
-                this[this.tableGetFlightLogCrew.FlyAtNightColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsDepFuleNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.DepFuleColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetDepFuleNull() {
-                this[this.tableGetFlightLogCrew.DepFuleColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsArrFuleNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.ArrFuleColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetArrFuleNull() {
-                this[this.tableGetFlightLogCrew.ArrFuleColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsNoOfPax_ANull() {
-                return this.IsNull(this.tableGetFlightLogCrew.NoOfPax_AColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetNoOfPax_ANull() {
-                this[this.tableGetFlightLogCrew.NoOfPax_AColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsNoOfPax_CNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.NoOfPax_CColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetNoOfPax_CNull() {
-                this[this.tableGetFlightLogCrew.NoOfPax_CColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsNoOfPax_INull() {
-                return this.IsNull(this.tableGetFlightLogCrew.NoOfPax_IColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetNoOfPax_INull() {
-                this[this.tableGetFlightLogCrew.NoOfPax_IColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsZFWNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.ZFWColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetZFWNull() {
-                this[this.tableGetFlightLogCrew.ZFWColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsTOWNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.TOWColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetTOWNull() {
-                this[this.tableGetFlightLogCrew.TOWColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCreatedByNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.CreatedByColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCreatedByNull() {
-                this[this.tableGetFlightLogCrew.CreatedByColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsModifiedByNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.ModifiedByColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetModifiedByNull() {
-                this[this.tableGetFlightLogCrew.ModifiedByColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCreatedDateNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.CreatedDateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCreatedDateNull() {
-                this[this.tableGetFlightLogCrew.CreatedDateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsLastModifiedDateNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.LastModifiedDateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetLastModifiedDateNull() {
-                this[this.tableGetFlightLogCrew.LastModifiedDateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsFlightNoNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.FlightNoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetFlightNoNull() {
-                this[this.tableGetFlightLogCrew.FlightNoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsIsPAXNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.IsPAXColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetIsPAXNull() {
-                this[this.tableGetFlightLogCrew.IsPAXColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsIsHeavyNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.IsHeavyColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetIsHeavyNull() {
-                this[this.tableGetFlightLogCrew.IsHeavyColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsIsHeavyCrewNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.IsHeavyCrewColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetIsHeavyCrewNull() {
-                this[this.tableGetFlightLogCrew.IsHeavyCrewColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCommentsNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.CommentsColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCommentsNull() {
-                this[this.tableGetFlightLogCrew.CommentsColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsAirCraft_AirPlaneIDNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.AirCraft_AirPlaneIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetAirCraft_AirPlaneIDNull() {
-                this[this.tableGetFlightLogCrew.AirCraft_AirPlaneIDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsSectorDateNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.SectorDateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetSectorDateNull() {
-                this[this.tableGetFlightLogCrew.SectorDateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPositionIDNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.PositionIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPositionIDNull() {
-                this[this.tableGetFlightLogCrew.PositionIDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsNotesNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.NotesColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetNotesNull() {
-                this[this.tableGetFlightLogCrew.NotesColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCreatedBy1Null() {
-                return this.IsNull(this.tableGetFlightLogCrew.CreatedBy1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCreatedBy1Null() {
-                this[this.tableGetFlightLogCrew.CreatedBy1Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsModifiedBy1Null() {
-                return this.IsNull(this.tableGetFlightLogCrew.ModifiedBy1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetModifiedBy1Null() {
-                this[this.tableGetFlightLogCrew.ModifiedBy1Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCreatedDate1Null() {
-                return this.IsNull(this.tableGetFlightLogCrew.CreatedDate1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCreatedDate1Null() {
-                this[this.tableGetFlightLogCrew.CreatedDate1Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsLastModifiedDate1Null() {
-                return this.IsNull(this.tableGetFlightLogCrew.LastModifiedDate1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetLastModifiedDate1Null() {
-                this[this.tableGetFlightLogCrew.LastModifiedDate1Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsSectorID1Null() {
-                return this.IsNull(this.tableGetFlightLogCrew.SectorID1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetSectorID1Null() {
-                this[this.tableGetFlightLogCrew.SectorID1Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsNameNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.NameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetNameNull() {
-                this[this.tableGetFlightLogCrew.NameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsNotes1Null() {
-                return this.IsNull(this.tableGetFlightLogCrew.Notes1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetNotes1Null() {
-                this[this.tableGetFlightLogCrew.Notes1Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCreatedBy2Null() {
-                return this.IsNull(this.tableGetFlightLogCrew.CreatedBy2Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCreatedBy2Null() {
-                this[this.tableGetFlightLogCrew.CreatedBy2Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsModifiedBy2Null() {
-                return this.IsNull(this.tableGetFlightLogCrew.ModifiedBy2Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetModifiedBy2Null() {
-                this[this.tableGetFlightLogCrew.ModifiedBy2Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCreatedDate2Null() {
-                return this.IsNull(this.tableGetFlightLogCrew.CreatedDate2Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCreatedDate2Null() {
-                this[this.tableGetFlightLogCrew.CreatedDate2Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsLastModifiedDate2Null() {
-                return this.IsNull(this.tableGetFlightLogCrew.LastModifiedDate2Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetLastModifiedDate2Null() {
-                this[this.tableGetFlightLogCrew.LastModifiedDate2Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsUsernameNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.UsernameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetUsernameNull() {
-                this[this.tableGetFlightLogCrew.UsernameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsRANKNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.RANKColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetRANKNull() {
-                this[this.tableGetFlightLogCrew.RANKColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsIDNONull() {
-                return this.IsNull(this.tableGetFlightLogCrew.IDNOColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetIDNONull() {
-                this[this.tableGetFlightLogCrew.IDNOColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsLicenseNoNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.LicenseNoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetLicenseNoNull() {
-                this[this.tableGetFlightLogCrew.LicenseNoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCompetenecycheckNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.CompetenecycheckColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCompetenecycheckNull() {
-                this[this.tableGetFlightLogCrew.CompetenecycheckColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsMEDICALLICENSEEXPIRYFromNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.MEDICALLICENSEEXPIRYFromColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetMEDICALLICENSEEXPIRYFromNull() {
-                this[this.tableGetFlightLogCrew.MEDICALLICENSEEXPIRYFromColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsMEDICALLICENSEEXPIRYToNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.MEDICALLICENSEEXPIRYToColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetMEDICALLICENSEEXPIRYToNull() {
-                this[this.tableGetFlightLogCrew.MEDICALLICENSEEXPIRYToColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsInstructorRenewalNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.InstructorRenewalColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetInstructorRenewalNull() {
-                this[this.tableGetFlightLogCrew.InstructorRenewalColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsTRANSITIONCOURSENull() {
-                return this.IsNull(this.tableGetFlightLogCrew.TRANSITIONCOURSEColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetTRANSITIONCOURSENull() {
-                this[this.tableGetFlightLogCrew.TRANSITIONCOURSEColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsRECURRENT12Null() {
-                return this.IsNull(this.tableGetFlightLogCrew.RECURRENT12Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetRECURRENT12Null() {
-                this[this.tableGetFlightLogCrew.RECURRENT12Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsRECURRENT24Null() {
-                return this.IsNull(this.tableGetFlightLogCrew.RECURRENT24Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetRECURRENT24Null() {
-                this[this.tableGetFlightLogCrew.RECURRENT24Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsSMSNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.SMSColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetSMSNull() {
-                this[this.tableGetFlightLogCrew.SMSColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IssecurityNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.securityColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetsecurityNull() {
-                this[this.tableGetFlightLogCrew.securityColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsTitleNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.TitleColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetTitleNull() {
-                this[this.tableGetFlightLogCrew.TitleColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsTitleShortNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.TitleShortColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetTitleShortNull() {
-                this[this.tableGetFlightLogCrew.TitleShortColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsDescriptionNull() {
-                return this.IsNull(this.tableGetFlightLogCrew.DescriptionColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetDescriptionNull() {
-                this[this.tableGetFlightLogCrew.DescriptionColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCreatedBy3Null() {
-                return this.IsNull(this.tableGetFlightLogCrew.CreatedBy3Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCreatedBy3Null() {
-                this[this.tableGetFlightLogCrew.CreatedBy3Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsModifiedBy3Null() {
-                return this.IsNull(this.tableGetFlightLogCrew.ModifiedBy3Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetModifiedBy3Null() {
-                this[this.tableGetFlightLogCrew.ModifiedBy3Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCreatedDate3Null() {
-                return this.IsNull(this.tableGetFlightLogCrew.CreatedDate3Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCreatedDate3Null() {
-                this[this.tableGetFlightLogCrew.CreatedDate3Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsLastModifiedDate3Null() {
-                return this.IsNull(this.tableGetFlightLogCrew.LastModifiedDate3Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetLastModifiedDate3Null() {
-                this[this.tableGetFlightLogCrew.LastModifiedDate3Column] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class GetFlightLogPilotRow : global::System.Data.DataRow {
-            
-            private GetFlightLogPilotDataTable tableGetFlightLogPilot;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal GetFlightLogPilotRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableGetFlightLogPilot = ((GetFlightLogPilotDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int SectorID {
-                get {
-                    return ((int)(this[this.tableGetFlightLogPilot.SectorIDColumn]));
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.SectorIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int ReportID {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogPilot.ReportIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ReportID\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.ReportIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int From_AirportID {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogPilot.From_AirportIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'From_AirportID\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.From_AirportIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int To_AirportID {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogPilot.To_AirportIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'To_AirportID\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.To_AirportIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int FuleUplifted {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogPilot.FuleUpliftedColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'FuleUplifted\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.FuleUpliftedColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime STD {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogPilot.STDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'STD\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.STDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime ATD {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogPilot.ATDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ATD\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.ATDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime ChoxOff {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogPilot.ChoxOffColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ChoxOff\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.ChoxOffColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime STA {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogPilot.STAColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'STA\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.STAColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime ATA {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogPilot.ATAColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ATA\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.ATAColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime ChoxOn {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogPilot.ChoxOnColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ChoxOn\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.ChoxOnColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int StandardBurnOff {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogPilot.StandardBurnOffColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'StandardBurnOff\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.StandardBurnOffColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int ActualBurnOff {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogPilot.ActualBurnOffColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ActualBurnOff\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.ActualBurnOffColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int DepDelayID1 {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogPilot.DepDelayID1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DepDelayID1\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.DepDelayID1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime DepDelayTime1 {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogPilot.DepDelayTime1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DepDelayTime1\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.DepDelayTime1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int DepDelayID2 {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogPilot.DepDelayID2Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DepDelayID2\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.DepDelayID2Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime DepDelayTime2 {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogPilot.DepDelayTime2Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DepDelayTime2\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.DepDelayTime2Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int DepDelayID3 {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogPilot.DepDelayID3Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DepDelayID3\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.DepDelayID3Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime DepDelayTime3 {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogPilot.DepDelayTime3Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DepDelayTime3\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.DepDelayTime3Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int ArrDelayID1 {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogPilot.ArrDelayID1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ArrDelayID1\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.ArrDelayID1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime ArrDelayTime1 {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogPilot.ArrDelayTime1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ArrDelayTime1\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.ArrDelayTime1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int ArrDelayID2 {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogPilot.ArrDelayID2Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ArrDelayID2\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.ArrDelayID2Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime ArrDelayTime2 {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogPilot.ArrDelayTime2Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ArrDelayTime2\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.ArrDelayTime2Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int ArrDelayID3 {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogPilot.ArrDelayID3Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ArrDelayID3\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.ArrDelayID3Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime ArrDelayTime3 {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogPilot.ArrDelayTime3Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ArrDelayTime3\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.ArrDelayTime3Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int PilotFlying_CrewID {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogPilot.PilotFlying_CrewIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PilotFlying_CrewID\' in table \'GetFlightLogPilot\' is DBNull." +
-                                "", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.PilotFlying_CrewIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int PilotMonitoring_CrewID {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogPilot.PilotMonitoring_CrewIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PilotMonitoring_CrewID\' in table \'GetFlightLogPilot\' is DBN" +
-                                "ull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.PilotMonitoring_CrewIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime FlyAtDay {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogPilot.FlyAtDayColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'FlyAtDay\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.FlyAtDayColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime FlyAtNight {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogPilot.FlyAtNightColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'FlyAtNight\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.FlyAtNightColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int DepFule {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogPilot.DepFuleColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DepFule\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.DepFuleColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int ArrFule {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogPilot.ArrFuleColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ArrFule\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.ArrFuleColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int NoOfPax_A {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogPilot.NoOfPax_AColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'NoOfPax_A\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.NoOfPax_AColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int NoOfPax_C {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogPilot.NoOfPax_CColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'NoOfPax_C\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.NoOfPax_CColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int NoOfPax_I {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogPilot.NoOfPax_IColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'NoOfPax_I\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.NoOfPax_IColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public long ZFW {
-                get {
-                    try {
-                        return ((long)(this[this.tableGetFlightLogPilot.ZFWColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ZFW\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.ZFWColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public long TOW {
-                get {
-                    try {
-                        return ((long)(this[this.tableGetFlightLogPilot.TOWColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TOW\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.TOWColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid CreatedBy {
-                get {
-                    try {
-                        return ((global::System.Guid)(this[this.tableGetFlightLogPilot.CreatedByColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CreatedBy\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.CreatedByColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid ModifiedBy {
-                get {
-                    try {
-                        return ((global::System.Guid)(this[this.tableGetFlightLogPilot.ModifiedByColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ModifiedBy\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.ModifiedByColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime CreatedDate {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogPilot.CreatedDateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CreatedDate\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.CreatedDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime LastModifiedDate {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogPilot.LastModifiedDateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'LastModifiedDate\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.LastModifiedDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string FlightNo {
-                get {
-                    try {
-                        return ((string)(this[this.tableGetFlightLogPilot.FlightNoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'FlightNo\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.FlightNoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPAX {
-                get {
-                    try {
-                        return ((bool)(this[this.tableGetFlightLogPilot.IsPAXColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'IsPAX\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.IsPAXColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsHeavy {
-                get {
-                    try {
-                        return ((bool)(this[this.tableGetFlightLogPilot.IsHeavyColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'IsHeavy\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.IsHeavyColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsHeavyCrew {
-                get {
-                    try {
-                        return ((bool)(this[this.tableGetFlightLogPilot.IsHeavyCrewColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'IsHeavyCrew\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.IsHeavyCrewColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Comments {
-                get {
-                    try {
-                        return ((string)(this[this.tableGetFlightLogPilot.CommentsColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Comments\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.CommentsColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int AirCraft_AirPlaneID {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogPilot.AirCraft_AirPlaneIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AirCraft_AirPlaneID\' in table \'GetFlightLogPilot\' is DBNull" +
-                                ".", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.AirCraft_AirPlaneIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime SectorDate {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogPilot.SectorDateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'SectorDate\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.SectorDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int ReportPilotID {
-                get {
-                    return ((int)(this[this.tableGetFlightLogPilot.ReportPilotIDColumn]));
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.ReportPilotIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int PilotID {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogPilot.PilotIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PilotID\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.PilotIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int PositionID {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogPilot.PositionIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PositionID\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.PositionIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Notes {
-                get {
-                    try {
-                        return ((string)(this[this.tableGetFlightLogPilot.NotesColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Notes\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.NotesColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid CreatedBy1 {
-                get {
-                    try {
-                        return ((global::System.Guid)(this[this.tableGetFlightLogPilot.CreatedBy1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CreatedBy1\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.CreatedBy1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid ModifiedBy1 {
-                get {
-                    try {
-                        return ((global::System.Guid)(this[this.tableGetFlightLogPilot.ModifiedBy1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ModifiedBy1\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.ModifiedBy1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime CreatedDate1 {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogPilot.CreatedDate1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CreatedDate1\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.CreatedDate1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime LastModifiedDate1 {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogPilot.LastModifiedDate1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'LastModifiedDate1\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.LastModifiedDate1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int SectorID1 {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogPilot.SectorID1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'SectorID1\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.SectorID1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int PilotID1 {
-                get {
-                    return ((int)(this[this.tableGetFlightLogPilot.PilotID1Column]));
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.PilotID1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string FirstName {
-                get {
-                    try {
-                        return ((string)(this[this.tableGetFlightLogPilot.FirstNameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'FirstName\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.FirstNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string SecondName {
-                get {
-                    try {
-                        return ((string)(this[this.tableGetFlightLogPilot.SecondNameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'SecondName\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.SecondNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string SureName {
-                get {
-                    try {
-                        return ((string)(this[this.tableGetFlightLogPilot.SureNameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'SureName\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.SureNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int TBF_Day_Hours {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogPilot.TBF_Day_HoursColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TBF_Day_Hours\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.TBF_Day_HoursColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int TBF_Day_Mins {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogPilot.TBF_Day_MinsColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TBF_Day_Mins\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.TBF_Day_MinsColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int TBF_Night_Hours {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogPilot.TBF_Night_HoursColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TBF_Night_Hours\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.TBF_Night_HoursColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int TBF_Night_Mins {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogPilot.TBF_Night_MinsColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TBF_Night_Mins\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.TBF_Night_MinsColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int TBF_Total_Hours {
-                get {
-                    return ((int)(this[this.tableGetFlightLogPilot.TBF_Total_HoursColumn]));
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.TBF_Total_HoursColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int TBF_Total_Mins {
-                get {
-                    return ((int)(this[this.tableGetFlightLogPilot.TBF_Total_MinsColumn]));
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.TBF_Total_MinsColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string LicenseNo {
-                get {
-                    try {
-                        return ((string)(this[this.tableGetFlightLogPilot.LicenseNoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'LicenseNo\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.LicenseNoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string LicenseStatus {
-                get {
-                    try {
-                        return ((string)(this[this.tableGetFlightLogPilot.LicenseStatusColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'LicenseStatus\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.LicenseStatusColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime LicenseRenewDate {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogPilot.LicenseRenewDateColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'LicenseRenewDate\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.LicenseRenewDateColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int StaffNo {
-                get {
-                    try {
-                        return ((int)(this[this.tableGetFlightLogPilot.StaffNoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'StaffNo\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.StaffNoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string ShortName {
-                get {
-                    try {
-                        return ((string)(this[this.tableGetFlightLogPilot.ShortNameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ShortName\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.ShortNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPilot {
-                get {
-                    try {
-                        return ((bool)(this[this.tableGetFlightLogPilot.IsPilotColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'IsPilot\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.IsPilotColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid CreatedBy2 {
-                get {
-                    try {
-                        return ((global::System.Guid)(this[this.tableGetFlightLogPilot.CreatedBy2Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CreatedBy2\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.CreatedBy2Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid ModifiedBy2 {
-                get {
-                    try {
-                        return ((global::System.Guid)(this[this.tableGetFlightLogPilot.ModifiedBy2Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ModifiedBy2\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.ModifiedBy2Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime CreatedDate2 {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogPilot.CreatedDate2Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CreatedDate2\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.CreatedDate2Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime LastModifiedDate2 {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogPilot.LastModifiedDate2Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'LastModifiedDate2\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.LastModifiedDate2Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string UserName {
-                get {
-                    try {
-                        return ((string)(this[this.tableGetFlightLogPilot.UserNameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'UserName\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.UserNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int PositionID1 {
-                get {
-                    return ((int)(this[this.tableGetFlightLogPilot.PositionID1Column]));
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.PositionID1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Title {
-                get {
-                    try {
-                        return ((string)(this[this.tableGetFlightLogPilot.TitleColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Title\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.TitleColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string TitleShort {
-                get {
-                    try {
-                        return ((string)(this[this.tableGetFlightLogPilot.TitleShortColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TitleShort\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.TitleShortColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Description {
-                get {
-                    try {
-                        return ((string)(this[this.tableGetFlightLogPilot.DescriptionColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Description\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.DescriptionColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid CreatedBy3 {
-                get {
-                    try {
-                        return ((global::System.Guid)(this[this.tableGetFlightLogPilot.CreatedBy3Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CreatedBy3\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.CreatedBy3Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.Guid ModifiedBy3 {
-                get {
-                    try {
-                        return ((global::System.Guid)(this[this.tableGetFlightLogPilot.ModifiedBy3Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ModifiedBy3\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.ModifiedBy3Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime CreatedDate3 {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogPilot.CreatedDate3Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CreatedDate3\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.CreatedDate3Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime LastModifiedDate3 {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableGetFlightLogPilot.LastModifiedDate3Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'LastModifiedDate3\' in table \'GetFlightLogPilot\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableGetFlightLogPilot.LastModifiedDate3Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsReportIDNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.ReportIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetReportIDNull() {
-                this[this.tableGetFlightLogPilot.ReportIDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsFrom_AirportIDNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.From_AirportIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetFrom_AirportIDNull() {
-                this[this.tableGetFlightLogPilot.From_AirportIDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsTo_AirportIDNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.To_AirportIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetTo_AirportIDNull() {
-                this[this.tableGetFlightLogPilot.To_AirportIDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsFuleUpliftedNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.FuleUpliftedColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetFuleUpliftedNull() {
-                this[this.tableGetFlightLogPilot.FuleUpliftedColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsSTDNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.STDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetSTDNull() {
-                this[this.tableGetFlightLogPilot.STDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsATDNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.ATDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetATDNull() {
-                this[this.tableGetFlightLogPilot.ATDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsChoxOffNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.ChoxOffColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetChoxOffNull() {
-                this[this.tableGetFlightLogPilot.ChoxOffColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsSTANull() {
-                return this.IsNull(this.tableGetFlightLogPilot.STAColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetSTANull() {
-                this[this.tableGetFlightLogPilot.STAColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsATANull() {
-                return this.IsNull(this.tableGetFlightLogPilot.ATAColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetATANull() {
-                this[this.tableGetFlightLogPilot.ATAColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsChoxOnNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.ChoxOnColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetChoxOnNull() {
-                this[this.tableGetFlightLogPilot.ChoxOnColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsStandardBurnOffNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.StandardBurnOffColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetStandardBurnOffNull() {
-                this[this.tableGetFlightLogPilot.StandardBurnOffColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsActualBurnOffNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.ActualBurnOffColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetActualBurnOffNull() {
-                this[this.tableGetFlightLogPilot.ActualBurnOffColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsDepDelayID1Null() {
-                return this.IsNull(this.tableGetFlightLogPilot.DepDelayID1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetDepDelayID1Null() {
-                this[this.tableGetFlightLogPilot.DepDelayID1Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsDepDelayTime1Null() {
-                return this.IsNull(this.tableGetFlightLogPilot.DepDelayTime1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetDepDelayTime1Null() {
-                this[this.tableGetFlightLogPilot.DepDelayTime1Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsDepDelayID2Null() {
-                return this.IsNull(this.tableGetFlightLogPilot.DepDelayID2Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetDepDelayID2Null() {
-                this[this.tableGetFlightLogPilot.DepDelayID2Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsDepDelayTime2Null() {
-                return this.IsNull(this.tableGetFlightLogPilot.DepDelayTime2Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetDepDelayTime2Null() {
-                this[this.tableGetFlightLogPilot.DepDelayTime2Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsDepDelayID3Null() {
-                return this.IsNull(this.tableGetFlightLogPilot.DepDelayID3Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetDepDelayID3Null() {
-                this[this.tableGetFlightLogPilot.DepDelayID3Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsDepDelayTime3Null() {
-                return this.IsNull(this.tableGetFlightLogPilot.DepDelayTime3Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetDepDelayTime3Null() {
-                this[this.tableGetFlightLogPilot.DepDelayTime3Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsArrDelayID1Null() {
-                return this.IsNull(this.tableGetFlightLogPilot.ArrDelayID1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetArrDelayID1Null() {
-                this[this.tableGetFlightLogPilot.ArrDelayID1Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsArrDelayTime1Null() {
-                return this.IsNull(this.tableGetFlightLogPilot.ArrDelayTime1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetArrDelayTime1Null() {
-                this[this.tableGetFlightLogPilot.ArrDelayTime1Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsArrDelayID2Null() {
-                return this.IsNull(this.tableGetFlightLogPilot.ArrDelayID2Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetArrDelayID2Null() {
-                this[this.tableGetFlightLogPilot.ArrDelayID2Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsArrDelayTime2Null() {
-                return this.IsNull(this.tableGetFlightLogPilot.ArrDelayTime2Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetArrDelayTime2Null() {
-                this[this.tableGetFlightLogPilot.ArrDelayTime2Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsArrDelayID3Null() {
-                return this.IsNull(this.tableGetFlightLogPilot.ArrDelayID3Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetArrDelayID3Null() {
-                this[this.tableGetFlightLogPilot.ArrDelayID3Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsArrDelayTime3Null() {
-                return this.IsNull(this.tableGetFlightLogPilot.ArrDelayTime3Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetArrDelayTime3Null() {
-                this[this.tableGetFlightLogPilot.ArrDelayTime3Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPilotFlying_CrewIDNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.PilotFlying_CrewIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPilotFlying_CrewIDNull() {
-                this[this.tableGetFlightLogPilot.PilotFlying_CrewIDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPilotMonitoring_CrewIDNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.PilotMonitoring_CrewIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPilotMonitoring_CrewIDNull() {
-                this[this.tableGetFlightLogPilot.PilotMonitoring_CrewIDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsFlyAtDayNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.FlyAtDayColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetFlyAtDayNull() {
-                this[this.tableGetFlightLogPilot.FlyAtDayColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsFlyAtNightNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.FlyAtNightColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetFlyAtNightNull() {
-                this[this.tableGetFlightLogPilot.FlyAtNightColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsDepFuleNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.DepFuleColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetDepFuleNull() {
-                this[this.tableGetFlightLogPilot.DepFuleColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsArrFuleNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.ArrFuleColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetArrFuleNull() {
-                this[this.tableGetFlightLogPilot.ArrFuleColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsNoOfPax_ANull() {
-                return this.IsNull(this.tableGetFlightLogPilot.NoOfPax_AColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetNoOfPax_ANull() {
-                this[this.tableGetFlightLogPilot.NoOfPax_AColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsNoOfPax_CNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.NoOfPax_CColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetNoOfPax_CNull() {
-                this[this.tableGetFlightLogPilot.NoOfPax_CColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsNoOfPax_INull() {
-                return this.IsNull(this.tableGetFlightLogPilot.NoOfPax_IColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetNoOfPax_INull() {
-                this[this.tableGetFlightLogPilot.NoOfPax_IColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsZFWNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.ZFWColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetZFWNull() {
-                this[this.tableGetFlightLogPilot.ZFWColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsTOWNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.TOWColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetTOWNull() {
-                this[this.tableGetFlightLogPilot.TOWColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCreatedByNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.CreatedByColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCreatedByNull() {
-                this[this.tableGetFlightLogPilot.CreatedByColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsModifiedByNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.ModifiedByColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetModifiedByNull() {
-                this[this.tableGetFlightLogPilot.ModifiedByColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCreatedDateNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.CreatedDateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCreatedDateNull() {
-                this[this.tableGetFlightLogPilot.CreatedDateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsLastModifiedDateNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.LastModifiedDateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetLastModifiedDateNull() {
-                this[this.tableGetFlightLogPilot.LastModifiedDateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsFlightNoNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.FlightNoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetFlightNoNull() {
-                this[this.tableGetFlightLogPilot.FlightNoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsIsPAXNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.IsPAXColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetIsPAXNull() {
-                this[this.tableGetFlightLogPilot.IsPAXColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsIsHeavyNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.IsHeavyColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetIsHeavyNull() {
-                this[this.tableGetFlightLogPilot.IsHeavyColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsIsHeavyCrewNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.IsHeavyCrewColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetIsHeavyCrewNull() {
-                this[this.tableGetFlightLogPilot.IsHeavyCrewColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCommentsNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.CommentsColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCommentsNull() {
-                this[this.tableGetFlightLogPilot.CommentsColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsAirCraft_AirPlaneIDNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.AirCraft_AirPlaneIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetAirCraft_AirPlaneIDNull() {
-                this[this.tableGetFlightLogPilot.AirCraft_AirPlaneIDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsSectorDateNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.SectorDateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetSectorDateNull() {
-                this[this.tableGetFlightLogPilot.SectorDateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPilotIDNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.PilotIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPilotIDNull() {
-                this[this.tableGetFlightLogPilot.PilotIDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPositionIDNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.PositionIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPositionIDNull() {
-                this[this.tableGetFlightLogPilot.PositionIDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsNotesNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.NotesColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetNotesNull() {
-                this[this.tableGetFlightLogPilot.NotesColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCreatedBy1Null() {
-                return this.IsNull(this.tableGetFlightLogPilot.CreatedBy1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCreatedBy1Null() {
-                this[this.tableGetFlightLogPilot.CreatedBy1Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsModifiedBy1Null() {
-                return this.IsNull(this.tableGetFlightLogPilot.ModifiedBy1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetModifiedBy1Null() {
-                this[this.tableGetFlightLogPilot.ModifiedBy1Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCreatedDate1Null() {
-                return this.IsNull(this.tableGetFlightLogPilot.CreatedDate1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCreatedDate1Null() {
-                this[this.tableGetFlightLogPilot.CreatedDate1Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsLastModifiedDate1Null() {
-                return this.IsNull(this.tableGetFlightLogPilot.LastModifiedDate1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetLastModifiedDate1Null() {
-                this[this.tableGetFlightLogPilot.LastModifiedDate1Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsSectorID1Null() {
-                return this.IsNull(this.tableGetFlightLogPilot.SectorID1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetSectorID1Null() {
-                this[this.tableGetFlightLogPilot.SectorID1Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsFirstNameNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.FirstNameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetFirstNameNull() {
-                this[this.tableGetFlightLogPilot.FirstNameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsSecondNameNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.SecondNameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetSecondNameNull() {
-                this[this.tableGetFlightLogPilot.SecondNameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsSureNameNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.SureNameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetSureNameNull() {
-                this[this.tableGetFlightLogPilot.SureNameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsTBF_Day_HoursNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.TBF_Day_HoursColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetTBF_Day_HoursNull() {
-                this[this.tableGetFlightLogPilot.TBF_Day_HoursColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsTBF_Day_MinsNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.TBF_Day_MinsColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetTBF_Day_MinsNull() {
-                this[this.tableGetFlightLogPilot.TBF_Day_MinsColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsTBF_Night_HoursNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.TBF_Night_HoursColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetTBF_Night_HoursNull() {
-                this[this.tableGetFlightLogPilot.TBF_Night_HoursColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsTBF_Night_MinsNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.TBF_Night_MinsColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetTBF_Night_MinsNull() {
-                this[this.tableGetFlightLogPilot.TBF_Night_MinsColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsLicenseNoNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.LicenseNoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetLicenseNoNull() {
-                this[this.tableGetFlightLogPilot.LicenseNoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsLicenseStatusNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.LicenseStatusColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetLicenseStatusNull() {
-                this[this.tableGetFlightLogPilot.LicenseStatusColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsLicenseRenewDateNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.LicenseRenewDateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetLicenseRenewDateNull() {
-                this[this.tableGetFlightLogPilot.LicenseRenewDateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsStaffNoNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.StaffNoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetStaffNoNull() {
-                this[this.tableGetFlightLogPilot.StaffNoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsShortNameNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.ShortNameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetShortNameNull() {
-                this[this.tableGetFlightLogPilot.ShortNameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsIsPilotNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.IsPilotColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetIsPilotNull() {
-                this[this.tableGetFlightLogPilot.IsPilotColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCreatedBy2Null() {
-                return this.IsNull(this.tableGetFlightLogPilot.CreatedBy2Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCreatedBy2Null() {
-                this[this.tableGetFlightLogPilot.CreatedBy2Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsModifiedBy2Null() {
-                return this.IsNull(this.tableGetFlightLogPilot.ModifiedBy2Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetModifiedBy2Null() {
-                this[this.tableGetFlightLogPilot.ModifiedBy2Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCreatedDate2Null() {
-                return this.IsNull(this.tableGetFlightLogPilot.CreatedDate2Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCreatedDate2Null() {
-                this[this.tableGetFlightLogPilot.CreatedDate2Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsLastModifiedDate2Null() {
-                return this.IsNull(this.tableGetFlightLogPilot.LastModifiedDate2Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetLastModifiedDate2Null() {
-                this[this.tableGetFlightLogPilot.LastModifiedDate2Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsUserNameNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.UserNameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetUserNameNull() {
-                this[this.tableGetFlightLogPilot.UserNameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsTitleNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.TitleColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetTitleNull() {
-                this[this.tableGetFlightLogPilot.TitleColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsTitleShortNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.TitleShortColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetTitleShortNull() {
-                this[this.tableGetFlightLogPilot.TitleShortColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsDescriptionNull() {
-                return this.IsNull(this.tableGetFlightLogPilot.DescriptionColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetDescriptionNull() {
-                this[this.tableGetFlightLogPilot.DescriptionColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCreatedBy3Null() {
-                return this.IsNull(this.tableGetFlightLogPilot.CreatedBy3Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCreatedBy3Null() {
-                this[this.tableGetFlightLogPilot.CreatedBy3Column] = global::System.Convert.DBNull;
-            }
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsModifiedBy3Null() {
-                return this.IsNull(this.tableGetFlightLogPilot.ModifiedBy3Column);
+            public bool IsOnBoardFuelNull() {
+                return this.IsNull(this.tableGetFlightLog.OnBoardFuelColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetModifiedBy3Null() {
-                this[this.tableGetFlightLogPilot.ModifiedBy3Column] = global::System.Convert.DBNull;
+            public void SetOnBoardFuelNull() {
+                this[this.tableGetFlightLog.OnBoardFuelColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCreatedDate3Null() {
-                return this.IsNull(this.tableGetFlightLogPilot.CreatedDate3Column);
+            public bool IsReceiptNoNull() {
+                return this.IsNull(this.tableGetFlightLog.ReceiptNoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCreatedDate3Null() {
-                this[this.tableGetFlightLogPilot.CreatedDate3Column] = global::System.Convert.DBNull;
+            public void SetReceiptNoNull() {
+                this[this.tableGetFlightLog.ReceiptNoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsLastModifiedDate3Null() {
-                return this.IsNull(this.tableGetFlightLogPilot.LastModifiedDate3Column);
+            public bool IsFO_AS_PilotFlyingNull() {
+                return this.IsNull(this.tableGetFlightLog.FO_AS_PilotFlyingColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetLastModifiedDate3Null() {
-                this[this.tableGetFlightLogPilot.LastModifiedDate3Column] = global::System.Convert.DBNull;
+            public void SetFO_AS_PilotFlyingNull() {
+                this[this.tableGetFlightLog.FO_AS_PilotFlyingColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -30118,6 +23147,22 @@ namespace Flights_GUI {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime DateOfBirth {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableGetSectorPilotInfo.DateOfBirthColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DateOfBirth\' in table \'GetSectorPilotInfo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetSectorPilotInfo.DateOfBirthColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsSectorDateNull() {
                 return this.IsNull(this.tableGetSectorPilotInfo.SectorDateColumn);
             }
@@ -30174,6 +23219,216 @@ namespace Flights_GUI {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetPassportNoNull() {
                 this[this.tableGetSectorPilotInfo.PassportNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDateOfBirthNull() {
+                return this.IsNull(this.tableGetSectorPilotInfo.DateOfBirthColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDateOfBirthNull() {
+                this[this.tableGetSectorPilotInfo.DateOfBirthColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class GetFlightLogPilotRow : global::System.Data.DataRow {
+            
+            private GetFlightLogPilotDataTable tableGetFlightLogPilot;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal GetFlightLogPilotRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableGetFlightLogPilot = ((GetFlightLogPilotDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Title {
+                get {
+                    try {
+                        return ((string)(this[this.tableGetFlightLogPilot.TitleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Title\' in table \'GetFlightLogPilot\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetFlightLogPilot.TitleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string FirstName {
+                get {
+                    try {
+                        return ((string)(this[this.tableGetFlightLogPilot.FirstNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FirstName\' in table \'GetFlightLogPilot\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetFlightLogPilot.FirstNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string SecondName {
+                get {
+                    try {
+                        return ((string)(this[this.tableGetFlightLogPilot.SecondNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SecondName\' in table \'GetFlightLogPilot\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetFlightLogPilot.SecondNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string SureName {
+                get {
+                    try {
+                        return ((string)(this[this.tableGetFlightLogPilot.SureNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SureName\' in table \'GetFlightLogPilot\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetFlightLogPilot.SureNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTitleNull() {
+                return this.IsNull(this.tableGetFlightLogPilot.TitleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTitleNull() {
+                this[this.tableGetFlightLogPilot.TitleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFirstNameNull() {
+                return this.IsNull(this.tableGetFlightLogPilot.FirstNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFirstNameNull() {
+                this[this.tableGetFlightLogPilot.FirstNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSecondNameNull() {
+                return this.IsNull(this.tableGetFlightLogPilot.SecondNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSecondNameNull() {
+                this[this.tableGetFlightLogPilot.SecondNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSureNameNull() {
+                return this.IsNull(this.tableGetFlightLogPilot.SureNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSureNameNull() {
+                this[this.tableGetFlightLogPilot.SureNameColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class GetFlightLogCrewRow : global::System.Data.DataRow {
+            
+            private GetFlightLogCrewDataTable tableGetFlightLogCrew;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal GetFlightLogCrewRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableGetFlightLogCrew = ((GetFlightLogCrewDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Name {
+                get {
+                    try {
+                        return ((string)(this[this.tableGetFlightLogCrew.NameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Name\' in table \'GetFlightLogCrew\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetFlightLogCrew.NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Title {
+                get {
+                    try {
+                        return ((string)(this[this.tableGetFlightLogCrew.TitleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Title\' in table \'GetFlightLogCrew\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetFlightLogCrew.TitleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNameNull() {
+                return this.IsNull(this.tableGetFlightLogCrew.NameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNameNull() {
+                this[this.tableGetFlightLogCrew.NameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTitleNull() {
+                return this.IsNull(this.tableGetFlightLogCrew.TitleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTitleNull() {
+                this[this.tableGetFlightLogCrew.TitleColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -30933,74 +24188,6 @@ namespace Flights_GUI {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class GetFlightLogCrewRowChangeEvent : global::System.EventArgs {
-            
-            private GetFlightLogCrewRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GetFlightLogCrewRowChangeEvent(GetFlightLogCrewRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GetFlightLogCrewRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class GetFlightLogPilotRowChangeEvent : global::System.EventArgs {
-            
-            private GetFlightLogPilotRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GetFlightLogPilotRowChangeEvent(GetFlightLogPilotRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GetFlightLogPilotRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public class GetPilotReportWithinRangeRowChangeEvent : global::System.EventArgs {
             
             private GetPilotReportWithinRangeRow eventRow;
@@ -31255,6 +24442,74 @@ namespace Flights_GUI {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public GetSectorPilotInfoRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class GetFlightLogPilotRowChangeEvent : global::System.EventArgs {
+            
+            private GetFlightLogPilotRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public GetFlightLogPilotRowChangeEvent(GetFlightLogPilotRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public GetFlightLogPilotRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class GetFlightLogCrewRowChangeEvent : global::System.EventArgs {
+            
+            private GetFlightLogCrewRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public GetFlightLogCrewRowChangeEvent(GetFlightLogCrewRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public GetFlightLogCrewRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -34152,6 +27407,9 @@ namespace Flights_GUI.FlightReportDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Class1", "Class1");
             tableMapping.ColumnMappings.Add("TotalATAHours", "TotalATAHours");
             tableMapping.ColumnMappings.Add("TotalATAMin", "TotalATAMin");
+            tableMapping.ColumnMappings.Add("OnBoardFuel", "OnBoardFuel");
+            tableMapping.ColumnMappings.Add("ReceiptNo", "ReceiptNo");
+            tableMapping.ColumnMappings.Add("FO_AS_PilotFlying", "FO_AS_PilotFlying");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -34206,536 +27464,6 @@ namespace Flights_GUI.FlightReportDataSetTableAdapters {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             FlightReportDataSet.GetFlightLogDataTable dataTable = new FlightReportDataSet.GetFlightLogDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class GetFlightLogCrewTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public GetFlightLogCrewTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "GetFlightLogCrew";
-            tableMapping.ColumnMappings.Add("SectorID", "SectorID");
-            tableMapping.ColumnMappings.Add("ReportID", "ReportID");
-            tableMapping.ColumnMappings.Add("From_AirportID", "From_AirportID");
-            tableMapping.ColumnMappings.Add("To_AirportID", "To_AirportID");
-            tableMapping.ColumnMappings.Add("FuleUplifted", "FuleUplifted");
-            tableMapping.ColumnMappings.Add("STD", "STD");
-            tableMapping.ColumnMappings.Add("ATD", "ATD");
-            tableMapping.ColumnMappings.Add("ChoxOff", "ChoxOff");
-            tableMapping.ColumnMappings.Add("STA", "STA");
-            tableMapping.ColumnMappings.Add("ATA", "ATA");
-            tableMapping.ColumnMappings.Add("ChoxOn", "ChoxOn");
-            tableMapping.ColumnMappings.Add("StandardBurnOff", "StandardBurnOff");
-            tableMapping.ColumnMappings.Add("ActualBurnOff", "ActualBurnOff");
-            tableMapping.ColumnMappings.Add("DepDelayID1", "DepDelayID1");
-            tableMapping.ColumnMappings.Add("DepDelayTime1", "DepDelayTime1");
-            tableMapping.ColumnMappings.Add("DepDelayID2", "DepDelayID2");
-            tableMapping.ColumnMappings.Add("DepDelayTime2", "DepDelayTime2");
-            tableMapping.ColumnMappings.Add("DepDelayID3", "DepDelayID3");
-            tableMapping.ColumnMappings.Add("DepDelayTime3", "DepDelayTime3");
-            tableMapping.ColumnMappings.Add("ArrDelayID1", "ArrDelayID1");
-            tableMapping.ColumnMappings.Add("ArrDelayTime1", "ArrDelayTime1");
-            tableMapping.ColumnMappings.Add("ArrDelayID2", "ArrDelayID2");
-            tableMapping.ColumnMappings.Add("ArrDelayTime2", "ArrDelayTime2");
-            tableMapping.ColumnMappings.Add("ArrDelayID3", "ArrDelayID3");
-            tableMapping.ColumnMappings.Add("ArrDelayTime3", "ArrDelayTime3");
-            tableMapping.ColumnMappings.Add("PilotFlying_CrewID", "PilotFlying_CrewID");
-            tableMapping.ColumnMappings.Add("PilotMonitoring_CrewID", "PilotMonitoring_CrewID");
-            tableMapping.ColumnMappings.Add("FlyAtDay", "FlyAtDay");
-            tableMapping.ColumnMappings.Add("FlyAtNight", "FlyAtNight");
-            tableMapping.ColumnMappings.Add("DepFule", "DepFule");
-            tableMapping.ColumnMappings.Add("ArrFule", "ArrFule");
-            tableMapping.ColumnMappings.Add("NoOfPax_A", "NoOfPax_A");
-            tableMapping.ColumnMappings.Add("NoOfPax_C", "NoOfPax_C");
-            tableMapping.ColumnMappings.Add("NoOfPax_I", "NoOfPax_I");
-            tableMapping.ColumnMappings.Add("ZFW", "ZFW");
-            tableMapping.ColumnMappings.Add("TOW", "TOW");
-            tableMapping.ColumnMappings.Add("CreatedBy", "CreatedBy");
-            tableMapping.ColumnMappings.Add("ModifiedBy", "ModifiedBy");
-            tableMapping.ColumnMappings.Add("CreatedDate", "CreatedDate");
-            tableMapping.ColumnMappings.Add("LastModifiedDate", "LastModifiedDate");
-            tableMapping.ColumnMappings.Add("FlightNo", "FlightNo");
-            tableMapping.ColumnMappings.Add("IsPAX", "IsPAX");
-            tableMapping.ColumnMappings.Add("IsHeavy", "IsHeavy");
-            tableMapping.ColumnMappings.Add("IsHeavyCrew", "IsHeavyCrew");
-            tableMapping.ColumnMappings.Add("Comments", "Comments");
-            tableMapping.ColumnMappings.Add("AirCraft_AirPlaneID", "AirCraft_AirPlaneID");
-            tableMapping.ColumnMappings.Add("SectorDate", "SectorDate");
-            tableMapping.ColumnMappings.Add("ReportCrewID", "ReportCrewID");
-            tableMapping.ColumnMappings.Add("CrewID", "CrewID");
-            tableMapping.ColumnMappings.Add("PositionID", "PositionID");
-            tableMapping.ColumnMappings.Add("Notes", "Notes");
-            tableMapping.ColumnMappings.Add("CreatedBy1", "CreatedBy1");
-            tableMapping.ColumnMappings.Add("ModifiedBy1", "ModifiedBy1");
-            tableMapping.ColumnMappings.Add("CreatedDate1", "CreatedDate1");
-            tableMapping.ColumnMappings.Add("LastModifiedDate1", "LastModifiedDate1");
-            tableMapping.ColumnMappings.Add("SectorID1", "SectorID1");
-            tableMapping.ColumnMappings.Add("CrewID1", "CrewID1");
-            tableMapping.ColumnMappings.Add("Name", "Name");
-            tableMapping.ColumnMappings.Add("StaffNo", "StaffNo");
-            tableMapping.ColumnMappings.Add("Notes1", "Notes1");
-            tableMapping.ColumnMappings.Add("CreatedBy2", "CreatedBy2");
-            tableMapping.ColumnMappings.Add("ModifiedBy2", "ModifiedBy2");
-            tableMapping.ColumnMappings.Add("CreatedDate2", "CreatedDate2");
-            tableMapping.ColumnMappings.Add("LastModifiedDate2", "LastModifiedDate2");
-            tableMapping.ColumnMappings.Add("Username", "Username");
-            tableMapping.ColumnMappings.Add("RANK", "RANK");
-            tableMapping.ColumnMappings.Add("IDNO", "IDNO");
-            tableMapping.ColumnMappings.Add("LicenseNo", "LicenseNo");
-            tableMapping.ColumnMappings.Add("Competenecycheck", "Competenecycheck");
-            tableMapping.ColumnMappings.Add("MEDICALLICENSEEXPIRYFrom", "MEDICALLICENSEEXPIRYFrom");
-            tableMapping.ColumnMappings.Add("MEDICALLICENSEEXPIRYTo", "MEDICALLICENSEEXPIRYTo");
-            tableMapping.ColumnMappings.Add("InstructorRenewal", "InstructorRenewal");
-            tableMapping.ColumnMappings.Add("TRANSITIONCOURSE", "TRANSITIONCOURSE");
-            tableMapping.ColumnMappings.Add("RECURRENT12", "RECURRENT12");
-            tableMapping.ColumnMappings.Add("RECURRENT24", "RECURRENT24");
-            tableMapping.ColumnMappings.Add("SMS", "SMS");
-            tableMapping.ColumnMappings.Add("security", "security");
-            tableMapping.ColumnMappings.Add("PositionID1", "PositionID1");
-            tableMapping.ColumnMappings.Add("Title", "Title");
-            tableMapping.ColumnMappings.Add("TitleShort", "TitleShort");
-            tableMapping.ColumnMappings.Add("Description", "Description");
-            tableMapping.ColumnMappings.Add("CreatedBy3", "CreatedBy3");
-            tableMapping.ColumnMappings.Add("ModifiedBy3", "ModifiedBy3");
-            tableMapping.ColumnMappings.Add("CreatedDate3", "CreatedDate3");
-            tableMapping.ColumnMappings.Add("LastModifiedDate3", "LastModifiedDate3");
-            this._adapter.TableMappings.Add(tableMapping);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["FlightReportConnectionString"].ConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "dbo.GetFlightLogCrew";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReportID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(FlightReportDataSet.GetFlightLogCrewDataTable dataTable, global::System.Nullable<int> ReportID) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((ReportID.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(ReportID.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual FlightReportDataSet.GetFlightLogCrewDataTable GetData(global::System.Nullable<int> ReportID) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((ReportID.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(ReportID.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            FlightReportDataSet.GetFlightLogCrewDataTable dataTable = new FlightReportDataSet.GetFlightLogCrewDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class GetFlightLogPilotTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public GetFlightLogPilotTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "GetFlightLogPilot";
-            tableMapping.ColumnMappings.Add("SectorID", "SectorID");
-            tableMapping.ColumnMappings.Add("ReportID", "ReportID");
-            tableMapping.ColumnMappings.Add("From_AirportID", "From_AirportID");
-            tableMapping.ColumnMappings.Add("To_AirportID", "To_AirportID");
-            tableMapping.ColumnMappings.Add("FuleUplifted", "FuleUplifted");
-            tableMapping.ColumnMappings.Add("STD", "STD");
-            tableMapping.ColumnMappings.Add("ATD", "ATD");
-            tableMapping.ColumnMappings.Add("ChoxOff", "ChoxOff");
-            tableMapping.ColumnMappings.Add("STA", "STA");
-            tableMapping.ColumnMappings.Add("ATA", "ATA");
-            tableMapping.ColumnMappings.Add("ChoxOn", "ChoxOn");
-            tableMapping.ColumnMappings.Add("StandardBurnOff", "StandardBurnOff");
-            tableMapping.ColumnMappings.Add("ActualBurnOff", "ActualBurnOff");
-            tableMapping.ColumnMappings.Add("DepDelayID1", "DepDelayID1");
-            tableMapping.ColumnMappings.Add("DepDelayTime1", "DepDelayTime1");
-            tableMapping.ColumnMappings.Add("DepDelayID2", "DepDelayID2");
-            tableMapping.ColumnMappings.Add("DepDelayTime2", "DepDelayTime2");
-            tableMapping.ColumnMappings.Add("DepDelayID3", "DepDelayID3");
-            tableMapping.ColumnMappings.Add("DepDelayTime3", "DepDelayTime3");
-            tableMapping.ColumnMappings.Add("ArrDelayID1", "ArrDelayID1");
-            tableMapping.ColumnMappings.Add("ArrDelayTime1", "ArrDelayTime1");
-            tableMapping.ColumnMappings.Add("ArrDelayID2", "ArrDelayID2");
-            tableMapping.ColumnMappings.Add("ArrDelayTime2", "ArrDelayTime2");
-            tableMapping.ColumnMappings.Add("ArrDelayID3", "ArrDelayID3");
-            tableMapping.ColumnMappings.Add("ArrDelayTime3", "ArrDelayTime3");
-            tableMapping.ColumnMappings.Add("PilotFlying_CrewID", "PilotFlying_CrewID");
-            tableMapping.ColumnMappings.Add("PilotMonitoring_CrewID", "PilotMonitoring_CrewID");
-            tableMapping.ColumnMappings.Add("FlyAtDay", "FlyAtDay");
-            tableMapping.ColumnMappings.Add("FlyAtNight", "FlyAtNight");
-            tableMapping.ColumnMappings.Add("DepFule", "DepFule");
-            tableMapping.ColumnMappings.Add("ArrFule", "ArrFule");
-            tableMapping.ColumnMappings.Add("NoOfPax_A", "NoOfPax_A");
-            tableMapping.ColumnMappings.Add("NoOfPax_C", "NoOfPax_C");
-            tableMapping.ColumnMappings.Add("NoOfPax_I", "NoOfPax_I");
-            tableMapping.ColumnMappings.Add("ZFW", "ZFW");
-            tableMapping.ColumnMappings.Add("TOW", "TOW");
-            tableMapping.ColumnMappings.Add("CreatedBy", "CreatedBy");
-            tableMapping.ColumnMappings.Add("ModifiedBy", "ModifiedBy");
-            tableMapping.ColumnMappings.Add("CreatedDate", "CreatedDate");
-            tableMapping.ColumnMappings.Add("LastModifiedDate", "LastModifiedDate");
-            tableMapping.ColumnMappings.Add("FlightNo", "FlightNo");
-            tableMapping.ColumnMappings.Add("IsPAX", "IsPAX");
-            tableMapping.ColumnMappings.Add("IsHeavy", "IsHeavy");
-            tableMapping.ColumnMappings.Add("IsHeavyCrew", "IsHeavyCrew");
-            tableMapping.ColumnMappings.Add("Comments", "Comments");
-            tableMapping.ColumnMappings.Add("AirCraft_AirPlaneID", "AirCraft_AirPlaneID");
-            tableMapping.ColumnMappings.Add("SectorDate", "SectorDate");
-            tableMapping.ColumnMappings.Add("ReportPilotID", "ReportPilotID");
-            tableMapping.ColumnMappings.Add("PilotID", "PilotID");
-            tableMapping.ColumnMappings.Add("PositionID", "PositionID");
-            tableMapping.ColumnMappings.Add("Notes", "Notes");
-            tableMapping.ColumnMappings.Add("CreatedBy1", "CreatedBy1");
-            tableMapping.ColumnMappings.Add("ModifiedBy1", "ModifiedBy1");
-            tableMapping.ColumnMappings.Add("CreatedDate1", "CreatedDate1");
-            tableMapping.ColumnMappings.Add("LastModifiedDate1", "LastModifiedDate1");
-            tableMapping.ColumnMappings.Add("SectorID1", "SectorID1");
-            tableMapping.ColumnMappings.Add("PilotID1", "PilotID1");
-            tableMapping.ColumnMappings.Add("FirstName", "FirstName");
-            tableMapping.ColumnMappings.Add("SecondName", "SecondName");
-            tableMapping.ColumnMappings.Add("SureName", "SureName");
-            tableMapping.ColumnMappings.Add("TBF_Day_Hours", "TBF_Day_Hours");
-            tableMapping.ColumnMappings.Add("TBF_Day_Mins", "TBF_Day_Mins");
-            tableMapping.ColumnMappings.Add("TBF_Night_Hours", "TBF_Night_Hours");
-            tableMapping.ColumnMappings.Add("TBF_Night_Mins", "TBF_Night_Mins");
-            tableMapping.ColumnMappings.Add("TBF_Total_Hours", "TBF_Total_Hours");
-            tableMapping.ColumnMappings.Add("TBF_Total_Mins", "TBF_Total_Mins");
-            tableMapping.ColumnMappings.Add("LicenseNo", "LicenseNo");
-            tableMapping.ColumnMappings.Add("LicenseStatus", "LicenseStatus");
-            tableMapping.ColumnMappings.Add("LicenseRenewDate", "LicenseRenewDate");
-            tableMapping.ColumnMappings.Add("StaffNo", "StaffNo");
-            tableMapping.ColumnMappings.Add("ShortName", "ShortName");
-            tableMapping.ColumnMappings.Add("IsPilot", "IsPilot");
-            tableMapping.ColumnMappings.Add("CreatedBy2", "CreatedBy2");
-            tableMapping.ColumnMappings.Add("ModifiedBy2", "ModifiedBy2");
-            tableMapping.ColumnMappings.Add("CreatedDate2", "CreatedDate2");
-            tableMapping.ColumnMappings.Add("LastModifiedDate2", "LastModifiedDate2");
-            tableMapping.ColumnMappings.Add("UserName", "UserName");
-            tableMapping.ColumnMappings.Add("PositionID1", "PositionID1");
-            tableMapping.ColumnMappings.Add("Title", "Title");
-            tableMapping.ColumnMappings.Add("TitleShort", "TitleShort");
-            tableMapping.ColumnMappings.Add("Description", "Description");
-            tableMapping.ColumnMappings.Add("CreatedBy3", "CreatedBy3");
-            tableMapping.ColumnMappings.Add("ModifiedBy3", "ModifiedBy3");
-            tableMapping.ColumnMappings.Add("CreatedDate3", "CreatedDate3");
-            tableMapping.ColumnMappings.Add("LastModifiedDate3", "LastModifiedDate3");
-            this._adapter.TableMappings.Add(tableMapping);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["FlightReportConnectionString"].ConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "dbo.GetFlightLogPilot";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReportID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(FlightReportDataSet.GetFlightLogPilotDataTable dataTable, global::System.Nullable<int> ReportID) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((ReportID.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(ReportID.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual FlightReportDataSet.GetFlightLogPilotDataTable GetData(global::System.Nullable<int> ReportID) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((ReportID.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(ReportID.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            FlightReportDataSet.GetFlightLogPilotDataTable dataTable = new FlightReportDataSet.GetFlightLogPilotDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -36360,6 +29088,7 @@ namespace Flights_GUI.FlightReportDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("PilotName", "PilotName");
             tableMapping.ColumnMappings.Add("Title", "Title");
             tableMapping.ColumnMappings.Add("PassportNo", "PassportNo");
+            tableMapping.ColumnMappings.Add("DateOfBirth", "DateOfBirth");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -36414,6 +29143,372 @@ namespace Flights_GUI.FlightReportDataSetTableAdapters {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             FlightReportDataSet.GetSectorPilotInfoDataTable dataTable = new FlightReportDataSet.GetSectorPilotInfoDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class GetFlightLogPilotTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public GetFlightLogPilotTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "GetFlightLogPilot";
+            tableMapping.ColumnMappings.Add("Title", "Title");
+            tableMapping.ColumnMappings.Add("FirstName", "FirstName");
+            tableMapping.ColumnMappings.Add("SecondName", "SecondName");
+            tableMapping.ColumnMappings.Add("SureName", "SureName");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["FlightReportConnectionString"].ConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "dbo.GetFlightLogPilot";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReportID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(FlightReportDataSet.GetFlightLogPilotDataTable dataTable, global::System.Nullable<int> ReportID) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((ReportID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(ReportID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual FlightReportDataSet.GetFlightLogPilotDataTable GetData(global::System.Nullable<int> ReportID) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((ReportID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(ReportID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            FlightReportDataSet.GetFlightLogPilotDataTable dataTable = new FlightReportDataSet.GetFlightLogPilotDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class GetFlightLogCrewTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public GetFlightLogCrewTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "GetFlightLogCrew";
+            tableMapping.ColumnMappings.Add("Name", "Name");
+            tableMapping.ColumnMappings.Add("Title", "Title");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["FlightReportConnectionString"].ConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "dbo.GetFlightLogCrew";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReportID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(FlightReportDataSet.GetFlightLogCrewDataTable dataTable, global::System.Nullable<int> ReportID) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((ReportID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(ReportID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual FlightReportDataSet.GetFlightLogCrewDataTable GetData(global::System.Nullable<int> ReportID) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((ReportID.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(ReportID.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            FlightReportDataSet.GetFlightLogCrewDataTable dataTable = new FlightReportDataSet.GetFlightLogCrewDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

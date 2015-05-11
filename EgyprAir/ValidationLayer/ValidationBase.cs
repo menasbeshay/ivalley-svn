@@ -11,14 +11,19 @@ namespace ValidationLayer
         /// has properties about
         /// 1- validation type (warning , block or not working)
         /// 2- Validation Message 
-        /// 
+        /// 3- validation result
         private int _ruleConfigType;
         private List<string> _validationMsg;
-        protected enum RuleConfigurationType
+        private bool _result;
+        public ValidationBase()
         {
-            Warning = 0, 
-            Blocking = 1, 
-            Ignore = 2
+            ValidationMsg = new List<string>();
+        }
+        public enum RuleConfigurationType
+        {
+            Warning = 1, 
+            Blocking = 2, 
+            Ignore = 3
         }
 
         public RuleConfigurationType RuleConfigType
@@ -33,6 +38,18 @@ namespace ValidationLayer
             get { return _validationMsg; }
             set { _validationMsg = value; }
         }
+
+        public bool ValidationResult
+        {
+            get { return _result; }
+            set { _result = value; }
+        }
  
+    }
+
+    public enum ValidationRuleToApply
+    {
+        WORKING_HOURS = 0,
+        FLIGHT_DUTY_PERIOD = 1
     }
 }

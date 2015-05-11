@@ -379,6 +379,14 @@ namespace Flight_DAL
 				}
 			}
 			
+			public static SqlParameter DateOfBirth
+			{
+				get
+				{
+					return new SqlParameter("@DateOfBirth", SqlDbType.DateTime, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -420,6 +428,7 @@ namespace Flight_DAL
             public const string PICNightMin = "PICNightMin";
             public const string SICNightHours = "SICNightHours";
             public const string SICNightMin = "SICNightMin";
+            public const string DateOfBirth = "DateOfBirth";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -462,6 +471,7 @@ namespace Flight_DAL
 					ht[PICNightMin] = _Pilot.PropertyNames.PICNightMin;
 					ht[SICNightHours] = _Pilot.PropertyNames.SICNightHours;
 					ht[SICNightMin] = _Pilot.PropertyNames.SICNightMin;
+					ht[DateOfBirth] = _Pilot.PropertyNames.DateOfBirth;
 
 				}
 				return (string)ht[columnName];
@@ -509,6 +519,7 @@ namespace Flight_DAL
             public const string PICNightMin = "PICNightMin";
             public const string SICNightHours = "SICNightHours";
             public const string SICNightMin = "SICNightMin";
+            public const string DateOfBirth = "DateOfBirth";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -551,6 +562,7 @@ namespace Flight_DAL
 					ht[PICNightMin] = _Pilot.ColumnNames.PICNightMin;
 					ht[SICNightHours] = _Pilot.ColumnNames.SICNightHours;
 					ht[SICNightMin] = _Pilot.ColumnNames.SICNightMin;
+					ht[DateOfBirth] = _Pilot.ColumnNames.DateOfBirth;
 
 				}
 				return (string)ht[propertyName];
@@ -598,6 +610,7 @@ namespace Flight_DAL
             public const string PICNightMin = "s_PICNightMin";
             public const string SICNightHours = "s_SICNightHours";
             public const string SICNightMin = "s_SICNightMin";
+            public const string DateOfBirth = "s_DateOfBirth";
 
 		}
 		#endregion		
@@ -1021,6 +1034,18 @@ namespace Flight_DAL
 			set
 	        {
 				base.Setint(ColumnNames.SICNightMin, value);
+			}
+		}
+
+		public virtual DateTime DateOfBirth
+	    {
+			get
+	        {
+				return base.GetDateTime(ColumnNames.DateOfBirth);
+			}
+			set
+	        {
+				base.SetDateTime(ColumnNames.DateOfBirth, value);
 			}
 		}
 
@@ -1554,6 +1579,21 @@ namespace Flight_DAL
 			}
 		}
 
+		public virtual string s_DateOfBirth
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.DateOfBirth) ? string.Empty : base.GetDateTimeAsString(ColumnNames.DateOfBirth);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.DateOfBirth);
+				else
+					this.DateOfBirth = base.SetDateTimeAsString(ColumnNames.DateOfBirth, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -1932,6 +1972,16 @@ namespace Flight_DAL
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.SICNightMin, Parameters.SICNightMin);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter DateOfBirth
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.DateOfBirth, Parameters.DateOfBirth);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -2362,6 +2412,18 @@ namespace Flight_DAL
 				}
 			}
 
+			public WhereParameter DateOfBirth
+		    {
+				get
+		        {
+					if(_DateOfBirth_W == null)
+	        	    {
+						_DateOfBirth_W = TearOff.DateOfBirth;
+					}
+					return _DateOfBirth_W;
+				}
+			}
+
 			private WhereParameter _PilotID_W = null;
 			private WhereParameter _FirstName_W = null;
 			private WhereParameter _SecondName_W = null;
@@ -2397,6 +2459,7 @@ namespace Flight_DAL
 			private WhereParameter _PICNightMin_W = null;
 			private WhereParameter _SICNightHours_W = null;
 			private WhereParameter _SICNightMin_W = null;
+			private WhereParameter _DateOfBirth_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -2435,6 +2498,7 @@ namespace Flight_DAL
 				_PICNightMin_W = null;
 				_SICNightHours_W = null;
 				_SICNightMin_W = null;
+				_DateOfBirth_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -2836,6 +2900,16 @@ namespace Flight_DAL
 					get
 					{
 							AggregateParameter aggregate = new AggregateParameter(ColumnNames.SICNightMin, Parameters.SICNightMin);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter DateOfBirth
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.DateOfBirth, Parameters.DateOfBirth);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -3266,6 +3340,18 @@ namespace Flight_DAL
 				}
 			}
 
+			public AggregateParameter DateOfBirth
+		    {
+				get
+		        {
+					if(_DateOfBirth_W == null)
+	        	    {
+						_DateOfBirth_W = TearOff.DateOfBirth;
+					}
+					return _DateOfBirth_W;
+				}
+			}
+
 			private AggregateParameter _PilotID_W = null;
 			private AggregateParameter _FirstName_W = null;
 			private AggregateParameter _SecondName_W = null;
@@ -3301,6 +3387,7 @@ namespace Flight_DAL
 			private AggregateParameter _PICNightMin_W = null;
 			private AggregateParameter _SICNightHours_W = null;
 			private AggregateParameter _SICNightMin_W = null;
+			private AggregateParameter _DateOfBirth_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -3339,6 +3426,7 @@ namespace Flight_DAL
 				_PICNightMin_W = null;
 				_SICNightHours_W = null;
 				_SICNightMin_W = null;
+				_DateOfBirth_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -3551,6 +3639,10 @@ namespace Flight_DAL
 
 			p = cmd.Parameters.Add(Parameters.SICNightMin);
 			p.SourceColumn = ColumnNames.SICNightMin;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.DateOfBirth);
+			p.SourceColumn = ColumnNames.DateOfBirth;
 			p.SourceVersion = DataRowVersion.Current;
 
 
