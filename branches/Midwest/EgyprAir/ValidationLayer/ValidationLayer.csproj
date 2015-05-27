@@ -40,7 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LimitSingleFlyPeriod_Rule.cs" />
+    <Compile Include="DutyLimitation.cs" />
+    <Compile Include="MaxDaily_FDB.cs" />
+    <Compile Include="RestPeriod.cs" />
     <Compile Include="ValidationBase.cs" />
     <Compile Include="ValitaionMaster.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -53,6 +55,10 @@
     <ProjectReference Include="..\Flight_DAL\Flight_DAL.csproj">
       <Project>{0a9fb1a0-75e2-4508-826b-6ab31d3dcc9d}</Project>
       <Name>Flight_DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Helper\Helper.csproj">
+      <Project>{a8a1ed6b-6d9b-4021-8c3d-b32b552285db}</Project>
+      <Name>Helper</Name>
     </ProjectReference>
     <ProjectReference Include="..\MyGeneration.dOOdads\MyGeneration.dOOdads.csproj">
       <Project>{8666c149-f8d1-47ce-b5e2-bee0bc844a9a}</Project>

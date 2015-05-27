@@ -62,6 +62,7 @@ namespace Flights_GUI.Admin
             uiTextBoxTitle.Text = "";
             uiPanelEdit.Visible = true;
             uiPanelViewAll.Visible = false;
+            CurrentCat = null;
         }
 
         protected void uiButtonSave_Click(object sender, EventArgs e)

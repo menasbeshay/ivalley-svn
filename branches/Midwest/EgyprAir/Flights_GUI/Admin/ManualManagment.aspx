@@ -34,6 +34,10 @@
                         <Columns>
                         <telerik:GridBoundColumn DataField="Title" HeaderText="Title"></telerik:GridBoundColumn>                            
                         <telerik:GridBoundColumn DataField="CreatedBy" HeaderText="Created By"></telerik:GridBoundColumn>                        
+                            <telerik:GridBoundColumn DataField="IssueNummber" HeaderText="Issue No."></telerik:GridBoundColumn>                        
+                            <telerik:GridBoundColumn DataField="IssueDate" HeaderText="Issue Date" DataFormatString="{0:dd/MM/yyyy}"></telerik:GridBoundColumn>
+                            <telerik:GridBoundColumn DataField="RevisionNummber" HeaderText="Revision No."></telerik:GridBoundColumn>                        
+                            <telerik:GridBoundColumn DataField="RevisiondDate" HeaderText="Revision Date" DataFormatString="{0:dd/MM/yyyy}"></telerik:GridBoundColumn>
                             <telerik:GridBoundColumn DataField="createdDate" HeaderText="Date" DataFormatString="{0:dd/MM/yyyy}"></telerik:GridBoundColumn>                        
                         <telerik:GridTemplateColumn HeaderText="Actions">
                                 <ItemTemplate>                                
@@ -59,6 +63,28 @@
              <div class="span2">Title</div>
              <div class="span4">
                  <asp:TextBox ID="uiTextBoxTitle" runat="server"></asp:TextBox></div>
+         </div>
+         <div class="span12 clearfix" style="margin-left:0">
+             <div class="span2">Issue Number</div>
+             <div class="span4">
+                 <asp:TextBox ID="uiTextBoxIssueNo" runat="server"></asp:TextBox></div>
+         </div>
+         <div class="span12 clearfix" style="margin-left:0">
+             <div class="span2">Issue Date</div>
+             <div class="span4">
+                 <telerik:RadDatePicker ID="uiRadDatePickerIssueDate" runat="server" Height="25px" Width="226px"></telerik:RadDatePicker>
+             </div>
+         </div>
+         <div class="span12 clearfix" style="margin-left:0">
+             <div class="span2">Revision Number</div>
+             <div class="span4">
+                 <asp:TextBox ID="uiTextBoxRevisionNo" runat="server"></asp:TextBox></div>
+         </div>
+         <div class="span12 clearfix" style="margin-left:0">
+             <div class="span2">Revision Date</div>
+             <div class="span4">
+                 <telerik:RadDatePicker ID="uiRadDatePickerRevisionDate" runat="server" Height="25px" Width="226px"></telerik:RadDatePicker>
+             </div>
          </div>
          <div class="span12 clearfix" style="margin-left:0">
              <div class="span2">Created By</div>

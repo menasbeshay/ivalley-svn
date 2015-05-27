@@ -26,11 +26,13 @@
     <link rel="stylesheet" type="text/css" href="../assets/uniform/css/uniform.default.css" />
     <%--<link href='http://fonts.googleapis.com/css?family=Ubuntu:300' rel='stylesheet' type='text/css'>--%>
     <link href="../css/style8.css" rel="stylesheet" />
-    <link href="../assets/data-tables/DT_bootstrap.css" rel="stylesheet" />
+    <%--<link href="../assets/data-tables/DT_bootstrap.css" rel="stylesheet" />
     <link href="../assets/data-tables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />    
     <link rel="stylesheet" type="text/css" href="../assets/data-tables/dataTables.tableTools.css">
-    <link href="../assets/data-tables/dataTables.editor.min.css" rel="stylesheet" />
-    <script src="../js/jquery-1.8.3.min.js"></script>
+    <link href="../assets/data-tables/dataTables.editor.min.css" rel="stylesheet" />--%>     
+    <link href="../Scripts/jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+    <script src="../Scripts/jquery-1.11.1.min.js"></script>
+    <%--<script src="../js/jquery-1.8.3.min.js"></script>--%>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <style type="text/css">
@@ -278,17 +280,55 @@
     <%--<script src="../assets/uniform/jquery.dataTables.min.js"></script>--%>
         
     <script src="../assets/data-tables/DT_bootstrap.js"></script>
-    <script src="../assets/data-tables/table-editable.js"></script>
-    <script type="text/javascript" src="../assets/data-tables/dataTables.tableTools.js"></script>
-    <script src="../assets/data-tables/dataTables.editor.min.js"></script>
+    <%--<script src="../assets/data-tables/table-editable.js"></script>--%>
+        <script src="../assets/data-tables/jquery.jeditable.js"></script>
+    <%--<script type="text/javascript" src="../assets/data-tables/dataTables.tableTools.js"></script>--%>
+        <script src="../assets/data-tables/jquery.dataTables.editable.js"></script>
+    <%--<script src="../assets/data-tables/dataTables.editor.min.js"></script>--%>
     <script src="../assets/data-tables/jquery.maskedinput.min.js"></script>
     <script src="../js/scripts.js"></script>
     <script>
         jQuery(document).ready(function () {
             // initiate layout and plugins
             App.init();
-        });
 
+
+            /* Apply the jEditable handlers to the table */
+            //$('#sample_editable_1 tbody td').editable(function (sValue) {
+            //    /* Get the position of the current data from the node */
+            //    var aPos = oTable.fnGetPosition(this);
+
+            //    /* Get the data array for this row */
+            //    var aData = oTable.fnGetData(aPos[0]);
+
+            //    /* Update the data array and return the value */
+            //    aData[aPos[1]] = sValue;
+            //    return sValue;
+            //}, { "onblur": 'submit' }); /* Submit the form when bluring a field */
+
+
+        });
+        /*
+        var table = $('#sample_editable_1').dataTable({
+            dom: "frtip",
+            ajax: {
+                "url": "../common/commonMethods.asmx/GetFlightSectors?FlightID=1981",
+                "type": "Get",
+                "dataSrc": ""
+                //  "data": "{FlightID : 979}"
+            },
+            columns: [
+                { data: "FlightNo" },
+                { data: "Date" },
+                { data: "From" },
+                { data: "To" },
+                { data: "STD" },
+                { data: "STA" }
+            ],
+            order: [1, 'asc'],
+
+        }).makeEditable();*/
+        /*
         (function () {
 
             var Editor = $.fn.dataTable.Editor;
@@ -311,17 +351,17 @@
                               .row(row)
                               .child(append)
                               .show();
-                   /* }
-                    else {
-                        var rowNode = table
-                                        .row.add([])
-                                        .draw()
-                                        .node();
-                        table
-                              .row(row)
-                              .child(append)
-                              .show();
-                    }*/
+                   // }
+                   // else {
+                   //     var rowNode = table
+                   //                     .row.add([])
+                   //                     .draw()
+                   //                     .node();
+                   //     table
+                   //           .row(row)
+                   //           .child(append)
+                   //           .show();
+                   // }
 
                       $(table.row(row).node()).addClass('shown');
                     
@@ -347,7 +387,7 @@
                 }
             });
 
-        })();
+        })();*/
     </script>
     <!-- END JAVASCRIPTS -->
 

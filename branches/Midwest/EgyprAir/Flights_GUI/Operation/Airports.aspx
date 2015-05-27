@@ -51,6 +51,12 @@
              <div class="span2">IATA Code</div>
              <div class="span4"><asp:TextBox ID="uiTextBoxCode" runat="server"></asp:TextBox></div>
          </div>
+         <div class="span12 clearfix">
+             <div class="span2">Time Zone</div>
+             <div class="span4">
+                 <asp:DropDownList ID="uiDropDownListTimeZone" runat="server"></asp:DropDownList>
+             </div>
+         </div>
          <div class="span12 clearfix" style="margin-left:0">
              <div class="span2">
                  <asp:LinkButton ID="uiLinkButtonSave" runat="server" CssClass="btn btn-primary" OnClick="uiButtonSave_Click">Save</asp:LinkButton></div>

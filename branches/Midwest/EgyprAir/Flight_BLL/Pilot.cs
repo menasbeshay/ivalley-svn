@@ -89,9 +89,29 @@ namespace Flight_BLL
 
         }
 
+        /// <summary>
+        /// calculate actual times
+        /// </summary>
+        /// <param name="PilotID"></param>
+        /// <param name="StartDate"></param>
+        /// <param name="EndDate"></param>
+        /// <returns></returns>
+ 
         public virtual bool GetPilotHoursWithinRange(int PilotID, DateTime StartDate, DateTime EndDate)
         {
             return LoadFromRawSql(@"select * from GetPilotReportWithinRangeAsTable({0},{1},{2})", PilotID, StartDate, EndDate);
+        }
+
+        /// <summary>
+        /// calculate actual (and planned times if no actual) times
+        /// </summary>
+        /// <param name="PilotID"></param>
+        /// <param name="StartDate"></param>
+        /// <param name="EndDate"></param>
+        /// <returns></returns>
+        public virtual bool GetPilotHoursWithinRangeAsTable_Validation(int PilotID, DateTime StartDate, DateTime EndDate)
+        {
+            return LoadFromRawSql(@"select * from GetPilotHoursWithinRangeAsTable_Validation({0},{1},{2})", PilotID, StartDate, EndDate);
         }
 	}
 }

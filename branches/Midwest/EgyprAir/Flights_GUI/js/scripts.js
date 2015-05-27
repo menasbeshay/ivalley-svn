@@ -1519,7 +1519,7 @@ var App = function () {
                     // fix layout width
                     fixWidth();
                     // fix calendar width by just reinitializing
-                    handleDashboardCalendar();
+                    //handleDashboardCalendar();
                     if (isMainPage) {
                         //handleDashboardCalendar(); // handles full calendar for main page
                     } else {

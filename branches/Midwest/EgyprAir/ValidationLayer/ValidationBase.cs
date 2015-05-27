@@ -50,6 +50,7 @@ namespace ValidationLayer
     public enum ValidationRuleToApply
     {
         WORKING_HOURS = 0,
-        FLIGHT_DUTY_PERIOD = 1
+        FLIGHT_DUTY_PERIOD = 1,
+        REST_PERIOD = 2
     }
 }

@@ -41,6 +41,7 @@ namespace Flights_GUI.Intranet
         protected void uiRadTreeViewCats_NodeClick(object sender, Telerik.Web.UI.RadTreeNodeEventArgs e)
         {
             currentManualCat = Convert.ToInt32(e.Node.Value);
+            uiLabelCat.Text = e.Node.Text;
             BindData();
         }
 

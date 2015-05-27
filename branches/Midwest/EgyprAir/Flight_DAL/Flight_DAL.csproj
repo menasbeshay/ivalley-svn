@@ -42,6 +42,8 @@
   <ItemGroup>
     <Compile Include="Activities.cs" />
     <Compile Include="ActivitiesLog.cs" />
+    <Compile Include="AircraftRoute.cs" />
+    <Compile Include="AircraftRouteDetails.cs" />
     <Compile Include="AirPlane.cs" />
     <Compile Include="AirPort.cs" />
     <Compile Include="Announcement.cs" />
@@ -50,6 +52,8 @@
     <Compile Include="CourseDetail.cs" />
     <Compile Include="Crew.cs" />
     <Compile Include="CrewNightCity.cs" />
+    <Compile Include="CrewRoute.cs" />
+    <Compile Include="CrewRouteDetails.cs" />
     <Compile Include="CrewTransaction.cs" />
     <Compile Include="Days.cs" />
     <Compile Include="Delay.cs" />
@@ -89,6 +93,7 @@
     <Compile Include="SubTitle.cs" />
     <Compile Include="SystemSettings.cs" />
     <Compile Include="TimeLimitationTable.cs" />
+    <Compile Include="TimeZone.cs" />
     <Compile Include="Title.cs" />
     <Compile Include="TitleCourse.cs" />
     <Compile Include="Training.cs" />
