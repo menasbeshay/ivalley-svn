@@ -7,48 +7,45 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Flights_GUI.Intranet {
+namespace Flights_GUI.Operation {
     
     
-    public partial class Manuals {
+    public partial class DoReport {
         
         /// <summary>
-        /// uiRadTreeViewCats control.
+        /// uiHiddenFieldExtraMembers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadTreeView uiRadTreeViewCats;
+        protected global::System.Web.UI.WebControls.HiddenField uiHiddenFieldExtraMembers;
         
         /// <summary>
-        /// uiLabelCat control.
+        /// uiLinkButtonViewReport control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label uiLabelCat;
+        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonViewReport;
         
         /// <summary>
-        /// uiRadGridmanuals control.
+        /// uiPanelAddGDExtraMembers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadGrid uiRadGridmanuals;
+        protected global::System.Web.UI.WebControls.Panel uiPanelAddGDExtraMembers;
         
         /// <summary>
-        /// Master property.
+        /// uiReportViewer control.
         /// </summary>
         /// <remarks>
-        /// Auto-generated property.
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        public new Flights_GUI.MasterPages.IFlights Master {
-            get {
-                return ((Flights_GUI.MasterPages.IFlights)(base.Master));
-            }
-        }
+        protected global::Microsoft.Reporting.WebForms.ReportViewer uiReportViewer;
     }
 }

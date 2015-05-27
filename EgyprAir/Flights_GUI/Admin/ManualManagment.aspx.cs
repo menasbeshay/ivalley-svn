@@ -65,6 +65,12 @@ namespace Flights_GUI.Admin
 
                 uiTextBoxTitle.Text = objData.Title;                
                 uiTextBoxCreatedBy.Text = objData.CreatedBy;
+                uiTextBoxIssueNo.Text = objData.IssueNumber;
+                uiTextBoxRevisionNo.Text = objData.RevisionNumber;
+                if (!objData.IsColumnNull(Manual.ColumnNames.IssueDate))
+                    uiRadDatePickerIssueDate.SelectedDate = objData.IssueDate;
+                if (!objData.IsColumnNull(Manual.ColumnNames.RevisionDate))
+                    uiRadDatePickerRevisionDate.SelectedDate = objData.RevisionDate;
                 CurrentManual = objData;
                 uiPanelEdit.Visible = true;
                 uiPanelViewAll.Visible = false;
@@ -111,6 +117,12 @@ namespace Flights_GUI.Admin
                 objdata.Path = path;
             }
             objdata.CreatedDate = DateTime.Now;
+
+            objdata.IssueNumber = uiTextBoxIssueNo.Text;
+            objdata.RevisionNumber = uiTextBoxRevisionNo.Text;
+            objdata.IssueDate = uiRadDatePickerIssueDate.SelectedDate.Value;
+            objdata.RevisionDate = uiRadDatePickerRevisionDate.SelectedDate.Value;
+
             objdata.Save();
             BindData();
             CurrentManual = null;
@@ -156,7 +168,12 @@ namespace Flights_GUI.Admin
         private void ClearFields()
         {
             uiTextBoxTitle.Text = "";
-            uiTextBoxCreatedBy.Text = "";            
+            uiTextBoxCreatedBy.Text = "";
+            uiTextBoxIssueNo.Text = "";
+            uiTextBoxRevisionNo.Text = "";
+            
+            uiRadDatePickerIssueDate.SelectedDate = null;
+            uiRadDatePickerRevisionDate.SelectedDate = null;
         }
 
 

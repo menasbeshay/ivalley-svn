@@ -10,7 +10,16 @@
 namespace Flights_GUI.Operation {
     
     
-    public partial class Airports {
+    public partial class AircraftRoute {
+        
+        /// <summary>
+        /// uiHiddenFieldCurrentACRoute control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField uiHiddenFieldCurrentACRoute;
         
         /// <summary>
         /// uiPanelViewAll control.
@@ -31,13 +40,13 @@ namespace Flights_GUI.Operation {
         protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonAdd;
         
         /// <summary>
-        /// uiRadGridAirports control.
+        /// uiRadGridAircraftRoute control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadGrid uiRadGridAirports;
+        protected global::Telerik.Web.UI.RadGrid uiRadGridAircraftRoute;
         
         /// <summary>
         /// uiPanelEdit control.
@@ -58,22 +67,22 @@ namespace Flights_GUI.Operation {
         protected global::System.Web.UI.WebControls.TextBox uiTextBoxName;
         
         /// <summary>
-        /// uiTextBoxCode control.
+        /// uiRadDatePickerDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uiTextBoxCode;
+        protected global::Telerik.Web.UI.RadDatePicker uiRadDatePickerDate;
         
         /// <summary>
-        /// uiDropDownListTimeZone control.
+        /// uiDropDownListAircraft control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList uiDropDownListTimeZone;
+        protected global::System.Web.UI.WebControls.DropDownList uiDropDownListAircraft;
         
         /// <summary>
         /// uiLinkButtonSave control.

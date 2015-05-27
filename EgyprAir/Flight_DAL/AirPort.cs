@@ -187,6 +187,14 @@ namespace Flight_DAL
 				}
 			}
 			
+			public static SqlParameter TimeZoneID
+			{
+				get
+				{
+					return new SqlParameter("@TimeZoneID", SqlDbType.Int, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -204,6 +212,7 @@ namespace Flight_DAL
             public const string CreatedDate = "CreatedDate";
             public const string LastModifiedDate = "LastModifiedDate";
             public const string Class = "Class";
+            public const string TimeZoneID = "TimeZoneID";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -222,6 +231,7 @@ namespace Flight_DAL
 					ht[CreatedDate] = _AirPort.PropertyNames.CreatedDate;
 					ht[LastModifiedDate] = _AirPort.PropertyNames.LastModifiedDate;
 					ht[Class] = _AirPort.PropertyNames.Class;
+					ht[TimeZoneID] = _AirPort.PropertyNames.TimeZoneID;
 
 				}
 				return (string)ht[columnName];
@@ -245,6 +255,7 @@ namespace Flight_DAL
             public const string CreatedDate = "CreatedDate";
             public const string LastModifiedDate = "LastModifiedDate";
             public const string Class = "Class";
+            public const string TimeZoneID = "TimeZoneID";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -263,6 +274,7 @@ namespace Flight_DAL
 					ht[CreatedDate] = _AirPort.ColumnNames.CreatedDate;
 					ht[LastModifiedDate] = _AirPort.ColumnNames.LastModifiedDate;
 					ht[Class] = _AirPort.ColumnNames.Class;
+					ht[TimeZoneID] = _AirPort.ColumnNames.TimeZoneID;
 
 				}
 				return (string)ht[propertyName];
@@ -286,6 +298,7 @@ namespace Flight_DAL
             public const string CreatedDate = "s_CreatedDate";
             public const string LastModifiedDate = "s_LastModifiedDate";
             public const string Class = "s_Class";
+            public const string TimeZoneID = "s_TimeZoneID";
 
 		}
 		#endregion		
@@ -421,6 +434,18 @@ namespace Flight_DAL
 			set
 	        {
 				base.Setint(ColumnNames.Class, value);
+			}
+		}
+
+		public virtual int TimeZoneID
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.TimeZoneID);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.TimeZoneID, value);
 			}
 		}
 
@@ -594,6 +619,21 @@ namespace Flight_DAL
 			}
 		}
 
+		public virtual string s_TimeZoneID
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.TimeZoneID) ? string.Empty : base.GetintAsString(ColumnNames.TimeZoneID);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.TimeZoneID);
+				else
+					this.TimeZoneID = base.SetintAsString(ColumnNames.TimeZoneID, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -737,6 +777,16 @@ namespace Flight_DAL
 					}
 				}
 
+				public WhereParameter TimeZoneID
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.TimeZoneID, Parameters.TimeZoneID);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -874,6 +924,18 @@ namespace Flight_DAL
 				}
 			}
 
+			public WhereParameter TimeZoneID
+		    {
+				get
+		        {
+					if(_TimeZoneID_W == null)
+	        	    {
+						_TimeZoneID_W = TearOff.TimeZoneID;
+					}
+					return _TimeZoneID_W;
+				}
+			}
+
 			private WhereParameter _AirPortID_W = null;
 			private WhereParameter _Name_W = null;
 			private WhereParameter _IATACode_W = null;
@@ -885,6 +947,7 @@ namespace Flight_DAL
 			private WhereParameter _CreatedDate_W = null;
 			private WhereParameter _LastModifiedDate_W = null;
 			private WhereParameter _Class_W = null;
+			private WhereParameter _TimeZoneID_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -899,6 +962,7 @@ namespace Flight_DAL
 				_CreatedDate_W = null;
 				_LastModifiedDate_W = null;
 				_Class_W = null;
+				_TimeZoneID_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -1065,6 +1129,16 @@ namespace Flight_DAL
 					}
 				}
 
+				public AggregateParameter TimeZoneID
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.TimeZoneID, Parameters.TimeZoneID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -1202,6 +1276,18 @@ namespace Flight_DAL
 				}
 			}
 
+			public AggregateParameter TimeZoneID
+		    {
+				get
+		        {
+					if(_TimeZoneID_W == null)
+	        	    {
+						_TimeZoneID_W = TearOff.TimeZoneID;
+					}
+					return _TimeZoneID_W;
+				}
+			}
+
 			private AggregateParameter _AirPortID_W = null;
 			private AggregateParameter _Name_W = null;
 			private AggregateParameter _IATACode_W = null;
@@ -1213,6 +1299,7 @@ namespace Flight_DAL
 			private AggregateParameter _CreatedDate_W = null;
 			private AggregateParameter _LastModifiedDate_W = null;
 			private AggregateParameter _Class_W = null;
+			private AggregateParameter _TimeZoneID_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -1227,6 +1314,7 @@ namespace Flight_DAL
 				_CreatedDate_W = null;
 				_LastModifiedDate_W = null;
 				_Class_W = null;
+				_TimeZoneID_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -1343,6 +1431,10 @@ namespace Flight_DAL
 
 			p = cmd.Parameters.Add(Parameters.Class);
 			p.SourceColumn = ColumnNames.Class;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.TimeZoneID);
+			p.SourceColumn = ColumnNames.TimeZoneID;
 			p.SourceVersion = DataRowVersion.Current;
 
 

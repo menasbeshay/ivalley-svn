@@ -19,6 +19,7 @@
             </div>
         <div class="span8">
             <small>Please, select a category to see its manuals.</small>
+            <h5>Current category : <asp:Label ID="uiLabelCat" runat="server" ></asp:Label></h5>
         <telerik:RadGrid ID="uiRadGridmanuals" runat="server" AllowPaging="True" 
                         AutoGenerateColumns="False" CellSpacing="0" 
                         HorizontalAlign="Center" Skin="Office2007" Width="90%"                         
@@ -28,6 +29,10 @@
                             
                         <Columns>
                         <telerik:GridBoundColumn DataField="Title" HeaderText="Title"></telerik:GridBoundColumn>                            
+                            <telerik:GridBoundColumn DataField="IssueNummber" HeaderText="Issue No."></telerik:GridBoundColumn>                        
+                            <telerik:GridBoundColumn DataField="IssueDate" HeaderText="Issue Date" DataFormatString="{0:dd/MM/yyyy}"></telerik:GridBoundColumn>
+                            <telerik:GridBoundColumn DataField="RevisionNummber" HeaderText="Revision No."></telerik:GridBoundColumn>                        
+                            <telerik:GridBoundColumn DataField="RevisiondDate" HeaderText="Revision Date" DataFormatString="{0:dd/MM/yyyy}"></telerik:GridBoundColumn>
                         <telerik:GridBoundColumn DataField="CreatedBy" HeaderText="Created By"></telerik:GridBoundColumn>                        
                         <telerik:GridBoundColumn DataField="createdDate" HeaderText="Date" DataFormatString="{0:dd/MM/yyyy}"></telerik:GridBoundColumn>                        
                         <telerik:GridHyperLinkColumn DataTextField="Title" DataNavigateUrlFields="Path" DataTextFormatString="Download" DataNavigateUrlFormatString="{0}">

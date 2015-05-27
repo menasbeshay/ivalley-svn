@@ -445,8 +445,10 @@ Declare @TotalH int,
 select @CTotalH = max(TBF_Total_Hours) , @CTotalMin = max(TBF_Total_Mins), @DayH = sum(DayH), @DayM = sum(DayM), @NightH = sum(NightH), @NightM = sum(NightM)  
 From(  
 Select TBF_Total_Hours , TBF_Total_Mins,  
-case when isheavy = 1 then ((sum(datepart(hh,s.FlyAtDay )))*2)/3  
-else sum(datepart(hh,s.FlyAtDay ))  end DayH,  
+case when isheavy = 1 then 
+((sum(datepart(hh,s.FlyAtDay )))*2)/3  
+else 
+sum(datepart(hh,s.FlyAtDay ))  end DayH,  
   
 case when isheavy = 1 then ((sum(datepart(MI,s.FlyAtDay )))*2)/3  
 else sum(datepart(MI,s.FlyAtDay )) end DayM,  
@@ -469,10 +471,10 @@ Where P.PilotID = @PilotID and
    S.SectorDate <= ISNULL(@EndDate, '01/01/2500') AND     
    (S.IsPAX is null or S.IsPAX <> 1 )  AND  
    /* not Dead head or trainee */  
-   (SP.PositionID <> 12 ) AND  
+   --(SP.PositionID <> 12 ) AND  
    (SP.PositionID <> 13)  
 group by IsHeavy, TBF_Total_Hours , TBF_Total_Mins  
-) as A  
+) As A
 
   
 /* grand totals ( totals within start date and end date ) */  
@@ -925,3 +927,98 @@ Inner Join Pilot P on SP.PilotID = P.PilotID
 Inner Join Position pos on pos.PositionID = sp.PositionID
 where S.SectorID = @SectorID
 GO
+
+
+
+
+  
+If Exists (select Name 
+		   from sysobjects 
+		   where name = 'GetPilotHoursWithinRangeAsTable_Validation' and
+		        xtype = 'FT')
+Drop function GetPilotHoursWithinRangeAsTable_Validation
+Go
+
+CREATE function GetPilotHoursWithinRangeAsTable_Validation (@PilotID int,  
+        @StartDate DateTime = null,  
+        @EndDate DateTime = null)
+returns @result table
+(
+	GrandTotalHours int, 
+	GrandTotalMins int
+)
+as  
+Begin
+  
+Declare @TotalH int,  
+  @TotalMin int  
+  
+select  @TotalH = sum(TotalH), @TotalMin = sum(TotalM)
+From(  
+Select 
+case when isheavy = 1 then 
+	case when CAST(ChoxOff as Time) = '00:00' and CAST(ChoxOn as Time) = '00:00' then 
+		((sum(case when (DateDiff(Second ,S.STD, S.STA) / 3600) < 0 then (DateDiff(Second ,S.STD, S.STA) / 3600) + 24 else (DateDiff(Second ,S.STD, S.STA) / 3600) end) + 
+		sum(case when ((DateDiff(Second ,S.STD, S.STA ) % 3600)/60) < 0 then ((DateDiff(Second ,S.STD, S.STA ) % 3600)/60) + 60 else ((DateDiff(Second ,S.STD, S.STA ) % 3600)/60) end )/60 )*2)/3
+	else 
+		((sum(case when (DateDiff(Second ,S.ChoxOff, S.ChoxOn) / 3600) < 0 then (DateDiff(Second ,S.ChoxOff, S.ChoxOn) / 3600) + 24 else (DateDiff(Second ,S.ChoxOff, S.ChoxOn) / 3600) end) + 
+		sum(case when ((DateDiff(Second ,S.ChoxOff, S.ChoxOn ) % 3600)/60) < 0 then ((DateDiff(Second ,S.ChoxOff, S.ChoxOn ) % 3600)/60) + 60 else ((DateDiff(Second ,S.ChoxOff, S.ChoxOn ) % 3600)/60) end )/60 )*2)/3
+	end
+
+else 
+	case when CAST(ChoxOff as Time) = '00:00' and CAST(ChoxOn as Time) = '00:00' then 
+		sum(case when (DateDiff(Second ,S.STD, S.STA) / 3600) < 0 then (DateDiff(Second ,S.STD, S.STA) / 3600) + 24 else (DateDiff(Second ,S.STD, S.STA) / 3600) end) + 
+		sum(case when ((DateDiff(Second ,S.STD, S.STA ) % 3600)/60) < 0 then ((DateDiff(Second ,S.STD, S.STA ) % 3600)/60) + 60 else ((DateDiff(Second ,S.STD, S.STA ) % 3600)/60) end )/60 
+	else 
+		sum(case when (DateDiff(Second ,S.ChoxOff, S.ChoxOn) / 3600) < 0 then (DateDiff(Second ,S.ChoxOff, S.ChoxOn) / 3600) + 24 else (DateDiff(Second ,S.ChoxOff, S.ChoxOn) / 3600) end) + 
+		sum(case when ((DateDiff(Second ,S.ChoxOff, S.ChoxOn ) % 3600)/60) < 0 then ((DateDiff(Second ,S.ChoxOff, S.ChoxOn ) % 3600)/60) + 60 else ((DateDiff(Second ,S.ChoxOff, S.ChoxOn ) % 3600)/60) end )/60 
+	end
+  end TotalH,  
+  
+case when isheavy = 1 then 
+	case when CAST(ChoxOff as Time) = '00:00' and CAST(ChoxOn as Time) = '00:00' then 
+		((sum(case when ((DateDiff(Second ,S.STD, S.STA ) % 3600)/60) < 0 then ((DateDiff(Second ,S.STD, S.STA ) % 3600)/60) + 60 else ((DateDiff(Second ,S.STD, S.STA ) % 3600)/60) end ) - 
+		((sum(case when ((DateDiff(Second ,S.STD, S.STA ) % 3600)/60) < 0 then ((DateDiff(Second ,S.STD, S.STA ) % 3600)/60) + 60 else ((DateDiff(Second ,S.STD, S.STA ) % 3600)/60) end ))/60)*60 )*2)/3
+	else 
+		((sum(case when ((DateDiff(Second ,S.ChoxOff, S.ChoxOn ) % 3600)/60) < 0 then ((DateDiff(Second ,S.ChoxOff, S.ChoxOn ) % 3600)/60) + 60 else ((DateDiff(Second ,S.ChoxOff, S.ChoxOn ) % 3600)/60) end ) - 
+		((sum(case when ((DateDiff(Second ,S.ChoxOff, S.ChoxOn ) % 3600)/60) < 0 then ((DateDiff(Second ,S.ChoxOff, S.ChoxOn ) % 3600)/60) + 60 else ((DateDiff(Second ,S.ChoxOff, S.ChoxOn ) % 3600)/60) end ))/60)*60 )*2)/3
+	end
+	
+	
+else 
+
+	case when CAST(ChoxOff as Time) = '00:00' and CAST(ChoxOn as Time) = '00:00' then 
+		sum(case when ((DateDiff(Second ,S.STD, S.STA ) % 3600)/60) < 0 then ((DateDiff(Second ,S.STD, S.STA ) % 3600)/60) + 60 else ((DateDiff(Second ,S.STD, S.STA ) % 3600)/60) end ) - 
+		((sum(case when ((DateDiff(Second ,S.STD, S.STA ) % 3600)/60) < 0 then ((DateDiff(Second ,S.STD, S.STA ) % 3600)/60) + 60 else ((DateDiff(Second ,S.STD, S.STA ) % 3600)/60) end ))/60)*60 
+	else 
+		sum(case when ((DateDiff(Second ,S.ChoxOff, S.ChoxOn ) % 3600)/60) < 0 then ((DateDiff(Second ,S.ChoxOff, S.ChoxOn ) % 3600)/60) + 60 else ((DateDiff(Second ,S.ChoxOff, S.ChoxOn ) % 3600)/60) end ) - 
+		((sum(case when ((DateDiff(Second ,S.ChoxOff, S.ChoxOn ) % 3600)/60) < 0 then ((DateDiff(Second ,S.ChoxOff, S.ChoxOn ) % 3600)/60) + 60 else ((DateDiff(Second ,S.ChoxOff, S.ChoxOn ) % 3600)/60) end ))/60)*60 
+	end
+	
+ end TotalM
+from Sector S  
+Inner Join SectorPilot SP on S.SectorID = SP.SectorID  
+Inner Join Pilot P on SP.PilotID = P.PilotID  
+Inner join Position PP on SP.PositionID = PP.PositionID  
+Where P.PilotID = @PilotID and   
+   S.SectorDate >= ISNULL(@StartDate, '01/01/1900') and   
+   S.SectorDate <= ISNULL(@EndDate, '01/01/2500') AND     
+   (S.IsPAX is null or S.IsPAX <> 1 )  AND  
+   /* not Dead head or trainee */  
+   --(SP.PositionID <> 12 ) AND  
+   (SP.PositionID <> 13)  
+group by ChoxOff, ChoxOn, IsHeavy
+) As A
+
+  
+/* grand totals ( totals within start date and end date ) */  
+Select @TotalH =  @TotalH + (@TotalMin/ 60)  
+Select @TotalMin = @TotalMin - (@TotalMin/60)*60  
+  
+insert @result
+Select isnull(@TotalH+((@TotalMin)/60),0) GrandTotalHours , isnull(@TotalMin -(((@TotalMin)/60)*60),0) GrandTotalMin
+
+return  
+End
+
+ 

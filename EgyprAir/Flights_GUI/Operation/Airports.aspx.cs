@@ -48,6 +48,8 @@ namespace Flights_GUI.Operation
 
                 uiTextBoxName.Text = objData.Name;
                 uiTextBoxCode.Text = objData.IATACode;
+                if (!objData.IsColumnNull("TimeZoneID"))
+                    uiDropDownListTimeZone.SelectedValue = objData.TimeZoneID.ToString();
                 CurrentAirport = objData;
                 uiPanelEdit.Visible = true;
                 uiPanelViewAll.Visible = false;
@@ -85,6 +87,8 @@ namespace Flights_GUI.Operation
                 objdata = CurrentAirport;
             objdata.Name = uiTextBoxName.Text;
             objdata.IATACode = uiTextBoxCode.Text;
+            if (uiDropDownListTimeZone.SelectedValue != "0")
+                objdata.TimeZoneID = Convert.ToInt32(uiDropDownListTimeZone.SelectedValue);
             objdata.Save();
             BindData();
             CurrentAirport = null;
@@ -112,6 +116,17 @@ namespace Flights_GUI.Operation
             uiRadGridAirports.DataSource = objdata.DefaultView;
             uiRadGridAirports.DataBind();
 
+        }
+
+        private void LoadDDLs()
+        {
+            Flight_BLL.TimeZone zones = new Flight_BLL.TimeZone();
+            zones.LoadAll();
+            uiDropDownListTimeZone.DataSource = zones.DefaultView;
+            uiDropDownListTimeZone.DataTextField = Flight_BLL.TimeZone.ColumnNames.DisplayName;
+            uiDropDownListTimeZone.DataValueField = Flight_BLL.TimeZone.ColumnNames.TimeZoneID;
+            uiDropDownListTimeZone.DataBind();
+            uiDropDownListTimeZone.Items.Insert(0, new ListItem("Select Time Zone", "0"));
         }
 
 

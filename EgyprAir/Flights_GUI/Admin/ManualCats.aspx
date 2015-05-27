@@ -62,12 +62,7 @@
              <div class="span4">
                  <asp:TextBox ID="uiTextBoxTitle" runat="server"></asp:TextBox></div>
          </div>         
-          <div class="span12 clearfix" style="margin-left:0">
-             <div class="span2">Manual</div>
-             <div class="span4">
-                 <asp:FileUpload ID="uiFileUploadManual" runat="server" />
-             </div>
-         </div>
+          
          <div class="span12 clearfix" style="margin-left:0;margin-top:10px;">
              <div class="span2"></div>
              <div class="span2">

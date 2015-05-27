@@ -11,5 +11,12 @@ namespace Flight_BLL
 		{
 		
 		}
+
+        public bool GetAirportByCode(string IATACode)
+        {
+            this.Where.IATACode.Value = IATACode;
+            this.Where.IATACode.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+            return this.Query.Load();
+        }
 	}
 }

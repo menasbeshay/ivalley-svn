@@ -147,6 +147,38 @@ namespace Flight_DAL
 				}
 			}
 			
+			public static SqlParameter IssueNumber
+			{
+				get
+				{
+					return new SqlParameter("@IssueNumber", SqlDbType.NVarChar, 10);
+				}
+			}
+			
+			public static SqlParameter IssueDate
+			{
+				get
+				{
+					return new SqlParameter("@IssueDate", SqlDbType.DateTime, 0);
+				}
+			}
+			
+			public static SqlParameter RevisionNumber
+			{
+				get
+				{
+					return new SqlParameter("@RevisionNumber", SqlDbType.NVarChar, 10);
+				}
+			}
+			
+			public static SqlParameter RevisionDate
+			{
+				get
+				{
+					return new SqlParameter("@RevisionDate", SqlDbType.DateTime, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -159,6 +191,10 @@ namespace Flight_DAL
             public const string CreatedBy = "CreatedBy";
             public const string CreatedDate = "createdDate";
             public const string ManualCategoryID = "ManualCategoryID";
+            public const string IssueNumber = "IssueNumber";
+            public const string IssueDate = "IssueDate";
+            public const string RevisionNumber = "RevisionNumber";
+            public const string RevisionDate = "RevisionDate";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -172,6 +208,10 @@ namespace Flight_DAL
 					ht[CreatedBy] = _Manual.PropertyNames.CreatedBy;
 					ht[CreatedDate] = _Manual.PropertyNames.CreatedDate;
 					ht[ManualCategoryID] = _Manual.PropertyNames.ManualCategoryID;
+					ht[IssueNumber] = _Manual.PropertyNames.IssueNumber;
+					ht[IssueDate] = _Manual.PropertyNames.IssueDate;
+					ht[RevisionNumber] = _Manual.PropertyNames.RevisionNumber;
+					ht[RevisionDate] = _Manual.PropertyNames.RevisionDate;
 
 				}
 				return (string)ht[columnName];
@@ -190,6 +230,10 @@ namespace Flight_DAL
             public const string CreatedBy = "CreatedBy";
             public const string CreatedDate = "CreatedDate";
             public const string ManualCategoryID = "ManualCategoryID";
+            public const string IssueNumber = "IssueNumber";
+            public const string IssueDate = "IssueDate";
+            public const string RevisionNumber = "RevisionNumber";
+            public const string RevisionDate = "RevisionDate";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -203,6 +247,10 @@ namespace Flight_DAL
 					ht[CreatedBy] = _Manual.ColumnNames.CreatedBy;
 					ht[CreatedDate] = _Manual.ColumnNames.CreatedDate;
 					ht[ManualCategoryID] = _Manual.ColumnNames.ManualCategoryID;
+					ht[IssueNumber] = _Manual.ColumnNames.IssueNumber;
+					ht[IssueDate] = _Manual.ColumnNames.IssueDate;
+					ht[RevisionNumber] = _Manual.ColumnNames.RevisionNumber;
+					ht[RevisionDate] = _Manual.ColumnNames.RevisionDate;
 
 				}
 				return (string)ht[propertyName];
@@ -221,6 +269,10 @@ namespace Flight_DAL
             public const string CreatedBy = "s_CreatedBy";
             public const string CreatedDate = "s_CreatedDate";
             public const string ManualCategoryID = "s_ManualCategoryID";
+            public const string IssueNumber = "s_IssueNumber";
+            public const string IssueDate = "s_IssueDate";
+            public const string RevisionNumber = "s_RevisionNumber";
+            public const string RevisionDate = "s_RevisionDate";
 
 		}
 		#endregion		
@@ -296,6 +348,54 @@ namespace Flight_DAL
 			set
 	        {
 				base.Setint(ColumnNames.ManualCategoryID, value);
+			}
+		}
+
+		public virtual string IssueNumber
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.IssueNumber);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.IssueNumber, value);
+			}
+		}
+
+		public virtual DateTime IssueDate
+	    {
+			get
+	        {
+				return base.GetDateTime(ColumnNames.IssueDate);
+			}
+			set
+	        {
+				base.SetDateTime(ColumnNames.IssueDate, value);
+			}
+		}
+
+		public virtual string RevisionNumber
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.RevisionNumber);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.RevisionNumber, value);
+			}
+		}
+
+		public virtual DateTime RevisionDate
+	    {
+			get
+	        {
+				return base.GetDateTime(ColumnNames.RevisionDate);
+			}
+			set
+	        {
+				base.SetDateTime(ColumnNames.RevisionDate, value);
 			}
 		}
 
@@ -394,6 +494,66 @@ namespace Flight_DAL
 			}
 		}
 
+		public virtual string s_IssueNumber
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.IssueNumber) ? string.Empty : base.GetstringAsString(ColumnNames.IssueNumber);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.IssueNumber);
+				else
+					this.IssueNumber = base.SetstringAsString(ColumnNames.IssueNumber, value);
+			}
+		}
+
+		public virtual string s_IssueDate
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.IssueDate) ? string.Empty : base.GetDateTimeAsString(ColumnNames.IssueDate);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.IssueDate);
+				else
+					this.IssueDate = base.SetDateTimeAsString(ColumnNames.IssueDate, value);
+			}
+		}
+
+		public virtual string s_RevisionNumber
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.RevisionNumber) ? string.Empty : base.GetstringAsString(ColumnNames.RevisionNumber);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.RevisionNumber);
+				else
+					this.RevisionNumber = base.SetstringAsString(ColumnNames.RevisionNumber, value);
+			}
+		}
+
+		public virtual string s_RevisionDate
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.RevisionDate) ? string.Empty : base.GetDateTimeAsString(ColumnNames.RevisionDate);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.RevisionDate);
+				else
+					this.RevisionDate = base.SetDateTimeAsString(ColumnNames.RevisionDate, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -487,6 +647,46 @@ namespace Flight_DAL
 					}
 				}
 
+				public WhereParameter IssueNumber
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.IssueNumber, Parameters.IssueNumber);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter IssueDate
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.IssueDate, Parameters.IssueDate);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter RevisionNumber
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.RevisionNumber, Parameters.RevisionNumber);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter RevisionDate
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.RevisionDate, Parameters.RevisionDate);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -564,12 +764,64 @@ namespace Flight_DAL
 				}
 			}
 
+			public WhereParameter IssueNumber
+		    {
+				get
+		        {
+					if(_IssueNumber_W == null)
+	        	    {
+						_IssueNumber_W = TearOff.IssueNumber;
+					}
+					return _IssueNumber_W;
+				}
+			}
+
+			public WhereParameter IssueDate
+		    {
+				get
+		        {
+					if(_IssueDate_W == null)
+	        	    {
+						_IssueDate_W = TearOff.IssueDate;
+					}
+					return _IssueDate_W;
+				}
+			}
+
+			public WhereParameter RevisionNumber
+		    {
+				get
+		        {
+					if(_RevisionNumber_W == null)
+	        	    {
+						_RevisionNumber_W = TearOff.RevisionNumber;
+					}
+					return _RevisionNumber_W;
+				}
+			}
+
+			public WhereParameter RevisionDate
+		    {
+				get
+		        {
+					if(_RevisionDate_W == null)
+	        	    {
+						_RevisionDate_W = TearOff.RevisionDate;
+					}
+					return _RevisionDate_W;
+				}
+			}
+
 			private WhereParameter _ManualID_W = null;
 			private WhereParameter _Title_W = null;
 			private WhereParameter _Path_W = null;
 			private WhereParameter _CreatedBy_W = null;
 			private WhereParameter _CreatedDate_W = null;
 			private WhereParameter _ManualCategoryID_W = null;
+			private WhereParameter _IssueNumber_W = null;
+			private WhereParameter _IssueDate_W = null;
+			private WhereParameter _RevisionNumber_W = null;
+			private WhereParameter _RevisionDate_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -579,6 +831,10 @@ namespace Flight_DAL
 				_CreatedBy_W = null;
 				_CreatedDate_W = null;
 				_ManualCategoryID_W = null;
+				_IssueNumber_W = null;
+				_IssueDate_W = null;
+				_RevisionNumber_W = null;
+				_RevisionDate_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -695,6 +951,46 @@ namespace Flight_DAL
 					}
 				}
 
+				public AggregateParameter IssueNumber
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.IssueNumber, Parameters.IssueNumber);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter IssueDate
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.IssueDate, Parameters.IssueDate);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter RevisionNumber
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.RevisionNumber, Parameters.RevisionNumber);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter RevisionDate
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.RevisionDate, Parameters.RevisionDate);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -772,12 +1068,64 @@ namespace Flight_DAL
 				}
 			}
 
+			public AggregateParameter IssueNumber
+		    {
+				get
+		        {
+					if(_IssueNumber_W == null)
+	        	    {
+						_IssueNumber_W = TearOff.IssueNumber;
+					}
+					return _IssueNumber_W;
+				}
+			}
+
+			public AggregateParameter IssueDate
+		    {
+				get
+		        {
+					if(_IssueDate_W == null)
+	        	    {
+						_IssueDate_W = TearOff.IssueDate;
+					}
+					return _IssueDate_W;
+				}
+			}
+
+			public AggregateParameter RevisionNumber
+		    {
+				get
+		        {
+					if(_RevisionNumber_W == null)
+	        	    {
+						_RevisionNumber_W = TearOff.RevisionNumber;
+					}
+					return _RevisionNumber_W;
+				}
+			}
+
+			public AggregateParameter RevisionDate
+		    {
+				get
+		        {
+					if(_RevisionDate_W == null)
+	        	    {
+						_RevisionDate_W = TearOff.RevisionDate;
+					}
+					return _RevisionDate_W;
+				}
+			}
+
 			private AggregateParameter _ManualID_W = null;
 			private AggregateParameter _Title_W = null;
 			private AggregateParameter _Path_W = null;
 			private AggregateParameter _CreatedBy_W = null;
 			private AggregateParameter _CreatedDate_W = null;
 			private AggregateParameter _ManualCategoryID_W = null;
+			private AggregateParameter _IssueNumber_W = null;
+			private AggregateParameter _IssueDate_W = null;
+			private AggregateParameter _RevisionNumber_W = null;
+			private AggregateParameter _RevisionDate_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -787,6 +1135,10 @@ namespace Flight_DAL
 				_CreatedBy_W = null;
 				_CreatedDate_W = null;
 				_ManualCategoryID_W = null;
+				_IssueNumber_W = null;
+				_IssueDate_W = null;
+				_RevisionNumber_W = null;
+				_RevisionDate_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -883,6 +1235,22 @@ namespace Flight_DAL
 
 			p = cmd.Parameters.Add(Parameters.ManualCategoryID);
 			p.SourceColumn = ColumnNames.ManualCategoryID;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.IssueNumber);
+			p.SourceColumn = ColumnNames.IssueNumber;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.IssueDate);
+			p.SourceColumn = ColumnNames.IssueDate;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.RevisionNumber);
+			p.SourceColumn = ColumnNames.RevisionNumber;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.RevisionDate);
+			p.SourceColumn = ColumnNames.RevisionDate;
 			p.SourceVersion = DataRowVersion.Current;
 
 
