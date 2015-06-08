@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Flight_BLL;
+using System.Web.Security;
 
 namespace Flights_GUI.MasterPages
 {
@@ -14,11 +15,14 @@ namespace Flights_GUI.MasterPages
         public string ModuleTitle { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(Page.User.Identity.ToString()))
+
+            if (!string.IsNullOrWhiteSpace(Membership.GetUser(Page.User.Identity.Name).ProviderUserKey.ToString()))
             {
                 UsersNofications usNotif = new UsersNofications();
-                usNotif.getNotification1(Page.User.Identity.ToString());
+                usNotif.getNotifications(new Guid(Membership.GetUser(Page.User.Identity.Name).ProviderUserKey.ToString()));
+                usNotif.GetColumn("NotifCount");
 
+                HFCirculars.Value = usNotif.GetColumn("NotifCount").ToString();
             }
         }
     }
