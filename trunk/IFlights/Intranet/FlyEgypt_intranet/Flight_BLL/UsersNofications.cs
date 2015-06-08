@@ -27,7 +27,7 @@ namespace Flight_BLL
 
 
             return LoadFromRawSql(
-                "SELECT COUNT(UserNotificationID) AS NotifCount FROM UsersNofications WHERE UserID = {0} AND (IsRead <> 1 or IsRead is null) GROUP BY NotificationType ORDER BY NotificationType ASC", UserID
+                "SELECT COUNT(UserNotificationID) NotifCount,NotificationTypes.NotificationTypeID, UserID FROM NotificationTypes LEFT JOIN UsersNofications ON NotificationTypes.NotificationTypeID = UsersNofications.NotificationType WHERE UserID = {0}  AND (IsRead <> 1 or IsRead is null) GROUP BY NotificationTypes.NotificationTypeID, UserID", UserID
                 );
         }
     }
