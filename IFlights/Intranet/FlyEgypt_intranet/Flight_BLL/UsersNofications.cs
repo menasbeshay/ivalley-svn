@@ -6,14 +6,14 @@ using Flight_DAL;
 
 namespace Flight_BLL
 {
-	public class UsersNofications : _UsersNofications
-	{
-		public UsersNofications()
-		{
-		
-		}
+    public class UsersNofications : _UsersNofications
+    {
+        public UsersNofications()
+        {
 
-        public virtual bool getNotification1(string UserID)
+        }
+
+        public virtual bool getNotifications(Guid UserID)
         {
             //this.Where.UserID.Value = UserID;
             //this.Where.UserID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
@@ -27,7 +27,7 @@ namespace Flight_BLL
 
 
             return LoadFromRawSql(
-                "SELECT COUNT(UserNotificationID) FROM UsersNofications WHERE UserID = {0} AND (IsRead <> 1 or IsRead is null) GROUP BY NotificationType", UserID
+                "SELECT COUNT(UserNotificationID) AS NotifCount FROM UsersNofications WHERE UserID = {0} AND (IsRead <> 1 or IsRead is null) GROUP BY NotificationType ORDER BY NotificationType ASC", UserID
                 );
         }
     }
