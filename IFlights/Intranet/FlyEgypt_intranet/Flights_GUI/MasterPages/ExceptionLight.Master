@@ -37,23 +37,23 @@
 
     <!-- Load JS siles -->
     <script type="text/javascript" src="../ThemesFiles/ExceptionsLight/js/jquery.min.js"></script>
-    <%--   
+       
 	    <!-- Waypoints script -->
 		<script type="text/javascript" src="../ThemesFiles/ExceptionsLight/js/waypoints.min.js"></script>
-    --%>
+    
     <!-- SLIDER REVOLUTION SCRIPTS  -->
     <script type="text/javascript" src="../ThemesFiles/ExceptionsLight/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
     <script type="text/javascript" src="../ThemesFiles/ExceptionsLight/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
 
-    <%--<!-- Animate numbers increment -->
+    <!-- Animate numbers increment -->
 		<script type="text/javascript" src="../ThemesFiles/ExceptionsLight/js/jquery.animateNumber.min.js"></script>
-    --%>
+    
     <!-- slick slider carousel -->
     <script type="text/javascript" src="../ThemesFiles/ExceptionsLight/js/slick.min.js"></script>
 
-    <%--<!-- Animate numbers increment -->
+   <!-- Animate numbers increment -->
 		<script type="text/javascript" src="../ThemesFiles/ExceptionsLight/js/jquery.easypiechart.min.js"></script>
-    --%>
+    
     <!-- PrettyPhoto script -->
     <script type="text/javascript" src="../ThemesFiles/ExceptionsLight/js/jquery.prettyPhoto.js"></script>
 

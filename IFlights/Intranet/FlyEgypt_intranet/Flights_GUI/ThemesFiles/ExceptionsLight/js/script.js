@@ -284,7 +284,7 @@
 	*/
 	
 	/* ================ Level Numbers increment Animation. ================ */
-	/*$('.no-touch .level-out').waypoint(function() {
+	$('.no-touch .level-out').waypoint(function() {
 		$('.level-out').each(function(){
 			var num = $(this).find('.level-in').attr('data-percent'),
 				percent = $.animateNumber.numberStepFactories.append(' %');
@@ -327,9 +327,9 @@
 			$(this.el).find('.percent').text(Math.round(percent));
 		}
 	});
-	*/
+	
 	/* ================ FUN STAFF Numbers increment Animation. ================ */
-	/*$('.touch .fun-number').each(function(){
+	$('.touch .fun-number').each(function(){
 		var thisNo = $(this).text();
 		$(this).animateNumber({number: thisNo},4000);
 	});
@@ -340,7 +340,7 @@
 			$(this).animateNumber({number: thisNo},4000);
 		});
 	},{offset: '90%',triggerOnce: true});
-		*/
+		
 	/* ================ testimonials carousel. ================ */
 	$('.testimonials-1').slick({
 		dots: false,

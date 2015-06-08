@@ -781,6 +781,7 @@
     <Content Include="css\style_navy-blue.css" />
     <Content Include="css\style_purple.css" />
     <Content Include="css\style_responsive.css" />
+    <Content Include="DashBored.aspx" />
     <Content Include="images\Accounting.png" />
     <Content Include="images\Courses.png" />
     <Content Include="images\Crew.gif" />
@@ -1900,6 +1901,13 @@
     <Compile Include="Common\Training.aspx.designer.cs">
       <DependentUpon>Training.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DashBored.aspx.cs">
+      <DependentUpon>DashBored.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DashBored.aspx.designer.cs">
+      <DependentUpon>DashBored.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Intranet\AircraftManuals.aspx.cs">
       <DependentUpon>AircraftManuals.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2652,7 +2660,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>4871</DevelopmentServerPort>
+          <DevelopmentServerPort>50422</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
