@@ -51,7 +51,71 @@ namespace Flights_GUI.MasterPages
                         usNotif.MoveNext();
                     }
                 }
-                
+            }
+        }
+
+        protected void uiRepeaterInteranetMenu_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                Label lblNot = e.Item.FindControl("lblNotification") as Label;
+                HiddenField hfRep = e.Item.FindControl("hfRepeater") as HiddenField;
+                switch (hfRep.Value.ToString())
+                {
+                    case "Circulars":
+                        if (HFCirculars.Value.ToString() != "0" || string.IsNullOrEmpty(HFCirculars.Value.ToString()))
+                        {
+                            lblNot.Text = HFCirculars.Value;
+                        }
+                        else
+                        {
+                            lblNot.Visible = false;
+                        }
+                        break;
+                    case "Bulletins":
+                        if (HFBulletins.Value.ToString() != "0" || string.IsNullOrEmpty(HFBulletins.Value.ToString()))
+                        {
+                            lblNot.Text = HFBulletins.Value;
+                        }
+                        else
+                        {
+                            lblNot.Visible = false;
+                        }
+                        break;
+                    case "Manuals":
+                        if (HFManuals.Value.ToString() != "0" || string.IsNullOrEmpty(HFManuals.Value.ToString()))
+                        {
+                            lblNot.Text = HFManuals.Value;
+                        }
+                        else
+                        {
+                            lblNot.Visible = false;
+                        }
+                        break;
+                    case "Forms":
+                        if (HFForms.Value.ToString() != "0" || string.IsNullOrEmpty(HFForms.Value.ToString()))
+                        {
+                            lblNot.Text = HFForms.Value;
+                        }
+                        else
+                        {
+                            lblNot.Visible = false;
+                        }
+                        break;
+                    case "AircraftManuals":
+                        if (HFAircraftManuals.Value.ToString() != "0" || string.IsNullOrEmpty(HFAircraftManuals.Value.ToString()))
+                        {
+                            lblNot.Text = HFAircraftManuals.Value;
+                        }
+                        else
+                        {
+                            lblNot.Visible = false;
+                        }
+                        break;
+                    default:
+                        lblNot.Visible = false;
+                        break;
+                }
             }
         }
     }

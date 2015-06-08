@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -45,6 +46,8 @@ namespace Flights_GUI.Intranet
                 uiLabelCat.Text = uiRadTreeViewCats.SelectedNode.Text;
                 BindData();
             }
+
+            MarkNotificationsAsRead();
         }
 
         protected void uiRadTreeViewCats_NodeClick(object sender, Telerik.Web.UI.RadTreeNodeEventArgs e)
@@ -79,6 +82,12 @@ namespace Flights_GUI.Intranet
             uiRadGridmanuals.DataSource = objdata.DefaultView;
             uiRadGridmanuals.DataBind();
 
+        }
+
+        protected void MarkNotificationsAsRead()
+        {
+            UsersNofications userNotif = new UsersNofications();
+            userNotif.MarkNotificationsRead((new Guid(Membership.GetUser(Page.User.Identity.Name).ProviderUserKey.ToString())), 4);
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Flight_BLL;
+using System.Web.Security;
 
 namespace Flights_GUI.Intranet
 {
@@ -45,6 +46,7 @@ namespace Flights_GUI.Intranet
                     uiPanelViewAll.Visible = false;
                     uiPanelCurrent.Visible = true;
                 }
+                MarkNotificationsAsRead();
             }
         }
 
@@ -75,6 +77,12 @@ namespace Flights_GUI.Intranet
         {
             uiRadListViewCirculars.CurrentPageIndex = e.NewPageIndex;
             LoadCirculars();
+        }
+
+        protected void MarkNotificationsAsRead()
+        {
+            UsersNofications userNotif = new UsersNofications();
+            userNotif.MarkNotificationsRead((new Guid(Membership.GetUser(Page.User.Identity.Name).ProviderUserKey.ToString())),1);
         }
     }
 }
