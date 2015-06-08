@@ -21,7 +21,13 @@ namespace Flights_GUI.MasterPages
                 UsersNofications usNotif = new UsersNofications();
                 usNotif.getNotifications(new Guid(Membership.GetUser(Page.User.Identity.Name).ProviderUserKey.ToString()));
                 usNotif.GetColumn("NotifCount");
-
+                for (int i = 0; i < usNotif.RowCount; i++)
+                {
+                    switch (usNotif.GetColumn("NotificationTypeID"))
+                    {
+                        default:
+                    }
+                }
                 HFCirculars.Value = usNotif.GetColumn("NotifCount").ToString();
             }
         }
