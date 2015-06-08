@@ -1,0 +1,345 @@
+﻿fieldset
+{
+    color: #FFFFFF;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    background-color: #FFFFFF;
+    border: #F00;
+}
+
+body
+{
+    font-size: 16px;
+}
+a:link
+{
+    text-decoration: none;
+    color: #094f8d;
+}
+a:visited
+{
+    text-decoration: none;
+    color: #094f8d;
+}
+a:hover
+{
+    text-decoration: none;
+    color: #C3362D;
+}
+a:active
+{
+    text-decoration: none;
+    color: #C3362D;
+}
+
+.AdminMain
+{    
+    padding: 20px;
+    font-family: Verdana;
+}
+
+.AdminLeft
+{
+    float: left;    
+    width:15%;
+    padding-right: 5px;
+    
+}
+
+.AdminMiddle
+{
+    float: left;
+    
+}
+
+.AdminRight
+{
+    float: left;
+    width: 259px;
+}
+
+.clear5
+{
+    clear: both;
+    height: 5px;
+}
+
+.Label
+{
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: #666699;
+}
+
+h3
+{
+    color: Green;
+    font-family: Verdana;
+}
+
+.BackDiv
+{
+    width: 300px;
+    float: left;
+    text-align: left;
+    padding-left: 15px;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.NewsBlock
+{
+    border: 1px solid #C0C0C0;
+    direction: rtl;
+    float: left;
+    width: 310px; /*background: url(../images/box2.jpg) no-repeat center;      */
+}
+
+.NewsHeader
+{
+    background: url(../images/blue_news.jpg) no-repeat center;
+    width: 313px;
+    height: 33px;
+}
+
+.NewsBlock .NewsDate
+{
+    float: right;
+    color: #0E528F;
+    font-weight: bold;
+    width: 100px;
+    font-size: 15px;
+    padding-right: 20px;
+}
+.NewsBlock .More a
+{
+    float: right;
+    color: #C3362D;
+    font-weight: bold;
+    width: 95px;
+    font-size: 15px;
+}
+
+.NewsBlock .NewsDetails
+{
+    width: 283px;
+    padding-right: 20px;
+    padding-left: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: #606061;
+}
+
+.TermsHeader
+{
+    background: url(../images/blue.jpg) no-repeat center;
+    width: 313px;
+    height: 33px;
+}
+
+.NewsBlock .TermsDetails
+{
+    width: 283px;
+    padding-right: 20px;
+    padding-left: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: #606061;
+    padding-top: 10px;
+}
+
+.mainContent
+{
+    width: 95%;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    direction: rtl;
+}
+
+
+.Left
+{
+    float: right;
+    width: 20%;
+}
+
+.Middle
+{
+    float: right;
+}
+
+.Right
+{
+    float: right;
+    width: 20%;
+}
+
+.Right .Label
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #0000FF;
+}
+
+.Button
+{
+    background: url(../images/Button.gif) no-repeat center;
+}
+
+
+
+.LeftContent
+{
+    float: left;
+    width: 20%;
+}
+
+.MiddleContent
+{
+    float: left;
+}
+
+.RightContent
+{
+    float: left;
+    width: 20%;
+}
+
+.LeftContent .Label
+{
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: #666699;
+}
+
+.seprator
+{
+    color: #FFFFFF;
+    font-weight: bold;    
+    font-family: Tahoma, Geneva, sans-serif;
+    text-align: left;
+    background-color: #79BCFF;
+    padding: 2px;
+    display: block;
+    clear: both;
+    padding-left:30px;
+}
+
+
+.greenI
+{
+    background-color: #00FF00;
+    color: #000000;
+    
+}
+
+.yellowI
+{
+    background-color: #FFFF00;
+    color: #000000;
+}
+
+.blueI
+{
+    background-color: #0099FF;
+    color: #FFFFFF;
+}
+
+.redI
+{
+    background-color: #FF0000;
+    color: #FFFFFF;
+}
+
+.accordionHeader
+{
+    color: #FFFFFF;
+    font-weight: bold;
+    font-family: 'Times New Roman' , Times, serif;
+    text-align: left;
+    padding: 2px;
+    padding-left:30px;
+    display: block;
+    clear: both;
+    background: #79BCFF url('images/toggle_expand_alt.png') no-repeat 5px center;
+    cursor: pointer;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.accordionHeaderSelected
+{
+    cursor:pointer;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-family: 'Times New Roman' , Times, serif;
+    text-align: left;    
+    padding: 2px;
+    padding-left:30px;
+    display: block;
+    clear: both;
+    background: #79BCFF url('images/toggle_collapse_alt.png') no-repeat 5px center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.AccordionContent
+{
+    padding-top:10px;
+}
+
+.ajax__tab_tab
+{
+    width:100px;
+    font-weight:bold;
+    height:25px;
+}
+.clear { clear:both; height:1px;}
+.clear10 { clear:both; height:10px;}
+
+
+.AdminMenu
+{
+    padding:0; 
+    margin:0; 
+    list-style: none; 
+}
+
+.AdminMenu li a img
+{            
+    vertical-align:middle;
+}
+
+.AdminMenu li a
+{            
+    margin:20px;    
+    float:left;
+    padding:15px;
+    background-color: #FF9933;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 18px;
+    color: #FFFFFF;
+    -moz-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    border: 1px #848484 solid;
+    text-align: center;
+    line-height: 18px;
+    width:200px;
+}
+
+.AdminMenu li a:hover
+{    
+    background-color: #FFFFFF;    
+    color: #FF9933;    
+}
+
+.ModuleName
+{
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    color: #FF6600;
+}
