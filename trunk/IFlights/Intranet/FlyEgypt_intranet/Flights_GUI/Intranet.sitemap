@@ -1,7 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
     <siteMapNode url="" title="root"  description=""  roles="*" >
-        <siteMapNode url="~/Intranet/Circulars.aspx" title="Circulars" description="fa-bullhorn" htmlID="Circulars"/>
+        <siteMapNode url="~/Intranet/Circulars.aspx" title="Circulars" description="fa-bullhorn" htmlID="Circulars" 
+
+  
+      />
+      
         <siteMapNode url="~/Intranet/bulletins.aspx" title="Bulletins" description="fa-bullhorn" htmlID="Bulletins"/>
         <siteMapNode url="~/Intranet/Manuals.aspx" title="Manuals"  description="fa-book" htmlID="Manuals">
           <!--<siteMapNode url="http://www.civilaviation.gov.eg/Regulations/regulation.html" title="ECAR" description="" htmlID="ECAR" roles="*" target="_blank" />
@@ -27,7 +31,7 @@
           <siteMapNode url="~/intranet/forms.aspx?cid=11" title="Security Management (SEC)"  description="fa-file" htmlID="dsp"/>
         </siteMapNode>
 
-      <siteMapNode url="#1" title="Aircraft Manuals"  description="fa-plane" htmlID="AircraftManuals">       
+      <siteMapNode url="~/intranet/AircraftManuals.aspx" title="Aircraft Manuals"  description="fa-plane" htmlID="AircraftManuals">       
         <siteMapNode url="~/intranet/AircraftManuals.aspx?cid=1" title="Boing Manuals"  description="fa-file" htmlID="dsp"/>
       </siteMapNode>
       

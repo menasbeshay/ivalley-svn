@@ -15,20 +15,12 @@ namespace Flight_BLL
 
         public virtual bool getNotifications(Guid UserID)
         {
-            //this.Where.UserID.Value = UserID;
-            //this.Where.UserID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
-            //this.Where.UserID.Conjuction = MyGeneration.dOOdads.WhereParameter.Conj.And;
-            //this.Where.IsRead.Value = 0;
-            //this.Where.IsRead.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
-            //this.Where.IsRead.Conjuction = MyGeneration.dOOdads.WhereParameter.Conj.And;
-            //this.Where.NotificationType.Value = 1;
-            //this.Where.NotificationType.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
-            //return this.Query.Load();
+            return LoadFromRawSql("SELECT COUNT(UserNotificationID) NotifCount,NotificationTypes.NotificationTypeID, UserID FROM NotificationTypes LEFT JOIN UsersNofications ON NotificationTypes.NotificationTypeID = UsersNofications.NotificationType WHERE UserID = {0}  AND (IsRead <> 1 or IsRead is null) GROUP BY NotificationTypes.NotificationTypeID, UserID", UserID);
+        }
 
-
-            return LoadFromRawSql(
-                "SELECT COUNT(UserNotificationID) NotifCount,NotificationTypes.NotificationTypeID, UserID FROM NotificationTypes LEFT JOIN UsersNofications ON NotificationTypes.NotificationTypeID = UsersNofications.NotificationType WHERE UserID = {0}  AND (IsRead <> 1 or IsRead is null) GROUP BY NotificationTypes.NotificationTypeID, UserID", UserID
-                );
+        public virtual bool MarkNotificationsRead(Guid UserID, int NotificationType)
+        {
+            return LoadFromRawSql("UPDATE UsersNofications SET IsRead = 1 WHERE UserID = {0} AND NotificationType={1}",UserID,NotificationType);
         }
     }
 }

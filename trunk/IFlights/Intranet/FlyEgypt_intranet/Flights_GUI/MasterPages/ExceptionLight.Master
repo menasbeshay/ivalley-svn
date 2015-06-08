@@ -98,6 +98,8 @@
             font-size: 13px !important;
         }
     </style>
+
+    
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -173,11 +175,11 @@
                     </div>
                 </div>
                 <!-- top bar end -->
-                <asp:HiddenField ID="HFCirculars" runat="server"></asp:HiddenField>
-                <asp:HiddenField ID="HFBulletins" runat="server"></asp:HiddenField>
-                <asp:HiddenField ID="HFManuals" runat="server"></asp:HiddenField>
-                <asp:HiddenField ID="HFForms" runat="server"></asp:HiddenField>
-                <asp:HiddenField ID="HFAircraftManuals" runat="server"></asp:HiddenField>
+                <asp:HiddenField ID="HFCirculars" runat="server" Value="0" ClientIDMode="Static"></asp:HiddenField>
+                <asp:HiddenField ID="HFBulletins" runat="server" Value="0"></asp:HiddenField>
+                <asp:HiddenField ID="HFManuals" runat="server" Value="0"></asp:HiddenField>
+                <asp:HiddenField ID="HFForms" runat="server" Value="0"></asp:HiddenField>
+                <asp:HiddenField ID="HFAircraftManuals" runat="server" Value="0"></asp:HiddenField>
 
                 <!-- Logo, global navigation menu and search start -->
                 <header class="top-head" data-sticky="true">
@@ -187,12 +189,12 @@
                                 <a href="#"></a>
                             </div>
                             <div class="cell-9 top-menu">
-                                <asp:Repeater ID="uiRepeaterInteranetMenu" runat="server" DataSourceID="SiteMapDataSource2">
+                                <asp:Repeater ID="uiRepeaterInteranetMenu" OnItemDataBound="uiRepeaterInteranetMenu_ItemDataBound" runat="server" DataSourceID="SiteMapDataSource2">
                                     <HeaderTemplate>
                                         <nav class="top-nav">
                                             <ul>
                                                 <li><a href="#"><i class="fa fa-home"></i><span>Home</span></a>
-                                                    <label class="badge">19</label>
+                                                    
                                                 </li>
                                     </HeaderTemplate>
                                     <FooterTemplate>
@@ -205,6 +207,7 @@
                                                     <%# Eval("title") %> 
                                                 </span>
                                             </a>
+                                            <asp:HiddenField ID="hfRepeater" runat="server" Value='<%# Eval("[htmlID]") %>' />
                                             <asp:Repeater runat="server" DataSource='<%# ((SiteMapNode) Container.DataItem).ChildNodes %>'>
                                                 <HeaderTemplate>
                                                     <ul>
@@ -220,6 +223,7 @@
                                                     </ul>
                                                 </FooterTemplate>
                                             </asp:Repeater>
+                                            <asp:Label ID="lblNotification" CssClass="badge" runat="server" Text="0"></asp:Label>
                                         </li>
                                     </ItemTemplate>
                                 </asp:Repeater>
@@ -439,5 +443,14 @@
     </form>
     <!-- general script file -->
     <script type="text/javascript" src="../ThemesFiles/ExceptionsLight/js/script.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var hfC = $('#HFCirculars').val();
+            if (hfC != "0") {
+                $("#mi_top_Circulars").append("<label >" + hfC + "</label>")
+            }
+        });
+    </script>
 </body>
 </html>
