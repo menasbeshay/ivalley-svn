@@ -15,7 +15,6 @@ namespace Flights_GUI.MasterPages
         public string ModuleTitle { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (!string.IsNullOrWhiteSpace(Membership.GetUser(Page.User.Identity.Name).ProviderUserKey.ToString()))
             {
                 UsersNofications usNotif = new UsersNofications();
@@ -23,10 +22,31 @@ namespace Flights_GUI.MasterPages
                 usNotif.GetColumn("NotifCount");
                 for (int i = 0; i < usNotif.RowCount; i++)
                 {
-                    switch (usNotif.GetColumn("NotificationTypeID"))
+                    switch (usNotif.GetColumn("NotificationTypeID").ToString())
                     {
+                        case "1":
+                            HFCirculars.Value = usNotif.GetColumn("NotifCount").ToString();
+                            break;
+
+                        case "2":
+                            HFBulletins.Value = usNotif.GetColumn("NotifCount").ToString();
+                            break;
+
+                        case "3":
+                            HFManuals.Value = usNotif.GetColumn("NotifCount").ToString();
+                            break;
+
+                        case "4":
+                            HFForms.Value = usNotif.GetColumn("NotifCount").ToString();
+                            break;
+
+                        case "5":
+                            HFAircraftManuals.Value = usNotif.GetColumn("NotifCount").ToString();
+                            break;
                         default:
+                            break;
                     }
+                    usNotif.MoveNext();
                 }
                 HFCirculars.Value = usNotif.GetColumn("NotifCount").ToString();
             }
