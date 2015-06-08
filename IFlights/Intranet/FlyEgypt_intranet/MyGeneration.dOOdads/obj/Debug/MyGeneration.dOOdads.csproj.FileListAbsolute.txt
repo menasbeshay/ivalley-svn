@@ -3,3 +3,8 @@ D:\Intranet\IFlights\Intranet\FlyEgypt_intranet\MyGeneration.dOOdads\bin\Debug\M
 D:\Intranet\IFlights\Intranet\FlyEgypt_intranet\MyGeneration.dOOdads\bin\Debug\dOOdads.xml
 D:\Intranet\IFlights\Intranet\FlyEgypt_intranet\MyGeneration.dOOdads\obj\Debug\MyGeneration.dOOdads.dll
 D:\Intranet\IFlights\Intranet\FlyEgypt_intranet\MyGeneration.dOOdads\obj\Debug\MyGeneration.dOOdads.pdb
+D:\SVN Data\I-Valley\IFlights\Intranet\FlyEgypt_intranet\MyGeneration.dOOdads\bin\Debug\MyGeneration.dOOdads.dll
+D:\SVN Data\I-Valley\IFlights\Intranet\FlyEgypt_intranet\MyGeneration.dOOdads\bin\Debug\MyGeneration.dOOdads.pdb
+D:\SVN Data\I-Valley\IFlights\Intranet\FlyEgypt_intranet\MyGeneration.dOOdads\bin\Debug\dOOdads.xml
+D:\SVN Data\I-Valley\IFlights\Intranet\FlyEgypt_intranet\MyGeneration.dOOdads\obj\Debug\MyGeneration.dOOdads.dll
+D:\SVN Data\I-Valley\IFlights\Intranet\FlyEgypt_intranet\MyGeneration.dOOdads\obj\Debug\MyGeneration.dOOdads.pdb

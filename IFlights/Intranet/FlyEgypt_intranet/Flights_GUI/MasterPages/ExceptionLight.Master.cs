@@ -19,36 +19,39 @@ namespace Flights_GUI.MasterPages
             {
                 UsersNofications usNotif = new UsersNofications();
                 usNotif.getNotifications(new Guid(Membership.GetUser(Page.User.Identity.Name).ProviderUserKey.ToString()));
-                usNotif.GetColumn("NotifCount");
-                for (int i = 0; i < usNotif.RowCount; i++)
+                if (usNotif.RowCount > 0)
                 {
-                    switch (usNotif.GetColumn("NotificationTypeID").ToString())
+                    usNotif.GetColumn("NotifCount");
+                    for (int i = 0; i < usNotif.RowCount; i++)
                     {
-                        case "1":
-                            HFCirculars.Value = usNotif.GetColumn("NotifCount").ToString();
-                            break;
+                        switch (usNotif.GetColumn("NotificationTypeID").ToString())
+                        {
+                            case "1":
+                                HFCirculars.Value = usNotif.GetColumn("NotifCount").ToString();
+                                break;
 
-                        case "2":
-                            HFBulletins.Value = usNotif.GetColumn("NotifCount").ToString();
-                            break;
+                            case "2":
+                                HFBulletins.Value = usNotif.GetColumn("NotifCount").ToString();
+                                break;
 
-                        case "3":
-                            HFManuals.Value = usNotif.GetColumn("NotifCount").ToString();
-                            break;
+                            case "3":
+                                HFManuals.Value = usNotif.GetColumn("NotifCount").ToString();
+                                break;
 
-                        case "4":
-                            HFForms.Value = usNotif.GetColumn("NotifCount").ToString();
-                            break;
+                            case "4":
+                                HFForms.Value = usNotif.GetColumn("NotifCount").ToString();
+                                break;
 
-                        case "5":
-                            HFAircraftManuals.Value = usNotif.GetColumn("NotifCount").ToString();
-                            break;
-                        default:
-                            break;
+                            case "5":
+                                HFAircraftManuals.Value = usNotif.GetColumn("NotifCount").ToString();
+                                break;
+                            default:
+                                break;
+                        }
+                        usNotif.MoveNext();
                     }
-                    usNotif.MoveNext();
                 }
-                HFCirculars.Value = usNotif.GetColumn("NotifCount").ToString();
+                
             }
         }
     }
