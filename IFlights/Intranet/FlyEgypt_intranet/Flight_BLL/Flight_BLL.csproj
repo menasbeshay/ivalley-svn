@@ -43,11 +43,16 @@
     <Compile Include="AirCraftManual.cs" />
     <Compile Include="AircraftManualCategory.cs" />
     <Compile Include="Announcement.cs" />
+    <Compile Include="FromVersion.cs" />
+    <Compile Include="Groups.cs" />
     <Compile Include="Manual.cs" />
     <Compile Include="ManualCategory.cs" />
+    <Compile Include="ManualForm.cs" />
+    <Compile Include="ManualVersion.cs" />
     <Compile Include="NotificationTypes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsersNofications.cs" />
+    <Compile Include="UsersProfiles.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Flight_DAL\Flight_DAL.csproj">

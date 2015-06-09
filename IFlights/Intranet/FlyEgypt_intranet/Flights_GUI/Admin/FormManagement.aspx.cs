@@ -65,7 +65,7 @@ namespace Flights_GUI.Admin
                 objData.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
 
                 uiTextBoxTitle.Text = objData.Title;
-                uiTextBoxCreatedBy.Text = objData.CreatedBy;
+                //uiTextBoxCreatedBy.Text = objData.CreatedBy;
                 uiTextBoxIssueNo.Text = objData.IssueNumber;
                 uiTextBoxRevisionNo.Text = objData.RevisionNumber;
                 if (!objData.IsColumnNull(Manual.ColumnNames.IssueDate))
@@ -108,7 +108,7 @@ namespace Flights_GUI.Admin
             else
                 objdata = CurrentManual;
             objdata.Title = uiTextBoxTitle.Text;
-            objdata.CreatedBy = uiTextBoxCreatedBy.Text;
+            //objdata.CreatedBy = uiTextBoxCreatedBy.Text;
             if (currentManualCat != 0)
                 objdata.ManualCategoryID = currentManualCat;
             if (uiFileUploadManual.HasFile)
