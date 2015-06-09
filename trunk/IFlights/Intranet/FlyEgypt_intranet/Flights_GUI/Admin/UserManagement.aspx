@@ -109,6 +109,21 @@
                 </div>
             </div>
             <div style="clear:both;height:5px;"></div>
+                        <div class="cell-12 clearfix">
+                <div class="cell-2">
+                    Full Name : 
+                </div>
+                <div class="cell-4">
+                    <asp:TextBox ID="TextBox1" runat="server" Width="250px" ValidationGroup="EditUser"></asp:TextBox>
+                        &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*"
+                            ControlToValidate="uiTextBoxUserName" Display="Dynamic" ValidationGroup="EditUser"></asp:RequiredFieldValidator>
+                </div>
+            </div>
+            <div style="clear:both;height:5px;"></div>
+
+
+
+
              <div class="cell-12 clearfix">
                 <div class="cell-2">
                    Roles :
