@@ -66,12 +66,12 @@ namespace Flights_GUI.Admin
 
                 uiTextBoxTitle.Text = objData.Title;                
                 //uiTextBoxCreatedBy.Text = objData.CreatedBy;
-                uiTextBoxIssueNo.Text = objData.IssueNumber;
+               /* uiTextBoxIssueNo.Text = objData.IssueNumber;
                 uiTextBoxRevisionNo.Text = objData.RevisionNumber;
                 if (!objData.IsColumnNull(Manual.ColumnNames.IssueDate))
                     uiRadDatePickerIssueDate.SelectedDate = objData.IssueDate;
                 if (!objData.IsColumnNull(Manual.ColumnNames.RevisionDate))
-                    uiRadDatePickerRevisionDate.SelectedDate = objData.RevisionDate;
+                    uiRadDatePickerRevisionDate.SelectedDate = objData.RevisionDate;*/
                 CurrentManual = objData;
                 uiPanelEdit.Visible = true;
                 uiPanelViewAll.Visible = false;
@@ -104,26 +104,33 @@ namespace Flights_GUI.Admin
         {
             Manual objdata = new Manual();
             if (CurrentManual == null)
+            {
                 objdata.AddNew();
+                objdata.CreatedBy = new Guid(Membership.GetUser().ProviderUserKey.ToString());
+                objdata.CreatedDate = DateTime.Now;
+            }
             else
                 objdata = CurrentManual;
             objdata.Title = uiTextBoxTitle.Text;
+            
+            objdata.UpdatedBy = new Guid(Membership.GetUser().ProviderUserKey.ToString());
+            objdata.LastUpdatedDate = DateTime.Now;
             //objdata.CreatedBy = uiTextBoxCreatedBy.Text;
             if (currentManualCat != 0)
                 objdata.ManualCategoryID = currentManualCat;
-            if (uiFileUploadManual.HasFile)
+           /* if (uiFileUploadManual.HasFile)
             {
                 string path = "/fileUploads/manuals/" + Guid.NewGuid() + "_" + uiFileUploadManual.FileName;
                 uiFileUploadManual.SaveAs(Server.MapPath("~" + path));
                 objdata.Path = path;
             }
-            objdata.CreatedDate = DateTime.Now;
+            
 
             objdata.IssueNumber = uiTextBoxIssueNo.Text;
             objdata.RevisionNumber = uiTextBoxRevisionNo.Text;
             objdata.IssueDate = uiRadDatePickerIssueDate.SelectedDate.Value;
             objdata.RevisionDate = uiRadDatePickerRevisionDate.SelectedDate.Value;
-
+            */
             objdata.Save();
             BindData();
             CurrentManual = null;
@@ -170,12 +177,12 @@ namespace Flights_GUI.Admin
         private void ClearFields()
         {
             uiTextBoxTitle.Text = "";
-            uiTextBoxCreatedBy.Text = "";
+            /*uiTextBoxCreatedBy.Text = "";
             uiTextBoxIssueNo.Text = "";
             uiTextBoxRevisionNo.Text = "";
             
             uiRadDatePickerIssueDate.SelectedDate = null;
-            uiRadDatePickerRevisionDate.SelectedDate = null;
+            uiRadDatePickerRevisionDate.SelectedDate = null;*/
         }
 
 

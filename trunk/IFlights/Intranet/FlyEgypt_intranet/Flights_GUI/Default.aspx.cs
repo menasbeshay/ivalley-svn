@@ -33,7 +33,7 @@ namespace Flights_GUI
                     uipanelDefault.Visible = false;
                     uiPanelAdmin.Visible = true;
                 }*/
-                Response.Redirect("~/Intranet/Circulars.aspx");
+                Response.Redirect("~/dashboard.aspx");
             }
             else
             {

@@ -1790,7 +1790,6 @@
     <Content Include="ThemesFiles\ExceptionsLight\rs-plugin\js\jquery.themepunch.revolution.min.js" />
     <Content Include="ThemesFiles\ExceptionsLight\rs-plugin\js\jquery.themepunch.tools.min.js" />
     <Content Include="uiUpload.html" />
-    <Content Include="upload.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

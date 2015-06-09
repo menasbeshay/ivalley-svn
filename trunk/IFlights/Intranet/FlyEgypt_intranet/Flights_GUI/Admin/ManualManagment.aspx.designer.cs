@@ -67,60 +67,6 @@ namespace Flights_GUI.Admin {
         protected global::System.Web.UI.WebControls.TextBox uiTextBoxTitle;
         
         /// <summary>
-        /// uiTextBoxIssueNo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uiTextBoxIssueNo;
-        
-        /// <summary>
-        /// uiRadDatePickerIssueDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadDatePicker uiRadDatePickerIssueDate;
-        
-        /// <summary>
-        /// uiTextBoxRevisionNo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uiTextBoxRevisionNo;
-        
-        /// <summary>
-        /// uiRadDatePickerRevisionDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadDatePicker uiRadDatePickerRevisionDate;
-        
-        /// <summary>
-        /// uiTextBoxCreatedBy control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox uiTextBoxCreatedBy;
-        
-        /// <summary>
-        /// uiFileUploadManual control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload uiFileUploadManual;
-        
-        /// <summary>
         /// uiLinkButtonSave control.
         /// </summary>
         /// <remarks>

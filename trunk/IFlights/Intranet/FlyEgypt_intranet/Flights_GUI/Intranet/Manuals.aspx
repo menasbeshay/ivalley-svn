@@ -30,25 +30,28 @@
             <asp:Label ID="uiLabelCat" runat="server"></asp:Label></h5>
         <telerik:RadGrid ID="uiRadGridmanuals" runat="server" AllowPaging="True"
             AutoGenerateColumns="False" CellSpacing="0"
-            HorizontalAlign="Center" Skin="Office2007" Width="90%"
-            OnPageIndexChanged="uiRadGridmanuals_PageIndexChanged">
+            HorizontalAlign="Center" Width="90%"
+            OnPageIndexChanged="uiRadGridmanuals_PageIndexChanged" EnableEmbeddedSkins="False">
             <AlternatingItemStyle HorizontalAlign="Center" />
             <MasterTableView>
-
                 <Columns>
                     <telerik:GridBoundColumn DataField="Title" HeaderText="Title"></telerik:GridBoundColumn>
-                    <telerik:GridBoundColumn DataField="IssueNumber" HeaderText="Issue No."></telerik:GridBoundColumn>
+                    <%--<telerik:GridBoundColumn DataField="IssueNumber" HeaderText="Issue No."></telerik:GridBoundColumn>
                     <telerik:GridBoundColumn DataField="IssueDate" HeaderText="Issue Date" DataFormatString="{0:dd/MM/yyyy}"></telerik:GridBoundColumn>
                     <telerik:GridBoundColumn DataField="RevisionNumber" HeaderText="Revision No."></telerik:GridBoundColumn>
-                    <telerik:GridBoundColumn DataField="RevisionDate" HeaderText="Revision Date" DataFormatString="{0:dd/MM/yyyy}"></telerik:GridBoundColumn>
-                    <telerik:GridBoundColumn DataField="CreatedBy" HeaderText="Created By"></telerik:GridBoundColumn>
+                    <telerik:GridBoundColumn DataField="RevisionDate" HeaderText="Revision Date" DataFormatString="{0:dd/MM/yyyy}"></telerik:GridBoundColumn>--%>
+                    <telerik:GridBoundColumn DataField="CreatedByName" HeaderText="Created By"></telerik:GridBoundColumn>
                     <telerik:GridBoundColumn DataField="createdDate" HeaderText="Date" DataFormatString="{0:dd/MM/yyyy}"></telerik:GridBoundColumn>
-                    <telerik:GridHyperLinkColumn DataTextField="Title" DataNavigateUrlFields="Path" DataTextFormatString="Download" DataNavigateUrlFormatString="{0}">
-                    </telerik:GridHyperLinkColumn>
+                    <telerik:GridBoundColumn DataField="UpdatedByName" HeaderText="Updated By"></telerik:GridBoundColumn>
+                    <telerik:GridBoundColumn DataField="LastUpdatedDate" HeaderText="Date" DataFormatString="{0:dd/MM/yyyy}"></telerik:GridBoundColumn>
+                    <%--<telerik:GridHyperLinkColumn DataTextField="Title" DataNavigateUrlFields="Path" DataTextFormatString="Download" DataNavigateUrlFormatString="{0}">
+                    </telerik:GridHyperLinkColumn>--%>
                 </Columns>
             </MasterTableView>
             <HeaderStyle HorizontalAlign="Center" />
             <ItemStyle HorizontalAlign="Center" />
+
+<FilterMenu EnableImageSprites="False"></FilterMenu>
 
         </telerik:RadGrid>
 
