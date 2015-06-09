@@ -781,7 +781,7 @@
     <Content Include="css\style_navy-blue.css" />
     <Content Include="css\style_purple.css" />
     <Content Include="css\style_responsive.css" />
-    <Content Include="DashBored.aspx" />
+    <Content Include="dashboard.aspx" />
     <Content Include="images\Accounting.png" />
     <Content Include="images\Courses.png" />
     <Content Include="images\Crew.gif" />
@@ -1903,12 +1903,9 @@
       <DependentUpon>Training.aspx</DependentUpon>
     </Compile>
     <Compile Include="DashBored.aspx.cs">
-      <DependentUpon>DashBored.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="DashBored.aspx.designer.cs">
-      <DependentUpon>DashBored.aspx</DependentUpon>
-    </Compile>
+    <Compile Include="DashBored.aspx.designer.cs" />
     <Compile Include="Intranet\AircraftManuals.aspx.cs">
       <DependentUpon>AircraftManuals.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
