@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Flight_BLL;
+using System.Web.Security;
 
 namespace Flights_GUI.Admin
 {
@@ -130,6 +131,7 @@ namespace Flights_GUI.Admin
             uiPanelEdit.Visible = false;
             ClearFields();
 
+            SendingNotifications.sendNotif(5);
         }
 
         protected void uiLinkButtonCancel_Click(object sender, EventArgs e)

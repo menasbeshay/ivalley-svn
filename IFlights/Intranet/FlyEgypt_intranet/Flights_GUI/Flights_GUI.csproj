@@ -1858,6 +1858,7 @@
     <Compile Include="Admin\ManualManagment.aspx.designer.cs">
       <DependentUpon>ManualManagment.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\SendingNotifications.cs" />
     <Compile Include="Admin\UserManagement.aspx.cs">
       <DependentUpon>UserManagement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
