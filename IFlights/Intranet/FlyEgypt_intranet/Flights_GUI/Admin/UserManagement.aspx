@@ -42,7 +42,7 @@
             </asp:Panel>
             <div class="cell-12 clearfix">
                 <telerik:RadGrid ID="uiRadGridUsers" runat="server" AllowPaging="True" AutoGenerateColumns="False"
-                    CellSpacing="0" HorizontalAlign="Center" Skin="Office2007" Width="90%"
+                    CellSpacing="0" HorizontalAlign="Center" EnableEmbeddedSkins="False" Width="90%"
                     OnPageIndexChanged="uiRadGridUsers_PageIndexChanged" OnPageSizeChanged="uiRadGridUsers_PageSizeChanged" OnItemCommand="uiRadGridUsers_ItemCommand">
                     <AlternatingItemStyle HorizontalAlign="Center" />
                     <MasterTableView>

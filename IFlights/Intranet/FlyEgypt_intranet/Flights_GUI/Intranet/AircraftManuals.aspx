@@ -29,7 +29,7 @@
             <asp:Label ID="uiLabelCat" runat="server"></asp:Label></h5>
         <telerik:RadGrid ID="uiRadGridmanuals" runat="server" AllowPaging="True"
             AutoGenerateColumns="False" CellSpacing="0"
-            HorizontalAlign="Center" Skin="Office2007" Width="90%"
+            HorizontalAlign="Center" EnableEmbeddedSkins="False" Width="90%"
             OnPageIndexChanged="uiRadGridmanuals_PageIndexChanged">
             <AlternatingItemStyle HorizontalAlign="Center" />
             <MasterTableView>

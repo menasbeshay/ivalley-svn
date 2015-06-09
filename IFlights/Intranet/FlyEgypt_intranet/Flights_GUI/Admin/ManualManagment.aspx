@@ -25,7 +25,7 @@
         <div class="cell-8">
         <telerik:RadGrid ID="uiRadGridmanuals" runat="server" AllowPaging="True" 
                         AutoGenerateColumns="False" CellSpacing="0" 
-                        HorizontalAlign="Center" Skin="Office2007" Width="100%"                         
+                        HorizontalAlign="Center" EnableEmbeddedSkins="False" Width="100%"                         
                         onpageindexchanged="uiRadGridmanuals_PageIndexChanged"                          
                         onitemcommand="uiRadGridmanuals_ItemCommand">
                         <AlternatingItemStyle HorizontalAlign="Center" />
@@ -33,12 +33,10 @@
                             
                         <Columns>
                         <telerik:GridBoundColumn DataField="Title" HeaderText="Title"></telerik:GridBoundColumn>                            
-                        <telerik:GridBoundColumn DataField="CreatedBy" HeaderText="Created By"></telerik:GridBoundColumn>                        
-                            <telerik:GridBoundColumn DataField="IssueNumber" HeaderText="Issue No."></telerik:GridBoundColumn>                        
-                            <telerik:GridBoundColumn DataField="IssueDate" HeaderText="Issue Date" DataFormatString="{0:dd/MM/yyyy}"></telerik:GridBoundColumn>
-                            <telerik:GridBoundColumn DataField="RevisionNumber" HeaderText="Revision No."></telerik:GridBoundColumn>                        
-                            <telerik:GridBoundColumn DataField="RevisionDate" HeaderText="Revision Date" DataFormatString="{0:dd/MM/yyyy}"></telerik:GridBoundColumn>
-                            <telerik:GridBoundColumn DataField="createdDate" HeaderText="Date" DataFormatString="{0:dd/MM/yyyy}"></telerik:GridBoundColumn>                        
+                        <telerik:GridBoundColumn DataField="CreatedByName" HeaderText="Created By"></telerik:GridBoundColumn>
+                    <telerik:GridBoundColumn DataField="createdDate" HeaderText="Date" DataFormatString="{0:dd/MM/yyyy}"></telerik:GridBoundColumn>
+                    <telerik:GridBoundColumn DataField="UpdatedByName" HeaderText="Updated By"></telerik:GridBoundColumn>
+                    <telerik:GridBoundColumn DataField="LastUpdatedDate" HeaderText="Date" DataFormatString="{0:dd/MM/yyyy}"></telerik:GridBoundColumn>                        
                         <telerik:GridTemplateColumn HeaderText="Actions">
                                 <ItemTemplate>                                
                                     <asp:LinkButton ID="uiLinkButtonEdit" runat="server" CommandArgument='<%# Eval("ManualID") %>'
@@ -64,7 +62,7 @@
              <div class="cell-4">
                  <asp:TextBox ID="uiTextBoxTitle" runat="server"></asp:TextBox></div>
          </div>
-         <div style="clear:both;height:5px;"></div>
+         <%--<div style="clear:both;height:5px;"></div>
          <div class="cell-12 clearfix" style="margin-left:0">
              <div class="cell-2">Issue Number</div>
              <div class="cell-4">
@@ -101,7 +99,7 @@
              <div class="cell-4">
                  <asp:FileUpload ID="uiFileUploadManual" runat="server" />
              </div>
-         </div>
+         </div>--%>
          <div class="cell-12 clearfix" style="margin-left:0;margin-top:10px;">
              <div class="cell-2"></div>
              <div class="cell-2">

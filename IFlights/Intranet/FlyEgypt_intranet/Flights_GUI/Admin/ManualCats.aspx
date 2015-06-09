@@ -29,7 +29,7 @@
     <div class="cell-8">
         <telerik:RadGrid ID="uiRadGridSubCats" runat="server" AllowPaging="True" 
                         AutoGenerateColumns="False" CellSpacing="0" 
-                        HorizontalAlign="Center" Skin="Office2007" Width="90%"                         
+                        HorizontalAlign="Center" EnableEmbeddedSkins="False" Width="90%"                         
                         onpageindexchanged="uiRadGridSubCats_PageIndexChanged"                          
                         onitemcommand="uiRadGridSubCats_ItemCommand">
                         <AlternatingItemStyle HorizontalAlign="Center" />
