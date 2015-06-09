@@ -12,7 +12,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
     <aside class="cell-3 left-shop">
-                    <div class="widget  fx" data-animate="fadeInLeft">
+                    <div class="widget" data-animate="fadeInLeft">
                         <h3 class="widget-head">categories</h3>
                         <div class="widget-content">
                             

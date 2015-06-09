@@ -31,7 +31,7 @@ namespace Flights_GUI.Intranet
             if (!IsPostBack)
             {
                 Master.ModuleTitle = "";
-                Master.PageTitle = "Manuals";
+                Master.PageTitle = "Aircraft Manuals";
                 LoadCats();
                 if (Request.QueryString["cid"] != null)
                 {

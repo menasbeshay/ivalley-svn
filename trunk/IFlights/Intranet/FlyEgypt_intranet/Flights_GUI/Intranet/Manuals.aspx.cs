@@ -31,7 +31,7 @@ namespace Flights_GUI.Intranet
             if (!IsPostBack)
             {
                 Master.ModuleTitle = "";
-                Master.PageTitle = "Aircraft Manuals";
+                Master.PageTitle = "Manuals";
                 LoadCats();
                 if (Request.QueryString["cid"] != null)
                 {
@@ -65,19 +65,19 @@ namespace Flights_GUI.Intranet
 
         private void LoadCats()
         {
-            AircraftManualCategory cats = new AircraftManualCategory();
+            ManualCategory cats = new ManualCategory();
             cats.LoadAll();
 
             uiRadTreeViewCats.DataSource = cats.DefaultView;
-            uiRadTreeViewCats.DataFieldID = AircraftManualCategory.ColumnNames.ManualCategoryID;
-            uiRadTreeViewCats.DataFieldParentID = AircraftManualCategory.ColumnNames.ParentCategoryID;
-            uiRadTreeViewCats.DataTextField = AircraftManualCategory.ColumnNames.Title;
-            uiRadTreeViewCats.DataValueField = AircraftManualCategory.ColumnNames.ManualCategoryID;
+            uiRadTreeViewCats.DataFieldID = ManualCategory.ColumnNames.ManualCategoryID;
+            uiRadTreeViewCats.DataFieldParentID = ManualCategory.ColumnNames.ParentCategoryID;
+            uiRadTreeViewCats.DataTextField = ManualCategory.ColumnNames.Title;
+            uiRadTreeViewCats.DataValueField = ManualCategory.ColumnNames.ManualCategoryID;
             uiRadTreeViewCats.DataBind();
         }
         private void BindData()
         {
-            AirCraftManual objdata = new AirCraftManual();
+            Manual objdata = new Manual();
             objdata.GetManualsByCatID(currentManualCat);
             uiRadGridmanuals.DataSource = objdata.DefaultView;
             uiRadGridmanuals.DataBind();

@@ -118,7 +118,7 @@ namespace Flights_GUI.Admin
             {
                 //CurrentUser.Email = uiTextBoxMail.Text;
                 List<string> stringListToAdd = new List<string>();
-                List<string> stringListToRemove = new List<string>();
+                List<string> stringListToRemove = new List<string>();                
 
                 foreach (ListItem item in uiCheckBoxListRoles.Items)
                 {
