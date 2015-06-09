@@ -95,6 +95,7 @@
     <Content Include="Admin\FormManagement.aspx" />
     <Content Include="Admin\ManualCats.aspx" />
     <Content Include="Admin\ManualManagment.aspx" />
+    <Content Include="Admin\NotificationsManagement.aspx" />
     <Content Include="Admin\UserManagement.aspx" />
     <Content Include="assets\bootstrap-colorpicker\css\colorpicker.css" />
     <Content Include="assets\bootstrap-colorpicker\img\alpha.png" />
@@ -844,6 +845,7 @@
     <Content Include="img\logo.png" />
     <Content Include="img\logo2.png" />
     <Content Include="img\menu-selected-bg.png" />
+    <Content Include="img\noImg.gif" />
     <Content Include="img\overlay-icon.png" />
     <Content Include="img\photo.jpg" />
     <Content Include="img\profile-pic.jpg" />
@@ -1885,6 +1887,13 @@
     <Compile Include="Admin\ManualManagment.aspx.designer.cs">
       <DependentUpon>ManualManagment.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\NotificationsManagement.aspx.cs">
+      <DependentUpon>NotificationsManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\NotificationsManagement.aspx.designer.cs">
+      <DependentUpon>NotificationsManagement.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\SendingNotifications.cs" />
     <Compile Include="Admin\UserManagement.aspx.cs">
       <DependentUpon>UserManagement.aspx</DependentUpon>
@@ -2141,6 +2150,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="FileUploads\Circulars\" />
     <Folder Include="FileUploads\Manuals\" />
+    <Folder Include="FileUploads\ProfilePics\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />

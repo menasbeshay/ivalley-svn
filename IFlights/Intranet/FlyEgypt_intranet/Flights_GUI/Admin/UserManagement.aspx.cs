@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Flight_BLL;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
@@ -54,6 +56,7 @@ namespace Flights_GUI.Admin
             {
                 LoadRoles();
                 BindData();
+                loadGroups();
                 uiPanelAll.Visible = true;
                 uiPanelEdit.Visible = false;
                 Master.PageTitle = "User Management";
@@ -95,6 +98,14 @@ namespace Flights_GUI.Admin
                 uiPanelEdit.Visible = true;
                 uiPanelAll.Visible = false;
 
+                UsersProfiles usPr = new UsersProfiles();
+                usPr.getUserByGUID(new Guid(ObjData.ProviderUserKey.ToString()));
+                txtFullName.Text = usPr.FullName;
+                txtEmail.Text = usPr.Email;
+                txtTelephone.Text = usPr.Telephone;
+                userImg.Src = usPr.Photo;
+                DropDownListGroups.SelectedValue = usPr.GroupID.ToString();
+
                 CurrentUser = ObjData;
 
             }
@@ -103,6 +114,10 @@ namespace Flights_GUI.Admin
                 MembershipUser ObjData = Membership.GetUser(e.CommandArgument.ToString());
                 if (ObjData != null)
                 {
+                    UsersProfiles usPr = new UsersProfiles();
+                    usPr.getUserByGUID(new Guid(ObjData.ProviderUserKey.ToString()));
+                    usPr.MarkAsDeleted();
+                    usPr.Save();
 
                     Membership.DeleteUser(ObjData.UserName, true);
                 }
@@ -119,6 +134,11 @@ namespace Flights_GUI.Admin
                 //CurrentUser.Email = uiTextBoxMail.Text;
                 List<string> stringListToAdd = new List<string>();
                 List<string> stringListToRemove = new List<string>();                
+
+                if (CurrentUser.GetPassword() != uiTextBoxPass.Text)
+                {
+                    CurrentUser.ChangePassword(CurrentUser.GetPassword(), uiTextBoxPass.Text);
+                }
 
                 foreach (ListItem item in uiCheckBoxListRoles.Items)
                 {
@@ -146,7 +166,21 @@ namespace Flights_GUI.Admin
                     Roles.RemoveUserFromRoles(CurrentUser.UserName, stringArrayToRemove);
 
                 // 
-                
+                UsersProfiles usPr = new UsersProfiles();
+                usPr.getUserByGUID(new Guid(CurrentUser.ProviderUserKey.ToString()));
+
+                usPr.FullName = txtFullName.Text;
+                usPr.Email = txtEmail.Text;
+                usPr.Telephone = txtTelephone.Text;
+                usPr.GroupID = int.Parse(DropDownListGroups.SelectedValue);
+                if (fileUploadPhoto.HasFile)
+                {
+                    Bitmap UpImg = (Bitmap)Bitmap.FromStream(fileUploadPhoto.PostedFile.InputStream);
+                    string path = "/FileUploads/ProfilePics/" + DateTime.Now.ToString("ddMMyyyyhhmmss") + fileUploadPhoto.FileName;
+                    UpImg.Save(MapPath(path), System.Drawing.Imaging.ImageFormat.Png);
+                    usPr.Photo= path;
+                }
+                usPr.Save();
             }
             else
             {
@@ -192,7 +226,22 @@ namespace Flights_GUI.Admin
                         Roles.AddUserToRoles(objUser.UserName, stringArrayToAdd);
 
                     // 
-                    
+
+                    UsersProfiles usPr = new UsersProfiles();
+                    usPr.AddNew();
+                    usPr.UserID = new Guid(objUser.ProviderUserKey.ToString());
+                    usPr.FullName = txtFullName.Text;
+                    usPr.Email = txtEmail.Text;
+                    usPr.Telephone = txtTelephone.Text;
+                    usPr.GroupID = int.Parse(DropDownListGroups.SelectedValue);
+                    if (fileUploadPhoto.HasFile)
+                    {
+                        Bitmap UpImg = (Bitmap)Bitmap.FromStream(fileUploadPhoto.PostedFile.InputStream);
+                        string path = "/FileUploads/ProfilePics/" + DateTime.Now.ToString("ddMMyyyyhhmmss") + fileUploadPhoto.FileName;
+                        UpImg.Save(MapPath(path), System.Drawing.Imaging.ImageFormat.Png);
+                        usPr.Photo = path;
+                    }
+                    usPr.Save();
                 }
             }
             uiPanelEdit.Visible = false;
@@ -200,6 +249,7 @@ namespace Flights_GUI.Admin
             uiPanelAll.Visible = true;
             ClearFields();
             CurrentUser = null;
+            BindData();
 
         }
 
@@ -266,6 +316,21 @@ namespace Flights_GUI.Admin
             uiTextBoxConfirm.Enabled = true;
             //uiLinkButtonEditPassword.Enabled = false;
             uiCheckBoxListRoles.ClearSelection();
+            txtFullName.Text = "";
+            txtEmail.Text = "";
+            txtTelephone.Text = "";
+            DropDownListGroups.SelectedIndex = 0;
+            userImg.Src = "../img/noImg.gif";
+        }
+
+        private void loadGroups()
+        {
+            Groups grps = new Groups();
+            grps.LoadAll();
+            DropDownListGroups.DataSource = grps.DefaultView;
+            DropDownListGroups.DataTextField = Groups.ColumnNames.GroupName.ToString();
+            DropDownListGroups.DataValueField = Groups.ColumnNames.GroupID.ToString();
+            DropDownListGroups.DataBind();
         }
         #endregion
 

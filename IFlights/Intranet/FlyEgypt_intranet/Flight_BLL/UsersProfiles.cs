@@ -11,5 +11,11 @@ namespace Flight_BLL
 		{
 		
 		}
+
+        public virtual bool getUserByGUID(Guid UserID)
+        {
+            this.Where.UserID.Value = new Guid(UserID.ToString());
+            return this.Query.Load();
+        }
 	}
 }
