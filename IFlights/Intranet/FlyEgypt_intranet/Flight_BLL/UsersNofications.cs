@@ -20,6 +20,11 @@ namespace Flight_BLL
             return LoadFromRawSql("SELECT COUNT(UserNotificationID) NotifCount,NotificationTypes.NotificationTypeID, UserID FROM NotificationTypes LEFT JOIN UsersNofications ON NotificationTypes.NotificationTypeID = UsersNofications.NotificationType WHERE UserID = {0}  AND (IsRead <> 1 or IsRead is null) GROUP BY NotificationTypes.NotificationTypeID, UserID", UserID);
         }
 
+        public virtual bool getUnreadedNotifications(Guid UserID)
+        { 
+            return LoadFromRawSql("SELECT COUNT(UserNotificationID) NotifCount,NotificationTypes.NotificationTypeID, UserID FROM NotificationTypes LEFT JOIN UsersNofications ON NotificationTypes.NotificationTypeID = UsersNofications.NotificationType WHERE UserID = {0}  AND (IsRead = 1 ) GROUP BY NotificationTypes.NotificationTypeID, UserID", UserID); 
+        }
+
         public virtual bool MarkNotificationsRead(Guid UserID, int NotificationType)
         {
             return LoadFromRawSql("UPDATE UsersNofications SET IsRead = 1 WHERE UserID = {0} AND NotificationType={1}",UserID,NotificationType);
