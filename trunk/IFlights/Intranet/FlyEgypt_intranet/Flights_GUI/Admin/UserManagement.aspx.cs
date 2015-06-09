@@ -103,6 +103,7 @@ namespace Flights_GUI.Admin
                 MembershipUser ObjData = Membership.GetUser(e.CommandArgument.ToString());
                 if (ObjData != null)
                 {
+
                     Membership.DeleteUser(ObjData.UserName, true);
                 }
                 BindData();
@@ -143,6 +144,9 @@ namespace Flights_GUI.Admin
                     Roles.AddUserToRoles(CurrentUser.UserName, stringArrayToAdd);
                 if (stringArrayToRemove.Length > 0)
                     Roles.RemoveUserFromRoles(CurrentUser.UserName, stringArrayToRemove);
+
+                // 
+                
             }
             else
             {
@@ -186,6 +190,9 @@ namespace Flights_GUI.Admin
                     string[] stringArrayToAdd = stringListToAdd.ToArray();
                     if (stringArrayToAdd.Length > 0)
                         Roles.AddUserToRoles(objUser.UserName, stringArrayToAdd);
+
+                    // 
+                    
                 }
             }
             uiPanelEdit.Visible = false;
