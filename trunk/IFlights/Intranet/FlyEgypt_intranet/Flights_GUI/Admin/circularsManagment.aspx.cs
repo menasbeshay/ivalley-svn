@@ -104,7 +104,7 @@ namespace Flights_GUI.Admin
             uiPanelEdit.Visible = false;
             ClearFields();
 
-            SendingNotifications.sendNotif(1);
+            SendingNotifications.sendNotif(1,null,null,null);
         }
 
 

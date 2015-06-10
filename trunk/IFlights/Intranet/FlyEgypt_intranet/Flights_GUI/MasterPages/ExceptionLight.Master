@@ -208,7 +208,7 @@
                                                 </span>
                                             </a>
                                             <asp:HiddenField ID="hfRepeater" runat="server" Value='<%# Eval("[htmlID]") %>' />
-                                            <asp:Repeater runat="server" DataSource='<%# ((SiteMapNode) Container.DataItem).ChildNodes %>'>
+                                            <asp:Repeater ID="uiInnerRepeaterIntranetMenu" OnItemDataBound="uiInnerRepeaterIntranetMenu_ItemDataBound" runat="server" DataSource='<%# ((SiteMapNode) Container.DataItem).ChildNodes %>'>
                                                 <HeaderTemplate>
                                                     <ul>
                                                 </HeaderTemplate>
@@ -216,6 +216,8 @@
                                                 <ItemTemplate>
                                                     <li>
                                                         <a href='<%# Eval("url") %>' target='<%# Eval("[target]") %>'><%# Eval("title") %></a>
+                                                        <asp:HiddenField ID="hfInnerRepeater" runat="server" Value='<%# Eval("[id]") %>' />
+                                                        <asp:Label ID="lblInnerNotification" CssClass="inner-badge" runat="server" Visible="false" Text="0"></asp:Label>
                                                     </li>
                                                 </ItemTemplate>
 

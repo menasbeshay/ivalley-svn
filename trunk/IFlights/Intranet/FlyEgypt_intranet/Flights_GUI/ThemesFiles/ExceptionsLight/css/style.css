@@ -6703,3 +6703,18 @@ left:10%;
 border-radius:50%;
 color:#fff;
 }
+
+.inner-badge {
+display:block;
+top:19%;
+right:1%;
+background-color:#ff0000;
+position:absolute;
+font-size:10px;
+line-height:20px !important;
+width:20px;
+text-align:center;
+height:20px;
+border-radius:50%;
+color:#fff;
+}

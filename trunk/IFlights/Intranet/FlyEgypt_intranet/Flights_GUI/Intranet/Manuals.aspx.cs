@@ -55,6 +55,7 @@ namespace Flights_GUI.Intranet
             currentManualCat = Convert.ToInt32(e.Node.Value);
             uiLabelCat.Text = e.Node.Text;
             BindData();
+            MarkNotificationsAsRead();
         }
 
         protected void uiRadGridmanuals_PageIndexChanged(object sender, Telerik.Web.UI.GridPageChangedEventArgs e)
@@ -84,10 +85,16 @@ namespace Flights_GUI.Intranet
 
         }
 
+        //protected void MarkNotificationsAsRead()
+        //{
+        //    UsersNofications userNotif = new UsersNofications();
+        //    userNotif.MarkNotificationsRead((new Guid(Membership.GetUser(Page.User.Identity.Name).ProviderUserKey.ToString())), 3);
+        //}
+
         protected void MarkNotificationsAsRead()
         {
             UsersNofications userNotif = new UsersNofications();
-            userNotif.MarkNotificationsRead((new Guid(Membership.GetUser(Page.User.Identity.Name).ProviderUserKey.ToString())), 3);
+            userNotif.MarkNotificationsReadByCategoryID((new Guid(Membership.GetUser(Page.User.Identity.Name).ProviderUserKey.ToString())), 3,currentManualCat);
         }
 
     }
