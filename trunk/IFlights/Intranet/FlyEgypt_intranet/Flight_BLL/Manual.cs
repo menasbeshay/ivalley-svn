@@ -17,7 +17,7 @@ namespace Flight_BLL
             return LoadFromRawSql(@"select M.*, U.username UpdatedByName , C.username CreatedByName from Manual M
                                     Left join aspnet_users U on M.UpdatedBy = U.UserID
                                     Left join aspnet_users C on M.CreatedBy = C.UserID
-                                    where (IsForm is null or IsForm <> 1 ) and ManualCategoryID = {0} order by CreatedDate desc", CatID);            
+                                    where ManualCategoryID = {0} order by CreatedDate desc", CatID);            
         }
 
         public virtual bool GetFormsByCatID(int CatID)

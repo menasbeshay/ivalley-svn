@@ -1,5 +1,6 @@
 ﻿using Flight_BLL;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,34 +12,49 @@ namespace Flights_GUI.Admin
 {
     public partial class FormManagement : System.Web.UI.Page
     {
-        #region Properties
-        public int currentManualCat
-        {
-            get
-            {
-                object o = this.ViewState["_currentManualCat"];
-                if (o == null)
-                    return 0;
-                else
-                    return (int)o;
-            }
-            set
-            {
-                this.ViewState["_currentManualCat"] = value;
-            }
-        }
+        #region Properties        
         public Manual CurrentManual
         {
             get
             {
+                if (Session["CurrentManual"] != null)
+                    return (Manual)Session["CurrentManual"];
+                else
+                    return null;
+            }
+            set
+            {
+                Session["CurrentManual"] = value;
+            }
+        }
+
+        public ManualForm CurrentForm
+        {
+            get
+            {
                 if (Session["CurrentForm"] != null)
-                    return (Manual)Session["CurrentForm"];
+                    return (ManualForm)Session["CurrentForm"];
                 else
                     return null;
             }
             set
             {
                 Session["CurrentForm"] = value;
+            }
+        }
+
+        public FromVersion CurrentFormVersion
+        {
+            get
+            {
+                if (Session["CurrentFormVersion"] != null)
+                    return (FromVersion)Session["CurrentFormVersion"];
+                else
+                    return null;
+            }
+            set
+            {
+                Session["CurrentFormVersion"] = value;
             }
         }
         #endregion
@@ -48,105 +64,56 @@ namespace Flights_GUI.Admin
         {
             if (!IsPostBack)
             {
+                if (CurrentManual == null)
+                    Response.Redirect("ManualManagment.aspx");
                 Master.PageTitle = "Forms Management";
-                LoadCats();
+                uiLabelModule.Text = CurrentManual.Title;
                 BindData();
                 uiPanelViewAll.Visible = true;
                 uiPanelEdit.Visible = false;
+                uiPanelVersions.Visible = false;
+                uiPanelEditVersions.Visible = false;
             }
         }
 
 
         protected void uiRadGridmanuals_ItemCommand(object sender, Telerik.Web.UI.GridCommandEventArgs e)
         {
-            if (e.CommandName == "EditManual")
+            if (e.CommandName == "EditForm")
             {
-                Manual objData = new Manual();
+                ManualForm objData = new ManualForm();
                 objData.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
 
-                uiTextBoxTitle.Text = objData.Title;
-                //uiTextBoxCreatedBy.Text = objData.CreatedBy;
-                uiTextBoxIssueNo.Text = objData.IssueNumber;
-                uiTextBoxRevisionNo.Text = objData.RevisionNumber;
-                if (!objData.IsColumnNull(Manual.ColumnNames.IssueDate))
-                    uiRadDatePickerIssueDate.SelectedDate = objData.IssueDate;
-                if (!objData.IsColumnNull(Manual.ColumnNames.RevisionDate))
-                    uiRadDatePickerRevisionDate.SelectedDate = objData.RevisionDate;
-                CurrentManual = objData;
+                uiTextBoxTitle.Text = objData.Name;
+
+                CurrentForm = objData;
                 uiPanelEdit.Visible = true;
                 uiPanelViewAll.Visible = false;
+                uiPanelEditVersions.Visible = false;
+                uiPanelVersions.Visible = true;
+                BindData_Versions();
             }
 
-            else if (e.CommandName == "DeleteManual")
+            else if (e.CommandName == "DeleteForm")
             {
-                Manual objData = new Manual();
-                objData.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
-                objData.MarkAsDeleted();
-                objData.Save();
+                
+                ManualForm forms = new ManualForm();
+                forms.GetFormsByManualID(Convert.ToInt32(e.CommandArgument.ToString()));
+                for (int i = 0; i < forms.RowCount; i++)
+                {
+                    FromVersion formversions = new FromVersion();
+                    formversions.GetVersionsByFormID(forms.ManualFormID);
+                    formversions.MarkAsDeleted();
+                    formversions.Save();
+                }
+
+
+                forms.MarkAsDeleted();
+                forms.Save();
+
+                
                 BindData();
             }
-        }
-
-        protected void uiRadGridcirculars_PageIndexChanged(object sender, Telerik.Web.UI.GridPageChangedEventArgs e)
-        {
-            BindData();
-        }
-
-        protected void uiLinkButtonAdd_Click(object sender, EventArgs e)
-        {
-            CurrentManual = null;
-            uiPanelViewAll.Visible = false;
-            uiPanelEdit.Visible = true;
-            ClearFields();
-        }
-
-        protected void uiButtonSave_Click(object sender, EventArgs e)
-        {
-            Manual objdata = new Manual();
-            if (CurrentManual == null)
-                objdata.AddNew();
-            else
-                objdata = CurrentManual;
-            objdata.Title = uiTextBoxTitle.Text;
-            //objdata.CreatedBy = uiTextBoxCreatedBy.Text;
-            if (currentManualCat != 0)
-                objdata.ManualCategoryID = currentManualCat;
-            if (uiFileUploadManual.HasFile)
-            {
-                string path = "/fileUploads/manuals/" + Guid.NewGuid() + "_" + uiFileUploadManual.FileName;
-                uiFileUploadManual.SaveAs(Server.MapPath("~" + path));
-                objdata.Path = path;
-            }
-            objdata.CreatedDate = DateTime.Now;
-
-            objdata.IssueNumber = uiTextBoxIssueNo.Text;
-            objdata.RevisionNumber = uiTextBoxRevisionNo.Text;
-            objdata.IssueDate = uiRadDatePickerIssueDate.SelectedDate.Value;
-            objdata.RevisionDate = uiRadDatePickerRevisionDate.SelectedDate.Value;
-            objdata.IsForm = true;
-            objdata.Save();
-            BindData();
-            CurrentManual = null;
-            uiPanelViewAll.Visible = true;
-            uiPanelEdit.Visible = false;
-            ClearFields();
-
-            //SendingNotifications.sendNotif(4);
-        }
-
-
-        protected void uiLinkButtonCancel_Click(object sender, EventArgs e)
-        {
-            CurrentManual = null;
-            uiPanelViewAll.Visible = true;
-            uiPanelEdit.Visible = false;
-            ClearFields();
-        }
-
-        protected void uiRadTreeViewCats_NodeClick(object sender, Telerik.Web.UI.RadTreeNodeEventArgs e)
-        {
-            currentManualCat = Convert.ToInt32(e.Node.Value);
-            BindData();
         }
 
         protected void uiRadGridmanuals_PageIndexChanged(object sender, Telerik.Web.UI.GridPageChangedEventArgs e)
@@ -154,14 +121,66 @@ namespace Flights_GUI.Admin
             uiRadGridmanuals.CurrentPageIndex = e.NewPageIndex;
             BindData();
         }
+
+        protected void uiLinkButtonAdd_Click(object sender, EventArgs e)
+        {
+            CurrentForm = null;
+            uiPanelViewAll.Visible = false;
+            uiPanelEdit.Visible = true;
+            uiPanelEditVersions.Visible = false;
+            uiPanelVersions.Visible = false;
+            ClearFields();
+        }
+
+        protected void uiButtonSave_Click(object sender, EventArgs e)
+        {
+            ManualForm objdata = new ManualForm();
+            if (CurrentForm == null)
+            {
+                objdata.AddNew();
+                objdata.CreatedBy = new Guid(Membership.GetUser().ProviderUserKey.ToString());
+                objdata.CreatedDate = DateTime.Now;
+            }
+            else
+                objdata = CurrentForm;
+            objdata.Name = uiTextBoxTitle.Text;
+            objdata.ManualID = CurrentManual.ManualID;
+            objdata.UpdatedBy = new Guid(Membership.GetUser().ProviderUserKey.ToString());
+            objdata.LastUpdatedDate = DateTime.Now;
+            
+            objdata.Save();
+            BindData();
+            CurrentForm = objdata;
+            uiPanelViewAll.Visible = false;
+            uiPanelVersions.Visible = true;
+            uiPanelEditVersions.Visible = false;
+            uiPanelEdit.Visible = true;
+            //ClearFields();
+
+            // add new notifications 
+            SendingNotifications.sendNotif(3, CurrentManual.ManualCategoryID, null, CurrentForm.ManualFormID);
+        }
+
+        protected void uiLinkButtonCancel_Click(object sender, EventArgs e)
+        {
+            CurrentForm = null;
+            CurrentFormVersion = null;
+            uiPanelViewAll.Visible = true;
+            uiPanelVersions.Visible = false;
+            uiPanelEditVersions.Visible = false;
+            uiPanelEdit.Visible = false;
+            ClearFields();
+        }
+       
+
         #endregion
 
         #region Methods
 
         private void BindData()
         {
-            Manual objdata = new Manual();
-            objdata.GetFormsByCatID(currentManualCat);
+            ManualForm objdata = new ManualForm();
+            objdata.GetFormsByManualID(CurrentManual.ManualID);
             uiRadGridmanuals.DataSource = objdata.DefaultView;
             uiRadGridmanuals.DataBind();
 
@@ -171,28 +190,145 @@ namespace Flights_GUI.Admin
         private void ClearFields()
         {
             uiTextBoxTitle.Text = "";
-            uiTextBoxCreatedBy.Text = "";
+           
+        }
+
+
+        #endregion
+
+
+        #region Versions
+        protected void uiLinkButtonAddVersion_Click(object sender, EventArgs e)
+        {
+            CurrentFormVersion = null;
+            uiPanelViewAll.Visible = false;
+            uiPanelEdit.Visible = false;
+            uiPanelVersions.Visible = false;
+            uiPanelEditVersions.Visible = true;
+            ClearFields_Versions();
+        }
+
+        protected void uiRadGridVersions_ItemCommand(object sender, Telerik.Web.UI.GridCommandEventArgs e)
+        {
+            if (e.CommandName == "EditVersion")
+            {
+                FromVersion objData = new FromVersion();
+                objData.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
+
+                uiTextBoxTitle.Text = objData.Title;
+                //uiTextBoxCreatedBy.Text = objData.CreatedBy;
+                uiTextBoxIssueNo.Text = objData.IssueNumber;
+                uiTextBoxRevisionNo.Text = objData.RevisionNumber;
+                if (!objData.IsColumnNull(ManualVersion.ColumnNames.IssueDate))
+                    uiRadDatePickerIssueDate.SelectedDate = objData.IssueDate;
+                if (!objData.IsColumnNull(ManualVersion.ColumnNames.RevisionDate))
+                    uiRadDatePickerRevisionDate.SelectedDate = objData.RevisionDate;
+                CurrentFormVersion = objData;
+                uiPanelEdit.Visible = false;
+                uiPanelViewAll.Visible = false;
+                uiPanelEditVersions.Visible = true;
+                uiPanelVersions.Visible = false;
+            }
+
+            else if (e.CommandName == "DeleteVersion")
+            {
+
+                FromVersion versions = new FromVersion();
+                versions.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
+                versions.MarkAsDeleted();
+                versions.Save();
+
+                BindData_Versions();
+            }
+        }
+
+        protected void uiRadGridVersions_PageIndexChanged(object sender, Telerik.Web.UI.GridPageChangedEventArgs e)
+        {
+            uiRadGridVersions.CurrentPageIndex = e.NewPageIndex;
+            BindData_Versions();
+        }
+
+        protected void uiButtonSaveVersion_Click(object sender, EventArgs e)
+        {
+            FromVersion objdata = new FromVersion();
+            if (CurrentFormVersion == null)
+            {
+                objdata.AddNew();
+                objdata.CreatedBy = new Guid(Membership.GetUser().ProviderUserKey.ToString());
+                objdata.CreatedDate = DateTime.Now;
+            }
+            else
+                objdata = CurrentFormVersion;
+            objdata.Title = uiTextBoxTitle.Text;
+            objdata.UpdatedBy = new Guid(Membership.GetUser().ProviderUserKey.ToString());
+            objdata.LastUpdatedDate = DateTime.Now;
+            objdata.IssueNumber = uiTextBoxIssueNo.Text;
+            objdata.RevisionNumber = uiTextBoxRevisionNo.Text;
+            objdata.IssueDate = uiRadDatePickerIssueDate.SelectedDate.Value;
+            objdata.RevisionDate = uiRadDatePickerRevisionDate.SelectedDate.Value;
+            objdata.ManualFromID = CurrentForm.ManualFormID;
+
+            if (Session["CurrentUploadedFiles"] != null)
+            {
+                Hashtable Files;
+                Files = (Hashtable)Session["CurrentUploadedFiles"];
+
+                if (Files.Count > 0)
+                {
+                    foreach (DictionaryEntry item in Files)
+                    {
+                        objdata.Path = item.Value.ToString();
+                    }
+
+                    Session["CurrentUploadedFiles"] = null;
+                }
+
+            }
+
+            objdata.Save();
+            // add new notifications 
+            SendingNotifications.sendNotif(3, CurrentManual.ManualCategoryID, null, CurrentForm.ManualFormID);
+            BindData_Versions();
+            CurrentFormVersion = null;
+            uiPanelViewAll.Visible = false;
+            uiPanelVersions.Visible = true;
+            uiPanelEditVersions.Visible = false;
+            uiPanelEdit.Visible = true;
+            ClearFields_Versions();
+
+
+        }
+
+        protected void uiLinkButtonCancelVersion_Click(object sender, EventArgs e)
+        {
+            CurrentFormVersion = null;
+            uiPanelVersions.Visible = true;
+            uiPanelEditVersions.Visible = false;
+            uiPanelViewAll.Visible = false;
+            uiPanelEdit.Visible = true;
+            ClearFields_Versions();
+        }
+        
+
+        private void BindData_Versions()
+        {
+            FromVersion objdata = new FromVersion();
+            objdata.GetVersionsByFormID(CurrentForm.ManualFormID);
+            uiRadGridVersions.DataSource = objdata.DefaultView;
+            uiRadGridVersions.DataBind();
+
+        }
+
+        private void ClearFields_Versions()
+        {
+            uiTextBoxVersionTitle.Text = "";
             uiTextBoxIssueNo.Text = "";
             uiTextBoxRevisionNo.Text = "";
-
             uiRadDatePickerIssueDate.SelectedDate = null;
             uiRadDatePickerRevisionDate.SelectedDate = null;
         }
-
-
-        private void LoadCats()
-        {
-            ManualCategory cats = new ManualCategory();
-            cats.LoadAll();
-
-            uiRadTreeViewCats.DataSource = cats.DefaultView;
-            uiRadTreeViewCats.DataFieldID = ManualCategory.ColumnNames.ManualCategoryID;
-            uiRadTreeViewCats.DataFieldParentID = ManualCategory.ColumnNames.ParentCategoryID;
-            uiRadTreeViewCats.DataTextField = ManualCategory.ColumnNames.Title;
-            uiRadTreeViewCats.DataValueField = ManualCategory.ColumnNames.ManualCategoryID;
-            uiRadTreeViewCats.DataBind();
-        }
         #endregion
+
 
     }
 }
