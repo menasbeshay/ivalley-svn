@@ -31,11 +31,11 @@
           <siteMapNode url="~/intranet/forms.aspx?cid=11" title="Security Management (SEC)"  description="fa-file" htmlID="dsp"/>
         </siteMapNode>
 
-      <siteMapNode url="~/intranet/AircraftManuals.aspx" title="Aircraft Manuals"  description="fa-plane" htmlID="AircraftManuals">       
+      <!--<siteMapNode url="~/intranet/AircraftManuals.aspx" title="Aircraft Manuals"  description="fa-plane" htmlID="AircraftManuals">       
         <siteMapNode url="~/intranet/AircraftManuals.aspx?cid=1" title="Boing Manuals"  description="fa-file" htmlID="dsp"/>
       </siteMapNode>
       
-        <!--<siteMapNode url="~/common/safety.aspx" title="Safety"  description="icon-lock" htmlID="safety"/>
+        <siteMapNode url="~/common/safety.aspx" title="Safety"  description="icon-lock" htmlID="safety"/>
         <siteMapNode url="~/common/training.aspx" title="Training"  description="icon-check" htmlID="training"/>-->
       
         <siteMapNode url="#" title="Settings"  description="fa-cogs" htmlID="Sys">
