@@ -120,5 +120,25 @@ namespace Flights_GUI.MasterPages
                 }
             }
         }
+
+        protected void uiInnerRepeaterIntranetMenu_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
+            {
+                Label lblNot = e.Item.FindControl("lblInnerNotification") as Label;
+                HiddenField hfRep = e.Item.FindControl("hfInnerRepeater") as HiddenField;
+                if (!string.IsNullOrWhiteSpace(hfRep.Value))
+                {
+                    UsersNofications usNot = new UsersNofications();
+                    usNot.getNotificationByCatID(new Guid(Membership.GetUser(Page.User.Identity.Name).ProviderUserKey.ToString()), int.Parse(hfRep.Value.ToString()));
+                    usNot.GetColumn("NotifCount");
+                    if (usNot.GetColumn("NotifCount").ToString() != "0" || string.IsNullOrEmpty(usNot.GetColumn("NotifCount").ToString()))
+                    {
+                        lblNot.Text = usNot.GetColumn("NotifCount").ToString();
+                        lblNot.Visible = true;
+                    }
+                }
+            }
+        }
     }
 }

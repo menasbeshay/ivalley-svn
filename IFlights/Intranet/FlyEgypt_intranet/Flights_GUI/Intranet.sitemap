@@ -2,21 +2,19 @@
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
     <siteMapNode url="" title="root"  description=""  roles="*" >
         <siteMapNode url="~/Intranet/Circulars.aspx" title="Circulars" description="fa-bullhorn" htmlID="Circulars" 
-
-  
       />
       
         <siteMapNode url="~/Intranet/bulletins.aspx" title="Bulletins" description="fa-bullhorn" htmlID="Bulletins"/>
         <siteMapNode url="~/Intranet/Manuals.aspx" title="Manuals"  description="fa-book" htmlID="Manuals">
           <!--<siteMapNode url="http://www.civilaviation.gov.eg/Regulations/regulation.html" title="ECAR" description="" htmlID="ECAR" roles="*" target="_blank" />
           <siteMapNode url="http://www.ecfr.gov/cgi-bin/text-idx?tpl=/ecfrbrowse/Title14/14tab_02.tpl" title="FAR" description="" htmlID="FAR" roles="*" target="_blank" />-->
-          <siteMapNode url="~/intranet/manuals.aspx?cid=1" title="Organization (ORG)"  description="fa-edit" htmlID="org"/>
-          <siteMapNode url="~/intranet/manuals.aspx?cid=2" title="Flight Operations (FLT)"  description="fa-tags" htmlID="flt"/>
-          <siteMapNode url="~/intranet/manuals.aspx?cid=3" title="Flight Dispatch (DSP)"  description="fa-file" htmlID="dsp"/>
-          <siteMapNode url="~/intranet/manuals.aspx?cid=4" title="Engineering and Maintenance (MNT)"  description="fa-edit" htmlID="org"/>
-          <siteMapNode url="~/intranet/manuals.aspx?cid=5" title="Cabin Operations (CAB)"  description="fa-tags" htmlID="flt"/>
-          <siteMapNode url="~/intranet/manuals.aspx?cid=10" title="Ground Handling (GRH)"  description="fa-file" htmlID="dsp"/>
-          <siteMapNode url="~/intranet/manuals.aspx?cid=11" title="Security Management (SEC)"  description="fa-file" htmlID="dsp"/>
+          <siteMapNode url="~/intranet/manuals.aspx?cid=1" id="1" title="Organization (ORG)"  description="fa-edit" htmlID="org"/>
+          <siteMapNode url="~/intranet/manuals.aspx?cid=2" id="2" title="Flight Operations (FLT)"  description="fa-tags" htmlID="flt"/>
+          <siteMapNode url="~/intranet/manuals.aspx?cid=3" id="3" title="Flight Dispatch (DSP)"  description="fa-file" htmlID="dsp"/>
+          <siteMapNode url="~/intranet/manuals.aspx?cid=4" id="4" title="Engineering and Maintenance (MNT)"  description="fa-edit" htmlID="org"/>
+          <siteMapNode url="~/intranet/manuals.aspx?cid=5" id="5" title="Cabin Operations (CAB)"  description="fa-tags" htmlID="flt"/>
+          <siteMapNode url="~/intranet/manuals.aspx?cid=10" id="10" title="Ground Handling (GRH)"  description="fa-file" htmlID="dsp"/>
+          <siteMapNode url="~/intranet/manuals.aspx?cid=11" id="11" title="Security Management (SEC)"  description="fa-file" htmlID="dsp"/>
         </siteMapNode>
       
       <siteMapNode url="~/Intranet/Forms.aspx" title="Forms"  description="fa-edit" htmlID="Forms">
