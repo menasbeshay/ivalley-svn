@@ -85,6 +85,114 @@ namespace Flights_GUI.Admin {
         protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonCancel;
         
         /// <summary>
+        /// uiLinkButtonEditForms control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonEditForms;
+        
+        /// <summary>
+        /// uiPanelVersions control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel uiPanelVersions;
+        
+        /// <summary>
+        /// uiLinkButtonAddVersion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonAddVersion;
+        
+        /// <summary>
+        /// uiRadGridVersions control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadGrid uiRadGridVersions;
+        
+        /// <summary>
+        /// uiPanelEditVersions control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel uiPanelEditVersions;
+        
+        /// <summary>
+        /// uiTextBoxVersionTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxVersionTitle;
+        
+        /// <summary>
+        /// uiTextBoxIssueNo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxIssueNo;
+        
+        /// <summary>
+        /// uiRadDatePickerIssueDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadDatePicker uiRadDatePickerIssueDate;
+        
+        /// <summary>
+        /// uiTextBoxRevisionNo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxRevisionNo;
+        
+        /// <summary>
+        /// uiRadDatePickerRevisionDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadDatePicker uiRadDatePickerRevisionDate;
+        
+        /// <summary>
+        /// uiLinkButtonSaveVersion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonSaveVersion;
+        
+        /// <summary>
+        /// uiLinkButtonCancelVersion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton uiLinkButtonCancelVersion;
+        
+        /// <summary>
         /// Master property.
         /// </summary>
         /// <remarks>

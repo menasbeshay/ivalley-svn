@@ -388,6 +388,7 @@
                             <div class="cell-12">
                                 <h1 class="fx animated fadeInLeft" data-animate="fadeInLeft">
                                     <asp:Label ID="uiLabelTitle" runat="server"></asp:Label></h1>
+                                
                             </div>
                         </div>
                     </div>
