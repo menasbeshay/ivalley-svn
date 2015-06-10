@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Net.Mail;
+using System.Web.Services;
 
 namespace Flights_GUI.Admin
 {
@@ -22,6 +23,8 @@ namespace Flights_GUI.Admin
                 CheckBoxListGroups.DataTextField = Groups.ColumnNames.GroupName;
                 CheckBoxListGroups.DataValueField = Groups.ColumnNames.GroupID;
                 CheckBoxListGroups.DataBind();
+
+               
             }
         }
 
@@ -87,6 +90,13 @@ namespace Flights_GUI.Admin
              {
                  throw;
              }
+        }
+        
+        [WebMethod]
+        protected void GetAvalName(string QueryStr)
+        {
+            UsersProfiles upro = new UsersProfiles();
+            upro.getNamesList(QueryStr);
         }
     }
 }
