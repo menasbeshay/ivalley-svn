@@ -871,6 +871,7 @@
     <Content Include="js\excanvas.js" />
     <Content Include="js\fancy_func.js" />
     <Content Include="js\gmaps.js" />
+    <Content Include="js\highcharts.js" />
     <Content Include="js\jquery-1.8.2.min.js" />
     <Content Include="js\jquery-1.8.3.min.js" />
     <Content Include="js\jquery.blockui.js" />
@@ -2147,6 +2148,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Charts\" />
     <Folder Include="FileUploads\Circulars\" />
     <Folder Include="FileUploads\Manuals\" />
     <Folder Include="FileUploads\ProfilePics\" />
@@ -2685,6 +2687,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Reports\GD.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\App_LocalResources\NotificationsManagement.aspx.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

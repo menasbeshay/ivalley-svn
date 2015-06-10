@@ -6,6 +6,7 @@ using System.Net.Mail;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Net.Mail;
 
 namespace Flights_GUI.Admin
 {
@@ -26,7 +27,7 @@ namespace Flights_GUI.Admin
 
         private void sendNotificationEmails(List<string> MailToList)
         {
-            MailMessage msg = new MailMessage();
+            /*MailMessage msg = new MailMessage();
             string mail = uiRadEditorContnet.Text;
             string mailto = AllToNotify.GetColumn("Email").ToString();
             msg.To.Add(mailto);
@@ -36,17 +37,56 @@ namespace Flights_GUI.Admin
             msg.BodyEncoding = System.Text.Encoding.UTF8;
 
             msg.Body = string.Format(GetLocalResourceObject("MailBody").ToString(), AllToNotify.GetColumn("DisplayName").ToString());
-
+            */
         }
 
         protected void LinkButtonSendNotifications_Click(object sender, EventArgs e)
         {
-            List<string> MailToList = new List<string>();
+            UsersProfiles up = new UsersProfiles();
+            Groups gr = new Groups();
 
-            foreach (CheckBox chk in CheckBoxListGroups.Items)
-            {
 
-            }
+            List<string> GroupIDs = CheckBoxListGroups.Items.Cast<ListItem>()
+                .Where(li => li.Selected)
+                .Select(li => li.Value)
+                .ToList();
+
+
+            up.getuserEmails(GroupIDs);
+
+
+
+             try
+                {
+                    MailMessage msg = new MailMessage();
+                    string mail = GetLocalResourceObject("FromMail").ToString();  
+                    for (int i = 0; i < up.RowCount; i++)
+			{
+			 
+                        msg.To.Add(up.Email);
+                        up.MoveNext();
+			}
+                    
+                    msg.From = new MailAddress(mail);
+                    msg.Subject = GetLocalResourceObject("subject").ToString();
+                    msg.IsBodyHtml = true;
+                    msg.BodyEncoding = System.Text.Encoding.UTF8;
+
+                    msg.Body = uiRadEditorContnet.GetHtml(Telerik.Web.UI.EditorStripHtmlOptions.None);
+
+                  SmtpClient client = new SmtpClient(GetLocalResourceObject("Server").ToString(), 25);
+                    //SmtpClient client = new SmtpClient(GetLocalResourceObject("server").ToString(), 25);
+                    client.EnableSsl = false;
+                    client.UseDefaultCredentials = false;
+
+                    client.Credentials = new System.Net.NetworkCredential(mail, GetLocalResourceObject("Password").ToString());
+
+                    client.Send(msg);
+                }
+             catch (Exception ex)
+             {
+                 throw;
+             }
         }
     }
 }
