@@ -24,5 +24,10 @@ namespace Flight_BLL
             string query = string.Format("SELECT * from UsersProfiles WHERE GroupID IN ({0})", joined);
             return LoadFromRawSql(query);
         }
+
+        public virtual bool getNamesList(string queryName)
+        {
+            return LoadFromRawSql("SELECT FullName from UserProfiles,aspnet_Users WHERE UserProfiles.UserID = aspnet_Users.UserId AND ((aspnet_Users.UserName LIKE {0}) OR (UserProfiles.FullName LIKE {0}) OR (UserProfiles.Email LIKE {0}))",queryName);
+        }
 	}
 }

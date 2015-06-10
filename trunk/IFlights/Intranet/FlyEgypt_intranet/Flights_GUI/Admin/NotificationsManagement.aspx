@@ -3,7 +3,20 @@
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
 <%@ MasterType VirtualPath="~/MasterPages/ExceptionLight.Master" %>
 
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css">
+    <script src="../js/tag-it.js"></script>
+    <link href="../css/jquery.tagit.css" rel="stylesheet" />
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#myTags").tagit({
+                autocomplete: { source: ["c++", "java", "php", "javascript", "ruby", "python", "c"]}
+            });
+        });
+    </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="cell-12">
@@ -19,7 +32,10 @@
                 </div>
                 <div class="cell-8">
                     <label style="font-size: x-small; position: absolute; top: -15px">Seperate emails with semicolon ' ; '</label>
-                    <textarea id="txtEmails" runat="server" style="width:100%" />
+<%--                    <textarea id="txtEmails" runat="server" style="width:100%" />--%>
+                    <ul id="myTags">
+                    </ul>
+
                 </div>
             </div>
             <div style="clear: both; height: 10px;"></div>
