@@ -44,8 +44,8 @@
                     <telerik:GridBoundColumn DataField="createdDate" HeaderText="Date" DataFormatString="{0:dd/MM/yyyy}"></telerik:GridBoundColumn>
                     <telerik:GridBoundColumn DataField="UpdatedByName" HeaderText="Updated By"></telerik:GridBoundColumn>
                     <telerik:GridBoundColumn DataField="LastUpdatedDate" HeaderText="Date" DataFormatString="{0:dd/MM/yyyy}"></telerik:GridBoundColumn>
-                    <%--<telerik:GridHyperLinkColumn DataTextField="Title" DataNavigateUrlFields="Path" DataTextFormatString="Download" DataNavigateUrlFormatString="{0}">
-                    </telerik:GridHyperLinkColumn>--%>
+                    <telerik:GridHyperLinkColumn DataTextField="Title" DataNavigateUrlFields="VersionPath" DataTextFormatString="Download" DataNavigateUrlFormatString="{0}" HeaderText="Last version">
+                    </telerik:GridHyperLinkColumn>
                 </Columns>
             </MasterTableView>
             <HeaderStyle HorizontalAlign="Center" />

@@ -215,7 +215,8 @@ namespace Flights_GUI.Admin
                 FromVersion objData = new FromVersion();
                 objData.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
 
-                uiTextBoxTitle.Text = objData.Title;
+                uiTextBoxVersionTitle.Text = objData.Title;
+                uiTextBoxNotes.Text= objData.Notes;
                 //uiTextBoxCreatedBy.Text = objData.CreatedBy;
                 uiTextBoxIssueNo.Text = objData.IssueNumber;
                 uiTextBoxRevisionNo.Text = objData.RevisionNumber;
@@ -259,7 +260,7 @@ namespace Flights_GUI.Admin
             }
             else
                 objdata = CurrentFormVersion;
-            objdata.Title = uiTextBoxTitle.Text;
+            objdata.Title = uiTextBoxVersionTitle.Text;
             objdata.UpdatedBy = new Guid(Membership.GetUser().ProviderUserKey.ToString());
             objdata.LastUpdatedDate = DateTime.Now;
             objdata.IssueNumber = uiTextBoxIssueNo.Text;
@@ -267,7 +268,7 @@ namespace Flights_GUI.Admin
             objdata.IssueDate = uiRadDatePickerIssueDate.SelectedDate.Value;
             objdata.RevisionDate = uiRadDatePickerRevisionDate.SelectedDate.Value;
             objdata.ManualFromID = CurrentForm.ManualFormID;
-
+            objdata.Notes = uiTextBoxNotes.Text;
             if (Session["CurrentUploadedFiles"] != null)
             {
                 Hashtable Files;
