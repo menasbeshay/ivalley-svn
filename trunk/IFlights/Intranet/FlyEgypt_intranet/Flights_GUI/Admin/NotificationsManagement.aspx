@@ -17,27 +17,27 @@
                 <div class="cell-2">
                     Emails :
                 </div>
-                <div class="cell-4">
+                <div class="cell-8">
                     <label style="font-size: x-small; position: absolute; top: -15px">Seperate emails with semicolon ' ; '</label>
-                    <textarea id="txtEmails" runat="server" />
+                    <textarea id="txtEmails" runat="server" style="width:100%" />
                 </div>
             </div>
-            <div style="clear: both; height: 5px;"></div>
+            <div style="clear: both; height: 10px;"></div>
             <div class="cell-12">
                 <div class="cell-2">
                     Select Groups :
                 </div>
-                <div class="cell-10">
-                    <asp:CheckBoxList ID="CheckBoxListGroups" RepeatLayout="OrderedList" runat="server"></asp:CheckBoxList>
+                <div class="cell-8">
+                    <asp:CheckBoxList ID="CheckBoxListGroups" RepeatLayout="Table" RepeatDirection="Horizontal" RepeatColumns="5" runat="server"></asp:CheckBoxList>
                 </div>
             </div>
-            <div style="clear: both; height: 5px;"></div>
+            <div style="clear: both; height: 10px;"></div>
             <div class="cell-12">
                 <div class="cell-2">
                     Mail Content :
                 </div>
-                <div class="cell-10">
-                    <telerik:RadEditor ID="uiRadEditorContnet" runat="server">
+                <div class="cell-8">
+                    <telerik:RadEditor Width="100%" ID="uiRadEditorContnet" runat="server">
                         <CssFiles>
                             <telerik:EditorCssFile Value="~/css/editor.css" />
                         </CssFiles>
@@ -81,9 +81,10 @@
 
                 </div>
             </div>
+            <div style="clear: both; height: 10px;"></div>
             <div class="cell-12">
                 <div class="cell-2">
-                    <asp:LinkButton ID="LinkButtonSendNotifications" CssClass="btn btn-primary" runat="server">Send</asp:LinkButton>
+                    <asp:LinkButton ID="LinkButtonSendNotifications" OnClick="LinkButtonSendNotifications_Click" CssClass="btn btn-primary" runat="server">Send</asp:LinkButton>
                 </div>
             </div>
         </asp:Panel>
