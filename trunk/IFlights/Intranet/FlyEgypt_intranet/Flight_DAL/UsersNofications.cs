@@ -131,6 +131,30 @@ namespace Flight_DAL
 				}
 			}
 			
+			public static SqlParameter CategoryID
+			{
+				get
+				{
+					return new SqlParameter("@CategoryID", SqlDbType.Int, 0);
+				}
+			}
+			
+			public static SqlParameter ManualID
+			{
+				get
+				{
+					return new SqlParameter("@ManualID", SqlDbType.Int, 0);
+				}
+			}
+			
+			public static SqlParameter FormID
+			{
+				get
+				{
+					return new SqlParameter("@FormID", SqlDbType.Int, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -141,6 +165,9 @@ namespace Flight_DAL
             public const string UserID = "UserID";
             public const string NotificationType = "NotificationType";
             public const string IsRead = "IsRead";
+            public const string CategoryID = "CategoryID";
+            public const string ManualID = "ManualID";
+            public const string FormID = "FormID";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -152,6 +179,9 @@ namespace Flight_DAL
 					ht[UserID] = _UsersNofications.PropertyNames.UserID;
 					ht[NotificationType] = _UsersNofications.PropertyNames.NotificationType;
 					ht[IsRead] = _UsersNofications.PropertyNames.IsRead;
+					ht[CategoryID] = _UsersNofications.PropertyNames.CategoryID;
+					ht[ManualID] = _UsersNofications.PropertyNames.ManualID;
+					ht[FormID] = _UsersNofications.PropertyNames.FormID;
 
 				}
 				return (string)ht[columnName];
@@ -168,6 +198,9 @@ namespace Flight_DAL
             public const string UserID = "UserID";
             public const string NotificationType = "NotificationType";
             public const string IsRead = "IsRead";
+            public const string CategoryID = "CategoryID";
+            public const string ManualID = "ManualID";
+            public const string FormID = "FormID";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -179,6 +212,9 @@ namespace Flight_DAL
 					ht[UserID] = _UsersNofications.ColumnNames.UserID;
 					ht[NotificationType] = _UsersNofications.ColumnNames.NotificationType;
 					ht[IsRead] = _UsersNofications.ColumnNames.IsRead;
+					ht[CategoryID] = _UsersNofications.ColumnNames.CategoryID;
+					ht[ManualID] = _UsersNofications.ColumnNames.ManualID;
+					ht[FormID] = _UsersNofications.ColumnNames.FormID;
 
 				}
 				return (string)ht[propertyName];
@@ -195,6 +231,9 @@ namespace Flight_DAL
             public const string UserID = "s_UserID";
             public const string NotificationType = "s_NotificationType";
             public const string IsRead = "s_IsRead";
+            public const string CategoryID = "s_CategoryID";
+            public const string ManualID = "s_ManualID";
+            public const string FormID = "s_FormID";
 
 		}
 		#endregion		
@@ -246,6 +285,42 @@ namespace Flight_DAL
 			set
 	        {
 				base.Setbool(ColumnNames.IsRead, value);
+			}
+		}
+
+		public virtual int CategoryID
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.CategoryID);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.CategoryID, value);
+			}
+		}
+
+		public virtual int ManualID
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.ManualID);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.ManualID, value);
+			}
+		}
+
+		public virtual int FormID
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.FormID);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.FormID, value);
 			}
 		}
 
@@ -311,6 +386,51 @@ namespace Flight_DAL
 					this.SetColumnNull(ColumnNames.IsRead);
 				else
 					this.IsRead = base.SetboolAsString(ColumnNames.IsRead, value);
+			}
+		}
+
+		public virtual string s_CategoryID
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.CategoryID) ? string.Empty : base.GetintAsString(ColumnNames.CategoryID);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.CategoryID);
+				else
+					this.CategoryID = base.SetintAsString(ColumnNames.CategoryID, value);
+			}
+		}
+
+		public virtual string s_ManualID
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.ManualID) ? string.Empty : base.GetintAsString(ColumnNames.ManualID);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.ManualID);
+				else
+					this.ManualID = base.SetintAsString(ColumnNames.ManualID, value);
+			}
+		}
+
+		public virtual string s_FormID
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.FormID) ? string.Empty : base.GetintAsString(ColumnNames.FormID);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.FormID);
+				else
+					this.FormID = base.SetintAsString(ColumnNames.FormID, value);
 			}
 		}
 
@@ -387,6 +507,36 @@ namespace Flight_DAL
 					}
 				}
 
+				public WhereParameter CategoryID
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.CategoryID, Parameters.CategoryID);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter ManualID
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.ManualID, Parameters.ManualID);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter FormID
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.FormID, Parameters.FormID);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -440,10 +590,49 @@ namespace Flight_DAL
 				}
 			}
 
+			public WhereParameter CategoryID
+		    {
+				get
+		        {
+					if(_CategoryID_W == null)
+	        	    {
+						_CategoryID_W = TearOff.CategoryID;
+					}
+					return _CategoryID_W;
+				}
+			}
+
+			public WhereParameter ManualID
+		    {
+				get
+		        {
+					if(_ManualID_W == null)
+	        	    {
+						_ManualID_W = TearOff.ManualID;
+					}
+					return _ManualID_W;
+				}
+			}
+
+			public WhereParameter FormID
+		    {
+				get
+		        {
+					if(_FormID_W == null)
+	        	    {
+						_FormID_W = TearOff.FormID;
+					}
+					return _FormID_W;
+				}
+			}
+
 			private WhereParameter _UserNotificationID_W = null;
 			private WhereParameter _UserID_W = null;
 			private WhereParameter _NotificationType_W = null;
 			private WhereParameter _IsRead_W = null;
+			private WhereParameter _CategoryID_W = null;
+			private WhereParameter _ManualID_W = null;
+			private WhereParameter _FormID_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -451,6 +640,9 @@ namespace Flight_DAL
 				_UserID_W = null;
 				_NotificationType_W = null;
 				_IsRead_W = null;
+				_CategoryID_W = null;
+				_ManualID_W = null;
+				_FormID_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -547,6 +739,36 @@ namespace Flight_DAL
 					}
 				}
 
+				public AggregateParameter CategoryID
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.CategoryID, Parameters.CategoryID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter ManualID
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.ManualID, Parameters.ManualID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter FormID
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.FormID, Parameters.FormID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -600,10 +822,49 @@ namespace Flight_DAL
 				}
 			}
 
+			public AggregateParameter CategoryID
+		    {
+				get
+		        {
+					if(_CategoryID_W == null)
+	        	    {
+						_CategoryID_W = TearOff.CategoryID;
+					}
+					return _CategoryID_W;
+				}
+			}
+
+			public AggregateParameter ManualID
+		    {
+				get
+		        {
+					if(_ManualID_W == null)
+	        	    {
+						_ManualID_W = TearOff.ManualID;
+					}
+					return _ManualID_W;
+				}
+			}
+
+			public AggregateParameter FormID
+		    {
+				get
+		        {
+					if(_FormID_W == null)
+	        	    {
+						_FormID_W = TearOff.FormID;
+					}
+					return _FormID_W;
+				}
+			}
+
 			private AggregateParameter _UserNotificationID_W = null;
 			private AggregateParameter _UserID_W = null;
 			private AggregateParameter _NotificationType_W = null;
 			private AggregateParameter _IsRead_W = null;
+			private AggregateParameter _CategoryID_W = null;
+			private AggregateParameter _ManualID_W = null;
+			private AggregateParameter _FormID_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -611,6 +872,9 @@ namespace Flight_DAL
 				_UserID_W = null;
 				_NotificationType_W = null;
 				_IsRead_W = null;
+				_CategoryID_W = null;
+				_ManualID_W = null;
+				_FormID_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -699,6 +963,18 @@ namespace Flight_DAL
 
 			p = cmd.Parameters.Add(Parameters.IsRead);
 			p.SourceColumn = ColumnNames.IsRead;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.CategoryID);
+			p.SourceColumn = ColumnNames.CategoryID;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.ManualID);
+			p.SourceColumn = ColumnNames.ManualID;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.FormID);
+			p.SourceColumn = ColumnNames.FormID;
 			p.SourceVersion = DataRowVersion.Current;
 
 
