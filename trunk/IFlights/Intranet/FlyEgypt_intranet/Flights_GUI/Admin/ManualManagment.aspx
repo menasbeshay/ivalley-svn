@@ -192,7 +192,13 @@
                 <telerik:RadDatePicker ID="uiRadDatePickerRevisionDate" runat="server" Height="25px" Width="185px"></telerik:RadDatePicker>
             </div>
         </div>
-
+        <div style="clear: both; height: 5px;"></div>
+        <div class="cell-12 clearfix" style="margin-left: 0">
+            <div class="cell-2">Notes</div>
+            <div class="cell-4">
+                <asp:TextBox ID="uiTextBoxNotes" runat="server" TextMode="MultiLine" Rows="4"></asp:TextBox>
+            </div>
+        </div>
         <div style="clear: both; height: 5px;"></div>
         <div class="cell-12 clearfix" style="margin-left: 0">
             <div class="cell-2">Upload</div>

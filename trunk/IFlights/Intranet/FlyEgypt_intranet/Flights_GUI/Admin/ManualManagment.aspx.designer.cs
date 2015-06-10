@@ -175,6 +175,15 @@ namespace Flights_GUI.Admin {
         protected global::Telerik.Web.UI.RadDatePicker uiRadDatePickerRevisionDate;
         
         /// <summary>
+        /// uiTextBoxNotes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxNotes;
+        
+        /// <summary>
         /// uiLinkButtonSaveVersion control.
         /// </summary>
         /// <remarks>

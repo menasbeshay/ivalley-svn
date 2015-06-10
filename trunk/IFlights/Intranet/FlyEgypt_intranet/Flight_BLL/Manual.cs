@@ -14,9 +14,11 @@ namespace Flight_BLL
 
         public virtual bool GetManualsByCatID(int CatID)
         {
-            return LoadFromRawSql(@"select M.*, U.username UpdatedByName , C.username CreatedByName from Manual M
+            return LoadFromRawSql(@"select M.*, U.username UpdatedByName , C.username CreatedByName ,
+                                    (Select Top 1 path from ManualVersion MV where MV.ManualID = M.ManualID Order by MV.LastUpdatedDate desc) VersionPath       
+                                    from Manual M
                                     Left join aspnet_users U on M.UpdatedBy = U.UserID
-                                    Left join aspnet_users C on M.CreatedBy = C.UserID
+                                    Left join aspnet_users C on M.CreatedBy = C.UserID                                    
                                     where ManualCategoryID = {0} order by CreatedDate desc", CatID);            
         }
 

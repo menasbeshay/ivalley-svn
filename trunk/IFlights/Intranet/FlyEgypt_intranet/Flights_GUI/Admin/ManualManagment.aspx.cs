@@ -253,8 +253,8 @@ namespace Flights_GUI.Admin
                 ManualVersion objData = new ManualVersion();
                 objData.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
 
-                uiTextBoxTitle.Text = objData.Title;
-                //uiTextBoxCreatedBy.Text = objData.CreatedBy;
+                uiTextBoxVersionTitle.Text = objData.Title;
+                uiTextBoxNotes.Text = objData.Notes;
                  uiTextBoxIssueNo.Text = objData.IssueNumber;
                  uiTextBoxRevisionNo.Text = objData.RevisionNumber;
                  if (!objData.IsColumnNull(ManualVersion.ColumnNames.IssueDate))
@@ -297,7 +297,8 @@ namespace Flights_GUI.Admin
             }
             else
                 objdata = CurrentManualVersion;
-            objdata.Title = uiTextBoxTitle.Text;
+            objdata.Title = uiTextBoxVersionTitle.Text;
+            objdata.Notes =uiTextBoxNotes.Text;
             objdata.UpdatedBy = new Guid(Membership.GetUser().ProviderUserKey.ToString());
             objdata.LastUpdatedDate = DateTime.Now;            
             objdata.IssueNumber = uiTextBoxIssueNo.Text;

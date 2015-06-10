@@ -774,6 +774,8 @@
     <Content Include="Common\Safety.aspx" />
     <Content Include="Common\Thumb.aspx" />
     <Content Include="Common\Training.aspx" />
+    <Content Include="css\blueimp-gallery.min.css" />
+    <Content Include="css\bootstrap.min.css" />
     <Content Include="css\editor.css" />
     <Content Include="css\jquery.fileupload-noscript.css" />
     <Content Include="css\jquery.fileupload-ui-noscript.css" />
@@ -865,6 +867,8 @@
     <Content Include="Intranet\forms.aspx" />
     <Content Include="Intranet\Manuals.aspx" />
     <Content Include="js\bootstrap.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\canvas-to-blob.min.js" />
     <Content Include="js\cors\jquery.postmessage-transport.js" />
     <Content Include="js\cors\jquery.xdr-transport.js" />
     <Content Include="js\demo.gmaps.js" />
@@ -875,6 +879,7 @@
     <Content Include="js\jquery-1.8.2.min.js" />
     <Content Include="js\jquery-1.8.3.min.js" />
     <Content Include="js\jquery.blockui.js" />
+    <Content Include="js\jquery.blueimp-gallery.min.js" />
     <Content Include="js\jquery.cookie.js" />
     <Content Include="js\jquery.easing.js" />
     <Content Include="js\jquery.fileupload-angular.js" />
@@ -888,14 +893,17 @@
     <Content Include="js\jquery.fileupload.js" />
     <Content Include="js\jquery.iframe-transport.js" />
     <Content Include="js\jquery.js" />
+    <Content Include="js\jquery.min.js" />
     <Content Include="js\jquery.peity.min.js" />
     <Content Include="js\jquery.pulsate.min.js" />
+    <Content Include="js\load-image.all.min.js" />
     <Content Include="js\load-image.min.js" />
     <Content Include="js\main.js" />
     <Content Include="js\modernizr.custom.17475.js" />
     <Content Include="js\respond.js" />
     <Content Include="js\respond.min.js" />
     <Content Include="js\scripts.js" />
+    <Content Include="js\tmpl.min.js" />
     <Content Include="js\ui-nestable.js" />
     <Content Include="js\ui-tree.js" />
     <Content Include="images\4.jpg" />
@@ -2411,6 +2419,12 @@
     <Content Include="MasterPages\CabinCrew.Master" />
     <Content Include="MasterPages\Common.Master" />
     <Content Include="MasterPages\Start.Master" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="font\.DS_Store" />
     <None Include="font\myriadprobold.eot" />
     <None Include="font\myriadprobold.svg" />
