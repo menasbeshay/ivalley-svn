@@ -35,9 +35,9 @@ namespace Flights_GUI.MasterPages
                                     HFBulletins.Value = usNotif.GetColumn("NotifCount").ToString();
                                     break;
 
-                                case "3":
-                                    HFManuals.Value = usNotif.GetColumn("NotifCount").ToString();
-                                    break;
+                                //case "3":
+                                //    HFManuals.Value = usNotif.GetColumn("NotifCount").ToString();
+                                //    break;
 
                                 case "4":
                                     HFForms.Value = usNotif.GetColumn("NotifCount").ToString();
@@ -51,6 +51,14 @@ namespace Flights_GUI.MasterPages
                             }
                             usNotif.MoveNext();
                         }
+                    }
+
+                    UsersNofications usNotifManuals = new UsersNofications();
+                    usNotifManuals.getManualsNotificationCounter(new Guid(Membership.GetUser(Page.User.Identity.Name).ProviderUserKey.ToString()));
+                    if (usNotifManuals.RowCount>0)
+                    {
+                        usNotifManuals.GetColumn("NotifCount");
+                        HFManuals.Value = usNotifManuals.GetColumn("NotifCount").ToString();
                     }
                 }
             }
