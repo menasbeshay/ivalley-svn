@@ -13,22 +13,13 @@ namespace Flights_GUI.Intranet {
     public partial class forms {
         
         /// <summary>
-        /// uiRadTreeViewCats control.
+        /// uiLabelModule control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadTreeView uiRadTreeViewCats;
-        
-        /// <summary>
-        /// uiLabelCat control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label uiLabelCat;
+        protected global::System.Web.UI.WebControls.Label uiLabelModule;
         
         /// <summary>
         /// uiRadGridmanuals control.

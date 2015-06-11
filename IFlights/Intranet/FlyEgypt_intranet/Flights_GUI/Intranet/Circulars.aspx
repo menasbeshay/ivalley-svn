@@ -3,6 +3,7 @@
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
 <%@ MasterType VirtualPath="~/MasterPages/ExceptionLight.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="../assets/custombootstrap/css/bootstrap.css" rel="stylesheet" />
     <script type="text/javascript">
         $(document).ready(function () {
             $('.notify-row .btn-inverse').removeClass("selected");
@@ -31,7 +32,7 @@
         </LayoutTemplate>
         <ItemTemplate>
             
-            <div class="post-item fx" data-animate="fadeInLeft">
+            <div class="post-item " data-animate="fadeInLeft">
                 <div class="post-image">
                                 	<a href='Circulars.aspx?cid=<%# Eval("AnnouncementID") %>'>
 												<div class="mask"></div>

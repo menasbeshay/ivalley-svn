@@ -32,7 +32,7 @@
         </LayoutTemplate>
         <ItemTemplate>
             
-            <div class="post-item fx" data-animate="fadeInLeft">
+            <div class="post-item " data-animate="fadeInLeft">
                 <div class="post-image">
                                 	<a href='bulletins.aspx?cid=<%# Eval("AnnouncementID") %>'>
 												<div class="mask"></div>

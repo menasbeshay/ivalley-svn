@@ -17,7 +17,7 @@
 
 
     <!-- CSS StyleSheets -->
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800&amp;amp;subset=latin,latin-ext">
+    <%--<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800&amp;amp;subset=latin,latin-ext">--%>
     <link rel="stylesheet" href="../ThemesFiles/ExceptionsLight/css/font-awesome.min.css">
     <link rel="stylesheet" href="../ThemesFiles/ExceptionsLight/css/animate.css">
     <link rel="stylesheet" href="../ThemesFiles/ExceptionsLight/css/prettyPhoto.css">
@@ -193,9 +193,7 @@
                                     <HeaderTemplate>
                                         <nav class="top-nav">
                                             <ul>
-                                                <li><a href="#"><i class="fa fa-home"></i><span>Home</span></a>
-                                                    
-                                                </li>
+                                                
                                     </HeaderTemplate>
                                     <FooterTemplate>
                                         </ul></nav>

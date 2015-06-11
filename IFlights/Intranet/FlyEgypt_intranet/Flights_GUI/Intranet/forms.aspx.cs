@@ -26,36 +26,43 @@ namespace Flights_GUI.Intranet
                 this.ViewState["_currentManualCat"] = value;
             }
         }
+
+        public int CurrentManual
+        {
+            get 
+            {
+                int d = 0;
+                if (Request.QueryString["mid"] != null)
+                {
+                    
+                    int.TryParse(Request.QueryString["mid"].ToString(), out d);
+                }
+                return d;
+            }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            {
-                Master.ModuleTitle = "";
+            {                
                 Master.PageTitle = "Forms";
-                LoadCats();
-                if (Request.QueryString["cid"] != null)
+                if (CurrentManual != 0)
                 {
-                    int d = 0;
-                    int.TryParse(Request.QueryString["cid"].ToString(), out d);
-                    if (d != 0)
-                        uiRadTreeViewCats.Nodes.FindNodeByValue(d.ToString()).Selected = true;
+                    Manual m = new Manual();
+                    if (m.LoadByPrimaryKey(CurrentManual))
+                        uiLabelModule.Text = m.Title;
+                    else
+                        Response.Redirect("Manuals.aspx");
                 }
                 else
-                    uiRadTreeViewCats.Nodes[0].Selected = true;
-                currentManualCat = Convert.ToInt32(uiRadTreeViewCats.SelectedNode.Value);
-                uiLabelCat.Text = uiRadTreeViewCats.SelectedNode.Text;
+                    Response.Redirect("Manuals.aspx");
+
                 BindData();
             }
 
             MarkNotificationsAsRead();
         }
 
-        protected void uiRadTreeViewCats_NodeClick(object sender, Telerik.Web.UI.RadTreeNodeEventArgs e)
-        {
-            currentManualCat = Convert.ToInt32(e.Node.Value);
-            uiLabelCat.Text = e.Node.Text;
-            BindData();
-        }
+       
 
         protected void uiRadGridmanuals_PageIndexChanged(object sender, Telerik.Web.UI.GridPageChangedEventArgs e)
         {
@@ -63,22 +70,11 @@ namespace Flights_GUI.Intranet
             BindData();
         }
 
-        private void LoadCats()
-        {
-            ManualCategory cats = new ManualCategory();
-            cats.LoadAll();
-
-            uiRadTreeViewCats.DataSource = cats.DefaultView;
-            uiRadTreeViewCats.DataFieldID = ManualCategory.ColumnNames.ManualCategoryID;
-            uiRadTreeViewCats.DataFieldParentID = ManualCategory.ColumnNames.ParentCategoryID;
-            uiRadTreeViewCats.DataTextField = ManualCategory.ColumnNames.Title;
-            uiRadTreeViewCats.DataValueField = ManualCategory.ColumnNames.ManualCategoryID;
-            uiRadTreeViewCats.DataBind();
-        }
+       
         private void BindData()
         {
-            Manual objdata = new Manual();
-            objdata.GetFormsByCatID(currentManualCat);
+            ManualForm objdata = new ManualForm();
+            objdata.GetFormsByManualID(CurrentManual);
             uiRadGridmanuals.DataSource = objdata.DefaultView;
             uiRadGridmanuals.DataBind();
 
