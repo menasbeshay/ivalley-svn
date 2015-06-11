@@ -27,8 +27,6 @@ namespace Flights_GUI.Admin
                 CheckBoxListGroups.DataTextField = Groups.ColumnNames.GroupName;
                 CheckBoxListGroups.DataValueField = Groups.ColumnNames.GroupID;
                 CheckBoxListGroups.DataBind();
-
-               
             }
         }
 
@@ -51,54 +49,44 @@ namespace Flights_GUI.Admin
         {
             UsersProfiles up = new UsersProfiles();
             Groups gr = new Groups();
-
-
             List<string> GroupIDs = CheckBoxListGroups.Items.Cast<ListItem>()
                 .Where(li => li.Selected)
                 .Select(li => li.Value)
                 .ToList();
-
-
             up.getuserEmails(GroupIDs);
-
-
-
-             try
+            try
+            {
+                MailMessage msg = new MailMessage();
+                string mail = GetLocalResourceObject("FromMail").ToString();
+                for (int i = 0; i < up.RowCount; i++)
                 {
-                    MailMessage msg = new MailMessage();
-                    string mail = GetLocalResourceObject("FromMail").ToString();  
-                    for (int i = 0; i < up.RowCount; i++)
-			{
-			 
-                        msg.To.Add(up.Email);
-                        up.MoveNext();
-			}
-                    
-                    msg.From = new MailAddress(mail);
-                    msg.Subject = GetLocalResourceObject("subject").ToString();
-                    msg.IsBodyHtml = true;
-                    msg.BodyEncoding = System.Text.Encoding.UTF8;
-
-                    msg.Body = uiRadEditorContnet.GetHtml(Telerik.Web.UI.EditorStripHtmlOptions.None);
-
-                  SmtpClient client = new SmtpClient(GetLocalResourceObject("Server").ToString(), 25);
-                    //SmtpClient client = new SmtpClient(GetLocalResourceObject("server").ToString(), 25);
-                    client.EnableSsl = false;
-                    client.UseDefaultCredentials = false;
-
-                    client.Credentials = new System.Net.NetworkCredential(mail, GetLocalResourceObject("Password").ToString());
-
-                    client.Send(msg);
+                    msg.To.Add(up.Email);
+                    up.MoveNext();
                 }
-             catch (Exception ex)
-             {
-                 throw;
-             }
+                msg.To.Add(uiHiddenFieldmails.Value);
+                msg.From = new MailAddress(mail);
+                msg.Subject = GetLocalResourceObject("subject").ToString();
+                msg.IsBodyHtml = true;
+                msg.BodyEncoding = System.Text.Encoding.UTF8;
+                msg.Body = uiRadEditorContnet.GetHtml(Telerik.Web.UI.EditorStripHtmlOptions.None);
+                SmtpClient client = new SmtpClient(GetLocalResourceObject("Server").ToString(), 25);
+                //SmtpClient client = new SmtpClient(GetLocalResourceObject("server").ToString(), 25);
+                client.EnableSsl = false;
+                client.UseDefaultCredentials = false;
+                client.Credentials = new System.Net.NetworkCredential(mail, GetLocalResourceObject("Password").ToString());
+                client.Send(msg);
+
+            
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
         
         
         
     }
 
-   
+
 }

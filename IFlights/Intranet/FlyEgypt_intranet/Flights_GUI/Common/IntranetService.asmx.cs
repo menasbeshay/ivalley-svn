@@ -110,7 +110,6 @@ namespace Flights_GUI.Common
 
         public string label { get; set; }
         public string value  { get; set; }
-
     }
 
 
