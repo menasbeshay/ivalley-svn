@@ -159,7 +159,7 @@ namespace Flights_GUI.Admin
 
             // add new notifications 
             SendingNotifications.sendNotif(3, CurrentManual.ManualCategoryID, CurrentManual.ManualID, CurrentForm.ManualFormID);
-            SendingNotifications.sendNotif(4, CurrentManual.ManualCategoryID, null, CurrentForm.ManualFormID);
+            SendingNotifications.sendNotif(4, CurrentManual.ManualCategoryID, CurrentManual.ManualID, CurrentForm.ManualFormID);
         }
 
         protected void uiLinkButtonCancel_Click(object sender, EventArgs e)
