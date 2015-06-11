@@ -25,14 +25,46 @@
                 }
             });
         });
+
+
+        function validateBeforeSubmit()
+        {
+            var valid = false;
+            var checkedItems = $('#RulesDiv').find('input:checked');
+            var mails = $('#myTags').tagit('assignedTags');
+            if (checkedItems.length > 0 || mails.length >0) {
+                valid = true;
+            }
+
+            if (!valid)
+            {
+                $('#errorDiv').fadeIn(200);
+                $('html, body').animate({ scrollTop: '0px' }, 800);
+            }
+            return valid;
+        }
     </script>
+
+
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:HiddenField ID="uiHiddenFieldmails" runat="server" />
+
+
     <div class="cell-12">
+        
+        <div class="box error-box " id="errorDiv" style="display:none;">
+                <a href="#" onclick="$('#errorDiv').fadeOut(200);" style="  position: absolute;  top: 2px;  right: 2px;  padding: 2px 8px 4px;  background: rgba(0,0,0,.1);  color: #fff;  font-size: 17px;"><i class="fa fa-times"></i>  </a>
+                <h3>
+                    Error
+                </h3>
+                <p>
+                    Please select at least one group or enter one mail.
+                </p>
+            </div>
         <asp:Panel runat="server" ID="uiPanelSuccess" Visible="false">
-            <div class="alert alert-success">
+            <div class="box success-box" >
                 Mails sent successfully.
             </div>
         </asp:Panel>
@@ -54,7 +86,7 @@
                 <div class="cell-2">
                     Select Groups :
                 </div>
-                <div class="cell-8">
+                <div id="RulesDiv" class="cell-8">
                     <asp:CheckBoxList ID="CheckBoxListGroups" RepeatLayout="Table" RepeatDirection="Horizontal" RepeatColumns="5" runat="server"></asp:CheckBoxList>
                 </div>
             </div>
@@ -111,7 +143,7 @@
             <div style="clear: both; height: 10px;"></div>
             <div class="cell-12">
                 <div class="cell-2">
-                    <asp:LinkButton ID="LinkButtonSendNotifications" OnClick="LinkButtonSendNotifications_Click" CssClass="btn btn-primary" runat="server">Send</asp:LinkButton>
+                    <asp:LinkButton ID="LinkButtonSendNotifications" OnClick="LinkButtonSendNotifications_Click" OnClientClick="return validateBeforeSubmit()" CssClass="btn btn-primary" runat="server">Send</asp:LinkButton>
                 </div>
             </div>
         </asp:Panel>
