@@ -27,7 +27,10 @@ namespace Flight_BLL
 
         public virtual bool getNamesList(string queryName)
         {
-            return LoadFromRawSql("SELECT FullName from UserProfiles,aspnet_Users WHERE UserProfiles.UserID = aspnet_Users.UserId AND ((aspnet_Users.UserName LIKE {0}) OR (UserProfiles.FullName LIKE {0}) OR (UserProfiles.Email LIKE {0}))",queryName);
+            string query = string.Format(@"SELECT Email , FullName 
+                                    from UsersProfiles u inner join aspnet_Users mem  on u.UserID = mem.UserId
+                                    WHERE  ((mem.UserName LIKE N'%{0}%') OR (u.FullName LIKE N'%{0}%') OR (u.Email LIKE N'%{0}%'))", queryName);
+            return LoadFromRawSql(query);
         }
 	}
 }
