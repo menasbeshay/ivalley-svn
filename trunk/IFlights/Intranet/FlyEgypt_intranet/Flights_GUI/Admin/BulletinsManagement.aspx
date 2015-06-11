@@ -51,7 +51,9 @@
          <div class="cell-12 clearfix">
              <div class="cell-2">Title</div>
              <div class="cell-4">
-                 <asp:TextBox ID="uiTextBoxTitle" runat="server"></asp:TextBox></div>
+                 <asp:TextBox ID="uiTextBoxTitle" runat="server"></asp:TextBox>
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" Font-Bold="true" ForeColor="Red" ValidationGroup="add" ControlToValidate="uiTextBoxTitle"></asp:RequiredFieldValidator>
+             </div>
          </div>
          <div style="clear:both;height:5px;"></div>
          <div class="cell-12 clearfix">
@@ -65,10 +67,14 @@
              <div class="cell-4">
 
                  <asp:FileUpload ID="uiFileUploadImg" runat="server" />
+                 
+             </div>
+             <div class="cell-4">
+                 <asp:Image ID="uiImageMain" runat="server" style="max-width:150px;"/>
              </div>
          </div>
          <div style="clear:both;height:5px;"></div>
-         <div class="cell-12 clearfix" style="margin-left:0">
+         <div class="cell-12 clearfix" style="margin-left:0;display:none;">
              <div class="cell-2">Created By</div>
              <div class="cell-4"><asp:TextBox ID="uiTextBoxCreatedBy" runat="server"></asp:TextBox></div>
          </div>
@@ -122,7 +128,7 @@
          <div class="cell-12 clearfix" style="margin-left:0;margin-top:10px;">
              <div class="cell-2"></div>
              <div class="cell-2">
-                 <asp:LinkButton ID="uiLinkButtonSave" runat="server" CssClass="btn btn-primary" OnClick="uiButtonSave_Click">Save</asp:LinkButton></div>
+                 <asp:LinkButton ID="uiLinkButtonSave" runat="server" CssClass="btn btn-primary" OnClick="uiButtonSave_Click" ValidationGroup="add">Save</asp:LinkButton></div>
              <div class="cell-4">
                  <asp:LinkButton ID="uiLinkButtonCancel" runat="server" CssClass="btn btn-primary" OnClick="uiLinkButtonCancel_Click">Cancel</asp:LinkButton></div>
              </div>

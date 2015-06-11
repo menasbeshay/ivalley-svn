@@ -127,7 +127,7 @@ namespace Flight_DAL
 			{
 				get
 				{
-					return new SqlParameter("@CreatedBy", SqlDbType.NVarChar, 200);
+					return new SqlParameter("@CreatedBy", SqlDbType.UniqueIdentifier, 0);
 				}
 			}
 			
@@ -289,15 +289,15 @@ namespace Flight_DAL
 			}
 		}
 
-		public virtual string CreatedBy
+		public virtual Guid CreatedBy
 	    {
 			get
 	        {
-				return base.Getstring(ColumnNames.CreatedBy);
+				return base.GetGuid(ColumnNames.CreatedBy);
 			}
 			set
 	        {
-				base.Setstring(ColumnNames.CreatedBy, value);
+				base.SetGuid(ColumnNames.CreatedBy, value);
 			}
 		}
 
@@ -403,14 +403,14 @@ namespace Flight_DAL
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.CreatedBy) ? string.Empty : base.GetstringAsString(ColumnNames.CreatedBy);
+				return this.IsColumnNull(ColumnNames.CreatedBy) ? string.Empty : base.GetGuidAsString(ColumnNames.CreatedBy);
 			}
 			set
 	        {
 				if(string.Empty == value)
 					this.SetColumnNull(ColumnNames.CreatedBy);
 				else
-					this.CreatedBy = base.SetstringAsString(ColumnNames.CreatedBy, value);
+					this.CreatedBy = base.SetGuidAsString(ColumnNames.CreatedBy, value);
 			}
 		}
 

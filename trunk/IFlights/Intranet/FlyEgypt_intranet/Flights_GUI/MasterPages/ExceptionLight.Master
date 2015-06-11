@@ -159,17 +159,26 @@
                     <div class="container">
                         <div class="row">
                             <div class="cell-5">
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-envelope"></i>info@flyegypt.com.eg
-                                    </a></li>
-                                    <li><span><i class="fa fa-phone"></i>Call Us: +1 (888) 000-0000</span></li>
-                                </ul>
+                                
                             </div>
                             <div class="cell-7 right-bar">
-                                <ul class="right">
+                                <div class="right cell-5" style="text-align:right;">
 
-                                    <li><a href="#" class="login-btn"><i class="fa fa-unlock-alt"></i>Login</a></li>
-                                </ul>
+                                    <div style="width:auto;">
+                                        <asp:LoginView ID="uiLoginView" runat="server">
+                                            <AnonymousTemplate>
+                                                <a href="#" class="login-btn"><i class="fa fa-unlock-alt"></i>Login</a>
+                                            </AnonymousTemplate>
+                                            <LoggedInTemplate>
+                                                <asp:LoginStatus ID="LoginStatus2" runat="server" CssClass="right" LogoutText="<i class='fa fa-unlock-alt'></i> Logout"/>
+                                                <span class="right">|</span>
+                                                <asp:LoginName ID="LoginName1" runat="server" CssClass="right" />
+                                                <span class="right">Welcome</span>
+                                            </LoggedInTemplate>
+                                        </asp:LoginView>
+                                        
+                                        </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -414,17 +423,16 @@
                     <div class="container">
                         <div class="row">
                             <!-- footer copyrights left cell -->
-                            <div class="copyrights cell-5">
-                                &copy; Copyrights
-                                <img src="../images/IValley.png" style="vertical-align: middle" />
-                                2015. All rights reserved.
+                            <div class=" cell-9">
+                                
                             </div>
 
                             <!-- footer social links right cell start -->
-                            <div class="cell-7">
-                                <ul class="social-list right">
-                                    <li class="skew-25"><a href="#" data-title="facebook" data-tooltip="true"><span class="fa fa-facebook skew25"></span></a></li>
-                                </ul>
+                            <div class="copyrights cell-3">
+                                &copy; Copyrights
+                                <a href="http://i-valley.com" target="_blank">
+                                <img src="../images/IValley.png"  style="vertical-align: middle" /></a>
+                                2015. All rights reserved.
                             </div>
                             <!-- footer social links right cell end -->
 

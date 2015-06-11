@@ -61,6 +61,7 @@
             <div class="cell-2">Title</div>
             <div class="cell-4">
                 <asp:TextBox ID="uiTextBoxTitle" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" Font-Bold="true" ForeColor="Red" ValidationGroup="add" ControlToValidate="uiTextBoxTitle"></asp:RequiredFieldValidator>
             </div>
         </div>
         <%--<div style="clear:both;height:5px;"></div>
@@ -104,7 +105,7 @@
         <div class="cell-12 clearfix" style="margin-left: 0; margin-top: 10px;">
             <div class="cell-2"></div>
             <div class="cell-1">
-                <asp:LinkButton ID="uiLinkButtonSave" runat="server" CssClass="btn btn-primary" OnClick="uiButtonSave_Click">Save</asp:LinkButton>
+                <asp:LinkButton ID="uiLinkButtonSave" runat="server" CssClass="btn btn-primary" OnClick="uiButtonSave_Click" ValidationGroup="add">Save</asp:LinkButton>
             </div>
             <div class="cell-2">
                 <asp:LinkButton ID="uiLinkButtonCancel" runat="server" CssClass="btn main-bg" OnClick="uiLinkButtonCancel_Click">Cancel & Back</asp:LinkButton>
@@ -159,6 +160,7 @@
             <div class="cell-2">Title</div>
             <div class="cell-4">
                 <asp:TextBox ID="uiTextBoxVersionTitle" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" Font-Bold="true" ForeColor="Red" ValidationGroup="addVersion" ControlToValidate="uiTextBoxVersionTitle"></asp:RequiredFieldValidator>
             </div>
         </div>
         <div style="clear: both; height: 5px;"></div>
@@ -206,7 +208,7 @@
         <div class="cell-12 clearfix" style="margin-left: 0;">
             <div class="cell-2"></div>
             <div class="cell-2">
-                <asp:LinkButton ID="uiLinkButtonSaveVersion" runat="server" CssClass="btn btn-primary" OnClick="uiButtonSaveVersion_Click">Save</asp:LinkButton>
+                <asp:LinkButton ID="uiLinkButtonSaveVersion" runat="server" CssClass="btn btn-primary" OnClick="uiButtonSaveVersion_Click" ValidationGroup="addVersion">Save</asp:LinkButton>
             </div>
             <div class="cell-4">
                 <asp:LinkButton ID="uiLinkButtonCancelVersion" runat="server" CssClass="btn main-bg" OnClick="uiLinkButtonCancelVersion_Click">Cancel & Back</asp:LinkButton>

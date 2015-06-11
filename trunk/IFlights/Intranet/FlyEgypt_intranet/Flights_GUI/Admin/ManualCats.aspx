@@ -17,8 +17,9 @@
     </div>
            <div class="cell-4 clearfix pull-left">
         <asp:LinkButton ID="uiLinkButtonGetRootCats" runat="server" CssClass="btn btn-primary" OnClick="uiLinkButtonGetRootCats_Click">load root categories</asp:LinkButton>
-        <div class="clearfix">&nbsp;  </div>
+        
     </div>
+           
           <div class="cell-12 clearfix">
               <div class="cell-4">
                   <h4>

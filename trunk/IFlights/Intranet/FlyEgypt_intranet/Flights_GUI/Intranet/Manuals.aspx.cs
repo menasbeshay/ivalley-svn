@@ -94,7 +94,10 @@ namespace Flights_GUI.Intranet
         protected void MarkNotificationsAsRead()
         {
             UsersNofications userNotif = new UsersNofications();
-            userNotif.MarkNotificationsReadByCategoryID((new Guid(Membership.GetUser(Page.User.Identity.Name).ProviderUserKey.ToString())), 3,currentManualCat);
+            if(currentManualCat != 12)
+                userNotif.MarkNotificationsReadByCategoryID((new Guid(Membership.GetUser(Page.User.Identity.Name).ProviderUserKey.ToString())), 3,currentManualCat);
+            else
+                userNotif.MarkNotificationsReadByCategoryID((new Guid(Membership.GetUser(Page.User.Identity.Name).ProviderUserKey.ToString())), 5, currentManualCat);
         }
 
     }

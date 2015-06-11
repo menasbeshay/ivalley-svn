@@ -53,7 +53,7 @@ namespace Flights_GUI.Admin
                 LoadSubCats();
                 uiPanelEdit.Visible = false;
                 uiPanelViewAll.Visible = true;
-            }
+            }            
         }
 
        
@@ -114,6 +114,7 @@ namespace Flights_GUI.Admin
                 objData.MarkAsDeleted();
                 objData.Save();
                 LoadSubCats();
+                LoadCats();
             }
         }
 
@@ -126,14 +127,16 @@ namespace Flights_GUI.Admin
         protected void uiRadTreeViewCats_NodeClick(object sender, Telerik.Web.UI.RadTreeNodeEventArgs e)
         {
             currentParentCat = Convert.ToInt32(e.Node.Value);
+            uiLinkButtonAdd.Text = "Add new sub-category";
             LoadSubCats();
 
         }
 
         protected void uiLinkButtonGetRootCats_Click(object sender, EventArgs e)
         {
-            currentParentCat = 0;
+            currentParentCat = 0;            
             uiRadTreeViewCats.UnselectAllNodes();
+            uiLinkButtonAdd.Text = "Add new root category";
             LoadSubCats();
         }
         #endregion
@@ -150,6 +153,8 @@ namespace Flights_GUI.Admin
             uiRadTreeViewCats.DataTextField = ManualCategory.ColumnNames.Title;
             uiRadTreeViewCats.DataValueField = ManualCategory.ColumnNames.ManualCategoryID;
             uiRadTreeViewCats.DataBind();
+            if(currentParentCat != 0)
+                uiRadTreeViewCats.Nodes.FindNodeByValue(currentParentCat.ToString()).Selected = true;
         }
 
         private void LoadSubCats()
@@ -160,6 +165,7 @@ namespace Flights_GUI.Admin
             uiRadGridSubCats.DataBind();
         }
         #endregion
+
 
        
     }
