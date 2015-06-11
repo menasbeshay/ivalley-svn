@@ -465,6 +465,12 @@
     <Content Include="assets\coming_soon\Source\Fonts\Monda\OFL.txt" />
     <Content Include="assets\coming_soon\Source\Fonts\Open Sans\LICENSE-2.0.txt" />
     <Content Include="assets\coming_soon\Source\Fonts\Roboto\Google Android License.txt" />
+    <Content Include="assets\custombootstrap\css\bootstrap-theme.css" />
+    <Content Include="assets\custombootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="assets\custombootstrap\css\bootstrap.css" />
+    <Content Include="assets\custombootstrap\css\bootstrap.min.css" />
+    <Content Include="assets\custombootstrap\js\bootstrap.js" />
+    <Content Include="assets\custombootstrap\js\bootstrap.min.js" />
     <Content Include="assets\data-tables\dataTables.editor.min.css" />
     <Content Include="assets\data-tables\dataTables.editor.min.js" />
     <Content Include="assets\data-tables\dataTables.editor.min_backup.js" />
@@ -771,16 +777,20 @@
     <Content Include="assets\uniform\jquery.uniform.min.js" />
     <Content Include="AvailableAircrafts.aspx" />
     <Content Include="ChangePassword.aspx" />
+    <Content Include="Common\IntranetService.asmx" />
     <Content Include="Common\Safety.aspx" />
     <Content Include="Common\Thumb.aspx" />
     <Content Include="Common\Training.aspx" />
     <Content Include="css\blueimp-gallery.min.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\editor.css" />
+    <Content Include="css\jquery-ui.min.css" />
     <Content Include="css\jquery.fileupload-noscript.css" />
     <Content Include="css\jquery.fileupload-ui-noscript.css" />
     <Content Include="css\jquery.fileupload-ui.css" />
     <Content Include="css\jquery.fileupload.css" />
+    <Content Include="css\jquery.tagit.css" />
+    <Content Include="css\modal.css" />
     <Content Include="css\style.css" />
     <Content Include="css\style8.css" />
     <Content Include="css\style_default.css" />
@@ -878,6 +888,7 @@
     <Content Include="js\highcharts.js" />
     <Content Include="js\jquery-1.8.2.min.js" />
     <Content Include="js\jquery-1.8.3.min.js" />
+    <Content Include="js\jquery-ui.min.js" />
     <Content Include="js\jquery.blockui.js" />
     <Content Include="js\jquery.blueimp-gallery.min.js" />
     <Content Include="js\jquery.cookie.js" />
@@ -903,6 +914,7 @@
     <Content Include="js\respond.js" />
     <Content Include="js\respond.min.js" />
     <Content Include="js\scripts.js" />
+    <Content Include="js\tag-it.js" />
     <Content Include="js\tmpl.min.js" />
     <Content Include="js\ui-nestable.js" />
     <Content Include="js\ui-tree.js" />
@@ -1928,6 +1940,10 @@
       <DependentUpon>FileUploader.ashx</DependentUpon>
     </Compile>
     <Compile Include="Common\ImageResize.cs" />
+    <Compile Include="Common\IntranetService.asmx.cs">
+      <DependentUpon>IntranetService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Common\Safety.aspx.cs">
       <DependentUpon>Safety.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2261,6 +2277,7 @@
     <None Include="assets\coming_soon\Source\Fonts\Monda\Monda-Regular.ttf" />
     <None Include="assets\coming_soon\Source\Fonts\Open Sans\OpenSans-CondLight.ttf" />
     <None Include="assets\coming_soon\Source\Fonts\Roboto\Roboto-Light.ttf" />
+    <Content Include="assets\custombootstrap\config.json" />
     <None Include="assets\data-tables\.DS_Store" />
     <None Include="assets\dropzone\css\stylus\basic.styl" />
     <None Include="assets\dropzone\css\stylus\dropzone.styl" />

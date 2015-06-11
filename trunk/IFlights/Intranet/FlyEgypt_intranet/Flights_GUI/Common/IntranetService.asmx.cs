@@ -39,8 +39,59 @@ namespace Flights_GUI.Common
 
             }).ToList();
 
-            //return Nms;
             SetContentResult(Nms);
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json, UseHttpGet = true)]
+        public void GetManualVersions(int ID)
+        {
+            ManualVersion versions = new ManualVersion();
+            versions.GetVersionsByManualID(ID);
+
+            List<Version> AllVersions = versions.DefaultView.Table.AsEnumerable().Select(row =>
+            {
+                return new Version
+                {
+                    Title = row["Title"].ToString(),
+                    IssueNumber = row["IssueNumber"].ToString(),
+                    IssueDate = DateTime.Parse(row["IssueDate"].ToString()),
+                    RevisionNumber = row["RevisionNumber"].ToString(),
+                    RevisionDate = DateTime.Parse(row["RevisionDate"].ToString()),
+                    UpdatedByName = row["UpdatedByName"].ToString(),
+                    LastUpdatedDate = DateTime.Parse(row["LastUpdatedDate"].ToString()),
+                    Path = row["Path"].ToString()
+                };
+
+            }).ToList();
+
+            SetContentResult(AllVersions);
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json, UseHttpGet = true)]
+        public void GetFormVersions(int ID)
+        {
+            FromVersion versions = new FromVersion();
+            versions.GetVersionsByFormID(ID);
+
+            List<Version> AllVersions = versions.DefaultView.Table.AsEnumerable().Select(row =>
+            {
+                return new Version
+                {
+                    Title = row["Title"].ToString(),
+                    IssueNumber = row["IssueNumber"].ToString(),
+                    IssueDate = DateTime.Parse(row["IssueDate"].ToString()),
+                    RevisionNumber = row["RevisionNumber"].ToString(),
+                    RevisionDate = DateTime.Parse(row["RevisionDate"].ToString()),
+                    UpdatedByName = row["UpdatedByName"].ToString(),
+                    LastUpdatedDate = DateTime.Parse(row["LastUpdatedDate"].ToString()),
+                    Path = row["Path"].ToString()
+                };
+
+            }).ToList();
+
+            SetContentResult(AllVersions);
         }
 
         private void SetContentResult(dynamic data)
@@ -59,6 +110,20 @@ namespace Flights_GUI.Common
 
         public string label { get; set; }
         public string value  { get; set; }
+
+    }
+
+
+    public class Version 
+    {
+        public string Title { get; set; }
+        public string IssueNumber { get; set; }
+        public DateTime IssueDate { get; set; }
+        public string RevisionNumber { get; set; }
+        public DateTime RevisionDate { get; set; }
+        public string UpdatedByName { get; set; }
+        public DateTime LastUpdatedDate { get; set; }
+        public string Path { get; set; }
 
     }
 }

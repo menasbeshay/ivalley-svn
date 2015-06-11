@@ -470,7 +470,7 @@ th, td, caption {
 /* ---- 3.2 Top logo --------------------- */
 header.top-head {
 	position: relative;
-	z-index: 5555;
+	z-index: 1020;
 	min-height: 92px;
 	border-bottom: 9px #f4f4f4 solid;
 }
@@ -4075,7 +4075,7 @@ button.skew-25 i {
 .post-item {
 	padding-right: inherit;
 	padding-bottom: 20px;
-	margin-bottom: 50px;
+	margin-bottom: 20px;
 }
 .post-content{
 	overflow:hidden
