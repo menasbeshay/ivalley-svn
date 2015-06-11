@@ -74,7 +74,7 @@
                     Emails :
                 </div>
                 <div class="cell-8">
-                    <label style="font-size: x-small; position: absolute; top: -15px">Seperate emails with semicolon ' ; '</label>
+                    
 <%--                    <textarea id="txtEmails" runat="server" style="width:100%" />--%>
                     <ul id="myTags">
                     </ul>
@@ -142,6 +142,7 @@
             </div>
             <div style="clear: both; height: 10px;"></div>
             <div class="cell-12">
+                <div class="cell-2"></div>
                 <div class="cell-2">
                     <asp:LinkButton ID="LinkButtonSendNotifications" OnClick="LinkButtonSendNotifications_Click" OnClientClick="return validateBeforeSubmit()" CssClass="btn btn-primary" runat="server">Send</asp:LinkButton>
                 </div>

@@ -6,7 +6,6 @@ using System.Net.Mail;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Net.Mail;
 using System.Web.Services;
 using System.Data;
 using Newtonsoft.Json;
@@ -21,6 +20,7 @@ namespace Flights_GUI.Admin
         {
             if (!Page.IsPostBack)
             {
+                Master.PageTitle = "Send Notifications Mails";
                 Groups grps = new Groups();
                 grps.LoadAll();
                 CheckBoxListGroups.DataSource = grps.DefaultView;
@@ -69,7 +69,7 @@ namespace Flights_GUI.Admin
                 msg.IsBodyHtml = true;
                 msg.BodyEncoding = System.Text.Encoding.UTF8;
                 msg.Body = uiRadEditorContnet.GetHtml(Telerik.Web.UI.EditorStripHtmlOptions.None);
-                SmtpClient client = new SmtpClient(GetLocalResourceObject("Server").ToString(), 25);
+                SmtpClient client = new SmtpClient(GetLocalResourceObject("Server").ToString(), Convert.ToInt32(GetLocalResourceObject("Port").ToString()));
                 //SmtpClient client = new SmtpClient(GetLocalResourceObject("server").ToString(), 25);
                 client.EnableSsl = false;
                 client.UseDefaultCredentials = false;
