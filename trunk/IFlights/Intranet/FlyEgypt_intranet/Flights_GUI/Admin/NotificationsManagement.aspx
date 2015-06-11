@@ -5,14 +5,14 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
-    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css">
+    <script src="../js/jquery-ui.min.js"></script>
+    <link href="../css/jquery-ui.min.css" rel="stylesheet" />
     <script src="../js/tag-it.js"></script>
     <link href="../css/jquery.tagit.css" rel="stylesheet" />
     <script type="text/javascript">
         $(document).ready(function () {
             $("#myTags").tagit({
-                autocomplete: { source: ["c++", "java", "php", "javascript", "ruby", "python", "c"]}
+                autocomplete: { source: "../Common/IntranetService.asmx/GetAvalName" }
             });
         });
     </script>
