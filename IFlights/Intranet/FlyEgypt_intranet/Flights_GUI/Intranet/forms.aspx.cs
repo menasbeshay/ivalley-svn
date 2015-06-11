@@ -83,7 +83,7 @@ namespace Flights_GUI.Intranet
         protected void MarkNotificationsAsRead()
         {
             UsersNofications userNotif = new UsersNofications();
-            userNotif.MarkNotificationsRead((new Guid(Membership.GetUser(Page.User.Identity.Name).ProviderUserKey.ToString())), 4);
+            userNotif.MarkFormNotificationsRead((new Guid(Membership.GetUser(Page.User.Identity.Name).ProviderUserKey.ToString())), 4,CurrentManual);
         }
     }
 }

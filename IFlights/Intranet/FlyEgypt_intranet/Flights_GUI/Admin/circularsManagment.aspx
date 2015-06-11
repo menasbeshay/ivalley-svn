@@ -35,7 +35,6 @@
                                     &nbsp;
                                     <asp:LinkButton ID="uiLinkButtonDelete" runat="server" CommandArgument='<%# Eval("AnnouncementID") %>'
                                         CommandName="DeleteCircular" OnClientClick="return confirm('Are you want to delete this record? ');"><img src="../images/delete.png" alt="Delete" title="Delete" style="border:0;float:none;" /></asp:LinkButton>
-
                                 </ItemTemplate>
                             </telerik:GridTemplateColumn>
                         </Columns>                            
