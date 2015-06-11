@@ -96,6 +96,7 @@ namespace Flights_GUI.Admin
                 uiPanelViewAll.Visible = false;
                 uiPanelEditVersions.Visible = false;
                 uiPanelVersions.Visible = true;
+                uiLinkButtonEditForms.Visible = true;
                 BindData_Versions();
             }
 
@@ -142,6 +143,7 @@ namespace Flights_GUI.Admin
             uiPanelEdit.Visible = true;
             uiPanelEditVersions.Visible = false;
             uiPanelVersions.Visible = false;
+            uiLinkButtonEditForms.Visible = false;
             ClearFields();
         }
 
@@ -171,6 +173,7 @@ namespace Flights_GUI.Admin
             uiPanelVersions.Visible = true;
             uiPanelEditVersions.Visible = false;
             uiPanelEdit.Visible = true;
+            uiLinkButtonEditForms.Visible = true;
             //ClearFields();
 
             // add new notifications 
@@ -326,7 +329,10 @@ namespace Flights_GUI.Admin
 
             objdata.Save();
             // add new notifications 
-            SendingNotifications.sendNotif(3, CurrentManual.ManualCategoryID, CurrentManual.ManualID, null);
+            if(CurrentManual.ManualCategoryID != 12)
+                SendingNotifications.sendNotif(3, CurrentManual.ManualCategoryID, CurrentManual.ManualID, null);
+            else
+                SendingNotifications.sendNotif(5, CurrentManual.ManualCategoryID, CurrentManual.ManualID, null);
             BindData_Versions();
             CurrentManualVersion = null;
             uiPanelViewAll.Visible = false;
@@ -369,6 +375,7 @@ namespace Flights_GUI.Admin
             uiTextBoxRevisionNo.Text = "";            
             uiRadDatePickerIssueDate.SelectedDate = null;
             uiRadDatePickerRevisionDate.SelectedDate = null;
+            uiTextBoxNotes.Text = "";
         }
         #endregion
 

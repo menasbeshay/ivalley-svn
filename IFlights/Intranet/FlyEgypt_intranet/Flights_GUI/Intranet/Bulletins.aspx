@@ -50,7 +50,7 @@
 												<div class="post-info">
 													<h2><a class="main-color" href='bulletins.aspx?cid=<%# Eval("AnnouncementID") %>'><%# Eval("Title").ToString() %></a></h2>
 													<ul class="post-meta">
-														<li class="meta-user"><i class="fa fa-user"></i>By: <a href="#"><%# Eval("CreatedBy").ToString() %></a></li>
+														<li class="meta-user"><i class="fa fa-user"></i>By: <%# Eval("UserName").ToString() %></li>
 														
 													</ul>
 												</div>

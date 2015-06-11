@@ -28,6 +28,12 @@ namespace Flights_GUI.Common
                 if (File.Exists(filePath))
                 {
                     File.Delete(filePath);
+                    Hashtable Files;
+                    if (context.Session["CurrentUploadedFiles"] != null)
+                    {
+                        Files = (Hashtable)context.Session["CurrentUploadedFiles"];
+                        Files.Remove(context.Request.QueryString["key"].ToString());
+                    }
                     var jsonObj = js.Serialize(true);
                     context.Response.Write(jsonObj.ToString());
                     context.Response.End();
@@ -70,7 +76,7 @@ namespace Flights_GUI.Common
                     size = context.Request.Files[0].ContentLength,
                     url = FilePath,
                     thumbnailUrl = "",
-                    deleteUrl = "fileuploader.ashx?path=/fileuploads/" + fileName + ext,
+                    deleteUrl = "common/fileuploader.ashx?path=/fileuploads/" + fileName + ext + "&key=" + fileName,
                     deleteType = "Get"
                 });
 

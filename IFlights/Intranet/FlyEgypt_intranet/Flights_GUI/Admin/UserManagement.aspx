@@ -183,7 +183,7 @@
                     &nbsp;
                 </div>
                 <div class="cell-4">
-                    <asp:LinkButton runat="server" ID="uiLinkButtonSave" CssClass="btn btn-primary" OnClick="uiButtonUpdate_Click">Save</asp:LinkButton>
+                    <asp:LinkButton runat="server" ID="uiLinkButtonSave" CssClass="btn btn-primary" OnClick="uiButtonUpdate_Click" ValidationGroup="EditUser">Save</asp:LinkButton>
                     &nbsp;<asp:LinkButton runat="server" ID="uiLinkButtonCancel" CssClass="btn btn-primary" OnClick="uiButtonCancel_Click">Cancel</asp:LinkButton>
                 </div>
             </div>

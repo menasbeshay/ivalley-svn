@@ -13,8 +13,8 @@
           <siteMapNode url="~/intranet/manuals.aspx?cid=3" id="3" title="Flight Dispatch (DSP)"  description="fa-file" htmlID="dsp"/>
           <siteMapNode url="~/intranet/manuals.aspx?cid=4" id="4" title="Engineering and Maintenance (MNT)"  description="fa-edit" htmlID="org"/>
           <siteMapNode url="~/intranet/manuals.aspx?cid=5" id="5" title="Cabin Operations (CAB)"  description="fa-tags" htmlID="flt"/>
-          <siteMapNode url="~/intranet/manuals.aspx?cid=10" id="10" title="Ground Handling (GRH)"  description="fa-file" htmlID="dsp"/>
-          <siteMapNode url="~/intranet/manuals.aspx?cid=11" id="11" title="Security Management (SEC)"  description="fa-file" htmlID="dsp"/>
+          <siteMapNode url="~/intranet/manuals.aspx?cid=6" id="6" title="Ground Handling (GRH)"  description="fa-file" htmlID="dsp"/>
+          <siteMapNode url="~/intranet/manuals.aspx?cid=7" id="7" title="Security Management (SEC)"  description="fa-file" htmlID="dsp"/>
         </siteMapNode>
       
       <!--<siteMapNode url="~/Intranet/Forms.aspx" title="Forms"  description="fa-edit" htmlID="Forms">
@@ -29,11 +29,11 @@
           <siteMapNode url="~/intranet/forms.aspx?cid=11" title="Security Management (SEC)"  description="fa-file" htmlID="dsp"/>--><!--
         </siteMapNode>-->
 
-      <!--<siteMapNode url="~/intranet/AircraftManuals.aspx" title="Aircraft Manuals"  description="fa-plane" htmlID="AircraftManuals">       
-        <siteMapNode url="~/intranet/AircraftManuals.aspx?cid=1" title="Boing Manuals"  description="fa-file" htmlID="dsp"/>
+      <siteMapNode url="~/intranet/manuals.aspx?cid=12" title="Aircraft Manuals"  description="fa-plane" htmlID="AircraftManuals">       
+        <siteMapNode url="~/intranet/manuals.aspx?cid=13" title="Boing Manuals"  description="fa-file" htmlID="dsp"/>
       </siteMapNode>
       
-        <siteMapNode url="~/common/safety.aspx" title="Safety"  description="icon-lock" htmlID="safety"/>
+        <!--<siteMapNode url="~/common/safety.aspx" title="Safety"  description="icon-lock" htmlID="safety"/>
         <siteMapNode url="~/common/training.aspx" title="Training"  description="icon-check" htmlID="training"/>-->
       
         <siteMapNode url="#" title="Settings"  description="fa-cogs" htmlID="Sys">
@@ -45,6 +45,7 @@
           <siteMapNode url="~/Admin/AircraftManualCats.aspx" title="Aircraft Manuals Categories"  description="fa-tags" htmlID="Manage_AircraftCats"/>
           <siteMapNode url="~/Admin/AircraftManualManagement.aspx" title="Manage Aircraft Manuals"  description="fa-file" htmlID="Manage_AircraftManuals"/>-->
           <siteMapNode url="~/Admin/UserManagement.aspx" title="Manage Users"  description="fa-group" htmlID="Manage_Users"/>
+          <siteMapNode url="~/Admin/NotificationsManagement.aspx" title="Send Notifications"  description="fa-mail" htmlID="Manage_Notifications"/>
           <!--<siteMapNode url="~/Admin/GeneralSettings.aspx" title="General settings"  description="fa-group" htmlID="Manage_Settings"/>-->
           
         </siteMapNode>

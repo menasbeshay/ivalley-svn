@@ -49,7 +49,14 @@ namespace Flights_GUI.Admin
 
                 uiTextBoxTitle.Text = objData.Title;
                 uiRadEditorContnet.Content = Server.HtmlDecode(objData.Content);
-                uiTextBoxCreatedBy.Text = objData.CreatedBy;
+                //uiTextBoxCreatedBy.Text = objData.CreatedBy;
+                if (!objData.IsColumnNull(Announcement.ColumnNames.MainPic))
+                {
+                    uiImageMain.ImageUrl = objData.MainPic;
+                    uiImageMain.Visible = true;
+                }
+                else
+                    uiImageMain.Visible = false;
                 uiTextBoxBrief.Text = objData.Brief;
                 CurrentAnnouncement = objData;
                 uiPanelEdit.Visible = true;
@@ -76,6 +83,7 @@ namespace Flights_GUI.Admin
             CurrentAnnouncement = null;
             uiPanelViewAll.Visible = false;
             uiPanelEdit.Visible = true;
+            uiImageMain.Visible = false;
             ClearFields();
         }
 
@@ -88,7 +96,8 @@ namespace Flights_GUI.Admin
                 objdata = CurrentAnnouncement;
             objdata.Title = uiTextBoxTitle.Text;
             objdata.Brief = uiTextBoxBrief.Text;
-            objdata.CreatedBy = uiTextBoxCreatedBy.Text;
+            //objdata.CreatedBy = uiTextBoxCreatedBy.Text;
+            objdata.CreatedBy = new Guid(Membership.GetUser().ProviderUserKey.ToString());
             if (uiFileUploadImg.HasFile)
             {
                 string path = "/fileuploads/circulars/" + Guid.NewGuid() + "_" + uiFileUploadImg.FileName;
@@ -135,6 +144,7 @@ namespace Flights_GUI.Admin
             uiTextBoxCreatedBy.Text = "";
             uiRadEditorContnet.Content = "";
             uiTextBoxBrief.Text = "";
+            uiImageMain.ImageUrl = "";
         }
 
 

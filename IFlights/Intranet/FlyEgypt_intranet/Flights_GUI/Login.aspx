@@ -38,8 +38,7 @@
 		
 		<!-- Skin style (** you can change the link below with the one you need from skins folder in the css folder **) -->
 		<link rel="stylesheet" href="../ThemesFiles/ExceptionsLight/css/skins/default.css">
-	    
-    
+        <link rel="stylesheet" href="../ThemesFiles/ExceptionsLight/css/skins/skin6.css">
 	    <!-- Load JS siles -->	
  		<script type="text/javascript" src="../ThemesFiles/ExceptionsLight/js/jquery.min.js"></script>
 	    
@@ -62,23 +61,8 @@
 		<!-- PrettyPhoto script -->
 		<script type="text/javascript" src="../ThemesFiles/ExceptionsLight/js/jquery.prettyPhoto.js"></script>
 		
-		<!-- Share post plugin script -->
-		<script type="text/javascript" src="../ThemesFiles/ExceptionsLight/js/jquery.sharrre.min.js"></script>
-		
-		<!-- Product images zoom plugin -->
-		<script type="text/javascript" src="../ThemesFiles/ExceptionsLight/js/jquery.elevateZoom-3.0.8.min.js"></script>
-		
 		<!-- Input placeholder plugin -->
 		<script type="text/javascript" src="../ThemesFiles/ExceptionsLight/js/jquery.placeholder.js"></script>
-		
-		<!-- Tweeter API plugin -->
-		<script type="text/javascript" src="../ThemesFiles/ExceptionsLight/js/twitterfeed.js"></script>
-		
-		<!-- Flickr API plugin -->
-		<script type="text/javascript" src="../ThemesFiles/ExceptionsLight/js/jflickrfeed.min.js"></script>
-
-		<!-- MailChimp plugin -->
-		<script type="text/javascript" src="../ThemesFiles/ExceptionsLight/js/mailChimp.js"></script>
 		
 		<!-- NiceScroll plugin -->
 		<script type="text/javascript" src="../ThemesFiles/ExceptionsLight/js/jquery.nicescroll.min.js"></script>
@@ -173,11 +157,7 @@
 				    <div class="container">
 						<div class="row">
 							<div class="cell-5">
-							    <ul>
-								    <li><a href="#"><i class="fa fa-envelope"></i>info@flyegypt.com.eg
-</a></li>
-								    <li><span><i class="fa fa-phone"></i> Call Us: +1 (888) 000-0000</span></li>
-							    </ul>
+							    
 							</div>
 							<div class="cell-7 right-bar">
 					    		<ul class="right">
@@ -198,44 +178,8 @@
 						    	<a href="home.html"></a>
 						    </div>
 						    <div class="cell-9 top-menu">
-							     <asp:Repeater ID="uiRepeaterInteranetMenu" runat="server" DataSourceID="SiteMapDataSource2">
-                    <HeaderTemplate>
-                        <nav class="top-nav">
-                        <ul >  
-                            <li ><a href="#"><i class="fa fa-home"></i><span>Home</span></a>									     
-								      </li>                  
-                    </HeaderTemplate>
-                            <FooterTemplate>
-                               
-                                </ul>
-                                </nav>
-                            </FooterTemplate>
-                            <ItemTemplate>
-                                <li id='mi_top_<%# Eval("[htmlID]") %>'>
-                        <a href='<%# Eval("url") %>'  style="text-decoration:none !important;"><i class='fa <%# Eval("description") %>'></i>
-                            <span >
-                                <%# Eval("title") %> 
-                            </span>
-                            </a>
-                                    <asp:Repeater runat="server" DataSource='<%# ((SiteMapNode) Container.DataItem).ChildNodes %>'>
-                            <HeaderTemplate>
-                                <ul>
-                            </HeaderTemplate>
-
-                            <ItemTemplate>
-                                <li>
-                                    <a href='<%# Eval("url") %>' target='<%# Eval("[target]") %>'><%# Eval("title") %></a>
-                                </li>
-                            </ItemTemplate>
-
-                            <FooterTemplate>
-                                </ul>
-                            </FooterTemplate>
-                        </asp:Repeater>
-                                    </li>
-                    </ItemTemplate>                   
-                </asp:Repeater>
-                                <asp:SiteMapDataSource ID="SiteMapDataSource2" runat="server" ShowStartingNode="False" SiteMapProvider="IntranetProvider" />
+							     
+                                
 							    <!-- top navigation menu start -->
 							    <%--<nav class="top-nav">
 								    <ul>
@@ -453,14 +397,17 @@
 				    <div class="container">
 			    		<div class="row">
 				    		<!-- footer copyrights left cell -->
-				    		<div class="copyrights cell-5">&copy; Copyrights <img src="../images/IValley.png" style="vertical-align:middle;"/>  2015. All rights reserved. </div>
-				    		
-				    		<!-- footer social links right cell start -->
-						    <div class="cell-7">
-							    <ul class="social-list right">								    
-								    <li class="skew-25"><a href="#" data-title="facebook" data-tooltip="true"><span class="fa fa-facebook skew25"></span></a></li>								    
-							    </ul>
-						    </div>
+				    		<div class=" cell-9">
+                                
+                            </div>
+
+                            <!-- footer social links right cell start -->
+                            <div class="copyrights cell-3">
+                                &copy; Copyrights
+                                <a href="http://i-valley.com" target="_blank">
+                                <img src="../images/IValley.png"  style="vertical-align: middle" /></a>
+                                2015. All rights reserved.
+                            </div>
 						    <!-- footer social links right cell end -->
 						    
 			    		</div>
