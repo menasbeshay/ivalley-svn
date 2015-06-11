@@ -12,13 +12,24 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $("#myTags").tagit({
-                autocomplete: { source: "../Common/IntranetService.asmx/GetAvalName" }
+                autocomplete: { source: "../Common/IntranetService.asmx/GetAvalName" },
+                afterTagAdded: function (event, ui) {
+                    var mails = $('#myTags').tagit('assignedTags');
+                    var allmails = mails.join(",");
+                    $('#<%= uiHiddenFieldmails.ClientID%>').val(allmails);
+                },
+                afterTagRemoved: function (event, ui) {
+                    var mails = $('#myTags').tagit('assignedTags');
+                    var allmails = mails.join(",");
+                    $('#<%= uiHiddenFieldmails.ClientID%>').val(allmails);
+                }
             });
         });
     </script>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:HiddenField ID="uiHiddenFieldmails" runat="server" />
     <div class="cell-12">
         <asp:Panel runat="server" ID="uiPanelSuccess" Visible="false">
             <div class="alert alert-success">
