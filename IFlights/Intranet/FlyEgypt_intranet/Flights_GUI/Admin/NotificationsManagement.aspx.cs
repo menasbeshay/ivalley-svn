@@ -8,6 +8,10 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Net.Mail;
 using System.Web.Services;
+using System.Data;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System.Web.Script.Services;
 
 namespace Flights_GUI.Admin
 {
@@ -92,11 +96,9 @@ namespace Flights_GUI.Admin
              }
         }
         
-        [WebMethod]
-        protected void GetAvalName(string QueryStr)
-        {
-            UsersProfiles upro = new UsersProfiles();
-            upro.getNamesList(QueryStr);
-        }
+        
+        
     }
+
+   
 }
