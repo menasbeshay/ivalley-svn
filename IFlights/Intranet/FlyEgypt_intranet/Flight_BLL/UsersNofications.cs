@@ -30,7 +30,7 @@ namespace Flight_BLL
             return LoadFromRawSql("SELECT COUNT(UserNotificationID) NotifCount FROM NotificationTypes left JOIN UsersNofications ON NotificationTypes.NotificationTypeID = UsersNofications.NotificationType and UsersNofications.UserID = {0} WHERE (IsRead <> 1 or IsRead is null) AND (NotificationTypes.NotificationTypeID = 3 OR NotificationTypes.NotificationTypeID = 4)", UserID);
         }
 
-        public virtual bool getUnreadedNotifications(Guid UserID)
+        public virtual bool getReadedNotifications(Guid UserID)
         {
             return LoadFromRawSql("SELECT COUNT(UserNotificationID) NotifCount,NotificationTypes.NotificationTypeID, UserID FROM NotificationTypes LEFT JOIN UsersNofications ON NotificationTypes.NotificationTypeID = UsersNofications.NotificationType and UsersNofications.UserID = {0} WHERE (IsRead = 1 ) OR (UserID is null) GROUP BY NotificationTypes.NotificationTypeID, UserID", UserID);
         }

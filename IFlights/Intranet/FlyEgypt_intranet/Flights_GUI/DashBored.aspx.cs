@@ -57,7 +57,7 @@ namespace Flights_GUI
                 }
             }
 
-            us.getUnreadedNotifications(new Guid(Membership.GetUser(Page.User.Identity.Name).ProviderUserKey.ToString()));
+            us.getReadedNotifications(new Guid(Membership.GetUser(Page.User.Identity.Name).ProviderUserKey.ToString()));
             if (us.RowCount > 0)
             {
                 us.GetColumn("NotifCount");
