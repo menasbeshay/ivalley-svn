@@ -155,6 +155,22 @@ namespace Flight_DAL
 				}
 			}
 			
+			public static SqlParameter ManualVersionID
+			{
+				get
+				{
+					return new SqlParameter("@ManualVersionID", SqlDbType.Int, 0);
+				}
+			}
+			
+			public static SqlParameter FromVersionID
+			{
+				get
+				{
+					return new SqlParameter("@FromVersionID", SqlDbType.Int, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -168,6 +184,8 @@ namespace Flight_DAL
             public const string CategoryID = "CategoryID";
             public const string ManualID = "ManualID";
             public const string FormID = "FormID";
+            public const string ManualVersionID = "ManualVersionID";
+            public const string FromVersionID = "FromVersionID";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -182,6 +200,8 @@ namespace Flight_DAL
 					ht[CategoryID] = _UsersNofications.PropertyNames.CategoryID;
 					ht[ManualID] = _UsersNofications.PropertyNames.ManualID;
 					ht[FormID] = _UsersNofications.PropertyNames.FormID;
+					ht[ManualVersionID] = _UsersNofications.PropertyNames.ManualVersionID;
+					ht[FromVersionID] = _UsersNofications.PropertyNames.FromVersionID;
 
 				}
 				return (string)ht[columnName];
@@ -201,6 +221,8 @@ namespace Flight_DAL
             public const string CategoryID = "CategoryID";
             public const string ManualID = "ManualID";
             public const string FormID = "FormID";
+            public const string ManualVersionID = "ManualVersionID";
+            public const string FromVersionID = "FromVersionID";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -215,6 +237,8 @@ namespace Flight_DAL
 					ht[CategoryID] = _UsersNofications.ColumnNames.CategoryID;
 					ht[ManualID] = _UsersNofications.ColumnNames.ManualID;
 					ht[FormID] = _UsersNofications.ColumnNames.FormID;
+					ht[ManualVersionID] = _UsersNofications.ColumnNames.ManualVersionID;
+					ht[FromVersionID] = _UsersNofications.ColumnNames.FromVersionID;
 
 				}
 				return (string)ht[propertyName];
@@ -234,6 +258,8 @@ namespace Flight_DAL
             public const string CategoryID = "s_CategoryID";
             public const string ManualID = "s_ManualID";
             public const string FormID = "s_FormID";
+            public const string ManualVersionID = "s_ManualVersionID";
+            public const string FromVersionID = "s_FromVersionID";
 
 		}
 		#endregion		
@@ -321,6 +347,30 @@ namespace Flight_DAL
 			set
 	        {
 				base.Setint(ColumnNames.FormID, value);
+			}
+		}
+
+		public virtual int ManualVersionID
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.ManualVersionID);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.ManualVersionID, value);
+			}
+		}
+
+		public virtual int FromVersionID
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.FromVersionID);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.FromVersionID, value);
 			}
 		}
 
@@ -434,6 +484,36 @@ namespace Flight_DAL
 			}
 		}
 
+		public virtual string s_ManualVersionID
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.ManualVersionID) ? string.Empty : base.GetintAsString(ColumnNames.ManualVersionID);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.ManualVersionID);
+				else
+					this.ManualVersionID = base.SetintAsString(ColumnNames.ManualVersionID, value);
+			}
+		}
+
+		public virtual string s_FromVersionID
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.FromVersionID) ? string.Empty : base.GetintAsString(ColumnNames.FromVersionID);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.FromVersionID);
+				else
+					this.FromVersionID = base.SetintAsString(ColumnNames.FromVersionID, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -537,6 +617,26 @@ namespace Flight_DAL
 					}
 				}
 
+				public WhereParameter ManualVersionID
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.ManualVersionID, Parameters.ManualVersionID);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter FromVersionID
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.FromVersionID, Parameters.FromVersionID);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -626,6 +726,30 @@ namespace Flight_DAL
 				}
 			}
 
+			public WhereParameter ManualVersionID
+		    {
+				get
+		        {
+					if(_ManualVersionID_W == null)
+	        	    {
+						_ManualVersionID_W = TearOff.ManualVersionID;
+					}
+					return _ManualVersionID_W;
+				}
+			}
+
+			public WhereParameter FromVersionID
+		    {
+				get
+		        {
+					if(_FromVersionID_W == null)
+	        	    {
+						_FromVersionID_W = TearOff.FromVersionID;
+					}
+					return _FromVersionID_W;
+				}
+			}
+
 			private WhereParameter _UserNotificationID_W = null;
 			private WhereParameter _UserID_W = null;
 			private WhereParameter _NotificationType_W = null;
@@ -633,6 +757,8 @@ namespace Flight_DAL
 			private WhereParameter _CategoryID_W = null;
 			private WhereParameter _ManualID_W = null;
 			private WhereParameter _FormID_W = null;
+			private WhereParameter _ManualVersionID_W = null;
+			private WhereParameter _FromVersionID_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -643,6 +769,8 @@ namespace Flight_DAL
 				_CategoryID_W = null;
 				_ManualID_W = null;
 				_FormID_W = null;
+				_ManualVersionID_W = null;
+				_FromVersionID_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -769,6 +897,26 @@ namespace Flight_DAL
 					}
 				}
 
+				public AggregateParameter ManualVersionID
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.ManualVersionID, Parameters.ManualVersionID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter FromVersionID
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.FromVersionID, Parameters.FromVersionID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -858,6 +1006,30 @@ namespace Flight_DAL
 				}
 			}
 
+			public AggregateParameter ManualVersionID
+		    {
+				get
+		        {
+					if(_ManualVersionID_W == null)
+	        	    {
+						_ManualVersionID_W = TearOff.ManualVersionID;
+					}
+					return _ManualVersionID_W;
+				}
+			}
+
+			public AggregateParameter FromVersionID
+		    {
+				get
+		        {
+					if(_FromVersionID_W == null)
+	        	    {
+						_FromVersionID_W = TearOff.FromVersionID;
+					}
+					return _FromVersionID_W;
+				}
+			}
+
 			private AggregateParameter _UserNotificationID_W = null;
 			private AggregateParameter _UserID_W = null;
 			private AggregateParameter _NotificationType_W = null;
@@ -865,6 +1037,8 @@ namespace Flight_DAL
 			private AggregateParameter _CategoryID_W = null;
 			private AggregateParameter _ManualID_W = null;
 			private AggregateParameter _FormID_W = null;
+			private AggregateParameter _ManualVersionID_W = null;
+			private AggregateParameter _FromVersionID_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -875,6 +1049,8 @@ namespace Flight_DAL
 				_CategoryID_W = null;
 				_ManualID_W = null;
 				_FormID_W = null;
+				_ManualVersionID_W = null;
+				_FromVersionID_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -975,6 +1151,14 @@ namespace Flight_DAL
 
 			p = cmd.Parameters.Add(Parameters.FormID);
 			p.SourceColumn = ColumnNames.FormID;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.ManualVersionID);
+			p.SourceColumn = ColumnNames.ManualVersionID;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.FromVersionID);
+			p.SourceColumn = ColumnNames.FromVersionID;
 			p.SourceVersion = DataRowVersion.Current;
 
 
