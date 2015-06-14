@@ -131,7 +131,7 @@ namespace Flights_GUI.Admin
             uiPanelEdit.Visible = false;
             ClearFields();
 
-            //SendingNotifications.sendNotif(5);
+            SendingNotifications.sendNotif(5,objdata.ManualCategoryID,objdata.ManualID,null,null,null);
         }
 
         protected void uiLinkButtonCancel_Click(object sender, EventArgs e)

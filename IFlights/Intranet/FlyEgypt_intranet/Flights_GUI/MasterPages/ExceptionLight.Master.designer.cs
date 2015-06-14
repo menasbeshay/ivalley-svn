@@ -58,51 +58,6 @@ namespace Flights_GUI.MasterPages {
         protected global::System.Web.UI.WebControls.LoginView uiLoginView;
         
         /// <summary>
-        /// HFCirculars control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HFCirculars;
-        
-        /// <summary>
-        /// HFBulletins control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HFBulletins;
-        
-        /// <summary>
-        /// HFManuals control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HFManuals;
-        
-        /// <summary>
-        /// HFForms control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HFForms;
-        
-        /// <summary>
-        /// HFAircraftManuals control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HFAircraftManuals;
-        
-        /// <summary>
         /// uiRepeaterInteranetMenu control.
         /// </summary>
         /// <remarks>

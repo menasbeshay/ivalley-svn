@@ -9,14 +9,13 @@ namespace Flights_GUI.Admin
 {
     public class SendingNotifications
     {
-
-        public static void sendNotif(int NotificationType, int? CategoryID, int? ManualID, int? FormID)
+        public static void sendNotif(int NotificationType, int? CategoryID, int? ManualID, int? FormID, int? ManualVersionID, int? FormVersionID)
         {
-            System.Threading.Thread sendNotif = new System.Threading.Thread(() => SendNotifications(NotificationType, CategoryID,  ManualID, FormID));
+            System.Threading.Thread sendNotif = new System.Threading.Thread(() => SendNotifications(NotificationType, CategoryID, ManualID, FormID, ManualVersionID, FormVersionID));
             sendNotif.Start();
         }
 
-        public static void SendNotifications(int NotificationType, int? CategoryID, int? ManualID, int? FormID)
+        public static void SendNotifications(int NotificationType, int? CategoryID, int? ManualID, int? FormID, int? ManualVersionID , int? FormVersionID)
         {
             MembershipUserCollection users = Membership.GetAllUsers();
             foreach (MembershipUser user in users)
@@ -38,12 +37,21 @@ namespace Flights_GUI.Admin
                 else
                     userNotif.SetColumnNull("FormID");
 
+                if (ManualVersionID != null)
+                    userNotif.ManualVersionID = ManualVersionID.Value;
+                else
+                    userNotif.SetColumnNull("ManualVersionID");
+
+                if (FormVersionID != null)
+                    userNotif.FromVersionID = FormVersionID.Value;
+                else
+                    userNotif.SetColumnNull("FromVersionID");
+
                 userNotif.UserID = new Guid(user.ProviderUserKey.ToString());
                 userNotif.NotificationType = NotificationType;
                 userNotif.IsRead = false;
                 userNotif.Save();
             }
         }
-
     }
 }
