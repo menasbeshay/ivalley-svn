@@ -35,24 +35,34 @@ namespace Flight_BLL
             return LoadFromRawSql("SELECT COUNT(UserNotificationID) NotifCount,NotificationTypes.NotificationTypeID, UserID FROM NotificationTypes LEFT JOIN UsersNofications ON NotificationTypes.NotificationTypeID = UsersNofications.NotificationType and UsersNofications.UserID = {0} WHERE (IsRead = 1 ) OR (UserID is null) GROUP BY NotificationTypes.NotificationTypeID, UserID", UserID);
         }
 
-        public virtual bool MarkNotificationsRead(Guid UserID, int NotificationType)
-        {
-            return LoadFromRawSql("UPDATE UsersNofications SET IsRead = 1 WHERE UserID = {0} AND NotificationType={1}", UserID, NotificationType);
-        }
-
-        public virtual bool MarkFormNotificationsRead(Guid UserID, int NotificationType, int ManualID)
-        {
-            return LoadFromRawSql("UPDATE UsersNofications SET IsRead = 1 WHERE UserID = {0} AND NotificationType={1} AND ManualID = {2}", UserID, NotificationType, ManualID);
-        }
-
-        public virtual bool MarkNotificationsReadByCategoryID(Guid UserID, int NotificationType, int CategoryID)
-        {
-            return LoadFromRawSql("UPDATE UsersNofications SET IsRead = 1 WHERE UserID = {0} AND NotificationType={1} AND CategoryID = {2}", UserID, NotificationType, CategoryID);
-        }
-
         public virtual bool getNotificationByCatID(Guid UserID, int CatID)
         {
             return LoadFromRawSql("SELECT COUNT(UserNotificationID) NotifCount FROM UsersNofications WHERE UserID = {0} AND CategoryID = {1} AND (IsRead <> 1 or IsRead is null)", UserID, CatID);
         }
+
+        public virtual bool MarkNotificationsReadByNotificationType(Guid UserID, int NotificationType)
+        {
+            return LoadFromRawSql("UPDATE UsersNofications SET IsRead = 1 WHERE UserID = {0} AND NotificationType={1}", UserID, NotificationType);
+        }
+
+        public virtual bool MarkNotificationsReadByManualCategoryID(Guid UserID, int NotificationTypeID , int CategoryID)
+        {
+            return LoadFromRawSql("UPDATE UsersNofications SET IsRead = 1 WHERE UserID = {0} AND NotificationType= {1} AND CategoryID = {2} AND FormID is null AND ManualVersionID is null AND FromVersionID is null", UserID, NotificationTypeID, CategoryID);
+        }
+        public virtual bool MarkNotificationsReadByManualVersionID(Guid UserID, int ManualID)
+        {
+            return LoadFromRawSql("UPDATE UsersNofications SET IsRead = 1 WHERE UserID = {0} AND NotificationType=3 AND ManualID = {1} AND FormID is null AND FromVersionID is null", UserID, ManualID);
+        }
+
+        public virtual bool MarkNotificationReadByFormID(Guid UserID, int ManualID )
+        {
+            return LoadFromRawSql("UPDATE UsersNofications SET IsRead = 1 WHERE UserID = {0} AND NotificationType=4 AND ManualID = {1} AND ManualVersionID is null AND FromVersionID is null", UserID, ManualID);
+        }
+
+        public virtual bool MarkNotificationReadByFormVersionID(Guid UserID, int ManualFormID)
+        {
+            return LoadFromRawSql("UPDATE UsersNofications SET IsRead = 1 WHERE UserID = {0} AND NotificationType=4 AND FormID = {1} AND ManualVersionID is null", UserID, ManualFormID);
+        }
+
     }
 }
