@@ -184,11 +184,11 @@
                     </div>
                 </div>
                 <!-- top bar end -->
-                <asp:HiddenField ID="HFCirculars" runat="server" Value="0" ClientIDMode="Static"></asp:HiddenField>
+<%--                <asp:HiddenField ID="HFCirculars" runat="server" Value="0" ClientIDMode="Static"></asp:HiddenField>
                 <asp:HiddenField ID="HFBulletins" runat="server" Value="0"></asp:HiddenField>
                 <asp:HiddenField ID="HFManuals" runat="server" Value="0"></asp:HiddenField>
                 <asp:HiddenField ID="HFForms" runat="server" Value="0"></asp:HiddenField>
-                <asp:HiddenField ID="HFAircraftManuals" runat="server" Value="0"></asp:HiddenField>
+                <asp:HiddenField ID="HFAircraftManuals" runat="server" Value="0"></asp:HiddenField>--%>
 
                 <!-- Logo, global navigation menu and search start -->
                 <header class="top-head" data-sticky="true">
@@ -232,7 +232,7 @@
                                                     </ul>
                                                 </FooterTemplate>
                                             </asp:Repeater>
-                                            <asp:Label ID="lblNotification" CssClass="badge" runat="server" Text="0"></asp:Label>
+                                            <asp:Label ID="lblNotification" CssClass="badge" Visible="false" runat="server" Text="0"></asp:Label>
                                         </li>
                                     </ItemTemplate>
                                 </asp:Repeater>

@@ -158,8 +158,8 @@ namespace Flights_GUI.Admin
             //ClearFields();
 
             // add new notifications 
-            SendingNotifications.sendNotif(3, CurrentManual.ManualCategoryID, CurrentManual.ManualID, CurrentForm.ManualFormID);
-            SendingNotifications.sendNotif(4, CurrentManual.ManualCategoryID, CurrentManual.ManualID, CurrentForm.ManualFormID);
+            //SendingNotifications.sendNotif(3, CurrentManual.ManualCategoryID, CurrentManual.ManualID, CurrentForm.ManualFormID);
+            SendingNotifications.sendNotif(4, CurrentManual.ManualCategoryID, CurrentManual.ManualID, CurrentForm.ManualFormID,null,null);
         }
 
         protected void uiLinkButtonCancel_Click(object sender, EventArgs e)
@@ -289,7 +289,7 @@ namespace Flights_GUI.Admin
 
             objdata.Save();
             // add new notifications 
-            SendingNotifications.sendNotif(3, CurrentManual.ManualCategoryID, null, CurrentForm.ManualFormID);
+            SendingNotifications.sendNotif(4, CurrentManual.ManualCategoryID, null, CurrentForm.ManualFormID,null,objdata.FromVersionID);
             BindData_Versions();
             CurrentFormVersion = null;
             uiPanelViewAll.Visible = false;

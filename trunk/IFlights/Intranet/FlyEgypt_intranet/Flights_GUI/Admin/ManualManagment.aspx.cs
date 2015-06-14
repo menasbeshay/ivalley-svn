@@ -187,13 +187,13 @@ namespace Flights_GUI.Admin
 
             if (!cat.IsColumnNull(ManualCategory.ColumnNames.ParentCategoryID))
             {
-                if (cat.ParentCategoryID != 12)
-                    SendingNotifications.sendNotif(3, CurrentManual.ManualCategoryID, CurrentManual.ManualID, null);
+                if (cat.ParentCategoryID != 12 || CurrentManual.ManualCategoryID != 12)
+                    SendingNotifications.sendNotif(3, CurrentManual.ManualCategoryID, CurrentManual.ManualID, null,null,null);
                 else
-                    SendingNotifications.sendNotif(5, CurrentManual.ManualCategoryID, CurrentManual.ManualID, null);
+                    SendingNotifications.sendNotif(5, CurrentManual.ManualCategoryID, CurrentManual.ManualID, null, null, null);
             }
             else
-                SendingNotifications.sendNotif(3, CurrentManual.ManualCategoryID, CurrentManual.ManualID, null);
+                SendingNotifications.sendNotif(3, CurrentManual.ManualCategoryID, CurrentManual.ManualID, null, null, null);
                 
         }
 
@@ -351,13 +351,13 @@ namespace Flights_GUI.Admin
 
             if (!cat.IsColumnNull(ManualCategory.ColumnNames.ParentCategoryID))
             {
-                if (cat.ParentCategoryID != 12)
-                    SendingNotifications.sendNotif(3, CurrentManual.ManualCategoryID, CurrentManual.ManualID, null);
+                if (cat.ParentCategoryID != 12 || CurrentManual.ManualCategoryID != 12)
+                    SendingNotifications.sendNotif(3, CurrentManual.ManualCategoryID, CurrentManual.ManualID, null,objdata.ManualVersionID,null);
                 else
-                    SendingNotifications.sendNotif(5, CurrentManual.ManualCategoryID, CurrentManual.ManualID, null);
+                    SendingNotifications.sendNotif(5, CurrentManual.ManualCategoryID, CurrentManual.ManualID, null, objdata.ManualVersionID, null);
             }
             else
-                SendingNotifications.sendNotif(3, CurrentManual.ManualCategoryID, CurrentManual.ManualID, null);
+                SendingNotifications.sendNotif(3, CurrentManual.ManualCategoryID, CurrentManual.ManualID, null, objdata.ManualVersionID, null);
 
             BindData_Versions();
             CurrentManualVersion = null;
