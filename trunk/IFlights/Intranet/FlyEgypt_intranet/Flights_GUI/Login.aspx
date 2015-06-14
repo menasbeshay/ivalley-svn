@@ -397,15 +397,15 @@
 				    <div class="container">
 			    		<div class="row">
 				    		<!-- footer copyrights left cell -->
-				    		<div class=" cell-9">
+				    		<div class=" cell-10">
                                 
                             </div>
 
                             <!-- footer social links right cell start -->
-                            <div class="copyrights cell-3">
+                            <div class="copyrights cell-2">
                                 &copy; Copyrights
-                                <a href="http://i-valley.com" target="_blank">
-                                <img src="../images/IValley.png"  style="vertical-align: middle" /></a>
+                                <%--<a href="http://i-valley.com" target="_blank">
+                                <img src="../images/IValley.png"  style="vertical-align: middle" /></a>--%>
                                 2015. All rights reserved.
                             </div>
 						    <!-- footer social links right cell end -->

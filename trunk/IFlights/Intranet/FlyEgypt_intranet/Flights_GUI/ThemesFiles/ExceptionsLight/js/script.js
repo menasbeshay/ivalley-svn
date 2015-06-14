@@ -284,7 +284,7 @@
 	*/
 	
 	/* ================ Level Numbers increment Animation. ================ */
-	$('.no-touch .level-out').waypoint(function() {
+	/*$('.no-touch .level-out').waypoint(function() {
 		$('.level-out').each(function(){
 			var num = $(this).find('.level-in').attr('data-percent'),
 				percent = $.animateNumber.numberStepFactories.append(' %');
@@ -292,7 +292,7 @@
 			$(this).find('.level-in').css('left',-num+'%').css('width',num+'%');
 			$(this).find('.level-in').animate({'left':'0%'},num*20);
 		});
-	},{offset: '90%',triggerOnce: true});
+	},{offset: '90%',triggerOnce: true});*/
 	
 	$('.touch .level-out').each(function(){
 		var num = $(this).find('.level-in').attr('data-percent'),
@@ -301,7 +301,7 @@
 		$(this).find('.level-in').css('left',-num+'%').css('width',num+'%');
 		$(this).find('.level-in').animate({'left':'0%'},num*20);
 	});
-	
+	/*
 	$('.no-touch .levels-2').waypoint(function() {
 		$('.chart').easyPieChart({
 			size: 140,
@@ -327,9 +327,9 @@
 			$(this.el).find('.percent').text(Math.round(percent));
 		}
 	});
-	
+	*/
 	/* ================ FUN STAFF Numbers increment Animation. ================ */
-	$('.touch .fun-number').each(function(){
+	/*$('.touch .fun-number').each(function(){
 		var thisNo = $(this).text();
 		$(this).animateNumber({number: thisNo},4000);
 	});
@@ -340,7 +340,7 @@
 			$(this).animateNumber({number: thisNo},4000);
 		});
 	},{offset: '90%',triggerOnce: true});
-		
+		*/
 	/* ================ testimonials carousel. ================ */
 	$('.testimonials-1').slick({
 		dots: false,
@@ -800,7 +800,7 @@
 	$('#tabs4').tabs({direction: 'vertical'});
 	$('#accordion').accordion();
 	$('#accordion2').accordion();
-	$('a.zoom').prettyPhoto({social_tools: false});
+	/*$('a.zoom').prettyPhoto({social_tools: false});*/
 	$("[data-tooltip^='true']").tooltip();
 	$('input, textarea').placeholder();
 	

@@ -36,7 +36,7 @@
         <!--<siteMapNode url="~/common/safety.aspx" title="Safety"  description="icon-lock" htmlID="safety"/>
         <siteMapNode url="~/common/training.aspx" title="Training"  description="icon-check" htmlID="training"/>-->
       
-        <siteMapNode url="#" title="Settings"  description="fa-cogs" htmlID="Sys">
+        <siteMapNode url="~/Admin/" title="Settings"  description="fa-cogs" htmlID="Sys">
           <siteMapNode url="~/Admin/circularsManagment.aspx" title="Manage Circulars"  description="fa-edit" htmlID="Manage_Circulars"/>
           <siteMapNode url="~/Admin/BulletinsManagement.aspx" title="Manage Bulletins"  description="fa-edit" htmlID="Manage_Bulletins"/>
           <siteMapNode url="~/Admin/ManualCats.aspx" title="Manuals Categories"  description="fa-tags" htmlID="Manuals_Categories"/>
