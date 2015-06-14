@@ -159,7 +159,28 @@ namespace Flights_GUI.Admin
 
             // add new notifications 
             //SendingNotifications.sendNotif(3, CurrentManual.ManualCategoryID, CurrentManual.ManualID, CurrentForm.ManualFormID);
-            SendingNotifications.sendNotif(4, CurrentManual.ManualCategoryID, CurrentManual.ManualID, CurrentForm.ManualFormID,null,null);
+            ManualCategory cat = new ManualCategory();
+            cat.GetTopMostParent(CurrentManual.ManualCategoryID);
+
+            if (CurrentManual.ManualCategoryID == 12)
+            {
+                SendingNotifications.sendNotif(5, CurrentManual.ManualCategoryID, CurrentManual.ManualID, CurrentForm.ManualFormID, null, null);
+            }
+            else
+            {
+                if (!cat.IsColumnNull(ManualCategory.ColumnNames.ParentCategoryID))
+                {
+                    if (cat.ParentCategoryID != 12)
+                        SendingNotifications.sendNotif(4, CurrentManual.ManualCategoryID, CurrentManual.ManualID, CurrentForm.ManualFormID, null, null);
+                    else
+                        SendingNotifications.sendNotif(5, CurrentManual.ManualCategoryID, CurrentManual.ManualID, CurrentForm.ManualFormID, null, null);
+                }
+                else
+                    SendingNotifications.sendNotif(4, CurrentManual.ManualCategoryID, CurrentManual.ManualID, CurrentForm.ManualFormID, null, null);
+            }
+
+
+            //SendingNotifications.sendNotif(4, CurrentManual.ManualCategoryID, CurrentManual.ManualID, CurrentForm.ManualFormID,null,null);
         }
 
         protected void uiLinkButtonCancel_Click(object sender, EventArgs e)
@@ -289,7 +310,27 @@ namespace Flights_GUI.Admin
 
             objdata.Save();
             // add new notifications 
-            SendingNotifications.sendNotif(4, CurrentManual.ManualCategoryID, null, CurrentForm.ManualFormID,null,objdata.FromVersionID);
+            //SendingNotifications.sendNotif(4, CurrentManual.ManualCategoryID, null, CurrentForm.ManualFormID,null,objdata.FromVersionID);
+
+            ManualCategory cat = new ManualCategory();
+            cat.GetTopMostParent(CurrentManual.ManualCategoryID);
+
+            if (CurrentManual.ManualCategoryID == 12)
+            {
+                SendingNotifications.sendNotif(5, CurrentManual.ManualCategoryID, CurrentManual.ManualID, CurrentForm.ManualFormID, null, objdata.FromVersionID);
+            }
+            else
+            {
+                if (!cat.IsColumnNull(ManualCategory.ColumnNames.ParentCategoryID))
+                {
+                    if (cat.ParentCategoryID != 12)
+                        SendingNotifications.sendNotif(4, CurrentManual.ManualCategoryID, CurrentManual.ManualID, CurrentForm.ManualFormID, null, objdata.FromVersionID);
+                    else
+                        SendingNotifications.sendNotif(5, CurrentManual.ManualCategoryID, CurrentManual.ManualID, CurrentForm.ManualFormID, null, objdata.FromVersionID);
+                }
+                else
+                    SendingNotifications.sendNotif(4, CurrentManual.ManualCategoryID, CurrentManual.ManualID, CurrentForm.ManualFormID, null, objdata.FromVersionID);
+            }
             BindData_Versions();
             CurrentFormVersion = null;
             uiPanelViewAll.Visible = false;
@@ -297,8 +338,6 @@ namespace Flights_GUI.Admin
             uiPanelEditVersions.Visible = false;
             uiPanelEdit.Visible = true;
             ClearFields_Versions();
-
-
         }
 
         protected void uiLinkButtonCancelVersion_Click(object sender, EventArgs e)

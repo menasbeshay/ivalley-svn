@@ -101,9 +101,9 @@ namespace Flights_GUI.Intranet
         {
             UsersNofications userNotif = new UsersNofications();
             if(currentManualCat != 12)
-                userNotif.MarkNotificationsReadByCategoryID((new Guid(Membership.GetUser(Page.User.Identity.Name).ProviderUserKey.ToString())), 3,currentManualCat);
+                userNotif.MarkNotificationsReadByManualCategoryID((new Guid(Membership.GetUser(Page.User.Identity.Name).ProviderUserKey.ToString())), 3,currentManualCat);
             else
-                userNotif.MarkNotificationsReadByCategoryID((new Guid(Membership.GetUser(Page.User.Identity.Name).ProviderUserKey.ToString())), 5, currentManualCat);
+                userNotif.MarkNotificationsReadByManualCategoryID((new Guid(Membership.GetUser(Page.User.Identity.Name).ProviderUserKey.ToString())), 5, currentManualCat);
         }
 
     }
