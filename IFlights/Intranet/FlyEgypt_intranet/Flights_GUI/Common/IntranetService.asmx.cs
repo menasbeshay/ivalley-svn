@@ -8,7 +8,7 @@ using System.Data;
 using System.Web.Script.Services;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-
+using System.Web.Security;
 namespace Flights_GUI.Common
 {
     /// <summary>
@@ -64,7 +64,9 @@ namespace Flights_GUI.Common
                 };
 
             }).ToList();
+            UsersNofications usNot = new UsersNofications();
 
+            usNot.MarkNotificationsReadByManualVersionID(new Guid(Membership.GetUser(Context.User.Identity.Name).ProviderUserKey.ToString()),ID);
             SetContentResult(AllVersions);
         }
 
@@ -90,7 +92,8 @@ namespace Flights_GUI.Common
                 };
 
             }).ToList();
-
+            UsersNofications usNot = new UsersNofications();
+            usNot.MarkNotificationReadByFormVersionID(new Guid(Membership.GetUser(Context.User.Identity.Name).ProviderUserKey.ToString()), ID);
             SetContentResult(AllVersions);
         }
 

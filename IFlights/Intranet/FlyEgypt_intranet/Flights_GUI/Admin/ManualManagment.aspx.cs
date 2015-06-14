@@ -73,7 +73,7 @@ namespace Flights_GUI.Admin
                     RadTreeNode node = uiRadTreeViewCats.FindNodeByValue(currentManualCat.ToString());
                     node.Selected = true;
                     node.ExpandParentNodes();
-                    
+
                 }
                 else
                     uiRadTreeViewCats.Nodes[0].Selected = true;
@@ -94,8 +94,8 @@ namespace Flights_GUI.Admin
                 Manual objData = new Manual();
                 objData.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
 
-                uiTextBoxTitle.Text = objData.Title;                
-               
+                uiTextBoxTitle.Text = objData.Title;
+
                 CurrentManual = objData;
                 uiPanelEdit.Visible = true;
                 uiPanelViewAll.Visible = false;
@@ -124,7 +124,7 @@ namespace Flights_GUI.Admin
                     formversions.MarkAsDeleted();
                     formversions.Save();
                 }
-                
+
 
                 forms.DeleteAll();
                 forms.Save();
@@ -164,13 +164,13 @@ namespace Flights_GUI.Admin
             else
                 objdata = CurrentManual;
             objdata.Title = uiTextBoxTitle.Text;
-            
+
             objdata.UpdatedBy = new Guid(Membership.GetUser().ProviderUserKey.ToString());
             objdata.LastUpdatedDate = DateTime.Now;
             //objdata.CreatedBy = uiTextBoxCreatedBy.Text;
             if (currentManualCat != 0)
                 objdata.ManualCategoryID = currentManualCat;
-           
+
             objdata.Save();
             BindData();
             CurrentManual = objdata;
@@ -185,16 +185,22 @@ namespace Flights_GUI.Admin
             ManualCategory cat = new ManualCategory();
             cat.GetTopMostParent(CurrentManual.ManualCategoryID);
 
-            if (!cat.IsColumnNull(ManualCategory.ColumnNames.ParentCategoryID))
+            if (CurrentManual.ManualCategoryID == 12)
             {
-                if (cat.ParentCategoryID != 12 || CurrentManual.ManualCategoryID != 12)
-                    SendingNotifications.sendNotif(3, CurrentManual.ManualCategoryID, CurrentManual.ManualID, null,null,null);
-                else
-                    SendingNotifications.sendNotif(5, CurrentManual.ManualCategoryID, CurrentManual.ManualID, null, null, null);
+                SendingNotifications.sendNotif(5, CurrentManual.ManualCategoryID, CurrentManual.ManualID, null, null, null);
             }
             else
-                SendingNotifications.sendNotif(3, CurrentManual.ManualCategoryID, CurrentManual.ManualID, null, null, null);
-                
+            {
+                if (!cat.IsColumnNull(ManualCategory.ColumnNames.ParentCategoryID))
+                {
+                    if (cat.ParentCategoryID != 12)
+                        SendingNotifications.sendNotif(3, CurrentManual.ManualCategoryID, CurrentManual.ManualID, null, null, null);
+                    else
+                        SendingNotifications.sendNotif(5, CurrentManual.ManualCategoryID, CurrentManual.ManualID, null, null, null);
+                }
+                else
+                    SendingNotifications.sendNotif(3, CurrentManual.ManualCategoryID, CurrentManual.ManualID, null, null, null);
+            }
         }
 
         protected void uiLinkButtonCancel_Click(object sender, EventArgs e)
@@ -275,12 +281,12 @@ namespace Flights_GUI.Admin
 
                 uiTextBoxVersionTitle.Text = objData.Title;
                 uiTextBoxNotes.Text = objData.Notes;
-                 uiTextBoxIssueNo.Text = objData.IssueNumber;
-                 uiTextBoxRevisionNo.Text = objData.RevisionNumber;
-                 if (!objData.IsColumnNull(ManualVersion.ColumnNames.IssueDate))
-                     uiRadDatePickerIssueDate.SelectedDate = objData.IssueDate;
-                 if (!objData.IsColumnNull(ManualVersion.ColumnNames.RevisionDate))
-                     uiRadDatePickerRevisionDate.SelectedDate = objData.RevisionDate;
+                uiTextBoxIssueNo.Text = objData.IssueNumber;
+                uiTextBoxRevisionNo.Text = objData.RevisionNumber;
+                if (!objData.IsColumnNull(ManualVersion.ColumnNames.IssueDate))
+                    uiRadDatePickerIssueDate.SelectedDate = objData.IssueDate;
+                if (!objData.IsColumnNull(ManualVersion.ColumnNames.RevisionDate))
+                    uiRadDatePickerRevisionDate.SelectedDate = objData.RevisionDate;
                 CurrentManualVersion = objData;
                 uiPanelEdit.Visible = false;
                 uiPanelViewAll.Visible = false;
@@ -290,7 +296,7 @@ namespace Flights_GUI.Admin
 
             else if (e.CommandName == "DeleteManualVersion")
             {
-                
+
                 ManualVersion versions = new ManualVersion();
                 versions.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
                 versions.MarkAsDeleted();
@@ -318,9 +324,9 @@ namespace Flights_GUI.Admin
             else
                 objdata = CurrentManualVersion;
             objdata.Title = uiTextBoxVersionTitle.Text;
-            objdata.Notes =uiTextBoxNotes.Text;
+            objdata.Notes = uiTextBoxNotes.Text;
             objdata.UpdatedBy = new Guid(Membership.GetUser().ProviderUserKey.ToString());
-            objdata.LastUpdatedDate = DateTime.Now;            
+            objdata.LastUpdatedDate = DateTime.Now;
             objdata.IssueNumber = uiTextBoxIssueNo.Text;
             objdata.RevisionNumber = uiTextBoxRevisionNo.Text;
             objdata.IssueDate = uiRadDatePickerIssueDate.SelectedDate.Value;
@@ -333,12 +339,12 @@ namespace Flights_GUI.Admin
                 Files = (Hashtable)Session["CurrentUploadedFiles"];
 
                 if (Files.Count > 0)
-                {                    
+                {
                     foreach (DictionaryEntry item in Files)
                     {
                         objdata.Path = item.Value.ToString();
                     }
-                    
+
                     Session["CurrentUploadedFiles"] = null;
                 }
 
@@ -349,15 +355,22 @@ namespace Flights_GUI.Admin
             ManualCategory cat = new ManualCategory();
             cat.GetTopMostParent(CurrentManual.ManualCategoryID);
 
-            if (!cat.IsColumnNull(ManualCategory.ColumnNames.ParentCategoryID))
+            if (CurrentManual.ManualCategoryID == 12)
             {
-                if (cat.ParentCategoryID != 12 || CurrentManual.ManualCategoryID != 12)
-                    SendingNotifications.sendNotif(3, CurrentManual.ManualCategoryID, CurrentManual.ManualID, null,objdata.ManualVersionID,null);
-                else
-                    SendingNotifications.sendNotif(5, CurrentManual.ManualCategoryID, CurrentManual.ManualID, null, objdata.ManualVersionID, null);
+                SendingNotifications.sendNotif(5, CurrentManual.ManualCategoryID, CurrentManual.ManualID, null, objdata.ManualVersionID, null);
             }
             else
-                SendingNotifications.sendNotif(3, CurrentManual.ManualCategoryID, CurrentManual.ManualID, null, objdata.ManualVersionID, null);
+            {
+                if (!cat.IsColumnNull(ManualCategory.ColumnNames.ParentCategoryID))
+                {
+                    if (cat.ParentCategoryID != 12)
+                        SendingNotifications.sendNotif(3, CurrentManual.ManualCategoryID, CurrentManual.ManualID, null, objdata.ManualVersionID, null);
+                    else
+                        SendingNotifications.sendNotif(5, CurrentManual.ManualCategoryID, CurrentManual.ManualID, null, objdata.ManualVersionID, null);
+                }
+                else
+                    SendingNotifications.sendNotif(3, CurrentManual.ManualCategoryID, CurrentManual.ManualID, null, objdata.ManualVersionID, null);
+            }
 
             BindData_Versions();
             CurrentManualVersion = null;
@@ -367,7 +380,7 @@ namespace Flights_GUI.Admin
             uiPanelEdit.Visible = true;
             ClearFields_Versions();
 
-            
+
         }
 
         protected void uiLinkButtonCancelVersion_Click(object sender, EventArgs e)
@@ -396,16 +409,16 @@ namespace Flights_GUI.Admin
 
         private void ClearFields_Versions()
         {
-            uiTextBoxVersionTitle.Text = "";            
+            uiTextBoxVersionTitle.Text = "";
             uiTextBoxIssueNo.Text = "";
-            uiTextBoxRevisionNo.Text = "";            
+            uiTextBoxRevisionNo.Text = "";
             uiRadDatePickerIssueDate.SelectedDate = null;
             uiRadDatePickerRevisionDate.SelectedDate = null;
             uiTextBoxNotes.Text = "";
         }
         #endregion
 
-       
+
 
     }
 }
