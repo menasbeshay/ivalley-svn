@@ -3,6 +3,9 @@
 
 using System;
 using Flight_DAL;
+using System.Collections.Specialized;
+using System.Data.SqlClient;
+using System.Data;
 namespace Flight_BLL
 {
 	public class ManualCategory : _ManualCategory
@@ -24,6 +27,14 @@ namespace Flight_BLL
                 this.Where.ParentCategoryID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.IsNull;
 
             return this.Query.Load();
+        }
+
+
+        public bool GetTopMostParent(int categoryID)
+        {
+            ListDictionary parameters = new ListDictionary();
+            parameters.Add(new SqlParameter("@ManualCategoryID", SqlDbType.Int, 0), categoryID);
+            return LoadFromSql("GetTopMostParent", parameters);
         }
 	}
 }

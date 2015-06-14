@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Flight_BLL;
 using System.Web.Security;
+using Telerik.Web.UI;
 
 namespace Flights_GUI.Intranet
 {
@@ -38,7 +39,12 @@ namespace Flights_GUI.Intranet
                     int d = 0;
                     int.TryParse(Request.QueryString["cid"].ToString(), out d);
                     if (d != 0)
-                        uiRadTreeViewCats.Nodes.FindNodeByValue(d.ToString()).Selected = true;
+                    {
+                        RadTreeNode node = uiRadTreeViewCats.FindNodeByValue(d.ToString());
+                        node.Selected = true;
+                        node.ExpandParentNodes();
+                    }
+                        //uiRadTreeViewCats.Nodes.FindNodeByValue(d.ToString()).Selected = true;
                 }
                 else
                     uiRadTreeViewCats.Nodes[0].Selected = true;

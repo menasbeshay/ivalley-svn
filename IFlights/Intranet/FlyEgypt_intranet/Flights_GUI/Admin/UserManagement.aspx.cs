@@ -103,8 +103,10 @@ namespace Flights_GUI.Admin
                 txtFullName.Text = usPr.FullName;
                 txtEmail.Text = usPr.Email;
                 txtTelephone.Text = usPr.Telephone;
-                userImg.Src = usPr.Photo;
-                DropDownListGroups.SelectedValue = usPr.GroupID.ToString();
+                if (!usPr.IsColumnNull(UsersProfiles.ColumnNames.Photo))
+                    userImg.Src = usPr.Photo;
+                if (!usPr.IsColumnNull(UsersProfiles.ColumnNames.GroupID))
+                    DropDownListGroups.SelectedValue = usPr.GroupID.ToString();
 
                 CurrentUser = ObjData;
 

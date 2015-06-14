@@ -27,8 +27,8 @@
                             
                         <Columns>
                         <telerik:GridBoundColumn DataField="Title" HeaderText="Title"></telerik:GridBoundColumn>                            
-                        <telerik:GridBoundColumn DataField="CreatedBy" HeaderText="Created By"></telerik:GridBoundColumn>                        
-                            <telerik:GridBoundColumn DataField="createdDate" HeaderText="Date" DataFormatString="{0:dd/MM/yyyy}"></telerik:GridBoundColumn>                        
+                        <telerik:GridBoundColumn DataField="UserName" HeaderText="Created By"></telerik:GridBoundColumn>                        
+                            <telerik:GridBoundColumn DataField="createdDate" HeaderText="Created Date" DataFormatString="{0:dd/MM/yyyy}"></telerik:GridBoundColumn>                        
                         <telerik:GridTemplateColumn HeaderText="Actions">
                                 <ItemTemplate>                                
                                     <asp:LinkButton ID="uiLinkButtonEdit" runat="server" CommandArgument='<%# Eval("AnnouncementID") %>'

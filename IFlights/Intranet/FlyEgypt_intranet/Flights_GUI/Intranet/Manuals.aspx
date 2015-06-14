@@ -66,7 +66,7 @@
                     { name: 'LastUpdatedDate', type: 'date' },
                     { name: 'Path' , type: 'string'}
                 ],
-                url: "http://localhost:50422/common/IntranetService.asmx/GetManualVersions?ID="+ manualid
+                url: "http://flyegyptintranet.com/common/IntranetService.asmx/GetManualVersions?ID=" + manualid
             };
             var dataAdapter = new $.jqx.dataAdapter(source);
             $("#jqxgrid").jqxGrid(
