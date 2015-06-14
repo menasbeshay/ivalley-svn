@@ -17,22 +17,22 @@ namespace Flight_BLL
 
         public virtual bool getNotifications(Guid UserID)
         {
-            return LoadFromRawSql("SELECT COUNT(UserNotificationID) NotifCount,NotificationTypes.NotificationTypeID, UserID FROM NotificationTypes LEFT JOIN UsersNofications ON NotificationTypes.NotificationTypeID = UsersNofications.NotificationType WHERE UserID = {0}  AND (IsRead <> 1 or IsRead is null) GROUP BY NotificationTypes.NotificationTypeID, UserID", UserID);
+            return LoadFromRawSql("SELECT COUNT(UserNotificationID) NotifCount,NotificationTypes.NotificationTypeID, UserID FROM NotificationTypes LEFT JOIN UsersNofications ON NotificationTypes.NotificationTypeID = UsersNofications.NotificationType and UsersNofications.UserID = {0} WHERE  (IsRead <> 1 or IsRead is null) GROUP BY NotificationTypes.NotificationTypeID, UserID", UserID);
         }
 
         public virtual bool getNotificationsByNotificationType(Guid UserID, int NotificationType)
         {
-            return LoadFromRawSql("SELECT COUNT(UserNotificationID) NotifCount FROM (NotificationTypes JOIN UsersNofications ON NotificationTypes.NotificationTypeID = UsersNofications.NotificationType) WHERE UserID = {0} AND (IsRead <> 1 or IsRead is null) AND NotificationTypes.NotificationTypeID = {1}", UserID, NotificationType);
+            return LoadFromRawSql("SELECT COUNT(UserNotificationID) NotifCount FROM NotificationTypes left JOIN UsersNofications ON NotificationTypes.NotificationTypeID = UsersNofications.NotificationType and UsersNofications.UserID = {0} WHERE (IsRead <> 1 or IsRead is null) AND NotificationTypes.NotificationTypeID = {1}", UserID, NotificationType);
         }
 
         public virtual bool getManualsNotificationCounter(Guid UserID)
         {
-            return LoadFromRawSql("SELECT COUNT(UserNotificationID) NotifCount FROM NotificationTypes JOIN UsersNofications ON NotificationTypes.NotificationTypeID = UsersNofications.NotificationType WHERE UserID = {0}  AND (IsRead <> 1 or IsRead is null) AND (NotificationTypes.NotificationTypeID = 3 OR NotificationTypes.NotificationTypeID = 4)", UserID);
+            return LoadFromRawSql("SELECT COUNT(UserNotificationID) NotifCount FROM NotificationTypes left JOIN UsersNofications ON NotificationTypes.NotificationTypeID = UsersNofications.NotificationType and UsersNofications.UserID = {0} WHERE (IsRead <> 1 or IsRead is null) AND (NotificationTypes.NotificationTypeID = 3 OR NotificationTypes.NotificationTypeID = 4)", UserID);
         }
 
         public virtual bool getUnreadedNotifications(Guid UserID)
         {
-            return LoadFromRawSql("SELECT COUNT(UserNotificationID) NotifCount,NotificationTypes.NotificationTypeID, UserID FROM NotificationTypes LEFT JOIN UsersNofications ON NotificationTypes.NotificationTypeID = UsersNofications.NotificationType WHERE UserID = {0}  AND (IsRead = 1 ) GROUP BY NotificationTypes.NotificationTypeID, UserID", UserID);
+            return LoadFromRawSql("SELECT COUNT(UserNotificationID) NotifCount,NotificationTypes.NotificationTypeID, UserID FROM NotificationTypes LEFT JOIN UsersNofications ON NotificationTypes.NotificationTypeID = UsersNofications.NotificationType and UsersNofications.UserID = {0} WHERE (IsRead = 1 ) GROUP BY NotificationTypes.NotificationTypeID, UserID", UserID);
         }
 
         public virtual bool MarkNotificationsRead(Guid UserID, int NotificationType)
