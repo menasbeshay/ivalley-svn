@@ -49,7 +49,18 @@
                         <Columns>
                             <telerik:GridBoundColumn DataField="UserName" HeaderText="User name">
                             </telerik:GridBoundColumn>
-
+                            <telerik:GridBoundColumn DataField="FullName" HeaderText="Full name">
+                            </telerik:GridBoundColumn>
+                            <telerik:GridBoundColumn DataField="Email" HeaderText="Email">
+                            </telerik:GridBoundColumn>
+                            <telerik:GridTemplateColumn HeaderText="Roles">
+                                <ItemTemplate>
+                                    <%# string.Join("," ,Roles.GetRolesForUser(Eval("UserName").ToString())) %>
+                                </ItemTemplate>
+                            </telerik:GridTemplateColumn>
+                            <telerik:GridBoundColumn DataField="lastactivitydate" HeaderText="Last login date" DataFormatString="{0:dd/MM/yyyy HH:mm}">
+                            </telerik:GridBoundColumn>
+                            
 
                             <telerik:GridTemplateColumn HeaderText="Actions">
                                 <ItemTemplate>
@@ -94,7 +105,7 @@
                     Password : 
                 </div>
                 <div class="cell-4">
-                    <asp:TextBox ID="uiTextBoxPass" runat="server" Width="250px" ValidationGroup="EditUser"></asp:TextBox>
+                    <asp:TextBox ID="uiTextBoxPass" runat="server" Width="250px" ValidationGroup="EditUser" TextMode="Password"></asp:TextBox>
                     &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*"
                         ControlToValidate="uiTextBoxPass" Display="Dynamic" ValidationGroup="EditUser"></asp:RequiredFieldValidator>
                 </div>
@@ -105,7 +116,7 @@
                     Confirm password : 
                 </div>
                 <div class="cell-4">
-                    <asp:TextBox ID="uiTextBoxConfirm" runat="server" Width="250px" ValidationGroup="EditUser"></asp:TextBox>
+                    <asp:TextBox ID="uiTextBoxConfirm" runat="server" Width="250px" ValidationGroup="EditUser" TextMode="Password"></asp:TextBox>
                     <asp:CompareValidator runat="server" ErrorMessage="*" ID="CompareValidator1"
                         ControlToValidate="uiTextBoxConfirm" Display="Dynamic" ValidationGroup="EditUser" ControlToCompare="uiTextBoxPass"></asp:CompareValidator>
 

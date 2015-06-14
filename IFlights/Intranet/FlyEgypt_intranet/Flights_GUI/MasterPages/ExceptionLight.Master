@@ -46,22 +46,22 @@
     <script type="text/javascript" src="../ThemesFiles/ExceptionsLight/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
 
     <!-- Animate numbers increment -->
-		<script type="text/javascript" src="../ThemesFiles/ExceptionsLight/js/jquery.animateNumber.min.js"></script>
-    
+		<%--<script type="text/javascript" src="../ThemesFiles/ExceptionsLight/js/jquery.animateNumber.min.js"></script>
+    --%>
     <!-- slick slider carousel -->
     <script type="text/javascript" src="../ThemesFiles/ExceptionsLight/js/slick.min.js"></script>
 
    <!-- Animate numbers increment -->
-		<script type="text/javascript" src="../ThemesFiles/ExceptionsLight/js/jquery.easypiechart.min.js"></script>
+		<%--<script type="text/javascript" src="../ThemesFiles/ExceptionsLight/js/jquery.easypiechart.min.js"></script>--%>
     
     <!-- PrettyPhoto script -->
-    <script type="text/javascript" src="../ThemesFiles/ExceptionsLight/js/jquery.prettyPhoto.js"></script>
+   <%-- <script type="text/javascript" src="../ThemesFiles/ExceptionsLight/js/jquery.prettyPhoto.js"></script>--%>
 
     <%--<!-- Share post plugin script -->
 		<script type="text/javascript" src="../ThemesFiles/ExceptionsLight/js/jquery.sharrre.min.js"></script>
     --%>
     <!-- Product images zoom plugin -->
-    <script type="text/javascript" src="../ThemesFiles/ExceptionsLight/js/jquery.elevateZoom-3.0.8.min.js"></script>
+    <%--<script type="text/javascript" src="../ThemesFiles/ExceptionsLight/js/jquery.elevateZoom-3.0.8.min.js"></script>--%>
 
     <!-- Input placeholder plugin -->
     <script type="text/javascript" src="../ThemesFiles/ExceptionsLight/js/jquery.placeholder.js"></script>
@@ -209,7 +209,7 @@
                                     </FooterTemplate>
                                     <ItemTemplate>
                                         <li id='mi_top_<%# Eval("[htmlID]") %>'>
-                                            <a href='<%# Eval("url") %>' style="text-decoration: none !important;"><i class='fa <%# Eval("description") %>'></i>
+                                            <a href='<%# Eval("url").ToString() == "/Admin/" ? "#" : Eval("url") %>' style="text-decoration: none !important;"><i class='fa <%# Eval("description") %>'></i>
                                                 <span>
                                                     <%# Eval("title") %> 
                                                 </span>
@@ -423,15 +423,15 @@
                     <div class="container">
                         <div class="row">
                             <!-- footer copyrights left cell -->
-                            <div class=" cell-9">
+                            <div class=" cell-10">
                                 
                             </div>
 
                             <!-- footer social links right cell start -->
-                            <div class="copyrights cell-3">
+                            <div class="copyrights cell-2">
                                 &copy; Copyrights
-                                <a href="http://i-valley.com" target="_blank">
-                                <img src="../images/IValley.png"  style="vertical-align: middle" /></a>
+                               <%-- <a href="http://i-valley.com" target="_blank">
+                                <img src="../images/IValley.png"  style="vertical-align: middle" /></a>--%>
                                 2015. All rights reserved.
                             </div>
                             <!-- footer social links right cell end -->

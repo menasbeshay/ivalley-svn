@@ -32,5 +32,14 @@ namespace Flight_BLL
                                     WHERE  ((mem.UserName LIKE N'%{0}%') OR (u.FullName LIKE N'%{0}%') OR (u.Email LIKE N'%{0}%'))", queryName);
             return LoadFromRawSql(query);
         }
+
+
+        public virtual bool SearchByText(string Username)
+        {
+            string query = string.Format(@"SELECT U.*, mem.Username, mem.lastactivitydate
+                                    from UsersProfiles u inner join aspnet_Users mem  on u.UserID = mem.UserId
+                                    WHERE  ((mem.UserName LIKE N'%{0}%') OR (u.FullName LIKE N'%{0}%') OR (u.Email LIKE N'%{0}%'))", Username);
+            return LoadFromRawSql(query);
+        }
 	}
 }

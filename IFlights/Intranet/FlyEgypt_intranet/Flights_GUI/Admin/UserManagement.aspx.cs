@@ -135,9 +135,9 @@ namespace Flights_GUI.Admin
             {
                 //CurrentUser.Email = uiTextBoxMail.Text;
                 List<string> stringListToAdd = new List<string>();
-                List<string> stringListToRemove = new List<string>();                
+                List<string> stringListToRemove = new List<string>();
 
-                if (CurrentUser.GetPassword() != uiTextBoxPass.Text)
+                if (CurrentUser.GetPassword() != uiTextBoxPass.Text && !string.IsNullOrEmpty(uiTextBoxPass.Text))
                 {
                     CurrentUser.ChangePassword(CurrentUser.GetPassword(), uiTextBoxPass.Text);
                 }
@@ -302,7 +302,9 @@ namespace Flights_GUI.Admin
 
         private void SearchByText()
         {
-            uiRadGridUsers.DataSource = Membership.FindUsersByName("%" + uiTextBoxSearch.Text + "%");
+            UsersProfiles up = new UsersProfiles();
+            up.SearchByText(uiTextBoxSearch.Text);
+            uiRadGridUsers.DataSource = up.DefaultView;
             uiRadGridUsers.DataBind();
         }
 
