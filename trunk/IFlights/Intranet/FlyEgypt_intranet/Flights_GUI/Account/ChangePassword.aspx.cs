@@ -11,7 +11,7 @@ namespace Flights_GUI.Account
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Master.PageTitle = "Change Password";
         }
     }
 }

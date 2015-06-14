@@ -15,12 +15,12 @@ namespace Flight_BLL
         public virtual bool GetAllAnnouncements()
         {
 
-            return LoadFromRawSql(@"select A.*, U.UserName from Announcement A Left join aspnet_users U on A.createdby = u.UserID where (IsBulletin is null or IsBulletin <> 1 ) order by CreatedDate desc");            
+            return LoadFromRawSql(@"select A.*, U.UserName, U.UserID from Announcement A Left join aspnet_users U on A.createdby = u.UserID where (IsBulletin is null or IsBulletin <> 1 ) order by CreatedDate desc");            
         }
 
         public virtual bool GetAllBulletins()
         {
-            return LoadFromRawSql(@"select A.*, U.UserName from Announcement A Left join aspnet_users U on A.createdby = u.UserID where (IsBulletin = 1 ) order by CreatedDate desc");            
+            return LoadFromRawSql(@"select A.*, U.UserName, U.UserID from Announcement A Left join aspnet_users U on A.createdby = u.UserID where (IsBulletin = 1 ) order by CreatedDate desc");            
         }
 	}
 }

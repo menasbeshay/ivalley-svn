@@ -172,7 +172,7 @@
                                             <LoggedInTemplate>
                                                 <asp:LoginStatus ID="LoginStatus2" runat="server" CssClass="right" LogoutText="<i class='fa fa-unlock-alt'></i> Logout"/>
                                                 <span class="right">|</span>
-                                                <asp:LoginName ID="LoginName1" runat="server" CssClass="right" />
+                                                <a href="../Account/Profile.aspx" class=""> <asp:LoginName ID="LoginName1" runat="server" CssClass="right" /></a>
                                                 <span class="right">Welcome</span>
                                             </LoggedInTemplate>
                                         </asp:LoginView>
