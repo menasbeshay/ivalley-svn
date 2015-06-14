@@ -50,7 +50,7 @@
 												<div class="post-info">
 													<h2><a class="main-color" href='bulletins.aspx?cid=<%# Eval("AnnouncementID") %>'><%# Eval("Title").ToString() %></a></h2>
 													<ul class="post-meta">
-														<li class="meta-user"><i class="fa fa-user"></i>By: <%# Eval("UserName").ToString() %></li>
+														<li class="meta-user"><i class="fa fa-user"></i>By: <a href="../Account/Profile.aspx?uid=<%# Eval("UserID") %>" target="_blank"><%# Eval("UserName").ToString() %></a> </li>
 														
 													</ul>
 												</div>
