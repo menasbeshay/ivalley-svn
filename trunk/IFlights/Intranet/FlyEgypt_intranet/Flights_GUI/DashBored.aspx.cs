@@ -14,6 +14,7 @@ namespace Flights_GUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+           
             Master.PageTitle = "Dashboard";
             UsersNofications us = new UsersNofications();
             us.getNotifications(new Guid(Membership.GetUser(Page.User.Identity.Name).ProviderUserKey.ToString()));
@@ -33,7 +34,7 @@ namespace Flights_GUI
                             Litbull_Unreaded.Text = us.GetColumn("NotifCount").ToString();
                             FREBull.Value = us.GetColumn("NotifCount").ToString();
                             break;
-                           
+
 
                         case "3":
                             LitManuals_Unreaded.Text = us.GetColumn("NotifCount").ToString();
@@ -93,7 +94,8 @@ namespace Flights_GUI
                     }
                     us.MoveNext();
                 }
-            }
+            }            
+            
         }
     }
 }

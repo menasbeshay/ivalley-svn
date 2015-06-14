@@ -65,7 +65,7 @@
                     { name: 'LastUpdatedDate', type: 'date' },
                     { name: 'Path', type: 'string' }
                 ],
-                url: "http://localhost:50422/common/IntranetService.asmx/GetFormVersions?ID=" + formid
+                url: "http://flyegyptintranet.com/common/IntranetService.asmx/GetFormVersions?ID=" + formid
             };
             var dataAdapter = new $.jqx.dataAdapter(source);
             $("#jqxgrid").jqxGrid(

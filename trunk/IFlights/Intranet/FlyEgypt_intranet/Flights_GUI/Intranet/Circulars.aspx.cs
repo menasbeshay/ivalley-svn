@@ -59,7 +59,7 @@ namespace Flights_GUI.Intranet
                 uiLabelTitle.Text = current.Title;
                 uiLabelDate.Text = current.CreatedDate.ToString("dd MMM yyyy");
                 if(!current.IsColumnNull(Announcement.ColumnNames.CreatedBy))
-                    uiLabelCreator.Text = Membership.GetUser(current.CreatedBy.ToString()).UserName;
+                    uiLabelCreator.Text = Membership.GetUser(new Guid(current.CreatedBy.ToString())).UserName;
                 uiLiteralContent.Text = Server.HtmlDecode(current.Content);
                 uiImageMain.ImageUrl = string.IsNullOrEmpty(current.MainPic) ? "../img/announcement-icon.png" : current.MainPic;
             }

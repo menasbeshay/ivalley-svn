@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Telerik.Web.UI;
 
 namespace Flights_GUI.Admin
 {
@@ -68,7 +69,11 @@ namespace Flights_GUI.Admin
                 LoadCats();
                 if (currentManualCat != 0)
                 {
-                    uiRadTreeViewCats.Nodes.FindNodeByValue(currentManualCat.ToString()).Selected = true;
+                    //uiRadTreeViewCats.Nodes.FindNodeByValue(currentManualCat.ToString()).Selected = true;
+                    RadTreeNode node = uiRadTreeViewCats.FindNodeByValue(currentManualCat.ToString());
+                    node.Selected = true;
+                    node.ExpandParentNodes();
+                    
                 }
                 else
                     uiRadTreeViewCats.Nodes[0].Selected = true;
@@ -176,8 +181,20 @@ namespace Flights_GUI.Admin
             uiLinkButtonEditForms.Visible = true;
             //ClearFields();
 
-            // add new notifications 
-            SendingNotifications.sendNotif(3, CurrentManual.ManualCategoryID, CurrentManual.ManualID, null);
+            // add new notifications         
+            ManualCategory cat = new ManualCategory();
+            cat.GetTopMostParent(CurrentManual.ManualCategoryID);
+
+            if (!cat.IsColumnNull(ManualCategory.ColumnNames.ParentCategoryID))
+            {
+                if (cat.ParentCategoryID != 12)
+                    SendingNotifications.sendNotif(3, CurrentManual.ManualCategoryID, CurrentManual.ManualID, null);
+                else
+                    SendingNotifications.sendNotif(5, CurrentManual.ManualCategoryID, CurrentManual.ManualID, null);
+            }
+            else
+                SendingNotifications.sendNotif(3, CurrentManual.ManualCategoryID, CurrentManual.ManualID, null);
+                
         }
 
         protected void uiLinkButtonCancel_Click(object sender, EventArgs e)
@@ -329,10 +346,19 @@ namespace Flights_GUI.Admin
 
             objdata.Save();
             // add new notifications 
-            if(CurrentManual.ManualCategoryID != 12)
-                SendingNotifications.sendNotif(3, CurrentManual.ManualCategoryID, CurrentManual.ManualID, null);
+            ManualCategory cat = new ManualCategory();
+            cat.GetTopMostParent(CurrentManual.ManualCategoryID);
+
+            if (!cat.IsColumnNull(ManualCategory.ColumnNames.ParentCategoryID))
+            {
+                if (cat.ParentCategoryID != 12)
+                    SendingNotifications.sendNotif(3, CurrentManual.ManualCategoryID, CurrentManual.ManualID, null);
+                else
+                    SendingNotifications.sendNotif(5, CurrentManual.ManualCategoryID, CurrentManual.ManualID, null);
+            }
             else
-                SendingNotifications.sendNotif(5, CurrentManual.ManualCategoryID, CurrentManual.ManualID, null);
+                SendingNotifications.sendNotif(3, CurrentManual.ManualCategoryID, CurrentManual.ManualID, null);
+
             BindData_Versions();
             CurrentManualVersion = null;
             uiPanelViewAll.Visible = false;

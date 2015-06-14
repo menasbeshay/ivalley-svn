@@ -76,7 +76,7 @@
             <asp:Label ID="uiLabelTitle" runat="server"></asp:Label>
                                     </h2>
                                     <p>
-                                        By <a href="javascript:;"><asp:Label ID="uiLabelCreator" runat="server"></asp:Label></a>
+                                        By <asp:Label ID="uiLabelCreator" runat="server"></asp:Label>
                                     </p>
                                      <asp:Image ID="uiImageMain" runat="server" />
                                     <div class="row-fluid">

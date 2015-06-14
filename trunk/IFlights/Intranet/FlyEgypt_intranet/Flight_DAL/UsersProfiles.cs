@@ -143,7 +143,7 @@ namespace Flight_DAL
 			{
 				get
 				{
-					return new SqlParameter("@Photo", SqlDbType.NVarChar, 50);
+					return new SqlParameter("@Photo", SqlDbType.NVarChar, 1000);
 				}
 			}
 			
