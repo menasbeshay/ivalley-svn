@@ -40,7 +40,7 @@ namespace Flight_BLL
 
         public bool GetAllCatsWithNotifications(Guid userID)
         {
-            return LoadFromRawSql(@"Select A.*, A.Title + ' ' + case A.NotifCount when 0 then '' else '(' + CAST( A.NotifCount as nvarchar(50)) + ')' end DisplayName from(
+            return LoadFromRawSql(@"Select A.*, A.Title + ' ' + case A.NotifCount when 0 then '' else '(' + CAST( A.NotifCount as nvarchar(50)) + ')' end DisplayName, A.NotifCount from(
                                     select MC.* ,COUNT(UserNotificationID) NotifCount 
                                     from ManualCategory MC
                                     left join UsersNofications U on MC.ManualCategoryID = U.CategoryID and 
