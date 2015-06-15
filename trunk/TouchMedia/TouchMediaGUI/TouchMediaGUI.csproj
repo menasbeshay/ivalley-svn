@@ -1502,7 +1502,7 @@
     <Content Include="En\js\scripts.js" />
     <Content Include="En\js\ui-nestable.js" />
     <Content Include="En\js\ui-tree.js" />
-    <Content Include="En\WebForm1.aspx" />
+    <Content Include="En\Login.aspx" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />
     <Content Include="Images\heroAccent.png" />
@@ -1584,12 +1584,12 @@
     <Content Include="js\scripts.js" />
     <Content Include="js\ui-nestable.js" />
     <Content Include="js\ui-tree.js" />
+    <Content Include="Login.aspx" />
     <Content Include="Scripts\_references.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
-    <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -1629,6 +1629,13 @@
     <Compile Include="Account\RegisterExternalLogin.aspx.designer.cs">
       <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="En\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="En\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="En\MasterEn.Master.cs">
       <DependentUpon>MasterEn.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1636,15 +1643,15 @@
     <Compile Include="En\MasterEn.Master.designer.cs">
       <DependentUpon>MasterEn.Master</DependentUpon>
     </Compile>
-    <Compile Include="En\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="En\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterAr.Master.cs">
       <DependentUpon>MasterAr.Master</DependentUpon>
@@ -1654,13 +1661,6 @@
       <DependentUpon>MasterAr.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
