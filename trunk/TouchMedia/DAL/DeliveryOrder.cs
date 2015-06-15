@@ -179,6 +179,78 @@ namespace Your.Namespace
 				}
 			}
 			
+			public static SqlParameter ClientCode
+			{
+				get
+				{
+					return new SqlParameter("@ClientCode", SqlDbType.NVarChar, 300);
+				}
+			}
+			
+			public static SqlParameter TransformationSupplier
+			{
+				get
+				{
+					return new SqlParameter("@TransformationSupplier", SqlDbType.NVarChar, 300);
+				}
+			}
+			
+			public static SqlParameter DriverName
+			{
+				get
+				{
+					return new SqlParameter("@DriverName", SqlDbType.NVarChar, 300);
+				}
+			}
+			
+			public static SqlParameter DriverNationID
+			{
+				get
+				{
+					return new SqlParameter("@DriverNationID", SqlDbType.Int, 0);
+				}
+			}
+			
+			public static SqlParameter CarNumber
+			{
+				get
+				{
+					return new SqlParameter("@CarNumber", SqlDbType.NVarChar, 50);
+				}
+			}
+			
+			public static SqlParameter DriverTelephone
+			{
+				get
+				{
+					return new SqlParameter("@DriverTelephone", SqlDbType.NVarChar, 50);
+				}
+			}
+			
+			public static SqlParameter WatingHours
+			{
+				get
+				{
+					return new SqlParameter("@WatingHours", SqlDbType.Float, 0);
+				}
+			}
+			
+			public static SqlParameter PermationNumber
+			{
+				get
+				{
+					return new SqlParameter("@PermationNumber", SqlDbType.Int, 0);
+				}
+			}
+			
+			public static SqlParameter Department
+			{
+				get
+				{
+					return new SqlParameter("@Department", SqlDbType.NVarChar, 300);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -195,6 +267,15 @@ namespace Your.Namespace
             public const string CreatedDate = "CreatedDate";
             public const string UpdatedBy = "UpdatedBy";
             public const string LastUpdatedDate = "LastUpdatedDate";
+            public const string ClientCode = "ClientCode";
+            public const string TransformationSupplier = "TransformationSupplier";
+            public const string DriverName = "DriverName";
+            public const string DriverNationID = "DriverNationID";
+            public const string CarNumber = "CarNumber";
+            public const string DriverTelephone = "DriverTelephone";
+            public const string WatingHours = "WatingHours";
+            public const string PermationNumber = "PermationNumber";
+            public const string Department = "Department";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -212,6 +293,15 @@ namespace Your.Namespace
 					ht[CreatedDate] = _DeliveryOrder.PropertyNames.CreatedDate;
 					ht[UpdatedBy] = _DeliveryOrder.PropertyNames.UpdatedBy;
 					ht[LastUpdatedDate] = _DeliveryOrder.PropertyNames.LastUpdatedDate;
+					ht[ClientCode] = _DeliveryOrder.PropertyNames.ClientCode;
+					ht[TransformationSupplier] = _DeliveryOrder.PropertyNames.TransformationSupplier;
+					ht[DriverName] = _DeliveryOrder.PropertyNames.DriverName;
+					ht[DriverNationID] = _DeliveryOrder.PropertyNames.DriverNationID;
+					ht[CarNumber] = _DeliveryOrder.PropertyNames.CarNumber;
+					ht[DriverTelephone] = _DeliveryOrder.PropertyNames.DriverTelephone;
+					ht[WatingHours] = _DeliveryOrder.PropertyNames.WatingHours;
+					ht[PermationNumber] = _DeliveryOrder.PropertyNames.PermationNumber;
+					ht[Department] = _DeliveryOrder.PropertyNames.Department;
 
 				}
 				return (string)ht[columnName];
@@ -234,6 +324,15 @@ namespace Your.Namespace
             public const string CreatedDate = "CreatedDate";
             public const string UpdatedBy = "UpdatedBy";
             public const string LastUpdatedDate = "LastUpdatedDate";
+            public const string ClientCode = "ClientCode";
+            public const string TransformationSupplier = "TransformationSupplier";
+            public const string DriverName = "DriverName";
+            public const string DriverNationID = "DriverNationID";
+            public const string CarNumber = "CarNumber";
+            public const string DriverTelephone = "DriverTelephone";
+            public const string WatingHours = "WatingHours";
+            public const string PermationNumber = "PermationNumber";
+            public const string Department = "Department";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -251,6 +350,15 @@ namespace Your.Namespace
 					ht[CreatedDate] = _DeliveryOrder.ColumnNames.CreatedDate;
 					ht[UpdatedBy] = _DeliveryOrder.ColumnNames.UpdatedBy;
 					ht[LastUpdatedDate] = _DeliveryOrder.ColumnNames.LastUpdatedDate;
+					ht[ClientCode] = _DeliveryOrder.ColumnNames.ClientCode;
+					ht[TransformationSupplier] = _DeliveryOrder.ColumnNames.TransformationSupplier;
+					ht[DriverName] = _DeliveryOrder.ColumnNames.DriverName;
+					ht[DriverNationID] = _DeliveryOrder.ColumnNames.DriverNationID;
+					ht[CarNumber] = _DeliveryOrder.ColumnNames.CarNumber;
+					ht[DriverTelephone] = _DeliveryOrder.ColumnNames.DriverTelephone;
+					ht[WatingHours] = _DeliveryOrder.ColumnNames.WatingHours;
+					ht[PermationNumber] = _DeliveryOrder.ColumnNames.PermationNumber;
+					ht[Department] = _DeliveryOrder.ColumnNames.Department;
 
 				}
 				return (string)ht[propertyName];
@@ -273,6 +381,15 @@ namespace Your.Namespace
             public const string CreatedDate = "s_CreatedDate";
             public const string UpdatedBy = "s_UpdatedBy";
             public const string LastUpdatedDate = "s_LastUpdatedDate";
+            public const string ClientCode = "s_ClientCode";
+            public const string TransformationSupplier = "s_TransformationSupplier";
+            public const string DriverName = "s_DriverName";
+            public const string DriverNationID = "s_DriverNationID";
+            public const string CarNumber = "s_CarNumber";
+            public const string DriverTelephone = "s_DriverTelephone";
+            public const string WatingHours = "s_WatingHours";
+            public const string PermationNumber = "s_PermationNumber";
+            public const string Department = "s_Department";
 
 		}
 		#endregion		
@@ -396,6 +513,114 @@ namespace Your.Namespace
 			set
 	        {
 				base.SetDateTime(ColumnNames.LastUpdatedDate, value);
+			}
+		}
+
+		public virtual string ClientCode
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.ClientCode);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.ClientCode, value);
+			}
+		}
+
+		public virtual string TransformationSupplier
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.TransformationSupplier);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.TransformationSupplier, value);
+			}
+		}
+
+		public virtual string DriverName
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.DriverName);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.DriverName, value);
+			}
+		}
+
+		public virtual int DriverNationID
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.DriverNationID);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.DriverNationID, value);
+			}
+		}
+
+		public virtual string CarNumber
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.CarNumber);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.CarNumber, value);
+			}
+		}
+
+		public virtual string DriverTelephone
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.DriverTelephone);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.DriverTelephone, value);
+			}
+		}
+
+		public virtual double WatingHours
+	    {
+			get
+	        {
+				return base.Getdouble(ColumnNames.WatingHours);
+			}
+			set
+	        {
+				base.Setdouble(ColumnNames.WatingHours, value);
+			}
+		}
+
+		public virtual int PermationNumber
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.PermationNumber);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.PermationNumber, value);
+			}
+		}
+
+		public virtual string Department
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.Department);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.Department, value);
 			}
 		}
 
@@ -554,6 +779,141 @@ namespace Your.Namespace
 			}
 		}
 
+		public virtual string s_ClientCode
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.ClientCode) ? string.Empty : base.GetstringAsString(ColumnNames.ClientCode);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.ClientCode);
+				else
+					this.ClientCode = base.SetstringAsString(ColumnNames.ClientCode, value);
+			}
+		}
+
+		public virtual string s_TransformationSupplier
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.TransformationSupplier) ? string.Empty : base.GetstringAsString(ColumnNames.TransformationSupplier);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.TransformationSupplier);
+				else
+					this.TransformationSupplier = base.SetstringAsString(ColumnNames.TransformationSupplier, value);
+			}
+		}
+
+		public virtual string s_DriverName
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.DriverName) ? string.Empty : base.GetstringAsString(ColumnNames.DriverName);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.DriverName);
+				else
+					this.DriverName = base.SetstringAsString(ColumnNames.DriverName, value);
+			}
+		}
+
+		public virtual string s_DriverNationID
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.DriverNationID) ? string.Empty : base.GetintAsString(ColumnNames.DriverNationID);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.DriverNationID);
+				else
+					this.DriverNationID = base.SetintAsString(ColumnNames.DriverNationID, value);
+			}
+		}
+
+		public virtual string s_CarNumber
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.CarNumber) ? string.Empty : base.GetstringAsString(ColumnNames.CarNumber);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.CarNumber);
+				else
+					this.CarNumber = base.SetstringAsString(ColumnNames.CarNumber, value);
+			}
+		}
+
+		public virtual string s_DriverTelephone
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.DriverTelephone) ? string.Empty : base.GetstringAsString(ColumnNames.DriverTelephone);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.DriverTelephone);
+				else
+					this.DriverTelephone = base.SetstringAsString(ColumnNames.DriverTelephone, value);
+			}
+		}
+
+		public virtual string s_WatingHours
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.WatingHours) ? string.Empty : base.GetdoubleAsString(ColumnNames.WatingHours);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.WatingHours);
+				else
+					this.WatingHours = base.SetdoubleAsString(ColumnNames.WatingHours, value);
+			}
+		}
+
+		public virtual string s_PermationNumber
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.PermationNumber) ? string.Empty : base.GetintAsString(ColumnNames.PermationNumber);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.PermationNumber);
+				else
+					this.PermationNumber = base.SetintAsString(ColumnNames.PermationNumber, value);
+			}
+		}
+
+		public virtual string s_Department
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.Department) ? string.Empty : base.GetstringAsString(ColumnNames.Department);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.Department);
+				else
+					this.Department = base.SetstringAsString(ColumnNames.Department, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -687,6 +1047,96 @@ namespace Your.Namespace
 					}
 				}
 
+				public WhereParameter ClientCode
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.ClientCode, Parameters.ClientCode);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter TransformationSupplier
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.TransformationSupplier, Parameters.TransformationSupplier);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter DriverName
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.DriverName, Parameters.DriverName);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter DriverNationID
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.DriverNationID, Parameters.DriverNationID);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter CarNumber
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.CarNumber, Parameters.CarNumber);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter DriverTelephone
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.DriverTelephone, Parameters.DriverTelephone);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter WatingHours
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.WatingHours, Parameters.WatingHours);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter PermationNumber
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.PermationNumber, Parameters.PermationNumber);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter Department
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.Department, Parameters.Department);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -812,6 +1262,114 @@ namespace Your.Namespace
 				}
 			}
 
+			public WhereParameter ClientCode
+		    {
+				get
+		        {
+					if(_ClientCode_W == null)
+	        	    {
+						_ClientCode_W = TearOff.ClientCode;
+					}
+					return _ClientCode_W;
+				}
+			}
+
+			public WhereParameter TransformationSupplier
+		    {
+				get
+		        {
+					if(_TransformationSupplier_W == null)
+	        	    {
+						_TransformationSupplier_W = TearOff.TransformationSupplier;
+					}
+					return _TransformationSupplier_W;
+				}
+			}
+
+			public WhereParameter DriverName
+		    {
+				get
+		        {
+					if(_DriverName_W == null)
+	        	    {
+						_DriverName_W = TearOff.DriverName;
+					}
+					return _DriverName_W;
+				}
+			}
+
+			public WhereParameter DriverNationID
+		    {
+				get
+		        {
+					if(_DriverNationID_W == null)
+	        	    {
+						_DriverNationID_W = TearOff.DriverNationID;
+					}
+					return _DriverNationID_W;
+				}
+			}
+
+			public WhereParameter CarNumber
+		    {
+				get
+		        {
+					if(_CarNumber_W == null)
+	        	    {
+						_CarNumber_W = TearOff.CarNumber;
+					}
+					return _CarNumber_W;
+				}
+			}
+
+			public WhereParameter DriverTelephone
+		    {
+				get
+		        {
+					if(_DriverTelephone_W == null)
+	        	    {
+						_DriverTelephone_W = TearOff.DriverTelephone;
+					}
+					return _DriverTelephone_W;
+				}
+			}
+
+			public WhereParameter WatingHours
+		    {
+				get
+		        {
+					if(_WatingHours_W == null)
+	        	    {
+						_WatingHours_W = TearOff.WatingHours;
+					}
+					return _WatingHours_W;
+				}
+			}
+
+			public WhereParameter PermationNumber
+		    {
+				get
+		        {
+					if(_PermationNumber_W == null)
+	        	    {
+						_PermationNumber_W = TearOff.PermationNumber;
+					}
+					return _PermationNumber_W;
+				}
+			}
+
+			public WhereParameter Department
+		    {
+				get
+		        {
+					if(_Department_W == null)
+	        	    {
+						_Department_W = TearOff.Department;
+					}
+					return _Department_W;
+				}
+			}
+
 			private WhereParameter _DeliveryOrderID_W = null;
 			private WhereParameter _KilometerCounterBefore_W = null;
 			private WhereParameter _KilometerCounterAfter_W = null;
@@ -822,6 +1380,15 @@ namespace Your.Namespace
 			private WhereParameter _CreatedDate_W = null;
 			private WhereParameter _UpdatedBy_W = null;
 			private WhereParameter _LastUpdatedDate_W = null;
+			private WhereParameter _ClientCode_W = null;
+			private WhereParameter _TransformationSupplier_W = null;
+			private WhereParameter _DriverName_W = null;
+			private WhereParameter _DriverNationID_W = null;
+			private WhereParameter _CarNumber_W = null;
+			private WhereParameter _DriverTelephone_W = null;
+			private WhereParameter _WatingHours_W = null;
+			private WhereParameter _PermationNumber_W = null;
+			private WhereParameter _Department_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -835,6 +1402,15 @@ namespace Your.Namespace
 				_CreatedDate_W = null;
 				_UpdatedBy_W = null;
 				_LastUpdatedDate_W = null;
+				_ClientCode_W = null;
+				_TransformationSupplier_W = null;
+				_DriverName_W = null;
+				_DriverNationID_W = null;
+				_CarNumber_W = null;
+				_DriverTelephone_W = null;
+				_WatingHours_W = null;
+				_PermationNumber_W = null;
+				_Department_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -991,6 +1567,96 @@ namespace Your.Namespace
 					}
 				}
 
+				public AggregateParameter ClientCode
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.ClientCode, Parameters.ClientCode);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter TransformationSupplier
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.TransformationSupplier, Parameters.TransformationSupplier);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter DriverName
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.DriverName, Parameters.DriverName);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter DriverNationID
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.DriverNationID, Parameters.DriverNationID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter CarNumber
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.CarNumber, Parameters.CarNumber);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter DriverTelephone
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.DriverTelephone, Parameters.DriverTelephone);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter WatingHours
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.WatingHours, Parameters.WatingHours);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter PermationNumber
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.PermationNumber, Parameters.PermationNumber);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter Department
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Department, Parameters.Department);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -1116,6 +1782,114 @@ namespace Your.Namespace
 				}
 			}
 
+			public AggregateParameter ClientCode
+		    {
+				get
+		        {
+					if(_ClientCode_W == null)
+	        	    {
+						_ClientCode_W = TearOff.ClientCode;
+					}
+					return _ClientCode_W;
+				}
+			}
+
+			public AggregateParameter TransformationSupplier
+		    {
+				get
+		        {
+					if(_TransformationSupplier_W == null)
+	        	    {
+						_TransformationSupplier_W = TearOff.TransformationSupplier;
+					}
+					return _TransformationSupplier_W;
+				}
+			}
+
+			public AggregateParameter DriverName
+		    {
+				get
+		        {
+					if(_DriverName_W == null)
+	        	    {
+						_DriverName_W = TearOff.DriverName;
+					}
+					return _DriverName_W;
+				}
+			}
+
+			public AggregateParameter DriverNationID
+		    {
+				get
+		        {
+					if(_DriverNationID_W == null)
+	        	    {
+						_DriverNationID_W = TearOff.DriverNationID;
+					}
+					return _DriverNationID_W;
+				}
+			}
+
+			public AggregateParameter CarNumber
+		    {
+				get
+		        {
+					if(_CarNumber_W == null)
+	        	    {
+						_CarNumber_W = TearOff.CarNumber;
+					}
+					return _CarNumber_W;
+				}
+			}
+
+			public AggregateParameter DriverTelephone
+		    {
+				get
+		        {
+					if(_DriverTelephone_W == null)
+	        	    {
+						_DriverTelephone_W = TearOff.DriverTelephone;
+					}
+					return _DriverTelephone_W;
+				}
+			}
+
+			public AggregateParameter WatingHours
+		    {
+				get
+		        {
+					if(_WatingHours_W == null)
+	        	    {
+						_WatingHours_W = TearOff.WatingHours;
+					}
+					return _WatingHours_W;
+				}
+			}
+
+			public AggregateParameter PermationNumber
+		    {
+				get
+		        {
+					if(_PermationNumber_W == null)
+	        	    {
+						_PermationNumber_W = TearOff.PermationNumber;
+					}
+					return _PermationNumber_W;
+				}
+			}
+
+			public AggregateParameter Department
+		    {
+				get
+		        {
+					if(_Department_W == null)
+	        	    {
+						_Department_W = TearOff.Department;
+					}
+					return _Department_W;
+				}
+			}
+
 			private AggregateParameter _DeliveryOrderID_W = null;
 			private AggregateParameter _KilometerCounterBefore_W = null;
 			private AggregateParameter _KilometerCounterAfter_W = null;
@@ -1126,6 +1900,15 @@ namespace Your.Namespace
 			private AggregateParameter _CreatedDate_W = null;
 			private AggregateParameter _UpdatedBy_W = null;
 			private AggregateParameter _LastUpdatedDate_W = null;
+			private AggregateParameter _ClientCode_W = null;
+			private AggregateParameter _TransformationSupplier_W = null;
+			private AggregateParameter _DriverName_W = null;
+			private AggregateParameter _DriverNationID_W = null;
+			private AggregateParameter _CarNumber_W = null;
+			private AggregateParameter _DriverTelephone_W = null;
+			private AggregateParameter _WatingHours_W = null;
+			private AggregateParameter _PermationNumber_W = null;
+			private AggregateParameter _Department_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -1139,6 +1922,15 @@ namespace Your.Namespace
 				_CreatedDate_W = null;
 				_UpdatedBy_W = null;
 				_LastUpdatedDate_W = null;
+				_ClientCode_W = null;
+				_TransformationSupplier_W = null;
+				_DriverName_W = null;
+				_DriverNationID_W = null;
+				_CarNumber_W = null;
+				_DriverTelephone_W = null;
+				_WatingHours_W = null;
+				_PermationNumber_W = null;
+				_Department_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -1251,6 +2043,42 @@ namespace Your.Namespace
 
 			p = cmd.Parameters.Add(Parameters.LastUpdatedDate);
 			p.SourceColumn = ColumnNames.LastUpdatedDate;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.ClientCode);
+			p.SourceColumn = ColumnNames.ClientCode;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.TransformationSupplier);
+			p.SourceColumn = ColumnNames.TransformationSupplier;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.DriverName);
+			p.SourceColumn = ColumnNames.DriverName;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.DriverNationID);
+			p.SourceColumn = ColumnNames.DriverNationID;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.CarNumber);
+			p.SourceColumn = ColumnNames.CarNumber;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.DriverTelephone);
+			p.SourceColumn = ColumnNames.DriverTelephone;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.WatingHours);
+			p.SourceColumn = ColumnNames.WatingHours;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.PermationNumber);
+			p.SourceColumn = ColumnNames.PermationNumber;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.Department);
+			p.SourceColumn = ColumnNames.Department;
 			p.SourceVersion = DataRowVersion.Current;
 
 
