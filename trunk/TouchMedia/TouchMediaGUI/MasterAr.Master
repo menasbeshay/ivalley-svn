@@ -4,7 +4,15 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <link href="assets/bootstrap-rtl/css/bootstrap-rtl.min.css" rel="stylesheet" />
+    <link href="assets/bootstrap-rtl/css/bootstrap-responsive-rtl.min.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/style_gray.css" rel="stylesheet" />
+    <link href="css/style_responsive.css" rel="stylesheet" />
+    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="assets/fancybox/source/jquery.fancybox.css" rel="stylesheet" />
+    <link href="assets/uniform/css/uniform.default.css" rel="stylesheet" />
+    <title>Touch Media</title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -198,14 +206,13 @@
 
         <div id="container" class="row-fluid">
             <div id="sidebar" class="nav-collapse collapse">
-
                 <div class="sidebar-toggler hidden-phone"></div>
 
                 <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
                 <div class="navbar-inverse">
-                    <form class="navbar-search visible-phone">
+                    <div class="navbar-search visible-phone">
                         <input type="text" class="search-query" placeholder="Search" />
-                    </form>
+                    </div>
                 </div>
                 <!-- END RESPONSIVE QUICK SEARCH FORM -->
                 <!-- BEGIN SIDEBAR MENU -->
@@ -332,5 +339,17 @@
       </div>
         </div>
     </form>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="assets/bootstrap-rtl/js/bootstrap.min.js"></script>
+    <script src="js/jquery.blockui.js"></script>
+    <script src="assets/chosen-bootstrap/chosen/chosen.jquery.min.js"></script>
+    <script src="assets/uniform/jquery.uniform.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script>
+        jQuery(document).ready(function () {
+            // initiate layout and plugins
+            App.init();
+        });
+    </script>
 </body>
 </html>
