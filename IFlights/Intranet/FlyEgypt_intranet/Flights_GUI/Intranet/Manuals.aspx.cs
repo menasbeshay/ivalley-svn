@@ -49,7 +49,9 @@ namespace Flights_GUI.Intranet
                 else
                     uiRadTreeViewCats.Nodes[0].Selected = true;
                 currentManualCat = Convert.ToInt32(uiRadTreeViewCats.SelectedNode.Value);
-                uiLabelCat.Text = uiRadTreeViewCats.SelectedNode.Text;
+                ManualCategory cat = new ManualCategory();
+                cat.LoadByPrimaryKey(currentManualCat);
+                uiLabelCat.Text = cat.Title;
                 BindData();
 
                 MarkNotificationsAsRead();
@@ -59,8 +61,11 @@ namespace Flights_GUI.Intranet
         protected void uiRadTreeViewCats_NodeClick(object sender, Telerik.Web.UI.RadTreeNodeEventArgs e)
         {
             currentManualCat = Convert.ToInt32(e.Node.Value);
-            uiLabelCat.Text = e.Node.Text;
+            ManualCategory cat = new ManualCategory();
+            cat.LoadByPrimaryKey(currentManualCat);
+            uiLabelCat.Text = cat.Title;
             BindData();
+            LoadCats();
             MarkNotificationsAsRead();
         }
 
@@ -73,19 +78,19 @@ namespace Flights_GUI.Intranet
         private void LoadCats()
         {
             ManualCategory cats = new ManualCategory();
-            cats.LoadAll();
+            cats.GetAllCatsWithNotifications(new Guid(Membership.GetUser().ProviderUserKey.ToString()));
 
             uiRadTreeViewCats.DataSource = cats.DefaultView;
             uiRadTreeViewCats.DataFieldID = ManualCategory.ColumnNames.ManualCategoryID;
             uiRadTreeViewCats.DataFieldParentID = ManualCategory.ColumnNames.ParentCategoryID;
-            uiRadTreeViewCats.DataTextField = ManualCategory.ColumnNames.Title;
+            uiRadTreeViewCats.DataTextField = "DisplayName";
             uiRadTreeViewCats.DataValueField = ManualCategory.ColumnNames.ManualCategoryID;
             uiRadTreeViewCats.DataBind();
         }
         private void BindData()
         {
             Manual objdata = new Manual();
-            objdata.GetManualsByCatID(currentManualCat);
+            objdata.GetManualsByCatID(currentManualCat, new Guid(Membership.GetUser().ProviderUserKey.ToString()));
             uiRadGridmanuals.DataSource = objdata.DefaultView;
             uiRadGridmanuals.DataBind();
 

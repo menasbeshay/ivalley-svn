@@ -36,5 +36,18 @@ namespace Flight_BLL
             parameters.Add(new SqlParameter("@ManualCategoryID", SqlDbType.Int, 0), categoryID);
             return LoadFromSql("GetTopMostParent", parameters);
         }
+
+
+        public bool GetAllCatsWithNotifications(Guid userID)
+        {
+            return LoadFromRawSql(@"Select A.*, A.Title + ' ' + case A.NotifCount when 0 then '' else '(' + CAST( A.NotifCount as nvarchar(50)) + ')' end DisplayName from(
+                                    select MC.* ,COUNT(UserNotificationID) NotifCount 
+                                    from ManualCategory MC
+                                    left join UsersNofications U on MC.ManualCategoryID = U.CategoryID and 
+								                                    UserID = {0} AND 
+								                                    (IsRead <> 1 or IsRead is null)
+                                    Group by ManualCategoryID, Title, ParentCategoryID
+                                    ) A", userID);
+        }
 	}
 }

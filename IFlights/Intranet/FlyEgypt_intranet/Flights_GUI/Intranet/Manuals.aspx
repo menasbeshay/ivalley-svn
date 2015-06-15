@@ -66,7 +66,7 @@
                     { name: 'LastUpdatedDate', type: 'date' },
                     { name: 'Path' , type: 'string'}
                 ],
-                url: "http://flyegyptintranet.com/common/IntranetService.asmx/GetManualVersions?ID=" + manualid
+                url: "../common/IntranetService.asmx/GetManualVersions?ID=" + manualid
             };
             var dataAdapter = new $.jqx.dataAdapter(source);
             $("#jqxgrid").jqxGrid(
@@ -117,7 +117,13 @@
             <AlternatingItemStyle HorizontalAlign="Center" />
             <MasterTableView>
                 <Columns>
-                    <telerik:GridBoundColumn DataField="Title" HeaderText="Title"></telerik:GridBoundColumn>
+                                        
+                    <telerik:GridTemplateColumn HeaderText="Title">
+                        <ItemTemplate>
+                           <%# Eval("ManualUpdates").ToString() != "0" ? "<div style='position:relative;display:block;width:100%;height:1px'><label class='badge' style='top:-12px !important;left:-10px;'>"+ Eval("ManualUpdates") +"</label></div>" : "" %>
+                            <%# Eval("Title") %>                            
+                        </ItemTemplate>
+                    </telerik:GridTemplateColumn>
                     <%--<telerik:GridBoundColumn DataField="IssueNumber" HeaderText="Issue No."></telerik:GridBoundColumn>
                     <telerik:GridBoundColumn DataField="IssueDate" HeaderText="Issue Date" DataFormatString="{0:dd/MM/yyyy}"></telerik:GridBoundColumn>
                     <telerik:GridBoundColumn DataField="RevisionNumber" HeaderText="Revision No."></telerik:GridBoundColumn>
@@ -131,27 +137,33 @@
                     <telerik:GridTemplateColumn HeaderText="Other versions">
                         <ItemTemplate>
                             <!-- Button trigger modal -->
+                            <div style='position:relative;'>
                             <button type="button" class="btn btn-primary btn-lg viewVersion" data-toggle="modal" data-target="#myModal" data-manualid="<%# Eval("ManualID") %>" data-manualName="<%# Eval("Title") %>">
                              View versions
                             </button>
                             <!-- Modal -->
-                            
+                             <%# Eval("ManualVersionUpdates").ToString() != "0" ? "<label class='badge' style='top:-20% !important;left:0% !important'>"+ Eval("ManualVersionUpdates") +"</label>" : "" %>
+                            </div>
                         </ItemTemplate>
                     </telerik:GridTemplateColumn>
                     <telerik:GridTemplateColumn HeaderText="Forms">
                         <ItemTemplate>
                             <!-- Button trigger modal -->
+                            <div style='position:relative;'>
                             <a class="btn empty main-border" href="forms.aspx?mid=<%# Eval("ManualID") %>">
                              View Forms
                             </a>
                             <!-- Modal -->
-                            
+                             <%# Convert.ToInt32(Eval("ManualFormUpdates").ToString()) + Convert.ToInt32(Eval("ManualFormVersionUpdates").ToString()) > 0 ? "<label class='badge' style='top:-20% !important;left:0% !important'>"+ (Convert.ToInt32(Eval("ManualFormUpdates").ToString()) + Convert.ToInt32(Eval("ManualFormVersionUpdates").ToString())) +"</label>" : "" %>
+                            </div>
                         </ItemTemplate>
                     </telerik:GridTemplateColumn>
+                    
                 </Columns>
+                
             </MasterTableView>
             <HeaderStyle HorizontalAlign="Center" />
-            <ItemStyle HorizontalAlign="Center" />
+            <ItemStyle HorizontalAlign="Center"  />
 
 <FilterMenu EnableImageSprites="False"></FilterMenu>
 

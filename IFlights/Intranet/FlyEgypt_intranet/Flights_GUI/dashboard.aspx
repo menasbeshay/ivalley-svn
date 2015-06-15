@@ -16,7 +16,7 @@
                                <div class="center" > <sub>Unread</sub> </div>
                                  <asp:HiddenField ID="FUNCirculars" runat="server" Value="0" ClientIDMode="Static"></asp:HiddenField>
 								   <div class="fun-number" id="CirUnID"><asp:Literal ID="LitCirculars_Unreaded" runat="server"></asp:Literal></div>
-								<div class="fun-text main-bg">Circulars<br />&nbsp;</div>
+								<div class="fun-text main-bg"><a href="Intranet/Circulars.aspx" style="text-decoration:none !important;color:#fff !important;">Circulars</a> <br />&nbsp;</div>
 								<div class="fun-icon"><i class="fa fa-bullhorn"></i></div>
                                <div class="center" > <sub>Read</sub> </div>
                                 <div class="fun-number" id="CirReID"><asp:Literal ID="LitCirculars_Readed" runat="server"></asp:Literal></div>
@@ -35,7 +35,7 @@
                                  <div class="center"> <sub>Unread</sub> </div>
                             <asp:HiddenField ID="FUNBull" runat="server" Value="0" ClientIDMode="Static"></asp:HiddenField>
 								 <div class="fun-number" id="BullUnID"><asp:Literal ID="Litbull_Unreaded" runat="server"></asp:Literal></div>
-								<div class="fun-text main-bg">Bulletins<br />&nbsp;</div>
+								<div class="fun-text main-bg"><a href="Intranet/Bulletins.aspx" style="text-decoration:none !important;color:#fff !important;">Bulletins</a><br />&nbsp;</div>
 								<div class="fun-icon"><i class="fa fa-bullhorn"></i></div>
                                   <div class="center" id="BullReID"> <sub>Read</sub> </div>
                                      <asp:HiddenField ID="FREBull" runat="server" Value="0" ClientIDMode="Static"></asp:HiddenField>
@@ -52,7 +52,7 @@
                                  <div class="center"> <sub>Unread</sub> </div>
                                      <asp:HiddenField ID="FUNManuals" runat="server" Value="0" ClientIDMode="Static"></asp:HiddenField>
 								<div class="fun-number"><asp:Literal ID="LitManuals_Unreaded" runat="server"></asp:Literal></div>
-								<div class="fun-text main-bg">Manuals<br />&nbsp;</div>
+								<div class="fun-text main-bg"><a href="Intranet/manuals.aspx" style="text-decoration:none !important;color:#fff !important;">Manuals</a><br />&nbsp;</div>
 								<div class="fun-icon"><i class="fa fa-book"></i></div>
                                    <div class="center"> <sub>Read</sub> </div>
                                      <asp:HiddenField ID="FREManuals" runat="server" Value="0" ClientIDMode="Static"></asp:HiddenField>
@@ -69,7 +69,7 @@
                                  <div class="center"> <sub>Unread</sub> </div>
                                      <asp:HiddenField ID="FUNForms" runat="server" Value="0" ClientIDMode="Static"></asp:HiddenField>
 								<div class="fun-number"><asp:Literal ID="LitForms_Unreaded" runat="server"></asp:Literal></div>
-								<div class="fun-text main-bg">Forms <br />&nbsp;</div>
+								<div class="fun-text main-bg"><a href="Intranet/manuals.aspx" style="text-decoration:none !important;color:#fff !important;">Forms </a><br />&nbsp;</div>
 								<div class="fun-icon"><i class="fa fa-edit "></i></div>
                                  <div class="center"> <sub>Read</sub> </div>
                                      <asp:HiddenField ID="FREForms" runat="server" Value="0" ClientIDMode="Static"></asp:HiddenField>
@@ -86,7 +86,7 @@
                                <div class="center"> <sub>Unread</sub> </div>
                                       <asp:HiddenField ID="FunAir" runat="server" Value="0" ClientIDMode="Static"></asp:HiddenField>
 								<div class="fun-number" id="aybta3"><asp:Literal ID="LitAir_Unreaded" runat="server"></asp:Literal></div>
-								<div class="fun fun-text main-bg "> Aircraft <br />Manuals</div>
+								<div class="fun fun-text main-bg "> <a href="Intranet/manuals.aspx?cid=12" style="text-decoration:none !important;color:#fff !important;">Aircraft <br />Manuals</a></div>
                                  
 								<div class="fun-icon"><i class="fa fa-plane "></i></div>
                                    <div class="center"> <sub>Read</sub> </div>
