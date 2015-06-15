@@ -193,6 +193,24 @@ namespace Flights_GUI {
         protected global::System.Web.UI.WebControls.Literal LitAir_Readed;
         
         /// <summary>
+        /// uiRepeaterCirculars control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater uiRepeaterCirculars;
+        
+        /// <summary>
+        /// uiRepeaterBulletins control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater uiRepeaterBulletins;
+        
+        /// <summary>
         /// Master property.
         /// </summary>
         /// <remarks>

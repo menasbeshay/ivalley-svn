@@ -94,8 +94,26 @@ namespace Flights_GUI
                     }
                     us.MoveNext();
                 }
-            }            
+            }
+
+
+            LoadAnnouncements();
             
+        }
+
+        private void LoadAnnouncements()
+        {
+            Announcement all = new Announcement();
+            all.GetTopAnnouncements();
+
+            uiRepeaterCirculars.DataSource = all.DefaultView;
+            uiRepeaterCirculars.DataBind();
+
+            Announcement Bulletins = new Announcement();
+            Bulletins.GetTopBulletins();
+
+            uiRepeaterBulletins.DataSource = Bulletins.DefaultView;
+            uiRepeaterBulletins.DataBind();
         }
     }
 }

@@ -22,5 +22,17 @@ namespace Flight_BLL
         {
             return LoadFromRawSql(@"select A.*, U.UserName, U.UserID from Announcement A Left join aspnet_users U on A.createdby = u.UserID where (IsBulletin = 1 ) order by CreatedDate desc");            
         }
+
+        public virtual bool GetTopBulletins()
+        {
+            return LoadFromRawSql(@"select top 3 A.*, U.UserName, U.UserID from Announcement A Left join aspnet_users U on A.createdby = u.UserID where (IsBulletin = 1 ) order by CreatedDate desc");
+        }
+
+
+        public virtual bool GetTopAnnouncements()
+        {
+
+            return LoadFromRawSql(@"select top 3 A.*, U.UserName, U.UserID from Announcement A Left join aspnet_users U on A.createdby = u.UserID where (IsBulletin is null or IsBulletin <> 1 ) order by CreatedDate desc");
+        }
 	}
 }

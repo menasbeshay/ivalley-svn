@@ -169,7 +169,7 @@
 		$(window).on("scroll",function(){
 		    var Scrl = $(window).scrollTop();
 		    var tp = $('#headWrapper').offset();
-			if (Scrl > 50) {
+			if (Scrl > 25) {
 				$('.top-head').addClass('sticky');
 			}else{
 				$('.top-head').removeClass('sticky');
@@ -177,7 +177,7 @@
 		});
 		$('document').ready(function(){
 			var Scrl = $(window).scrollTop();
-			if (Scrl > 50) {
+			if (Scrl > 25) {
 				$('.top-head').addClass('sticky');
 			}else{
 				$('.top-head').removeClass('sticky');

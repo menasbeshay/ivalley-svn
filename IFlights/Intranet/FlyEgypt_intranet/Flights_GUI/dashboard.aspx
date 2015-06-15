@@ -7,10 +7,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
 					
-					<div class="fun-staff staff-1">
-						<div class="container">
+					<div class="fun-staff staff-1" >
+						<div class="cell-12">
 							<!-- staff item start -->
-                          
+                         
 							<div class="cell-2 " data-animate="fadeInDown" data-animation-delay="200">
                                 <div class="main-border" >
                                <div class="center" > <sub>Unread</sub> </div>
@@ -103,6 +103,83 @@
 
 					</div>
     
+
+    <div class="cell-12 clearfix margin-top-15">
+        <div class="cell-6">
+        <div class="widget r-posts-w " data-animate="fadeInRight">
+			<h3 class="widget-head">Circulars</h3>
+			<div class="widget-content">
+                <asp:Repeater ID="uiRepeaterCirculars" runat="server">
+                    <HeaderTemplate>
+                        <ul>
+                    </HeaderTemplate>
+                    <FooterTemplate>
+                        </ul>
+                    </FooterTemplate>
+                    <ItemTemplate>
+                        <li>
+						<div class="post-img">
+                            <a href="Intranet/Circulars.aspx?cid=<%# Eval("AnnouncementID") %>">
+							<img src='<%# (string.IsNullOrEmpty(Eval("MainPic").ToString()) ? "img/flyegypt.png" : "common/thumb.aspx?Image=" + Eval("MainPic")) %>' alt="">
+                                </a>
+						</div>
+						<div class="widget-post-info">
+							<h4>
+								<a href="Intranet/Circulars.aspx?cid=<%# Eval("AnnouncementID") %>">
+									<%# Eval("Title").ToString() %>
+								</a>
+							</h4>
+							<div class="meta">
+								<span><i class="fa fa-clock-o"></i><%# Convert.ToDateTime(Eval("createdDate").ToString()).ToString("MMM dd, yyyy") %></span>
+							</div>
+						</div>
+					</li>
+												
+                    </ItemTemplate>
+                </asp:Repeater>
+									
+			</div>
+		</div>
+            </div>
+
+        <div class="cell-6">
+        <div class="widget r-posts-w " data-animate="fadeInRight">
+			<h3 class="widget-head">Bulletins</h3>
+			<div class="widget-content">
+                <asp:Repeater ID="uiRepeaterBulletins" runat="server">
+                    <HeaderTemplate>
+                        <ul>
+                    </HeaderTemplate>
+                    <FooterTemplate>
+                        </ul>
+                    </FooterTemplate>
+                    <ItemTemplate>
+                        <li>
+						<div class="post-img">
+                            <a href="Intranet/Bulletins.aspx?cid=<%# Eval("AnnouncementID") %>">
+							<img src='<%# (string.IsNullOrEmpty(Eval("MainPic").ToString()) ? "img/flyegypt.png" : "common/thumb.aspx?Image=" + Eval("MainPic")) %>' alt="">
+                                </a>
+						</div>
+						<div class="widget-post-info">
+							<h4>
+								<a href="Intranet/Bulletins.aspx?cid=<%# Eval("AnnouncementID") %>">
+									<%# Eval("Title").ToString() %>
+								</a>
+							</h4>
+							<div class="meta">
+								<span><i class="fa fa-clock-o"></i><%# Convert.ToDateTime(Eval("createdDate").ToString()).ToString("MMM dd, yyyy") %></span>
+							</div>
+						</div>
+					</li>
+												
+                    </ItemTemplate>
+                </asp:Repeater>
+									
+			</div>
+		</div>
+            </div>
+    </div>
+
     <%--<script type="text/javascript">
         $(document).ready(function () {
 
