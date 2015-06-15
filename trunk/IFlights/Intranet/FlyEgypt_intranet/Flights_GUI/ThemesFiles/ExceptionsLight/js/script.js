@@ -167,8 +167,9 @@
 	
 	if($('.top-head').attr('data-sticky') == "true"){
 		$(window).on("scroll",function(){
-			var Scrl = $(window).scrollTop();
-			if (Scrl > 1) {
+		    var Scrl = $(window).scrollTop();
+		    var tp = $('#headWrapper').offset();
+			if (Scrl > 50) {
 				$('.top-head').addClass('sticky');
 			}else{
 				$('.top-head').removeClass('sticky');
@@ -176,7 +177,7 @@
 		});
 		$('document').ready(function(){
 			var Scrl = $(window).scrollTop();
-			if (Scrl > 1) {
+			if (Scrl > 50) {
 				$('.top-head').addClass('sticky');
 			}else{
 				$('.top-head').removeClass('sticky');

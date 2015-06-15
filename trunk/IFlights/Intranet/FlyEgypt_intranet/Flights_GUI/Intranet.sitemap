@@ -30,7 +30,7 @@
         </siteMapNode>-->
 
       <siteMapNode url="~/intranet/manuals.aspx?cid=12" title="Aircraft Manuals" id="12"  description="fa-plane" htmlID="AircraftManuals">       
-        <siteMapNode url="~/intranet/manuals.aspx?cid=13" title="Boing Manuals" id="13"  description="fa-file" htmlID="dsp"/>
+        <siteMapNode url="~/intranet/manuals.aspx?cid=13" title="Boeing Manuals" id="13"  description="fa-file" htmlID="dsp"/>
       </siteMapNode>
       
         <!--<siteMapNode url="~/common/safety.aspx" title="Safety"  description="icon-lock" htmlID="safety"/>

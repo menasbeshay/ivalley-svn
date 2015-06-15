@@ -74,7 +74,7 @@ namespace Flights_GUI.Intranet
         private void BindData()
         {
             ManualForm objdata = new ManualForm();
-            objdata.GetFormsByManualID(CurrentManual);
+            objdata.GetFormsByManualID(CurrentManual, new Guid(Membership.GetUser().ProviderUserKey.ToString()));
             uiRadGridmanuals.DataSource = objdata.DefaultView;
             uiRadGridmanuals.DataBind();
 

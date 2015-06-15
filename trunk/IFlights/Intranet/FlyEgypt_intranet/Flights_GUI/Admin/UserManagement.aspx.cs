@@ -80,6 +80,7 @@ namespace Flights_GUI.Admin
                 uiTextBoxPass.Text = ObjData.GetPassword();
                 //uiTextBoxPass.Enabled = false;
                 RequiredFieldValidator2.Enabled = false;
+                RequiredFieldValidator6.Enabled = false;
                 CompareValidator1.Enabled = false;
                 uiTextBoxConfirm.Enabled = false;
                 //uiLinkButtonEditPassword.Enabled = true;
@@ -269,7 +270,11 @@ namespace Flights_GUI.Admin
         {
             ClearFields();
             uiPanelAll.Visible = false;
-            uiPanelEdit.Visible = true;            
+            uiPanelEdit.Visible = true;
+            RequiredFieldValidator6.Enabled = true;
+            RequiredFieldValidator2.Enabled = true;
+            CompareValidator1.Enabled = true;
+            CurrentUser = null;
         }
 
 

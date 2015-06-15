@@ -18,20 +18,21 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="cell-12 clearfix">
         <asp:Panel runat="server" ID="uiPanelAll">
-            <div class="cell-12 clearfix">
+            <div class="cell-12 clearfix margin-bottom-10" style="padding-left:0px !important">
                 <div class="cell-2 pull-right">
                     <asp:LinkButton runat="server" ID="uiLinkButtonAdd" CssClass="btn btn-primary" OnClick="uiLinkButtonAdd_Click">Add new user</asp:LinkButton>
                 </div>
             </div>
-            <asp:Panel ID="uiPanelSearch" runat="server" DefaultButton="uiButtonSearch" CssClass="cell-12 clearfix">
 
-                <div class="cell-2">
+            <asp:Panel ID="uiPanelSearch" runat="server" DefaultButton="uiButtonSearch" CssClass="cell-12 clearfix margin-bottom-10">
+
+                <div class="cell-1" style="padding-left:0px !important;padding-top:7px;">
                     <asp:Label ID="Label5" runat="server" Text="Search : " CssClass="Label"></asp:Label>
                 </div>
-                <div class="cell-5">
-                    <asp:TextBox ID="uiTextBoxSearch" runat="server" Width="300px"></asp:TextBox>
+                <div class="cell-4">
+                    <asp:TextBox ID="uiTextBoxSearch" runat="server" style="padding:5px;width:95%"></asp:TextBox>
                 </div>
-                <div class="cell-2">
+                <div class="cell-1">
                     <asp:Button ID="uiButtonSearch" runat="server" Text="بحث" OnClick="uiButtonSearch_Click"
                         Width="60px" Style="display: none;" />
 
