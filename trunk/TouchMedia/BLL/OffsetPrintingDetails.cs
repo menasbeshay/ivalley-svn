@@ -3,7 +3,7 @@
 
 using System;
 
-namespace Your.Namespace
+namespace TouchMediaGUI
 {
 	public class OffsetPrintingDetails : _OffsetPrintingDetails
 	{
