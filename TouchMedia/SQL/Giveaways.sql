@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_GiveawaysLoadByPrimaryKey]    Script Date: 6/16/2015 10:45:23 AM ******/
+/****** Object:  StoredProcedure [proc_GiveawaysLoadByPrimaryKey]    Script Date: 6/16/2015 4:00:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_GiveawaysLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_GiveawaysLoadByPrimaryKey];
 GO
@@ -40,7 +40,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_GiveawaysLoadByPrimaryKey Succe
 ELSE PRINT 'Procedure Creation: proc_GiveawaysLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_GiveawaysLoadAll]    Script Date: 6/16/2015 10:45:23 AM ******/
+/****** Object:  StoredProcedure [proc_GiveawaysLoadAll]    Script Date: 6/16/2015 4:00:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_GiveawaysLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_GiveawaysLoadAll];
 GO
@@ -77,7 +77,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_GiveawaysLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_GiveawaysLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_GiveawaysUpdate]    Script Date: 6/16/2015 10:45:23 AM ******/
+/****** Object:  StoredProcedure [proc_GiveawaysUpdate]    Script Date: 6/16/2015 4:00:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_GiveawaysUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_GiveawaysUpdate];
 GO
@@ -132,7 +132,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_GiveawaysInsert]    Script Date: 6/16/2015 10:45:23 AM ******/
+/****** Object:  StoredProcedure [proc_GiveawaysInsert]    Script Date: 6/16/2015 4:00:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_GiveawaysInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_GiveawaysInsert];
 GO
@@ -196,7 +196,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_GiveawaysInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_GiveawaysInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_GiveawaysDelete]    Script Date: 6/16/2015 10:45:23 AM ******/
+/****** Object:  StoredProcedure [proc_GiveawaysDelete]    Script Date: 6/16/2015 4:00:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_GiveawaysDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_GiveawaysDelete];
 GO

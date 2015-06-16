@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_PurchaseOrderLoadByPrimaryKey]    Script Date: 6/16/2015 10:45:23 AM ******/
+/****** Object:  StoredProcedure [proc_PurchaseOrderLoadByPrimaryKey]    Script Date: 6/16/2015 4:00:27 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_PurchaseOrderLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_PurchaseOrderLoadByPrimaryKey];
 GO
@@ -46,7 +46,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_PurchaseOrderLoadByPrimaryKey S
 ELSE PRINT 'Procedure Creation: proc_PurchaseOrderLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_PurchaseOrderLoadAll]    Script Date: 6/16/2015 10:45:23 AM ******/
+/****** Object:  StoredProcedure [proc_PurchaseOrderLoadAll]    Script Date: 6/16/2015 4:00:27 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_PurchaseOrderLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_PurchaseOrderLoadAll];
 GO
@@ -89,7 +89,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_PurchaseOrderLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_PurchaseOrderLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_PurchaseOrderUpdate]    Script Date: 6/16/2015 10:45:23 AM ******/
+/****** Object:  StoredProcedure [proc_PurchaseOrderUpdate]    Script Date: 6/16/2015 4:00:27 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_PurchaseOrderUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_PurchaseOrderUpdate];
 GO
@@ -156,7 +156,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_PurchaseOrderInsert]    Script Date: 6/16/2015 10:45:23 AM ******/
+/****** Object:  StoredProcedure [proc_PurchaseOrderInsert]    Script Date: 6/16/2015 4:00:27 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_PurchaseOrderInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_PurchaseOrderInsert];
 GO
@@ -238,7 +238,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_PurchaseOrderInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_PurchaseOrderInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_PurchaseOrderDelete]    Script Date: 6/16/2015 10:45:23 AM ******/
+/****** Object:  StoredProcedure [proc_PurchaseOrderDelete]    Script Date: 6/16/2015 4:00:27 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_PurchaseOrderDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_PurchaseOrderDelete];
 GO
