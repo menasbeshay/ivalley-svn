@@ -179,14 +179,6 @@ namespace Your.Namespace
 				}
 			}
 			
-			public static SqlParameter ClientCode
-			{
-				get
-				{
-					return new SqlParameter("@ClientCode", SqlDbType.NVarChar, 300);
-				}
-			}
-			
 			public static SqlParameter TransformationSupplier
 			{
 				get
@@ -251,6 +243,14 @@ namespace Your.Namespace
 				}
 			}
 			
+			public static SqlParameter ClientCode
+			{
+				get
+				{
+					return new SqlParameter("@ClientCode", SqlDbType.Int, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -267,7 +267,6 @@ namespace Your.Namespace
             public const string CreatedDate = "CreatedDate";
             public const string UpdatedBy = "UpdatedBy";
             public const string LastUpdatedDate = "LastUpdatedDate";
-            public const string ClientCode = "ClientCode";
             public const string TransformationSupplier = "TransformationSupplier";
             public const string DriverName = "DriverName";
             public const string DriverNationID = "DriverNationID";
@@ -276,6 +275,7 @@ namespace Your.Namespace
             public const string WatingHours = "WatingHours";
             public const string PermationNumber = "PermationNumber";
             public const string Department = "Department";
+            public const string ClientCode = "ClientCode";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -293,7 +293,6 @@ namespace Your.Namespace
 					ht[CreatedDate] = _DeliveryOrder.PropertyNames.CreatedDate;
 					ht[UpdatedBy] = _DeliveryOrder.PropertyNames.UpdatedBy;
 					ht[LastUpdatedDate] = _DeliveryOrder.PropertyNames.LastUpdatedDate;
-					ht[ClientCode] = _DeliveryOrder.PropertyNames.ClientCode;
 					ht[TransformationSupplier] = _DeliveryOrder.PropertyNames.TransformationSupplier;
 					ht[DriverName] = _DeliveryOrder.PropertyNames.DriverName;
 					ht[DriverNationID] = _DeliveryOrder.PropertyNames.DriverNationID;
@@ -302,6 +301,7 @@ namespace Your.Namespace
 					ht[WatingHours] = _DeliveryOrder.PropertyNames.WatingHours;
 					ht[PermationNumber] = _DeliveryOrder.PropertyNames.PermationNumber;
 					ht[Department] = _DeliveryOrder.PropertyNames.Department;
+					ht[ClientCode] = _DeliveryOrder.PropertyNames.ClientCode;
 
 				}
 				return (string)ht[columnName];
@@ -324,7 +324,6 @@ namespace Your.Namespace
             public const string CreatedDate = "CreatedDate";
             public const string UpdatedBy = "UpdatedBy";
             public const string LastUpdatedDate = "LastUpdatedDate";
-            public const string ClientCode = "ClientCode";
             public const string TransformationSupplier = "TransformationSupplier";
             public const string DriverName = "DriverName";
             public const string DriverNationID = "DriverNationID";
@@ -333,6 +332,7 @@ namespace Your.Namespace
             public const string WatingHours = "WatingHours";
             public const string PermationNumber = "PermationNumber";
             public const string Department = "Department";
+            public const string ClientCode = "ClientCode";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -350,7 +350,6 @@ namespace Your.Namespace
 					ht[CreatedDate] = _DeliveryOrder.ColumnNames.CreatedDate;
 					ht[UpdatedBy] = _DeliveryOrder.ColumnNames.UpdatedBy;
 					ht[LastUpdatedDate] = _DeliveryOrder.ColumnNames.LastUpdatedDate;
-					ht[ClientCode] = _DeliveryOrder.ColumnNames.ClientCode;
 					ht[TransformationSupplier] = _DeliveryOrder.ColumnNames.TransformationSupplier;
 					ht[DriverName] = _DeliveryOrder.ColumnNames.DriverName;
 					ht[DriverNationID] = _DeliveryOrder.ColumnNames.DriverNationID;
@@ -359,6 +358,7 @@ namespace Your.Namespace
 					ht[WatingHours] = _DeliveryOrder.ColumnNames.WatingHours;
 					ht[PermationNumber] = _DeliveryOrder.ColumnNames.PermationNumber;
 					ht[Department] = _DeliveryOrder.ColumnNames.Department;
+					ht[ClientCode] = _DeliveryOrder.ColumnNames.ClientCode;
 
 				}
 				return (string)ht[propertyName];
@@ -381,7 +381,6 @@ namespace Your.Namespace
             public const string CreatedDate = "s_CreatedDate";
             public const string UpdatedBy = "s_UpdatedBy";
             public const string LastUpdatedDate = "s_LastUpdatedDate";
-            public const string ClientCode = "s_ClientCode";
             public const string TransformationSupplier = "s_TransformationSupplier";
             public const string DriverName = "s_DriverName";
             public const string DriverNationID = "s_DriverNationID";
@@ -390,6 +389,7 @@ namespace Your.Namespace
             public const string WatingHours = "s_WatingHours";
             public const string PermationNumber = "s_PermationNumber";
             public const string Department = "s_Department";
+            public const string ClientCode = "s_ClientCode";
 
 		}
 		#endregion		
@@ -516,18 +516,6 @@ namespace Your.Namespace
 			}
 		}
 
-		public virtual string ClientCode
-	    {
-			get
-	        {
-				return base.Getstring(ColumnNames.ClientCode);
-			}
-			set
-	        {
-				base.Setstring(ColumnNames.ClientCode, value);
-			}
-		}
-
 		public virtual string TransformationSupplier
 	    {
 			get
@@ -621,6 +609,18 @@ namespace Your.Namespace
 			set
 	        {
 				base.Setstring(ColumnNames.Department, value);
+			}
+		}
+
+		public virtual int ClientCode
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.ClientCode);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.ClientCode, value);
 			}
 		}
 
@@ -779,21 +779,6 @@ namespace Your.Namespace
 			}
 		}
 
-		public virtual string s_ClientCode
-	    {
-			get
-	        {
-				return this.IsColumnNull(ColumnNames.ClientCode) ? string.Empty : base.GetstringAsString(ColumnNames.ClientCode);
-			}
-			set
-	        {
-				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.ClientCode);
-				else
-					this.ClientCode = base.SetstringAsString(ColumnNames.ClientCode, value);
-			}
-		}
-
 		public virtual string s_TransformationSupplier
 	    {
 			get
@@ -911,6 +896,21 @@ namespace Your.Namespace
 					this.SetColumnNull(ColumnNames.Department);
 				else
 					this.Department = base.SetstringAsString(ColumnNames.Department, value);
+			}
+		}
+
+		public virtual string s_ClientCode
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.ClientCode) ? string.Empty : base.GetintAsString(ColumnNames.ClientCode);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.ClientCode);
+				else
+					this.ClientCode = base.SetintAsString(ColumnNames.ClientCode, value);
 			}
 		}
 
@@ -1047,16 +1047,6 @@ namespace Your.Namespace
 					}
 				}
 
-				public WhereParameter ClientCode
-				{
-					get
-					{
-							WhereParameter where = new WhereParameter(ColumnNames.ClientCode, Parameters.ClientCode);
-							this._clause._entity.Query.AddWhereParameter(where);
-							return where;
-					}
-				}
-
 				public WhereParameter TransformationSupplier
 				{
 					get
@@ -1132,6 +1122,16 @@ namespace Your.Namespace
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.Department, Parameters.Department);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter ClientCode
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.ClientCode, Parameters.ClientCode);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -1262,18 +1262,6 @@ namespace Your.Namespace
 				}
 			}
 
-			public WhereParameter ClientCode
-		    {
-				get
-		        {
-					if(_ClientCode_W == null)
-	        	    {
-						_ClientCode_W = TearOff.ClientCode;
-					}
-					return _ClientCode_W;
-				}
-			}
-
 			public WhereParameter TransformationSupplier
 		    {
 				get
@@ -1370,6 +1358,18 @@ namespace Your.Namespace
 				}
 			}
 
+			public WhereParameter ClientCode
+		    {
+				get
+		        {
+					if(_ClientCode_W == null)
+	        	    {
+						_ClientCode_W = TearOff.ClientCode;
+					}
+					return _ClientCode_W;
+				}
+			}
+
 			private WhereParameter _DeliveryOrderID_W = null;
 			private WhereParameter _KilometerCounterBefore_W = null;
 			private WhereParameter _KilometerCounterAfter_W = null;
@@ -1380,7 +1380,6 @@ namespace Your.Namespace
 			private WhereParameter _CreatedDate_W = null;
 			private WhereParameter _UpdatedBy_W = null;
 			private WhereParameter _LastUpdatedDate_W = null;
-			private WhereParameter _ClientCode_W = null;
 			private WhereParameter _TransformationSupplier_W = null;
 			private WhereParameter _DriverName_W = null;
 			private WhereParameter _DriverNationID_W = null;
@@ -1389,6 +1388,7 @@ namespace Your.Namespace
 			private WhereParameter _WatingHours_W = null;
 			private WhereParameter _PermationNumber_W = null;
 			private WhereParameter _Department_W = null;
+			private WhereParameter _ClientCode_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -1402,7 +1402,6 @@ namespace Your.Namespace
 				_CreatedDate_W = null;
 				_UpdatedBy_W = null;
 				_LastUpdatedDate_W = null;
-				_ClientCode_W = null;
 				_TransformationSupplier_W = null;
 				_DriverName_W = null;
 				_DriverNationID_W = null;
@@ -1411,6 +1410,7 @@ namespace Your.Namespace
 				_WatingHours_W = null;
 				_PermationNumber_W = null;
 				_Department_W = null;
+				_ClientCode_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -1567,16 +1567,6 @@ namespace Your.Namespace
 					}
 				}
 
-				public AggregateParameter ClientCode
-				{
-					get
-					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.ClientCode, Parameters.ClientCode);
-							this._clause._entity.Query.AddAggregateParameter(aggregate);
-							return aggregate;
-					}
-				}
-
 				public AggregateParameter TransformationSupplier
 				{
 					get
@@ -1652,6 +1642,16 @@ namespace Your.Namespace
 					get
 					{
 							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Department, Parameters.Department);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter ClientCode
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.ClientCode, Parameters.ClientCode);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -1782,18 +1782,6 @@ namespace Your.Namespace
 				}
 			}
 
-			public AggregateParameter ClientCode
-		    {
-				get
-		        {
-					if(_ClientCode_W == null)
-	        	    {
-						_ClientCode_W = TearOff.ClientCode;
-					}
-					return _ClientCode_W;
-				}
-			}
-
 			public AggregateParameter TransformationSupplier
 		    {
 				get
@@ -1890,6 +1878,18 @@ namespace Your.Namespace
 				}
 			}
 
+			public AggregateParameter ClientCode
+		    {
+				get
+		        {
+					if(_ClientCode_W == null)
+	        	    {
+						_ClientCode_W = TearOff.ClientCode;
+					}
+					return _ClientCode_W;
+				}
+			}
+
 			private AggregateParameter _DeliveryOrderID_W = null;
 			private AggregateParameter _KilometerCounterBefore_W = null;
 			private AggregateParameter _KilometerCounterAfter_W = null;
@@ -1900,7 +1900,6 @@ namespace Your.Namespace
 			private AggregateParameter _CreatedDate_W = null;
 			private AggregateParameter _UpdatedBy_W = null;
 			private AggregateParameter _LastUpdatedDate_W = null;
-			private AggregateParameter _ClientCode_W = null;
 			private AggregateParameter _TransformationSupplier_W = null;
 			private AggregateParameter _DriverName_W = null;
 			private AggregateParameter _DriverNationID_W = null;
@@ -1909,6 +1908,7 @@ namespace Your.Namespace
 			private AggregateParameter _WatingHours_W = null;
 			private AggregateParameter _PermationNumber_W = null;
 			private AggregateParameter _Department_W = null;
+			private AggregateParameter _ClientCode_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -1922,7 +1922,6 @@ namespace Your.Namespace
 				_CreatedDate_W = null;
 				_UpdatedBy_W = null;
 				_LastUpdatedDate_W = null;
-				_ClientCode_W = null;
 				_TransformationSupplier_W = null;
 				_DriverName_W = null;
 				_DriverNationID_W = null;
@@ -1931,6 +1930,7 @@ namespace Your.Namespace
 				_WatingHours_W = null;
 				_PermationNumber_W = null;
 				_Department_W = null;
+				_ClientCode_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -2045,10 +2045,6 @@ namespace Your.Namespace
 			p.SourceColumn = ColumnNames.LastUpdatedDate;
 			p.SourceVersion = DataRowVersion.Current;
 
-			p = cmd.Parameters.Add(Parameters.ClientCode);
-			p.SourceColumn = ColumnNames.ClientCode;
-			p.SourceVersion = DataRowVersion.Current;
-
 			p = cmd.Parameters.Add(Parameters.TransformationSupplier);
 			p.SourceColumn = ColumnNames.TransformationSupplier;
 			p.SourceVersion = DataRowVersion.Current;
@@ -2079,6 +2075,10 @@ namespace Your.Namespace
 
 			p = cmd.Parameters.Add(Parameters.Department);
 			p.SourceColumn = ColumnNames.Department;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.ClientCode);
+			p.SourceColumn = ColumnNames.ClientCode;
 			p.SourceVersion = DataRowVersion.Current;
 
 
