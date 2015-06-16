@@ -169,7 +169,9 @@
             </div>
             <div id="main-content">
                 <div class="container-fluid">
-
+                    <h3 class="page-title">
+                        <asp:Label ID="uiLabelTitle" runat="server" ></asp:Label>
+                   </h3>
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                     </asp:ContentPlaceHolder>
                 </div>

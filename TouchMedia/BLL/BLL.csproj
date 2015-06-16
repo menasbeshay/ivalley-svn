@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BLL</RootNamespace>
     <AssemblyName>BLL</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -30,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MyGeneration.dOOdads">
+      <HintPath>..\..\..\program,s\MyGeneration.dOOdads.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -39,7 +43,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Categories.cs" />
+    <Compile Include="Clients.cs" />
+    <Compile Include="DeliveryOrder.cs" />
+    <Compile Include="DeliveryOrderDetails.cs" />
+    <Compile Include="DeliveryOrderStatus.cs" />
+    <Compile Include="DesignDetails.cs" />
+    <Compile Include="DesignservicesType.cs" />
+    <Compile Include="DigitalPrintingDetails.cs" />
+    <Compile Include="GeneralLookup.cs" />
+    <Compile Include="Giveaways.cs" />
+    <Compile Include="InAndOutDoorDetails.cs" />
+    <Compile Include="JobOrder.cs" />
+    <Compile Include="JobOrderStatus.cs" />
+    <Compile Include="OffsetPrintingDetails.cs" />
+    <Compile Include="Production.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PurchaseOrder.cs" />
+    <Compile Include="PurchaseOrderDetails.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{b64d19a8-6548-455b-bea0-79b16ba38adf}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
