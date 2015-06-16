@@ -22,6 +22,7 @@
                                <asp:GridView ID="GrdDeliveryOrder" CssClass="table table-striped table-bordered" runat="server" AutoGenerateColumns="false">
                                    <Columns>
                                        <asp:BoundField HeaderText="كود العملية" DataField="GeneralDeliveryCode"  />
+                                       <asp:BoundField HeaderText="أسم العملية" DataField="DeliveryOrderName"  />
                                        <asp:BoundField HeaderText="القسم" DataField="Department"  />
                                        <asp:BoundField HeaderText="التاريخ" DataField="CreatedDate"  />
                                        <asp:BoundField HeaderText="رقم السائق" DataField="DriverTelephone"  />
