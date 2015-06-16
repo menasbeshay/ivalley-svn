@@ -39,7 +39,7 @@ using System.Collections.Specialized;
 
 using MyGeneration.dOOdads;
 
-namespace Your.Namespace
+namespace TouchMediaGUI
 {
 	public abstract class _Categories : SqlClientEntity
 	{
