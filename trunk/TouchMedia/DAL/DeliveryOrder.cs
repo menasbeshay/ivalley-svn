@@ -251,6 +251,14 @@ namespace DAL
 				}
 			}
 			
+			public static SqlParameter DeliveryOrderName
+			{
+				get
+				{
+					return new SqlParameter("@DeliveryOrderName", SqlDbType.NVarChar, 300);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -276,6 +284,7 @@ namespace DAL
             public const string PermationNumber = "PermationNumber";
             public const string Department = "Department";
             public const string ClientCode = "ClientCode";
+            public const string DeliveryOrderName = "DeliveryOrderName";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -302,6 +311,7 @@ namespace DAL
 					ht[PermationNumber] = _DeliveryOrder.PropertyNames.PermationNumber;
 					ht[Department] = _DeliveryOrder.PropertyNames.Department;
 					ht[ClientCode] = _DeliveryOrder.PropertyNames.ClientCode;
+					ht[DeliveryOrderName] = _DeliveryOrder.PropertyNames.DeliveryOrderName;
 
 				}
 				return (string)ht[columnName];
@@ -333,6 +343,7 @@ namespace DAL
             public const string PermationNumber = "PermationNumber";
             public const string Department = "Department";
             public const string ClientCode = "ClientCode";
+            public const string DeliveryOrderName = "DeliveryOrderName";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -359,6 +370,7 @@ namespace DAL
 					ht[PermationNumber] = _DeliveryOrder.ColumnNames.PermationNumber;
 					ht[Department] = _DeliveryOrder.ColumnNames.Department;
 					ht[ClientCode] = _DeliveryOrder.ColumnNames.ClientCode;
+					ht[DeliveryOrderName] = _DeliveryOrder.ColumnNames.DeliveryOrderName;
 
 				}
 				return (string)ht[propertyName];
@@ -390,6 +402,7 @@ namespace DAL
             public const string PermationNumber = "s_PermationNumber";
             public const string Department = "s_Department";
             public const string ClientCode = "s_ClientCode";
+            public const string DeliveryOrderName = "s_DeliveryOrderName";
 
 		}
 		#endregion		
@@ -621,6 +634,18 @@ namespace DAL
 			set
 	        {
 				base.Setint(ColumnNames.ClientCode, value);
+			}
+		}
+
+		public virtual string DeliveryOrderName
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.DeliveryOrderName);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.DeliveryOrderName, value);
 			}
 		}
 
@@ -914,6 +939,21 @@ namespace DAL
 			}
 		}
 
+		public virtual string s_DeliveryOrderName
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.DeliveryOrderName) ? string.Empty : base.GetstringAsString(ColumnNames.DeliveryOrderName);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.DeliveryOrderName);
+				else
+					this.DeliveryOrderName = base.SetstringAsString(ColumnNames.DeliveryOrderName, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -1132,6 +1172,16 @@ namespace DAL
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.ClientCode, Parameters.ClientCode);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter DeliveryOrderName
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.DeliveryOrderName, Parameters.DeliveryOrderName);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -1370,6 +1420,18 @@ namespace DAL
 				}
 			}
 
+			public WhereParameter DeliveryOrderName
+		    {
+				get
+		        {
+					if(_DeliveryOrderName_W == null)
+	        	    {
+						_DeliveryOrderName_W = TearOff.DeliveryOrderName;
+					}
+					return _DeliveryOrderName_W;
+				}
+			}
+
 			private WhereParameter _DeliveryOrderID_W = null;
 			private WhereParameter _KilometerCounterBefore_W = null;
 			private WhereParameter _KilometerCounterAfter_W = null;
@@ -1389,6 +1451,7 @@ namespace DAL
 			private WhereParameter _PermationNumber_W = null;
 			private WhereParameter _Department_W = null;
 			private WhereParameter _ClientCode_W = null;
+			private WhereParameter _DeliveryOrderName_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -1411,6 +1474,7 @@ namespace DAL
 				_PermationNumber_W = null;
 				_Department_W = null;
 				_ClientCode_W = null;
+				_DeliveryOrderName_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -1657,6 +1721,16 @@ namespace DAL
 					}
 				}
 
+				public AggregateParameter DeliveryOrderName
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.DeliveryOrderName, Parameters.DeliveryOrderName);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -1890,6 +1964,18 @@ namespace DAL
 				}
 			}
 
+			public AggregateParameter DeliveryOrderName
+		    {
+				get
+		        {
+					if(_DeliveryOrderName_W == null)
+	        	    {
+						_DeliveryOrderName_W = TearOff.DeliveryOrderName;
+					}
+					return _DeliveryOrderName_W;
+				}
+			}
+
 			private AggregateParameter _DeliveryOrderID_W = null;
 			private AggregateParameter _KilometerCounterBefore_W = null;
 			private AggregateParameter _KilometerCounterAfter_W = null;
@@ -1909,6 +1995,7 @@ namespace DAL
 			private AggregateParameter _PermationNumber_W = null;
 			private AggregateParameter _Department_W = null;
 			private AggregateParameter _ClientCode_W = null;
+			private AggregateParameter _DeliveryOrderName_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -1931,6 +2018,7 @@ namespace DAL
 				_PermationNumber_W = null;
 				_Department_W = null;
 				_ClientCode_W = null;
+				_DeliveryOrderName_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -2079,6 +2167,10 @@ namespace DAL
 
 			p = cmd.Parameters.Add(Parameters.ClientCode);
 			p.SourceColumn = ColumnNames.ClientCode;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.DeliveryOrderName);
+			p.SourceColumn = ColumnNames.DeliveryOrderName;
 			p.SourceVersion = DataRowVersion.Current;
 
 

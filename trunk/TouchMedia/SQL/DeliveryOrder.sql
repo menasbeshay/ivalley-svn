@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_DeliveryOrderLoadByPrimaryKey]    Script Date: 6/16/2015 10:45:22 AM ******/
+/****** Object:  StoredProcedure [proc_DeliveryOrderLoadByPrimaryKey]    Script Date: 6/16/2015 4:00:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_DeliveryOrderLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_DeliveryOrderLoadByPrimaryKey];
 GO
@@ -32,7 +32,8 @@ BEGIN
 		[WatingHours],
 		[PermationNumber],
 		[Department],
-		[ClientCode]
+		[ClientCode],
+		[DeliveryOrderName]
 	FROM [DeliveryOrder]
 	WHERE
 		([DeliveryOrderID] = @DeliveryOrderID)
@@ -49,7 +50,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_DeliveryOrderLoadByPrimaryKey S
 ELSE PRINT 'Procedure Creation: proc_DeliveryOrderLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_DeliveryOrderLoadAll]    Script Date: 6/16/2015 10:45:22 AM ******/
+/****** Object:  StoredProcedure [proc_DeliveryOrderLoadAll]    Script Date: 6/16/2015 4:00:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_DeliveryOrderLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_DeliveryOrderLoadAll];
 GO
@@ -80,7 +81,8 @@ BEGIN
 		[WatingHours],
 		[PermationNumber],
 		[Department],
-		[ClientCode]
+		[ClientCode],
+		[DeliveryOrderName]
 	FROM [DeliveryOrder]
 
 	SET @Err = @@Error
@@ -95,7 +97,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_DeliveryOrderLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_DeliveryOrderLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_DeliveryOrderUpdate]    Script Date: 6/16/2015 10:45:22 AM ******/
+/****** Object:  StoredProcedure [proc_DeliveryOrderUpdate]    Script Date: 6/16/2015 4:00:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_DeliveryOrderUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_DeliveryOrderUpdate];
 GO
@@ -120,7 +122,8 @@ CREATE PROCEDURE [proc_DeliveryOrderUpdate]
 	@WatingHours float = NULL,
 	@PermationNumber int = NULL,
 	@Department nvarchar(300) = NULL,
-	@ClientCode int = NULL
+	@ClientCode int = NULL,
+	@DeliveryOrderName nvarchar(300) = NULL
 )
 AS
 BEGIN
@@ -147,7 +150,8 @@ BEGIN
 		[WatingHours] = @WatingHours,
 		[PermationNumber] = @PermationNumber,
 		[Department] = @Department,
-		[ClientCode] = @ClientCode
+		[ClientCode] = @ClientCode,
+		[DeliveryOrderName] = @DeliveryOrderName
 	WHERE
 		[DeliveryOrderID] = @DeliveryOrderID
 
@@ -168,7 +172,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_DeliveryOrderInsert]    Script Date: 6/16/2015 10:45:22 AM ******/
+/****** Object:  StoredProcedure [proc_DeliveryOrderInsert]    Script Date: 6/16/2015 4:00:25 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_DeliveryOrderInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_DeliveryOrderInsert];
 GO
@@ -193,7 +197,8 @@ CREATE PROCEDURE [proc_DeliveryOrderInsert]
 	@WatingHours float = NULL,
 	@PermationNumber int = NULL,
 	@Department nvarchar(300) = NULL,
-	@ClientCode int = NULL
+	@ClientCode int = NULL,
+	@DeliveryOrderName nvarchar(300) = NULL
 )
 AS
 BEGIN
@@ -221,7 +226,8 @@ BEGIN
 		[WatingHours],
 		[PermationNumber],
 		[Department],
-		[ClientCode]
+		[ClientCode],
+		[DeliveryOrderName]
 	)
 	VALUES
 	(
@@ -242,7 +248,8 @@ BEGIN
 		@WatingHours,
 		@PermationNumber,
 		@Department,
-		@ClientCode
+		@ClientCode,
+		@DeliveryOrderName
 	)
 
 	SET @Err = @@Error
@@ -259,7 +266,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_DeliveryOrderInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_DeliveryOrderInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_DeliveryOrderDelete]    Script Date: 6/16/2015 10:45:22 AM ******/
+/****** Object:  StoredProcedure [proc_DeliveryOrderDelete]    Script Date: 6/16/2015 4:00:26 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_DeliveryOrderDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_DeliveryOrderDelete];
 GO
