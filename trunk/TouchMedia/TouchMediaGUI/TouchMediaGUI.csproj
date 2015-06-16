@@ -1588,6 +1588,7 @@
     <Content Include="Scripts\_references.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Splash.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
   </ItemGroup>
@@ -1661,6 +1662,13 @@
       <DependentUpon>MasterAr.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Splash.aspx.cs">
+      <DependentUpon>Splash.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Splash.aspx.designer.cs">
+      <DependentUpon>Splash.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
