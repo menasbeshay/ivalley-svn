@@ -3,7 +3,7 @@
 
 using System;
 
-namespace TouchMediaGUI
+namespace BLL
 {
 	public class Giveaways : _Giveaways
 	{

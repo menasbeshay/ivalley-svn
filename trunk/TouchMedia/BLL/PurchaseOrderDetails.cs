@@ -3,7 +3,7 @@
 
 using System;
 
-namespace TouchMediaGUI
+namespace BLL
 {
 	public class PurchaseOrderDetails : _PurchaseOrderDetails
 	{
