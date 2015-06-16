@@ -776,6 +776,7 @@
     <Content Include="css\style_navy-blue.css" />
     <Content Include="css\style_purple.css" />
     <Content Include="css\style_responsive.css" />
+    <Content Include="DeliveryOrder.aspx" />
     <Content Include="En\assets\bootstrap-colorpicker\css\colorpicker.css" />
     <Content Include="En\assets\bootstrap-colorpicker\img\alpha.png" />
     <Content Include="En\assets\bootstrap-colorpicker\img\hue.png" />
@@ -1630,6 +1631,13 @@
     <Compile Include="Account\RegisterExternalLogin.aspx.designer.cs">
       <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DeliveryOrder.aspx.cs">
+      <DependentUpon>DeliveryOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeliveryOrder.aspx.designer.cs">
+      <DependentUpon>DeliveryOrder.aspx</DependentUpon>
+    </Compile>
     <Compile Include="En\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1678,7 +1686,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">
-      <Project>{b686cbc3-b829-445f-a064-bf1ca33c29fd}</Project>
+      <Project>{1a7e5bc7-470d-46ed-9163-688ca490948c}</Project>
       <Name>BLL</Name>
     </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">

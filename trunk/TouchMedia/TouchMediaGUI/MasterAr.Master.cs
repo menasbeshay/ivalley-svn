@@ -9,6 +9,7 @@ namespace TouchMediaGUI
 {
     public partial class MasterAr : System.Web.UI.MasterPage
     {
+        public string PageTitle { set { uiLabelTitle.Text = value; } }
         protected void Page_Load(object sender, EventArgs e)
         {
 
