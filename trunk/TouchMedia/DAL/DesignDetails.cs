@@ -39,7 +39,7 @@ using System.Collections.Specialized;
 
 using MyGeneration.dOOdads;
 
-namespace TouchMediaGUI
+namespace DAL
 {
 	public abstract class _DesignDetails : SqlClientEntity
 	{
