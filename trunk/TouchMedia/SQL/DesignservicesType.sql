@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_DesignservicesTypeLoadByPrimaryKey]    Script Date: 6/15/2015 2:31:13 PM ******/
+/****** Object:  StoredProcedure [proc_DesignservicesTypeLoadByPrimaryKey]    Script Date: 6/16/2015 10:45:22 AM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_DesignservicesTypeLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_DesignservicesTypeLoadByPrimaryKey];
 GO
@@ -33,7 +33,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_DesignservicesTypeLoadByPrimary
 ELSE PRINT 'Procedure Creation: proc_DesignservicesTypeLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_DesignservicesTypeLoadAll]    Script Date: 6/15/2015 2:31:13 PM ******/
+/****** Object:  StoredProcedure [proc_DesignservicesTypeLoadAll]    Script Date: 6/16/2015 10:45:22 AM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_DesignservicesTypeLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_DesignservicesTypeLoadAll];
 GO
@@ -63,7 +63,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_DesignservicesTypeLoadAll Succe
 ELSE PRINT 'Procedure Creation: proc_DesignservicesTypeLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_DesignservicesTypeUpdate]    Script Date: 6/15/2015 2:31:13 PM ******/
+/****** Object:  StoredProcedure [proc_DesignservicesTypeUpdate]    Script Date: 6/16/2015 10:45:22 AM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_DesignservicesTypeUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_DesignservicesTypeUpdate];
 GO
@@ -104,7 +104,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_DesignservicesTypeInsert]    Script Date: 6/15/2015 2:31:13 PM ******/
+/****** Object:  StoredProcedure [proc_DesignservicesTypeInsert]    Script Date: 6/16/2015 10:45:22 AM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_DesignservicesTypeInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_DesignservicesTypeInsert];
 GO
@@ -147,7 +147,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_DesignservicesTypeInsert Succee
 ELSE PRINT 'Procedure Creation: proc_DesignservicesTypeInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_DesignservicesTypeDelete]    Script Date: 6/15/2015 2:31:13 PM ******/
+/****** Object:  StoredProcedure [proc_DesignservicesTypeDelete]    Script Date: 6/16/2015 10:45:22 AM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_DesignservicesTypeDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_DesignservicesTypeDelete];
 GO

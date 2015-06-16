@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_OffsetPrintingDetailsLoadByPrimaryKey]    Script Date: 6/15/2015 2:31:14 PM ******/
+/****** Object:  StoredProcedure [proc_OffsetPrintingDetailsLoadByPrimaryKey]    Script Date: 6/16/2015 10:45:23 AM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_OffsetPrintingDetailsLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_OffsetPrintingDetailsLoadByPrimaryKey];
 GO
@@ -41,7 +41,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_OffsetPrintingDetailsLoadByPrim
 ELSE PRINT 'Procedure Creation: proc_OffsetPrintingDetailsLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_OffsetPrintingDetailsLoadAll]    Script Date: 6/15/2015 2:31:14 PM ******/
+/****** Object:  StoredProcedure [proc_OffsetPrintingDetailsLoadAll]    Script Date: 6/16/2015 10:45:23 AM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_OffsetPrintingDetailsLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_OffsetPrintingDetailsLoadAll];
 GO
@@ -79,7 +79,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_OffsetPrintingDetailsLoadAll Su
 ELSE PRINT 'Procedure Creation: proc_OffsetPrintingDetailsLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_OffsetPrintingDetailsUpdate]    Script Date: 6/15/2015 2:31:14 PM ******/
+/****** Object:  StoredProcedure [proc_OffsetPrintingDetailsUpdate]    Script Date: 6/16/2015 10:45:23 AM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_OffsetPrintingDetailsUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_OffsetPrintingDetailsUpdate];
 GO
@@ -136,7 +136,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_OffsetPrintingDetailsInsert]    Script Date: 6/15/2015 2:31:14 PM ******/
+/****** Object:  StoredProcedure [proc_OffsetPrintingDetailsInsert]    Script Date: 6/16/2015 10:45:23 AM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_OffsetPrintingDetailsInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_OffsetPrintingDetailsInsert];
 GO
@@ -203,7 +203,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_OffsetPrintingDetailsInsert Suc
 ELSE PRINT 'Procedure Creation: proc_OffsetPrintingDetailsInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_OffsetPrintingDetailsDelete]    Script Date: 6/15/2015 2:31:14 PM ******/
+/****** Object:  StoredProcedure [proc_OffsetPrintingDetailsDelete]    Script Date: 6/16/2015 10:45:23 AM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_OffsetPrintingDetailsDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_OffsetPrintingDetailsDelete];
 GO

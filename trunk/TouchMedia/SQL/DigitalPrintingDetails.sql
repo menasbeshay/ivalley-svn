@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_DigitalPrintingDetailsLoadByPrimaryKey]    Script Date: 6/15/2015 2:31:13 PM ******/
+/****** Object:  StoredProcedure [proc_DigitalPrintingDetailsLoadByPrimaryKey]    Script Date: 6/16/2015 10:45:22 AM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_DigitalPrintingDetailsLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_DigitalPrintingDetailsLoadByPrimaryKey];
 GO
@@ -41,7 +41,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_DigitalPrintingDetailsLoadByPri
 ELSE PRINT 'Procedure Creation: proc_DigitalPrintingDetailsLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_DigitalPrintingDetailsLoadAll]    Script Date: 6/15/2015 2:31:13 PM ******/
+/****** Object:  StoredProcedure [proc_DigitalPrintingDetailsLoadAll]    Script Date: 6/16/2015 10:45:22 AM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_DigitalPrintingDetailsLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_DigitalPrintingDetailsLoadAll];
 GO
@@ -79,7 +79,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_DigitalPrintingDetailsLoadAll S
 ELSE PRINT 'Procedure Creation: proc_DigitalPrintingDetailsLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_DigitalPrintingDetailsUpdate]    Script Date: 6/15/2015 2:31:13 PM ******/
+/****** Object:  StoredProcedure [proc_DigitalPrintingDetailsUpdate]    Script Date: 6/16/2015 10:45:22 AM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_DigitalPrintingDetailsUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_DigitalPrintingDetailsUpdate];
 GO
@@ -136,7 +136,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_DigitalPrintingDetailsInsert]    Script Date: 6/15/2015 2:31:13 PM ******/
+/****** Object:  StoredProcedure [proc_DigitalPrintingDetailsInsert]    Script Date: 6/16/2015 10:45:22 AM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_DigitalPrintingDetailsInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_DigitalPrintingDetailsInsert];
 GO
@@ -203,7 +203,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_DigitalPrintingDetailsInsert Su
 ELSE PRINT 'Procedure Creation: proc_DigitalPrintingDetailsInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_DigitalPrintingDetailsDelete]    Script Date: 6/15/2015 2:31:13 PM ******/
+/****** Object:  StoredProcedure [proc_DigitalPrintingDetailsDelete]    Script Date: 6/16/2015 10:45:22 AM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_DigitalPrintingDetailsDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_DigitalPrintingDetailsDelete];
 GO

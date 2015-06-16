@@ -163,6 +163,14 @@ namespace Your.Namespace
 				}
 			}
 			
+			public static SqlParameter JobOrderName
+			{
+				get
+				{
+					return new SqlParameter("@JobOrderName", SqlDbType.NVarChar, 300);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -177,6 +185,7 @@ namespace Your.Namespace
             public const string CreatedDate = "CreatedDate";
             public const string UpdatedBy = "UpdatedBy";
             public const string LastUpdatedDate = "LastUpdatedDate";
+            public const string JobOrderName = "JobOrderName";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -192,6 +201,7 @@ namespace Your.Namespace
 					ht[CreatedDate] = _JobOrder.PropertyNames.CreatedDate;
 					ht[UpdatedBy] = _JobOrder.PropertyNames.UpdatedBy;
 					ht[LastUpdatedDate] = _JobOrder.PropertyNames.LastUpdatedDate;
+					ht[JobOrderName] = _JobOrder.PropertyNames.JobOrderName;
 
 				}
 				return (string)ht[columnName];
@@ -212,6 +222,7 @@ namespace Your.Namespace
             public const string CreatedDate = "CreatedDate";
             public const string UpdatedBy = "UpdatedBy";
             public const string LastUpdatedDate = "LastUpdatedDate";
+            public const string JobOrderName = "JobOrderName";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -227,6 +238,7 @@ namespace Your.Namespace
 					ht[CreatedDate] = _JobOrder.ColumnNames.CreatedDate;
 					ht[UpdatedBy] = _JobOrder.ColumnNames.UpdatedBy;
 					ht[LastUpdatedDate] = _JobOrder.ColumnNames.LastUpdatedDate;
+					ht[JobOrderName] = _JobOrder.ColumnNames.JobOrderName;
 
 				}
 				return (string)ht[propertyName];
@@ -247,6 +259,7 @@ namespace Your.Namespace
             public const string CreatedDate = "s_CreatedDate";
             public const string UpdatedBy = "s_UpdatedBy";
             public const string LastUpdatedDate = "s_LastUpdatedDate";
+            public const string JobOrderName = "s_JobOrderName";
 
 		}
 		#endregion		
@@ -346,6 +359,18 @@ namespace Your.Namespace
 			set
 	        {
 				base.SetDateTime(ColumnNames.LastUpdatedDate, value);
+			}
+		}
+
+		public virtual string JobOrderName
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.JobOrderName);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.JobOrderName, value);
 			}
 		}
 
@@ -474,6 +499,21 @@ namespace Your.Namespace
 			}
 		}
 
+		public virtual string s_JobOrderName
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.JobOrderName) ? string.Empty : base.GetstringAsString(ColumnNames.JobOrderName);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.JobOrderName);
+				else
+					this.JobOrderName = base.SetstringAsString(ColumnNames.JobOrderName, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -587,6 +627,16 @@ namespace Your.Namespace
 					}
 				}
 
+				public WhereParameter JobOrderName
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.JobOrderName, Parameters.JobOrderName);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -688,6 +738,18 @@ namespace Your.Namespace
 				}
 			}
 
+			public WhereParameter JobOrderName
+		    {
+				get
+		        {
+					if(_JobOrderName_W == null)
+	        	    {
+						_JobOrderName_W = TearOff.JobOrderName;
+					}
+					return _JobOrderName_W;
+				}
+			}
+
 			private WhereParameter _JobOrderID_W = null;
 			private WhereParameter _JobOrderStatusID_W = null;
 			private WhereParameter _JobOrderCode_W = null;
@@ -696,6 +758,7 @@ namespace Your.Namespace
 			private WhereParameter _CreatedDate_W = null;
 			private WhereParameter _UpdatedBy_W = null;
 			private WhereParameter _LastUpdatedDate_W = null;
+			private WhereParameter _JobOrderName_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -707,6 +770,7 @@ namespace Your.Namespace
 				_CreatedDate_W = null;
 				_UpdatedBy_W = null;
 				_LastUpdatedDate_W = null;
+				_JobOrderName_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -843,6 +907,16 @@ namespace Your.Namespace
 					}
 				}
 
+				public AggregateParameter JobOrderName
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.JobOrderName, Parameters.JobOrderName);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -944,6 +1018,18 @@ namespace Your.Namespace
 				}
 			}
 
+			public AggregateParameter JobOrderName
+		    {
+				get
+		        {
+					if(_JobOrderName_W == null)
+	        	    {
+						_JobOrderName_W = TearOff.JobOrderName;
+					}
+					return _JobOrderName_W;
+				}
+			}
+
 			private AggregateParameter _JobOrderID_W = null;
 			private AggregateParameter _JobOrderStatusID_W = null;
 			private AggregateParameter _JobOrderCode_W = null;
@@ -952,6 +1038,7 @@ namespace Your.Namespace
 			private AggregateParameter _CreatedDate_W = null;
 			private AggregateParameter _UpdatedBy_W = null;
 			private AggregateParameter _LastUpdatedDate_W = null;
+			private AggregateParameter _JobOrderName_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -963,6 +1050,7 @@ namespace Your.Namespace
 				_CreatedDate_W = null;
 				_UpdatedBy_W = null;
 				_LastUpdatedDate_W = null;
+				_JobOrderName_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -1067,6 +1155,10 @@ namespace Your.Namespace
 
 			p = cmd.Parameters.Add(Parameters.LastUpdatedDate);
 			p.SourceColumn = ColumnNames.LastUpdatedDate;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.JobOrderName);
+			p.SourceColumn = ColumnNames.JobOrderName;
 			p.SourceVersion = DataRowVersion.Current;
 
 
