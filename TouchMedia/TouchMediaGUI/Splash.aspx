@@ -23,20 +23,20 @@
                     <div class="span4 responsive clearfix" data-tablet="span4" data-desktop="span4">
                         <div class="circle-wrap">
                             <div class="stats-circle turquoise-color">
-                                <i class="icon-user"></i>
+                                <i class="icon-briefcase"></i>
                             </div>
                             <p>
-                                <strong>Purchase Request</strong>
+                                <strong>اوامر الشغل</strong>
                             </p>
                         </div>
                     </div>
                     <div class="span4 responsive clearfix" data-tablet="span4" data-desktop="span4">
                         <div class="circle-wrap">
                             <div class="stats-circle red-color">
-                                <i class="icon-tags"></i>
+                                <i class="icon-truck"></i>
                             </div>
                             <p>
-                                <strong>Delivery Order</strong>
+                                <strong>اوامر النقل</strong>
                                 
                             </p>
                         </div>
@@ -47,7 +47,7 @@
                                 <i class="icon-shopping-cart"></i>
                             </div>
                             <p>
-                                <strong>Job Order</strong>
+                                <strong>اوامر الشراء</strong>
                                 
                             </p>
                         </div>
