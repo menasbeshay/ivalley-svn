@@ -211,6 +211,24 @@ namespace Flights_GUI {
         protected global::System.Web.UI.WebControls.Repeater uiRepeaterBulletins;
         
         /// <summary>
+        /// uiRepeaterBlogs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater uiRepeaterBlogs;
+        
+        /// <summary>
+        /// uiRepeaterLinks control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater uiRepeaterLinks;
+        
+        /// <summary>
         /// Master property.
         /// </summary>
         /// <remarks>

@@ -6,7 +6,7 @@
 <html>
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>I-Flights - Fly Egypt</title>
+    <title>FlyEgypt intranet</title>
     <meta name="description" content="I-Valley">
     <meta name="author" content="I-Valley">
 
@@ -162,7 +162,7 @@
                                 
                             </div>
                             <div class="cell-7 right-bar">
-                                <div class="right cell-5" style="text-align:right;">
+                                <div class="right cell-10" style="text-align:right;">
 
                                     <div style="width:auto;">
                                         <asp:LoginView ID="uiLoginView" runat="server">

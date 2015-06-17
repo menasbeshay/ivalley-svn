@@ -91,9 +91,11 @@
     <Content Include="Account\Register.aspx" />
     <Content Include="Admin\AircraftManualCats.aspx" />
     <Content Include="Admin\AircraftManualManagement.aspx" />
+    <Content Include="Admin\blogManagement.aspx" />
     <Content Include="Admin\BulletinsManagement.aspx" />
     <Content Include="Admin\circularsManagment.aspx" />
     <Content Include="Admin\FormManagement.aspx" />
+    <Content Include="Admin\linksManagement.aspx" />
     <Content Include="Admin\ManualCats.aspx" />
     <Content Include="Admin\ManualManagment.aspx" />
     <Content Include="Admin\NotificationsManagement.aspx" />
@@ -873,9 +875,11 @@
     <Content Include="img\trns-bg.png" />
     <Content Include="img\vector-lab.jpg" />
     <Content Include="Intranet\AircraftManuals.aspx" />
+    <Content Include="Intranet\blog.aspx" />
     <Content Include="Intranet\Bulletins.aspx" />
     <Content Include="Intranet\Circulars.aspx" />
     <Content Include="Intranet\forms.aspx" />
+    <Content Include="Intranet\links.aspx" />
     <Content Include="Intranet\Manuals.aspx" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
@@ -1880,6 +1884,13 @@
     <Compile Include="Admin\AircraftManualManagement.aspx.designer.cs">
       <DependentUpon>AircraftManualManagement.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\blogManagement.aspx.cs">
+      <DependentUpon>blogManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\blogManagement.aspx.designer.cs">
+      <DependentUpon>blogManagement.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\BulletinsManagement.aspx.cs">
       <DependentUpon>BulletinsManagement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1900,6 +1911,13 @@
     </Compile>
     <Compile Include="Admin\FormManagement.aspx.designer.cs">
       <DependentUpon>FormManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\linksManagement.aspx.cs">
+      <DependentUpon>linksManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\linksManagement.aspx.designer.cs">
+      <DependentUpon>linksManagement.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\ManualCats.aspx.cs">
       <DependentUpon>ManualCats.aspx</DependentUpon>
@@ -1984,6 +2002,13 @@
     <Compile Include="Intranet\AircraftManuals.aspx.designer.cs">
       <DependentUpon>AircraftManuals.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Intranet\blog.aspx.cs">
+      <DependentUpon>blog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Intranet\blog.aspx.designer.cs">
+      <DependentUpon>blog.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Intranet\Bulletins.aspx.cs">
       <DependentUpon>Bulletins.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2004,6 +2029,13 @@
     </Compile>
     <Compile Include="Intranet\forms.aspx.designer.cs">
       <DependentUpon>forms.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Intranet\links.aspx.cs">
+      <DependentUpon>links.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Intranet\links.aspx.designer.cs">
+      <DependentUpon>links.aspx</DependentUpon>
     </Compile>
     <Compile Include="Intranet\Manuals.aspx.cs">
       <DependentUpon>Manuals.aspx</DependentUpon>

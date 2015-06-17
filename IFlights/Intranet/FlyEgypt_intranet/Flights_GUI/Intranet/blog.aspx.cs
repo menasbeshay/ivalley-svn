@@ -1,15 +1,15 @@
-﻿using System;
+﻿using Flight_BLL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Flight_BLL;
-using System.Web.Security;
 
 namespace Flights_GUI.Intranet
 {
-    public partial class Circulars : System.Web.UI.Page
+    public partial class blog : System.Web.UI.Page
     {
         public int CurrentAnnouncement
         {
@@ -33,7 +33,7 @@ namespace Flights_GUI.Intranet
         {
             if (!IsPostBack)
             {
-                Master.PageTitle = "Circulars";
+                Master.PageTitle = "Blog";
                 if (CurrentAnnouncement == 0)
                 {
                     LoadCirculars();
@@ -58,7 +58,7 @@ namespace Flights_GUI.Intranet
             {
                 uiLabelTitle.Text = current.Title;
                 uiLabelDate.Text = current.CreatedDate.ToString("dd MMM yyyy");
-                if(!current.IsColumnNull(Announcement.ColumnNames.CreatedBy))
+                if (!current.IsColumnNull(Announcement.ColumnNames.CreatedBy))
                     uiLabelCreator.Text = Membership.GetUser(new Guid(current.CreatedBy.ToString())).UserName;
                 uiLiteralContent.Text = Server.HtmlDecode(current.Content);
                 uiImageMain.ImageUrl = string.IsNullOrEmpty(current.MainPic) ? "../img/announcement-icon.png" : current.MainPic;
@@ -68,7 +68,7 @@ namespace Flights_GUI.Intranet
         private void LoadCirculars()
         {
             Announcement all = new Announcement();
-            all.GetAllCirculars();
+            all.GetAllBlogs();
 
             uiRadListViewCirculars.DataSource = all.DefaultView;
             uiRadListViewCirculars.DataBind();
@@ -83,7 +83,7 @@ namespace Flights_GUI.Intranet
         protected void MarkNotificationsAsRead()
         {
             UsersNofications userNotif = new UsersNofications();
-            userNotif.MarkNotificationsReadByNotificationType((new Guid(Membership.GetUser(Page.User.Identity.Name).ProviderUserKey.ToString())),1);
+            userNotif.MarkNotificationsReadByNotificationType((new Guid(Membership.GetUser(Page.User.Identity.Name).ProviderUserKey.ToString())), 6);
         }
     }
 }

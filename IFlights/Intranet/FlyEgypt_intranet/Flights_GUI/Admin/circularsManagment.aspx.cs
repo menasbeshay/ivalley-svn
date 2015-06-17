@@ -91,13 +91,16 @@ namespace Flights_GUI.Admin
         {
             Announcement objdata = new Announcement();
             if (CurrentAnnouncement == null)
-                objdata.AddNew();
+            {   objdata.AddNew();
+                objdata.CreatedBy = new Guid(Membership.GetUser().ProviderUserKey.ToString());
+                objdata.CreatedDate = DateTime.Now;
+            }
             else
                 objdata = CurrentAnnouncement;
             objdata.Title = uiTextBoxTitle.Text;
             objdata.Brief = uiTextBoxBrief.Text;
             //objdata.CreatedBy = uiTextBoxCreatedBy.Text;
-            objdata.CreatedBy = new Guid(Membership.GetUser().ProviderUserKey.ToString());
+            
             if (uiFileUploadImg.HasFile)
             {
                 string path = "/fileuploads/circulars/" + Guid.NewGuid() + "_" + uiFileUploadImg.FileName;
@@ -105,7 +108,7 @@ namespace Flights_GUI.Admin
                 objdata.MainPic = path;
             }
             objdata.Content = Server.HtmlEncode(uiRadEditorContnet.Content);
-            objdata.CreatedDate = DateTime.Now;
+            
             objdata.Save();
             BindData();
             CurrentAnnouncement = null;
@@ -131,7 +134,7 @@ namespace Flights_GUI.Admin
         private void BindData()
         {
             Announcement objdata = new Announcement();
-            objdata.GetAllAnnouncements();
+            objdata.GetAllCirculars();
             uiRadGridcirculars.DataSource = objdata.DefaultView;
             uiRadGridcirculars.DataBind();
 

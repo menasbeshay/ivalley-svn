@@ -15,8 +15,8 @@ namespace Flights_GUI
         protected void Page_Load(object sender, EventArgs e)
         {
            
-            Master.PageTitle = "Dashboard";
-            UsersNofications us = new UsersNofications();
+            Master.PageTitle = "Home";
+            /*UsersNofications us = new UsersNofications();
             us.getNotifications(new Guid(Membership.GetUser(Page.User.Identity.Name).ProviderUserKey.ToString()));
             if (us.RowCount > 0)
             {
@@ -95,16 +95,16 @@ namespace Flights_GUI
                     us.MoveNext();
                 }
             }
+            */
 
-
-            LoadAnnouncements();
+            LoadWidgets();
             
         }
 
-        private void LoadAnnouncements()
+        private void LoadWidgets()
         {
             Announcement all = new Announcement();
-            all.GetTopAnnouncements();
+            all.GetTopCirculars();
 
             uiRepeaterCirculars.DataSource = all.DefaultView;
             uiRepeaterCirculars.DataBind();
@@ -114,6 +114,23 @@ namespace Flights_GUI
 
             uiRepeaterBulletins.DataSource = Bulletins.DefaultView;
             uiRepeaterBulletins.DataBind();
+
+            Announcement Blogs = new Announcement();
+            Blogs.GetTopBlogs();
+
+            uiRepeaterBlogs.DataSource = Blogs.DefaultView;
+            uiRepeaterBlogs.DataBind();
+
+            UsefulLink Links = new UsefulLink();
+            Links.GetTopLinks();
+
+            uiRepeaterLinks.DataSource = Links.DefaultView;
+            uiRepeaterLinks.DataBind();
         }
+
+
+
+
+       
     }
 }
