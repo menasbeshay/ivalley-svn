@@ -97,6 +97,11 @@ namespace Flights_GUI.MasterPages
                         userNotif.GetColumn("NotifCount");
                         lblNot.Text = userNotif.GetColumn("NotifCount").ToString();
                         break;
+                    case "Blogs":
+                        userNotif.getNotificationsByNotificationType(new Guid(Membership.GetUser(Page.User.Identity.Name).ProviderUserKey.ToString()), 6);
+                        userNotif.GetColumn("NotifCount");
+                        lblNot.Text = userNotif.GetColumn("NotifCount").ToString();
+                        break;
                     default:
                         lblNot.Visible = false;
                         break;

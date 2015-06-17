@@ -3,6 +3,17 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
    <%-- <script src="js/highcharts.js"></script>--%>
     <link href="ThemesFiles/ExceptionsLight/css/news.css" rel="stylesheet" />
+    <style type="text/css">
+        .displayme {
+            display:block !important;
+        }
+        .list li:before {
+            float:left;
+        }
+        .list li span{
+            float:left;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
@@ -206,7 +217,7 @@
                         <div class="post-item fx animated fadeInLeft cell-6 " data-animate="fadeInLeft">
 				                                        <div class="cell-3">
 				                                            <div class="row">
-				                                            	 <a href="Intranet/blog.aspx?cid=<%# Eval("AnnouncementID") %>">
+				                                            	 <a href="Intranet/blog.aspx?cid=<%# Eval("AnnouncementID") %>" >
 							                                    <img src='<%# (string.IsNullOrEmpty(Eval("MainPic").ToString()) ? "img/flyegypt.png" : "common/thumb.aspx?Image=" + Eval("MainPic")) %>' alt="">
                                                                     </a>
 				                                            </div>
@@ -230,18 +241,24 @@
         <div class="cell-3">
         <div class="widget r-posts-w " data-animate="fadeInRight">
 			<h3 class="widget-head">
-                <a href="Intranet/links.aspx">Useful links</a> </h3>
+                Useful links </h3>
 			<div class="widget-content">
                 <asp:Repeater ID="uiRepeaterLinks" runat="server">
                     <HeaderTemplate>
-                        <ul class="list list-ok alt">
+                        <ul class="list list-ok alt " id="usefulLinksWidget" style="max-height:260px;">
                     </HeaderTemplate>
                     <FooterTemplate>
                         </ul>
                     </FooterTemplate>
                     <ItemTemplate>
                         <li>
-						<a href='Intranet/links.aspx?id=<%# Eval("UsefulLinkID") %>'><%# Eval("Title") %></a>
+                            <span>
+						<a href='<%# Eval("URL") %>' target="_blank"><%# Eval("Title") %>
+                            
+						</a>
+                             <br />
+                            <sub><%# Server.HtmlDecode(Eval("Description").ToString()) %></sub>
+                           </span>
 					</li>
 												
                     </ItemTemplate>
@@ -453,4 +470,15 @@
             });
         });
 		</script>--%>
+    <%--<script src="js/jquery.slimscroll.min.js"></script>--%>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#usefulLinksWidget").niceScroll({ cursorcolor: "#f28a24", autohidemode: 'cursor' });
+            $("#usefulLinksWidget").niceScroll().rail.addClass("displayme");
+            /*$('#usefulLinksWidget').slimScroll({
+                color: '#f28a24',                
+                height: '220px'                
+            });*/
+        });
+    </script>
     </asp:Content>
