@@ -526,6 +526,7 @@ header.top-head .logo.center a{
 	text-transform: uppercase;
 	overflow:hidden;
 	text-align:center;
+    font-size:12px !important;
 }
 .top-nav > ul li a span {
 	display: block;

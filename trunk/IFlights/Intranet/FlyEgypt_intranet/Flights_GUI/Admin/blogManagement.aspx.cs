@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace Flights_GUI.Admin
 {
-    public partial class BulletinsManagement : System.Web.UI.Page
+    public partial class blogManagement : System.Web.UI.Page
     {
         #region Properties
         public Announcement CurrentAnnouncement
@@ -33,7 +33,7 @@ namespace Flights_GUI.Admin
         {
             if (!IsPostBack)
             {
-                Master.PageTitle = "Bulletins Management";
+                Master.PageTitle = "Blog Management";
                 BindData();
                 uiPanelViewAll.Visible = true;
                 uiPanelEdit.Visible = false;
@@ -108,7 +108,7 @@ namespace Flights_GUI.Admin
                 uiFileUploadImg.SaveAs(Server.MapPath("~" + path));
                 objdata.MainPic = path;
             }
-            objdata.IsBulletin = true;
+            objdata.IsBlog = true;
             objdata.Content = Server.HtmlEncode(uiRadEditorContnet.Content);
             
             objdata.Save();
@@ -118,7 +118,7 @@ namespace Flights_GUI.Admin
             uiPanelEdit.Visible = false;
             ClearFields();
 
-            SendingNotifications.sendNotif(2,null,null,null,null,null);
+            SendingNotifications.sendNotif(6, null, null, null, null, null);
         }
 
 
@@ -136,7 +136,7 @@ namespace Flights_GUI.Admin
         private void BindData()
         {
             Announcement objdata = new Announcement();
-            objdata.GetAllBulletins();
+            objdata.GetAllBlogs();
             uiRadGridcirculars.DataSource = objdata.DefaultView;
             uiRadGridcirculars.DataBind();
 
@@ -149,10 +149,11 @@ namespace Flights_GUI.Admin
             uiTextBoxCreatedBy.Text = "";
             uiRadEditorContnet.Content = "";
             uiTextBoxBrief.Text = "";
-            uiImageMain.ImageUrl= "";
+            uiImageMain.ImageUrl = "";
         }
 
 
         #endregion
+       
     }
 }
