@@ -13,6 +13,33 @@ namespace TouchMediaGUI {
     public partial class JobOrders {
         
         /// <summary>
+        /// uiPanelAll control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel uiPanelAll;
+        
+        /// <summary>
+        /// uiPanelEdit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel uiPanelEdit;
+        
+        /// <summary>
+        /// ucEditJO control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::TouchMediaGUI.usercontrols.ucEditJO ucEditJO;
+        
+        /// <summary>
         /// Master property.
         /// </summary>
         /// <remarks>

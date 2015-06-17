@@ -1586,6 +1586,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Splash.aspx" />
+    <Content Include="usercontrols\ucEditJO.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
   </ItemGroup>
@@ -1644,6 +1645,13 @@
     </Compile>
     <Compile Include="Splash.aspx.designer.cs">
       <DependentUpon>Splash.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\ucEditJO.ascx.cs">
+      <DependentUpon>ucEditJO.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="usercontrols\ucEditJO.ascx.designer.cs">
+      <DependentUpon>ucEditJO.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

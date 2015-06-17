@@ -2308,13 +2308,13 @@ try{
         return (hours < 10 ? "0"+hours : hours) + ":" + ( mins == 0 ? "00" : mins );
     }});
 } catch (e){
-    errorMessage(e);
+   // errorMessage(e);
 }
 
 
 //knob
 
-$(".knob").knob();
+//$(".knob").knob();
 
 
 
