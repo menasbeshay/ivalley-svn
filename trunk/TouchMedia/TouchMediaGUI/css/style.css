@@ -1,17 +1,38 @@
-/*   
-Template Name: Admin Lab Dashboard build with Bootstrap v2.3.1
-Template Version: 1.2
-Author: Mosaddek Hossain
-Website: http://thevectorlab.net/
-*/
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:300);
+
+
+
+@font-face {
+    font-family: "JF_Flat_Regular";
+    src: url('../font/JF-Flat-regular.eot');
+    src: url('../font/JF-Flat-regular.eot?#iefix') format('embedded-opentype'),
+    url('../font/JF-Flat-regular.svg#JF Flat Regular') format('svg'),
+    url('../font/JF-Flat-regular.woff') format('woff'),
+    url('../fontF-Flat-regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+.JF {
+    font-family: 'JF_Flat_Regular', elvetica, Arial, sans-serif;
+}
+
+.ub {
+    font-family: 'Ubuntu', sans-serif;
+}
 
 /* body styles */
 body {
     color: #000;
-    font-family: 'Arial';
+    /*font-family: 'Arial';
+         
+    */
+    
+       
     padding: 0px !important;
     margin: 0px !important;
-    font-size:13px;
+    font-size:16px;
     direction: rtl;
 }
 

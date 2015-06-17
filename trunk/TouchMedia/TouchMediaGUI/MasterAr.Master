@@ -7,7 +7,7 @@
     <link href="assets/bootstrap-rtl/css/bootstrap-rtl.min.css" rel="stylesheet" />
     <link href="assets/bootstrap-rtl/css/bootstrap-responsive-rtl.min.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
-    <link href="css/style_gray.css" rel="stylesheet" />
+    <link href="css/style_navy-blue.css" rel="stylesheet" />
     <link href="css/style_responsive.css" rel="stylesheet" />
     <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link href="assets/fancybox/source/jquery.fancybox.css" rel="stylesheet" />
@@ -16,7 +16,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body class="fixed-top">
+<body class="fixed-top JF">
     <form id="form1" runat="server">
         <div id="header" class="navbar navbar-inverse navbar-fixed-top">
             <!-- BEGIN TOP NAVIGATION BAR -->
@@ -179,15 +179,20 @@
         </div>
 
         <div id="footer">
-            2015 &copy; I-Valley. All rights reserved.
+            <span class="ub">
+            2015 &copy; I-Valley. All rights reserved.</span>
       <div class="span pull-left">
           <span class="go-top"><i class="icon-arrow-up"></i></span>
       </div>
         </div>
-    </form>
+    
     <script src="js/jquery-1.8.3.min.js"></script>
     <script src="assets/bootstrap-rtl/js/bootstrap.min.js"></script>
     <script src="js/jquery.blockui.js"></script>
+        <!--[if lt IE 9]>
+   <script src="js/excanvas.js"></script>
+   <script src="js/respond.js"></script>
+   <![endif]-->
     <script src="assets/chosen-bootstrap/chosen/chosen.jquery.min.js"></script>
     <script src="assets/uniform/jquery.uniform.min.js"></script>
     <script src="js/scripts.js"></script>
@@ -197,5 +202,10 @@
             App.init();
         });
     </script>
+
+    <asp:ContentPlaceHolder ID="ContentPlaceHolderScripts" runat="server">
+    </asp:ContentPlaceHolder>
+
+    </form>
 </body>
 </html>
