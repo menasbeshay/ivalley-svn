@@ -16,7 +16,8 @@
         background: '#E5E9E7',     // The scrollbar rail color
         cursorwidth: '10px',       // Scroll cursor width
         cursorcolor: '#999999'     // Scroll cursor color
-      });
+    });
+    $("body").getNiceScroll().hide();
 	/* ================ Check for Mobile. ================ */
 	if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 	 	$('html').addClass('touch');

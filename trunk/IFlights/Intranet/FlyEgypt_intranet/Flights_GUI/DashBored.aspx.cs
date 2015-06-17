@@ -122,7 +122,7 @@ namespace Flights_GUI
             uiRepeaterBlogs.DataBind();
 
             UsefulLink Links = new UsefulLink();
-            Links.GetTopLinks();
+            Links.GetAllLinks();
 
             uiRepeaterLinks.DataSource = Links.DefaultView;
             uiRepeaterLinks.DataBind();

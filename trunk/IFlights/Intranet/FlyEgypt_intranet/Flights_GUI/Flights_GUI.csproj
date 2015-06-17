@@ -912,6 +912,7 @@
     <Content Include="js\jquery.min.js" />
     <Content Include="js\jquery.peity.min.js" />
     <Content Include="js\jquery.pulsate.min.js" />
+    <Content Include="js\jquery.slimscroll.min.js" />
     <Content Include="js\load-image.all.min.js" />
     <Content Include="js\load-image.min.js" />
     <Content Include="js\main.js" />

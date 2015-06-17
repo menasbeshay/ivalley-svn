@@ -41,12 +41,12 @@ using MyGeneration.dOOdads;
 
 namespace Flight_DAL
 {
-	public abstract class _Announcement : SqlClientEntity
+	public abstract class _UsefulLink : SqlClientEntity
 	{
-		public _Announcement()
+		public _UsefulLink()
 		{
-			this.QuerySource = "Announcement";
-			this.MappingName = "Announcement";
+			this.QuerySource = "UsefulLink";
+			this.MappingName = "UsefulLink";
 
 		}	
 
@@ -78,7 +78,7 @@ namespace Flight_DAL
 		{
 			ListDictionary parameters = null;
 			
-			return base.LoadFromSql("[" + this.SchemaStoredProcedure + "proc_AnnouncementLoadAll]", parameters);
+			return base.LoadFromSql("[" + this.SchemaStoredProcedure + "proc_UsefulLinkLoadAll]", parameters);
 		}
 	
 		//=================================================================
@@ -86,24 +86,24 @@ namespace Flight_DAL
 		//=================================================================
 		//  Loads a single row of via the primary key
 		//=================================================================
-		public virtual bool LoadByPrimaryKey(int AnnouncementID)
+		public virtual bool LoadByPrimaryKey(int UsefulLinkID)
 		{
 			ListDictionary parameters = new ListDictionary();
-			parameters.Add(Parameters.AnnouncementID, AnnouncementID);
+			parameters.Add(Parameters.UsefulLinkID, UsefulLinkID);
 
 		
-			return base.LoadFromSql("[" + this.SchemaStoredProcedure + "proc_AnnouncementLoadByPrimaryKey]", parameters);
+			return base.LoadFromSql("[" + this.SchemaStoredProcedure + "proc_UsefulLinkLoadByPrimaryKey]", parameters);
 		}
 		
 		#region Parameters
 		protected class Parameters
 		{
 			
-			public static SqlParameter AnnouncementID
+			public static SqlParameter UsefulLinkID
 			{
 				get
 				{
-					return new SqlParameter("@AnnouncementID", SqlDbType.Int, 0);
+					return new SqlParameter("@UsefulLinkID", SqlDbType.Int, 0);
 				}
 			}
 			
@@ -111,15 +111,15 @@ namespace Flight_DAL
 			{
 				get
 				{
-					return new SqlParameter("@Title", SqlDbType.NVarChar, 500);
+					return new SqlParameter("@Title", SqlDbType.NVarChar, 300);
 				}
 			}
 			
-			public static SqlParameter Content
+			public static SqlParameter Description
 			{
 				get
 				{
-					return new SqlParameter("@Content", SqlDbType.NVarChar, 1073741823);
+					return new SqlParameter("@Description", SqlDbType.NVarChar, 1000);
 				}
 			}
 			
@@ -139,35 +139,27 @@ namespace Flight_DAL
 				}
 			}
 			
-			public static SqlParameter MainPic
+			public static SqlParameter UpdatedBy
 			{
 				get
 				{
-					return new SqlParameter("@MainPic", SqlDbType.NVarChar, 500);
+					return new SqlParameter("@UpdatedBy", SqlDbType.UniqueIdentifier, 0);
 				}
 			}
 			
-			public static SqlParameter Brief
+			public static SqlParameter LastUpdatedDate
 			{
 				get
 				{
-					return new SqlParameter("@Brief", SqlDbType.NVarChar, 1000);
+					return new SqlParameter("@LastUpdatedDate", SqlDbType.DateTime, 0);
 				}
 			}
 			
-			public static SqlParameter IsBulletin
+			public static SqlParameter URL
 			{
 				get
 				{
-					return new SqlParameter("@IsBulletin", SqlDbType.Bit, 0);
-				}
-			}
-			
-			public static SqlParameter IsBlog
-			{
-				get
-				{
-					return new SqlParameter("@IsBlog", SqlDbType.Bit, 0);
+					return new SqlParameter("@URL", SqlDbType.NVarChar, 500);
 				}
 			}
 			
@@ -177,15 +169,14 @@ namespace Flight_DAL
 		#region ColumnNames
 		public class ColumnNames
 		{  
-            public const string AnnouncementID = "AnnouncementID";
+            public const string UsefulLinkID = "UsefulLinkID";
             public const string Title = "Title";
-            public const string Content = "Content";
+            public const string Description = "Description";
             public const string CreatedBy = "CreatedBy";
-            public const string CreatedDate = "createdDate";
-            public const string MainPic = "MainPic";
-            public const string Brief = "Brief";
-            public const string IsBulletin = "IsBulletin";
-            public const string IsBlog = "IsBlog";
+            public const string CreatedDate = "CreatedDate";
+            public const string UpdatedBy = "UpdatedBy";
+            public const string LastUpdatedDate = "LastUpdatedDate";
+            public const string URL = "URL";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -193,15 +184,14 @@ namespace Flight_DAL
 				{
 					ht = new Hashtable();
 					
-					ht[AnnouncementID] = _Announcement.PropertyNames.AnnouncementID;
-					ht[Title] = _Announcement.PropertyNames.Title;
-					ht[Content] = _Announcement.PropertyNames.Content;
-					ht[CreatedBy] = _Announcement.PropertyNames.CreatedBy;
-					ht[CreatedDate] = _Announcement.PropertyNames.CreatedDate;
-					ht[MainPic] = _Announcement.PropertyNames.MainPic;
-					ht[Brief] = _Announcement.PropertyNames.Brief;
-					ht[IsBulletin] = _Announcement.PropertyNames.IsBulletin;
-					ht[IsBlog] = _Announcement.PropertyNames.IsBlog;
+					ht[UsefulLinkID] = _UsefulLink.PropertyNames.UsefulLinkID;
+					ht[Title] = _UsefulLink.PropertyNames.Title;
+					ht[Description] = _UsefulLink.PropertyNames.Description;
+					ht[CreatedBy] = _UsefulLink.PropertyNames.CreatedBy;
+					ht[CreatedDate] = _UsefulLink.PropertyNames.CreatedDate;
+					ht[UpdatedBy] = _UsefulLink.PropertyNames.UpdatedBy;
+					ht[LastUpdatedDate] = _UsefulLink.PropertyNames.LastUpdatedDate;
+					ht[URL] = _UsefulLink.PropertyNames.URL;
 
 				}
 				return (string)ht[columnName];
@@ -214,15 +204,14 @@ namespace Flight_DAL
 		#region PropertyNames
 		public class PropertyNames
 		{  
-            public const string AnnouncementID = "AnnouncementID";
+            public const string UsefulLinkID = "UsefulLinkID";
             public const string Title = "Title";
-            public const string Content = "Content";
+            public const string Description = "Description";
             public const string CreatedBy = "CreatedBy";
             public const string CreatedDate = "CreatedDate";
-            public const string MainPic = "MainPic";
-            public const string Brief = "Brief";
-            public const string IsBulletin = "IsBulletin";
-            public const string IsBlog = "IsBlog";
+            public const string UpdatedBy = "UpdatedBy";
+            public const string LastUpdatedDate = "LastUpdatedDate";
+            public const string URL = "URL";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -230,15 +219,14 @@ namespace Flight_DAL
 				{
 					ht = new Hashtable();
 					
-					ht[AnnouncementID] = _Announcement.ColumnNames.AnnouncementID;
-					ht[Title] = _Announcement.ColumnNames.Title;
-					ht[Content] = _Announcement.ColumnNames.Content;
-					ht[CreatedBy] = _Announcement.ColumnNames.CreatedBy;
-					ht[CreatedDate] = _Announcement.ColumnNames.CreatedDate;
-					ht[MainPic] = _Announcement.ColumnNames.MainPic;
-					ht[Brief] = _Announcement.ColumnNames.Brief;
-					ht[IsBulletin] = _Announcement.ColumnNames.IsBulletin;
-					ht[IsBlog] = _Announcement.ColumnNames.IsBlog;
+					ht[UsefulLinkID] = _UsefulLink.ColumnNames.UsefulLinkID;
+					ht[Title] = _UsefulLink.ColumnNames.Title;
+					ht[Description] = _UsefulLink.ColumnNames.Description;
+					ht[CreatedBy] = _UsefulLink.ColumnNames.CreatedBy;
+					ht[CreatedDate] = _UsefulLink.ColumnNames.CreatedDate;
+					ht[UpdatedBy] = _UsefulLink.ColumnNames.UpdatedBy;
+					ht[LastUpdatedDate] = _UsefulLink.ColumnNames.LastUpdatedDate;
+					ht[URL] = _UsefulLink.ColumnNames.URL;
 
 				}
 				return (string)ht[propertyName];
@@ -251,30 +239,29 @@ namespace Flight_DAL
 		#region StringPropertyNames
 		public class StringPropertyNames
 		{  
-            public const string AnnouncementID = "s_AnnouncementID";
+            public const string UsefulLinkID = "s_UsefulLinkID";
             public const string Title = "s_Title";
-            public const string Content = "s_Content";
+            public const string Description = "s_Description";
             public const string CreatedBy = "s_CreatedBy";
             public const string CreatedDate = "s_CreatedDate";
-            public const string MainPic = "s_MainPic";
-            public const string Brief = "s_Brief";
-            public const string IsBulletin = "s_IsBulletin";
-            public const string IsBlog = "s_IsBlog";
+            public const string UpdatedBy = "s_UpdatedBy";
+            public const string LastUpdatedDate = "s_LastUpdatedDate";
+            public const string URL = "s_URL";
 
 		}
 		#endregion		
 		
 		#region Properties
 	
-		public virtual int AnnouncementID
+		public virtual int UsefulLinkID
 	    {
 			get
 	        {
-				return base.Getint(ColumnNames.AnnouncementID);
+				return base.Getint(ColumnNames.UsefulLinkID);
 			}
 			set
 	        {
-				base.Setint(ColumnNames.AnnouncementID, value);
+				base.Setint(ColumnNames.UsefulLinkID, value);
 			}
 		}
 
@@ -290,15 +277,15 @@ namespace Flight_DAL
 			}
 		}
 
-		public virtual string Content
+		public virtual string Description
 	    {
 			get
 	        {
-				return base.Getstring(ColumnNames.Content);
+				return base.Getstring(ColumnNames.Description);
 			}
 			set
 	        {
-				base.Setstring(ColumnNames.Content, value);
+				base.Setstring(ColumnNames.Description, value);
 			}
 		}
 
@@ -326,51 +313,39 @@ namespace Flight_DAL
 			}
 		}
 
-		public virtual string MainPic
+		public virtual Guid UpdatedBy
 	    {
 			get
 	        {
-				return base.Getstring(ColumnNames.MainPic);
+				return base.GetGuid(ColumnNames.UpdatedBy);
 			}
 			set
 	        {
-				base.Setstring(ColumnNames.MainPic, value);
+				base.SetGuid(ColumnNames.UpdatedBy, value);
 			}
 		}
 
-		public virtual string Brief
+		public virtual DateTime LastUpdatedDate
 	    {
 			get
 	        {
-				return base.Getstring(ColumnNames.Brief);
+				return base.GetDateTime(ColumnNames.LastUpdatedDate);
 			}
 			set
 	        {
-				base.Setstring(ColumnNames.Brief, value);
+				base.SetDateTime(ColumnNames.LastUpdatedDate, value);
 			}
 		}
 
-		public virtual bool IsBulletin
+		public virtual string URL
 	    {
 			get
 	        {
-				return base.Getbool(ColumnNames.IsBulletin);
+				return base.Getstring(ColumnNames.URL);
 			}
 			set
 	        {
-				base.Setbool(ColumnNames.IsBulletin, value);
-			}
-		}
-
-		public virtual bool IsBlog
-	    {
-			get
-	        {
-				return base.Getbool(ColumnNames.IsBlog);
-			}
-			set
-	        {
-				base.Setbool(ColumnNames.IsBlog, value);
+				base.Setstring(ColumnNames.URL, value);
 			}
 		}
 
@@ -379,18 +354,18 @@ namespace Flight_DAL
 		
 		#region String Properties
 	
-		public virtual string s_AnnouncementID
+		public virtual string s_UsefulLinkID
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.AnnouncementID) ? string.Empty : base.GetintAsString(ColumnNames.AnnouncementID);
+				return this.IsColumnNull(ColumnNames.UsefulLinkID) ? string.Empty : base.GetintAsString(ColumnNames.UsefulLinkID);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.AnnouncementID);
+					this.SetColumnNull(ColumnNames.UsefulLinkID);
 				else
-					this.AnnouncementID = base.SetintAsString(ColumnNames.AnnouncementID, value);
+					this.UsefulLinkID = base.SetintAsString(ColumnNames.UsefulLinkID, value);
 			}
 		}
 
@@ -409,18 +384,18 @@ namespace Flight_DAL
 			}
 		}
 
-		public virtual string s_Content
+		public virtual string s_Description
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.Content) ? string.Empty : base.GetstringAsString(ColumnNames.Content);
+				return this.IsColumnNull(ColumnNames.Description) ? string.Empty : base.GetstringAsString(ColumnNames.Description);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.Content);
+					this.SetColumnNull(ColumnNames.Description);
 				else
-					this.Content = base.SetstringAsString(ColumnNames.Content, value);
+					this.Description = base.SetstringAsString(ColumnNames.Description, value);
 			}
 		}
 
@@ -454,63 +429,48 @@ namespace Flight_DAL
 			}
 		}
 
-		public virtual string s_MainPic
+		public virtual string s_UpdatedBy
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.MainPic) ? string.Empty : base.GetstringAsString(ColumnNames.MainPic);
+				return this.IsColumnNull(ColumnNames.UpdatedBy) ? string.Empty : base.GetGuidAsString(ColumnNames.UpdatedBy);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.MainPic);
+					this.SetColumnNull(ColumnNames.UpdatedBy);
 				else
-					this.MainPic = base.SetstringAsString(ColumnNames.MainPic, value);
+					this.UpdatedBy = base.SetGuidAsString(ColumnNames.UpdatedBy, value);
 			}
 		}
 
-		public virtual string s_Brief
+		public virtual string s_LastUpdatedDate
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.Brief) ? string.Empty : base.GetstringAsString(ColumnNames.Brief);
+				return this.IsColumnNull(ColumnNames.LastUpdatedDate) ? string.Empty : base.GetDateTimeAsString(ColumnNames.LastUpdatedDate);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.Brief);
+					this.SetColumnNull(ColumnNames.LastUpdatedDate);
 				else
-					this.Brief = base.SetstringAsString(ColumnNames.Brief, value);
+					this.LastUpdatedDate = base.SetDateTimeAsString(ColumnNames.LastUpdatedDate, value);
 			}
 		}
 
-		public virtual string s_IsBulletin
+		public virtual string s_URL
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.IsBulletin) ? string.Empty : base.GetboolAsString(ColumnNames.IsBulletin);
+				return this.IsColumnNull(ColumnNames.URL) ? string.Empty : base.GetstringAsString(ColumnNames.URL);
 			}
 			set
 	        {
 				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.IsBulletin);
+					this.SetColumnNull(ColumnNames.URL);
 				else
-					this.IsBulletin = base.SetboolAsString(ColumnNames.IsBulletin, value);
-			}
-		}
-
-		public virtual string s_IsBlog
-	    {
-			get
-	        {
-				return this.IsColumnNull(ColumnNames.IsBlog) ? string.Empty : base.GetboolAsString(ColumnNames.IsBlog);
-			}
-			set
-	        {
-				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.IsBlog);
-				else
-					this.IsBlog = base.SetboolAsString(ColumnNames.IsBlog, value);
+					this.URL = base.SetstringAsString(ColumnNames.URL, value);
 			}
 		}
 
@@ -547,11 +507,11 @@ namespace Flight_DAL
 				}
 				
 				
-				public WhereParameter AnnouncementID
+				public WhereParameter UsefulLinkID
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.AnnouncementID, Parameters.AnnouncementID);
+							WhereParameter where = new WhereParameter(ColumnNames.UsefulLinkID, Parameters.UsefulLinkID);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -567,11 +527,11 @@ namespace Flight_DAL
 					}
 				}
 
-				public WhereParameter Content
+				public WhereParameter Description
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.Content, Parameters.Content);
+							WhereParameter where = new WhereParameter(ColumnNames.Description, Parameters.Description);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -597,41 +557,31 @@ namespace Flight_DAL
 					}
 				}
 
-				public WhereParameter MainPic
+				public WhereParameter UpdatedBy
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.MainPic, Parameters.MainPic);
+							WhereParameter where = new WhereParameter(ColumnNames.UpdatedBy, Parameters.UpdatedBy);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
 				}
 
-				public WhereParameter Brief
+				public WhereParameter LastUpdatedDate
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.Brief, Parameters.Brief);
+							WhereParameter where = new WhereParameter(ColumnNames.LastUpdatedDate, Parameters.LastUpdatedDate);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
 				}
 
-				public WhereParameter IsBulletin
+				public WhereParameter URL
 				{
 					get
 					{
-							WhereParameter where = new WhereParameter(ColumnNames.IsBulletin, Parameters.IsBulletin);
-							this._clause._entity.Query.AddWhereParameter(where);
-							return where;
-					}
-				}
-
-				public WhereParameter IsBlog
-				{
-					get
-					{
-							WhereParameter where = new WhereParameter(ColumnNames.IsBlog, Parameters.IsBlog);
+							WhereParameter where = new WhereParameter(ColumnNames.URL, Parameters.URL);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -642,15 +592,15 @@ namespace Flight_DAL
 			}
 			#endregion
 		
-			public WhereParameter AnnouncementID
+			public WhereParameter UsefulLinkID
 		    {
 				get
 		        {
-					if(_AnnouncementID_W == null)
+					if(_UsefulLinkID_W == null)
 	        	    {
-						_AnnouncementID_W = TearOff.AnnouncementID;
+						_UsefulLinkID_W = TearOff.UsefulLinkID;
 					}
-					return _AnnouncementID_W;
+					return _UsefulLinkID_W;
 				}
 			}
 
@@ -666,15 +616,15 @@ namespace Flight_DAL
 				}
 			}
 
-			public WhereParameter Content
+			public WhereParameter Description
 		    {
 				get
 		        {
-					if(_Content_W == null)
+					if(_Description_W == null)
 	        	    {
-						_Content_W = TearOff.Content;
+						_Description_W = TearOff.Description;
 					}
-					return _Content_W;
+					return _Description_W;
 				}
 			}
 
@@ -702,75 +652,61 @@ namespace Flight_DAL
 				}
 			}
 
-			public WhereParameter MainPic
+			public WhereParameter UpdatedBy
 		    {
 				get
 		        {
-					if(_MainPic_W == null)
+					if(_UpdatedBy_W == null)
 	        	    {
-						_MainPic_W = TearOff.MainPic;
+						_UpdatedBy_W = TearOff.UpdatedBy;
 					}
-					return _MainPic_W;
+					return _UpdatedBy_W;
 				}
 			}
 
-			public WhereParameter Brief
+			public WhereParameter LastUpdatedDate
 		    {
 				get
 		        {
-					if(_Brief_W == null)
+					if(_LastUpdatedDate_W == null)
 	        	    {
-						_Brief_W = TearOff.Brief;
+						_LastUpdatedDate_W = TearOff.LastUpdatedDate;
 					}
-					return _Brief_W;
+					return _LastUpdatedDate_W;
 				}
 			}
 
-			public WhereParameter IsBulletin
+			public WhereParameter URL
 		    {
 				get
 		        {
-					if(_IsBulletin_W == null)
+					if(_URL_W == null)
 	        	    {
-						_IsBulletin_W = TearOff.IsBulletin;
+						_URL_W = TearOff.URL;
 					}
-					return _IsBulletin_W;
+					return _URL_W;
 				}
 			}
 
-			public WhereParameter IsBlog
-		    {
-				get
-		        {
-					if(_IsBlog_W == null)
-	        	    {
-						_IsBlog_W = TearOff.IsBlog;
-					}
-					return _IsBlog_W;
-				}
-			}
-
-			private WhereParameter _AnnouncementID_W = null;
+			private WhereParameter _UsefulLinkID_W = null;
 			private WhereParameter _Title_W = null;
-			private WhereParameter _Content_W = null;
+			private WhereParameter _Description_W = null;
 			private WhereParameter _CreatedBy_W = null;
 			private WhereParameter _CreatedDate_W = null;
-			private WhereParameter _MainPic_W = null;
-			private WhereParameter _Brief_W = null;
-			private WhereParameter _IsBulletin_W = null;
-			private WhereParameter _IsBlog_W = null;
+			private WhereParameter _UpdatedBy_W = null;
+			private WhereParameter _LastUpdatedDate_W = null;
+			private WhereParameter _URL_W = null;
 
 			public void WhereClauseReset()
 			{
-				_AnnouncementID_W = null;
+				_UsefulLinkID_W = null;
 				_Title_W = null;
-				_Content_W = null;
+				_Description_W = null;
 				_CreatedBy_W = null;
 				_CreatedDate_W = null;
-				_MainPic_W = null;
-				_Brief_W = null;
-				_IsBulletin_W = null;
-				_IsBlog_W = null;
+				_UpdatedBy_W = null;
+				_LastUpdatedDate_W = null;
+				_URL_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -827,11 +763,11 @@ namespace Flight_DAL
 				}
 				
 				
-				public AggregateParameter AnnouncementID
+				public AggregateParameter UsefulLinkID
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.AnnouncementID, Parameters.AnnouncementID);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.UsefulLinkID, Parameters.UsefulLinkID);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -847,11 +783,11 @@ namespace Flight_DAL
 					}
 				}
 
-				public AggregateParameter Content
+				public AggregateParameter Description
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Content, Parameters.Content);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Description, Parameters.Description);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -877,41 +813,31 @@ namespace Flight_DAL
 					}
 				}
 
-				public AggregateParameter MainPic
+				public AggregateParameter UpdatedBy
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.MainPic, Parameters.MainPic);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.UpdatedBy, Parameters.UpdatedBy);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
 				}
 
-				public AggregateParameter Brief
+				public AggregateParameter LastUpdatedDate
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.Brief, Parameters.Brief);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.LastUpdatedDate, Parameters.LastUpdatedDate);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
 				}
 
-				public AggregateParameter IsBulletin
+				public AggregateParameter URL
 				{
 					get
 					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.IsBulletin, Parameters.IsBulletin);
-							this._clause._entity.Query.AddAggregateParameter(aggregate);
-							return aggregate;
-					}
-				}
-
-				public AggregateParameter IsBlog
-				{
-					get
-					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.IsBlog, Parameters.IsBlog);
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.URL, Parameters.URL);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -922,15 +848,15 @@ namespace Flight_DAL
 			}
 			#endregion
 		
-			public AggregateParameter AnnouncementID
+			public AggregateParameter UsefulLinkID
 		    {
 				get
 		        {
-					if(_AnnouncementID_W == null)
+					if(_UsefulLinkID_W == null)
 	        	    {
-						_AnnouncementID_W = TearOff.AnnouncementID;
+						_UsefulLinkID_W = TearOff.UsefulLinkID;
 					}
-					return _AnnouncementID_W;
+					return _UsefulLinkID_W;
 				}
 			}
 
@@ -946,15 +872,15 @@ namespace Flight_DAL
 				}
 			}
 
-			public AggregateParameter Content
+			public AggregateParameter Description
 		    {
 				get
 		        {
-					if(_Content_W == null)
+					if(_Description_W == null)
 	        	    {
-						_Content_W = TearOff.Content;
+						_Description_W = TearOff.Description;
 					}
-					return _Content_W;
+					return _Description_W;
 				}
 			}
 
@@ -982,75 +908,61 @@ namespace Flight_DAL
 				}
 			}
 
-			public AggregateParameter MainPic
+			public AggregateParameter UpdatedBy
 		    {
 				get
 		        {
-					if(_MainPic_W == null)
+					if(_UpdatedBy_W == null)
 	        	    {
-						_MainPic_W = TearOff.MainPic;
+						_UpdatedBy_W = TearOff.UpdatedBy;
 					}
-					return _MainPic_W;
+					return _UpdatedBy_W;
 				}
 			}
 
-			public AggregateParameter Brief
+			public AggregateParameter LastUpdatedDate
 		    {
 				get
 		        {
-					if(_Brief_W == null)
+					if(_LastUpdatedDate_W == null)
 	        	    {
-						_Brief_W = TearOff.Brief;
+						_LastUpdatedDate_W = TearOff.LastUpdatedDate;
 					}
-					return _Brief_W;
+					return _LastUpdatedDate_W;
 				}
 			}
 
-			public AggregateParameter IsBulletin
+			public AggregateParameter URL
 		    {
 				get
 		        {
-					if(_IsBulletin_W == null)
+					if(_URL_W == null)
 	        	    {
-						_IsBulletin_W = TearOff.IsBulletin;
+						_URL_W = TearOff.URL;
 					}
-					return _IsBulletin_W;
+					return _URL_W;
 				}
 			}
 
-			public AggregateParameter IsBlog
-		    {
-				get
-		        {
-					if(_IsBlog_W == null)
-	        	    {
-						_IsBlog_W = TearOff.IsBlog;
-					}
-					return _IsBlog_W;
-				}
-			}
-
-			private AggregateParameter _AnnouncementID_W = null;
+			private AggregateParameter _UsefulLinkID_W = null;
 			private AggregateParameter _Title_W = null;
-			private AggregateParameter _Content_W = null;
+			private AggregateParameter _Description_W = null;
 			private AggregateParameter _CreatedBy_W = null;
 			private AggregateParameter _CreatedDate_W = null;
-			private AggregateParameter _MainPic_W = null;
-			private AggregateParameter _Brief_W = null;
-			private AggregateParameter _IsBulletin_W = null;
-			private AggregateParameter _IsBlog_W = null;
+			private AggregateParameter _UpdatedBy_W = null;
+			private AggregateParameter _LastUpdatedDate_W = null;
+			private AggregateParameter _URL_W = null;
 
 			public void AggregateClauseReset()
 			{
-				_AnnouncementID_W = null;
+				_UsefulLinkID_W = null;
 				_Title_W = null;
-				_Content_W = null;
+				_Description_W = null;
 				_CreatedBy_W = null;
 				_CreatedDate_W = null;
-				_MainPic_W = null;
-				_Brief_W = null;
-				_IsBulletin_W = null;
-				_IsBlog_W = null;
+				_UpdatedBy_W = null;
+				_LastUpdatedDate_W = null;
+				_URL_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -1082,12 +994,12 @@ namespace Flight_DAL
 		
 			SqlCommand cmd = new SqlCommand();
 			cmd.CommandType = CommandType.StoredProcedure;
-			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_AnnouncementInsert]";
+			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_UsefulLinkInsert]";
 	
 			CreateParameters(cmd);
 			
 			SqlParameter p;
-			p = cmd.Parameters[Parameters.AnnouncementID.ParameterName];
+			p = cmd.Parameters[Parameters.UsefulLinkID.ParameterName];
 			p.Direction = ParameterDirection.Output;
     
 			return cmd;
@@ -1098,7 +1010,7 @@ namespace Flight_DAL
 		
 			SqlCommand cmd = new SqlCommand();
 			cmd.CommandType = CommandType.StoredProcedure;
-			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_AnnouncementUpdate]";
+			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_UsefulLinkUpdate]";
 	
 			CreateParameters(cmd);
 			      
@@ -1110,11 +1022,11 @@ namespace Flight_DAL
 		
 			SqlCommand cmd = new SqlCommand();
 			cmd.CommandType = CommandType.StoredProcedure;
-			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_AnnouncementDelete]";
+			cmd.CommandText = "[" + this.SchemaStoredProcedure + "proc_UsefulLinkDelete]";
 	
 			SqlParameter p;
-			p = cmd.Parameters.Add(Parameters.AnnouncementID);
-			p.SourceColumn = ColumnNames.AnnouncementID;
+			p = cmd.Parameters.Add(Parameters.UsefulLinkID);
+			p.SourceColumn = ColumnNames.UsefulLinkID;
 			p.SourceVersion = DataRowVersion.Current;
 
   
@@ -1125,16 +1037,16 @@ namespace Flight_DAL
 		{
 			SqlParameter p;
 		
-			p = cmd.Parameters.Add(Parameters.AnnouncementID);
-			p.SourceColumn = ColumnNames.AnnouncementID;
+			p = cmd.Parameters.Add(Parameters.UsefulLinkID);
+			p.SourceColumn = ColumnNames.UsefulLinkID;
 			p.SourceVersion = DataRowVersion.Current;
 
 			p = cmd.Parameters.Add(Parameters.Title);
 			p.SourceColumn = ColumnNames.Title;
 			p.SourceVersion = DataRowVersion.Current;
 
-			p = cmd.Parameters.Add(Parameters.Content);
-			p.SourceColumn = ColumnNames.Content;
+			p = cmd.Parameters.Add(Parameters.Description);
+			p.SourceColumn = ColumnNames.Description;
 			p.SourceVersion = DataRowVersion.Current;
 
 			p = cmd.Parameters.Add(Parameters.CreatedBy);
@@ -1145,20 +1057,16 @@ namespace Flight_DAL
 			p.SourceColumn = ColumnNames.CreatedDate;
 			p.SourceVersion = DataRowVersion.Current;
 
-			p = cmd.Parameters.Add(Parameters.MainPic);
-			p.SourceColumn = ColumnNames.MainPic;
+			p = cmd.Parameters.Add(Parameters.UpdatedBy);
+			p.SourceColumn = ColumnNames.UpdatedBy;
 			p.SourceVersion = DataRowVersion.Current;
 
-			p = cmd.Parameters.Add(Parameters.Brief);
-			p.SourceColumn = ColumnNames.Brief;
+			p = cmd.Parameters.Add(Parameters.LastUpdatedDate);
+			p.SourceColumn = ColumnNames.LastUpdatedDate;
 			p.SourceVersion = DataRowVersion.Current;
 
-			p = cmd.Parameters.Add(Parameters.IsBulletin);
-			p.SourceColumn = ColumnNames.IsBulletin;
-			p.SourceVersion = DataRowVersion.Current;
-
-			p = cmd.Parameters.Add(Parameters.IsBlog);
-			p.SourceColumn = ColumnNames.IsBlog;
+			p = cmd.Parameters.Add(Parameters.URL);
+			p.SourceColumn = ColumnNames.URL;
 			p.SourceVersion = DataRowVersion.Current;
 
 
