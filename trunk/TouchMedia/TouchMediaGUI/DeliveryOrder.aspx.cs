@@ -24,6 +24,5 @@ namespace TouchMediaGUI
             GrdDeliveryOrder.DataSource = DlvO.DefaultView;
             GrdDeliveryOrder.DataBind();
         }
-
     }
 }
