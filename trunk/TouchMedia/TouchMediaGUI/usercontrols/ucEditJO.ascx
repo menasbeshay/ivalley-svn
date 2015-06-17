@@ -1,4 +1,14 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ucEditJO.ascx.cs" Inherits="TouchMediaGUI.usercontrols.ucEditJO" %>
+<div class="span12 clearfix">
+    <div class="span2">
+
+    </div>
+
+    <div class="span6">
+
+    </div>
+</div>
+<div class="span12 clearfix">
 <div id="rootwizard" class="tabbable tabs-right">
     <ul>
         <li><a href="#tab1" data-toggle="tab"><span class="current"></span> تصميم</a></li>
@@ -35,4 +45,5 @@
             <li class="next last" style="display: none;"><a href="#">Last</a></li>
             <li class="next"><a href="#">التالى</a></li>
         </ul>
+</div>
 </div>

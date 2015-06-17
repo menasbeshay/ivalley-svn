@@ -1499,6 +1499,9 @@
     <Content Include="En\js\ui-nestable.js" />
     <Content Include="En\js\ui-tree.js" />
     <Content Include="En\Login.aspx" />
+    <Content Include="font\JF-Flat-regular.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />
     <Content Include="Images\heroAccent.png" />
@@ -2157,6 +2160,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_LocalResources\JobOrders.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="font\JF-Flat-regular.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font\JF-Flat-regular.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="font\JF-Flat-regular.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
