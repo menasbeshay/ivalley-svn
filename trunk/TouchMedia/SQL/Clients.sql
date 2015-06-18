@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_ClientsLoadByPrimaryKey]    Script Date: 6/16/2015 4:00:25 PM ******/
+/****** Object:  StoredProcedure [proc_ClientsLoadByPrimaryKey]    Script Date: 6/18/2015 3:31:45 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_ClientsLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_ClientsLoadByPrimaryKey];
 GO
@@ -35,7 +35,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_ClientsLoadByPrimaryKey Succeed
 ELSE PRINT 'Procedure Creation: proc_ClientsLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_ClientsLoadAll]    Script Date: 6/16/2015 4:00:25 PM ******/
+/****** Object:  StoredProcedure [proc_ClientsLoadAll]    Script Date: 6/18/2015 3:31:45 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_ClientsLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_ClientsLoadAll];
 GO
@@ -67,7 +67,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_ClientsLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_ClientsLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_ClientsUpdate]    Script Date: 6/16/2015 4:00:25 PM ******/
+/****** Object:  StoredProcedure [proc_ClientsUpdate]    Script Date: 6/18/2015 3:31:45 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_ClientsUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_ClientsUpdate];
 GO
@@ -112,7 +112,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_ClientsInsert]    Script Date: 6/16/2015 4:00:25 PM ******/
+/****** Object:  StoredProcedure [proc_ClientsInsert]    Script Date: 6/18/2015 3:31:45 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_ClientsInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_ClientsInsert];
 GO
@@ -161,7 +161,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_ClientsInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_ClientsInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_ClientsDelete]    Script Date: 6/16/2015 4:00:25 PM ******/
+/****** Object:  StoredProcedure [proc_ClientsDelete]    Script Date: 6/18/2015 3:31:45 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_ClientsDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_ClientsDelete];
 GO

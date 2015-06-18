@@ -227,6 +227,14 @@ namespace DAL
 				}
 			}
 			
+			public static SqlParameter WatingHours
+			{
+				get
+				{
+					return new SqlParameter("@WatingHours", SqlDbType.Float, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -249,6 +257,7 @@ namespace DAL
             public const string CreatedDate = "CreatedDate";
             public const string UpdatedBy = "UpdatedBy";
             public const string LastUpdatedDate = "LastUpdatedDate";
+            public const string WatingHours = "WatingHours";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -272,6 +281,7 @@ namespace DAL
 					ht[CreatedDate] = _DeliveryOrderDetails.PropertyNames.CreatedDate;
 					ht[UpdatedBy] = _DeliveryOrderDetails.PropertyNames.UpdatedBy;
 					ht[LastUpdatedDate] = _DeliveryOrderDetails.PropertyNames.LastUpdatedDate;
+					ht[WatingHours] = _DeliveryOrderDetails.PropertyNames.WatingHours;
 
 				}
 				return (string)ht[columnName];
@@ -300,6 +310,7 @@ namespace DAL
             public const string CreatedDate = "CreatedDate";
             public const string UpdatedBy = "UpdatedBy";
             public const string LastUpdatedDate = "LastUpdatedDate";
+            public const string WatingHours = "WatingHours";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -323,6 +334,7 @@ namespace DAL
 					ht[CreatedDate] = _DeliveryOrderDetails.ColumnNames.CreatedDate;
 					ht[UpdatedBy] = _DeliveryOrderDetails.ColumnNames.UpdatedBy;
 					ht[LastUpdatedDate] = _DeliveryOrderDetails.ColumnNames.LastUpdatedDate;
+					ht[WatingHours] = _DeliveryOrderDetails.ColumnNames.WatingHours;
 
 				}
 				return (string)ht[propertyName];
@@ -351,6 +363,7 @@ namespace DAL
             public const string CreatedDate = "s_CreatedDate";
             public const string UpdatedBy = "s_UpdatedBy";
             public const string LastUpdatedDate = "s_LastUpdatedDate";
+            public const string WatingHours = "s_WatingHours";
 
 		}
 		#endregion		
@@ -546,6 +559,18 @@ namespace DAL
 			set
 	        {
 				base.SetDateTime(ColumnNames.LastUpdatedDate, value);
+			}
+		}
+
+		public virtual double WatingHours
+	    {
+			get
+	        {
+				return base.Getdouble(ColumnNames.WatingHours);
+			}
+			set
+	        {
+				base.Setdouble(ColumnNames.WatingHours, value);
 			}
 		}
 
@@ -794,6 +819,21 @@ namespace DAL
 			}
 		}
 
+		public virtual string s_WatingHours
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.WatingHours) ? string.Empty : base.GetdoubleAsString(ColumnNames.WatingHours);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.WatingHours);
+				else
+					this.WatingHours = base.SetdoubleAsString(ColumnNames.WatingHours, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -982,6 +1022,16 @@ namespace DAL
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.LastUpdatedDate, Parameters.LastUpdatedDate);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter WatingHours
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.WatingHours, Parameters.WatingHours);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -1184,6 +1234,18 @@ namespace DAL
 				}
 			}
 
+			public WhereParameter WatingHours
+		    {
+				get
+		        {
+					if(_WatingHours_W == null)
+	        	    {
+						_WatingHours_W = TearOff.WatingHours;
+					}
+					return _WatingHours_W;
+				}
+			}
+
 			private WhereParameter _DeliveryOrderDetailsID_W = null;
 			private WhereParameter _DeliveryOrderID_W = null;
 			private WhereParameter _DeliveryOrderStatusID_W = null;
@@ -1200,6 +1262,7 @@ namespace DAL
 			private WhereParameter _CreatedDate_W = null;
 			private WhereParameter _UpdatedBy_W = null;
 			private WhereParameter _LastUpdatedDate_W = null;
+			private WhereParameter _WatingHours_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -1219,6 +1282,7 @@ namespace DAL
 				_CreatedDate_W = null;
 				_UpdatedBy_W = null;
 				_LastUpdatedDate_W = null;
+				_WatingHours_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -1435,6 +1499,16 @@ namespace DAL
 					}
 				}
 
+				public AggregateParameter WatingHours
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.WatingHours, Parameters.WatingHours);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -1632,6 +1706,18 @@ namespace DAL
 				}
 			}
 
+			public AggregateParameter WatingHours
+		    {
+				get
+		        {
+					if(_WatingHours_W == null)
+	        	    {
+						_WatingHours_W = TearOff.WatingHours;
+					}
+					return _WatingHours_W;
+				}
+			}
+
 			private AggregateParameter _DeliveryOrderDetailsID_W = null;
 			private AggregateParameter _DeliveryOrderID_W = null;
 			private AggregateParameter _DeliveryOrderStatusID_W = null;
@@ -1648,6 +1734,7 @@ namespace DAL
 			private AggregateParameter _CreatedDate_W = null;
 			private AggregateParameter _UpdatedBy_W = null;
 			private AggregateParameter _LastUpdatedDate_W = null;
+			private AggregateParameter _WatingHours_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -1667,6 +1754,7 @@ namespace DAL
 				_CreatedDate_W = null;
 				_UpdatedBy_W = null;
 				_LastUpdatedDate_W = null;
+				_WatingHours_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -1803,6 +1891,10 @@ namespace DAL
 
 			p = cmd.Parameters.Add(Parameters.LastUpdatedDate);
 			p.SourceColumn = ColumnNames.LastUpdatedDate;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.WatingHours);
+			p.SourceColumn = ColumnNames.WatingHours;
 			p.SourceVersion = DataRowVersion.Current;
 
 
