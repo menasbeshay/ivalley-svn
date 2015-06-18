@@ -11,7 +11,7 @@
 <!-- BEGIN HEAD -->
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>I-Flights - Fly Egypt - login</title>
+		<title>FlyEgypt - Intranet - login</title>
 		<meta name="description" content="I-Valley">
 		<meta name="author" content="I-Valley">
 		
@@ -336,7 +336,7 @@
 						<div class="row">
 							<div class="cell-12">
 								<h1 class="fx animated fadeInLeft" data-animate="fadeInLeft">
-                                   Welcome to Fly Egypt Intranet</h1>								
+                                   Welcome to FlyEgypt Intranet</h1>								
 							</div>
 						</div>
 					</div>

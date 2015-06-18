@@ -215,7 +215,8 @@
                                                 </span>
                                             </a>
                                             <asp:HiddenField ID="hfRepeater" runat="server" Value='<%# Eval("[htmlID]") %>' />
-                                            <asp:Repeater ID="uiInnerRepeaterIntranetMenu" OnItemDataBound="uiInnerRepeaterIntranetMenu_ItemDataBound" runat="server" DataSource='<%# ((SiteMapNode) Container.DataItem).ChildNodes %>'>
+                                            
+                                            <asp:Repeater ID="uiInnerRepeaterIntranetMenu" Visible='<%# ((SiteMapNode) Container.DataItem).ChildNodes.Count > 0 %>' OnItemDataBound="uiInnerRepeaterIntranetMenu_ItemDataBound" runat="server" DataSource='<%# ((SiteMapNode) Container.DataItem).ChildNodes %>'>
                                                 <HeaderTemplate>
                                                     <ul>
                                                 </HeaderTemplate>
@@ -232,6 +233,7 @@
                                                     </ul>
                                                 </FooterTemplate>
                                             </asp:Repeater>
+                                            
                                             <asp:Label ID="lblNotification" CssClass="badge" Visible="false" runat="server" Text="0"></asp:Label>
                                         </li>
                                     </ItemTemplate>
@@ -453,13 +455,6 @@
     <!-- general script file -->
     <script type="text/javascript" src="../ThemesFiles/ExceptionsLight/js/script.js"></script>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            var hfC = $('#HFCirculars').val();
-            if (hfC != "0") {
-                $("#mi_top_Circulars").append("<label >" + hfC + "</label>")
-            }
-        });
-    </script>
+    
 </body>
 </html>

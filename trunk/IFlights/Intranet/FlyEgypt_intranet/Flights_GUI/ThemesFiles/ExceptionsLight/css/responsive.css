@@ -467,7 +467,7 @@
 		font-size: 14px;
 		outline: none;
 		padding:10px 15px;
-		text-transform:uppercase
+		/*text-transform:uppercase*/
 	}
 	.responsive-nav ul li a i,.responsive-one ul li a i{
 		margin-right:10px

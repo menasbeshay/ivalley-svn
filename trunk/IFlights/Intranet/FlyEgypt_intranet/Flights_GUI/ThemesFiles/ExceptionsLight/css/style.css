@@ -523,10 +523,10 @@ header.top-head .logo.center a{
 	padding: 0 17px;
 	padding-top: 22px;
 	height: 83px;
-	text-transform: uppercase;
+	/*text-transform: uppercase;*/
 	overflow:hidden;
 	text-align:center;
-    font-size:12px !important;
+    font-size:13px !important;
 }
 .top-nav > ul li a span {
 	display: block;
@@ -5419,12 +5419,12 @@ img.loader{
 .r-posts-w .post-img {
 	float: left;
 	margin-right: 10px;
-	max-height: 70px;
+	/*max-height: 70px;*/
 	overflow:hidden
 }
 .r-posts-w .post-img img {
 	padding: 1px;
-	width: 70px;
+	width: 100%;
 	/*height: 70px;*/
 	border: 1px #f0f0f0 solid;
 }

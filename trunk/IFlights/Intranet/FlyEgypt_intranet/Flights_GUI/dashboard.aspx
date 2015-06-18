@@ -13,6 +13,13 @@
         .list li span{
             float:left;
         }
+
+        .list li sub {
+            margin-left:23px;
+            display:block;
+            line-height:auto !important;
+            line-height:initial !important;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -130,17 +137,20 @@
                     </FooterTemplate>
                     <ItemTemplate>
                         <li>
-						<div class="post-img">
+						<div class="post-img cell-3" style="padding:0; margin-right:0;">
                             <a href="Intranet/Circulars.aspx?cid=<%# Eval("AnnouncementID") %>">
 							<img src='<%# (string.IsNullOrEmpty(Eval("MainPic").ToString()) ? "img/flyegypt.png" : "common/thumb.aspx?Image=" + Eval("MainPic")) %>' alt="">
                                 </a>
 						</div>
-						<div class="widget-post-info">
+						<div class="widget-post-info cell-9" style="float:left;">
 							<h4>
 								<a href="Intranet/Circulars.aspx?cid=<%# Eval("AnnouncementID") %>">
 									<%# Eval("Title").ToString() %>
 								</a>
 							</h4>
+                            <p>
+                                <%# Eval("Brief") %>
+                            </p>
 							<div class="meta">
 								<span><i class="fa fa-clock-o"></i><%# Convert.ToDateTime(Eval("createdDate").ToString()).ToString("MMM dd, yyyy") %></span>
 							</div>
@@ -168,17 +178,20 @@
                     </FooterTemplate>
                     <ItemTemplate>
                         <li>
-						<div class="post-img">
+						<div class="post-img cell-3" style="padding:0; margin-right:0;">
                             <a href="Intranet/Bulletins.aspx?cid=<%# Eval("AnnouncementID") %>">
 							<img src='<%# (string.IsNullOrEmpty(Eval("MainPic").ToString()) ? "img/flyegypt.png" : "common/thumb.aspx?Image=" + Eval("MainPic")) %>' alt="">
                                 </a>
 						</div>
-						<div class="widget-post-info">
+						<div class="widget-post-info cell-9" style="float:left;">
 							<h4>
 								<a href="Intranet/Bulletins.aspx?cid=<%# Eval("AnnouncementID") %>">
 									<%# Eval("Title").ToString() %>
 								</a>
 							</h4>
+                            <p>
+                                <%# Eval("Brief") %>
+                            </p>
 							<div class="meta">
 								<span><i class="fa fa-clock-o"></i><%# Convert.ToDateTime(Eval("createdDate").ToString()).ToString("MMM dd, yyyy") %></span>
 							</div>
@@ -224,6 +237,7 @@
 				                                        </div>
 				                                        <article class="cell-9">
 				                                            <h2><a class="main-color"  href="Intranet/blog.aspx?cid=<%# Eval("AnnouncementID") %>"><%# Eval("Title").ToString() %></a></h2>
+                                                            <p><%# Eval("Brief") %></p>
 		                                                    <ul class="post-meta">
 		                                                        <li class="meta-user cell-12"><i class="fa fa-user"></i>By: <a href="account/profile.aspx?uid=<%# Eval("UserID") %>"><%# Eval("UserName") %></a></li><br />
 		                                                        <li class="meta-comments" style="border-top:0"><i class="fa fa-clock-o black"></i><%# Convert.ToDateTime(Eval("createdDate").ToString()).ToString("MMM dd, yyyy") %></li>
@@ -245,7 +259,7 @@
 			<div class="widget-content">
                 <asp:Repeater ID="uiRepeaterLinks" runat="server">
                     <HeaderTemplate>
-                        <ul class="list list-ok alt " id="usefulLinksWidget" style="max-height:260px;">
+                        <ul class="list list-ok alt " id="usefulLinksWidget" style="max-height:300px;">
                     </HeaderTemplate>
                     <FooterTemplate>
                         </ul>
@@ -256,9 +270,10 @@
 						<a href='<%# Eval("URL") %>' target="_blank"><%# Eval("Title") %>
                             
 						</a>
+                                </span>
                              <br />
                             <sub><%# Server.HtmlDecode(Eval("Description").ToString()) %></sub>
-                           </span>
+                           
 					</li>
 												
                     </ItemTemplate>
