@@ -3,11 +3,12 @@
 
 using System;
 using DAL;
+
 namespace BLL
 {
-	public class Categories : _Categories
+	public class TransformationSupplier : _TransformationSupplier
 	{
-		public Categories()
+		public TransformationSupplier()
 		{
 		
 		}

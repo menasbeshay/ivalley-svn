@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_DeliveryOrderDetailsLoadByPrimaryKey]    Script Date: 6/16/2015 4:00:26 PM ******/
+/****** Object:  StoredProcedure [proc_DeliveryOrderDetailsLoadByPrimaryKey]    Script Date: 6/18/2015 3:31:45 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_DeliveryOrderDetailsLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_DeliveryOrderDetailsLoadByPrimaryKey];
 GO
@@ -29,7 +29,8 @@ BEGIN
 		[CreatedBy],
 		[CreatedDate],
 		[UpdatedBy],
-		[LastUpdatedDate]
+		[LastUpdatedDate],
+		[WatingHours]
 	FROM [DeliveryOrderDetails]
 	WHERE
 		([DeliveryOrderDetailsID] = @DeliveryOrderDetailsID)
@@ -46,7 +47,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_DeliveryOrderDetailsLoadByPrima
 ELSE PRINT 'Procedure Creation: proc_DeliveryOrderDetailsLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_DeliveryOrderDetailsLoadAll]    Script Date: 6/16/2015 4:00:26 PM ******/
+/****** Object:  StoredProcedure [proc_DeliveryOrderDetailsLoadAll]    Script Date: 6/18/2015 3:31:45 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_DeliveryOrderDetailsLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_DeliveryOrderDetailsLoadAll];
 GO
@@ -74,7 +75,8 @@ BEGIN
 		[CreatedBy],
 		[CreatedDate],
 		[UpdatedBy],
-		[LastUpdatedDate]
+		[LastUpdatedDate],
+		[WatingHours]
 	FROM [DeliveryOrderDetails]
 
 	SET @Err = @@Error
@@ -89,7 +91,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_DeliveryOrderDetailsLoadAll Suc
 ELSE PRINT 'Procedure Creation: proc_DeliveryOrderDetailsLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_DeliveryOrderDetailsUpdate]    Script Date: 6/16/2015 4:00:26 PM ******/
+/****** Object:  StoredProcedure [proc_DeliveryOrderDetailsUpdate]    Script Date: 6/18/2015 3:31:45 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_DeliveryOrderDetailsUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_DeliveryOrderDetailsUpdate];
 GO
@@ -111,7 +113,8 @@ CREATE PROCEDURE [proc_DeliveryOrderDetailsUpdate]
 	@CreatedBy uniqueidentifier = NULL,
 	@CreatedDate datetime = NULL,
 	@UpdatedBy uniqueidentifier = NULL,
-	@LastUpdatedDate datetime = NULL
+	@LastUpdatedDate datetime = NULL,
+	@WatingHours float = NULL
 )
 AS
 BEGIN
@@ -135,7 +138,8 @@ BEGIN
 		[CreatedBy] = @CreatedBy,
 		[CreatedDate] = @CreatedDate,
 		[UpdatedBy] = @UpdatedBy,
-		[LastUpdatedDate] = @LastUpdatedDate
+		[LastUpdatedDate] = @LastUpdatedDate,
+		[WatingHours] = @WatingHours
 	WHERE
 		[DeliveryOrderDetailsID] = @DeliveryOrderDetailsID
 
@@ -156,7 +160,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_DeliveryOrderDetailsInsert]    Script Date: 6/16/2015 4:00:26 PM ******/
+/****** Object:  StoredProcedure [proc_DeliveryOrderDetailsInsert]    Script Date: 6/18/2015 3:31:46 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_DeliveryOrderDetailsInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_DeliveryOrderDetailsInsert];
 GO
@@ -178,7 +182,8 @@ CREATE PROCEDURE [proc_DeliveryOrderDetailsInsert]
 	@CreatedBy uniqueidentifier = NULL,
 	@CreatedDate datetime = NULL,
 	@UpdatedBy uniqueidentifier = NULL,
-	@LastUpdatedDate datetime = NULL
+	@LastUpdatedDate datetime = NULL,
+	@WatingHours float = NULL
 )
 AS
 BEGIN
@@ -203,7 +208,8 @@ BEGIN
 		[CreatedBy],
 		[CreatedDate],
 		[UpdatedBy],
-		[LastUpdatedDate]
+		[LastUpdatedDate],
+		[WatingHours]
 	)
 	VALUES
 	(
@@ -221,7 +227,8 @@ BEGIN
 		@CreatedBy,
 		@CreatedDate,
 		@UpdatedBy,
-		@LastUpdatedDate
+		@LastUpdatedDate,
+		@WatingHours
 	)
 
 	SET @Err = @@Error
@@ -238,7 +245,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_DeliveryOrderDetailsInsert Succ
 ELSE PRINT 'Procedure Creation: proc_DeliveryOrderDetailsInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_DeliveryOrderDetailsDelete]    Script Date: 6/16/2015 4:00:26 PM ******/
+/****** Object:  StoredProcedure [proc_DeliveryOrderDetailsDelete]    Script Date: 6/18/2015 3:31:46 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_DeliveryOrderDetailsDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_DeliveryOrderDetailsDelete];
 GO
