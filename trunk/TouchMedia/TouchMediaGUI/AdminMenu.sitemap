@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+    <siteMapNode url="" title="root" icon="" description="" roles="*" titleAr="">
+      <siteMapNode url="~/JobOrders.aspx" icon="icon-briefcase" title="Job Orders" titleAr="اوامر الشغل"  description="" />
+      <siteMapNode url="~/DeliveryOrder.aspx" icon="icon-truck" title="Delivery Orders" titleAr="اوامر النقل"  description="" />
+      <siteMapNode url="~/PurchaseOrder.aspx" icon="icon-shopping-cart" title="Purchase Orders" titleAr="اوامر الشراء"  description="" />
+      <siteMapNode url="dummy" title="Admin" icon="icon-cogs" titleAr="ادارة">
+        <siteMapNode url="~/admin/UserManagement.aspx" title="Manage Users" titleAr="ادارة المستخدم"/>
+        <siteMapNode url="~/admin/ManageTransformationSupplier.aspx" title="Manage Transformation Suppliers" titleAr="ادارة مقاولين النقل"/>
+        <siteMapNode url="~/admin/ManageDeliveryOrderStatus.aspx" title="Manage Delivery Order Status" titleAr="ادارة حالة طلب النقل"/>
+        <siteMapNode url="~/admin/ManageJobOrderStatus.aspx" title="Manage Job Order Status" titleAr="ادارة حالة طلب الشغل"/>
+        <siteMapNode url="~/admin/ManageDesigners.aspx" title="Manage Designers" titleAr="ادارة المصممين"/>
+      </siteMapNode>
+      </siteMapNode>
+</siteMap>
