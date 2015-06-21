@@ -11,5 +11,17 @@ namespace BLL
 		{
 		
 		}
+
+        public bool LoadByCategoryID(Category catID)
+        {
+            this.Where.CategoryID.Value = catID;
+            this.Where.CategoryID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+            return this.Query.Load();
+        }
 	}
+
+    public enum Category
+    {
+        Designers = 1,
+    }
 }

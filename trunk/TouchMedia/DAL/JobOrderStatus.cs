@@ -115,6 +115,22 @@ namespace DAL
 				}
 			}
 			
+			public static SqlParameter JobOrderStatusNameAr
+			{
+				get
+				{
+					return new SqlParameter("@JobOrderStatusNameAr", SqlDbType.NVarChar, 300);
+				}
+			}
+			
+			public static SqlParameter StatusClass
+			{
+				get
+				{
+					return new SqlParameter("@StatusClass", SqlDbType.NVarChar, 100);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -123,6 +139,8 @@ namespace DAL
 		{  
             public const string JobOrderStatusID = "JobOrderStatusID";
             public const string JobOrderStatusName = "JobOrderStatusName";
+            public const string JobOrderStatusNameAr = "JobOrderStatusNameAr";
+            public const string StatusClass = "StatusClass";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -132,6 +150,8 @@ namespace DAL
 					
 					ht[JobOrderStatusID] = _JobOrderStatus.PropertyNames.JobOrderStatusID;
 					ht[JobOrderStatusName] = _JobOrderStatus.PropertyNames.JobOrderStatusName;
+					ht[JobOrderStatusNameAr] = _JobOrderStatus.PropertyNames.JobOrderStatusNameAr;
+					ht[StatusClass] = _JobOrderStatus.PropertyNames.StatusClass;
 
 				}
 				return (string)ht[columnName];
@@ -146,6 +166,8 @@ namespace DAL
 		{  
             public const string JobOrderStatusID = "JobOrderStatusID";
             public const string JobOrderStatusName = "JobOrderStatusName";
+            public const string JobOrderStatusNameAr = "JobOrderStatusNameAr";
+            public const string StatusClass = "StatusClass";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -155,6 +177,8 @@ namespace DAL
 					
 					ht[JobOrderStatusID] = _JobOrderStatus.ColumnNames.JobOrderStatusID;
 					ht[JobOrderStatusName] = _JobOrderStatus.ColumnNames.JobOrderStatusName;
+					ht[JobOrderStatusNameAr] = _JobOrderStatus.ColumnNames.JobOrderStatusNameAr;
+					ht[StatusClass] = _JobOrderStatus.ColumnNames.StatusClass;
 
 				}
 				return (string)ht[propertyName];
@@ -169,6 +193,8 @@ namespace DAL
 		{  
             public const string JobOrderStatusID = "s_JobOrderStatusID";
             public const string JobOrderStatusName = "s_JobOrderStatusName";
+            public const string JobOrderStatusNameAr = "s_JobOrderStatusNameAr";
+            public const string StatusClass = "s_StatusClass";
 
 		}
 		#endregion		
@@ -196,6 +222,30 @@ namespace DAL
 			set
 	        {
 				base.Setstring(ColumnNames.JobOrderStatusName, value);
+			}
+		}
+
+		public virtual string JobOrderStatusNameAr
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.JobOrderStatusNameAr);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.JobOrderStatusNameAr, value);
+			}
+		}
+
+		public virtual string StatusClass
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.StatusClass);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.StatusClass, value);
 			}
 		}
 
@@ -231,6 +281,36 @@ namespace DAL
 					this.SetColumnNull(ColumnNames.JobOrderStatusName);
 				else
 					this.JobOrderStatusName = base.SetstringAsString(ColumnNames.JobOrderStatusName, value);
+			}
+		}
+
+		public virtual string s_JobOrderStatusNameAr
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.JobOrderStatusNameAr) ? string.Empty : base.GetstringAsString(ColumnNames.JobOrderStatusNameAr);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.JobOrderStatusNameAr);
+				else
+					this.JobOrderStatusNameAr = base.SetstringAsString(ColumnNames.JobOrderStatusNameAr, value);
+			}
+		}
+
+		public virtual string s_StatusClass
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.StatusClass) ? string.Empty : base.GetstringAsString(ColumnNames.StatusClass);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.StatusClass);
+				else
+					this.StatusClass = base.SetstringAsString(ColumnNames.StatusClass, value);
 			}
 		}
 
@@ -287,6 +367,26 @@ namespace DAL
 					}
 				}
 
+				public WhereParameter JobOrderStatusNameAr
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.JobOrderStatusNameAr, Parameters.JobOrderStatusNameAr);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter StatusClass
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.StatusClass, Parameters.StatusClass);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -316,13 +416,41 @@ namespace DAL
 				}
 			}
 
+			public WhereParameter JobOrderStatusNameAr
+		    {
+				get
+		        {
+					if(_JobOrderStatusNameAr_W == null)
+	        	    {
+						_JobOrderStatusNameAr_W = TearOff.JobOrderStatusNameAr;
+					}
+					return _JobOrderStatusNameAr_W;
+				}
+			}
+
+			public WhereParameter StatusClass
+		    {
+				get
+		        {
+					if(_StatusClass_W == null)
+	        	    {
+						_StatusClass_W = TearOff.StatusClass;
+					}
+					return _StatusClass_W;
+				}
+			}
+
 			private WhereParameter _JobOrderStatusID_W = null;
 			private WhereParameter _JobOrderStatusName_W = null;
+			private WhereParameter _JobOrderStatusNameAr_W = null;
+			private WhereParameter _StatusClass_W = null;
 
 			public void WhereClauseReset()
 			{
 				_JobOrderStatusID_W = null;
 				_JobOrderStatusName_W = null;
+				_JobOrderStatusNameAr_W = null;
+				_StatusClass_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -399,6 +527,26 @@ namespace DAL
 					}
 				}
 
+				public AggregateParameter JobOrderStatusNameAr
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.JobOrderStatusNameAr, Parameters.JobOrderStatusNameAr);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter StatusClass
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.StatusClass, Parameters.StatusClass);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -428,13 +576,41 @@ namespace DAL
 				}
 			}
 
+			public AggregateParameter JobOrderStatusNameAr
+		    {
+				get
+		        {
+					if(_JobOrderStatusNameAr_W == null)
+	        	    {
+						_JobOrderStatusNameAr_W = TearOff.JobOrderStatusNameAr;
+					}
+					return _JobOrderStatusNameAr_W;
+				}
+			}
+
+			public AggregateParameter StatusClass
+		    {
+				get
+		        {
+					if(_StatusClass_W == null)
+	        	    {
+						_StatusClass_W = TearOff.StatusClass;
+					}
+					return _StatusClass_W;
+				}
+			}
+
 			private AggregateParameter _JobOrderStatusID_W = null;
 			private AggregateParameter _JobOrderStatusName_W = null;
+			private AggregateParameter _JobOrderStatusNameAr_W = null;
+			private AggregateParameter _StatusClass_W = null;
 
 			public void AggregateClauseReset()
 			{
 				_JobOrderStatusID_W = null;
 				_JobOrderStatusName_W = null;
+				_JobOrderStatusNameAr_W = null;
+				_StatusClass_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -515,6 +691,14 @@ namespace DAL
 
 			p = cmd.Parameters.Add(Parameters.JobOrderStatusName);
 			p.SourceColumn = ColumnNames.JobOrderStatusName;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.JobOrderStatusNameAr);
+			p.SourceColumn = ColumnNames.JobOrderStatusNameAr;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.StatusClass);
+			p.SourceColumn = ColumnNames.StatusClass;
 			p.SourceVersion = DataRowVersion.Current;
 
 
