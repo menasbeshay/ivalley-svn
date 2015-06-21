@@ -29,15 +29,25 @@
                 <div class="widget-body">
                     <div class="row-fluid">
                         <div class="span12">
-                            <asp:GridView ID="GrdDeliveryOrder" CssClass="table table-striped table-bordered" runat="server" AutoGenerateColumns="false">
+                            <asp:GridView ID="GrdDeliveryOrder" CssClass="table table-striped table-bordered" runat="server" AutoGenerateColumns="false" OnRowCommand="GrdDeliveryOrder_RowCommand">
                                 <Columns>
                                     <asp:BoundField HeaderText="كود العملية" DataField="GeneralDeliveryCode" />
                                     <asp:BoundField HeaderText="أسم العملية" DataField="DeliveryOrderName" />
                                     <asp:BoundField HeaderText="القسم" DataField="Department" />
                                     <asp:BoundField HeaderText="التاريخ" DataField="CreatedDate" />
                                     <asp:BoundField HeaderText="رقم السائق" DataField="DriverTelephone" />
-                                    <asp:TemplateField HeaderText="الحالة" />
-                                    <asp:ButtonField HeaderText="عمليات" ButtonType="Image" />
+                                    <asp:TemplateField HeaderText="الحالة" >
+                                        <ItemTemplate>
+
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="العمليات">
+                                        <ItemTemplate>
+                                             <asp:LinkButton ID="btnDeleteGrdDO" OnClientClick="return confirm('Are you sure you want to delete this Order ?')"  runat="server" CommandArgument='<%# Eval("DeliveryOrderID") %>' CommandName="DeleteGrdDO">Delete</asp:LinkButton>
+                                            <asp:LinkButton ID="btnEditGrdDO" runat="server" CommandArgument='<%# Eval ("DeliveryOrderID") %>' CommandName="EditGrdDO">Edit</asp:LinkButton>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+
                                 </Columns>
 
                             </asp:GridView>
@@ -229,7 +239,7 @@
                             </div>
                             <div class="row-fluid">
                              <div class="block-margin-bottom-5 span12 clearfix">
-                                <asp:GridView ID="grdDeliveryOrderDetails" CssClass="table table-striped table-bordered" runat="server" AutoGenerateColumns="false">
+                                <asp:GridView ID="grdDeliveryOrderDetails" OnRowCommand="grdDeliveryOrderDetails_RowCommand" CssClass="table table-striped table-bordered" runat="server" AutoGenerateColumns="false">
                                     <Columns>
                                         <asp:BoundField HeaderText="المكان من" DataField="DeliveryFrom" />
                                         <asp:BoundField HeaderText="المكان الي" DataField="DeliveryTo" />
@@ -240,8 +250,13 @@
                                         <asp:BoundField HeaderText=" كود عملية النقل" DataField="DeliveryOrderCode" />
                                          <asp:BoundField HeaderText=" ساعات الإنتظارل" DataField="WatingHours" />
                                          <asp:BoundField HeaderText=" السعر" DataField="Price" />
-                                        <asp:TemplateField HeaderText="الحالة" />
-                                        <asp:ButtonField HeaderText="عمليات" ButtonType="Image"  />
+                                        <asp:BoundField HeaderText="الحالة" DataField="" />
+                                        <asp:TemplateField HeaderText="العمليات">
+                                        <ItemTemplate>
+                                             <asp:LinkButton ID="btnDeleteDetailsGrdDO" OnClientClick="return confirm('Are you sure you want to delete this Order ?')"  runat="server" CommandArgument='<%# Eval("DeliveryOrderDetailsID") %>' CommandName="DeleteGrdDetailsDO">Delete</asp:LinkButton>
+                                            <asp:LinkButton ID="btnEdiDetailsGrdDO" runat="server" CommandArgument='<%# Eval ("DeliveryOrderDetailsID") %>' CommandName="EditGrdDetailsDO">Edit</asp:LinkButton>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
                                     </Columns>
 
                                 </asp:GridView>

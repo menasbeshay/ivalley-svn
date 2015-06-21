@@ -11,5 +11,9 @@ namespace BLL
 		{
 		
 		}
+        public virtual bool getDetails(int DOID)
+        {
+            return LoadFromRawSql("SELECT * FROM DeliveryOrderDetails WHERE {0} = DeliveryOrderID ", DOID);
+        }
 	}
 }
