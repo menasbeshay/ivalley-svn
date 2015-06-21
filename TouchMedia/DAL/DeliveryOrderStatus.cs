@@ -115,6 +115,22 @@ namespace DAL
 				}
 			}
 			
+			public static SqlParameter DeliveryOrderStatusNameAr
+			{
+				get
+				{
+					return new SqlParameter("@DeliveryOrderStatusNameAr", SqlDbType.NVarChar, 300);
+				}
+			}
+			
+			public static SqlParameter StatusClass
+			{
+				get
+				{
+					return new SqlParameter("@StatusClass", SqlDbType.NVarChar, 100);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -123,6 +139,8 @@ namespace DAL
 		{  
             public const string DeliveryOrderStatusID = "DeliveryOrderStatusID";
             public const string DeliveryOrderStatusName = "DeliveryOrderStatusName";
+            public const string DeliveryOrderStatusNameAr = "DeliveryOrderStatusNameAr";
+            public const string StatusClass = "StatusClass";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -132,6 +150,8 @@ namespace DAL
 					
 					ht[DeliveryOrderStatusID] = _DeliveryOrderStatus.PropertyNames.DeliveryOrderStatusID;
 					ht[DeliveryOrderStatusName] = _DeliveryOrderStatus.PropertyNames.DeliveryOrderStatusName;
+					ht[DeliveryOrderStatusNameAr] = _DeliveryOrderStatus.PropertyNames.DeliveryOrderStatusNameAr;
+					ht[StatusClass] = _DeliveryOrderStatus.PropertyNames.StatusClass;
 
 				}
 				return (string)ht[columnName];
@@ -146,6 +166,8 @@ namespace DAL
 		{  
             public const string DeliveryOrderStatusID = "DeliveryOrderStatusID";
             public const string DeliveryOrderStatusName = "DeliveryOrderStatusName";
+            public const string DeliveryOrderStatusNameAr = "DeliveryOrderStatusNameAr";
+            public const string StatusClass = "StatusClass";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -155,6 +177,8 @@ namespace DAL
 					
 					ht[DeliveryOrderStatusID] = _DeliveryOrderStatus.ColumnNames.DeliveryOrderStatusID;
 					ht[DeliveryOrderStatusName] = _DeliveryOrderStatus.ColumnNames.DeliveryOrderStatusName;
+					ht[DeliveryOrderStatusNameAr] = _DeliveryOrderStatus.ColumnNames.DeliveryOrderStatusNameAr;
+					ht[StatusClass] = _DeliveryOrderStatus.ColumnNames.StatusClass;
 
 				}
 				return (string)ht[propertyName];
@@ -169,6 +193,8 @@ namespace DAL
 		{  
             public const string DeliveryOrderStatusID = "s_DeliveryOrderStatusID";
             public const string DeliveryOrderStatusName = "s_DeliveryOrderStatusName";
+            public const string DeliveryOrderStatusNameAr = "s_DeliveryOrderStatusNameAr";
+            public const string StatusClass = "s_StatusClass";
 
 		}
 		#endregion		
@@ -196,6 +222,30 @@ namespace DAL
 			set
 	        {
 				base.Setstring(ColumnNames.DeliveryOrderStatusName, value);
+			}
+		}
+
+		public virtual string DeliveryOrderStatusNameAr
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.DeliveryOrderStatusNameAr);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.DeliveryOrderStatusNameAr, value);
+			}
+		}
+
+		public virtual string StatusClass
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.StatusClass);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.StatusClass, value);
 			}
 		}
 
@@ -231,6 +281,36 @@ namespace DAL
 					this.SetColumnNull(ColumnNames.DeliveryOrderStatusName);
 				else
 					this.DeliveryOrderStatusName = base.SetstringAsString(ColumnNames.DeliveryOrderStatusName, value);
+			}
+		}
+
+		public virtual string s_DeliveryOrderStatusNameAr
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.DeliveryOrderStatusNameAr) ? string.Empty : base.GetstringAsString(ColumnNames.DeliveryOrderStatusNameAr);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.DeliveryOrderStatusNameAr);
+				else
+					this.DeliveryOrderStatusNameAr = base.SetstringAsString(ColumnNames.DeliveryOrderStatusNameAr, value);
+			}
+		}
+
+		public virtual string s_StatusClass
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.StatusClass) ? string.Empty : base.GetstringAsString(ColumnNames.StatusClass);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.StatusClass);
+				else
+					this.StatusClass = base.SetstringAsString(ColumnNames.StatusClass, value);
 			}
 		}
 
@@ -287,6 +367,26 @@ namespace DAL
 					}
 				}
 
+				public WhereParameter DeliveryOrderStatusNameAr
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.DeliveryOrderStatusNameAr, Parameters.DeliveryOrderStatusNameAr);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter StatusClass
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.StatusClass, Parameters.StatusClass);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -316,13 +416,41 @@ namespace DAL
 				}
 			}
 
+			public WhereParameter DeliveryOrderStatusNameAr
+		    {
+				get
+		        {
+					if(_DeliveryOrderStatusNameAr_W == null)
+	        	    {
+						_DeliveryOrderStatusNameAr_W = TearOff.DeliveryOrderStatusNameAr;
+					}
+					return _DeliveryOrderStatusNameAr_W;
+				}
+			}
+
+			public WhereParameter StatusClass
+		    {
+				get
+		        {
+					if(_StatusClass_W == null)
+	        	    {
+						_StatusClass_W = TearOff.StatusClass;
+					}
+					return _StatusClass_W;
+				}
+			}
+
 			private WhereParameter _DeliveryOrderStatusID_W = null;
 			private WhereParameter _DeliveryOrderStatusName_W = null;
+			private WhereParameter _DeliveryOrderStatusNameAr_W = null;
+			private WhereParameter _StatusClass_W = null;
 
 			public void WhereClauseReset()
 			{
 				_DeliveryOrderStatusID_W = null;
 				_DeliveryOrderStatusName_W = null;
+				_DeliveryOrderStatusNameAr_W = null;
+				_StatusClass_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -399,6 +527,26 @@ namespace DAL
 					}
 				}
 
+				public AggregateParameter DeliveryOrderStatusNameAr
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.DeliveryOrderStatusNameAr, Parameters.DeliveryOrderStatusNameAr);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter StatusClass
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.StatusClass, Parameters.StatusClass);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -428,13 +576,41 @@ namespace DAL
 				}
 			}
 
+			public AggregateParameter DeliveryOrderStatusNameAr
+		    {
+				get
+		        {
+					if(_DeliveryOrderStatusNameAr_W == null)
+	        	    {
+						_DeliveryOrderStatusNameAr_W = TearOff.DeliveryOrderStatusNameAr;
+					}
+					return _DeliveryOrderStatusNameAr_W;
+				}
+			}
+
+			public AggregateParameter StatusClass
+		    {
+				get
+		        {
+					if(_StatusClass_W == null)
+	        	    {
+						_StatusClass_W = TearOff.StatusClass;
+					}
+					return _StatusClass_W;
+				}
+			}
+
 			private AggregateParameter _DeliveryOrderStatusID_W = null;
 			private AggregateParameter _DeliveryOrderStatusName_W = null;
+			private AggregateParameter _DeliveryOrderStatusNameAr_W = null;
+			private AggregateParameter _StatusClass_W = null;
 
 			public void AggregateClauseReset()
 			{
 				_DeliveryOrderStatusID_W = null;
 				_DeliveryOrderStatusName_W = null;
+				_DeliveryOrderStatusNameAr_W = null;
+				_StatusClass_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -515,6 +691,14 @@ namespace DAL
 
 			p = cmd.Parameters.Add(Parameters.DeliveryOrderStatusName);
 			p.SourceColumn = ColumnNames.DeliveryOrderStatusName;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.DeliveryOrderStatusNameAr);
+			p.SourceColumn = ColumnNames.DeliveryOrderStatusNameAr;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.StatusClass);
+			p.SourceColumn = ColumnNames.StatusClass;
 			p.SourceVersion = DataRowVersion.Current;
 
 
