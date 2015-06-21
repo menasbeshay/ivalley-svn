@@ -13,13 +13,13 @@ namespace TouchMediaGUI.Admin {
     public partial class ManageJobOrderStatus {
         
         /// <summary>
-        /// panelDeliveryOrderStatusGrid control.
+        /// panelStatusGrid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panelDeliveryOrderStatusGrid;
+        protected global::System.Web.UI.WebControls.Panel panelStatusGrid;
         
         /// <summary>
         /// btnNewStatus control.
@@ -40,22 +40,22 @@ namespace TouchMediaGUI.Admin {
         protected global::System.Web.UI.WebControls.GridView GridViewStatus;
         
         /// <summary>
-        /// panelSupplierEdit control.
+        /// panelStatusEdit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panelSupplierEdit;
+        protected global::System.Web.UI.WebControls.Panel panelStatusEdit;
         
         /// <summary>
-        /// txtSupplierName control.
+        /// txtStatusName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSupplierName;
+        protected global::System.Web.UI.WebControls.TextBox txtStatusName;
         
         /// <summary>
         /// RequiredFieldValidator1 control.
@@ -67,22 +67,31 @@ namespace TouchMediaGUI.Admin {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
-        /// txtSupplierTelephone control.
+        /// txtStatusNameAr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSupplierTelephone;
+        protected global::System.Web.UI.WebControls.TextBox txtStatusNameAr;
         
         /// <summary>
-        /// txtSupplierAddress control.
+        /// RequiredFieldValidator2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSupplierAddress;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        
+        /// <summary>
+        /// dropDownStatusColor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect dropDownStatusColor;
         
         /// <summary>
         /// btnCancel control.
@@ -101,5 +110,17 @@ namespace TouchMediaGUI.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnSave;
+        
+        /// <summary>
+        /// Master property.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated property.
+        /// </remarks>
+        public new TouchMediaGUI.MasterAr Master {
+            get {
+                return ((TouchMediaGUI.MasterAr)(base.Master));
+            }
+        }
     }
 }
