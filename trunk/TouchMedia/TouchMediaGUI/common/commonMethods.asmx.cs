@@ -56,16 +56,16 @@ namespace TouchMediaGUI.common
         /// <returns>object with List of all Designers</returns>
         public void GetJODesigners()
         {
-            GeneralLookup Desigers = new GeneralLookup();
-            Desigers.LoadByCategoryID(Category.Designers);
+            GeneralLookup Designers = new GeneralLookup();
+            Designers.LoadByCategoryID(Category.Designers);
 
-            List<Models.GeneralLookup> AllDesigers = Desigers.DefaultView.Table.AsEnumerable().Select(row =>
+            List<Models.Designer> AllDesigers = Designers.DefaultView.Table.AsEnumerable().Select(row =>
             {
-                return new Models.GeneralLookup
+                return new Models.Designer
                 {
-                    GeneralLookupID = Convert.ToInt32(row[GeneralLookup.ColumnNames.GeneralLookupID].ToString()),
+                    DesignerID = Convert.ToInt32(row[GeneralLookup.ColumnNames.GeneralLookupID].ToString()),
                     CategoryID = Convert.ToInt32(row[GeneralLookup.ColumnNames.CategoryID].ToString()),
-                    Name = row[GeneralLookup.ColumnNames.Name].ToString(),
+                    DesignerName = row[GeneralLookup.ColumnNames.Name].ToString(),
                     Address = row[GeneralLookup.ColumnNames.Address].ToString(),
                     Email = row[GeneralLookup.ColumnNames.Email].ToString(),
                     Telephone = row[GeneralLookup.ColumnNames.Telephone].ToString(),
@@ -73,14 +73,45 @@ namespace TouchMediaGUI.common
                 };
             }).ToList();
 
-            SetContentResult(Desigers);
+            SetContentResult(AllDesigers);
+            //return _response;
+        }
+
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        /// <summary>
+        /// Get All Designers
+        /// </summary>
+        /// <returns>object with List of all Designers</returns>
+        public void GetDesignDetails(int ID)
+        {
+            DesignDetails details = new DesignDetails();
+            details.GetDesignDetailsByJOID(ID);
+
+            List<Models.DesignDetail> Alldetails = details.DefaultView.Table.AsEnumerable().Select(row =>
+            {
+                return new Models.DesignDetail
+                {
+                    DesignDetailsID = Convert.ToInt32(row[DesignDetails.ColumnNames.DesignDetailsID].ToString()),
+                    DesignerID = Convert.ToInt32(row[DesignDetails.ColumnNames.DesignerID].ToString()),
+                    StartDate = Convert.ToDateTime(row[DesignDetails.ColumnNames.StartDate].ToString()),
+                    EndDate = Convert.ToDateTime(row[DesignDetails.ColumnNames.EndDate].ToString()),
+                    JobOrderStatusID = Convert.ToInt32(row[DesignDetails.ColumnNames.JobOrderStatusID].ToString()),
+                    StatusClass = row["StatusClass"].ToString(),
+                    StatusName = row["StatusName"].ToString(),
+
+                };
+            }).ToList();
+
+            SetContentResult(Alldetails);
             //return _response;
         }
 
 
         private void SetContentResult(dynamic data)
         {
-            string result = Newtonsoft.Json.JsonConvert.SerializeObject(data, Formatting.None, new IsoDateTimeConverter() { DateTimeFormat = "yyyy-MM-dd HH:mm:ss" });
+            string result = JsonConvert.SerializeObject(data, Formatting.None, new IsoDateTimeConverter() { DateTimeFormat = "yyyy-MM-dd HH:mm:ss" });
             HttpContext.Current.Response.ContentType = "application/json; charset=utf-8";
             HttpContext.Current.Response.Write(result);
             HttpContext.Current.Response.Flush(); // Sends all currently buffered output to the client.

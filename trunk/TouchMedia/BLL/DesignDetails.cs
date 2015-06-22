@@ -11,5 +11,16 @@ namespace BLL
 		{
 		
 		}
+
+        public bool GetDesignDetailsByJOID(int JOID)
+        {
+            return LoadFromRawSql(@"select D.*, DN.Name DesignerName, JOS.JobOrderStatusName StatusName, JOS.JobOrderStatusNameAr StatusNameAr, JOS.StatusClass, C.UserName CreatedByName, U.UserName UpdatedByName from DesignDetails D
+                                    inner join JobOrder JO on D.JobOrderID = JO.JobOrderID
+                                    inner join GeneralLookup DN on D.DesignerID = DN.GeneralLookupID
+                                    inner join JobOrderStatus JOS on D.JobOrderStatusID = JOS.JobOrderStatusID
+                                    inner join aspnet_Users C on D.CreatedBy = C.UserId
+                                    inner join aspnet_Users U on D.UpdatedBy = U.UserId
+                                    where Jo.JobOrderID = {0}", JOID);
+        }
 	}
 }

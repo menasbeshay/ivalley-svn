@@ -37,7 +37,17 @@
         .row-fluid [class*="span"] {
             margin-right:0 !important;
         }
+        .checkSections td label {
+            display:inline;
+            padding-right:5px;
+            padding-left:10px;
+        }
+
+        .checkSections {
+            margin-bottom:15px;
+        }
     </style>
+    <link href="js/jqwidgets/styles/jqx.base.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -56,7 +66,7 @@
                 <div class="widget-body">
                     <div class="row-fluid">
                         <div class="span12">
-
+                            <asp:HiddenField runat="server" ID="uiHiddenFieldCurrentJO" ClientIDMode="Static" Value="0" />
                             <asp:Panel ID="uiPanelAll" runat="server">
                                 <asp:GridView ID="uiGridViewJOs" runat="server" AutoGenerateColumns="false">
                                     <Columns>                                        
@@ -116,6 +126,7 @@
     <script type="text/javascript" src="js/jqwidgets/jqxcheckbox.js"></script>
     <script src="js/jqwidgets/jqxmaskedinput.js"></script>
     <script type="text/javascript" src="js/jqwidgets/globalization/globalize.js"></script>
+    <script src="js/jqwidgets/globalization/localization.js"></script>
     <script src="js/JO.js"></script>
 
 </asp:Content>
