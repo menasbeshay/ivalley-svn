@@ -7,56 +7,58 @@
         <div class="span12">
             <h3 class="page-title">الرئيسية
             </h3>
-
             <ul class="breadcrumb">
                 <li>
                     <a href="#"><i class="icon-home"></i></a><span class="divider divider-last">&nbsp;</span>
                 </li>
             </ul>
-
             <div class="clearfix" style="height: 10px"></div>
         </div>
         <div class="row-fluid circle-state-overview" style="text-align: center">
-            <div class="span3"></div>
-            <div class="span5">
+            <div class="span2"></div>
+            <div class="span8">
                 <div class="row-fluid">
                     <div class="span4 responsive clearfix" data-tablet="span4" data-desktop="span4">
-                        <div class="circle-wrap">
-                            <div class="stats-circle turquoise-color">
-                                <i class="icon-briefcase"></i>
+                        <a href="JobOrders.aspx" style="text-decoration:none;">
+                            <div class="circle-wrap">
+                                <div class="stats-circle turquoise-color" style="height:140px;width:140px">
+                                    <i class="icon-briefcase" style="font-size:5em"></i>
+                                </div>
+                                <p>
+                                    <strong>اوامر الشغل</strong>
+                                </p>
                             </div>
-                            <p>
-                                <strong>اوامر الشغل</strong>
-                            </p>
-                        </div>
+                        </a>
                     </div>
                     <div class="span4 responsive clearfix" data-tablet="span4" data-desktop="span4">
-                        <div class="circle-wrap">
-                            <div class="stats-circle red-color">
-                                <i class="icon-truck"></i>
+                        <a href="DeliveryOrder.aspx" style="text-decoration:none;">
+                            <div class="circle-wrap">
+                                <div class="stats-circle red-color" style="height:140px;width:140px">
+                                    <i class="icon-truck" style="font-size:5em"></i>
+                                </div>
+                                <p>
+                                    <strong>اوامر النقل</strong>
+                                </p>
                             </div>
-                            <p>
-                                <strong>اوامر النقل</strong>
-                                
-                            </p>
-                        </div>
+                        </a>
                     </div>
                     <div class="span4 responsive clearfix" data-tablet="span4" data-desktop="span4">
-                        <div class="circle-wrap">
-                            <div class="stats-circle green-color">
-                                <i class="icon-shopping-cart"></i>
+                        <a href="#" style="text-decoration:none;">
+                            <div class="circle-wrap">
+                                <div class="stats-circle green-color" style="height:140px;width:140px">
+                                    <i class="icon-shopping-cart" style="font-size:5em"></i>
+                                </div>
+                                <p>
+                                    <strong>اوامر الشراء</strong>
+                                </p>
                             </div>
-                            <p>
-                                <strong>اوامر الشراء</strong>
-                                
-                            </p>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
         <hr />
-        <div class="row-fluid metro-overview-cont">
+        <%--<div class="row-fluid metro-overview-cont">
             <div data-desktop="span2" data-tablet="span4" class="span2 responsive">
                 <div class="metro-overview turquoise-color clearfix">
                     <div class="display">
@@ -147,6 +149,6 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>--%>
     </div>
 </asp:Content>
