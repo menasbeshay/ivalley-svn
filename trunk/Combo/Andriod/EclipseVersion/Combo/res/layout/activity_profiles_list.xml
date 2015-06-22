@@ -1,0 +1,53 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/parent"
+    tools:context="com.egygames.apps.social.ProfilesListActivity" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <include layout="@layout/header" />
+
+        <ImageButton
+            android:id="@+id/addfriend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:background="@android:color/transparent"
+            android:onClick="addFriend"
+            android:padding="10dp"
+            android:src="@drawable/add_contact" />
+
+        <TextView
+            android:id="@+id/noData"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:onClick="post"
+            android:text="@string/noFriendsAvailable"
+            android:visibility="gone" />
+
+        <com.costum.android.widget.LoadMoreListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="#ffffff"
+            android:divider="@color/list_divider"
+            android:dividerHeight="1dp" />
+
+        <include layout="@layout/tabs" />
+    </LinearLayout>
+
+    <include
+        android:id="@+id/progress"
+        layout="@layout/progress_view" />
+
+</RelativeLayout>

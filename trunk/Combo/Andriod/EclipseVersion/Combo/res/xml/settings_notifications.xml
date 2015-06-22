@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory
+        android:layout="@layout/preference_category_summary"
+        android:summary="@string/follow_request_summery"
+        android:title="@string/follows" >
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="off_follow"
+            android:title="@string/off" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="foll_follow"
+            android:title="@string/follow_people" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="every_follow"
+            android:title="@string/every_one" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:layout="@layout/preference_category_summary"
+        android:summary="@string/follow_request_summery"
+        android:title="@string/accept_follow" >
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="off_accept_follow"
+            android:title="@string/off" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="foll_accept_follow"
+            android:title="@string/follow_people" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="every_accept_follow"
+            android:title="@string/every_one" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:layout="@layout/preference_category_summary"
+        android:summary="@string/like_post_summery"
+        android:title="@string/likes" >
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="off_like"
+            android:title="@string/off" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="foll_like"
+            android:title="@string/follow_people" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="every_like"
+            android:title="@string/every_one" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:layout="@layout/preference_category_summary"
+        android:summary="@string/comments_summery"
+        android:title="@string/comments" >
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="off_comments"
+            android:title="@string/off" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="foll_comments"
+            android:title="@string/follow_people" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="every_comments"
+            android:title="@string/every_one" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:layout="@layout/preference_category_summary"
+        android:summary="@string/repost_summery"
+        android:title="@string/repost" >
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="off_repost"
+            android:title="@string/off" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="foll_repost"
+            android:title="@string/follow_people" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="every_repost"
+            android:title="@string/every_one" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:layout="@layout/preference_category_summary"
+        android:summary="@string/birthday_summery"
+        android:title="@string/birthday" >
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="off_birthday"
+            android:title="@string/off" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="foll_birthday"
+            android:title="@string/follow_people" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="every_birthday"
+            android:title="@string/every_one" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:layout="@layout/preference_category_summary"
+        android:summary="@string/mentions_summery"
+        android:title="@string/mentions" >
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="off_mentions"
+            android:title="@string/off" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="foll_mentions"
+            android:title="@string/follow_people" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="every_mentions"
+            android:title="@string/every_one" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:layout="@layout/preference_category_summary"
+        android:summary="@string/chat_summery"
+        android:title="@string/chat_msg" >
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="off_chat"
+            android:title="@string/off" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="foll_chat"
+            android:title="@string/follow_people" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="every_chat"
+            android:title="@string/every_one" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:layout="@layout/preference_category_summary"
+        android:summary="@string/rank_summery"
+        android:title="@string/rank" >
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="off_rank"
+            android:title="@string/off" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="every_rank"
+            android:title="@string/on" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="kinvey_orange">#DA5024</color>
+    <color name="form_highlight">#3A3A3A</color>
+    <color name="hint_color">#a2aa9c</color>
+    <color name="ghost_white">#F8F8FF</color>
+    <color name="ebony">#ffffff</color>
+    <color name="button_bg">#520a76</color>
+    <color name="list_divider">#20520a76</color>
+    <color name="list_divider_post">#bdbdbd</color>
+    <color name="background_tab_pressed">#ff520a76</color>
+    <color name="background">#ffffff </color>
+    <color name="material_blue_500">#5677fc</color>
+    <color name="primary">#3f51b5</color>
+    <color name="primary_dark">#303f9f</color>
+    <color name="ripple">#F06292</color>
+    <color name="accent">#E91E63</color>
+    <color name="accent_pressed">#C2185B</color>
+    
+
+</resources>

@@ -1,0 +1,56 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    tools:context="com.egygames.apps.social.ResetSecurityWord" >
+
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/rounded_bg"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/etSecurityAnswerOld"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/view_break"
+            android:hint="@string/enter_answer"
+            android:textColor="@color/ebony"
+            android:textColorHint="@color/hint_color" />
+
+        <EditText
+            android:id="@+id/etSecurityAnswer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/view_break"
+            android:hint="@string/enter_new_answer"
+            android:textColor="@color/ebony"
+            android:textColorHint="@color/hint_color" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="50dp"
+            android:layout_weight="1"
+            android:background="@color/button_bg"
+            android:minHeight="10dp"
+            android:onClick="save"
+            android:padding="5dp"
+            android:text="@string/save"
+            android:textColor="@color/ghost_white" />
+    </LinearLayout>
+
+    <include
+        android:id="@+id/progress"
+        layout="@layout/progress_view"
+        android:visibility="gone" />
+
+</RelativeLayout>

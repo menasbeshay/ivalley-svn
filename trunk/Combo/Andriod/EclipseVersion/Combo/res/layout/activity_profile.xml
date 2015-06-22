@@ -1,0 +1,508 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res/com.combomobile"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+ 
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        android:orientation="vertical"
+        android:id="@+id/fullscreen_content"
+        tools:context="com.egygames.apps.social.ProfileActivity" >
+
+        <include layout="@layout/header3" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/tabs"
+            android:layout_below="@+id/header"
+            android:id="@+id/scrollview"
+            android:layout_margin="0dp" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:id="@+id/coverPhoto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="0dp"
+                    android:background="@drawable/cover_default"
+                    android:orientation="vertical" >
+
+                    <RelativeLayout
+                        android:id="@+id/linear_follow_request"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/follow_request_bg2"
+                        android:visibility="gone" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center_vertical"
+                            android:layout_margin="5dp"
+                            android:layout_toLeftOf="@+id/acceptFollowRequest"
+                            android:text="@string/userfollowyou"
+                            android:textColor="#ffffff"
+                            android:textSize="15sp" />
+
+                        <ImageView
+                            android:id="@+id/acceptFollowRequest"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_centerVertical="true"
+                            android:layout_toLeftOf="@+id/rejectFollowRequest"
+                            android:onClick="acceptFollowRequest"
+                            android:padding="5dp"
+                            android:src="@drawable/sign_true"
+                            android:textColor="#ffffff"
+                            android:visibility="visible" />
+
+                        <ImageView
+                            android:id="@+id/rejectFollowRequest"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="5dp"
+                            android:onClick="rejectFollowRequest"
+                            android:padding="5dp"
+                            android:src="@drawable/sign_false"
+                            android:textColor="#ffffff"
+                            android:visibility="visible" />
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal"
+                        android:weightSum="4" >
+
+                        <com.egygames.apps.social.views.CircleImageView
+                            android:id="@+id/profileImage"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:src="@drawable/profile" />
+
+                        <TextView
+                            android:id="@+id/userUserName"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="10dp"
+                            android:layout_weight="3"
+                            android:gravity="left"
+                            android:textColor="#ffffff"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/bio"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="5dp"
+                        android:lines="3"
+                        android:textColor="#ffffff"
+                        android:textSize="15sp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal" >
+
+                        <Button
+                            android:id="@+id/addAsFriend"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="5dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@drawable/profile_buttons_bg"
+                            android:minHeight="30dp"
+                            android:minWidth="10dp"
+                            android:onClick="addFriend"
+                            android:text="@string/addAsAFriend"
+                            android:textColor="#ffffff"
+                            android:visibility="gone" />
+
+                        <Button
+                            android:id="@+id/unFriend"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="5dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@drawable/profile_buttons_bg"
+                            android:minHeight="30dp"
+                            android:minWidth="10dp"
+                            android:onClick="unFriend"
+                            android:text="@string/unFriend"
+                            android:textColor="#ffffff"
+                            android:visibility="gone" />
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" >
+
+                        <LinearLayout
+                            android:id="@+id/linear_follow_edit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="35dp"
+                            android:layout_alignLeft="@+id/linear_follow_options"
+                            android:layout_alignRight="@+id/linear_follow_options"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginTop="2dp"
+                            android:orientation="horizontal"
+                            android:visibility="visible" >
+
+                            <Button
+                                android:id="@+id/follow"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/rounded_profile"
+                                android:onClick="follow"
+                                android:text="@string/follow"
+                                android:textColor="#ffffff"
+                                android:visibility="gone" />
+
+                            <Button
+                                android:id="@+id/unfollow"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/rounded_following"
+                                android:onClick="unfollow"
+                                android:text="@string/unfollow"
+                                android:textColor="#ffffff"
+                                android:visibility="gone" />
+
+                            <Button
+                                android:id="@+id/request_sent"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/rounded_request_following"
+                                android:enabled="false"
+                                android:text="@string/request_sent"
+                                android:textColor="#ffffff"
+                                android:visibility="gone" />
+
+                            <Button
+                                android:id="@+id/editProfile"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:background="@drawable/rounded_profile"
+                                android:onClick="editProfile"
+                                android:text="@string/editProfle"
+                                android:textColor="#ffffff"
+                                android:visibility="gone" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/linear_follow_options"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/linear_follow_edit"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginLeft="60dp"
+                            android:layout_marginRight="60dp"
+                            android:layout_marginTop="5dp"
+                            android:orientation="horizontal" >
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical" >
+
+                                <TextView
+                                    android:id="@+id/postsCount"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:textColor="#ffffff" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:text="@string/posts"
+                                    android:textColor="#ffffff" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal|center_vertical"
+                                android:layout_weight="1"
+                                android:onClick="openFollowers"
+                                android:orientation="vertical" >
+
+                                <TextView
+                                    android:id="@+id/following"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:textColor="#ffffff" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:text="@string/followers"
+                                    android:textColor="#ffffff" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:onClick="openFollowings"
+                                android:orientation="vertical" >
+
+                                <TextView
+                                    android:id="@+id/flowersCount"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:textColor="#ffffff" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:text="@string/following"
+                                    android:textColor="#ffffff" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <!-- Here was Include -->
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_margin="10dp"
+                        android:orientation="horizontal" >
+
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:src="@drawable/like_profile" />
+
+                        <TextView
+                            android:id="@+id/likesCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="5dp"
+                            android:gravity="center"
+                            android:textColor="#ffffff" />
+
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="10dp"
+                            android:onClick="location"
+                            android:src="@drawable/location_icon" />
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+
+                        <com.egygames.apps.social.views.DynamicImageView
+                            android:id="@+id/countryFlag"
+                            android:layout_width="30dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:scaleType="centerCrop" />
+
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:onClick="userLevels"
+                            android:src="@drawable/ranking_icon" />
+
+                        <TextView
+                            android:id="@+id/rankingCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="5dp"
+                            android:gravity="center"
+                            android:textColor="#ffffff" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/viewType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:orientation="horizontal" >
+
+                    <ImageButton
+                        android:id="@+id/iv_list_list"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:onClick="grid"
+                        android:padding="5dp"
+                        android:src="@drawable/grid_icon"
+                        android:visibility="gone" />
+
+                    <ImageButton
+                        android:id="@+id/iv_category"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:background="@drawable/grid_icon"
+                        android:onClick="list" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/messagesCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:onClick="messages"
+                        android:padding="5dp"
+                        android:src="@drawable/msgs_icon"
+                        android:visibility="gone" />
+
+                    <ImageButton
+                        android:layout_width="30dp"
+                        android:layout_height="25dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/chatroom"
+                        android:onClick="openChat"
+                        android:padding="2dp" />
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:background="@android:color/transparent"
+                        android:onClick="popupMenu"
+                        android:padding="5dp"
+                        android:src="@drawable/sort_icon" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/privateAccountTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingTop="30dp"
+                    android:text="@string/thisIsPrivateAccount"
+                    android:textColor="#808080"
+                    android:visibility="gone" />
+
+                <com.egygames.apps.social.views.ExpandableHeightGridView
+                    android:id="@+id/feedsGridView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#e7e7e7"
+                    android:clickable="true"
+                    android:horizontalSpacing="2dp"
+                    android:isScrollContainer="false"
+                    android:numColumns="3"
+                    android:stretchMode="columnWidth"
+                    android:verticalSpacing="2dp"
+                    android:visibility="gone" />
+
+                <com.egygames.apps.social.views.ExpandableHeightGridView
+                    android:id="@+id/feedsListView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#e6e6e6"
+                    android:clickable="true"
+                    android:horizontalSpacing="1dp"
+                    android:isScrollContainer="false"
+                    android:numColumns="1"
+                    android:padding="15dp"
+                    android:stretchMode="columnWidth"
+                    android:verticalSpacing="10dp"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </ScrollView>
+
+        <include layout="@layout/tabs" />
+    </RelativeLayout>
+
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:layout_gravity="bottom" >
+
+        <LinearLayout
+            android:id="@+id/fullscreen_content_controls"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            
+            android:layout_gravity="bottom|center_horizontal"
+            android:background="#0000"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal|top"
+            tools:ignore="UselessParent" >
+
+            <ImageView
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|right"
+                android:layout_margin="16dp"
+                android:src="@drawable/floatingcreate"
+                 />
+        </LinearLayout>
+    </FrameLayout>
+
+</FrameLayout>

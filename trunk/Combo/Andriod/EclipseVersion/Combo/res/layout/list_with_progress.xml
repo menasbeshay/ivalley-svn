@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff" >
+
+    <TextView
+        android:id="@+id/noData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:onClick="post"
+        android:text="@string/noFriendsAvailable"
+        android:visibility="gone" />
+
+    <com.costum.android.widget.LoadMoreListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="#ffffff"
+        android:divider="@color/list_divider"
+        android:dividerHeight="1dp" />
+
+    <include
+        android:id="@+id/progress"
+        layout="@layout/progress_view" />
+
+</RelativeLayout>

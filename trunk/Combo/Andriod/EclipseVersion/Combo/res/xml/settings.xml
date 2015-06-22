@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="@string/Friends" >
+        <Preference
+            android:key="addFriend"
+            android:title="@string/findFriends" />
+        <Preference
+            android:key="inviteAfriend"
+            android:title="@string/inviteFriends" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/settings" >
+        <Preference
+            android:key="enablenofifications"
+            android:title="@string/receiveNotifications" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/support" >
+        <Preference
+            android:key="reportAproblem"
+            android:title="@string/reportProblem" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/about" >
+        <Preference
+            android:key="privacyPolicy"
+            android:title="@string/privacyPolicy" />
+        <Preference
+            android:key="termsofService"
+            android:title="@string/termsofService" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/account" >
+        <Preference
+            android:key="likedPosts"
+            android:title="@string/postsYouLiked" />
+
+        <CheckBoxPreference
+            android:key="privateAccount"
+            android:summary="@string/privateAccountSummary"
+            android:title="@string/privateAccount" />
+
+        <Preference
+            android:key="logout"
+            android:title="@string/logout" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

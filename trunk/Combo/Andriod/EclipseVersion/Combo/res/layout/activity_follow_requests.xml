@@ -1,0 +1,32 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.egygames.apps.social.NotificationsActivity" >
+
+    <include layout="@layout/header" />
+
+    <TextView
+        android:id="@+id/noData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:onClick="post"
+        android:text="@string/noNotificationsAvailable"
+        android:visibility="gone" />
+
+    <com.costum.android.widget.PullAndLoadListView
+        android:id="@+id/feedsList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tabs"
+        android:layout_below="@+id/header"
+        android:divider="@color/list_divider"
+        android:dividerHeight="1dp"
+        android:listSelector="@android:color/transparent" />
+
+    <include layout="@layout/tabs" />
+
+
+</RelativeLayout>

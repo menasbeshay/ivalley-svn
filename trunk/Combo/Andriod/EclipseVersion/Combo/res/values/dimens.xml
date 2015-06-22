@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="button_min_width">96dp</dimen>
+    <dimen name="top_text_margin">130dp</dimen>
+    <dimen name="button_margin">34dp</dimen>
+    <dimen name="login_spacing">18dp</dimen>
+    <dimen name="view_break">15dp</dimen>
+    <dimen name="form_padding">6dp</dimen>
+    <dimen name="layout_margin">6dp</dimen>
+    <dimen name="layout_shadow_height">1dp</dimen>
+    <dimen name="subtitle_minimum_font_size">13sp</dimen>
+    <dimen name="keyboard_height">230dip</dimen>
+    <dimen name="fab_size_normal">56dp</dimen>
+    <dimen name="fab_size_mini">40dp</dimen>
+    <dimen name="fab_shadow_size">12dp</dimen>
+
+    <dimen name="fab_scroll_threshold">4dp</dimen>
+    <dimen name="fab_elevation_lollipop">8dp</dimen>
+    <dimen name="fab_press_translation_z">6dp</dimen>
+    
+
+</resources>

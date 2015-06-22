@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:layout_margin="5dp"
+    android:orientation="horizontal" >
+
+    <com.egygames.apps.social.views.CircleImageView
+        android:id="@+id/profiel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:src="@drawable/profile"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/userName"
+        android:layout_width="197dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/follow"
+        android:layout_below="@+id/profiel"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/follow"
+        android:paddingLeft="10dp"
+        android:textColor="@color/button_bg"
+        android:textSize="9pt" />
+
+    <Button
+        android:id="@+id/follow"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="10dp"
+        android:background="@drawable/rounded_unfollowing"
+        android:onClick="follow"
+        android:padding="5dp"
+        android:textSize="8pt"
+        android:text="@string/follow"
+        android:textColor="#ff520975" />
+
+</RelativeLayout>

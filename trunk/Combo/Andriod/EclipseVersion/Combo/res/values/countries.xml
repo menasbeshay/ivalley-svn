@@ -1,0 +1,736 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="countries">
+        <item>2</item>
+        <item>/img/flags/Afghanistan.png</item>
+        <item>Afghanistan</item>
+        <item>3</item>
+        <item>/img/flags/African Union(OAS).png</item>
+        <item>African Union(OAS)</item>
+        <item>4</item>
+        <item>/img/flags/Albania.png</item>
+        <item>Albania</item>
+        <item>5</item>
+        <item>/img/flags/Algeria.png</item>
+        <item>Algeria</item>
+        <item>6</item>
+        <item>/img/flags/American Samoa.png</item>
+        <item>American Samoa</item>
+        <item>7</item>
+        <item>/img/flags/Andorra.png</item>
+        <item>Andorra</item>
+        <item>8</item>
+        <item>/img/flags/Angola.png</item>
+        <item>Angola</item>
+        <item>9</item>
+        <item>/img/flags/Anguilla.png</item>
+        <item>Anguilla</item>
+        <item>10</item>
+        <item>/img/flags/Antarctica.png</item>
+        <item>Antarctica</item>
+        <item>11</item>
+        <item>/img/flags/Antigua &amp; Barbuda.png</item>
+        <item>Antigua &amp; Barbuda</item>
+        <item>12</item>
+        <item>/img/flags/Arab League.png</item>
+        <item>Arab League</item>
+        <item>13</item>
+        <item>/img/flags/Argentina.png</item>
+        <item>Argentina</item>
+        <item>14</item>
+        <item>/img/flags/Armenia.png</item>
+        <item>Armenia</item>
+        <item>15</item>
+        <item>/img/flags/Aruba.png</item>
+        <item>Aruba</item>
+        <item>16</item>
+        <item>/img/flags/ASEAN.png</item>
+        <item>ASEAN</item>
+        <item>17</item>
+        <item>/img/flags/Australia.png</item>
+        <item>Australia</item>
+        <item>18</item>
+        <item>/img/flags/Austria.png</item>
+        <item>Austria</item>
+        <item>19</item>
+        <item>/img/flags/Azerbaijan.png</item>
+        <item>Azerbaijan</item>
+        <item>20</item>
+        <item>/img/flags/Bahamas.png</item>
+        <item>Bahamas</item>
+        <item>21</item>
+        <item>/img/flags/Bahrain.png</item>
+        <item>Bahrain</item>
+        <item>22</item>
+        <item>/img/flags/Bangladesh.png</item>
+        <item>Bangladesh</item>
+        <item>23</item>
+        <item>/img/flags/Barbados.png</item>
+        <item>Barbados</item>
+        <item>24</item>
+        <item>/img/flags/Belarus.png</item>
+        <item>Belarus</item>
+        <item>25</item>
+        <item>/img/flags/Belgium.png</item>
+        <item>Belgium</item>
+        <item>26</item>
+        <item>/img/flags/Belize.png</item>
+        <item>Belize</item>
+        <item>27</item>
+        <item>/img/flags/Benin.png</item>
+        <item>Benin</item>
+        <item>28</item>
+        <item>/img/flags/Bermuda.png</item>
+        <item>Bermuda</item>
+        <item>29</item>
+        <item>/img/flags/Bhutan.png</item>
+        <item>Bhutan</item>
+        <item>30</item>
+        <item>/img/flags/Bolivia.png</item>
+        <item>Bolivia</item>
+        <item>31</item>
+        <item>/img/flags/Bosnia &amp; Herzegovina.png</item>
+        <item>Bosnia &amp; Herzegovina</item>
+        <item>32</item>
+        <item>/img/flags/Botswana.png</item>
+        <item>Botswana</item>
+        <item>33</item>
+        <item>/img/flags/Brazil.png</item>
+        <item>Brazil</item>
+        <item>34</item>
+        <item>/img/flags/Brunei.png</item>
+        <item>Brunei</item>
+        <item>35</item>
+        <item>/img/flags/Bulgaria.png</item>
+        <item>Bulgaria</item>
+        <item>36</item>
+        <item>/img/flags/Burkina Faso.png</item>
+        <item>Burkina Faso</item>
+        <item>37</item>
+        <item>/img/flags/Burundi.png</item>
+        <item>Burundi</item>
+        <item>38</item>
+        <item>/img/flags/Cambodja.png</item>
+        <item>Cambodja</item>
+        <item>39</item>
+        <item>/img/flags/Cameroon.png</item>
+        <item>Cameroon</item>
+        <item>40</item>
+        <item>/img/flags/Canada.png</item>
+        <item>Canada</item>
+        <item>41</item>
+        <item>/img/flags/Cape Verde.png</item>
+        <item>Cape Verde</item>
+        <item>42</item>
+        <item>/img/flags/CARICOM.png</item>
+        <item>CARICOM</item>
+        <item>43</item>
+        <item>/img/flags/Cayman Islands.png</item>
+        <item>Cayman Islands</item>
+        <item>44</item>
+        <item>/img/flags/Central African Republic.png</item>
+        <item>Central African Republic</item>
+        <item>45</item>
+        <item>/img/flags/Chad.png</item>
+        <item>Chad</item>
+        <item>46</item>
+        <item>/img/flags/Chile.png</item>
+        <item>Chile</item>
+        <item>47</item>
+        <item>/img/flags/China.png</item>
+        <item>China</item>
+        <item>48</item>
+        <item>/img/flags/CIS.png</item>
+        <item>CIS</item>
+        <item>49</item>
+        <item>/img/flags/Colombia.png</item>
+        <item>Colombia</item>
+        <item>50</item>
+        <item>/img/flags/Commonwealth.png</item>
+        <item>Commonwealth</item>
+        <item>51</item>
+        <item>/img/flags/Comoros.png</item>
+        <item>Comoros</item>
+        <item>52</item>
+        <item>/img/flags/Congo-Brazzaville.png</item>
+        <item>Congo-Brazzaville</item>
+        <item>53</item>
+        <item>/img/flags/Congo-Kinshasa(Zaire).png</item>
+        <item>Congo-Kinshasa(Zaire)</item>
+        <item>54</item>
+        <item>/img/flags/Cook Islands.png</item>
+        <item>Cook Islands</item>
+        <item>55</item>
+        <item>/img/flags/Costa Rica.png</item>
+        <item>Costa Rica</item>
+        <item>56</item>
+        <item>/img/flags/Cote d\'Ivoire.png</item>
+        <item>Cote d\'Ivoire</item>
+        <item>57</item>
+        <item>/img/flags/Croatia.png</item>
+        <item>Croatia</item>
+        <item>58</item>
+        <item>/img/flags/Cuba.png</item>
+        <item>Cuba</item>
+        <item>59</item>
+        <item>/img/flags/Cyprus.png</item>
+        <item>Cyprus</item>
+        <item>60</item>
+        <item>/img/flags/Czech Republic.png</item>
+        <item>Czech Republic</item>
+        <item>61</item>
+        <item>/img/flags/Denmark.png</item>
+        <item>Denmark</item>
+        <item>62</item>
+        <item>/img/flags/Djibouti.png</item>
+        <item>Djibouti</item>
+        <item>63</item>
+        <item>/img/flags/Dominica.png</item>
+        <item>Dominica</item>
+        <item>64</item>
+        <item>/img/flags/Dominican Republic.png</item>
+        <item>Dominican Republic</item>
+        <item>65</item>
+        <item>/img/flags/Ecuador.png</item>
+        <item>Ecuador</item>
+        <item>66</item>
+        <item>/img/flags/Egypt.png</item>
+        <item>Egypt</item>
+        <item>67</item>
+        <item>/img/flags/El Salvador.png</item>
+        <item>El Salvador</item>
+        <item>68</item>
+        <item>/img/flags/England.png</item>
+        <item>England</item>
+        <item>69</item>
+        <item>/img/flags/Equatorial Guinea.png</item>
+        <item>Equatorial Guinea</item>
+        <item>70</item>
+        <item>/img/flags/Eritrea.png</item>
+        <item>Eritrea</item>
+        <item>71</item>
+        <item>/img/flags/Estonia.png</item>
+        <item>Estonia</item>
+        <item>72</item>
+        <item>/img/flags/Ethiopia.png</item>
+        <item>Ethiopia</item>
+        <item>73</item>
+        <item>/img/flags/European Union.png</item>
+        <item>European Union</item>
+        <item>74</item>
+        <item>/img/flags/Faroes.png</item>
+        <item>Faroes</item>
+        <item>75</item>
+        <item>/img/flags/Fiji.png</item>
+        <item>Fiji</item>
+        <item>76</item>
+        <item>/img/flags/Finland.png</item>
+        <item>Finland</item>
+        <item>77</item>
+        <item>/img/flags/France.png</item>
+        <item>France</item>
+        <item>78</item>
+        <item>/img/flags/Gabon.png</item>
+        <item>Gabon</item>
+        <item>79</item>
+        <item>/img/flags/Gambia.png</item>
+        <item>Gambia</item>
+        <item>80</item>
+        <item>/img/flags/Georgia.png</item>
+        <item>Georgia</item>
+        <item>81</item>
+        <item>/img/flags/Germany.png</item>
+        <item>Germany</item>
+        <item>82</item>
+        <item>/img/flags/Ghana.png</item>
+        <item>Ghana</item>
+        <item>83</item>
+        <item>/img/flags/Gibraltar.png</item>
+        <item>Gibraltar</item>
+        <item>84</item>
+        <item>/img/flags/Greece.png</item>
+        <item>Greece</item>
+        <item>85</item>
+        <item>/img/flags/Greenland.png</item>
+        <item>Greenland</item>
+        <item>86</item>
+        <item>/img/flags/Grenada.png</item>
+        <item>Grenada</item>
+        <item>87</item>
+        <item>/img/flags/Guadeloupe.png</item>
+        <item>Guadeloupe</item>
+        <item>88</item>
+        <item>/img/flags/Guam.png</item>
+        <item>Guam</item>
+        <item>89</item>
+        <item>/img/flags/Guatemala.png</item>
+        <item>Guatemala</item>
+        <item>90</item>
+        <item>/img/flags/Guernsey.png</item>
+        <item>Guernsey</item>
+        <item>91</item>
+        <item>/img/flags/Guinea-Bissau.png</item>
+        <item>Guinea-Bissau</item>
+        <item>92</item>
+        <item>/img/flags/Guinea.png</item>
+        <item>Guinea</item>
+        <item>93</item>
+        <item>/img/flags/Guyana.png</item>
+        <item>Guyana</item>
+        <item>94</item>
+        <item>/img/flags/Haiti.png</item>
+        <item>Haiti</item>
+        <item>95</item>
+        <item>/img/flags/Honduras.png</item>
+        <item>Honduras</item>
+        <item>96</item>
+        <item>/img/flags/Hong Kong.png</item>
+        <item>Hong Kong</item>
+        <item>97</item>
+        <item>/img/flags/Hungary.png</item>
+        <item>Hungary</item>
+        <item>98</item>
+        <item>/img/flags/Iceland.png</item>
+        <item>Iceland</item>
+        <item>99</item>
+        <item>/img/flags/India.png</item>
+        <item>India</item>
+        <item>100</item>
+        <item>/img/flags/Indonesia.png</item>
+        <item>Indonesia</item>
+        <item>101</item>
+        <item>/img/flags/Iran.png</item>
+        <item>Iran</item>
+        <item>102</item>
+        <item>/img/flags/Iraq.png</item>
+        <item>Iraq</item>
+        <item>103</item>
+        <item>/img/flags/Ireland.png</item>
+        <item>Ireland</item>
+        <item>104</item>
+        <item>/img/flags/Islamic Conference.png</item>
+        <item>Islamic Conference</item>
+        <item>105</item>
+        <item>/img/flags/Isle of Man.png</item>
+        <item>Isle of Man</item>
+        <item>106</item>
+        <item>/img/flags/Israel.png</item>
+        <item>Israel</item>
+        <item>107</item>
+        <item>/img/flags/Italy.png</item>
+        <item>Italy</item>
+        <item>108</item>
+        <item>/img/flags/Jamaica.png</item>
+        <item>Jamaica</item>
+        <item>109</item>
+        <item>/img/flags/Japan.png</item>
+        <item>Japan</item>
+        <item>110</item>
+        <item>/img/flags/Jersey.png</item>
+        <item>Jersey</item>
+        <item>111</item>
+        <item>/img/flags/Jordan.png</item>
+        <item>Jordan</item>
+        <item>112</item>
+        <item>/img/flags/Kazakhstan.png</item>
+        <item>Kazakhstan</item>
+        <item>113</item>
+        <item>/img/flags/Kenya.png</item>
+        <item>Kenya</item>
+        <item>114</item>
+        <item>/img/flags/Kiribati.png</item>
+        <item>Kiribati</item>
+        <item>115</item>
+        <item>/img/flags/Kosovo.png</item>
+        <item>Kosovo</item>
+        <item>116</item>
+        <item>/img/flags/Kuwait.png</item>
+        <item>Kuwait</item>
+        <item>117</item>
+        <item>/img/flags/Kyrgyzstan.png</item>
+        <item>Kyrgyzstan</item>
+        <item>118</item>
+        <item>/img/flags/Laos.png</item>
+        <item>Laos</item>
+        <item>119</item>
+        <item>/img/flags/Latvia.png</item>
+        <item>Latvia</item>
+        <item>120</item>
+        <item>/img/flags/Lebanon.png</item>
+        <item>Lebanon</item>
+        <item>121</item>
+        <item>/img/flags/Lesotho.png</item>
+        <item>Lesotho</item>
+        <item>122</item>
+        <item>/img/flags/Liberia.png</item>
+        <item>Liberia</item>
+        <item>123</item>
+        <item>/img/flags/Libya.png</item>
+        <item>Libya</item>
+        <item>124</item>
+        <item>/img/flags/Liechtenstein.png</item>
+        <item>Liechtenstein</item>
+        <item>125</item>
+        <item>/img/flags/LIthuania.png</item>
+        <item>LIthuania</item>
+        <item>126</item>
+        <item>/img/flags/Luxembourg.png</item>
+        <item>Luxembourg</item>
+        <item>127</item>
+        <item>/img/flags/Macao.png</item>
+        <item>Macao</item>
+        <item>128</item>
+        <item>/img/flags/Macedonia.png</item>
+        <item>Macedonia</item>
+        <item>129</item>
+        <item>/img/flags/Madagascar.png</item>
+        <item>Madagascar</item>
+        <item>130</item>
+        <item>/img/flags/Malawi.png</item>
+        <item>Malawi</item>
+        <item>131</item>
+        <item>/img/flags/Malaysia.png</item>
+        <item>Malaysia</item>
+        <item>132</item>
+        <item>/img/flags/Maldives.png</item>
+        <item>Maldives</item>
+        <item>133</item>
+        <item>/img/flags/Mali.png</item>
+        <item>Mali</item>
+        <item>134</item>
+        <item>/img/flags/Malta.png</item>
+        <item>Malta</item>
+        <item>135</item>
+        <item>/img/flags/Marshall Islands.png</item>
+        <item>Marshall Islands</item>
+        <item>136</item>
+        <item>/img/flags/Martinique.png</item>
+        <item>Martinique</item>
+        <item>137</item>
+        <item>/img/flags/Mauritania.png</item>
+        <item>Mauritania</item>
+        <item>138</item>
+        <item>/img/flags/Mauritius.png</item>
+        <item>Mauritius</item>
+        <item>139</item>
+        <item>/img/flags/Mexico.png</item>
+        <item>Mexico</item>
+        <item>140</item>
+        <item>/img/flags/Micronesia.png</item>
+        <item>Micronesia</item>
+        <item>141</item>
+        <item>/img/flags/Moldova.png</item>
+        <item>Moldova</item>
+        <item>142</item>
+        <item>/img/flags/Monaco.png</item>
+        <item>Monaco</item>
+        <item>143</item>
+        <item>/img/flags/Mongolia.png</item>
+        <item>Mongolia</item>
+        <item>144</item>
+        <item>/img/flags/Montenegro.png</item>
+        <item>Montenegro</item>
+        <item>145</item>
+        <item>/img/flags/Montserrat.png</item>
+        <item>Montserrat</item>
+        <item>146</item>
+        <item>/img/flags/Morocco.png</item>
+        <item>Morocco</item>
+        <item>147</item>
+        <item>/img/flags/Mozambique.png</item>
+        <item>Mozambique</item>
+        <item>148</item>
+        <item>/img/flags/Myanmar(Burma).png</item>
+        <item>Myanmar(Burma)</item>
+        <item>149</item>
+        <item>/img/flags/Namibia.png</item>
+        <item>Namibia</item>
+        <item>150</item>
+        <item>/img/flags/NATO.png</item>
+        <item>NATO</item>
+        <item>151</item>
+        <item>/img/flags/Nauru.png</item>
+        <item>Nauru</item>
+        <item>152</item>
+        <item>/img/flags/Nepal.png</item>
+        <item>Nepal</item>
+        <item>153</item>
+        <item>/img/flags/Netherlands Antilles.png</item>
+        <item>Netherlands Antilles</item>
+        <item>154</item>
+        <item>/img/flags/Netherlands.png</item>
+        <item>Netherlands</item>
+        <item>155</item>
+        <item>/img/flags/New Caledonia.png</item>
+        <item>New Caledonia</item>
+        <item>156</item>
+        <item>/img/flags/New Zealand.png</item>
+        <item>New Zealand</item>
+        <item>157</item>
+        <item>/img/flags/Nicaragua.png</item>
+        <item>Nicaragua</item>
+        <item>158</item>
+        <item>/img/flags/Niger.png</item>
+        <item>Niger</item>
+        <item>159</item>
+        <item>/img/flags/Nigeria.png</item>
+        <item>Nigeria</item>
+        <item>160</item>
+        <item>/img/flags/North Korea.png</item>
+        <item>North Korea</item>
+        <item>161</item>
+        <item>/img/flags/Northern Cyprus.png</item>
+        <item>Northern Cyprus</item>
+        <item>162</item>
+        <item>/img/flags/Northern Ireland.png</item>
+        <item>Northern Ireland</item>
+        <item>163</item>
+        <item>/img/flags/Norway.png</item>
+        <item>Norway</item>
+        <item>164</item>
+        <item>/img/flags/Olimpic Movement.png</item>
+        <item>Olimpic Movement</item>
+        <item>165</item>
+        <item>/img/flags/Oman.png</item>
+        <item>Oman</item>
+        <item>166</item>
+        <item>/img/flags/OPEC.png</item>
+        <item>OPEC</item>
+        <item>167</item>
+        <item>/img/flags/Pakistan.png</item>
+        <item>Pakistan</item>
+        <item>168</item>
+        <item>/img/flags/Palau.png</item>
+        <item>Palau</item>
+        <item>169</item>
+        <item>/img/flags/Palestine.png</item>
+        <item>Palestine</item>
+        <item>170</item>
+        <item>/img/flags/Panama.png</item>
+        <item>Panama</item>
+        <item>171</item>
+        <item>/img/flags/Papua New Guinea.png</item>
+        <item>Papua New Guinea</item>
+        <item>172</item>
+        <item>/img/flags/Paraguay.png</item>
+        <item>Paraguay</item>
+        <item>173</item>
+        <item>/img/flags/Peru.png</item>
+        <item>Peru</item>
+        <item>174</item>
+        <item>/img/flags/Philippines.png</item>
+        <item>Philippines</item>
+        <item>175</item>
+        <item>/img/flags/Poland.png</item>
+        <item>Poland</item>
+        <item>176</item>
+        <item>/img/flags/Portugal.png</item>
+        <item>Portugal</item>
+        <item>177</item>
+        <item>/img/flags/Puerto Rico.png</item>
+        <item>Puerto Rico</item>
+        <item>178</item>
+        <item>/img/flags/Qatar.png</item>
+        <item>Qatar</item>
+        <item>179</item>
+        <item>/img/flags/Red Cross.png</item>
+        <item>Red Cross</item>
+        <item>180</item>
+        <item>/img/flags/Reunion.png</item>
+        <item>Reunion</item>
+        <item>181</item>
+        <item>/img/flags/Romania.png</item>
+        <item>Romania</item>
+        <item>182</item>
+        <item>/img/flags/Russian Federation.png</item>
+        <item>Russian Federation</item>
+        <item>183</item>
+        <item>/img/flags/Rwanda.png</item>
+        <item>Rwanda</item>
+        <item>184</item>
+        <item>/img/flags/Saint Lucia.png</item>
+        <item>Saint Lucia</item>
+        <item>185</item>
+        <item>/img/flags/Samoa.png</item>
+        <item>Samoa</item>
+        <item>186</item>
+        <item>/img/flags/San Marino.png</item>
+        <item>San Marino</item>
+        <item>187</item>
+        <item>/img/flags/Sao Tome &amp; Principe.png</item>
+        <item>Sao Tome &amp; Principe</item>
+        <item>188</item>
+        <item>/img/flags/Saudi Arabia.png</item>
+        <item>Saudi Arabia</item>
+        <item>189</item>
+        <item>/img/flags/Scotland.png</item>
+        <item>Scotland</item>
+        <item>190</item>
+        <item>/img/flags/Senegal.png</item>
+        <item>Senegal</item>
+        <item>191</item>
+        <item>/img/flags/Serbia(Yugoslavia).png</item>
+        <item>Serbia(Yugoslavia)</item>
+        <item>192</item>
+        <item>/img/flags/Seychelles.png</item>
+        <item>Seychelles</item>
+        <item>193</item>
+        <item>/img/flags/Sierra Leone.png</item>
+        <item>Sierra Leone</item>
+        <item>194</item>
+        <item>/img/flags/Singapore.png</item>
+        <item>Singapore</item>
+        <item>195</item>
+        <item>/img/flags/Slovakia.png</item>
+        <item>Slovakia</item>
+        <item>196</item>
+        <item>/img/flags/Slovenia.png</item>
+        <item>Slovenia</item>
+        <item>197</item>
+        <item>/img/flags/Solomon Islands.png</item>
+        <item>Solomon Islands</item>
+        <item>198</item>
+        <item>/img/flags/Somalia.png</item>
+        <item>Somalia</item>
+        <item>199</item>
+        <item>/img/flags/Somaliland.png</item>
+        <item>Somaliland</item>
+        <item>200</item>
+        <item>/img/flags/South Africa.png</item>
+        <item>South Africa</item>
+        <item>201</item>
+        <item>/img/flags/South Korea.png</item>
+        <item>South Korea</item>
+        <item>202</item>
+        <item>/img/flags/Spain.png</item>
+        <item>Spain</item>
+        <item>203</item>
+        <item>/img/flags/Sri Lanka.png</item>
+        <item>Sri Lanka</item>
+        <item>204</item>
+        <item>/img/flags/St Kitts &amp; Nevis.png</item>
+        <item>St Kitts &amp; Nevis</item>
+        <item>205</item>
+        <item>/img/flags/St Vincent &amp; the Grenadines.png</item>
+        <item>St Vincent &amp; the Grenadines</item>
+        <item>206</item>
+        <item>/img/flags/Sudan.png</item>
+        <item>Sudan</item>
+        <item>207</item>
+        <item>/img/flags/Suriname.png</item>
+        <item>Suriname</item>
+        <item>208</item>
+        <item>/img/flags/Swaziland.png</item>
+        <item>Swaziland</item>
+        <item>209</item>
+        <item>/img/flags/Sweden.png</item>
+        <item>Sweden</item>
+        <item>210</item>
+        <item>/img/flags/Switzerland.png</item>
+        <item>Switzerland</item>
+        <item>211</item>
+        <item>/img/flags/Syria.png</item>
+        <item>Syria</item>
+        <item>212</item>
+        <item>/img/flags/Tahiti(French Polinesia).png</item>
+        <item>Tahiti(French Polinesia)</item>
+        <item>213</item>
+        <item>/img/flags/Taiwan.png</item>
+        <item>Taiwan</item>
+        <item>214</item>
+        <item>/img/flags/Tajikistan.png</item>
+        <item>Tajikistan</item>
+        <item>215</item>
+        <item>/img/flags/Tanzania.png</item>
+        <item>Tanzania</item>
+        <item>216</item>
+        <item>/img/flags/Thailand.png</item>
+        <item>Thailand</item>
+        <item>217</item>
+        <item>/img/flags/Timor-Leste.png</item>
+        <item>Timor-Leste</item>
+        <item>218</item>
+        <item>/img/flags/Togo.png</item>
+        <item>Togo</item>
+        <item>219</item>
+        <item>/img/flags/Tonga.png</item>
+        <item>Tonga</item>
+        <item>220</item>
+        <item>/img/flags/Trinidad &amp; Tobago.png</item>
+        <item>Trinidad &amp; Tobago</item>
+        <item>221</item>
+        <item>/img/flags/Tunisia.png</item>
+        <item>Tunisia</item>
+        <item>222</item>
+        <item>/img/flags/Turkey.png</item>
+        <item>Turkey</item>
+        <item>223</item>
+        <item>/img/flags/Turkmenistan.png</item>
+        <item>Turkmenistan</item>
+        <item>224</item>
+        <item>/img/flags/Turks and Caicos Islands.png</item>
+        <item>Turks and Caicos Islands</item>
+        <item>225</item>
+        <item>/img/flags/Tuvalu.png</item>
+        <item>Tuvalu</item>
+        <item>226</item>
+        <item>/img/flags/Uganda.png</item>
+        <item>Uganda</item>
+        <item>227</item>
+        <item>/img/flags/Ukraine.png</item>
+        <item>Ukraine</item>
+        <item>228</item>
+        <item>/img/flags/United Arab Emirates.png</item>
+        <item>United Arab Emirates</item>
+        <item>229</item>
+        <item>/img/flags/United Kingdom(Great Britain).png</item>
+        <item>United Kingdom(Great Britain)</item>
+        <item>230</item>
+        <item>/img/flags/United Nations.png</item>
+        <item>United Nations</item>
+        <item>231</item>
+        <item>/img/flags/United States of America (USA).png</item>
+        <item>United States of America (USA)</item>
+        <item>232</item>
+        <item>/img/flags/Uruguay.png</item>
+        <item>Uruguay</item>
+        <item>233</item>
+        <item>/img/flags/Uzbekistan.png</item>
+        <item>Uzbekistan</item>
+        <item>234</item>
+        <item>/img/flags/Vanutau.png</item>
+        <item>Vanutau</item>
+        <item>235</item>
+        <item>/img/flags/Vatican City.png</item>
+        <item>Vatican City</item>
+        <item>236</item>
+        <item>/img/flags/Venezuela.png</item>
+        <item>Venezuela</item>
+        <item>237</item>
+        <item>/img/flags/Viet Nam.png</item>
+        <item>Viet Nam</item>
+        <item>238</item>
+        <item>/img/flags/Virgin Islands British.png</item>
+        <item>Virgin Islands British</item>
+        <item>239</item>
+        <item>/img/flags/Virgin Islands US.png</item>
+        <item>Virgin Islands US</item>
+        <item>240</item>
+        <item>/img/flags/Wales.png</item>
+        <item>Wales</item>
+        <item>241</item>
+        <item>/img/flags/Western Sahara.png</item>
+        <item>Western Sahara</item>
+        <item>242</item>
+        <item>/img/flags/Yemen.png</item>
+        <item>Yemen</item>
+        <item>243</item>
+        <item>/img/flags/Zambia.png</item>
+        <item>Zambia</item>
+        <item>244</item>
+        <item>/img/flags/Zimbabwe.png</item>
+        <item>Zimbabwe</item>
+    </string-array>
+
+</resources>
