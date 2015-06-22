@@ -16,10 +16,10 @@
         <div class="span12">
             <!-- BEGIN EXAMPLE TABLE widget-->
             <div style="text-align: center; margin-bottom: 7px">
-                <button class="btn btn-warning"><i class="icon-plus icon-white"></i>انشاء امر نقل</button>
+                <asp:LinkButton runat="server" ID="createNewDeliveryOrder" OnClick="createNewDeliveryOrder_Click"  class="btn btn-warning" ><i class="icon-plus icon-white"></i>انشاء امر نقل</asp:LinkButton>
             </div>
-            <div class="widget">
-                <div class="widget-title">
+            <div class="widget" id="WidGrdGeneralDeliveryOrder" runat="server">
+                <div class="widget-title" >
                     <h4><i class="icon-truck"></i>اوامر النقل </h4>
                     <span class="tools">
                         <a href="javascript:;" class="icon-chevron-down"></a>
@@ -38,8 +38,10 @@
                                     <asp:BoundField HeaderText="رقم السائق" DataField="DriverTelephone" />
                                     <asp:TemplateField HeaderText="الحالة" >
                                         <ItemTemplate>
+                                           
 
                                         </ItemTemplate>
+                                        
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="العمليات">
                                         <ItemTemplate>
@@ -61,7 +63,7 @@
     <div class="row-fluid">
         <div class="span12">
             <!-- BEGIN SAMPLE FORM widget-->
-            <div class="widget">
+            <div class="widget" id="WidEditDeliveryOrder" runat="server">
                 <div class="widget-title">
                     <h4><i class="icon-reorder"></i>انشاء/تعديل امر نقل</h4>
                     <span class="tools">
@@ -73,9 +75,15 @@
                     <!-- BEGIN FORM-->
                     <div class="form-horizontal">
                         <div class="control-group">
-                            <label class="control-label">أسم العميل</label>
+                            <label class="control-label">أسم المشوار</label>
                             <div class="controls">
                                 <asp:TextBox runat="server" type="text" class="span3 " ID="txtDeliveryOrderName" />
+                            </div>
+                        </div>
+                         <div class="control-group">
+                            <label class="control-label">التاريخ</label>
+                            <div class="controls">
+                                <asp:TextBox runat="server" type="text" class="span3 " ID="txtDeliveryOrderDate" />
                             </div>
                         </div>
                         <div class="control-group">
@@ -96,6 +104,12 @@
                                 <asp:TextBox runat="server" type="text" class="span3 " ID="txtDepartment" />
                             </div>
                         </div>
+                         <div class="control-group">
+                            <label class="control-label">المسئول بالقسم الطالب</label>
+                            <div class="controls">
+                                <asp:TextBox runat="server" type="text" class="span3 " ID="txtDepartmentResponsable" />
+                            </div>
+                        </div>
                         <div class="control-group">
                             <label class="control-label">رقم الإذن</label>
                             <div class="controls">
@@ -108,6 +122,12 @@
                                 <asp:TextBox runat="server" type="text" class="span3 " ID="txtTotalPrice" />
                             </div>
                         </div>
+                         <div class="control-group">
+                            <label class="control-label">الحالة</label>
+                            <div class="controls">
+                                <asp:DropDownList runat="server" type="text" class="span3 " ID="drpStatusGeneral" />
+                            </div>
+                        </div>
 
 
                         <asp:Panel runat="server" GroupingText="بيانات السيارة">
@@ -116,6 +136,12 @@
                                     <label class="control-label">أسم مقاول النقل </label>
                                     <div class="controls">
                                         <asp:DropDownList runat="server" type="text" class="span3 " ID="drpTransformationSupplier" />
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">نوع السيارة </label>
+                                    <div class="controls">
+                                        <asp:TextBox runat="server" type="text" class="span3 " ID="txtCarType" />
                                     </div>
                                 </div>
                                 <div class="control-group">
@@ -174,7 +200,7 @@
             </div>
 
 
-            <div class="widget">
+            <div class="widget" id="WidDeliveryOrderDetails" runat="server">
                 <div class="widget-title">
                     <h4><i class="icon-reorder"></i>تفاصيل امر نقل</h4>
                     <span class="tools">
@@ -234,7 +260,7 @@
                                 </div>
                                 <div class="span6">
                                     <label class="control-label">الحالة</label>
-                                    <asp:DropDownList runat="server" type="text" class="span6 " ID="txtStatus" />
+                                    <asp:DropDownList runat="server" type="text" class="span6 " ID="drpStatusDetails" />
                                 </div>
                             </div>
                             <div class="row-fluid">

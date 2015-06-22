@@ -171,14 +171,6 @@ namespace DAL
 				}
 			}
 			
-			public static SqlParameter ClientID
-			{
-				get
-				{
-					return new SqlParameter("@ClientID", SqlDbType.Int, 0);
-				}
-			}
-			
 		}
 		#endregion		
 	
@@ -194,7 +186,6 @@ namespace DAL
             public const string UpdatedBy = "UpdatedBy";
             public const string LastUpdatedDate = "LastUpdatedDate";
             public const string JobOrderName = "JobOrderName";
-            public const string ClientID = "ClientID";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -211,7 +202,6 @@ namespace DAL
 					ht[UpdatedBy] = _JobOrder.PropertyNames.UpdatedBy;
 					ht[LastUpdatedDate] = _JobOrder.PropertyNames.LastUpdatedDate;
 					ht[JobOrderName] = _JobOrder.PropertyNames.JobOrderName;
-					ht[ClientID] = _JobOrder.PropertyNames.ClientID;
 
 				}
 				return (string)ht[columnName];
@@ -233,7 +223,6 @@ namespace DAL
             public const string UpdatedBy = "UpdatedBy";
             public const string LastUpdatedDate = "LastUpdatedDate";
             public const string JobOrderName = "JobOrderName";
-            public const string ClientID = "ClientID";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -250,7 +239,6 @@ namespace DAL
 					ht[UpdatedBy] = _JobOrder.ColumnNames.UpdatedBy;
 					ht[LastUpdatedDate] = _JobOrder.ColumnNames.LastUpdatedDate;
 					ht[JobOrderName] = _JobOrder.ColumnNames.JobOrderName;
-					ht[ClientID] = _JobOrder.ColumnNames.ClientID;
 
 				}
 				return (string)ht[propertyName];
@@ -272,7 +260,6 @@ namespace DAL
             public const string UpdatedBy = "s_UpdatedBy";
             public const string LastUpdatedDate = "s_LastUpdatedDate";
             public const string JobOrderName = "s_JobOrderName";
-            public const string ClientID = "s_ClientID";
 
 		}
 		#endregion		
@@ -384,18 +371,6 @@ namespace DAL
 			set
 	        {
 				base.Setstring(ColumnNames.JobOrderName, value);
-			}
-		}
-
-		public virtual int ClientID
-	    {
-			get
-	        {
-				return base.Getint(ColumnNames.ClientID);
-			}
-			set
-	        {
-				base.Setint(ColumnNames.ClientID, value);
 			}
 		}
 
@@ -539,21 +514,6 @@ namespace DAL
 			}
 		}
 
-		public virtual string s_ClientID
-	    {
-			get
-	        {
-				return this.IsColumnNull(ColumnNames.ClientID) ? string.Empty : base.GetintAsString(ColumnNames.ClientID);
-			}
-			set
-	        {
-				if(string.Empty == value)
-					this.SetColumnNull(ColumnNames.ClientID);
-				else
-					this.ClientID = base.SetintAsString(ColumnNames.ClientID, value);
-			}
-		}
-
 
 		#endregion		
 	
@@ -677,16 +637,6 @@ namespace DAL
 					}
 				}
 
-				public WhereParameter ClientID
-				{
-					get
-					{
-							WhereParameter where = new WhereParameter(ColumnNames.ClientID, Parameters.ClientID);
-							this._clause._entity.Query.AddWhereParameter(where);
-							return where;
-					}
-				}
-
 
 				private WhereClause _clause;
 			}
@@ -800,18 +750,6 @@ namespace DAL
 				}
 			}
 
-			public WhereParameter ClientID
-		    {
-				get
-		        {
-					if(_ClientID_W == null)
-	        	    {
-						_ClientID_W = TearOff.ClientID;
-					}
-					return _ClientID_W;
-				}
-			}
-
 			private WhereParameter _JobOrderID_W = null;
 			private WhereParameter _JobOrderStatusID_W = null;
 			private WhereParameter _JobOrderCode_W = null;
@@ -821,7 +759,6 @@ namespace DAL
 			private WhereParameter _UpdatedBy_W = null;
 			private WhereParameter _LastUpdatedDate_W = null;
 			private WhereParameter _JobOrderName_W = null;
-			private WhereParameter _ClientID_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -834,7 +771,6 @@ namespace DAL
 				_UpdatedBy_W = null;
 				_LastUpdatedDate_W = null;
 				_JobOrderName_W = null;
-				_ClientID_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -981,16 +917,6 @@ namespace DAL
 					}
 				}
 
-				public AggregateParameter ClientID
-				{
-					get
-					{
-							AggregateParameter aggregate = new AggregateParameter(ColumnNames.ClientID, Parameters.ClientID);
-							this._clause._entity.Query.AddAggregateParameter(aggregate);
-							return aggregate;
-					}
-				}
-
 
 				private AggregateClause _clause;
 			}
@@ -1104,18 +1030,6 @@ namespace DAL
 				}
 			}
 
-			public AggregateParameter ClientID
-		    {
-				get
-		        {
-					if(_ClientID_W == null)
-	        	    {
-						_ClientID_W = TearOff.ClientID;
-					}
-					return _ClientID_W;
-				}
-			}
-
 			private AggregateParameter _JobOrderID_W = null;
 			private AggregateParameter _JobOrderStatusID_W = null;
 			private AggregateParameter _JobOrderCode_W = null;
@@ -1125,7 +1039,6 @@ namespace DAL
 			private AggregateParameter _UpdatedBy_W = null;
 			private AggregateParameter _LastUpdatedDate_W = null;
 			private AggregateParameter _JobOrderName_W = null;
-			private AggregateParameter _ClientID_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -1138,7 +1051,6 @@ namespace DAL
 				_UpdatedBy_W = null;
 				_LastUpdatedDate_W = null;
 				_JobOrderName_W = null;
-				_ClientID_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -1247,10 +1159,6 @@ namespace DAL
 
 			p = cmd.Parameters.Add(Parameters.JobOrderName);
 			p.SourceColumn = ColumnNames.JobOrderName;
-			p.SourceVersion = DataRowVersion.Current;
-
-			p = cmd.Parameters.Add(Parameters.ClientID);
-			p.SourceColumn = ColumnNames.ClientID;
 			p.SourceVersion = DataRowVersion.Current;
 
 

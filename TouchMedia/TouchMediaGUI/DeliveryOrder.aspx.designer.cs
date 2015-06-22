@@ -13,6 +13,24 @@ namespace TouchMediaGUI {
     public partial class DeliveryOrder {
         
         /// <summary>
+        /// createNewDeliveryOrder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton createNewDeliveryOrder;
+        
+        /// <summary>
+        /// WidGrdGeneralDeliveryOrder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl WidGrdGeneralDeliveryOrder;
+        
+        /// <summary>
         /// GrdDeliveryOrder control.
         /// </summary>
         /// <remarks>
@@ -22,6 +40,15 @@ namespace TouchMediaGUI {
         protected global::System.Web.UI.WebControls.GridView GrdDeliveryOrder;
         
         /// <summary>
+        /// WidEditDeliveryOrder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl WidEditDeliveryOrder;
+        
+        /// <summary>
         /// txtDeliveryOrderName control.
         /// </summary>
         /// <remarks>
@@ -29,6 +56,15 @@ namespace TouchMediaGUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDeliveryOrderName;
+        
+        /// <summary>
+        /// txtDeliveryOrderDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDeliveryOrderDate;
         
         /// <summary>
         /// txtClientCode control.
@@ -58,6 +94,15 @@ namespace TouchMediaGUI {
         protected global::System.Web.UI.WebControls.TextBox txtDepartment;
         
         /// <summary>
+        /// txtDepartmentResponsable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDepartmentResponsable;
+        
+        /// <summary>
         /// txtPermission control.
         /// </summary>
         /// <remarks>
@@ -76,6 +121,15 @@ namespace TouchMediaGUI {
         protected global::System.Web.UI.WebControls.TextBox txtTotalPrice;
         
         /// <summary>
+        /// drpStatusGeneral control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList drpStatusGeneral;
+        
+        /// <summary>
         /// drpTransformationSupplier control.
         /// </summary>
         /// <remarks>
@@ -83,6 +137,15 @@ namespace TouchMediaGUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList drpTransformationSupplier;
+        
+        /// <summary>
+        /// txtCarType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCarType;
         
         /// <summary>
         /// txtCarNumber control.
@@ -146,6 +209,15 @@ namespace TouchMediaGUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnDeliceryOrderGrd;
+        
+        /// <summary>
+        /// WidDeliveryOrderDetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl WidDeliveryOrderDetails;
         
         /// <summary>
         /// txtDeliveryFrom control.
@@ -229,13 +301,13 @@ namespace TouchMediaGUI {
         protected global::System.Web.UI.WebControls.TextBox txtPrice;
         
         /// <summary>
-        /// txtStatus control.
+        /// drpStatusDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList txtStatus;
+        protected global::System.Web.UI.WebControls.DropDownList drpStatusDetails;
         
         /// <summary>
         /// grdDeliveryOrderDetails control.

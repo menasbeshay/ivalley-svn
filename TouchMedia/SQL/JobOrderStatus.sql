@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_JobOrderStatusLoadByPrimaryKey]    Script Date: 6/21/2015 1:26:55 PM ******/
+/****** Object:  StoredProcedure [proc_JobOrderStatusLoadByPrimaryKey]    Script Date: 6/22/2015 1:13:30 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_JobOrderStatusLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_JobOrderStatusLoadByPrimaryKey];
 GO
@@ -15,9 +15,7 @@ BEGIN
 
 	SELECT
 		[JobOrderStatusID],
-		[JobOrderStatusName],
-		[JobOrderStatusNameAr],
-		[StatusClass]
+		[JobOrderStatusName]
 	FROM [JobOrderStatus]
 	WHERE
 		([JobOrderStatusID] = @JobOrderStatusID)
@@ -34,7 +32,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_JobOrderStatusLoadByPrimaryKey 
 ELSE PRINT 'Procedure Creation: proc_JobOrderStatusLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_JobOrderStatusLoadAll]    Script Date: 6/21/2015 1:26:55 PM ******/
+/****** Object:  StoredProcedure [proc_JobOrderStatusLoadAll]    Script Date: 6/22/2015 1:13:30 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_JobOrderStatusLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_JobOrderStatusLoadAll];
 GO
@@ -48,9 +46,7 @@ BEGIN
 
 	SELECT
 		[JobOrderStatusID],
-		[JobOrderStatusName],
-		[JobOrderStatusNameAr],
-		[StatusClass]
+		[JobOrderStatusName]
 	FROM [JobOrderStatus]
 
 	SET @Err = @@Error
@@ -65,7 +61,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_JobOrderStatusLoadAll Succeeded
 ELSE PRINT 'Procedure Creation: proc_JobOrderStatusLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_JobOrderStatusUpdate]    Script Date: 6/21/2015 1:26:55 PM ******/
+/****** Object:  StoredProcedure [proc_JobOrderStatusUpdate]    Script Date: 6/22/2015 1:13:30 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_JobOrderStatusUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_JobOrderStatusUpdate];
 GO
@@ -73,9 +69,7 @@ GO
 CREATE PROCEDURE [proc_JobOrderStatusUpdate]
 (
 	@JobOrderStatusID int,
-	@JobOrderStatusName nvarchar(300) = NULL,
-	@JobOrderStatusNameAr nvarchar(300) = NULL,
-	@StatusClass nvarchar(100) = NULL
+	@JobOrderStatusName nvarchar(300) = NULL
 )
 AS
 BEGIN
@@ -85,9 +79,7 @@ BEGIN
 
 	UPDATE [JobOrderStatus]
 	SET
-		[JobOrderStatusName] = @JobOrderStatusName,
-		[JobOrderStatusNameAr] = @JobOrderStatusNameAr,
-		[StatusClass] = @StatusClass
+		[JobOrderStatusName] = @JobOrderStatusName
 	WHERE
 		[JobOrderStatusID] = @JobOrderStatusID
 
@@ -108,7 +100,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_JobOrderStatusInsert]    Script Date: 6/21/2015 1:26:55 PM ******/
+/****** Object:  StoredProcedure [proc_JobOrderStatusInsert]    Script Date: 6/22/2015 1:13:30 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_JobOrderStatusInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_JobOrderStatusInsert];
 GO
@@ -116,9 +108,7 @@ GO
 CREATE PROCEDURE [proc_JobOrderStatusInsert]
 (
 	@JobOrderStatusID int = NULL output,
-	@JobOrderStatusName nvarchar(300) = NULL,
-	@JobOrderStatusNameAr nvarchar(300) = NULL,
-	@StatusClass nvarchar(100) = NULL
+	@JobOrderStatusName nvarchar(300) = NULL
 )
 AS
 BEGIN
@@ -129,15 +119,11 @@ BEGIN
 	INSERT
 	INTO [JobOrderStatus]
 	(
-		[JobOrderStatusName],
-		[JobOrderStatusNameAr],
-		[StatusClass]
+		[JobOrderStatusName]
 	)
 	VALUES
 	(
-		@JobOrderStatusName,
-		@JobOrderStatusNameAr,
-		@StatusClass
+		@JobOrderStatusName
 	)
 
 	SET @Err = @@Error
@@ -154,7 +140,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_JobOrderStatusInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_JobOrderStatusInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_JobOrderStatusDelete]    Script Date: 6/21/2015 1:26:55 PM ******/
+/****** Object:  StoredProcedure [proc_JobOrderStatusDelete]    Script Date: 6/22/2015 1:13:30 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_JobOrderStatusDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_JobOrderStatusDelete];
 GO
