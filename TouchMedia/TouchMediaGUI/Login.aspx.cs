@@ -11,7 +11,10 @@ namespace TouchMediaGUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!string.IsNullOrWhiteSpace(Request.QueryString["ReturnUrl"]))
+            {
+                Response.Redirect("Login.aspx");
+            }
         }
     }
 }
