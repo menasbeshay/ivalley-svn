@@ -199,7 +199,7 @@ namespace DAL
 			{
 				get
 				{
-					return new SqlParameter("@DriverNationID", SqlDbType.Int, 0);
+					return new SqlParameter("@DriverNationID", SqlDbType.NVarChar, 100);
 				}
 			}
 			
@@ -259,6 +259,30 @@ namespace DAL
 				}
 			}
 			
+			public static SqlParameter DeliveryOrderDate
+			{
+				get
+				{
+					return new SqlParameter("@DeliveryOrderDate", SqlDbType.DateTime, 0);
+				}
+			}
+			
+			public static SqlParameter DepartmentResponsableName
+			{
+				get
+				{
+					return new SqlParameter("@DepartmentResponsableName", SqlDbType.NVarChar, 300);
+				}
+			}
+			
+			public static SqlParameter CarType
+			{
+				get
+				{
+					return new SqlParameter("@CarType", SqlDbType.NVarChar, 300);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -285,6 +309,9 @@ namespace DAL
             public const string Department = "Department";
             public const string ClientCode = "ClientCode";
             public const string DeliveryOrderName = "DeliveryOrderName";
+            public const string DeliveryOrderDate = "DeliveryOrderDate";
+            public const string DepartmentResponsableName = "DepartmentResponsableName";
+            public const string CarType = "CarType";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -312,6 +339,9 @@ namespace DAL
 					ht[Department] = _DeliveryOrder.PropertyNames.Department;
 					ht[ClientCode] = _DeliveryOrder.PropertyNames.ClientCode;
 					ht[DeliveryOrderName] = _DeliveryOrder.PropertyNames.DeliveryOrderName;
+					ht[DeliveryOrderDate] = _DeliveryOrder.PropertyNames.DeliveryOrderDate;
+					ht[DepartmentResponsableName] = _DeliveryOrder.PropertyNames.DepartmentResponsableName;
+					ht[CarType] = _DeliveryOrder.PropertyNames.CarType;
 
 				}
 				return (string)ht[columnName];
@@ -344,6 +374,9 @@ namespace DAL
             public const string Department = "Department";
             public const string ClientCode = "ClientCode";
             public const string DeliveryOrderName = "DeliveryOrderName";
+            public const string DeliveryOrderDate = "DeliveryOrderDate";
+            public const string DepartmentResponsableName = "DepartmentResponsableName";
+            public const string CarType = "CarType";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -371,6 +404,9 @@ namespace DAL
 					ht[Department] = _DeliveryOrder.ColumnNames.Department;
 					ht[ClientCode] = _DeliveryOrder.ColumnNames.ClientCode;
 					ht[DeliveryOrderName] = _DeliveryOrder.ColumnNames.DeliveryOrderName;
+					ht[DeliveryOrderDate] = _DeliveryOrder.ColumnNames.DeliveryOrderDate;
+					ht[DepartmentResponsableName] = _DeliveryOrder.ColumnNames.DepartmentResponsableName;
+					ht[CarType] = _DeliveryOrder.ColumnNames.CarType;
 
 				}
 				return (string)ht[propertyName];
@@ -403,6 +439,9 @@ namespace DAL
             public const string Department = "s_Department";
             public const string ClientCode = "s_ClientCode";
             public const string DeliveryOrderName = "s_DeliveryOrderName";
+            public const string DeliveryOrderDate = "s_DeliveryOrderDate";
+            public const string DepartmentResponsableName = "s_DepartmentResponsableName";
+            public const string CarType = "s_CarType";
 
 		}
 		#endregion		
@@ -553,15 +592,15 @@ namespace DAL
 			}
 		}
 
-		public virtual int DriverNationID
+		public virtual string DriverNationID
 	    {
 			get
 	        {
-				return base.Getint(ColumnNames.DriverNationID);
+				return base.Getstring(ColumnNames.DriverNationID);
 			}
 			set
 	        {
-				base.Setint(ColumnNames.DriverNationID, value);
+				base.Setstring(ColumnNames.DriverNationID, value);
 			}
 		}
 
@@ -646,6 +685,42 @@ namespace DAL
 			set
 	        {
 				base.Setstring(ColumnNames.DeliveryOrderName, value);
+			}
+		}
+
+		public virtual DateTime DeliveryOrderDate
+	    {
+			get
+	        {
+				return base.GetDateTime(ColumnNames.DeliveryOrderDate);
+			}
+			set
+	        {
+				base.SetDateTime(ColumnNames.DeliveryOrderDate, value);
+			}
+		}
+
+		public virtual string DepartmentResponsableName
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.DepartmentResponsableName);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.DepartmentResponsableName, value);
+			}
+		}
+
+		public virtual string CarType
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.CarType);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.CarType, value);
 			}
 		}
 
@@ -838,14 +913,14 @@ namespace DAL
 	    {
 			get
 	        {
-				return this.IsColumnNull(ColumnNames.DriverNationID) ? string.Empty : base.GetintAsString(ColumnNames.DriverNationID);
+				return this.IsColumnNull(ColumnNames.DriverNationID) ? string.Empty : base.GetstringAsString(ColumnNames.DriverNationID);
 			}
 			set
 	        {
 				if(string.Empty == value)
 					this.SetColumnNull(ColumnNames.DriverNationID);
 				else
-					this.DriverNationID = base.SetintAsString(ColumnNames.DriverNationID, value);
+					this.DriverNationID = base.SetstringAsString(ColumnNames.DriverNationID, value);
 			}
 		}
 
@@ -951,6 +1026,51 @@ namespace DAL
 					this.SetColumnNull(ColumnNames.DeliveryOrderName);
 				else
 					this.DeliveryOrderName = base.SetstringAsString(ColumnNames.DeliveryOrderName, value);
+			}
+		}
+
+		public virtual string s_DeliveryOrderDate
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.DeliveryOrderDate) ? string.Empty : base.GetDateTimeAsString(ColumnNames.DeliveryOrderDate);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.DeliveryOrderDate);
+				else
+					this.DeliveryOrderDate = base.SetDateTimeAsString(ColumnNames.DeliveryOrderDate, value);
+			}
+		}
+
+		public virtual string s_DepartmentResponsableName
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.DepartmentResponsableName) ? string.Empty : base.GetstringAsString(ColumnNames.DepartmentResponsableName);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.DepartmentResponsableName);
+				else
+					this.DepartmentResponsableName = base.SetstringAsString(ColumnNames.DepartmentResponsableName, value);
+			}
+		}
+
+		public virtual string s_CarType
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.CarType) ? string.Empty : base.GetstringAsString(ColumnNames.CarType);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.CarType);
+				else
+					this.CarType = base.SetstringAsString(ColumnNames.CarType, value);
 			}
 		}
 
@@ -1182,6 +1302,36 @@ namespace DAL
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.DeliveryOrderName, Parameters.DeliveryOrderName);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter DeliveryOrderDate
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.DeliveryOrderDate, Parameters.DeliveryOrderDate);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter DepartmentResponsableName
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.DepartmentResponsableName, Parameters.DepartmentResponsableName);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter CarType
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.CarType, Parameters.CarType);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -1432,6 +1582,42 @@ namespace DAL
 				}
 			}
 
+			public WhereParameter DeliveryOrderDate
+		    {
+				get
+		        {
+					if(_DeliveryOrderDate_W == null)
+	        	    {
+						_DeliveryOrderDate_W = TearOff.DeliveryOrderDate;
+					}
+					return _DeliveryOrderDate_W;
+				}
+			}
+
+			public WhereParameter DepartmentResponsableName
+		    {
+				get
+		        {
+					if(_DepartmentResponsableName_W == null)
+	        	    {
+						_DepartmentResponsableName_W = TearOff.DepartmentResponsableName;
+					}
+					return _DepartmentResponsableName_W;
+				}
+			}
+
+			public WhereParameter CarType
+		    {
+				get
+		        {
+					if(_CarType_W == null)
+	        	    {
+						_CarType_W = TearOff.CarType;
+					}
+					return _CarType_W;
+				}
+			}
+
 			private WhereParameter _DeliveryOrderID_W = null;
 			private WhereParameter _KilometerCounterBefore_W = null;
 			private WhereParameter _KilometerCounterAfter_W = null;
@@ -1452,6 +1638,9 @@ namespace DAL
 			private WhereParameter _Department_W = null;
 			private WhereParameter _ClientCode_W = null;
 			private WhereParameter _DeliveryOrderName_W = null;
+			private WhereParameter _DeliveryOrderDate_W = null;
+			private WhereParameter _DepartmentResponsableName_W = null;
+			private WhereParameter _CarType_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -1475,6 +1664,9 @@ namespace DAL
 				_Department_W = null;
 				_ClientCode_W = null;
 				_DeliveryOrderName_W = null;
+				_DeliveryOrderDate_W = null;
+				_DepartmentResponsableName_W = null;
+				_CarType_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -1731,6 +1923,36 @@ namespace DAL
 					}
 				}
 
+				public AggregateParameter DeliveryOrderDate
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.DeliveryOrderDate, Parameters.DeliveryOrderDate);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter DepartmentResponsableName
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.DepartmentResponsableName, Parameters.DepartmentResponsableName);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter CarType
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.CarType, Parameters.CarType);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -1976,6 +2198,42 @@ namespace DAL
 				}
 			}
 
+			public AggregateParameter DeliveryOrderDate
+		    {
+				get
+		        {
+					if(_DeliveryOrderDate_W == null)
+	        	    {
+						_DeliveryOrderDate_W = TearOff.DeliveryOrderDate;
+					}
+					return _DeliveryOrderDate_W;
+				}
+			}
+
+			public AggregateParameter DepartmentResponsableName
+		    {
+				get
+		        {
+					if(_DepartmentResponsableName_W == null)
+	        	    {
+						_DepartmentResponsableName_W = TearOff.DepartmentResponsableName;
+					}
+					return _DepartmentResponsableName_W;
+				}
+			}
+
+			public AggregateParameter CarType
+		    {
+				get
+		        {
+					if(_CarType_W == null)
+	        	    {
+						_CarType_W = TearOff.CarType;
+					}
+					return _CarType_W;
+				}
+			}
+
 			private AggregateParameter _DeliveryOrderID_W = null;
 			private AggregateParameter _KilometerCounterBefore_W = null;
 			private AggregateParameter _KilometerCounterAfter_W = null;
@@ -1996,6 +2254,9 @@ namespace DAL
 			private AggregateParameter _Department_W = null;
 			private AggregateParameter _ClientCode_W = null;
 			private AggregateParameter _DeliveryOrderName_W = null;
+			private AggregateParameter _DeliveryOrderDate_W = null;
+			private AggregateParameter _DepartmentResponsableName_W = null;
+			private AggregateParameter _CarType_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -2019,6 +2280,9 @@ namespace DAL
 				_Department_W = null;
 				_ClientCode_W = null;
 				_DeliveryOrderName_W = null;
+				_DeliveryOrderDate_W = null;
+				_DepartmentResponsableName_W = null;
+				_CarType_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -2171,6 +2435,18 @@ namespace DAL
 
 			p = cmd.Parameters.Add(Parameters.DeliveryOrderName);
 			p.SourceColumn = ColumnNames.DeliveryOrderName;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.DeliveryOrderDate);
+			p.SourceColumn = ColumnNames.DeliveryOrderDate;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.DepartmentResponsableName);
+			p.SourceColumn = ColumnNames.DepartmentResponsableName;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.CarType);
+			p.SourceColumn = ColumnNames.CarType;
 			p.SourceVersion = DataRowVersion.Current;
 
 
