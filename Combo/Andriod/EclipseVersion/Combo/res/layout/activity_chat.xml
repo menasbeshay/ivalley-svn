@@ -1,0 +1,140 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.egygames.apps.social.ChatActivity" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <include layout="@layout/header" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:onClick="openProfile"
+            android:orientation="horizontal" >
+
+            <com.egygames.apps.social.views.CircleImageView
+                android:id="@+id/profiel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+               
+                android:src="@drawable/profile" />
+
+            <TextView
+                android:id="@+id/userDisplayName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:layout_weight="4"
+                android:gravity="left"
+                android:textColor="@color/button_bg"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/noData"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_centerInParent="true"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:onClick="post"
+            android:text="@string/noMessagesMAvailable"
+            android:visibility="gone" />
+
+        <com.costum.android.widget.PullToRefreshListView
+            android:id="@+id/feedsList"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_above="@+id/tabs"
+            android:layout_below="@+id/header"
+            android:layout_weight="1"
+            android:divider="@color/list_divider"
+            android:dividerHeight="0dp"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="#EBEBEB"
+            android:orientation="vertical" >
+
+            <include
+                android:id="@+id/attache"
+                layout="@layout/attach" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal" >
+
+                <github.ankushsachdeva.emojicon.EmojiconEditText
+                    android:id="@+id/messageText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/addAMessage" />
+
+                <ImageButton
+                    android:id="@+id/send"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_click"
+                    android:onClick="sendComment"
+                    android:padding="10dp"
+                    android:src="@drawable/send" />
+            </LinearLayout>
+            
+            <LinearLayout
+                android:id="@+id/attachments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone" >
+
+                <com.egygames.apps.social.views.CircleImageView
+                    android:id="@+id/attachmentThumbVideo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1" />
+
+                <com.egygames.apps.social.views.CircleImageView
+                    android:id="@+id/attachmentThumbImage"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1" />
+
+                <com.egygames.apps.social.views.CircleImageView
+                    android:id="@+id/attachmentThumbAudio"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <include
+        android:id="@+id/progress"
+        layout="@layout/progress_view" />
+
+</RelativeLayout>

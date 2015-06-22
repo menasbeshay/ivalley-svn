@@ -1,0 +1,29 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.egygames.apps.social.LikedPostsActivity" >
+
+    <include layout="@layout/header" />
+
+    <com.egygames.apps.social.views.ExpandableHeightGridView
+        android:id="@+id/feedsList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tabs"
+        android:layout_below="@+id/header"
+        android:clickable="true"
+        android:horizontalSpacing="1dp"
+        android:isScrollContainer="false"
+        android:numColumns="3"
+        android:background="#e7e7e7"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="2dp" />
+
+    <include layout="@layout/tabs" />
+
+    <include
+        android:id="@+id/progress"
+        layout="@layout/progress_view" />
+
+</RelativeLayout>

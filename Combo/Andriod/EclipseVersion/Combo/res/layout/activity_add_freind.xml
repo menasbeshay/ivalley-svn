@@ -1,0 +1,47 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.egygames.apps.social.AddFreindActivity" >
+
+    <include layout="@layout/header" />
+
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:iconifiedByDefault="false"
+        android:onClick="search" />
+
+    <TextView
+        android:id="@+id/noData"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:onClick="post"
+        android:text="@string/noFriendsAvailable"
+        android:visibility="gone" />
+
+    <com.costum.android.widget.LoadMoreListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_above="@+id/tabs"
+        android:layout_below="@+id/searchView"
+        android:layout_margin="10dp"
+        android:layout_weight="1"
+        android:background="#ffffff"
+        android:divider="@color/list_divider"
+        android:dividerHeight="1dp" />
+
+    <include layout="@layout/tabs" />
+
+    <include
+        android:id="@+id/progress"
+        layout="@layout/progress_view" />
+
+</RelativeLayout>

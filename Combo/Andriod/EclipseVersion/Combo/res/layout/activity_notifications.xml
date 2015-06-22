@@ -1,0 +1,127 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.egygames.apps.social.NotificationsActivity" >
+
+    <include layout="@layout/header" />
+
+    <TextView
+        android:id="@+id/noData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:onClick="post"
+        
+        android:text="@string/noNotificationsAvailable"
+        android:visibility="gone" />
+
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        xmlns:ptr="http://schemas.android.com/apk/res-auto"
+       android:id="@+id/feedsList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tabs"
+        android:isScrollContainer="false"
+        android:layout_below="@+id/tv_recent"
+        android:divider="@color/list_divider"
+        android:dividerHeight="1dp"
+        android:listSelector="@android:color/transparent" 
+        ptr:ptrHeaderBackground="@android:color/darker_gray" />
+
+    <include android:id="@+id/tabs" layout="@layout/tabs" />
+
+    <include
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progress"
+        layout="@layout/progress_view"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true" />
+
+    <LinearLayout
+        android:id="@+id/linear_follow_request"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical|left"
+        android:visibility="gone" >
+
+        <RelativeLayout
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="5dp" >
+
+            <com.egygames.apps.social.views.CircleImageView
+                android:id="@+id/notificationfollow"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_vertical"
+                
+                android:src="@drawable/profile" />
+
+            <TextView
+                android:id="@+id/tv_requests_counts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/follow_req_orange"
+                android:gravity="center"
+                android:onClick="notifications"
+                android:textColor="#ffffff"
+                android:visibility="visible" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="left"
+                android:onClick="post"
+                android:text="@string/follow_requests"
+                android:textSize="8pt"
+                android:visibility="visible" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="left"
+                android:onClick="post"
+                android:text="@string/accept_ignore"
+                android:textColor="#BA9DC8"
+                android:textSize="6pt"
+                android:visibility="visible" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_recent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/sep"
+        
+        android:layout_marginLeft="10dp"
+        android:text="RECENT"
+       
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:visibility="gone" />
+    <View android:layout_width="match_parent"
+        android:id="@+id/sep"
+        android:layout_height="1dp"
+        android:layout_marginBottom="25dp"
+        
+        android:background="@color/list_divider"
+        android:layout_below="@+id/linear_follow_request"/>
+
+</RelativeLayout>

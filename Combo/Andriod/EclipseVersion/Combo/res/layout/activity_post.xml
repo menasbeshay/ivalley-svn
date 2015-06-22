@@ -1,0 +1,40 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.egygames.apps.social.PostActivity" >
+
+    <include layout="@layout/header" />
+<TextView
+        android:id="@+id/noData"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:onClick="post"
+        android:text="@string/noDataAvailable"
+        android:visibility="gone" />
+    <ListView
+        android:id="@+id/feedsList"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/tabs"
+        android:layout_below="@+id/header"
+        android:divider="#e7e7e7"
+        android:background="#e7e7e7"
+         android:dividerHeight="10dp"
+         android:padding="15dp"
+        android:listSelector="@android:color/transparent" />
+
+    <include layout="@layout/tabs" />
+
+    <include
+        android:id="@+id/progress"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        layout="@layout/progress_view" />
+
+</RelativeLayout>

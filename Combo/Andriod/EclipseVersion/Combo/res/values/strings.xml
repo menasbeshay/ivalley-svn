@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="about_body">About</string>
+    
+    <string name="app_name">Combo</string>
+    <string name="connectionError">Please check your internet connectivity and try again later.</string>
+    <string name="genralError">General error , Please try again later.</string>
+    <string name="loginError">Error while login please check you name and password.</string>
+    <string name="emailError">Please enter user name or email.</string>
+    <string name="passwordResetMessage">Please check your name or security word.</string>
+    <string name="passwordResetSuccess">Password reset succefully. </string>
+    <string name="passwordError">Please enter the password.</string>
+    <string name="forgitPassword">Forget password ?</string>
+    <string name="notAmember">Not a memeber?</string>
+    <string name="title_activity_profile">ProfileActivity</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="forgot_password_title">Enter your email, or username.</string>
+    <string name="action_settings">Settings</string>
+    <string name="sending">Sending...</string>
+    <string name="following">Following</string>
+    <string name="followers">Followers</string>
+    <string name="posts">Posts</string>
+     <string name="description">Media Controls</string>
+    <string name="postsCount">Posts count</string>
+    <string name="likesCount">Posts likes count</string>
+    <string name="likes">Likes</string>
+    <string name="off">Off</string>
+     <string name="rank">Rank Level</string>
+    <string name="rank_summery">Your Rank has Changed.</string>
+     <string name="chat_msg">Chat</string>
+    <string name="chat_summery">John sent a Message to You.</string>
+     <string name="mentions">Mentions</string>
+    <string name="mentions_summery">john mentioned You in a Post.</string>
+    <string name="birthday">Birthday</string>
+    <string name="birthday_summery">Today is John\'s Birthday.</string>
+    <string name="repost">Repost</string>
+    <string name="repost_summery">John reposted Your Post.</string>
+    <string name="comments_summery">John left a Comment in Your Post.</string>
+    <string name="accept_follow">Accept Follow Request</string>
+    <string name="accept_follow_summery">John accepted Your Follow Request.</string>
+    <string name="like_post_summery">John liked Your Post.</string>
+    <string name="follow_request_summery">John sent You a Follow Request.</string>
+    <string name="follow_people">From People I Follow</string>
+    <string name="every_one">From EveryOne</string>
+    <string name="commentsCount">Posts comments count</string>
+    <string name="profileLikesCount">Profile likes count</string>
+    <string name="dailyActivities">Daily activities</string>
+    <string name="enter_email">Email Address</string>
+    <string name="choose_security_quest">Choose security question</string>
+
+    <string-array name="questions">
+        <item>What was the house number and street name you lived in as a child? </item>
+        <item>What were the last four digits of your childhood telephone number? </item>
+        <item>In what town or city was your first full time job?</item>
+        <item>In what town or city did you meet your spouse/partner?</item>
+        <item>What is the middle name of your oldest child?</item>
+        <item>What are the last five digits of your driver\'s licence number?</item>
+        <item>What is your grandmother\'s (on your mother\'s side) maiden name?</item>
+        <item>What is your spouse or partner\'s mother\'s maiden name?</item>
+        <item>In what town or city did your mother and father meet?</item>
+        <item>What time of the day were you born? (hh:mm)</item>
+        <item>What time of the day was your first child born? (hh:mm) </item>
+    </string-array>
+
+    <string name="enter_answer">Enter security word </string>
+    <string name="enter_new_answer">New security word </string>
+    <string name="enter_password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="enter_first_name">User Name</string>
+    <string name="enter_last_name">Display Name</string>
+    <string name="enter_website">Website</string>
+    <string name="birthdate">Birth Day</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="login_twitter">Login with Twitter</string>
+    <string name="login_facebook">Login with Facebook</string>
+    <string name="login_google">Login with Google+</string>
+    <string name="passwordMatchError">Password doesn\'t match.</string>
+    <string name="answerMatchError">Security word doesn\'t match.</string>
+    <string name="emailForamtError">Please enter a valid email.</string>
+    <string name="passwordForamtError">Please enter the a vaild password.\n 6 alpha numric characters  .</string>
+    <string name="fieldsNotFilledError">Fields not filled in</string>
+    <string name="fieldsNotLessThan4Char">Field much be more than 4 character\n and less than 22 character</string>
+    <string name="fieldsNotLessThan4Char2">Field much be more than 4 character\n and less than 11 character</string>
+    <string name="fieldsNotLessThan4Char3">Field much be more than 4 character\n and less than 200 character</string>
+    <string name="uploading">Uploading &#8230;</string>
+    <string name="uploadCompleted">Upload completed</string>
+    <string name="uploadError">Upload error</string>
+    <string name="title_activity_new_post">NewPost</string>
+    <string name="post">Post</string>
+    <string name="writeSomthing">Write Something</string>
+    <string name="chat">Chat</string>
+    <string name="help">Content will be Added.</string>
+    <string name="settings">Settings</string>
+    <string name="notifications">Notifications</string>
+    <string name="friends">Friends</string>
+    <string name="comments">Comments</string>
+    <string name="emptyPostError">Please enter the post text</string>
+    <string name="sizePostError">The post text must be less than 140 character</string>
+    <string name="sizeCommentError">The comment text must be less than 140 character</string>
+    <string name="emptyCommentError">Please enter the comment text</string>
+    <string name="noDataAvailable">No Posts Available</string>
+    <string name="noNotificationsAvailable">No Notifications Available</string>
+    <string name="noFriendsAvailable">No Data Avaialable</string>
+    <string name="addAcomment">Add a comment</string>
+    <string name="addAMessage">Add a message</string>
+    <string name="follow_requests">Follow Requests</string>
+    <string name="accept_ignore">Accept or Ignore Requests</string>
+    <string name="noCommentsAvailable">No Comments Available. Be the first to comment on this post.</string>
+    <string name="noMessagesMAvailable">No Messages Available</string>
+    <string name="takeImage">Take Picture</string>
+    <string name="chooseImage">Choose Image</string>
+    <string name="captureAudio">Record Audio</string>
+    <string name="dialog_unfollow">UnFollow</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="chooseAudio">Choose Audio</string>
+    <string name="captureVideo">Capture Video</string>
+    <string name="chooseVideo">Choose Video</string>
+    <string name="profile">Profile</string>
+    <string name="preferances">Preferances</string>
+    <string name="editProfle">Edit Profile</string>
+    <string name="addAsAFriend">Add as a friend</string>
+    <string name="changeProfilePic">Change Profile Picture</string>
+    <string name="changeProfileCover">Change Profile Cover</string>
+    <string name="changeProfileBio">Bio</string>
+    <string name="save">Save</string>
+    <string name="unfollow">Following</string>
+    <string name="follow">+ Follow</string>
+    <string name="request_sent">Request Sent</string>
+    <string name="acceptFriendRequest">Accept friendship</string>
+    <string name="rejectFriendRequest">Reject friendship</string>
+    <string name="acceptFollowRequest">Accept Follow</string>
+    <string name="userfollowyou">This user wants to follow you</string>
+    <string name="rejectFollowRequest">Reject Follow</string>
+    <string name="changeSecurityWord">Change security word</string>
+    <string name="changePassword">Change password</string>
+    <string name="requestAccountVerification">Request account verification</string>
+    <string name="verifyAccount">Verified Account</string>
+    <string name="change">Change</string>
+    <string name="findAndInviteAFriend">Find And Invite A Friend</string>
+    <string name="postsYouLiked">Posts You\'ve Liked</string>
+    <string name="clearSearchHistory">Clear Search History</string>
+    <string name="soundSettings">Sound Settings</string>
+    <string name="videoSettings">Video Settings</string>
+    <string name="download">Download</string>
+    <string name="copyname">Copy Name</string>
+    <string name="copy">Copy</string>
+    <string name="copycomment">Copy Comment</string>
+    <string name="reportdelete">Report and Delete</string>
+    <string name="shareLink">Share Link</string>
+    <string name="unFollow">Unfollow</string>
+    <string name="delete">Delete Post</string>
+    <string name="unFriend">UnFriend</string>
+    <string name="ban">Ban</string>
+    <string name="block">Block</string>
+    <string name="rePort">Report</string>
+    <string name="whyYouRePort">PLease enter why you want to report this post?</string>
+    <string name="groupMessage">Group Message</string>
+    <string name="conversations">Conversations</string>
+    <string name="Friends">Friends</string>
+    <string name="explore">Explore</string>
+    <string name="favourite">Favourite</string>
+    <string name="video">Video</string>
+    <string name="videoLengthError">Duration must be less than 60 seconds</string>
+    <string name="audio">Audio</string>
+    <string name="photo">Photo</string>
+    <string name="all">All</string>
+    <string name="text">Text</string>
+    <string name="retry">Retry</string>
+    <string name="title_activity_comments">CommentsActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_video_view_dialog">VideoViewDialog</string>
+    <string name="title_activity_edit_profile">EditProfileActivity</string>
+    <string name="title_activity_add_freind">AddFreindActivity</string>
+    <string name="title_activity_image">ImageActivity</string>
+    <string name="friendRequestDone">Your Request is under processing </string>
+    <string name="title_activity_post">PostActivity</string>
+    <string name="findFriends">Find Friends</string>
+    <string name="inviteFriends">Invite Friends</string>
+    <string name="receiveNotifications">Notifications settings</string>
+    <string name="postDownloadSettings">Post Download Settings</string>
+    <string name="allowDownloadForAll">Allow Download For All</string>
+    <string name="support">Support</string>
+    <string name="reportProblem">Report a Problem</string>
+    <string name="about">About</string>
+    <string name="privateAccount">Private Account</string>
+    <string name="privateAccountSummary">When your account is private, only the accounts you approve can see your posts and  a request send to you when someone wants to follow you.</string>
+    <string name="resizingVideo">Compressing video file...</string>
+    <string name="privacyPolicy">Privacy Policy</string>
+    <string name="thisIsPrivateAccount">This account is private</string>
+    <string name="termsofService">Terms of Service</string>
+    <string name="account">Account</string>
+    <string name="deactivateMyAccount">Deactivate My Account</string>
+    <string name="logout">Logout</string>
+    <string name="notificationsSettings">Notifications Settings</string>
+    <string name="title_activity_terms_of_service">TermsOfServiceActivity</string>
+    <string name="title_activity_privacy_policy">PrivacyPolicyActivity</string>
+    <string name="title_activity_explore">ExploreActivity</string>
+    <string name="title_activity_reset_password">ResetPasswordActivity</string>
+    <string name="like">Likes</string>
+    <string name="comment">Comments</string>
+    <string name="add_friend">Add Friends</string>
+    <string name="recieve_msg">Recieve Messages</string>
+    <string name="share">Share Posts</string>
+    <string name="share_friends">Repost</string>
+    <string name="accept_friend">Accept Friends</string>
+    <string name="pauseAudio">Stop Recording</string>
+    <string name="unfriend">UnFriends</string>
+    <string name="unfollows">Unfollows</string>
+    <string name="follows">Follows</string>
+    <string name="like_profile">Like Profiles</string>
+    <string name="unlike_profile">Dislike Profiles</string>
+    <string name="comment_in_msg">Comments in a Messages</string>
+    <string name="on">ON</string>
+
+    <string-array name="genders">
+        <item>Gender</item>
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
+    <string name="title_activity_map">MapActivity</string>
+    <string name="profiles">Profiles</string>
+    <string name="title_activity_reset_security_word">ResetSecurityWord</string>
+    <string name="title_activity_user_level">UserLevelActivity</string>
+    <string name="startAudio">Start Recording</string>
+    <string name="done">Done</string>
+    <string name="title_activity_liked_posts">LikedPostsActivity</string>
+
+</resources>
