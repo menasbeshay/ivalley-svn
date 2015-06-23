@@ -6,6 +6,7 @@
 <head runat="server">
     <link href="assets/bootstrap-rtl/css/bootstrap-rtl.min.css" rel="stylesheet" />
     <link href="assets/bootstrap-rtl/css/bootstrap-responsive-rtl.min.css" rel="stylesheet" />
+    <>
     <link href="css/style.css" rel="stylesheet" />
     <link href="css/style_navy-blue.css" rel="stylesheet" />
     <link href="css/style_responsive.css" rel="stylesheet" />
@@ -137,16 +138,18 @@
    <![endif]-->
     <script src="assets/chosen-bootstrap/chosen/chosen.jquery.min.js"></script>
     <script src="assets/uniform/jquery.uniform.min.js"></script>
-    <script src="js/scripts.js"></script>
+     <asp:ContentPlaceHolder ID="ContentPlaceHolderScripts" runat="server">
+    </asp:ContentPlaceHolder>
+        <script src="js/scripts.js"></script>
     <script>
+
         jQuery(document).ready(function () {
             // initiate layout and plugins
             App.init();
         });
     </script>
 
-    <asp:ContentPlaceHolder ID="ContentPlaceHolderScripts" runat="server">
-    </asp:ContentPlaceHolder>
+   
 
     </form>
 </body>

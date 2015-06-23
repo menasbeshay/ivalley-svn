@@ -117,8 +117,18 @@ namespace TouchMediaGUI
             Dodd.ReceivableName = txtRecivableName.Text;
             Dodd.ReceivableTelephone = txtRecivableTelephone.Text;
             Dodd.DeliveryOrderCode = txtDeliveryOrderCode.Text;
-            Dodd.WatingHours = float.Parse(txtWatingHours.Text);
-            Dodd.Price = float.Parse(txtPrice.Text);
+            if (!Dodd.IsColumnNull("WatingHours"))
+            {
+                Dodd.WatingHours = float.Parse(txtWatingHours.Text);
+            }
+            else
+                txtWatingHours.Text = "0.0";
+            if (!Dodd.IsColumnNull("Price"))
+            {
+                Dodd.Price = float.Parse(txtPrice.Text);
+            }
+            else
+                txtPrice.Text = "0.0";
             Dodd.DeliveryOrderStatusID = int.Parse(drpStatusDetails.SelectedItem.Value);
             Dodd.DeliveryOrderID = getQueryString_DeliveryOrder;
             Dodd.Save();
@@ -162,11 +172,26 @@ namespace TouchMediaGUI
             DO.ClientCode = int.Parse(txtClientCode.Text);
             DO.DeliveryOrderName = txtDeliveryOrderName.Text;
             DO.Department = txtDepartment.Text;
-            DO.PermationNumber = int.Parse(txtPermission.Text);
+            if (!DO.IsColumnNull("PermationNumber"))
+            {
+                DO.PermationNumber = int.Parse(txtPermission.Text);
+            }
+            else
+                txtPermission.Text = "0";
             DO.TransformationSupplier = drpTransformationSupplier.SelectedItem.Value;
             DO.CarNumber = txtCarNumber.Text;
-            DO.KilometerCounterBefore = decimal.Parse(txtKiloMeterBefore.Text);
-            DO.KilometerCounterAfter = decimal.Parse(txtkiloMeterAfter.Text);
+            if (!DO.IsColumnNull("KilometerCounterBefore"))
+            {
+                DO.KilometerCounterBefore = decimal.Parse(txtKiloMeterBefore.Text);
+            }
+            else
+                txtKiloMeterBefore.Text = "0.0";
+            if (!DO.IsColumnNull("KilometerCounterAfter"))
+            {
+                DO.KilometerCounterAfter = decimal.Parse(txtkiloMeterAfter.Text);
+            }
+            else
+                txtkiloMeterAfter.Text = "0.0";
             DO.DriverName = txtDriverName.Text;
             DO.DriverNationID = txtDriverNationID.Text;
             DO.DriverTelephone = txtDriverTelephone.Text;
@@ -175,7 +200,12 @@ namespace TouchMediaGUI
             DO.DepartmentResponsableName = txtDepartmentResponsable.Text;
 
             DO.GeneralDeliveryCode = txtGeneralDeliveryCode.Text;
-            DO.TotalPrice = double.Parse(txtTotalPrice.Text);
+            if (!DO.IsColumnNull("TotalPrice"))
+            {
+                DO.TotalPrice = double.Parse(txtTotalPrice.Text);
+            }
+            else
+                txtTotalPrice.Text = "0.0";
             DO.DeliveryOrderStatusID = int.Parse(drpStatusGeneral.SelectedValue);
             DO.Save();
 
