@@ -35,7 +35,7 @@
                txtFatherName.value = '';
            }
        }
-
+       /*
        function FillNotifierInfo(obj) {
            // debugger
            // Mother Oiginal Data
@@ -69,7 +69,7 @@
            }
 
        }
-
+       */
        function ClearNotifierData(objNat) {
            //debugger
            //Notifier Data

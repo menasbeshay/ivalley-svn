@@ -744,6 +744,12 @@ public partial class RegisterDeathCase : System.Web.UI.Page
             MHOCommon.ShowMessage("نوع البطاقة غير متوافق مع سن المتوفى", this.Page);
             return false;
         }
+
+        if (!MHOCommon.ValidateNationalIDInput(UcDeathInfo2.EventDeadNID, UcDeathInfo2.EventDeadGender != 1))
+        {
+            MHOCommon.ShowMessage(MHOCommon.NIDValidationMessage + "\\nبيانات المتوفى", this.Page);
+            return false;
+        }
         
         if (IsLostCase)
         {

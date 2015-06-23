@@ -470,7 +470,7 @@ public class MHOCommon
 
             if (Convert.ToInt32(nid.Substring(0, 1)) > 3 || Convert.ToInt32(nid.Substring(0, 1)) < 2)
             {
-                NIDValidationMessage = "خطا فى حساب الافية";
+                NIDValidationMessage = "خطا فى حساب الالفية";
                 return false;
             }
 
@@ -708,9 +708,9 @@ public class MHOCommon
 
         string yearValue = "";
         if (century == 2)
-            yearValue = "19" + year.ToString();
+            yearValue = "19" + nid.Substring(1, 2);
         else if(century == 3)
-            yearValue = "20" + year.ToString();
+            yearValue = "20" + nid.Substring(1, 2);
 
         try
         {

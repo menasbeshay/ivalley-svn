@@ -54,7 +54,7 @@ background-repeat:no-repeat;
 /*width:900px;*/
 height:63px;
 margin-top:120px;
-width:250px;
+width:15%;
 float:right;
 }
 #content_container{
@@ -69,8 +69,8 @@ float:right;
    #content_middle{
 					height:100%;
 					padding-right:3px;
-					/*width:100%;*/
-					margin: 0 auto;                   
+					width:82%;
+					margin: 0 15.1% 0 0;                   
 					margin-top:111px;
 					background-repeat:repeat-x;
 					/*float:left;*/
