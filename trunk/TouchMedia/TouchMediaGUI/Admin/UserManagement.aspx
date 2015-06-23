@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterAr.Master" AutoEventWireup="true" CodeBehind="UserManagement.aspx.cs" Inherits="TouchMediaGUI.UserManagement" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/admin.Master" AutoEventWireup="true" CodeBehind="UserManagement.aspx.cs" Inherits="TouchMediaGUI.UserManagement" %>
 
-<%@ MasterType VirtualPath="~/MasterAr.Master" %>
+<%@ MasterType VirtualPath="~/Admin/admin.Master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>

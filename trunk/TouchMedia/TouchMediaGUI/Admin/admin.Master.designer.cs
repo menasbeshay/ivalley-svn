@@ -7,111 +7,90 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TouchMediaGUI {
+namespace TouchMediaGUI.Admin {
     
     
-    public partial class ManageTransformationSupplier {
+    public partial class admin {
         
         /// <summary>
-        /// panelSupplierGrid control.
+        /// head control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panelSupplierGrid;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
         
         /// <summary>
-        /// btnNewSupplier control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnNewSupplier;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// GridViewSuppliers control.
+        /// LoginName1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewSuppliers;
+        protected global::System.Web.UI.WebControls.LoginName LoginName1;
         
         /// <summary>
-        /// panelSupplierEdit control.
+        /// LoginStatus1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panelSupplierEdit;
+        protected global::System.Web.UI.WebControls.LoginStatus LoginStatus1;
         
         /// <summary>
-        /// txtSupplierName control.
+        /// RepeaterAdminMenu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSupplierName;
+        protected global::System.Web.UI.WebControls.Repeater RepeaterAdminMenu;
         
         /// <summary>
-        /// RequiredFieldValidator1 control.
+        /// SiteMapDataSource control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.SiteMapDataSource SiteMapDataSource;
         
         /// <summary>
-        /// txtSupplierTelephone control.
+        /// uiLabelTitle control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSupplierTelephone;
+        protected global::System.Web.UI.WebControls.Label uiLabelTitle;
         
         /// <summary>
-        /// txtSupplierAddress control.
+        /// ContentPlaceHolder1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSupplierAddress;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
         
         /// <summary>
-        /// btnCancel control.
+        /// ContentPlaceHolderScripts control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnCancel;
-        
-        /// <summary>
-        /// btnSave control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnSave;
-        
-        /// <summary>
-        /// Master property.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated property.
-        /// </remarks>
-        public new TouchMediaGUI.Admin.admin Master {
-            get {
-                return ((TouchMediaGUI.Admin.admin)(base.Master));
-            }
-        }
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolderScripts;
     }
 }

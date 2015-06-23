@@ -117,9 +117,9 @@ namespace TouchMediaGUI.Admin {
         /// <remarks>
         /// Auto-generated property.
         /// </remarks>
-        public new TouchMediaGUI.MasterAr Master {
+        public new TouchMediaGUI.Admin.admin Master {
             get {
-                return ((TouchMediaGUI.MasterAr)(base.Master));
+                return ((TouchMediaGUI.Admin.admin)(base.Master));
             }
         }
     }

@@ -119,6 +119,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\ManageDeliveryOrderStatus.aspx" />
+    <Content Include="Admin\ManageDesigners.aspx" />
+    <Content Include="Admin\ManageJobOrderStatus.aspx" />
+    <Content Include="Admin\ManageTransformationSupplier.aspx" />
+    <Content Include="Admin\UserManagement.aspx" />
     <Content Include="assets\bootstrap-colorpicker\css\colorpicker.css" />
     <Content Include="assets\bootstrap-colorpicker\img\alpha.png" />
     <Content Include="assets\bootstrap-colorpicker\img\hue.png" />
@@ -1983,7 +1988,6 @@
     <Content Include="js\scripts.js" />
     <Content Include="js\ui-nestable.js" />
     <Content Include="js\ui-tree.js" />
-    <Content Include="libs\Newtonsoft.Json.dll" />
     <Content Include="Login.aspx" />
     <Content Include="Scripts\_references.js" />
     <Content Include="favicon.ico" />
@@ -1994,6 +1998,48 @@
     <Content Include="Bundle.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\admin.Master.cs">
+      <DependentUpon>admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\admin.Master.designer.cs">
+      <DependentUpon>admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ManageDeliveryOrderStatus.aspx.cs">
+      <DependentUpon>ManageDeliveryOrderStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ManageDeliveryOrderStatus.aspx.designer.cs">
+      <DependentUpon>ManageDeliveryOrderStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ManageDesigners.aspx.cs">
+      <DependentUpon>ManageDesigners.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ManageDesigners.aspx.designer.cs">
+      <DependentUpon>ManageDesigners.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ManageJobOrderStatus.aspx.cs">
+      <DependentUpon>ManageJobOrderStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ManageJobOrderStatus.aspx.designer.cs">
+      <DependentUpon>ManageJobOrderStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ManageTransformationSupplier.aspx.cs">
+      <DependentUpon>ManageTransformationSupplier.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ManageTransformationSupplier.aspx.designer.cs">
+      <DependentUpon>ManageTransformationSupplier.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UserManagement.aspx.cs">
+      <DependentUpon>UserManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UserManagement.aspx.designer.cs">
+      <DependentUpon>UserManagement.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="common\commonMethods.asmx.cs">
@@ -2067,6 +2113,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="libs\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">
@@ -2082,39 +2129,24 @@
     <Content Include="MasterAr.Master" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="assets\.DS_Store" />
-    <Content Include="assets\bootstrap-colorpicker\.DS_Store" />
     <Content Include="assets\bootstrap-colorpicker\less\colorpicker.less" />
-    <Content Include="assets\bootstrap-datepicker\.DS_Store" />
     <Content Include="assets\bootstrap-datepicker\less\datepicker.less" />
     <Content Include="assets\bootstrap-daterangepicker\README.md" />
-    <Content Include="assets\bootstrap-rtl\.DS_Store" />
-    <Content Include="assets\bootstrap-rtl\css\.DS_Store" />
-    <Content Include="assets\bootstrap-rtl\img\.DS_Store" />
-    <Content Include="assets\bootstrap-rtl\js\.DS_Store" />
-    <Content Include="assets\bootstrap-timepicker\.DS_Store" />
     <Content Include="assets\bootstrap-timepicker\.gitignore" />
     <Content Include="assets\bootstrap-timepicker\less\timepicker.less" />
     <Content Include="assets\bootstrap-timepicker\README.md" />
-    <Content Include="assets\bootstrap-toggle-buttons\.DS_Store" />
     <Content Include="assets\bootstrap-toggle-buttons\.gitignore" />
     <Content Include="assets\bootstrap-toggle-buttons\LICENSE" />
     <Content Include="assets\bootstrap-toggle-buttons\README.md" />
-    <Content Include="assets\bootstrap-toggle-buttons\static\.DS_Store" />
     <Content Include="assets\bootstrap-toggle-buttons\static\config.rb" />
     <Content Include="assets\bootstrap-toggle-buttons\static\sass\bootstrap-toggle-buttons.scss" />
     <Content Include="assets\bootstrap-tree\.gitignore" />
     <Content Include="assets\bootstrap-tree\jsonexample.json" />
     <Content Include="assets\bootstrap-tree\README.md" />
-    <Content Include="assets\bootstrap-wizard\.DS_Store" />
-    <Content Include="assets\bootstrap-wizard\bootstrap\.DS_Store" />
     <Content Include="assets\bootstrap-wizard\README.md" />
-    <Content Include="assets\chosen-bootstrap\.DS_Store" />
     <Content Include="assets\chosen-bootstrap\.gitignore" />
     <Content Include="assets\chosen-bootstrap\Cakefile" />
-    <Content Include="assets\chosen-bootstrap\chosen\.DS_Store" />
     <Content Include="assets\chosen-bootstrap\chosen\lib\chosen.less" />
-    <Content Include="assets\chosen-bootstrap\coffee\.DS_Store" />
     <Content Include="assets\chosen-bootstrap\coffee\chosen.jquery.coffee" />
     <Content Include="assets\chosen-bootstrap\coffee\chosen.proto.coffee" />
     <Content Include="assets\chosen-bootstrap\coffee\lib\abstract-chosen.coffee" />
@@ -2123,69 +2155,34 @@
     <Content Include="assets\chosen-bootstrap\package.json" />
     <Content Include="assets\chosen-bootstrap\README.md" />
     <Content Include="assets\chosen-bootstrap\VERSION" />
-    <Content Include="assets\ckeditor\.DS_Store" />
     <Content Include="assets\ckeditor\CHANGES.md" />
     <Content Include="assets\ckeditor\LICENSE.md" />
-    <Content Include="assets\ckeditor\plugins\.DS_Store" />
-    <Content Include="assets\ckeditor\plugins\a11yhelp\.DS_Store" />
-    <Content Include="assets\ckeditor\plugins\a11yhelp\dialogs\.DS_Store" />
-    <Content Include="assets\ckeditor\plugins\about\.DS_Store" />
-    <Content Include="assets\ckeditor\plugins\clipboard\.DS_Store" />
-    <Content Include="assets\ckeditor\plugins\fakeobjects\.DS_Store" />
-    <Content Include="assets\ckeditor\plugins\image\.DS_Store" />
-    <Content Include="assets\ckeditor\plugins\link\.DS_Store" />
-    <Content Include="assets\ckeditor\plugins\magicline\.DS_Store" />
-    <Content Include="assets\ckeditor\plugins\pastefromword\.DS_Store" />
-    <Content Include="assets\ckeditor\plugins\scayt\.DS_Store" />
     <Content Include="assets\ckeditor\plugins\scayt\LICENSE.md" />
     <Content Include="assets\ckeditor\plugins\scayt\README.md" />
-    <Content Include="assets\ckeditor\plugins\specialchar\.DS_Store" />
-    <Content Include="assets\ckeditor\plugins\specialchar\dialogs\.DS_Store" />
-    <Content Include="assets\ckeditor\plugins\tabletools\.DS_Store" />
-    <Content Include="assets\ckeditor\plugins\table\.DS_Store" />
-    <Content Include="assets\ckeditor\plugins\wsc\.DS_Store" />
     <Content Include="assets\ckeditor\plugins\wsc\LICENSE.md" />
     <Content Include="assets\ckeditor\plugins\wsc\README.md" />
     <Content Include="assets\ckeditor\README.md" />
-    <Content Include="assets\ckeditor\samples\.DS_Store" />
-    <Content Include="assets\ckeditor\samples\assets\.DS_Store" />
     <Content Include="assets\ckeditor\samples\assets\posteddata.php" />
-    <Content Include="assets\ckeditor\samples\plugins\.DS_Store" />
-    <Content Include="assets\ckeditor\samples\plugins\dialog\.DS_Store" />
-    <Content Include="assets\ckeditor\samples\plugins\htmlwriter\.DS_Store" />
-    <Content Include="assets\ckeditor\samples\plugins\htmlwriter\assets\.DS_Store" />
     <Content Include="assets\ckeditor\samples\plugins\htmlwriter\assets\outputforflash\outputforflash.fla" />
     <Content Include="assets\ckeditor\samples\sample_posteddata.php" />
-    <Content Include="assets\ckeditor\skins\.DS_Store" />
-    <Content Include="assets\ckeditor\skins\moono\.DS_Store" />
     <Content Include="assets\ckeditor\skins\moono\readme.md" />
-    <Content Include="assets\clockface\.DS_Store" />
     <Content Include="assets\clockface\LICENSE-MIT" />
     <Content Include="assets\clockface\README.md" />
-    <Content Include="assets\coming-soon-knob\.DS_Store" />
-    <Content Include="assets\coming-soon-knob\Source\.DS_Store" />
     <Content Include="assets\coming-soon-knob\Source\Fonts\Fjalla_One\FjallaOne-Regular.ttf" />
     <Content Include="assets\coming-soon-knob\Source\Fonts\Monda\Monda-Bold.ttf" />
     <Content Include="assets\coming-soon-knob\Source\Fonts\Monda\Monda-Regular.ttf" />
     <Content Include="assets\coming-soon-knob\Source\Fonts\Open Sans\OpenSans-CondLight.ttf" />
     <Content Include="assets\coming-soon-knob\Source\Fonts\Roboto\Roboto-Light.ttf" />
-    <Content Include="assets\coming-soon-knob\Template\.DS_Store" />
     <Content Include="assets\coming-soon-knob\Template\css\fonts\opensans-condlight-webfont.eot" />
     <Content Include="assets\coming-soon-knob\Template\css\fonts\opensans-condlight-webfont.svg" />
     <Content Include="assets\coming-soon-knob\Template\css\fonts\opensans-condlight-webfont.ttf" />
     <Content Include="assets\coming-soon-knob\Template\css\fonts\opensans-condlight-webfont.woff" />
-    <Content Include="assets\coming-soon-knob\Template\img\.DS_Store" />
-    <Content Include="assets\coming-soon-knob\Template\img\backgrounds\.DS_Store" />
-    <Content Include="assets\data-tables\.DS_Store" />
     <Content Include="assets\dropzone\css\stylus\basic.styl" />
     <Content Include="assets\dropzone\css\stylus\dropzone.styl" />
     <Content Include="assets\dropzone\upload.php" />
-    <Content Include="assets\fancybox\.DS_Store" />
     <Content Include="assets\fancybox\.gitattributes" />
     <Content Include="assets\fancybox\CHANGELOG.md" />
     <Content Include="assets\fancybox\README.md" />
-    <Content Include="assets\fancybox\source\.DS_Store" />
-    <Content Include="assets\flot\.DS_Store" />
     <Content Include="assets\flot\examples\data-eu-gdp-growth-1.json" />
     <Content Include="assets\flot\examples\data-eu-gdp-growth-2.json" />
     <Content Include="assets\flot\examples\data-eu-gdp-growth-3.json" />
@@ -2195,10 +2192,7 @@
     <Content Include="assets\flot\examples\data-japan-gdp-growth.json" />
     <Content Include="assets\flot\examples\data-usa-gdp-growth.json" />
     <Content Include="assets\flot\Makefile" />
-    <Content Include="assets\font-awesome\.DS_Store" />
     <Content Include="assets\font-awesome\.gitignore" />
-    <Content Include="assets\font-awesome\docs\.DS_Store" />
-    <Content Include="assets\font-awesome\docs\assets\.DS_Store" />
     <Content Include="assets\font-awesome\docs\assets\font\fontawesome-webfont.eot" />
     <Content Include="assets\font-awesome\docs\assets\font\fontawesome-webfont.ttf" />
     <Content Include="assets\font-awesome\docs\assets\font\fontawesome-webfont.woff" />
@@ -2212,14 +2206,11 @@
     <Content Include="assets\font-awesome\docs\assets\font\proximanova-webfont.eot" />
     <Content Include="assets\font-awesome\docs\assets\font\proximanova-webfont.ttf" />
     <Content Include="assets\font-awesome\docs\assets\img\icon-flag.pdf" />
-    <Content Include="assets\font-awesome\docs\assets\js\.DS_Store" />
-    <Content Include="assets\font-awesome\docs\assets\less\.DS_Store" />
     <Content Include="assets\font-awesome\docs\assets\less\font-awesome-ie7.less" />
     <Content Include="assets\font-awesome\docs\assets\less\font-awesome.less" />
     <Content Include="assets\font-awesome\docs\assets\less\font-site.less" />
     <Content Include="assets\font-awesome\docs\assets\less\mixins.less" />
     <Content Include="assets\font-awesome\docs\assets\less\site.less" />
-    <Content Include="assets\font-awesome\docs\assets\less\twbs-222\.DS_Store" />
     <Content Include="assets\font-awesome\docs\assets\less\twbs-222\accordion.less" />
     <Content Include="assets\font-awesome\docs\assets\less\twbs-222\alerts.less" />
     <Content Include="assets\font-awesome\docs\assets\less\twbs-222\bootstrap.less" />
@@ -2271,36 +2262,20 @@
     <Content Include="assets\font-awesome\README.md" />
     <Content Include="assets\font-awesome\sass\font-awesome.sass" />
     <Content Include="assets\font-awesome\sass\font-awesome.scss" />
-    <Content Include="assets\fullcalendar\.DS_Store" />
-    <Content Include="assets\fullcalendar\demos\.DS_Store" />
-    <Content Include="assets\fullcalendar\demos\cupertino\.DS_Store" />
     <Content Include="assets\fullcalendar\demos\json-events.php" />
-    <Content Include="assets\gritter\.DS_Store" />
     <Content Include="assets\gritter\README.markdown" />
-    <Content Include="assets\jquery-knob\.DS_Store" />
     <Content Include="assets\jquery-knob\README.md" />
-    <Content Include="assets\jquery-slimscroll\.DS_Store" />
-    <Content Include="assets\jquery-slimscroll\examples\.DS_Store" />
-    <Content Include="assets\jquery-slimscroll\examples\libs\.DS_Store" />
     <Content Include="assets\jquery-slimscroll\README.md" />
     <Content Include="assets\jquery-slimscroll\slimScroll.jquery.json" />
-    <Content Include="assets\jquery-tags-input\.DS_Store" />
     <Content Include="assets\jquery-tags-input\README.md" />
-    <Content Include="assets\jqvmap\.DS_Store" />
     <Content Include="assets\jqvmap\.gitignore" />
-    <Content Include="assets\jqvmap\jqvmap\.DS_Store" />
     <Content Include="assets\jqvmap\README.md" />
-    <Content Include="assets\jslider\.DS_Store" />
     <Content Include="assets\jslider\.gitignore" />
     <Content Include="assets\jslider\Makefile" />
     <Content Include="assets\jslider\README.md" />
     <Content Include="assets\jslider\src\skin.psd" />
-    <Content Include="assets\nestable\.DS_Store" />
     <Content Include="assets\nestable\README.md" />
-    <Content Include="assets\uniform\.DS_Store" />
     <Content Include="assets\uniform\README.textile" />
-    <Content Include="css\.DS_Store" />
-    <Content Include="font\.DS_Store" />
     <Content Include="font\myriadprobold.eot" />
     <Content Include="font\myriadprobold.svg" />
     <Content Include="font\myriadprobold.ttf" />
@@ -2317,48 +2292,29 @@
     <Content Include="font\myriadproregular.svg" />
     <Content Include="font\myriadproregular.ttf" />
     <Content Include="font\myriadproregular.woff" />
-    <Content Include="img\.DS_Store" />
-    <Content Include="img\blog\.DS_Store" />
-    <Content Include="img\gallery\.DS_Store" />
-    <Content Include="js\.DS_Store" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="En\MasterEn.Master" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="En\assets\.DS_Store" />
-    <Content Include="En\assets\bootstrap-colorpicker\.DS_Store" />
     <Content Include="En\assets\bootstrap-colorpicker\less\colorpicker.less" />
-    <Content Include="En\assets\bootstrap-datepicker\.DS_Store" />
     <Content Include="En\assets\bootstrap-datepicker\less\datepicker.less" />
     <Content Include="En\assets\bootstrap-daterangepicker\README.md" />
-    <Content Include="En\assets\bootstrap-timepicker\.DS_Store" />
     <Content Include="En\assets\bootstrap-timepicker\.gitignore" />
     <Content Include="En\assets\bootstrap-timepicker\less\timepicker.less" />
     <Content Include="En\assets\bootstrap-timepicker\README.md" />
-    <Content Include="En\assets\bootstrap-toggle-buttons\.DS_Store" />
     <Content Include="En\assets\bootstrap-toggle-buttons\.gitignore" />
     <Content Include="En\assets\bootstrap-toggle-buttons\LICENSE" />
     <Content Include="En\assets\bootstrap-toggle-buttons\README.md" />
-    <Content Include="En\assets\bootstrap-toggle-buttons\static\.DS_Store" />
     <Content Include="En\assets\bootstrap-toggle-buttons\static\config.rb" />
     <Content Include="En\assets\bootstrap-toggle-buttons\static\sass\bootstrap-toggle-buttons.scss" />
     <Content Include="En\assets\bootstrap-tree\.gitignore" />
     <Content Include="En\assets\bootstrap-tree\jsonexample.json" />
     <Content Include="En\assets\bootstrap-tree\README.md" />
-    <Content Include="En\assets\bootstrap-wizard\.DS_Store" />
-    <Content Include="En\assets\bootstrap-wizard\bootstrap\.DS_Store" />
     <Content Include="En\assets\bootstrap-wizard\README.md" />
-    <Content Include="En\assets\bootstrap\.DS_Store" />
-    <Content Include="En\assets\bootstrap\css\.DS_Store" />
-    <Content Include="En\assets\bootstrap\img\.DS_Store" />
-    <Content Include="En\assets\bootstrap\js\.DS_Store" />
-    <Content Include="En\assets\chosen-bootstrap\.DS_Store" />
     <Content Include="En\assets\chosen-bootstrap\.gitignore" />
     <Content Include="En\assets\chosen-bootstrap\Cakefile" />
-    <Content Include="En\assets\chosen-bootstrap\chosen\.DS_Store" />
     <Content Include="En\assets\chosen-bootstrap\chosen\lib\chosen.less" />
-    <Content Include="En\assets\chosen-bootstrap\coffee\.DS_Store" />
     <Content Include="En\assets\chosen-bootstrap\coffee\chosen.jquery.coffee" />
     <Content Include="En\assets\chosen-bootstrap\coffee\chosen.proto.coffee" />
     <Content Include="En\assets\chosen-bootstrap\coffee\lib\abstract-chosen.coffee" />
@@ -2367,69 +2323,34 @@
     <Content Include="En\assets\chosen-bootstrap\package.json" />
     <Content Include="En\assets\chosen-bootstrap\README.md" />
     <Content Include="En\assets\chosen-bootstrap\VERSION" />
-    <Content Include="En\assets\ckeditor\.DS_Store" />
     <Content Include="En\assets\ckeditor\CHANGES.md" />
     <Content Include="En\assets\ckeditor\LICENSE.md" />
-    <Content Include="En\assets\ckeditor\plugins\.DS_Store" />
-    <Content Include="En\assets\ckeditor\plugins\a11yhelp\.DS_Store" />
-    <Content Include="En\assets\ckeditor\plugins\a11yhelp\dialogs\.DS_Store" />
-    <Content Include="En\assets\ckeditor\plugins\about\.DS_Store" />
-    <Content Include="En\assets\ckeditor\plugins\clipboard\.DS_Store" />
-    <Content Include="En\assets\ckeditor\plugins\fakeobjects\.DS_Store" />
-    <Content Include="En\assets\ckeditor\plugins\image\.DS_Store" />
-    <Content Include="En\assets\ckeditor\plugins\link\.DS_Store" />
-    <Content Include="En\assets\ckeditor\plugins\magicline\.DS_Store" />
-    <Content Include="En\assets\ckeditor\plugins\pastefromword\.DS_Store" />
-    <Content Include="En\assets\ckeditor\plugins\scayt\.DS_Store" />
     <Content Include="En\assets\ckeditor\plugins\scayt\LICENSE.md" />
     <Content Include="En\assets\ckeditor\plugins\scayt\README.md" />
-    <Content Include="En\assets\ckeditor\plugins\specialchar\.DS_Store" />
-    <Content Include="En\assets\ckeditor\plugins\specialchar\dialogs\.DS_Store" />
-    <Content Include="En\assets\ckeditor\plugins\tabletools\.DS_Store" />
-    <Content Include="En\assets\ckeditor\plugins\table\.DS_Store" />
-    <Content Include="En\assets\ckeditor\plugins\wsc\.DS_Store" />
     <Content Include="En\assets\ckeditor\plugins\wsc\LICENSE.md" />
     <Content Include="En\assets\ckeditor\plugins\wsc\README.md" />
     <Content Include="En\assets\ckeditor\README.md" />
-    <Content Include="En\assets\ckeditor\samples\.DS_Store" />
-    <Content Include="En\assets\ckeditor\samples\assets\.DS_Store" />
     <Content Include="En\assets\ckeditor\samples\assets\posteddata.php" />
-    <Content Include="En\assets\ckeditor\samples\plugins\.DS_Store" />
-    <Content Include="En\assets\ckeditor\samples\plugins\dialog\.DS_Store" />
-    <Content Include="En\assets\ckeditor\samples\plugins\htmlwriter\.DS_Store" />
-    <Content Include="En\assets\ckeditor\samples\plugins\htmlwriter\assets\.DS_Store" />
     <Content Include="En\assets\ckeditor\samples\plugins\htmlwriter\assets\outputforflash\outputforflash.fla" />
     <Content Include="En\assets\ckeditor\samples\sample_posteddata.php" />
-    <Content Include="En\assets\ckeditor\skins\.DS_Store" />
-    <Content Include="En\assets\ckeditor\skins\moono\.DS_Store" />
     <Content Include="En\assets\ckeditor\skins\moono\readme.md" />
-    <Content Include="En\assets\clockface\.DS_Store" />
     <Content Include="En\assets\clockface\LICENSE-MIT" />
     <Content Include="En\assets\clockface\README.md" />
-    <Content Include="En\assets\coming_soon\.DS_Store" />
-    <Content Include="En\assets\coming_soon\demo\.DS_Store" />
     <Content Include="En\assets\coming_soon\demo\css\fonts\opensans-condlight-webfont.eot" />
     <Content Include="En\assets\coming_soon\demo\css\fonts\opensans-condlight-webfont.svg" />
     <Content Include="En\assets\coming_soon\demo\css\fonts\opensans-condlight-webfont.ttf" />
     <Content Include="En\assets\coming_soon\demo\css\fonts\opensans-condlight-webfont.woff" />
-    <Content Include="En\assets\coming_soon\demo\img\.DS_Store" />
-    <Content Include="En\assets\coming_soon\demo\img\backgrounds\.DS_Store" />
-    <Content Include="En\assets\coming_soon\Source\.DS_Store" />
     <Content Include="En\assets\coming_soon\Source\Fonts\Fjalla_One\FjallaOne-Regular.ttf" />
     <Content Include="En\assets\coming_soon\Source\Fonts\Monda\Monda-Bold.ttf" />
     <Content Include="En\assets\coming_soon\Source\Fonts\Monda\Monda-Regular.ttf" />
     <Content Include="En\assets\coming_soon\Source\Fonts\Open Sans\OpenSans-CondLight.ttf" />
     <Content Include="En\assets\coming_soon\Source\Fonts\Roboto\Roboto-Light.ttf" />
-    <Content Include="En\assets\data-tables\.DS_Store" />
     <Content Include="En\assets\dropzone\css\stylus\basic.styl" />
     <Content Include="En\assets\dropzone\css\stylus\dropzone.styl" />
     <Content Include="En\assets\dropzone\upload.php" />
-    <Content Include="En\assets\fancybox\.DS_Store" />
     <Content Include="En\assets\fancybox\.gitattributes" />
     <Content Include="En\assets\fancybox\CHANGELOG.md" />
     <Content Include="En\assets\fancybox\README.md" />
-    <Content Include="En\assets\fancybox\source\.DS_Store" />
-    <Content Include="En\assets\flot\.DS_Store" />
     <Content Include="En\assets\flot\examples\data-eu-gdp-growth-1.json" />
     <Content Include="En\assets\flot\examples\data-eu-gdp-growth-2.json" />
     <Content Include="En\assets\flot\examples\data-eu-gdp-growth-3.json" />
@@ -2439,10 +2360,7 @@
     <Content Include="En\assets\flot\examples\data-japan-gdp-growth.json" />
     <Content Include="En\assets\flot\examples\data-usa-gdp-growth.json" />
     <Content Include="En\assets\flot\Makefile" />
-    <Content Include="En\assets\font-awesome\.DS_Store" />
     <Content Include="En\assets\font-awesome\.gitignore" />
-    <Content Include="En\assets\font-awesome\docs\.DS_Store" />
-    <Content Include="En\assets\font-awesome\docs\assets\.DS_Store" />
     <Content Include="En\assets\font-awesome\docs\assets\font\fontawesome-webfont.eot" />
     <Content Include="En\assets\font-awesome\docs\assets\font\fontawesome-webfont.ttf" />
     <Content Include="En\assets\font-awesome\docs\assets\font\fontawesome-webfont.woff" />
@@ -2456,14 +2374,11 @@
     <Content Include="En\assets\font-awesome\docs\assets\font\proximanova-webfont.eot" />
     <Content Include="En\assets\font-awesome\docs\assets\font\proximanova-webfont.ttf" />
     <Content Include="En\assets\font-awesome\docs\assets\img\icon-flag.pdf" />
-    <Content Include="En\assets\font-awesome\docs\assets\js\.DS_Store" />
-    <Content Include="En\assets\font-awesome\docs\assets\less\.DS_Store" />
     <Content Include="En\assets\font-awesome\docs\assets\less\font-awesome-ie7.less" />
     <Content Include="En\assets\font-awesome\docs\assets\less\font-awesome.less" />
     <Content Include="En\assets\font-awesome\docs\assets\less\font-site.less" />
     <Content Include="En\assets\font-awesome\docs\assets\less\mixins.less" />
     <Content Include="En\assets\font-awesome\docs\assets\less\site.less" />
-    <Content Include="En\assets\font-awesome\docs\assets\less\twbs-222\.DS_Store" />
     <Content Include="En\assets\font-awesome\docs\assets\less\twbs-222\accordion.less" />
     <Content Include="En\assets\font-awesome\docs\assets\less\twbs-222\alerts.less" />
     <Content Include="En\assets\font-awesome\docs\assets\less\twbs-222\bootstrap.less" />
@@ -2515,36 +2430,20 @@
     <Content Include="En\assets\font-awesome\README.md" />
     <Content Include="En\assets\font-awesome\sass\font-awesome.sass" />
     <Content Include="En\assets\font-awesome\sass\font-awesome.scss" />
-    <Content Include="En\assets\fullcalendar\.DS_Store" />
-    <Content Include="En\assets\fullcalendar\demos\.DS_Store" />
-    <Content Include="En\assets\fullcalendar\demos\cupertino\.DS_Store" />
     <Content Include="En\assets\fullcalendar\demos\json-events.php" />
-    <Content Include="En\assets\gritter\.DS_Store" />
     <Content Include="En\assets\gritter\README.markdown" />
-    <Content Include="En\assets\jquery-knob\.DS_Store" />
     <Content Include="En\assets\jquery-knob\README.md" />
-    <Content Include="En\assets\jquery-slimscroll\.DS_Store" />
-    <Content Include="En\assets\jquery-slimscroll\examples\.DS_Store" />
-    <Content Include="En\assets\jquery-slimscroll\examples\libs\.DS_Store" />
     <Content Include="En\assets\jquery-slimscroll\README.md" />
     <Content Include="En\assets\jquery-slimscroll\slimScroll.jquery.json" />
-    <Content Include="En\assets\jquery-tags-input\.DS_Store" />
     <Content Include="En\assets\jquery-tags-input\README.md" />
-    <Content Include="En\assets\jqvmap\.DS_Store" />
     <Content Include="En\assets\jqvmap\.gitignore" />
-    <Content Include="En\assets\jqvmap\jqvmap\.DS_Store" />
     <Content Include="En\assets\jqvmap\README.md" />
-    <Content Include="En\assets\jslider\.DS_Store" />
     <Content Include="En\assets\jslider\.gitignore" />
     <Content Include="En\assets\jslider\Makefile" />
     <Content Include="En\assets\jslider\README.md" />
     <Content Include="En\assets\jslider\src\skin.psd" />
-    <Content Include="En\assets\nestable\.DS_Store" />
     <Content Include="En\assets\nestable\README.md" />
-    <Content Include="En\assets\uniform\.DS_Store" />
     <Content Include="En\assets\uniform\README.textile" />
-    <Content Include="En\css\.DS_Store" />
-    <Content Include="En\font\.DS_Store" />
     <Content Include="En\font\myriadprobold.eot" />
     <Content Include="En\font\myriadprobold.svg" />
     <Content Include="En\font\myriadprobold.ttf" />
@@ -2561,10 +2460,6 @@
     <Content Include="En\font\myriadproregular.svg" />
     <Content Include="En\font\myriadproregular.ttf" />
     <Content Include="En\font\myriadproregular.woff" />
-    <Content Include="En\img\.DS_Store" />
-    <Content Include="En\img\blog\.DS_Store" />
-    <Content Include="En\img\gallery\.DS_Store" />
-    <Content Include="En\js\.DS_Store" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_LocalResources\JobOrders.aspx.resx" />
@@ -2591,6 +2486,11 @@
     <Content Include="js\jqwidgets\styles\images\start\Thumbs.db" />
     <Content Include="js\jqwidgets\styles\images\sunny\Thumbs.db" />
     <Content Include="js\jqwidgets\styles\images\Thumbs.db" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AdminMenu.sitemap" />
+    <Content Include="Admin\admin.Master" />
+    <None Include="Properties\PublishProfiles\publish.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
