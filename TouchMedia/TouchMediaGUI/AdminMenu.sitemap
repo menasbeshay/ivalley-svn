@@ -11,7 +11,7 @@
         <siteMapNode url="~/admin/ManageJobOrderStatus.aspx" title="Manage Job Order Status" titleAr="ادارة حالة طلب الشغل"/>
         <siteMapNode url="~/admin/ManageDesigners.aspx" title="Manage Designers" titleAr="ادارة المصممين"/>
       </siteMapNode>
-      <siteMapNode url="~/admin/admin" title="Reports" icon="icon-chart" titleAr="تقارير">
+      <siteMapNode url="~/admin/admin" title="Reports" icon="icon-bar-chart" titleAr="تقارير">
         </siteMapNode>
       </siteMapNode>
 </siteMap>
