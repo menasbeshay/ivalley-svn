@@ -16,8 +16,8 @@
 
         <div class="login-header">
             <!-- BEGIN LOGO -->
-            <div id="logo" class="center">
-                <img src="img/logo.png" alt="logo" class="center" />
+            <div id="logo" class="center ub">
+                TOUCH MEDIA
             </div>
             <!-- END LOGO -->
         </div>
