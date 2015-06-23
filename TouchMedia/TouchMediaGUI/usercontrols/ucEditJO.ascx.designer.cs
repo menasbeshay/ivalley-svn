@@ -49,6 +49,15 @@ namespace TouchMediaGUI.usercontrols {
         protected global::System.Web.UI.WebControls.DropDownList uiDropDownListClient;
         
         /// <summary>
+        /// uiDropDownListJOStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList uiDropDownListJOStatus;
+        
+        /// <summary>
         /// uiCheckBoxListSections control.
         /// </summary>
         /// <remarks>
@@ -56,5 +65,158 @@ namespace TouchMediaGUI.usercontrols {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBoxList uiCheckBoxListSections;
+        
+        /// <summary>
+        /// uiCheckBoxListDigitalItem control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList uiCheckBoxListDigitalItem;
+        
+        /// <summary>
+        /// uiRadioButtonListRRV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList uiRadioButtonListRRV;
+        
+        /// <summary>
+        /// uiCheckBoxListServiceType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList uiCheckBoxListServiceType;
+        
+        /// <summary>
+        /// uiRadioButtonListRRV2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList uiRadioButtonListRRV2;
+        
+        /// <summary>
+        /// uiDropDownListDigitalPrintingSupplier control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList uiDropDownListDigitalPrintingSupplier;
+        
+        /// <summary>
+        /// uiDropDownListDPDeliveryTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList uiDropDownListDPDeliveryTo;
+        
+        /// <summary>
+        /// uiFileUploadDigitalFile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload uiFileUploadDigitalFile;
+        
+        /// <summary>
+        /// uiTextBoxDigitalQty control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxDigitalQty;
+        
+        /// <summary>
+        /// uiRadioButtonListPaperType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList uiRadioButtonListPaperType;
+        
+        /// <summary>
+        /// uiRadioButtonListGSM control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList uiRadioButtonListGSM;
+        
+        /// <summary>
+        /// uiDropDownListOffsetPrintHouse control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList uiDropDownListOffsetPrintHouse;
+        
+        /// <summary>
+        /// uiDropDownListOffsetPrintingFinishingBy control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList uiDropDownListOffsetPrintingFinishingBy;
+        
+        /// <summary>
+        /// uiCheckBoxListOffsetFinishType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList uiCheckBoxListOffsetFinishType;
+        
+        /// <summary>
+        /// uiFileUploadOffsetFile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload uiFileUploadOffsetFile;
+        
+        /// <summary>
+        /// uiTextBoxOffsetQty control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox uiTextBoxOffsetQty;
+        
+        /// <summary>
+        /// LinkButton1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
+        
+        /// <summary>
+        /// LinkButton2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton2;
     }
 }

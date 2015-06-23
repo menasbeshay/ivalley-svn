@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="row-fluid">
         <div class="span12">
-            <h3 class="page-title">الرئيسية
+            <h3 class="JF">الرئيسية
             </h3>
             <ul class="breadcrumb">
                 <li>

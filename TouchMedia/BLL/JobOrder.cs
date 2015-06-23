@@ -11,5 +11,14 @@ namespace BLL
 		{
 		
 		}
+
+        public bool GetAllJos()
+        {
+            return LoadFromRawSql(@"select J.*, S.JobOrderStatusNameAr StatusNameAr, S.JobOrderStatusName StatusName, S.StatusClass , C.ClientName from JobOrder J 
+                                    inner join JobOrderStatus S on J.JobOrderStatusID = S.JobOrderStatusID
+                                    inner join Clients C on J.ClientID = C.ClientID 
+                                    order by createdDate desc");
+        }
+
 	}
 }

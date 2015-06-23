@@ -22,9 +22,9 @@
             <!-- BEGIN TOP NAVIGATION BAR -->
             <div class="navbar-inner">
                 <div class="container-fluid">
-                    <!-- BEGIN LOGO -->
-                    <a class="brand" href="index.html">
-                        <img src="../img/logo.png" alt="Admin Lab" />
+                    <!-- BEGIN LOGO -->                    
+                    <a class="brand ub" href="Splash.aspx">
+                        TOUCH MEDIA
                     </a>
                     <!-- END LOGO -->
                     <!-- BEGIN RESPONSIVE MENU TOGGLER -->
@@ -38,9 +38,21 @@
                     
                     <!-- END  NOTIFICATION -->
                     <div class="top-nav ">
-                        <div class="nav pull-left top-menu">
-                            <asp:LoginStatus ID="LoginStatus1" Font-Size="Small" CssClass="label label-default" runat="server" />
-                        </div>
+                        <ul class="nav pull-left top-menu">
+                            <li class="dropdown">
+                           <a href="#" class="dropdown-toggle" data-toggle="dropdown">                               
+                               <span class="username">
+                                   مرحباً ،
+                                   <asp:LoginName ID="LoginName1" runat="server" CssClass="ub" />
+                               </span>
+                               <b class="caret"></b>
+                           </a>
+                           <ul class="dropdown-menu">                               
+                               <li><asp:LoginStatus ID="LoginStatus1" runat="server" LogoutText="<i class='icon-key'></i> خروج" /></li>
+                           </ul>
+                       </li>
+                            
+                        </ul>
                         <!-- END TOP NAVIGATION MENU -->
                     </div>
                 </div>
@@ -100,7 +112,7 @@
             <div id="main-content">
                 <div class="container-fluid">
                     <h3 class="page-title">
-                        <asp:Label ID="uiLabelTitle" runat="server" ></asp:Label>
+                        <asp:Label ID="uiLabelTitle" runat="server" CssClass="JF" ></asp:Label>
                    </h3>
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                     </asp:ContentPlaceHolder>
