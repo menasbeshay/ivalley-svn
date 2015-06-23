@@ -18,11 +18,11 @@ namespace TouchMediaGUI
 
             if (!IsPostBack)
             {
-                Master.PageTitle = "اوامر النقل";
+                Master.PageTitle = "اوامر تشغيل السيارات";
 
 
                 DeliveryOrderBind();
-                DeliveryOrderDetailsBind();
+               
 
                 if (getQueryString_DeliveryOrder > 0)
                 {
@@ -45,9 +45,12 @@ namespace TouchMediaGUI
                     txtDepartment.Text = EditDO.Department;
                     txtDeliveryOrderName.Text = EditDO.DeliveryOrderName;
                     drpStatusGeneral.SelectedValue = EditDO.DeliveryOrderStatusID.ToString();
+                    DeliveryOrderDetailsBind();
 
-
-
+                    WidGrdGeneralDeliveryOrder.Visible = false;
+                    WidEditDeliveryOrder.Visible = true;
+                    PanelDeliveryOrderDetails.Visible = true;
+                    createNewDeliveryOrder.Visible = false;
                 }
 
                 if (getQueryString_DeliveryOrderDetails > 0)
@@ -67,6 +70,7 @@ namespace TouchMediaGUI
                         txtWatingHours.Text = DODEdit.WatingHours.ToString();
                     else
                         txtWatingHours.Text = "0";
+                   
                 }
 
                 BLL.DeliveryOrderStatus DOS = new DeliveryOrderStatus();
@@ -89,9 +93,7 @@ namespace TouchMediaGUI
                 drpTransformationSupplier.DataTextField = TransformationSupplier.ColumnNames.TransformationSupplierName;
                 drpTransformationSupplier.DataBind();
 
-                WidGrdGeneralDeliveryOrder.Visible = true;
-                WidEditDeliveryOrder.Visible = false;
-                WidDeliveryOrderDetails.Visible = false;
+               
 
 
             }
@@ -108,10 +110,6 @@ namespace TouchMediaGUI
                 Dodd.AddNew();
             }
 
-
-
-
-
             Dodd.DeliveryFrom = txtDeliveryFrom.Text;
             Dodd.DeliveryTo = txtDeliveryTo.Text;
             Dodd.DateFrom = Convert.ToDateTime(txtDateFrom.Text);
@@ -122,9 +120,25 @@ namespace TouchMediaGUI
             Dodd.WatingHours = float.Parse(txtWatingHours.Text);
             Dodd.Price = float.Parse(txtPrice.Text);
             Dodd.DeliveryOrderStatusID = int.Parse(drpStatusDetails.SelectedItem.Value);
+            Dodd.DeliveryOrderID = getQueryString_DeliveryOrder;
             Dodd.Save();
-            Response.Redirect("DeliveryOrder.aspx");
-
+            DeliveryOrderDetailsBind();
+            grdDeliveryOrderDetails.Visible = true;
+            ClearGrdDetails();
+            
+        }
+        private void ClearGrdDetails()
+        {
+            txtDeliveryFrom.Text = "";
+            txtDeliveryTo.Text = "";
+            txtDateFrom.Text = "";
+            txtDateTo.Text = "";
+            txtRecivableName.Text = "";
+            txtRecivableTelephone.Text = "";
+            txtDeliveryOrderCode.Text = "";
+            txtWatingHours.Text = "";
+            txtPrice.Text = "";
+           
         }
 
         protected void btnDeliceryOrderGrd_Click(object sender, EventArgs e)
@@ -135,18 +149,14 @@ namespace TouchMediaGUI
             {
                 DO.LoadByPrimaryKey(getQueryString_DeliveryOrder);
                 btnDeliceryOrderGrd.Text = "تعديل أمر نقل";
-                WidDeliveryOrderDetails.Visible = true;
-                WidEditDeliveryOrder.Visible = false;
-                WidGrdGeneralDeliveryOrder.Visible = false;
+               
             }
             else
             {
                 DO.AddNew();
 
                 btnDeliceryOrderGrd.Text = "أضافة أمر نقل";
-                WidDeliveryOrderDetails.Visible = true;
-                WidEditDeliveryOrder.Visible = false;
-                WidGrdGeneralDeliveryOrder.Visible = false;
+               
             }
 
             DO.ClientCode = int.Parse(txtClientCode.Text);
@@ -166,14 +176,16 @@ namespace TouchMediaGUI
 
             DO.GeneralDeliveryCode = txtGeneralDeliveryCode.Text;
             DO.TotalPrice = double.Parse(txtTotalPrice.Text);
-            DO.DeliveryOrderStatusID = int.Parse(drpStatusDetails.SelectedValue);
+            DO.DeliveryOrderStatusID = int.Parse(drpStatusGeneral.SelectedValue);
             DO.Save();
-            
 
-            WidDeliveryOrderDetails.Visible = true;
-            WidEditDeliveryOrder.Visible = false;
+            Response.Redirect("DeliveryOrder.aspx?DeliveryOrderID=" + DO.DeliveryOrderID.ToString());
+            PanelDeliveryOrderDetails.Visible = true;
+            WidEditDeliveryOrder.Visible = true;
             WidGrdGeneralDeliveryOrder.Visible = false;
             createNewDeliveryOrder.Visible = false;
+
+
         }
         private void DeliveryOrderBind()
         {
@@ -185,7 +197,10 @@ namespace TouchMediaGUI
         private void DeliveryOrderDetailsBind()
         {
             BLL.DeliveryOrderDetails DOD = new DeliveryOrderDetails();
-            DOD.LoadAll();
+            //DOD.LoadAll();
+            DOD.Where.DeliveryOrderID.Value = getQueryString_DeliveryOrder;
+            DOD.Where.DeliveryOrderID.Operator = WhereParameter.Operand.Equal;
+            DOD.Query.Load();
             grdDeliveryOrderDetails.DataSource = DOD.DefaultView;
             grdDeliveryOrderDetails.DataBind();
         }
@@ -237,11 +252,9 @@ namespace TouchMediaGUI
             else if (e.CommandName == "EditGrdDO")
             {
                 int ID = int.Parse(e.CommandArgument.ToString());
+               
+               
                 Response.Redirect("DeliveryOrder.aspx?DeliveryOrderID=" + ID.ToString());
-                WidEditDeliveryOrder.Visible = true;
-                WidGrdGeneralDeliveryOrder.Visible = false;
-                WidDeliveryOrderDetails.Visible = false;
-
 
             }
             DeliveryOrderBind();
@@ -260,10 +273,8 @@ namespace TouchMediaGUI
             else if (e.CommandName == "EditGrdDetailsDO")
             {
                 int ID = int.Parse(e.CommandArgument.ToString());
-                Response.Redirect("DeliveryOrder.aspx?DeliveryOrderDetailsID=" + ID.ToString());
-                WidEditDeliveryOrder.Visible = false;
-                WidGrdGeneralDeliveryOrder.Visible = false;
-                WidDeliveryOrderDetails.Visible = true;
+                Response.Redirect(Request.Url.AbsolutePath.ToString() + "?DeliveryOrderID=" + Request.QueryString["DeliveryOrderID"].ToString() + "&DeliveryOrderDetailsID=" + ID.ToString());
+               
             }
             DeliveryOrderDetailsBind();
         }
@@ -272,7 +283,7 @@ namespace TouchMediaGUI
         protected void createNewDeliveryOrder_Click(object sender, EventArgs e)
         {
             WidGrdGeneralDeliveryOrder.Visible = false;
-            WidDeliveryOrderDetails.Visible = false;
+            PanelDeliveryOrderDetails.Visible = false;
             WidEditDeliveryOrder.Visible = true;
             createNewDeliveryOrder.Visible = false;
         }
