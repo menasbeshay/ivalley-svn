@@ -109,6 +109,19 @@ namespace TouchMediaGUI.common
         }
 
 
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        /// <summary>
+        /// Get All Designers
+        /// </summary>
+        /// <returns>object with List of all Designers</returns>
+        public void GetGiveAwayDetails(int ID)
+        {
+            
+            //return _response;
+        }
+
+
         private void SetContentResult(dynamic data)
         {
             string result = JsonConvert.SerializeObject(data, Formatting.None, new IsoDateTimeConverter() { DateTimeFormat = "yyyy-MM-dd HH:mm:ss" });

@@ -23,5 +23,13 @@ namespace BLL
     public enum Category
     {
         Designers = 1,
+        DigitalPrintingSupplier = 2,
+        DigitalPrintingType = 3,
+        DigitalPrintingServiceType = 4,
+        OffsetPrintingPrintHouse = 5,
+        OffsetPrintingPaperType = 6,
+        OffsetPrintingGSM = 7,
+        OffsetPrintingFinishingSupplier = 8,
+        OffsetPrintingFinishType = 9,
     }
 }

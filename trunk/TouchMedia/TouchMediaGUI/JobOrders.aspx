@@ -50,7 +50,13 @@
     <link href="js/jqwidgets/styles/jqx.base.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+    <ul class="breadcrumb">
+        <li>
+            <a href="Splash.aspx"><i class="icon-home"></i></a><span class="divider">&nbsp;</span>
+        </li>
+        <li>أوامر الشغل<span class="divider-last">&nbsp;</span>
+        </li>
+    </ul>
     <div class="row-fluid">
         <div class="span12">
 
@@ -68,17 +74,29 @@
                         <div class="span12">
                             <asp:HiddenField runat="server" ID="uiHiddenFieldCurrentJO" ClientIDMode="Static" Value="0" />
                             <asp:Panel ID="uiPanelAll" runat="server">
-                                <asp:GridView ID="uiGridViewJOs" runat="server" AutoGenerateColumns="false">
+                                <div class="span12 clearfix block-margin-bottom-5">
+                                    <div class="span2">
+                                        <asp:LinkButton ID="uiLinkButtonAdd" runat="server" CssClass="btn btn-primary" OnClick="uiLinkButtonAdd_Click">إضافة أمر شغل جديد</asp:LinkButton>
+                                    </div>
+                                </div>
+                                <asp:GridView ID="uiGridViewJOs" runat="server" AutoGenerateColumns="false" CssClass="table table-bordered table-condensed" EmptyDataText="لا يوجد بيانات">
                                     <Columns>                                        
                                         <asp:BoundField DataField="JobOrderCode" HeaderText="كود أمر الشغل" />
                                         <asp:BoundField DataField="JobOrderName" HeaderText="الإسم " />
+                                        <asp:BoundField DataField="CreatedDate" HeaderText="التاريخ"  DataFormatString="{0:dd/MM/yyyy}"/>
                                         <asp:BoundField DataField="ClientName" HeaderText="العميل " />
                                         <asp:TemplateField HeaderText="الحالة">
                                             <ItemTemplate>
                                                 <span class='label label-<%# Eval("StatusClass") %>'><%# Eval("StatusNameAr") %></span>
                                             </ItemTemplate>
                                         </asp:TemplateField>
-                                        <asp:BoundField DataField="CreatedDate" HeaderText="التاريخ" />
+                                        
+                                        <asp:TemplateField HeaderText="إجراءات">
+                                        <ItemTemplate>
+                                             <asp:LinkButton ID="btnDeleteGrdDO" OnClientClick="return confirm('هل تريد حذف هذا السجل ?')"  runat="server" CommandArgument='<%# Eval("JobOrderID") %>' CommandName="DeleteJO">حذف</asp:LinkButton>
+                                            <asp:LinkButton ID="btnEditGrdDO" runat="server" CommandArgument='<%# Eval ("JobOrderID") %>' CommandName="EditJO">تعديل</asp:LinkButton>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
                                     </Columns>
                                 </asp:GridView>
                             </asp:Panel>
@@ -124,6 +142,7 @@
     <script type="text/javascript" src="js/jqwidgets/jqxradiobutton.js"></script>
     <script type="text/javascript" src="js/jqwidgets/jqxdatetimeinput.js"></script>
     <script type="text/javascript" src="js/jqwidgets/jqxcheckbox.js"></script>
+    <script src="js/jqwidgets/jqxnumberinput.js"></script>
     <script src="js/jqwidgets/jqxmaskedinput.js"></script>
     <script type="text/javascript" src="js/jqwidgets/globalization/globalize.js"></script>
     <script src="js/jqwidgets/globalization/localization.js"></script>
