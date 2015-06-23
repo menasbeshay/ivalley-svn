@@ -2,12 +2,42 @@
 
 <%@ MasterType VirtualPath="~/MasterAr.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="assets/fancybox/source/jquery.fancybox.css" rel="stylesheet" />
+   <link rel="stylesheet" type="text/css" href="assets/gritter/css/jquery.gritter.css" />
+   <link rel="stylesheet" type="text/css" href="assets/uniform/css/uniform.default.css" />
+   <link rel="stylesheet" type="text/css" href="assets/chosen-bootstrap/chosen/chosen.css" />
+   <link rel="stylesheet" type="text/css" href="assets/jquery-tags-input/jquery.tagsinput.css" />
+   <link rel="stylesheet" type="text/css" href="assets/clockface/css/clockface.css" />
+   <link rel="stylesheet" type="text/css" href="assets/bootstrap-wysihtml5/bootstrap-wysihtml5.css" />
+   <link rel="stylesheet" type="text/css" href="assets/bootstrap-datepicker/css/datepicker.css" />
+   <link rel="stylesheet" type="text/css" href="assets/bootstrap-timepicker/compiled/timepicker.css" />
+   <link rel="stylesheet" type="text/css" href="assets/bootstrap-colorpicker/css/colorpicker.css" />
+   <link rel="stylesheet" href="assets/bootstrap-toggle-buttons/static/stylesheets/bootstrap-toggle-buttons.css" />
+   <link rel="stylesheet" href="assets/data-tables/DT_bootstrap.css" />
+   <link rel="stylesheet" type="text/css" href="assets/bootstrap-daterangepicker/daterangepicker.css" />
+
+
     <style type="text/css">
         .row-fluid [class*="span"] {
             margin-right:0 !important;
         }
     </style>
 </asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolderScripts" runat="server">
+    <script type="text/javascript" src="assets/chosen-bootstrap/chosen/chosen.jquery.min.js"></script>
+   <script type="text/javascript" src="assets/bootstrap-wysihtml5/wysihtml5-0.3.0.js"></script>
+   <script type="text/javascript" src="assets/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script>
+   <script type="text/javascript" src="assets/clockface/js/clockface.js"></script>
+   <script type="text/javascript" src="assets/jquery-tags-input/jquery.tagsinput.min.js"></script>
+   <script type="text/javascript" src="assets/bootstrap-toggle-buttons/static/js/jquery.toggle.buttons.js"></script>
+   <script type="text/javascript" src="assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+   <script type="text/javascript" src="assets/bootstrap-daterangepicker/date.js"></script>
+   <script type="text/javascript" src="assets/bootstrap-daterangepicker/daterangepicker.js"></script>
+   <script type="text/javascript" src="assets/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+   <script type="text/javascript" src="assets/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
+   <script type="text/javascript" src="assets/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
+   <script src="assets/fancybox/source/jquery.fancybox.pack.js"></script>
+    </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!-- BEGIN ADVANCED TABLE widget-->
     <ul class="breadcrumb">
@@ -41,7 +71,7 @@
                                     <asp:BoundField HeaderText="كود العملية" DataField="GeneralDeliveryCode" />
                                     <asp:BoundField HeaderText="أسم العملية" DataField="DeliveryOrderName" />
                                     <asp:BoundField HeaderText="القسم" DataField="Department" />
-                                    <asp:BoundField HeaderText="التاريخ" DataField="CreatedDate" />
+                                    <asp:BoundField HeaderText="التاريخ" DataField="DeliveryOrderDate" />
                                     <asp:BoundField HeaderText="رقم السائق" DataField="DriverTelephone" />
                                     <asp:TemplateField HeaderText="الحالة">
                                         <ItemTemplate>
@@ -85,19 +115,29 @@
                                 <label class="control-label">أسم المشوار</label>
                                <asp:TextBox runat="server" type="text"  ID="txtDeliveryOrderName" />
                             </div>
-                            <div class="span6">
+                            <<div class="span6">
                                 <label class="control-label">التاريخ</label>
-                                <asp:TextBox runat="server" type="text"  ID="txtDeliveryOrderDate" />
+                                <div class="input-append date date-picker" data-date="12-02-2012" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
+                                <asp:TextBox runat="server" CssClass="m-ctrl-medium date-picker" Font-Size="16"  type="text"  ID="txtDeliveryOrderDate" />
+                                    <span class="add-on">
+                                        <i class="icon-calendar"></i>
+                                    </span>
+                                </div>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="txtDeliveryOrderDate" ValidationGroup="dlr" runat="server" ForeColor="Red" Font-Bold="true" ErrorMessage="*"/>
+
                             </div>
+                           
                         </div>
                         <div class="block-margin-bottom-5 span12 clearfix">
                             <div class="span6">
                                 <label class="control-label">كود العميل</label>
                                <asp:TextBox runat="server" type="text"  ID="txtClientCode" />
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="txtClientCode" ValidationGroup="dlr" runat="server" ForeColor="Red" Font-Bold="true" ErrorMessage="*"/>
                             </div>
                             <div class="span6">
                                 <label class="control-label">كود العملية</label>
                                 <asp:TextBox runat="server" type="text"  ID="txtGeneralDeliveryCode" />
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="txtGeneralDeliveryCode" ValidationGroup="dlr" runat="server" ForeColor="Red" Font-Bold="true" ErrorMessage="*"/>
                             </div>
                         </div>
                         <div class="block-margin-bottom-5 span12 clearfix">
@@ -153,26 +193,27 @@
                             </div>
                         <div class="block-margin-bottom-5 span12 clearfix">
 
-                            <div class=" span6">
-                                <label class="control-label">رقم السيارة </label>
-
-                                <asp:TextBox runat="server" type="text" ID="txtCarNumber" />
-
-                            </div>
+                            
 
                             <div class=" span6">
                                 <label class="control-label">عدد كيلومترات السيارة قبل  </label>
 
                                 <asp:TextBox runat="server" type="text" ID="txtKiloMeterBefore" />
-
+                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="txtKiloMeterBefore" ValidationGroup="dlr" runat="server" ForeColor="Red" Font-Bold="true" ErrorMessage="*"/>
                             </div>
-                        </div>
-                        <div class="block-margin-bottom-5 span12 clearfix">
-                            <div class="control-group">
+                             <div class="control-group">
                                 <label class="control-label">عدد كيلومترات السيارة بعد  </label>
                                
                                     <asp:TextBox runat="server" type="text"  ID="txtkiloMeterAfter" />
-                               
+                               <asp:RequiredFieldValidator ID="RequiredFieldValidator5" ControlToValidate="txtkiloMeterAfter" ValidationGroup="dlr" runat="server" ForeColor="Red" Font-Bold="true" ErrorMessage="*"/>
+                            </div>
+                        </div>
+                        <div class="block-margin-bottom-5 span12 clearfix">
+                           <div class=" span6">
+                                <label class="control-label">رقم السيارة </label>
+
+                                <asp:TextBox runat="server" type="text" ID="txtCarNumber" />
+
                             </div>
                             </div>
 
@@ -205,7 +246,7 @@
                                 <div>
                                     <%-- <asp:Button ID="btnDeliceryOrderGrd"  runat="server" Text="Add" CssClass=" btn btn-success " Width="20%" />--%>
                                     <div style="text-align: center; margin-bottom: 10px">
-                                        <asp:LinkButton runat="server" ID="btnDeliceryOrderGrd" OnClick="btnDeliceryOrderGrd_Click" class="btn btn-success"><i class="icon-ok icon-white" ></i>حفظ</asp:LinkButton>
+                                        <asp:LinkButton runat="server" ID="btnDeliceryOrderGrd" ValidationGroup="dlr" OnClick="btnDeliceryOrderGrd_Click" class="btn btn-success"><i class="icon-ok icon-white" ></i>حفظ</asp:LinkButton>
                                     </div>
                                 </div>
                             </div>
@@ -231,10 +272,12 @@
                             <div class="span6">
                                 <label class="control-label">الوقت من</label>
                                 <asp:TextBox runat="server" type="text"  ID="txtDateFrom" />
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" ControlToValidate="txtDateFrom" ValidationGroup="dlrd" runat="server" ForeColor="Red" Font-Bold="true" ErrorMessage="*"/>
                             </div>
                             <div class="span6">
                                 <label class="control-label">الوقت الي</label>
                                 <asp:TextBox runat="server" type="text"  ID="txtDateTo" />
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator7" ControlToValidate="txtDateTo" ValidationGroup="dlrd" runat="server" ForeColor="Red" Font-Bold="true" ErrorMessage="*"/>
                             </div>
                         </div>
                         <div class="block-margin-bottom-5 span12 clearfix">
@@ -270,7 +313,7 @@
 
                         <div class="span12 ">
                             <div style="text-align: center; margin-bottom: 10px">
-                                <asp:LinkButton runat="server" ID="addDeliveryOrderDetailsGrd" OnClick="addDeliveryOrderDetailsGrd_Click" class="btn btn-success"><i class="icon-ok icon-white" ></i>حفظ</asp:LinkButton>
+                                <asp:LinkButton runat="server" ID="addDeliveryOrderDetailsGrd" ValidationGroup="dlrd" OnClick="addDeliveryOrderDetailsGrd_Click" class="btn btn-success"><i class="icon-ok icon-white" ></i>حفظ</asp:LinkButton>
                             </div>
                             <%--<div>
                                     <asp:Button ID="addDeliveryOrderDetailsGrd" OnClick="addDeliveryOrderDetailsGrd_Click" runat="server" Text="Add" CssClass=" btn-primary " Width="20%" />
