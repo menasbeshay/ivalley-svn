@@ -718,18 +718,18 @@ public partial class RegisterBirthdayInfo : System.Web.UI.Page
             MHOCommon.ShowMessage("الرقم القومى للمبلغ غير صحيح", this.Page);
             return false;
         }
-
-     /*   if (!MHOCommon.ValidateNationalIDInput(UcFatherInfo2.ParentNID, false))
+       if (!MHOCommon.ValidateNationalIDInput(UcFatherInfo2.ParentNID, false))
         {
-            MHOCommon.ShowMessage("النوع لا يتوافق مع الرقم القومي المدخل", this.Page);
+            MHOCommon.ShowMessage(MHOCommon.NIDValidationMessage + "\\nبيانات الأب", this.Page);
             return false;
         }
 
         if (!MHOCommon.ValidateNationalIDInput(UcMotherInfo2.ParentNID, true))
         {
-            MHOCommon.ShowMessage("النوع لا يتوافق مع الرقم القومي المدخل", this.Page);
+            MHOCommon.ShowMessage(MHOCommon.NIDValidationMessage + "\\nبيانات الأم", this.Page);
             return false;
-        }*/
+        }
+        
 
         if (UcMotherInfo2.ParentNID == "0")
         {

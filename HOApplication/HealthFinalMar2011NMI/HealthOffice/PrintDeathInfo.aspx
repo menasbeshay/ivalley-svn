@@ -89,7 +89,7 @@
 
 <table align="center"><tr><td>
 
-<input id="Button1" onclick="window.print();" value="طباعة" type="button" value="button" />
+<input id="Button1" onclick="this.style.display = 'none'; window.print(); this.style.display = 'block';" value="طباعة" type="button" value="button" />
 </td></tr></table>
 <center>
    <div runat="server" id="DeathCaseConents" style="width:75%">
