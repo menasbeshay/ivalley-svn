@@ -77,8 +77,10 @@ namespace Flights_GUI.Admin
                 MembershipUser ObjData = Membership.GetUser(e.CommandArgument.ToString());
                 uiTextBoxUserName.Text = ObjData.UserName;
                 uiTextBoxUserName.Enabled = false;
-                uiTextBoxPass.Text = ObjData.GetPassword();
+                if(!ObjData.IsLockedOut)
+                    uiTextBoxPass.Text = ObjData.GetPassword();
                 //uiTextBoxPass.Enabled = false;
+               // uiCheckBoxIsLocked.Checked = ObjData.IsLockedOut;
                 RequiredFieldValidator2.Enabled = false;
                 RequiredFieldValidator6.Enabled = false;
                 CompareValidator1.Enabled = false;
@@ -137,10 +139,13 @@ namespace Flights_GUI.Admin
                 //CurrentUser.Email = uiTextBoxMail.Text;
                 List<string> stringListToAdd = new List<string>();
                 List<string> stringListToRemove = new List<string>();
-
-                if (CurrentUser.GetPassword() != uiTextBoxPass.Text && !string.IsNullOrEmpty(uiTextBoxPass.Text))
+                
+                if (!CurrentUser.IsLockedOut)
                 {
-                    CurrentUser.ChangePassword(CurrentUser.GetPassword(), uiTextBoxPass.Text);
+                    if (CurrentUser.GetPassword() != uiTextBoxPass.Text && !string.IsNullOrEmpty(uiTextBoxPass.Text))
+                    {
+                        CurrentUser.ChangePassword(CurrentUser.GetPassword(), uiTextBoxPass.Text);
+                    }
                 }
 
                 foreach (ListItem item in uiCheckBoxListRoles.Items)

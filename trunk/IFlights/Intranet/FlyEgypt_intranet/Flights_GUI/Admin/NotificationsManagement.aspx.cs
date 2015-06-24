@@ -47,13 +47,16 @@ namespace Flights_GUI.Admin
 
         protected void LinkButtonSendNotifications_Click(object sender, EventArgs e)
         {
+            uiPanelSuccess.Visible = false;
             UsersProfiles up = new UsersProfiles();
             Groups gr = new Groups();
             List<string> GroupIDs = CheckBoxListGroups.Items.Cast<ListItem>()
                 .Where(li => li.Selected)
                 .Select(li => li.Value)
                 .ToList();
-            up.getuserEmails(GroupIDs);
+
+            if(GroupIDs.Count>0)
+                up.getuserEmails(GroupIDs);
             try
             {
                 MailMessage msg = new MailMessage();
@@ -63,7 +66,8 @@ namespace Flights_GUI.Admin
                     msg.To.Add(up.Email);
                     up.MoveNext();
                 }
-                msg.To.Add(uiHiddenFieldmails.Value);
+                if (!string.IsNullOrEmpty(uiHiddenFieldmails.Value))
+                    msg.To.Add(uiHiddenFieldmails.Value);
                 msg.From = new MailAddress(mail);
                 msg.Subject = GetLocalResourceObject("subject").ToString();
                 msg.IsBodyHtml = true;
@@ -75,7 +79,7 @@ namespace Flights_GUI.Admin
                 client.UseDefaultCredentials = false;
                 client.Credentials = new System.Net.NetworkCredential(mail, GetLocalResourceObject("Password").ToString());
                 client.Send(msg);
-
+                uiPanelSuccess.Visible = true;
             
             }
             catch (Exception ex)

@@ -189,6 +189,7 @@
                     </asp:CheckBoxList>
                 </div>
             </div>
+            
             <div style="clear: both; height: 5px;"></div>
             <div class="cell-12 clearfix">
                 <div class="cell-2">
