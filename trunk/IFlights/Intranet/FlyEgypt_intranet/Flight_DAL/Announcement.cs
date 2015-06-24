@@ -179,6 +179,14 @@ namespace Flight_DAL
 				}
 			}
 			
+			public static SqlParameter GroupID
+			{
+				get
+				{
+					return new SqlParameter("@GroupID", SqlDbType.Int, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -195,6 +203,7 @@ namespace Flight_DAL
             public const string IsBulletin = "IsBulletin";
             public const string IsBlog = "IsBlog";
             public const string UploadedFile = "UploadedFile";
+            public const string GroupID = "GroupID";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -212,6 +221,7 @@ namespace Flight_DAL
 					ht[IsBulletin] = _Announcement.PropertyNames.IsBulletin;
 					ht[IsBlog] = _Announcement.PropertyNames.IsBlog;
 					ht[UploadedFile] = _Announcement.PropertyNames.UploadedFile;
+					ht[GroupID] = _Announcement.PropertyNames.GroupID;
 
 				}
 				return (string)ht[columnName];
@@ -234,6 +244,7 @@ namespace Flight_DAL
             public const string IsBulletin = "IsBulletin";
             public const string IsBlog = "IsBlog";
             public const string UploadedFile = "UploadedFile";
+            public const string GroupID = "GroupID";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -251,6 +262,7 @@ namespace Flight_DAL
 					ht[IsBulletin] = _Announcement.ColumnNames.IsBulletin;
 					ht[IsBlog] = _Announcement.ColumnNames.IsBlog;
 					ht[UploadedFile] = _Announcement.ColumnNames.UploadedFile;
+					ht[GroupID] = _Announcement.ColumnNames.GroupID;
 
 				}
 				return (string)ht[propertyName];
@@ -273,6 +285,7 @@ namespace Flight_DAL
             public const string IsBulletin = "s_IsBulletin";
             public const string IsBlog = "s_IsBlog";
             public const string UploadedFile = "s_UploadedFile";
+            public const string GroupID = "s_GroupID";
 
 		}
 		#endregion		
@@ -396,6 +409,18 @@ namespace Flight_DAL
 			set
 	        {
 				base.Setstring(ColumnNames.UploadedFile, value);
+			}
+		}
+
+		public virtual int GroupID
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.GroupID);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.GroupID, value);
 			}
 		}
 
@@ -554,6 +579,21 @@ namespace Flight_DAL
 			}
 		}
 
+		public virtual string s_GroupID
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.GroupID) ? string.Empty : base.GetintAsString(ColumnNames.GroupID);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.GroupID);
+				else
+					this.GroupID = base.SetintAsString(ColumnNames.GroupID, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -687,6 +727,16 @@ namespace Flight_DAL
 					}
 				}
 
+				public WhereParameter GroupID
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.GroupID, Parameters.GroupID);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -812,6 +862,18 @@ namespace Flight_DAL
 				}
 			}
 
+			public WhereParameter GroupID
+		    {
+				get
+		        {
+					if(_GroupID_W == null)
+	        	    {
+						_GroupID_W = TearOff.GroupID;
+					}
+					return _GroupID_W;
+				}
+			}
+
 			private WhereParameter _AnnouncementID_W = null;
 			private WhereParameter _Title_W = null;
 			private WhereParameter _Content_W = null;
@@ -822,6 +884,7 @@ namespace Flight_DAL
 			private WhereParameter _IsBulletin_W = null;
 			private WhereParameter _IsBlog_W = null;
 			private WhereParameter _UploadedFile_W = null;
+			private WhereParameter _GroupID_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -835,6 +898,7 @@ namespace Flight_DAL
 				_IsBulletin_W = null;
 				_IsBlog_W = null;
 				_UploadedFile_W = null;
+				_GroupID_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -991,6 +1055,16 @@ namespace Flight_DAL
 					}
 				}
 
+				public AggregateParameter GroupID
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.GroupID, Parameters.GroupID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -1116,6 +1190,18 @@ namespace Flight_DAL
 				}
 			}
 
+			public AggregateParameter GroupID
+		    {
+				get
+		        {
+					if(_GroupID_W == null)
+	        	    {
+						_GroupID_W = TearOff.GroupID;
+					}
+					return _GroupID_W;
+				}
+			}
+
 			private AggregateParameter _AnnouncementID_W = null;
 			private AggregateParameter _Title_W = null;
 			private AggregateParameter _Content_W = null;
@@ -1126,6 +1212,7 @@ namespace Flight_DAL
 			private AggregateParameter _IsBulletin_W = null;
 			private AggregateParameter _IsBlog_W = null;
 			private AggregateParameter _UploadedFile_W = null;
+			private AggregateParameter _GroupID_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -1139,6 +1226,7 @@ namespace Flight_DAL
 				_IsBulletin_W = null;
 				_IsBlog_W = null;
 				_UploadedFile_W = null;
+				_GroupID_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -1251,6 +1339,10 @@ namespace Flight_DAL
 
 			p = cmd.Parameters.Add(Parameters.UploadedFile);
 			p.SourceColumn = ColumnNames.UploadedFile;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.GroupID);
+			p.SourceColumn = ColumnNames.GroupID;
 			p.SourceVersion = DataRowVersion.Current;
 
 
