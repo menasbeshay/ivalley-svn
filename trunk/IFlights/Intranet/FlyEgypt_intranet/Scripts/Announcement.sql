@@ -2,7 +2,7 @@
 USE [Intranetdb]
 GO
 
-/****** Object:  StoredProcedure [proc_AnnouncementLoadByPrimaryKey]    Script Date: 24/06/2015 1:31:07 PM ******/
+/****** Object:  StoredProcedure [proc_AnnouncementLoadByPrimaryKey]    Script Date: 24/06/2015 4:37:08 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_AnnouncementLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_AnnouncementLoadByPrimaryKey];
 GO
@@ -26,7 +26,8 @@ BEGIN
 		[Brief],
 		[IsBulletin],
 		[IsBlog],
-		[UploadedFile]
+		[UploadedFile],
+		[GroupID]
 	FROM [Announcement]
 	WHERE
 		([AnnouncementID] = @AnnouncementID)
@@ -43,7 +44,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_AnnouncementLoadByPrimaryKey Su
 ELSE PRINT 'Procedure Creation: proc_AnnouncementLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_AnnouncementLoadAll]    Script Date: 24/06/2015 1:31:07 PM ******/
+/****** Object:  StoredProcedure [proc_AnnouncementLoadAll]    Script Date: 24/06/2015 4:37:08 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_AnnouncementLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_AnnouncementLoadAll];
 GO
@@ -65,7 +66,8 @@ BEGIN
 		[Brief],
 		[IsBulletin],
 		[IsBlog],
-		[UploadedFile]
+		[UploadedFile],
+		[GroupID]
 	FROM [Announcement]
 
 	SET @Err = @@Error
@@ -80,7 +82,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_AnnouncementLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_AnnouncementLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_AnnouncementUpdate]    Script Date: 24/06/2015 1:31:07 PM ******/
+/****** Object:  StoredProcedure [proc_AnnouncementUpdate]    Script Date: 24/06/2015 4:37:08 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_AnnouncementUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_AnnouncementUpdate];
 GO
@@ -96,7 +98,8 @@ CREATE PROCEDURE [proc_AnnouncementUpdate]
 	@Brief nvarchar(1000) = NULL,
 	@IsBulletin bit = NULL,
 	@IsBlog bit = NULL,
-	@UploadedFile nvarchar(500) = NULL
+	@UploadedFile nvarchar(500) = NULL,
+	@GroupID int = NULL
 )
 AS
 BEGIN
@@ -114,7 +117,8 @@ BEGIN
 		[Brief] = @Brief,
 		[IsBulletin] = @IsBulletin,
 		[IsBlog] = @IsBlog,
-		[UploadedFile] = @UploadedFile
+		[UploadedFile] = @UploadedFile,
+		[GroupID] = @GroupID
 	WHERE
 		[AnnouncementID] = @AnnouncementID
 
@@ -135,7 +139,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_AnnouncementInsert]    Script Date: 24/06/2015 1:31:07 PM ******/
+/****** Object:  StoredProcedure [proc_AnnouncementInsert]    Script Date: 24/06/2015 4:37:08 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_AnnouncementInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_AnnouncementInsert];
 GO
@@ -151,7 +155,8 @@ CREATE PROCEDURE [proc_AnnouncementInsert]
 	@Brief nvarchar(1000) = NULL,
 	@IsBulletin bit = NULL,
 	@IsBlog bit = NULL,
-	@UploadedFile nvarchar(500) = NULL
+	@UploadedFile nvarchar(500) = NULL,
+	@GroupID int = NULL
 )
 AS
 BEGIN
@@ -170,7 +175,8 @@ BEGIN
 		[Brief],
 		[IsBulletin],
 		[IsBlog],
-		[UploadedFile]
+		[UploadedFile],
+		[GroupID]
 	)
 	VALUES
 	(
@@ -182,7 +188,8 @@ BEGIN
 		@Brief,
 		@IsBulletin,
 		@IsBlog,
-		@UploadedFile
+		@UploadedFile,
+		@GroupID
 	)
 
 	SET @Err = @@Error
@@ -199,7 +206,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_AnnouncementInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_AnnouncementInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_AnnouncementDelete]    Script Date: 24/06/2015 1:31:07 PM ******/
+/****** Object:  StoredProcedure [proc_AnnouncementDelete]    Script Date: 24/06/2015 4:37:08 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_AnnouncementDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_AnnouncementDelete];
 GO
