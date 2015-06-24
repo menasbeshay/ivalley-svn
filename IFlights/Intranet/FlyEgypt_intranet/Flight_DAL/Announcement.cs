@@ -171,6 +171,14 @@ namespace Flight_DAL
 				}
 			}
 			
+			public static SqlParameter UploadedFile
+			{
+				get
+				{
+					return new SqlParameter("@UploadedFile", SqlDbType.NVarChar, 500);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -186,6 +194,7 @@ namespace Flight_DAL
             public const string Brief = "Brief";
             public const string IsBulletin = "IsBulletin";
             public const string IsBlog = "IsBlog";
+            public const string UploadedFile = "UploadedFile";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -202,6 +211,7 @@ namespace Flight_DAL
 					ht[Brief] = _Announcement.PropertyNames.Brief;
 					ht[IsBulletin] = _Announcement.PropertyNames.IsBulletin;
 					ht[IsBlog] = _Announcement.PropertyNames.IsBlog;
+					ht[UploadedFile] = _Announcement.PropertyNames.UploadedFile;
 
 				}
 				return (string)ht[columnName];
@@ -223,6 +233,7 @@ namespace Flight_DAL
             public const string Brief = "Brief";
             public const string IsBulletin = "IsBulletin";
             public const string IsBlog = "IsBlog";
+            public const string UploadedFile = "UploadedFile";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -239,6 +250,7 @@ namespace Flight_DAL
 					ht[Brief] = _Announcement.ColumnNames.Brief;
 					ht[IsBulletin] = _Announcement.ColumnNames.IsBulletin;
 					ht[IsBlog] = _Announcement.ColumnNames.IsBlog;
+					ht[UploadedFile] = _Announcement.ColumnNames.UploadedFile;
 
 				}
 				return (string)ht[propertyName];
@@ -260,6 +272,7 @@ namespace Flight_DAL
             public const string Brief = "s_Brief";
             public const string IsBulletin = "s_IsBulletin";
             public const string IsBlog = "s_IsBlog";
+            public const string UploadedFile = "s_UploadedFile";
 
 		}
 		#endregion		
@@ -371,6 +384,18 @@ namespace Flight_DAL
 			set
 	        {
 				base.Setbool(ColumnNames.IsBlog, value);
+			}
+		}
+
+		public virtual string UploadedFile
+	    {
+			get
+	        {
+				return base.Getstring(ColumnNames.UploadedFile);
+			}
+			set
+	        {
+				base.Setstring(ColumnNames.UploadedFile, value);
 			}
 		}
 
@@ -514,6 +539,21 @@ namespace Flight_DAL
 			}
 		}
 
+		public virtual string s_UploadedFile
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.UploadedFile) ? string.Empty : base.GetstringAsString(ColumnNames.UploadedFile);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.UploadedFile);
+				else
+					this.UploadedFile = base.SetstringAsString(ColumnNames.UploadedFile, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -637,6 +677,16 @@ namespace Flight_DAL
 					}
 				}
 
+				public WhereParameter UploadedFile
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.UploadedFile, Parameters.UploadedFile);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -750,6 +800,18 @@ namespace Flight_DAL
 				}
 			}
 
+			public WhereParameter UploadedFile
+		    {
+				get
+		        {
+					if(_UploadedFile_W == null)
+	        	    {
+						_UploadedFile_W = TearOff.UploadedFile;
+					}
+					return _UploadedFile_W;
+				}
+			}
+
 			private WhereParameter _AnnouncementID_W = null;
 			private WhereParameter _Title_W = null;
 			private WhereParameter _Content_W = null;
@@ -759,6 +821,7 @@ namespace Flight_DAL
 			private WhereParameter _Brief_W = null;
 			private WhereParameter _IsBulletin_W = null;
 			private WhereParameter _IsBlog_W = null;
+			private WhereParameter _UploadedFile_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -771,6 +834,7 @@ namespace Flight_DAL
 				_Brief_W = null;
 				_IsBulletin_W = null;
 				_IsBlog_W = null;
+				_UploadedFile_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -917,6 +981,16 @@ namespace Flight_DAL
 					}
 				}
 
+				public AggregateParameter UploadedFile
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.UploadedFile, Parameters.UploadedFile);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -1030,6 +1104,18 @@ namespace Flight_DAL
 				}
 			}
 
+			public AggregateParameter UploadedFile
+		    {
+				get
+		        {
+					if(_UploadedFile_W == null)
+	        	    {
+						_UploadedFile_W = TearOff.UploadedFile;
+					}
+					return _UploadedFile_W;
+				}
+			}
+
 			private AggregateParameter _AnnouncementID_W = null;
 			private AggregateParameter _Title_W = null;
 			private AggregateParameter _Content_W = null;
@@ -1039,6 +1125,7 @@ namespace Flight_DAL
 			private AggregateParameter _Brief_W = null;
 			private AggregateParameter _IsBulletin_W = null;
 			private AggregateParameter _IsBlog_W = null;
+			private AggregateParameter _UploadedFile_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -1051,6 +1138,7 @@ namespace Flight_DAL
 				_Brief_W = null;
 				_IsBulletin_W = null;
 				_IsBlog_W = null;
+				_UploadedFile_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -1159,6 +1247,10 @@ namespace Flight_DAL
 
 			p = cmd.Parameters.Add(Parameters.IsBlog);
 			p.SourceColumn = ColumnNames.IsBlog;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.UploadedFile);
+			p.SourceColumn = ColumnNames.UploadedFile;
 			p.SourceVersion = DataRowVersion.Current;
 
 

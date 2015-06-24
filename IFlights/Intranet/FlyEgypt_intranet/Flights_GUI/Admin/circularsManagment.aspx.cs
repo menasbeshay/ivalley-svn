@@ -1,5 +1,6 @@
 ﻿using Flight_BLL;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -108,6 +109,23 @@ namespace Flights_GUI.Admin
                 objdata.MainPic = path;
             }
             objdata.Content = Server.HtmlEncode(uiRadEditorContnet.Content);
+
+
+            if (Session["CurrentUploadedFiles"] != null)
+            {
+                Hashtable Files;
+                Files = (Hashtable)Session["CurrentUploadedFiles"];
+
+                if (Files.Count > 0)
+                {
+                    foreach (DictionaryEntry item in Files)
+                    {
+                        objdata.UploadedFile = item.Value.ToString();
+                    }
+
+                    Session["CurrentUploadedFiles"] = null;
+                }
+            }
             
             objdata.Save();
             BindData();

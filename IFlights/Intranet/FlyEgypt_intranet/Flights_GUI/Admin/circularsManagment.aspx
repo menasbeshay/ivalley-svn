@@ -70,6 +70,17 @@
                  <asp:Image ID="uiImageMain" runat="server" style="max-width:150px;"/>
              </div>
          </div>
+
+         <div style="clear:both;height:5px;"></div>
+
+         <div class="cell-12 clearfix" style="margin-left: 0">
+             <div class="cell-2">Upload File</div>
+             <div class="cell-10">
+                 <iframe src="../uiUpload.html" style="border: 0; width: 80%; overflow: hidden; height: 100px;"></iframe>
+             </div>
+         </div>
+
+
          <div style="clear:both;height:5px;"></div>
          <div class="cell-12 clearfix" style="margin-left:0;display:none;">
              <div class="cell-2">Created By</div>
