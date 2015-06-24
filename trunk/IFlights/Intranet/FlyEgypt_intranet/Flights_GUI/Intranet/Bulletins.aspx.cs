@@ -63,6 +63,15 @@ namespace Flights_GUI.Intranet
                     uiLabelCreator.Text = Membership.GetUser(new Guid(current.CreatedBy.ToString())).UserName;
                 uiLiteralContent.Text = Server.HtmlDecode(current.Content);
                 uiImageMain.ImageUrl = string.IsNullOrEmpty(current.MainPic) ? "../img/announcement-icon.png" : current.MainPic;
+                if (string.IsNullOrWhiteSpace(current.UploadedFile))
+                {
+                    btnDownloadAttachment.Visible = false;
+                }
+                else
+                {
+                    btnDownloadAttachment.HRef = current.UploadedFile;
+                    btnDownloadAttachment.Attributes.Add("download", current.UploadedFile.Substring(current.UploadedFile.LastIndexOf('/') + 1));
+                }
             }
         }
 
