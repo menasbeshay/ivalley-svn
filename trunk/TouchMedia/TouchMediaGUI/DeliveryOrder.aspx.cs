@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using MyGeneration.dOOdads;
 using BLL;
+using System.Globalization;
 
 
 
@@ -63,7 +64,10 @@ namespace TouchMediaGUI
                     txtDateTo.Text = DODEdit.DateTo.ToString("HH:mm");
                     txtRecivableName.Text = DODEdit.ReceivableName;
                     txtRecivableTelephone.Text = DODEdit.ReceivableTelephone;
-                    txtPrice.Text = DODEdit.Price.ToString();
+                    if (!DODEdit.IsColumnNull("Price"))
+                        txtPrice.Text = DODEdit.Price.ToString();
+                    else
+                        txtPrice.Text =  "0.0";
                     txtDeliveryOrderCode.Text = DODEdit.DeliveryOrderCode;
                     drpStatusDetails.Text = DODEdit.DeliveryOrderStatusID.ToString();
                     if (!DODEdit.IsColumnNull("WatingHours"))
@@ -77,13 +81,13 @@ namespace TouchMediaGUI
                 DOS.LoadAll();
                 drpStatusDetails.DataSource = DOS.DefaultView;
                 drpStatusDetails.DataValueField = DeliveryOrderStatus.ColumnNames.DeliveryOrderStatusID;
-                drpStatusDetails.DataTextField = DeliveryOrderStatus.ColumnNames.DeliveryOrderStatusName;
+                drpStatusDetails.DataTextField = DeliveryOrderStatus.ColumnNames.DeliveryOrderStatusNameAr;
 
                 drpStatusDetails.DataBind();
 
                 drpStatusGeneral.DataSource = DOS.DefaultView;
                 drpStatusGeneral.DataValueField = DeliveryOrderStatus.ColumnNames.DeliveryOrderStatusID;
-                drpStatusGeneral.DataTextField = DeliveryOrderStatus.ColumnNames.DeliveryOrderStatusName;
+                drpStatusGeneral.DataTextField = DeliveryOrderStatus.ColumnNames.DeliveryOrderStatusNameAr;
                 drpStatusGeneral.DataBind();
 
                 BLL.TransformationSupplier DOO = new BLL.TransformationSupplier();
@@ -117,13 +121,13 @@ namespace TouchMediaGUI
             Dodd.ReceivableName = txtRecivableName.Text;
             Dodd.ReceivableTelephone = txtRecivableTelephone.Text;
             Dodd.DeliveryOrderCode = txtDeliveryOrderCode.Text;
-            if (!Dodd.IsColumnNull("WatingHours"))
+            if (txtWatingHours.Text != "")
             {
                 Dodd.WatingHours = float.Parse(txtWatingHours.Text);
             }
             else
                 txtWatingHours.Text = "0.0";
-            if (!Dodd.IsColumnNull("Price"))
+            if (txtPrice.Text != "")
             {
                 Dodd.Price = float.Parse(txtPrice.Text);
             }
@@ -172,7 +176,7 @@ namespace TouchMediaGUI
             DO.ClientCode = int.Parse(txtClientCode.Text);
             DO.DeliveryOrderName = txtDeliveryOrderName.Text;
             DO.Department = txtDepartment.Text;
-            if (!DO.IsColumnNull("PermationNumber"))
+            if (txtPermission.Text != "")
             {
                 DO.PermationNumber = int.Parse(txtPermission.Text);
             }
@@ -180,13 +184,13 @@ namespace TouchMediaGUI
                 txtPermission.Text = "0";
             DO.TransformationSupplier = drpTransformationSupplier.SelectedItem.Value;
             DO.CarNumber = txtCarNumber.Text;
-            if (!DO.IsColumnNull("KilometerCounterBefore"))
+            if (txtKiloMeterBefore.Text != "")
             {
                 DO.KilometerCounterBefore = decimal.Parse(txtKiloMeterBefore.Text);
             }
             else
                 txtKiloMeterBefore.Text = "0.0";
-            if (!DO.IsColumnNull("KilometerCounterAfter"))
+            if (txtkiloMeterAfter.Text !="")
             {
                 DO.KilometerCounterAfter = decimal.Parse(txtkiloMeterAfter.Text);
             }
@@ -196,11 +200,12 @@ namespace TouchMediaGUI
             DO.DriverNationID = txtDriverNationID.Text;
             DO.DriverTelephone = txtDriverTelephone.Text;
             DO.CarType = txtCarType.Text;
-            DO.DeliveryOrderDate = Convert.ToDateTime(txtDeliveryOrderDate.Text);
+            //var eg = new CultureInfo("eg-EG");
+            DO.DeliveryOrderDate = DateTime.ParseExact(txtDeliveryOrderDate.Text, "dd/MM/yyyy", null);
             DO.DepartmentResponsableName = txtDepartmentResponsable.Text;
 
             DO.GeneralDeliveryCode = txtGeneralDeliveryCode.Text;
-            if (!DO.IsColumnNull("TotalPrice"))
+            if (txtTotalPrice.Text !="")
             {
                 DO.TotalPrice = double.Parse(txtTotalPrice.Text);
             }
@@ -220,7 +225,7 @@ namespace TouchMediaGUI
         private void DeliveryOrderBind()
         {
             BLL.DeliveryOrder DlvO = new BLL.DeliveryOrder();
-            DlvO.LoadAll();
+            DlvO.getAllDeliveryOrder();
             GrdDeliveryOrder.DataSource = DlvO.DefaultView;
             GrdDeliveryOrder.DataBind();
         }
@@ -228,9 +233,11 @@ namespace TouchMediaGUI
         {
             BLL.DeliveryOrderDetails DOD = new DeliveryOrderDetails();
             //DOD.LoadAll();
-            DOD.Where.DeliveryOrderID.Value = getQueryString_DeliveryOrder;
-            DOD.Where.DeliveryOrderID.Operator = WhereParameter.Operand.Equal;
-            DOD.Query.Load();
+            //DOD.Where.DeliveryOrderID.Value = getQueryString_DeliveryOrder;
+            //DOD.Where.DeliveryOrderID.Operator = WhereParameter.Operand.Equal;
+            //DOD.Query.Load();
+            DOD.getAllDeliveryOrderDetails(getQueryString_DeliveryOrder);
+
             grdDeliveryOrderDetails.DataSource = DOD.DefaultView;
             grdDeliveryOrderDetails.DataBind();
         }
@@ -316,6 +323,19 @@ namespace TouchMediaGUI
             PanelDeliveryOrderDetails.Visible = false;
             WidEditDeliveryOrder.Visible = true;
             createNewDeliveryOrder.Visible = false;
+        }
+
+        protected void btnCancelDeliveryOrderDetails_Click(object sender, EventArgs e)
+        {
+            ClearGrdDetails();
+           
+        }
+
+        protected void btnCancelDeliveryOrderGrid_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("DeliveryOrder.aspx");
+            
+
         }
 
         

@@ -24,19 +24,12 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolderScripts" runat="server">
-    <script type="text/javascript" src="assets/chosen-bootstrap/chosen/chosen.jquery.min.js"></script>
-   <script type="text/javascript" src="assets/bootstrap-wysihtml5/wysihtml5-0.3.0.js"></script>
-   <script type="text/javascript" src="assets/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script>
-   <script type="text/javascript" src="assets/clockface/js/clockface.js"></script>
-   <script type="text/javascript" src="assets/jquery-tags-input/jquery.tagsinput.min.js"></script>
-   <script type="text/javascript" src="assets/bootstrap-toggle-buttons/static/js/jquery.toggle.buttons.js"></script>
+   
    <script type="text/javascript" src="assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
    <script type="text/javascript" src="assets/bootstrap-daterangepicker/date.js"></script>
-   <script type="text/javascript" src="assets/bootstrap-daterangepicker/daterangepicker.js"></script>
-   <script type="text/javascript" src="assets/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+   <script type="text/javascript" src="assets/bootstrap-daterangepicker/daterangepicker.js"></script>   
    <script type="text/javascript" src="assets/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
-   <script type="text/javascript" src="assets/bootstrap-inputmask/bootstrap-inputmask.min.js"></script>
-   <script src="assets/fancybox/source/jquery.fancybox.pack.js"></script>
+   
     </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!-- BEGIN ADVANCED TABLE widget-->
@@ -69,18 +62,21 @@
                             <asp:GridView ID="GrdDeliveryOrder" CssClass="table table-striped table-bordered" runat="server" AutoGenerateColumns="false" OnRowCommand="GrdDeliveryOrder_RowCommand">
                                 <Columns>
                                     <asp:BoundField HeaderText="كود العملية" DataField="GeneralDeliveryCode" />
-                                    <asp:BoundField HeaderText="أسم العملية" DataField="DeliveryOrderName" />
+                                    <asp:BoundField HeaderText="أسم المشوار" DataField="DeliveryOrderName" />
                                     <asp:BoundField HeaderText="القسم" DataField="Department" />
-                                    <asp:BoundField HeaderText="التاريخ" DataField="DeliveryOrderDate" />
+                                    <asp:BoundField HeaderText="التاريخ" DataField="DeliveryOrderDate" DataFormatString="{0:dd/MM/yyyy}"/>
                                     <asp:BoundField HeaderText="رقم السائق" DataField="DriverTelephone" />
                                     <asp:TemplateField HeaderText="الحالة">
-                                        <ItemTemplate>
-                                        </ItemTemplate>
+                                        
+                                            <ItemTemplate>
+                                                <span class='label label-<%# Eval("StatusClass") %>'><%# Eval("StatusNameAr") %></span>
+                                            </ItemTemplate>
+                                        
 
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="العمليات">
                                         <ItemTemplate>
-                                            <asp:LinkButton ID="btnDeleteGrdDO" OnClientClick="return confirm('Are you sure you want to delete this Order ?')" runat="server" CommandArgument='<%# Eval("DeliveryOrderID") %>' CommandName="DeleteGrdDO">حذف</asp:LinkButton>
+                                            <asp:LinkButton ID="btnDeleteGrdDO" OnClientClick="return confirm('هل تريد حذف هذا السجل ?')" runat="server" CommandArgument='<%# Eval("DeliveryOrderID") %>' CommandName="DeleteGrdDO">حذف</asp:LinkButton>
                                             <asp:LinkButton ID="btnEditGrdDO" runat="server" CommandArgument='<%# Eval ("DeliveryOrderID") %>' CommandName="EditGrdDO">تعديل</asp:LinkButton>
                                         </ItemTemplate>
                                     </asp:TemplateField>
@@ -115,10 +111,10 @@
                                 <label class="control-label">أسم المشوار</label>
                                <asp:TextBox runat="server" type="text"  ID="txtDeliveryOrderName" />
                             </div>
-                            <<div class="span6">
+                            <div class="span6">
                                 <label class="control-label">التاريخ</label>
-                                <div class="input-append date date-picker" data-date="12-02-2012" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
-                                <asp:TextBox runat="server" CssClass="m-ctrl-medium date-picker" Font-Size="16"  type="text"  ID="txtDeliveryOrderDate" />
+                                <div class="input-append date date-picker" data-date-format="dd/mm/yyyy" data-date-viewmode="years" >
+                                <asp:TextBox runat="server" CssClass="m-ctrl-medium date-picker" Font-Size="16"  type="text"  ID="txtDeliveryOrderDate" style="direction:ltr"/>
                                     <span class="add-on">
                                         <i class="icon-calendar"></i>
                                     </span>
@@ -133,6 +129,12 @@
                                 <label class="control-label">كود العميل</label>
                                <asp:TextBox runat="server" type="text"  ID="txtClientCode" />
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="txtClientCode" ValidationGroup="dlr" runat="server" ForeColor="Red" Font-Bold="true" ErrorMessage="*"/>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="txtClientCode"
+                                             ValidationExpression="^\d+$"
+                                             Display="Static"
+                                             ErrorMessage="أرقام فقط"
+                                             ValidationGroup="dlr"
+                                             runat="server"></asp:RegularExpressionValidator>
                             </div>
                             <div class="span6">
                                 <label class="control-label">كود العملية</label>
@@ -154,10 +156,22 @@
                             <div class="span6">
                                 <label class="control-label">رقم الإذن</label>
                               <asp:TextBox runat="server" type="text"  ID="txtPermission" />
+                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ControlToValidate="txtPermission"
+                                             ValidationExpression="^\d+$"
+                                             Display="Static"
+                                             ErrorMessage="أرقام فقط"
+                                             ValidationGroup="dlr"
+                                             runat="server"></asp:RegularExpressionValidator>
                             </div>
                             <div class="span6">
                                 <label class="control-label">السعر الكلي</label>
                                 <asp:TextBox runat="server" type="text"  ID="txtTotalPrice" />
+                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator3" ControlToValidate="txtTotalPrice"
+                                             ValidationExpression="^[0-9]*(?:\.[0-9]*)?$"
+                                             Display="Static" 
+                                             ErrorMessage="أرقام فقط"
+                                             ValidationGroup="dlr"
+                                             runat="server"></asp:RegularExpressionValidator>
                             </div>
                         </div>
                         <div class="block-margin-bottom-5 span12 clearfix">
@@ -200,11 +214,23 @@
 
                                 <asp:TextBox runat="server" type="text" ID="txtKiloMeterBefore" />
                                  <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="txtKiloMeterBefore" ValidationGroup="dlr" runat="server" ForeColor="Red" Font-Bold="true" ErrorMessage="*"/>
+                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator4" ControlToValidate="txtKiloMeterBefore"
+                                             ValidationExpression="^[0-9]*(?:\.[0-9]*)?$"
+                                             Display="Static"
+                                             ErrorMessage="أرقام فقط"
+                                             ValidationGroup="dlr"
+                                             runat="server"></asp:RegularExpressionValidator>
                             </div>
                              <div class="control-group">
                                 <label class="control-label">عدد كيلومترات السيارة بعد  </label>
                                
                                     <asp:TextBox runat="server" type="text"  ID="txtkiloMeterAfter" />
+                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator5" ControlToValidate="txtKiloMeterAfter"
+                                             ValidationExpression="^[0-9]*(?:\.[0-9]*)?$"
+                                             Display="Static"
+                                             ErrorMessage="أرقام فقط"
+                                             ValidationGroup="dlr"
+                                             runat="server"></asp:RegularExpressionValidator>
                                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" ControlToValidate="txtkiloMeterAfter" ValidationGroup="dlr" runat="server" ForeColor="Red" Font-Bold="true" ErrorMessage="*"/>
                             </div>
                         </div>
@@ -230,6 +256,12 @@
                                 <label class="control-label">هاتف السائق </label>
                                 
                                     <asp:TextBox runat="server" type="text"  ID="txtDriverTelephone" />
+                               <asp:RegularExpressionValidator ID="RegularExpressionValidator10" ControlToValidate="txtDriverTelephone"
+                                             ValidationExpression="^\d+$"
+                                             Display="Static"
+                                             ErrorMessage="أرقام فقط"
+                                             ValidationGroup="dlr"
+                                             runat="server"></asp:RegularExpressionValidator>
                                 </div>
                             
                              </div>
@@ -237,16 +269,22 @@
                             <div class="control-group span6">
                                 <label class="control-label">رقم بطاقة السائق </label>
                                
-                                    <asp:TextBox type="text"  ID="txtDriverNationID" runat="server" />
-                                
+                                    <asp:TextBox type="text"  ID="txtDriverNationID" runat="server" MaxLength="14" />
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator6" ControlToValidate="txtDriverNationID"
+                                             ValidationExpression="^\d+$"
+                                             Display="Static"
+                                             ErrorMessage="أرقام فقط"
+                                             ValidationGroup="dlr"
+                                             runat="server"></asp:RegularExpressionValidator>
                             </div>
                             </div>
                        
                             <div class="span12 ">
                                 <div>
                                     <%-- <asp:Button ID="btnDeliceryOrderGrd"  runat="server" Text="Add" CssClass=" btn btn-success " Width="20%" />--%>
-                                    <div style="text-align: center; margin-bottom: 10px">
+                                    <div style="margin-bottom: 10px">
                                         <asp:LinkButton runat="server" ID="btnDeliceryOrderGrd" ValidationGroup="dlr" OnClick="btnDeliceryOrderGrd_Click" class="btn btn-success"><i class="icon-ok icon-white" ></i>حفظ</asp:LinkButton>
+                                         <asp:LinkButton runat="server" ID="btnCancelDeliveryOrderGrid"  OnClick="btnCancelDeliveryOrderGrid_Click" class="btn btn-danger"><i class="icon-remove icon-white" ></i>الغاء</asp:LinkButton>
                                     </div>
                                 </div>
                             </div>
@@ -271,13 +309,22 @@
                         <div class="block-margin-bottom-5 span12 clearfix">
                             <div class="span6">
                                 <label class="control-label">الوقت من</label>
-                                <asp:TextBox runat="server" type="text"  ID="txtDateFrom" />
+                                
+                                        <div class="input-append bootstrap-timepicker-component">
+                                <asp:TextBox runat="server" CssClass=" m-ctrl-small timepicker-default" type="text"  ID="txtDateFrom" />
+                                            <span class="add-on"><i class="icon-time"></i></span>
+                                            </div>
+                                    
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator6" ControlToValidate="txtDateFrom" ValidationGroup="dlrd" runat="server" ForeColor="Red" Font-Bold="true" ErrorMessage="*"/>
                             </div>
                             <div class="span6">
                                 <label class="control-label">الوقت الي</label>
-                                <asp:TextBox runat="server" type="text"  ID="txtDateTo" />
-                                <asp:RequiredFieldValidator ID="RequiredFieldValidator7" ControlToValidate="txtDateTo" ValidationGroup="dlrd" runat="server" ForeColor="Red" Font-Bold="true" ErrorMessage="*"/>
+                                
+                                        <div class="input-append bootstrap-timepicker-component">
+                                <asp:TextBox runat="server" type="text" CssClass=" m-ctrl-small timepicker-default"  ID="txtDateTo" />
+                                             <span class="add-on"><i class="icon-time"></i></span>
+                                            </div>
+                                <asp:RequiredFieldValidator  ID="RequiredFieldValidator7" ControlToValidate="txtDateTo" ValidationGroup="dlrd" runat="server" ForeColor="Red" Font-Bold="true" ErrorMessage="*"/>
                             </div>
                         </div>
                         <div class="block-margin-bottom-5 span12 clearfix">
@@ -288,6 +335,12 @@
                             <div class="span6">
                                 <label class="control-label">رقم المستقبل</label>
                                 <asp:TextBox runat="server" type="text"  ID="txtRecivableTelephone" />
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator7" ControlToValidate="txtRecivableTelephone"
+                                             ValidationExpression="^\d+$"
+                                             Display="Static"
+                                             ErrorMessage="أرقام فقط"
+                                             ValidationGroup="dlr"
+                                             runat="server"></asp:RegularExpressionValidator>
                             </div>
                         </div>
                         <div class="block-margin-bottom-5 span12 clearfix">
@@ -298,12 +351,24 @@
                             <div class="span6">
                                 <label class="control-label">ساعات الإنتظار</label>
                                 <asp:TextBox runat="server" type="text"  ID="txtWatingHours" />
+                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator8" ControlToValidate="txtWatingHours"
+                                             ValidationExpression="^[0-9]*(?:\.[0-9]*)?$"
+                                             Display="Static"
+                                             ErrorMessage="أرقام فقط"
+                                             ValidationGroup="dlr"
+                                             runat="server"></asp:RegularExpressionValidator>
                             </div>
                         </div>
                         <div class="block-margin-bottom-5 span12 clearfix">
                             <div class="span6">
                                 <label class="control-label">السعر</label>
-                                <asp:TextBox runat="server" type="text"  ID="txtPrice" />
+                                <asp:TextBox runat="server" type="text"   ID="txtPrice" />
+                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator9" ControlToValidate="txtPrice"
+                                             ValidationExpression="^[0-9]*(?:\.[0-9]*)?$"
+                                             Display="Static"
+                                             ErrorMessage="أرقام فقط"
+                                             ValidationGroup="dlr"
+                                             runat="server"></asp:RegularExpressionValidator>
                             </div>
                             <div class="span6">
                                 <label class="control-label">الحالة</label>
@@ -312,8 +377,9 @@
                         </div>
 
                         <div class="span12 ">
-                            <div style="text-align: center; margin-bottom: 10px">
+                            <div style= "margin-bottom: 10px">
                                 <asp:LinkButton runat="server" ID="addDeliveryOrderDetailsGrd" ValidationGroup="dlrd" OnClick="addDeliveryOrderDetailsGrd_Click" class="btn btn-success"><i class="icon-ok icon-white" ></i>حفظ</asp:LinkButton>
+                                <asp:LinkButton runat="server" ID="btnCancelDeliveryOrderDetails"  OnClick="btnCancelDeliveryOrderDetails_Click" class="btn btn-danger"><i class="icon-remove icon-white" ></i>الغاء</asp:LinkButton>
                             </div>
                             <%--<div>
                                     <asp:Button ID="addDeliveryOrderDetailsGrd" OnClick="addDeliveryOrderDetailsGrd_Click" runat="server" Text="Add" CssClass=" btn-primary " Width="20%" />
@@ -334,15 +400,15 @@
                     <asp:BoundField HeaderText=" كود عملية النقل" DataField="DeliveryOrderCode" />
                     <asp:BoundField HeaderText=" ساعات الإنتظارل" DataField="WatingHours" />
                     <asp:BoundField HeaderText=" السعر" DataField="Price" />
-                    <%--                            <asp:BoundField HeaderText="الحالة" DataField="" />--%>
-                    <asp:TemplateField>
+                    
+                    <asp:TemplateField HeaderText="الحالة">
                         <ItemTemplate>
-                            <%--      <asp:Label ID="Label1" runat="server" CssClass="<%# "label label-" + Eval("StatusClass").ToString() %>" Text="<%# Eval("DeliveryOrderStatusNameAr") %>"></asp:Label>--%>
+                            <span class='label label-<%# Eval("StatusClass") %>'><%# Eval("StatusNameAr") %></span>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="العمليات">
                         <ItemTemplate>
-                            <asp:LinkButton ID="btnDeleteDetailsGrdDO" OnClientClick="return confirm('Are you sure you want to delete this Order ?')" runat="server" CommandArgument='<%# Eval("DeliveryOrderDetailsID") %>' CommandName="DeleteGrdDetailsDO">حذف</asp:LinkButton>
+                            <asp:LinkButton ID="btnDeleteDetailsGrdDO" OnClientClick="return confirm('هل تريد حذف هذا السجل ?')" runat="server" CommandArgument='<%# Eval("DeliveryOrderDetailsID") %>' CommandName="DeleteGrdDetailsDO">حذف</asp:LinkButton>
                             <asp:LinkButton ID="btnEdiDetailsGrdDO" runat="server" CommandArgument='<%# Eval ("DeliveryOrderDetailsID") %>' CommandName="EditGrdDetailsDO">تعديل</asp:LinkButton>
                         </ItemTemplate>
                     </asp:TemplateField>
