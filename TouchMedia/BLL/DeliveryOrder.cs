@@ -9,8 +9,16 @@ namespace BLL
 	{
 		public DeliveryOrder()
 		{
-		
+           
 		}
+        public bool getAllDeliveryOrder()
+        {
+         return
+            LoadFromRawSql(@"select D.*, S.JobOrderStatusNameAr StatusNameAr, S.JobOrderStatusName StatusName, S.StatusClass  from DeliveryOrder D 
+                                    inner join JobOrderStatus S on D.DeliveryOrderStatusID = S.JobOrderStatusID
+                                     
+                                    order by createdDate desc ");
+        }
        
 	}
 }

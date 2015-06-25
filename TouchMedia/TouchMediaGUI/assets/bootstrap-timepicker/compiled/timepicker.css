@@ -10,6 +10,8 @@
 }
 .bootstrap-timepicker.dropdown-menu.open {
     display: inline-block;
+    right:initial !important;
+    right:auto !important;
     width: 200px;
 }
 .bootstrap-timepicker.dropdown-menu:before {

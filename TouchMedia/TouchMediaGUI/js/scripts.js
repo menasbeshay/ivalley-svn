@@ -1957,7 +1957,7 @@ var App = function () {
         if (!jQuery().datepicker || !jQuery().timepicker) {
             return;
         }
-        $('.date-picker').datepicker();
+        $('.date-picker').datepicker({format: 'dd/mm/yyyy'});
 
         $('.timepicker-default').timepicker();
 

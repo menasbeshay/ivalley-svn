@@ -94,6 +94,15 @@ namespace TouchMediaGUI {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
         
         /// <summary>
+        /// RegularExpressionValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+        
+        /// <summary>
         /// txtGeneralDeliveryCode control.
         /// </summary>
         /// <remarks>
@@ -139,6 +148,15 @@ namespace TouchMediaGUI {
         protected global::System.Web.UI.WebControls.TextBox txtPermission;
         
         /// <summary>
+        /// RegularExpressionValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
+        
+        /// <summary>
         /// txtTotalPrice control.
         /// </summary>
         /// <remarks>
@@ -146,6 +164,15 @@ namespace TouchMediaGUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTotalPrice;
+        
+        /// <summary>
+        /// RegularExpressionValidator3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator3;
         
         /// <summary>
         /// drpStatusGeneral control.
@@ -193,6 +220,15 @@ namespace TouchMediaGUI {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
         
         /// <summary>
+        /// RegularExpressionValidator4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator4;
+        
+        /// <summary>
         /// txtkiloMeterAfter control.
         /// </summary>
         /// <remarks>
@@ -200,6 +236,15 @@ namespace TouchMediaGUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtkiloMeterAfter;
+        
+        /// <summary>
+        /// RegularExpressionValidator5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator5;
         
         /// <summary>
         /// RequiredFieldValidator5 control.
@@ -238,6 +283,15 @@ namespace TouchMediaGUI {
         protected global::System.Web.UI.WebControls.TextBox txtDriverTelephone;
         
         /// <summary>
+        /// RegularExpressionValidator10 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator10;
+        
+        /// <summary>
         /// txtDriverNationID control.
         /// </summary>
         /// <remarks>
@@ -247,6 +301,15 @@ namespace TouchMediaGUI {
         protected global::System.Web.UI.WebControls.TextBox txtDriverNationID;
         
         /// <summary>
+        /// RegularExpressionValidator6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator6;
+        
+        /// <summary>
         /// btnDeliceryOrderGrd control.
         /// </summary>
         /// <remarks>
@@ -254,6 +317,15 @@ namespace TouchMediaGUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnDeliceryOrderGrd;
+        
+        /// <summary>
+        /// btnCancelDeliveryOrderGrid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnCancelDeliveryOrderGrid;
         
         /// <summary>
         /// PanelDeliveryOrderDetails control.
@@ -337,6 +409,15 @@ namespace TouchMediaGUI {
         protected global::System.Web.UI.WebControls.TextBox txtRecivableTelephone;
         
         /// <summary>
+        /// RegularExpressionValidator7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator7;
+        
+        /// <summary>
         /// txtDeliveryOrderCode control.
         /// </summary>
         /// <remarks>
@@ -355,6 +436,15 @@ namespace TouchMediaGUI {
         protected global::System.Web.UI.WebControls.TextBox txtWatingHours;
         
         /// <summary>
+        /// RegularExpressionValidator8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator8;
+        
+        /// <summary>
         /// txtPrice control.
         /// </summary>
         /// <remarks>
@@ -362,6 +452,15 @@ namespace TouchMediaGUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPrice;
+        
+        /// <summary>
+        /// RegularExpressionValidator9 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator9;
         
         /// <summary>
         /// drpStatusDetails control.
@@ -380,6 +479,15 @@ namespace TouchMediaGUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton addDeliveryOrderDetailsGrd;
+        
+        /// <summary>
+        /// btnCancelDeliveryOrderDetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnCancelDeliveryOrderDetails;
         
         /// <summary>
         /// grdDeliveryOrderDetails control.
