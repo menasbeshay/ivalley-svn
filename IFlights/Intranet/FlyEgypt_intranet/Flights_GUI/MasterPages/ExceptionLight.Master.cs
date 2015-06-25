@@ -15,56 +15,8 @@ namespace Flights_GUI.MasterPages
         public string ModuleTitle { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            #region
-            //if (!string.IsNullOrWhiteSpace(Membership.GetUser(Page.User.Identity.Name).ProviderUserKey.ToString()))
-                //{
-                //    UsersNofications usNotif = new UsersNofications();
-                //    usNotif.getNotifications(new Guid(Membership.GetUser(Page.User.Identity.Name).ProviderUserKey.ToString()));
-                //    if (usNotif.RowCount > 0)
-                //    {
-                //        usNotif.GetColumn("NotifCount");
-                //        for (int i = 0; i < usNotif.RowCount; i++)
-                //        {
-                //            switch (usNotif.GetColumn("NotificationTypeID").ToString())
-                //            {
-                //                case "1":
-                //                    HFCirculars.Value = usNotif.GetColumn("NotifCount").ToString();
-                //                    break;
-
-                //                case "2":
-                //                    HFBulletins.Value = usNotif.GetColumn("NotifCount").ToString();
-                //                    break;
-
-                //                //case "3":
-                //                //    HFManuals.Value = usNotif.GetColumn("NotifCount").ToString();
-                //                //    break;
-
-                //                case "4":
-                //                    HFForms.Value = usNotif.GetColumn("NotifCount").ToString();
-                //                    break;
-
-                //                case "5":
-                //                    HFAircraftManuals.Value = usNotif.GetColumn("NotifCount").ToString();
-                //                    break;
-                //                default:
-                //                    break;
-                //            }
-                //            usNotif.MoveNext();
-                //        }
-                //    }
-
-                //    UsersNofications usNotifManuals = new UsersNofications();
-                //    usNotifManuals.getManualsNotificationCounter(new Guid(Membership.GetUser(Page.User.Identity.Name).ProviderUserKey.ToString()));
-                //    if (usNotifManuals.RowCount>0)
-                //    {
-                //        usNotifManuals.GetColumn("NotifCount");
-                //        HFManuals.Value = usNotifManuals.GetColumn("NotifCount").ToString();
-                //    }
-            //}
-            #endregion
+            
         }
-        
-
         protected void uiRepeaterInteranetMenu_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)

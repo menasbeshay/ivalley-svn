@@ -76,6 +76,24 @@
             </div>
         </div>
         <div style="clear: both; height: 5px;"></div>
+        <div class="cell-12 clearfix" style="margin-left: 0">
+            <div class="cell-2">Group :</div>
+            <div class="cell-10">
+                <asp:DropDownList ID="DropDownListGroups" runat="server"></asp:DropDownList>
+            </div>
+        </div>
+
+        <div style="clear: both; height: 5px;"></div>
+        <div class="cell-12 clearfix" style="margin-left: 0">
+            <div class="cell-2">
+                <asp:Label Visible="false" ID="lblCurrentFile" runat="server" Text="Current File"></asp:Label></div>
+            <div class="cell-10">
+                <asp:TextBox Visible="false" ID="txtCurrentFile" CssClass="cell-3 marginRight" Enabled="false" runat="server"></asp:TextBox>
+                <asp:LinkButton Visible="false" OnClick="btnDeleteCurrentFile_Click" OnClientClick="return confirm('Are you want to delete this file? ');" ID="btnDeleteCurrentFile" runat="server" Text="" CssClass=""><i style="color:red;font-size:20px" class="fa fa-trash"></i></asp:LinkButton>
+            </div>
+        </div>
+
+        <div style="clear: both; height: 5px;"></div>
 
         <div class="cell-12 clearfix" style="margin-left: 0">
             <div class="cell-2">Upload File</div>
@@ -88,7 +106,8 @@
         <div class="cell-12 clearfix" style="margin-left: 0; display: none;">
             <div class="cell-2">Created By</div>
             <div class="cell-4">
-                <asp:TextBox ID="uiTextBoxCreatedBy" runat="server"></asp:TextBox></div>
+                <asp:TextBox ID="uiTextBoxCreatedBy" runat="server"></asp:TextBox>
+            </div>
         </div>
         <div style="clear: both; height: 5px;"></div>
         <div class="cell-12 clearfix" style="margin-left: 0">

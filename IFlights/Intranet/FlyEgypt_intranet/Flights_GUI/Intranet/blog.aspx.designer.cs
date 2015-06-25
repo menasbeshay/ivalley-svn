@@ -22,13 +22,31 @@ namespace Flights_GUI.Intranet {
         protected global::System.Web.UI.WebControls.Panel uiPanelViewAll;
         
         /// <summary>
-        /// uiRadListViewCirculars control.
+        /// lblTabGroup control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadListView uiRadListViewCirculars;
+        protected global::System.Web.UI.WebControls.Label lblTabGroup;
+        
+        /// <summary>
+        /// uiRadListViewCircularsPublic control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadListView uiRadListViewCircularsPublic;
+        
+        /// <summary>
+        /// uiRadListViewCircularsGroup control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadListView uiRadListViewCircularsGroup;
         
         /// <summary>
         /// uiPanelCurrent control.
