@@ -11,7 +11,7 @@
 
 <script type='text/javascript'>
     $(document).ready(function () {
-        $('#<%= rdDeathThroughCarry.ClientID %> input[type=radio][value="2"]').attr('checked', true);
+      <%--  $('#<%= rdDeathThroughCarry.ClientID %> input[type=radio][value="2"]').attr('checked', true);
         $('#<%= rdDeadThroughBirth.ClientID %> input[type=radio][value=2]').attr('checked', true);
         $('#<%= rdBirthPast6Weeks.ClientID %> input[type=radio][value="2"]').attr('checked', true);
         $('#<%= rdAbortionPast6Weeks.ClientID %> input[type=radio][value="2"]').attr('checked', true);
@@ -26,7 +26,7 @@
         $("#<%= uiTextBoxAbortionPlace.ClientID %>").attr("disabled", "disabled");
 
         $("#<%= txtDate.ClientID %>").attr("disabled", "disabled");
-        $("#<%= uiTextBoxAbortionDate.ClientID %>").attr("disabled", "disabled");
+        $("#<%= uiTextBoxAbortionDate.ClientID %>").attr("disabled", "disabled");--%>
 
     });
     
@@ -166,6 +166,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderMain" runat="Server">
     <div id="DeathHealthContents" runat="server">
+        <asp:CheckBox ID="uiCheckBoxUnderInvestigation" runat="server" Text="ÇáæÇÞÚÉ ÞíÏ ÇáÊÍÞíÞ" />
             <ajaxToolkit:TabContainer ID="TabContainerDeathInfo" ActiveTabIndex="0" runat="server"
                 meta:resourcekey="TabContainerDeathInfoResource1">
                 <ajaxToolkit:TabPanel runat="server" TabIndex="0" ID="TabPanelDeathHealthData" meta:resourcekey="TabPanelDeathHealthData">
@@ -557,7 +558,7 @@
                                 <td>
                                     <asp:RadioButtonList ID="rdDeathThroughCarry" RepeatDirection="Horizontal" runat="server" CssClass="RDL">
                                         <asp:ListItem Text="äÚã" Value="1"></asp:ListItem>
-                                        <asp:ListItem Selected="True" Text="áÇ" Value="2"></asp:ListItem>
+                                        <asp:ListItem Text="áÇ" Value="2"></asp:ListItem>
                                     </asp:RadioButtonList>
                                 </td>
                                 <td>
@@ -575,7 +576,7 @@
                                 <td>
                                     <asp:RadioButtonList ID="rdDeadThroughBirth" RepeatDirection="Horizontal" runat="server" CssClass="RDL">
                                        <asp:ListItem Text="äÚã" Value="1"></asp:ListItem>
-                                        <asp:ListItem Selected="True" Text="áÇ" Value="2"></asp:ListItem>
+                                        <asp:ListItem Text="áÇ" Value="2"></asp:ListItem>
                                     </asp:RadioButtonList>
                                 </td>
                                 <td>
@@ -593,7 +594,7 @@
                                 <td>
                                     <asp:RadioButtonList ID="rdBirthPast6Weeks" RepeatDirection="Horizontal" runat="server" CssClass="RDL">
                                        <asp:ListItem Text="äÚã" Value="1"></asp:ListItem>
-                                        <asp:ListItem Selected="True" Text="áÇ" Value="2"></asp:ListItem>
+                                        <asp:ListItem Text="áÇ" Value="2"></asp:ListItem>
                                     </asp:RadioButtonList>
                                 </td>
                                 <td>
@@ -658,7 +659,7 @@
                                 <td>
                                     <asp:RadioButtonList ID="rdAbortionPast6Weeks" RepeatDirection="Horizontal" runat="server" CssClass="RDL">
                                         <asp:ListItem Text="äÚã" Value="1"></asp:ListItem>
-                                        <asp:ListItem Selected="True" Text="áÇ" Value="2"></asp:ListItem>
+                                        <asp:ListItem Text="áÇ" Value="2"></asp:ListItem>
                                     </asp:RadioButtonList>
                                 </td>
                                 <td>

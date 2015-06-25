@@ -411,6 +411,14 @@ namespace MHO.DAL
 				}
 			}
 			
+			public static SqlParameter IsUnderInvestigation
+			{
+				get
+				{
+					return new SqlParameter("@IsUnderInvestigation", SqlDbType.Bit, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -456,6 +464,7 @@ namespace MHO.DAL
             public const string CauseOfDeathB = "CauseOfDeathB";
             public const string AbortionPlace = "AbortionPlace";
             public const string LocationOfTumor = "LocationOfTumor";
+            public const string IsUnderInvestigation = "IsUnderInvestigation";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -502,6 +511,7 @@ namespace MHO.DAL
 					ht[CauseOfDeathB] = _DeadMedicalInfo.PropertyNames.CauseOfDeathB;
 					ht[AbortionPlace] = _DeadMedicalInfo.PropertyNames.AbortionPlace;
 					ht[LocationOfTumor] = _DeadMedicalInfo.PropertyNames.LocationOfTumor;
+					ht[IsUnderInvestigation] = _DeadMedicalInfo.PropertyNames.IsUnderInvestigation;
 
 				}
 				return (string)ht[columnName];
@@ -553,6 +563,7 @@ namespace MHO.DAL
             public const string CauseOfDeathB = "CauseOfDeathB";
             public const string AbortionPlace = "AbortionPlace";
             public const string LocationOfTumor = "LocationOfTumor";
+            public const string IsUnderInvestigation = "IsUnderInvestigation";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -599,6 +610,7 @@ namespace MHO.DAL
 					ht[CauseOfDeathB] = _DeadMedicalInfo.ColumnNames.CauseOfDeathB;
 					ht[AbortionPlace] = _DeadMedicalInfo.ColumnNames.AbortionPlace;
 					ht[LocationOfTumor] = _DeadMedicalInfo.ColumnNames.LocationOfTumor;
+					ht[IsUnderInvestigation] = _DeadMedicalInfo.ColumnNames.IsUnderInvestigation;
 
 				}
 				return (string)ht[propertyName];
@@ -650,6 +662,7 @@ namespace MHO.DAL
             public const string CauseOfDeathB = "s_CauseOfDeathB";
             public const string AbortionPlace = "s_AbortionPlace";
             public const string LocationOfTumor = "s_LocationOfTumor";
+            public const string IsUnderInvestigation = "s_IsUnderInvestigation";
 
 		}
 		#endregion		
@@ -1121,6 +1134,18 @@ namespace MHO.DAL
 			set
 	        {
 				base.Setint(ColumnNames.LocationOfTumor, value);
+			}
+		}
+
+		public virtual bool IsUnderInvestigation
+	    {
+			get
+	        {
+				return base.Getbool(ColumnNames.IsUnderInvestigation);
+			}
+			set
+	        {
+				base.Setbool(ColumnNames.IsUnderInvestigation, value);
 			}
 		}
 
@@ -1714,6 +1739,21 @@ namespace MHO.DAL
 			}
 		}
 
+		public virtual string s_IsUnderInvestigation
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.IsUnderInvestigation) ? string.Empty : base.GetboolAsString(ColumnNames.IsUnderInvestigation);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.IsUnderInvestigation);
+				else
+					this.IsUnderInvestigation = base.SetboolAsString(ColumnNames.IsUnderInvestigation, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -2132,6 +2172,16 @@ namespace MHO.DAL
 					get
 					{
 							WhereParameter where = new WhereParameter(ColumnNames.LocationOfTumor, Parameters.LocationOfTumor);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter IsUnderInvestigation
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.IsUnderInvestigation, Parameters.IsUnderInvestigation);
 							this._clause._entity.Query.AddWhereParameter(where);
 							return where;
 					}
@@ -2610,6 +2660,18 @@ namespace MHO.DAL
 				}
 			}
 
+			public WhereParameter IsUnderInvestigation
+		    {
+				get
+		        {
+					if(_IsUnderInvestigation_W == null)
+	        	    {
+						_IsUnderInvestigation_W = TearOff.IsUnderInvestigation;
+					}
+					return _IsUnderInvestigation_W;
+				}
+			}
+
 			private WhereParameter _DeadMedicalInfoID_W = null;
 			private WhereParameter _DeadEventID_W = null;
 			private WhereParameter _CauseOfDeathA_W = null;
@@ -2649,6 +2711,7 @@ namespace MHO.DAL
 			private WhereParameter _CauseOfDeathB_W = null;
 			private WhereParameter _AbortionPlace_W = null;
 			private WhereParameter _LocationOfTumor_W = null;
+			private WhereParameter _IsUnderInvestigation_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -2691,6 +2754,7 @@ namespace MHO.DAL
 				_CauseOfDeathB_W = null;
 				_AbortionPlace_W = null;
 				_LocationOfTumor_W = null;
+				_IsUnderInvestigation_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -3132,6 +3196,16 @@ namespace MHO.DAL
 					get
 					{
 							AggregateParameter aggregate = new AggregateParameter(ColumnNames.LocationOfTumor, Parameters.LocationOfTumor);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter IsUnderInvestigation
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.IsUnderInvestigation, Parameters.IsUnderInvestigation);
 							this._clause._entity.Query.AddAggregateParameter(aggregate);
 							return aggregate;
 					}
@@ -3610,6 +3684,18 @@ namespace MHO.DAL
 				}
 			}
 
+			public AggregateParameter IsUnderInvestigation
+		    {
+				get
+		        {
+					if(_IsUnderInvestigation_W == null)
+	        	    {
+						_IsUnderInvestigation_W = TearOff.IsUnderInvestigation;
+					}
+					return _IsUnderInvestigation_W;
+				}
+			}
+
 			private AggregateParameter _DeadMedicalInfoID_W = null;
 			private AggregateParameter _DeadEventID_W = null;
 			private AggregateParameter _CauseOfDeathA_W = null;
@@ -3649,6 +3735,7 @@ namespace MHO.DAL
 			private AggregateParameter _CauseOfDeathB_W = null;
 			private AggregateParameter _AbortionPlace_W = null;
 			private AggregateParameter _LocationOfTumor_W = null;
+			private AggregateParameter _IsUnderInvestigation_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -3691,6 +3778,7 @@ namespace MHO.DAL
 				_CauseOfDeathB_W = null;
 				_AbortionPlace_W = null;
 				_LocationOfTumor_W = null;
+				_IsUnderInvestigation_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -3915,6 +4003,10 @@ namespace MHO.DAL
 
 			p = cmd.Parameters.Add(Parameters.LocationOfTumor);
 			p.SourceColumn = ColumnNames.LocationOfTumor;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.IsUnderInvestigation);
+			p.SourceColumn = ColumnNames.IsUnderInvestigation;
 			p.SourceVersion = DataRowVersion.Current;
 
 
