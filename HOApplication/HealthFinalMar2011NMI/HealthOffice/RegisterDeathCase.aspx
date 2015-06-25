@@ -100,6 +100,7 @@
                     <asp:ListItem Selected="True" Value="0" Text="ساقط قيد"></asp:ListItem>
                     <asp:ListItem Text="مجهول الهوية" Value="1"></asp:ListItem>
                     <asp:ListItem Text="مولود ميت" Value="2"></asp:ListItem>
+                    <asp:ListItem Text="طفل ميت" Value="3"></asp:ListItem>
                 </asp:RadioButtonList>
             </td>
         </tr>

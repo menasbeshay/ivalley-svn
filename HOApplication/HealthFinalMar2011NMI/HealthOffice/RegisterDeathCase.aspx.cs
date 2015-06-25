@@ -252,6 +252,12 @@ public partial class RegisterDeathCase : System.Web.UI.Page
             DivDecision.Style.Add("display", "none");
 
         }
+
+        if (rdTypeList.SelectedValue == "3")
+        {
+            UcDeathInfo2.EventDeadNID = "0";
+            UcDeathInfo2.TxtNIDEnabledStatus = false;
+        }
     }
 
     #endregion
@@ -406,7 +412,8 @@ public partial class RegisterDeathCase : System.Web.UI.Page
         objDead.DeadEventID = newDeadID;
         objDead.OrgID = MHOCommon.CurrentOrgID.Value;
         objDead.DeadNID = UcDeathInfo2.EventDeadNID;
-        objDead.DeadAge = "2";
+        // get century from NID
+        objDead.DeadAge = UcDeathInfo2.EventDeadNID.Substring(0,1);
         objDead.DeadGender = UcDeathInfo2.EventDeadGender;
         objDead.DeadFirstName = UcDeathInfo2.EventDeadFristName;
         objDead.DeadFatherName = UcDeathInfo2.EventDeadFatherName;
@@ -692,6 +699,7 @@ public partial class RegisterDeathCase : System.Web.UI.Page
 
         #endregion
 
+        
         if (!IsLostCase && DeadEventIDParameter == null)
         {
             //if (DateTime.Today.AddDays(-3) > DateTime.Parse(UcGeneralDeathInfo1.EventDeadDieDate))
@@ -745,7 +753,7 @@ public partial class RegisterDeathCase : System.Web.UI.Page
             return false;
         }
 
-        if (!MHOCommon.ValidateNationalIDInput(UcDeathInfo2.EventDeadNID, UcDeathInfo2.EventDeadGender != 1))
+        if (!IsLostCase && !MHOCommon.ValidateNationalIDInput(UcDeathInfo2.EventDeadNID, UcDeathInfo2.EventDeadGender != 1))
         {
             MHOCommon.ShowMessage(MHOCommon.NIDValidationMessage + "\\nبيانات المتوفى", this.Page);
             return false;

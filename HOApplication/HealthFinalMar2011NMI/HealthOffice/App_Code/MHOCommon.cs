@@ -460,7 +460,8 @@ public class MHOCommon
         if (nid.Length == 14)
         {
             if (nid.Substring(0, 1) == "0" ||
-                nid.Substring(1, 2) == "00" ||
+                // someboy can born at 1/1/2000 year
+                /*nid.Substring(1, 2) == "00" ||*/
                 nid.Substring(3, 2) == "00" ||
                 nid.Substring(5, 2) == "00")
             {

@@ -395,73 +395,79 @@ public partial class RegisterDeathHealthInfo : System.Web.UI.Page
         deadMedical.AddNew();
 
         deadMedical.DeadEventID = ParmDeadEventID;
-        
-        deadMedical.CauseOfDeathA = ucItemControlDeathReasonA.SelectedICD;
-        deadMedical.CauseOfDeathAPeriod = ucItemControlDeathReasonA.Days + ucItemControlDeathReasonA.Months + ucItemControlDeathReasonA.Years + ucItemControlDeathReasonA.Hours + ucItemControlDeathReasonA.Mins;
 
-        deadMedical.CauseOfDeathB = ucSubItemControlDeathReasonB.SelectedICD;
-        deadMedical.CauseOfDeathBPeriod = ucSubItemControlDeathReasonB.Days + ucSubItemControlDeathReasonB.Months + ucSubItemControlDeathReasonB.Years + ucSubItemControlDeathReasonB.Hours + ucSubItemControlDeathReasonB.Mins; 
-
-        deadMedical.CauseOfDeathC = ucSubItemControlDeathReasonC.SelectedICD;
-        deadMedical.CauseOfDeathCPeriod = ucSubItemControlDeathReasonC.Days + ucSubItemControlDeathReasonC.Months + ucSubItemControlDeathReasonC.Years + ucSubItemControlDeathReasonC.Hours + ucSubItemControlDeathReasonC.Mins;
-
-        deadMedical.CauseOfDeathD = ucSubItemControlDeathReasonD.SelectedICD;
-        deadMedical.CauseOfDeathDPeriod = ucSubItemControlDeathReasonD.Days + ucSubItemControlDeathReasonD.Months + ucSubItemControlDeathReasonD.Years + ucSubItemControlDeathReasonD.Hours + ucSubItemControlDeathReasonD.Mins;
-
-        /*if (dropICDItem.SelectedValue != "")
+        if (!uiCheckBoxUnderInvestigation.Checked)
         {
-            deadMedical.CauseOfDeathB = int.Parse(dropICDItem.SelectedValue);
+            deadMedical.CauseOfDeathA = ucItemControlDeathReasonA.SelectedICD;
+            deadMedical.CauseOfDeathAPeriod = ucItemControlDeathReasonA.Days + ucItemControlDeathReasonA.Months + ucItemControlDeathReasonA.Years + ucItemControlDeathReasonA.Hours + ucItemControlDeathReasonA.Mins;
+
+            deadMedical.CauseOfDeathB = ucSubItemControlDeathReasonB.SelectedICD;
+            deadMedical.CauseOfDeathBPeriod = ucSubItemControlDeathReasonB.Days + ucSubItemControlDeathReasonB.Months + ucSubItemControlDeathReasonB.Years + ucSubItemControlDeathReasonB.Hours + ucSubItemControlDeathReasonB.Mins;
+
+            deadMedical.CauseOfDeathC = ucSubItemControlDeathReasonC.SelectedICD;
+            deadMedical.CauseOfDeathCPeriod = ucSubItemControlDeathReasonC.Days + ucSubItemControlDeathReasonC.Months + ucSubItemControlDeathReasonC.Years + ucSubItemControlDeathReasonC.Hours + ucSubItemControlDeathReasonC.Mins;
+
+            deadMedical.CauseOfDeathD = ucSubItemControlDeathReasonD.SelectedICD;
+            deadMedical.CauseOfDeathDPeriod = ucSubItemControlDeathReasonD.Days + ucSubItemControlDeathReasonD.Months + ucSubItemControlDeathReasonD.Years + ucSubItemControlDeathReasonD.Hours + ucSubItemControlDeathReasonD.Mins;
+
+            /*if (dropICDItem.SelectedValue != "")
+            {
+                deadMedical.CauseOfDeathB = int.Parse(dropICDItem.SelectedValue);
+            }
+            else
+            {
+                deadMedical.CauseOfDeathB = 0;
+            }
+            deadMedical.CauseOfDeathC = dropICDcode.SelectedValue;
+        
+            deadMedical.CauseOfDeathD = ucItemControlDeathReasonD.SelectedICD;
+            deadMedical.CauseOfDeathDPeriod = ucItemControlDeathReasonD.Days + ucItemControlDeathReasonD.Months + ucItemControlDeathReasonD.Years;
+            */
+            deadMedical.CauseOfDeathNotRelatedA = ucItemCauseOfDeathNotRelatedA.SelectedICD;
+            deadMedical.CauseOfDeathNotRelatedAPeriod = ucItemCauseOfDeathNotRelatedA.Days + ucItemCauseOfDeathNotRelatedA.Months + ucItemCauseOfDeathNotRelatedA.Years + ucItemCauseOfDeathNotRelatedA.Hours + ucItemCauseOfDeathNotRelatedA.Mins;
+
+            deadMedical.CauseOfDeathNotRelatedB = ucItemCauseOfDeathNotRelatedB.SelectedICD;
+            deadMedical.CauseOfDeathNotRelatedBPeriod = ucItemCauseOfDeathNotRelatedB.Days + ucItemCauseOfDeathNotRelatedB.Months + ucItemCauseOfDeathNotRelatedB.Years + ucItemCauseOfDeathNotRelatedB.Hours + ucItemCauseOfDeathNotRelatedB.Mins;
+
+            deadMedical.IsSmoker = radioListISSmoker.SelectedValue == "1" ? true : false;
+            deadMedical.SmokeType = radioListSmokingType.SelectedValue;
+            deadMedical.SmokePeriod = (txtsmokingPeriod1.Text.Length == 1 ? "0" + txtsmokingPeriod1.Text : txtsmokingPeriod1.Text) +
+                                      (txtsmokingPeriod2.Text.Length == 1 ? "0" + txtsmokingPeriod2.Text : txtsmokingPeriod2.Text);
+
+            deadMedical.IsCausedByAccedent = rdCauseByAccedenc.SelectedValue == "1" ? true : false;
+            deadMedical.AccedentCause = int.Parse(drpReason.SelectedValue);
+            deadMedical.AccedentPlace = txtAccidentLocation.Text;
+            deadMedical.AccedentAnotherCause = txtAnotherReason.Text;
+            deadMedical.VehicleType = int.Parse(dropCarType.SelectedValue);
+            deadMedical.VehicleTypeOther = txtCarType.Text;
+            deadMedical.DeadStatus = int.Parse(RdDeadPersonType.SelectedValue);
+
+            deadMedical.HasTumor = rdTumorFlag.SelectedValue == "1" ? true : false;
+            deadMedical.PlaceOfTumor = txtTumorLocation.Text;
+            if (uiDropDownListTumorLocation.SelectedValue != "0")
+                deadMedical.LocationOfTumor = Convert.ToInt32(uiDropDownListTumorLocation.SelectedValue);
+            deadMedical.TypeOfTumor = int.Parse(dropTumorType.SelectedValue);
+            deadMedical.PhaseOfTumor = int.Parse(dropTumorPhases.SelectedValue);
+
+            deadMedical.DeadThroghCarry = rdDeathThroughCarry.SelectedValue == "1" ? true : false;
+            deadMedical.DeadThroghBirth = rdDeadThroughBirth.SelectedValue == "1" ? true : false;
+            deadMedical.AbortionPast6Weeks = rdAbortionPast6Weeks.SelectedValue == "1" ? true : false;
+            //   deadMedical.DeadThroghBirth = rdDeadThroughBirth.SelectedValue == "1" ? true : false;
+            deadMedical.BirthPast6Weeks = rdBirthPast6Weeks.SelectedValue == "1" ? true : false;
+            DateTime testInputDate;
+            if (DateTime.TryParse(txtDate.Text, out testInputDate))
+            {
+                IFormatProvider culture = new CultureInfo("en-US", true);
+                deadMedical.BirthDate = DateTime.ParseExact(txtDate.Text, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+            }
+            deadMedical.BirthResult = int.Parse(dropBirthOuput.SelectedValue);
+            deadMedical.BirthPlace = txtBirthLocation.Text;
+            deadMedical.BirthOperator = txtBirthOperator.Text;
         }
         else
         {
-            deadMedical.CauseOfDeathB = 0;
+            deadMedical.IsUnderInvestigation = uiCheckBoxUnderInvestigation.Checked;
         }
-        deadMedical.CauseOfDeathC = dropICDcode.SelectedValue;
-        
-        deadMedical.CauseOfDeathD = ucItemControlDeathReasonD.SelectedICD;
-        deadMedical.CauseOfDeathDPeriod = ucItemControlDeathReasonD.Days + ucItemControlDeathReasonD.Months + ucItemControlDeathReasonD.Years;
-        */
-        deadMedical.CauseOfDeathNotRelatedA = ucItemCauseOfDeathNotRelatedA.SelectedICD;
-        deadMedical.CauseOfDeathNotRelatedAPeriod = ucItemCauseOfDeathNotRelatedA.Days + ucItemCauseOfDeathNotRelatedA.Months + ucItemCauseOfDeathNotRelatedA.Years + ucItemCauseOfDeathNotRelatedA.Hours + ucItemCauseOfDeathNotRelatedA.Mins;
-
-        deadMedical.CauseOfDeathNotRelatedB = ucItemCauseOfDeathNotRelatedB.SelectedICD;
-        deadMedical.CauseOfDeathNotRelatedBPeriod = ucItemCauseOfDeathNotRelatedB.Days + ucItemCauseOfDeathNotRelatedB.Months + ucItemCauseOfDeathNotRelatedB.Years + ucItemCauseOfDeathNotRelatedB.Hours + ucItemCauseOfDeathNotRelatedB.Mins;
-
-        deadMedical.IsSmoker = radioListISSmoker.SelectedValue == "1" ? true : false;
-        deadMedical.SmokeType = radioListSmokingType.SelectedValue;
-        deadMedical.SmokePeriod = (txtsmokingPeriod1.Text.Length == 1 ? "0" + txtsmokingPeriod1.Text : txtsmokingPeriod1.Text) +
-                                  (txtsmokingPeriod2.Text.Length == 1 ? "0" + txtsmokingPeriod2.Text : txtsmokingPeriod2.Text);
-        
-        deadMedical.IsCausedByAccedent = rdCauseByAccedenc.SelectedValue == "1" ? true : false;
-        deadMedical.AccedentCause = int.Parse(drpReason.SelectedValue);
-        deadMedical.AccedentPlace = txtAccidentLocation.Text;
-        deadMedical.AccedentAnotherCause = txtAnotherReason.Text;
-        deadMedical.VehicleType = int.Parse(dropCarType.SelectedValue);
-        deadMedical.VehicleTypeOther = txtCarType.Text;
-        deadMedical.DeadStatus = int.Parse(RdDeadPersonType.SelectedValue);
-        
-        deadMedical.HasTumor = rdTumorFlag.SelectedValue == "1" ? true : false;
-        deadMedical.PlaceOfTumor = txtTumorLocation.Text;
-        if(uiDropDownListTumorLocation.SelectedValue != "0")
-            deadMedical.LocationOfTumor = Convert.ToInt32(uiDropDownListTumorLocation.SelectedValue);
-        deadMedical.TypeOfTumor = int.Parse(dropTumorType.SelectedValue);
-        deadMedical.PhaseOfTumor = int.Parse(dropTumorPhases.SelectedValue);
-
-        deadMedical.DeadThroghCarry = rdDeathThroughCarry.SelectedValue == "1" ? true : false;
-        deadMedical.DeadThroghBirth = rdDeadThroughBirth.SelectedValue == "1" ? true : false;
-        deadMedical.AbortionPast6Weeks = rdAbortionPast6Weeks.SelectedValue == "1" ? true : false;
-     //   deadMedical.DeadThroghBirth = rdDeadThroughBirth.SelectedValue == "1" ? true : false;
-        deadMedical.BirthPast6Weeks = rdBirthPast6Weeks.SelectedValue == "1" ? true : false;
-        DateTime testInputDate;
-        if (DateTime.TryParse(txtDate.Text, out testInputDate))
-        {
-            IFormatProvider culture = new CultureInfo("en-US", true);
-            deadMedical.BirthDate = DateTime.ParseExact(txtDate.Text, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
-        }
-        deadMedical.BirthResult = int.Parse(dropBirthOuput.SelectedValue);
-        deadMedical.BirthPlace = txtBirthLocation.Text;
-        deadMedical.BirthOperator = txtBirthOperator.Text;
-
         deadMedical.Save();
 
         // update Dead record to indecate about medical info completion.
@@ -479,16 +485,20 @@ public partial class RegisterDeathHealthInfo : System.Web.UI.Page
         deadMedical.Where.DeadEventID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
         deadMedical.Query.Load();
 
-        //ICDCODE9000 objICD9000 = new ICDCODE9000();
-        ICD10_DirectDeathReason objICD9000 = new ICD10_DirectDeathReason();
-        ucItemControlDeathReasonA.setCode = objICD9000.getICD9000Description(deadMedical.CauseOfDeathA);
-        //deadMedical.CauseOfDeathA = ucItemControlDeathReasonA.SelectedICD;
-        ucItemControlDeathReasonA.Days = deadMedical.CauseOfDeathAPeriod.Substring(0, 2);
-        ucItemControlDeathReasonA.Months = deadMedical.CauseOfDeathAPeriod.Substring(2, 2);
-        ucItemControlDeathReasonA.Years = deadMedical.CauseOfDeathAPeriod.Substring(4, 2);
-        ucItemControlDeathReasonA.Hours = deadMedical.CauseOfDeathAPeriod.Substring(6, 2);
-        ucItemControlDeathReasonA.Mins = deadMedical.CauseOfDeathAPeriod.Substring(8, 2);
+        uiCheckBoxUnderInvestigation.Checked = deadMedical.IsUnderInvestigation;
 
+        //ICDCODE9000 objICD9000 = new ICDCODE9000();
+        if (!deadMedical.IsColumnNull("CauseOfDeathA"))
+        {
+            ICD10_DirectDeathReason objICD9000 = new ICD10_DirectDeathReason();
+            ucItemControlDeathReasonA.setCode = objICD9000.getICD9000Description(deadMedical.CauseOfDeathA);
+            //deadMedical.CauseOfDeathA = ucItemControlDeathReasonA.SelectedICD;
+            ucItemControlDeathReasonA.Days = deadMedical.CauseOfDeathAPeriod.Substring(0, 2);
+            ucItemControlDeathReasonA.Months = deadMedical.CauseOfDeathAPeriod.Substring(2, 2);
+            ucItemControlDeathReasonA.Years = deadMedical.CauseOfDeathAPeriod.Substring(4, 2);
+            ucItemControlDeathReasonA.Hours = deadMedical.CauseOfDeathAPeriod.Substring(6, 2);
+            ucItemControlDeathReasonA.Mins = deadMedical.CauseOfDeathAPeriod.Substring(8, 2);
+        }
         ICD10_MainDeathReason objicd10 = new ICD10_MainDeathReason();
         if (!deadMedical.IsColumnNull("CauseOfDeathB"))
         {
@@ -549,7 +559,7 @@ public partial class RegisterDeathHealthInfo : System.Web.UI.Page
         if (deadMedical.CauseOfDeathNotRelatedA != "")
             ucItemCauseOfDeathNotRelatedA.setCode = objicd10.getICD9000Description(deadMedical.CauseOfDeathNotRelatedA);
         //deadMedical.CauseOfDeathNotRelatedA = ucItemCauseOfDeathNotRelatedA.SelectedICD;
-        if (deadMedical.CauseOfDeathNotRelatedAPeriod != "00000000")
+        if (deadMedical.CauseOfDeathNotRelatedAPeriod != "00000000" && !deadMedical.IsColumnNull("CauseOfDeathNotRelatedAPeriod"))
         {
             // deadMedical.CauseOfDeathNotRelatedAPeriod = ucItemCauseOfDeathNotRelatedA.Days + ucItemCauseOfDeathNotRelatedA.Months + ucItemCauseOfDeathNotRelatedA.Years;
             ucItemCauseOfDeathNotRelatedA.Days = deadMedical.CauseOfDeathNotRelatedAPeriod.Substring(0, 2);
@@ -562,7 +572,7 @@ public partial class RegisterDeathHealthInfo : System.Web.UI.Page
         if (deadMedical.CauseOfDeathNotRelatedB != "")
             ucItemCauseOfDeathNotRelatedB.setCode = objicd10.getICD9000Description(deadMedical.CauseOfDeathNotRelatedB);
         // deadMedical.CauseOfDeathNotRelatedB = ucItemCauseOfDeathNotRelatedB.SelectedICD;
-        if (deadMedical.CauseOfDeathNotRelatedBPeriod != "00000000")
+        if (deadMedical.CauseOfDeathNotRelatedBPeriod != "00000000" && !deadMedical.IsColumnNull("CauseOfDeathNotRelatedBPeriod"))
         {
             //deadMedical.CauseOfDeathNotRelatedBPeriod = ucItemCauseOfDeathNotRelatedB.Days + ucItemCauseOfDeathNotRelatedB.Months + ucItemCauseOfDeathNotRelatedB.Years;
             ucItemCauseOfDeathNotRelatedB.Days = deadMedical.CauseOfDeathNotRelatedBPeriod.Substring(0, 2);
@@ -572,69 +582,92 @@ public partial class RegisterDeathHealthInfo : System.Web.UI.Page
             ucItemCauseOfDeathNotRelatedB.Mins = deadMedical.CauseOfDeathNotRelatedBPeriod.Substring(8, 2);
         }
 
-        if (deadMedical.IsSmoker)
-            radioListISSmoker.SelectedIndex = 0;
-        else
-            radioListISSmoker.SelectedIndex = 1;
+        if (!deadMedical.IsColumnNull("IsSmoker"))
+        {
+            if (deadMedical.IsSmoker)
+                radioListISSmoker.SelectedIndex = 0;
+            else
+                radioListISSmoker.SelectedIndex = 1;
+
+            radioListSmokingType.SelectedIndex = radioListSmokingType.Items.IndexOf(radioListSmokingType.Items.FindByValue(deadMedical.SmokeType));
+            //deadMedical.SmokeType = radioListSmokingType.SelectedValue;
+            txtsmokingPeriod1.Text = deadMedical.SmokePeriod.Substring(0, 2);
+            txtsmokingPeriod2.Text = deadMedical.SmokePeriod.Substring(2, 2);
+        }
         //deadMedical.IsSmoker = radioListISSmoker.SelectedValue == "1" ? true : false;
-        radioListSmokingType.SelectedIndex = radioListSmokingType.Items.IndexOf(radioListSmokingType.Items.FindByValue(deadMedical.SmokeType));
-        //deadMedical.SmokeType = radioListSmokingType.SelectedValue;
-        txtsmokingPeriod1.Text = deadMedical.SmokePeriod.Substring(0, 2);
-        txtsmokingPeriod2.Text = deadMedical.SmokePeriod.Substring(2, 2);
+        
         //  deadMedical.SmokePeriod = (txtsmokingPeriod1.Text.Length == 1 ? "0" + txtsmokingPeriod1.Text : txtsmokingPeriod1.Text) +
         //                           (txtsmokingPeriod2.Text.Length == 1 ? "0" + txtsmokingPeriod2.Text : txtsmokingPeriod2.Text);
 
-        if (deadMedical.IsCausedByAccedent)
-            rdCauseByAccedenc.SelectedIndex = 0;
-        else
-            rdCauseByAccedenc.SelectedIndex = 1;
-
-        drpReason.SelectedIndex = drpReason.Items.IndexOf(drpReason.Items.FindByValue(deadMedical.AccedentCause.ToString()));
-        //deadMedical.AccedentCause = int.Parse(drpReason.SelectedValue);
-        txtAccidentLocation.Text = deadMedical.AccedentPlace;
-        txtAnotherReason.Text = deadMedical.AccedentAnotherCause;
-        //deadMedical.AccedentPlace = txtAccidentLocation.Text;
-        dropCarType.SelectedIndex = dropCarType.Items.IndexOf(dropCarType.Items.FindByValue(deadMedical.VehicleType.ToString()));
-        //deadMedical.VehicleType = int.Parse(dropCarType.SelectedValue);
-        txtCarType.Text = deadMedical.VehicleTypeOther;
-        //deadMedical.VehicleTypeOther = txtCarType.Text;
-        RdDeadPersonType.SelectedIndex = RdDeadPersonType.Items.IndexOf(RdDeadPersonType.Items.FindByValue(deadMedical.DeadStatus.ToString()));
-        //deadMedical.DeadStatus = int.Parse(RdDeadPersonType.SelectedValue);
-
-        if (deadMedical.HasTumor)
-            rdTumorFlag.SelectedIndex = 0;
-        else
-            rdTumorFlag.SelectedIndex = 1;
+        if (!deadMedical.IsColumnNull("IsCausedByAccedent"))
+        {
+            if (deadMedical.IsCausedByAccedent)
+                rdCauseByAccedenc.SelectedIndex = 0;
+            else
+                rdCauseByAccedenc.SelectedIndex = 1;
+        }
+        if (!deadMedical.IsColumnNull("AccedentCause"))
+        {
+            drpReason.SelectedIndex = drpReason.Items.IndexOf(drpReason.Items.FindByValue(deadMedical.AccedentCause.ToString()));
+            //deadMedical.AccedentCause = int.Parse(drpReason.SelectedValue);
+            txtAccidentLocation.Text = deadMedical.AccedentPlace;
+            txtAnotherReason.Text = deadMedical.AccedentAnotherCause;
+            //deadMedical.AccedentPlace = txtAccidentLocation.Text;
+            dropCarType.SelectedIndex = dropCarType.Items.IndexOf(dropCarType.Items.FindByValue(deadMedical.VehicleType.ToString()));
+            //deadMedical.VehicleType = int.Parse(dropCarType.SelectedValue);
+            txtCarType.Text = deadMedical.VehicleTypeOther;
+            //deadMedical.VehicleTypeOther = txtCarType.Text;
+            RdDeadPersonType.SelectedIndex = RdDeadPersonType.Items.IndexOf(RdDeadPersonType.Items.FindByValue(deadMedical.DeadStatus.ToString()));
+            //deadMedical.DeadStatus = int.Parse(RdDeadPersonType.SelectedValue);
+        }
+        if (!deadMedical.IsColumnNull("HasTumor"))
+        {
+            if (deadMedical.HasTumor)
+                rdTumorFlag.SelectedIndex = 0;
+            else
+                rdTumorFlag.SelectedIndex = 1;
+        }
         txtTumorLocation.Text = deadMedical.PlaceOfTumor;
         if (!deadMedical.IsColumnNull("LocationOfTumor"))
             uiDropDownListTumorLocation.SelectedValue = deadMedical.LocationOfTumor.ToString();
-        dropTumorType.SelectedIndex = dropTumorType.Items.IndexOf(dropTumorType.Items.FindByValue(deadMedical.TypeOfTumor.ToString()));
-        //deadMedical.TypeOfTumor = int.Parse(dropTumorType.SelectedValue);
-        dropTumorPhases.SelectedIndex = dropTumorPhases.Items.IndexOf(dropTumorPhases.Items.FindByValue(deadMedical.PhaseOfTumor.ToString()));
-        // deadMedical.PhaseOfTumor = int.Parse(dropTumorPhases.SelectedValue);
-
-        if (deadMedical.DeadThroghCarry)
-            rdDeathThroughCarry.SelectedIndex = 0;
-        else
-            rdDeathThroughCarry.SelectedIndex = 1;
-
+        if (!deadMedical.IsColumnNull("TypeOfTumor"))
+        {
+            dropTumorType.SelectedIndex = dropTumorType.Items.IndexOf(dropTumorType.Items.FindByValue(deadMedical.TypeOfTumor.ToString()));
+            //deadMedical.TypeOfTumor = int.Parse(dropTumorType.SelectedValue);
+            dropTumorPhases.SelectedIndex = dropTumorPhases.Items.IndexOf(dropTumorPhases.Items.FindByValue(deadMedical.PhaseOfTumor.ToString()));
+            // deadMedical.PhaseOfTumor = int.Parse(dropTumorPhases.SelectedValue);
+        }
+        if (!deadMedical.IsColumnNull("DeadThroghCarry"))
+        {
+            if (deadMedical.DeadThroghCarry)
+                rdDeathThroughCarry.SelectedIndex = 0;
+            else
+                rdDeathThroughCarry.SelectedIndex = 1;
+        }
         //deadMedical.DeadThroghCarry = rdDeathThroughCarry.SelectedValue == "1" ? true : false;
-        if (deadMedical.DeadThroghBirth)
-            rdDeadThroughBirth.SelectedIndex = 0;
-        else
-            rdDeadThroughBirth.SelectedIndex = 1;
-
+        if (!deadMedical.IsColumnNull("DeadThroghBirth"))
+        {
+            if (deadMedical.DeadThroghBirth)
+                rdDeadThroughBirth.SelectedIndex = 0;
+            else
+                rdDeadThroughBirth.SelectedIndex = 1;
+        }
         //deadMedical.DeadThroghBirth = rdAbortionPast6Weeks.SelectedValue == "1" ? true : false;
-        if (deadMedical.AbortionPast6Weeks)
-            rdAbortionPast6Weeks.SelectedIndex = 0;
-        else
-            rdAbortionPast6Weeks.SelectedIndex = 1;
-
+        if (!deadMedical.IsColumnNull("AbortionPast6Weeks"))
+        {
+            if (deadMedical.AbortionPast6Weeks)
+                rdAbortionPast6Weeks.SelectedIndex = 0;
+            else
+                rdAbortionPast6Weeks.SelectedIndex = 1;
+        }
         //deadMedical.AbortionPast6Weeks = rdAbortionPast6Weeks.SelectedValue == "1" ? true : false;
-        if (deadMedical.BirthPast6Weeks)
-            rdBirthPast6Weeks.SelectedIndex = 0;
-        else
-            rdBirthPast6Weeks.SelectedIndex = 1;
+        if (!deadMedical.IsColumnNull("BirthPast6Weeks"))
+        {
+            if (deadMedical.BirthPast6Weeks)
+                rdBirthPast6Weeks.SelectedIndex = 0;
+            else
+                rdBirthPast6Weeks.SelectedIndex = 1;
+        }
         // deadMedical.DeadThroghBirth = rdDeadThroughBirth.SelectedValue == "1" ? true : false;
         //deadMedical.BirthPast6Weeks = rdBirthPast6Weeks.SelectedValue == "1" ? true : false;
         
@@ -648,7 +681,10 @@ public partial class RegisterDeathHealthInfo : System.Web.UI.Page
         }
         //IFormatProvider culture = new CultureInfo("en-US", true);
         //deadMedical.BirthDate = DateTime.ParseExact(txtDate.Text, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
-        dropBirthOuput.SelectedIndex = dropBirthOuput.Items.IndexOf(dropBirthOuput.Items.FindByValue(deadMedical.BirthResult.ToString()));
+        if (!deadMedical.IsColumnNull("BirthResult"))
+        {
+            dropBirthOuput.SelectedIndex = dropBirthOuput.Items.IndexOf(dropBirthOuput.Items.FindByValue(deadMedical.BirthResult.ToString()));
+        }
         //deadMedical.BirthResult = int.Parse(dropBirthOuput.SelectedValue);
         txtBirthLocation.Text = deadMedical.BirthPlace;
         txtBirthOperator.Text = deadMedical.BirthOperator;
@@ -667,20 +703,30 @@ public partial class RegisterDeathHealthInfo : System.Web.UI.Page
 
     public bool LogicValidation()
     {
-        if (!ForUpdate && ucItemControlDeathReasonA.SelectedICD == "" || ucItemControlDeathReasonA.SelectedICD == "0")
+        if (!ForUpdate && (ucItemControlDeathReasonA.SelectedICD == "" || ucItemControlDeathReasonA.SelectedICD == "0") && !uiCheckBoxUnderInvestigation.Checked)
         {
             MHOCommon.ShowMessage("برجاء ادخال السبب المباشر للوفاة", this.Page);
             TabContainerDeathInfo.ActiveTabIndex = TabPanelDeathHealthData.TabIndex;
             return false;
         }
 
-        if (!ForUpdate && ucSubItemControlDeathReasonB.SelectedICD == "" || ucSubItemControlDeathReasonB.SelectedICD == "0")
+        if (!ForUpdate && (ucSubItemControlDeathReasonB.SelectedICD == "" || ucSubItemControlDeathReasonB.SelectedICD == "0") && !uiCheckBoxUnderInvestigation.Checked)
         {
             MHOCommon.ShowMessage("برجاء ادخال سبب للوفاة - النتيجة الأولى", this.Page);
             TabContainerDeathInfo.ActiveTabIndex = TabPanelDeathHealthData.TabIndex;
             return false;
         }
-
+        
+        // check female death cases between 15 years & 49 years 
+        if (!ForUpdate && !uiCheckBoxUnderInvestigation.Checked)
+        {
+            if (rdDeathThroughCarry.SelectedIndex == -1 || rdDeadThroughBirth.SelectedIndex == -1 || rdBirthPast6Weeks.SelectedIndex == -1 || rdAbortionPast6Weeks.SelectedIndex == -1)
+            {
+                MHOCommon.ShowMessage("برجاء إكمال ادخال البيانات الخاصة بالإناث بين (15 - 49) سنة ", this.Page);
+                TabContainerDeathInfo.ActiveTabIndex = TabPanelGirlsData.TabIndex;
+                return false;
+            }
+        }
         if (radioListISSmoker.SelectedValue == "1")
         {
             if (string.IsNullOrEmpty(radioListSmokingType.SelectedValue))
@@ -866,7 +912,7 @@ public partial class RegisterDeathHealthInfo : System.Web.UI.Page
             deadMedical.AbortionDate = DateTime.ParseExact(uiTextBoxAbortionDate.Text, "dd/MM/yyyy", null);
         }
         deadMedical.AbortionPlace = uiTextBoxAbortionPlace.Text;
-
+        deadMedical.IsUnderInvestigation = uiCheckBoxUnderInvestigation.Checked;
         deadMedical.Save();
 
     }

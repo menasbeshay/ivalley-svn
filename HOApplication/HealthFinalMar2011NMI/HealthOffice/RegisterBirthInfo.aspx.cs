@@ -749,6 +749,18 @@ public partial class RegisterBirthdayInfo : System.Web.UI.Page
             return false;
         }
 
+        if ((UcMotherInfo2.ParentNID == UcNotifierInfo1.NotifierNID) && UcNotifierInfo1.NotifierRelation != 2)
+        {
+            MHOCommon.ShowMessage("لقد ادخلت الرقم القومى للأم فى بيانات المبلغ فى حين ان المبلغ ليس الأم", this.Page);
+            return false;
+        }
+
+        if (UcMotherInfo2.ParentNID == UcFatherInfo2.ParentNID) 
+        {
+            MHOCommon.ShowMessage("خطأ . الرقم القومى للأب والأم متطابقين", this.Page);
+            return false;
+        }
+
         #region Check For Repeated Birth cases.
 
         Born objBorn = new Born();
