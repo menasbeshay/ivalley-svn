@@ -6,6 +6,7 @@
       
         <siteMapNode url="~/Intranet/bulletins.aspx" title="Bulletins" description="fa-bullhorn" htmlID="Bulletins"/>
       <siteMapNode url="~/Intranet/blog.aspx" title="FlyEgypt's Blog" description="fa-flag" htmlID="Blogs"/>
+      <siteMapNode url="~/Intranet/certificates.aspx" title="certificates" description="fa-certificate" htmlID="Certificates"/>
         <siteMapNode url="~/Intranet/Manuals.aspx" title="Manuals"  description="fa-book" htmlID="Manuals">
           <!--<siteMapNode url="http://www.civilaviation.gov.eg/Regulations/regulation.html" title="ECAR" description="" htmlID="ECAR" roles="*" target="_blank" />
           <siteMapNode url="http://www.ecfr.gov/cgi-bin/text-idx?tpl=/ecfrbrowse/Title14/14tab_02.tpl" title="FAR" description="" htmlID="FAR" roles="*" target="_blank" />-->
@@ -29,7 +30,7 @@
           <siteMapNode url="~/intranet/forms.aspx?cid=10" title="Ground Handling (GRH)"  description="fa-file" htmlID="dsp"/>
           <siteMapNode url="~/intranet/forms.aspx?cid=11" title="Security Management (SEC)"  description="fa-file" htmlID="dsp"/>-->
         </siteMapNode>
-
+      <siteMapNode url="~/Intranet/schedule.aspx" title="Schedules"  description="fa-calendar" htmlID="Schedules" />
       <siteMapNode url="~/intranet/manuals.aspx?cid=12" title="Aircraft Manuals" id="12"  description="fa-plane" htmlID="AircraftManuals">       
         <siteMapNode url="~/intranet/manuals.aspx?cid=13" title="Boeing Manuals" id="13"  description="fa-file" htmlID="dsp"/>
       </siteMapNode>
@@ -41,8 +42,10 @@
           <siteMapNode url="~/Admin/circularsManagment.aspx" title="Manage Circulars"  description="fa-edit" htmlID="Manage_Circulars"/>
           <siteMapNode url="~/Admin/BulletinsManagement.aspx" title="Manage Bulletins"  description="fa-edit" htmlID="Manage_Bulletins"/>
           <siteMapNode url="~/Admin/blogManagement.aspx" title="Manage Blog"  description="fa-group" htmlID="Manage_blogs"/>
+          <siteMapNode url="~/Admin/certificateManagement.aspx" title="Manage Certificates"  description="fa-group" htmlID="Manage_certificates"/>
           <siteMapNode url="~/Admin/ManualCats.aspx" title="Manuals Categories"  description="fa-tags" htmlID="Manuals_Categories"/>
           <siteMapNode url="~/Admin/ManualManagment.aspx" title="Manage Manuals"  description="fa-file" htmlID="Manage_Manuals"/>
+          <siteMapNode url="~/Admin/ScheduleManagement.aspx" title="Manage Schedule"  description="fa-file" htmlID="Manage_Schedule"/>
           <!--<siteMapNode url="~/Admin/FormManagement.aspx" title="Manage Forms"  description="fa-file" htmlID="Manage_Forms"/>
           <siteMapNode url="~/Admin/AircraftManualCats.aspx" title="Aircraft Manuals Categories"  description="fa-tags" htmlID="Manage_AircraftCats"/>
           <siteMapNode url="~/Admin/AircraftManualManagement.aspx" title="Manage Aircraft Manuals"  description="fa-file" htmlID="Manage_AircraftManuals"/>-->

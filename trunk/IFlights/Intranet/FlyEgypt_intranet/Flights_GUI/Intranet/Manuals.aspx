@@ -85,7 +85,7 @@
                  { text: 'Rev. Date', datafield: 'RevisionDate', width: 100, cellsformat: 'dd/MM/yyyy' },
                  { text: 'Updated By', datafield: 'UpdatedByName', width: 100 },
                  { text: 'Last Updated Date', datafield: 'LastUpdatedDate', width: 140, cellsformat: 'dd/MM/yyyy' },
-                 { text: 'Download', datafield: 'Path', width: 100, cellsrenderer: linkrenderer }
+                 { text: 'Download', datafield: 'Path', width: 100, cellsrenderer: linkrenderer, hidden: <%= (Roles.IsUserInRole("admin") || Roles.IsUserInRole("writer ")) ? "false" : "true" %> }
                ]
            });
         }

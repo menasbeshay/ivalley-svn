@@ -329,8 +329,10 @@ namespace Flights_GUI.Admin
             objdata.LastUpdatedDate = DateTime.Now;
             objdata.IssueNumber = uiTextBoxIssueNo.Text;
             objdata.RevisionNumber = uiTextBoxRevisionNo.Text;
-            objdata.IssueDate = uiRadDatePickerIssueDate.SelectedDate.Value;
-            objdata.RevisionDate = uiRadDatePickerRevisionDate.SelectedDate.Value;
+            if (uiRadDatePickerIssueDate.SelectedDate != null) 
+                objdata.IssueDate = uiRadDatePickerIssueDate.SelectedDate.Value;
+            if (uiRadDatePickerRevisionDate.SelectedDate != null) 
+                objdata.RevisionDate = uiRadDatePickerRevisionDate.SelectedDate.Value;
             objdata.ManualID = CurrentManual.ManualID;
 
             if (Session["CurrentUploadedFiles"] != null)

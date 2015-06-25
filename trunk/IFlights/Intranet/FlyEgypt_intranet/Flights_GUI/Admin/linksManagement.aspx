@@ -33,7 +33,7 @@
                                     <asp:LinkButton ID="uiLinkButtonEdit" runat="server" CommandArgument='<%# Eval("UsefulLinkID") %>'
                                         CommandName="EditLink"><img src="../images/edit.png" alt="Edit" title="Edit" style="border:0;float:none;" /></asp:LinkButton>
                                     &nbsp;
-                                    <asp:LinkButton ID="uiLinkButtonDelete" runat="server" CommandArgument='<%# Eval("UsefulLinkID") %>'
+                                    <asp:LinkButton ID="uiLinkButtonDelete" runat="server" CommandArgument='<%# Eval("UsefulLinkID") %>' Visible='<%# (Membership.GetUser().ProviderUserKey.ToString() == Eval("CreatedBy").ToString()) %>'
                                         CommandName="DeleteLink" OnClientClick="return confirm('Are you want to delete this record? ');"><img src="../images/delete.png" alt="Delete" title="Delete" style="border:0;float:none;" /></asp:LinkButton>
                                 </ItemTemplate>
                             </telerik:GridTemplateColumn>

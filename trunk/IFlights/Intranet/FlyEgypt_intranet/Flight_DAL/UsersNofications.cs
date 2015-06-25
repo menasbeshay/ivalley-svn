@@ -171,6 +171,22 @@ namespace Flight_DAL
 				}
 			}
 			
+			public static SqlParameter ScheduleID
+			{
+				get
+				{
+					return new SqlParameter("@ScheduleID", SqlDbType.Int, 0);
+				}
+			}
+			
+			public static SqlParameter ScheduleVersionID
+			{
+				get
+				{
+					return new SqlParameter("@ScheduleVersionID", SqlDbType.Int, 0);
+				}
+			}
+			
 		}
 		#endregion		
 	
@@ -186,6 +202,8 @@ namespace Flight_DAL
             public const string FormID = "FormID";
             public const string ManualVersionID = "ManualVersionID";
             public const string FromVersionID = "FromVersionID";
+            public const string ScheduleID = "ScheduleID";
+            public const string ScheduleVersionID = "ScheduleVersionID";
 
 			static public string ToPropertyName(string columnName)
 			{
@@ -202,6 +220,8 @@ namespace Flight_DAL
 					ht[FormID] = _UsersNofications.PropertyNames.FormID;
 					ht[ManualVersionID] = _UsersNofications.PropertyNames.ManualVersionID;
 					ht[FromVersionID] = _UsersNofications.PropertyNames.FromVersionID;
+					ht[ScheduleID] = _UsersNofications.PropertyNames.ScheduleID;
+					ht[ScheduleVersionID] = _UsersNofications.PropertyNames.ScheduleVersionID;
 
 				}
 				return (string)ht[columnName];
@@ -223,6 +243,8 @@ namespace Flight_DAL
             public const string FormID = "FormID";
             public const string ManualVersionID = "ManualVersionID";
             public const string FromVersionID = "FromVersionID";
+            public const string ScheduleID = "ScheduleID";
+            public const string ScheduleVersionID = "ScheduleVersionID";
 
 			static public string ToColumnName(string propertyName)
 			{
@@ -239,6 +261,8 @@ namespace Flight_DAL
 					ht[FormID] = _UsersNofications.ColumnNames.FormID;
 					ht[ManualVersionID] = _UsersNofications.ColumnNames.ManualVersionID;
 					ht[FromVersionID] = _UsersNofications.ColumnNames.FromVersionID;
+					ht[ScheduleID] = _UsersNofications.ColumnNames.ScheduleID;
+					ht[ScheduleVersionID] = _UsersNofications.ColumnNames.ScheduleVersionID;
 
 				}
 				return (string)ht[propertyName];
@@ -260,6 +284,8 @@ namespace Flight_DAL
             public const string FormID = "s_FormID";
             public const string ManualVersionID = "s_ManualVersionID";
             public const string FromVersionID = "s_FromVersionID";
+            public const string ScheduleID = "s_ScheduleID";
+            public const string ScheduleVersionID = "s_ScheduleVersionID";
 
 		}
 		#endregion		
@@ -371,6 +397,30 @@ namespace Flight_DAL
 			set
 	        {
 				base.Setint(ColumnNames.FromVersionID, value);
+			}
+		}
+
+		public virtual int ScheduleID
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.ScheduleID);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.ScheduleID, value);
+			}
+		}
+
+		public virtual int ScheduleVersionID
+	    {
+			get
+	        {
+				return base.Getint(ColumnNames.ScheduleVersionID);
+			}
+			set
+	        {
+				base.Setint(ColumnNames.ScheduleVersionID, value);
 			}
 		}
 
@@ -514,6 +564,36 @@ namespace Flight_DAL
 			}
 		}
 
+		public virtual string s_ScheduleID
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.ScheduleID) ? string.Empty : base.GetintAsString(ColumnNames.ScheduleID);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.ScheduleID);
+				else
+					this.ScheduleID = base.SetintAsString(ColumnNames.ScheduleID, value);
+			}
+		}
+
+		public virtual string s_ScheduleVersionID
+	    {
+			get
+	        {
+				return this.IsColumnNull(ColumnNames.ScheduleVersionID) ? string.Empty : base.GetintAsString(ColumnNames.ScheduleVersionID);
+			}
+			set
+	        {
+				if(string.Empty == value)
+					this.SetColumnNull(ColumnNames.ScheduleVersionID);
+				else
+					this.ScheduleVersionID = base.SetintAsString(ColumnNames.ScheduleVersionID, value);
+			}
+		}
+
 
 		#endregion		
 	
@@ -637,6 +717,26 @@ namespace Flight_DAL
 					}
 				}
 
+				public WhereParameter ScheduleID
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.ScheduleID, Parameters.ScheduleID);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
+				public WhereParameter ScheduleVersionID
+				{
+					get
+					{
+							WhereParameter where = new WhereParameter(ColumnNames.ScheduleVersionID, Parameters.ScheduleVersionID);
+							this._clause._entity.Query.AddWhereParameter(where);
+							return where;
+					}
+				}
+
 
 				private WhereClause _clause;
 			}
@@ -750,6 +850,30 @@ namespace Flight_DAL
 				}
 			}
 
+			public WhereParameter ScheduleID
+		    {
+				get
+		        {
+					if(_ScheduleID_W == null)
+	        	    {
+						_ScheduleID_W = TearOff.ScheduleID;
+					}
+					return _ScheduleID_W;
+				}
+			}
+
+			public WhereParameter ScheduleVersionID
+		    {
+				get
+		        {
+					if(_ScheduleVersionID_W == null)
+	        	    {
+						_ScheduleVersionID_W = TearOff.ScheduleVersionID;
+					}
+					return _ScheduleVersionID_W;
+				}
+			}
+
 			private WhereParameter _UserNotificationID_W = null;
 			private WhereParameter _UserID_W = null;
 			private WhereParameter _NotificationType_W = null;
@@ -759,6 +883,8 @@ namespace Flight_DAL
 			private WhereParameter _FormID_W = null;
 			private WhereParameter _ManualVersionID_W = null;
 			private WhereParameter _FromVersionID_W = null;
+			private WhereParameter _ScheduleID_W = null;
+			private WhereParameter _ScheduleVersionID_W = null;
 
 			public void WhereClauseReset()
 			{
@@ -771,6 +897,8 @@ namespace Flight_DAL
 				_FormID_W = null;
 				_ManualVersionID_W = null;
 				_FromVersionID_W = null;
+				_ScheduleID_W = null;
+				_ScheduleVersionID_W = null;
 
 				this._entity.Query.FlushWhereParameters();
 
@@ -917,6 +1045,26 @@ namespace Flight_DAL
 					}
 				}
 
+				public AggregateParameter ScheduleID
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.ScheduleID, Parameters.ScheduleID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
+				public AggregateParameter ScheduleVersionID
+				{
+					get
+					{
+							AggregateParameter aggregate = new AggregateParameter(ColumnNames.ScheduleVersionID, Parameters.ScheduleVersionID);
+							this._clause._entity.Query.AddAggregateParameter(aggregate);
+							return aggregate;
+					}
+				}
+
 
 				private AggregateClause _clause;
 			}
@@ -1030,6 +1178,30 @@ namespace Flight_DAL
 				}
 			}
 
+			public AggregateParameter ScheduleID
+		    {
+				get
+		        {
+					if(_ScheduleID_W == null)
+	        	    {
+						_ScheduleID_W = TearOff.ScheduleID;
+					}
+					return _ScheduleID_W;
+				}
+			}
+
+			public AggregateParameter ScheduleVersionID
+		    {
+				get
+		        {
+					if(_ScheduleVersionID_W == null)
+	        	    {
+						_ScheduleVersionID_W = TearOff.ScheduleVersionID;
+					}
+					return _ScheduleVersionID_W;
+				}
+			}
+
 			private AggregateParameter _UserNotificationID_W = null;
 			private AggregateParameter _UserID_W = null;
 			private AggregateParameter _NotificationType_W = null;
@@ -1039,6 +1211,8 @@ namespace Flight_DAL
 			private AggregateParameter _FormID_W = null;
 			private AggregateParameter _ManualVersionID_W = null;
 			private AggregateParameter _FromVersionID_W = null;
+			private AggregateParameter _ScheduleID_W = null;
+			private AggregateParameter _ScheduleVersionID_W = null;
 
 			public void AggregateClauseReset()
 			{
@@ -1051,6 +1225,8 @@ namespace Flight_DAL
 				_FormID_W = null;
 				_ManualVersionID_W = null;
 				_FromVersionID_W = null;
+				_ScheduleID_W = null;
+				_ScheduleVersionID_W = null;
 
 				this._entity.Query.FlushAggregateParameters();
 
@@ -1159,6 +1335,14 @@ namespace Flight_DAL
 
 			p = cmd.Parameters.Add(Parameters.FromVersionID);
 			p.SourceColumn = ColumnNames.FromVersionID;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.ScheduleID);
+			p.SourceColumn = ColumnNames.ScheduleID;
+			p.SourceVersion = DataRowVersion.Current;
+
+			p = cmd.Parameters.Add(Parameters.ScheduleVersionID);
+			p.SourceColumn = ColumnNames.ScheduleVersionID;
 			p.SourceVersion = DataRowVersion.Current;
 
 

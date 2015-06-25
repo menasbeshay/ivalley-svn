@@ -194,10 +194,10 @@
                 <header class="top-head" data-sticky="true">
                     <div class="container">
                         <div class="row">
-                            <div class="logo cell-3">
-                                <a href="#"></a>
+                            <div class="logo cell-2">
+                                <a href="../dashboard.aspx"></a>
                             </div>
-                            <div class="cell-9 top-menu">
+                            <div class="cell-10 top-menu">
                                 <asp:Repeater ID="uiRepeaterInteranetMenu" OnItemDataBound="uiRepeaterInteranetMenu_ItemDataBound" runat="server" DataSourceID="SiteMapDataSource2">
                                     <HeaderTemplate>
                                         <nav class="top-nav">
