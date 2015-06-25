@@ -520,7 +520,7 @@ header.top-head .logo.center a{
 }
 .top-nav > ul > li > a {
 	display: block;
-	padding: 0 17px;
+	padding: 0 15px;
 	padding-top: 22px;
 	height: 83px;
 	/*text-transform: uppercase;*/
@@ -2512,7 +2512,7 @@ blockquote span {
 .service-box-4{
 	margin: 30px 0;
 }
-.service-box-4 a  {
+.service-box-4 a.masterLink  {
     display: table;
     text-align: center;
     font-size: 30px;

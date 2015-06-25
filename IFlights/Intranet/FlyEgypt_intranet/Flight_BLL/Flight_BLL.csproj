@@ -43,6 +43,9 @@
     <Compile Include="AirCraftManual.cs" />
     <Compile Include="AircraftManualCategory.cs" />
     <Compile Include="Announcement.cs" />
+    <Compile Include="AnnouncementGroup.cs" />
+    <Compile Include="Certificate.cs" />
+    <Compile Include="DbLog.cs" />
     <Compile Include="FromVersion.cs" />
     <Compile Include="Groups.cs" />
     <Compile Include="Manual.cs" />
@@ -51,6 +54,8 @@
     <Compile Include="ManualVersion.cs" />
     <Compile Include="NotificationTypes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Schedule.cs" />
+    <Compile Include="ScheduleVersion.cs" />
     <Compile Include="UsefulLink.cs" />
     <Compile Include="UsersNofications.cs" />
     <Compile Include="UsersProfiles.cs" />

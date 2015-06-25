@@ -93,12 +93,14 @@
     <Content Include="Admin\AircraftManualManagement.aspx" />
     <Content Include="Admin\blogManagement.aspx" />
     <Content Include="Admin\BulletinsManagement.aspx" />
+    <Content Include="Admin\certificateManagement.aspx" />
     <Content Include="Admin\circularsManagment.aspx" />
     <Content Include="Admin\FormManagement.aspx" />
     <Content Include="Admin\linksManagement.aspx" />
     <Content Include="Admin\ManualCats.aspx" />
     <Content Include="Admin\ManualManagment.aspx" />
     <Content Include="Admin\NotificationsManagement.aspx" />
+    <Content Include="Admin\scheduleManagement.aspx" />
     <Content Include="Admin\UserManagement.aspx" />
     <Content Include="assets\bootstrap-colorpicker\css\colorpicker.css" />
     <Content Include="assets\bootstrap-colorpicker\img\alpha.png" />
@@ -877,10 +879,12 @@
     <Content Include="Intranet\AircraftManuals.aspx" />
     <Content Include="Intranet\blog.aspx" />
     <Content Include="Intranet\Bulletins.aspx" />
+    <Content Include="Intranet\certificates.aspx" />
     <Content Include="Intranet\Circulars.aspx" />
     <Content Include="Intranet\forms.aspx" />
     <Content Include="Intranet\links.aspx" />
     <Content Include="Intranet\Manuals.aspx" />
+    <Content Include="Intranet\schedules.aspx" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\canvas-to-blob.min.js" />
@@ -1899,6 +1903,13 @@
     <Compile Include="Admin\BulletinsManagement.aspx.designer.cs">
       <DependentUpon>BulletinsManagement.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\certificateManagement.aspx.cs">
+      <DependentUpon>certificateManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\certificateManagement.aspx.designer.cs">
+      <DependentUpon>certificateManagement.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\circularsManagment.aspx.cs">
       <DependentUpon>circularsManagment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1940,6 +1951,13 @@
     </Compile>
     <Compile Include="Admin\NotificationsManagement.aspx.designer.cs">
       <DependentUpon>NotificationsManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\scheduleManagement.aspx.cs">
+      <DependentUpon>scheduleManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\scheduleManagement.aspx.designer.cs">
+      <DependentUpon>scheduleManagement.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\SendingNotifications.cs" />
     <Compile Include="Admin\UserManagement.aspx.cs">
@@ -2017,6 +2035,13 @@
     <Compile Include="Intranet\Bulletins.aspx.designer.cs">
       <DependentUpon>Bulletins.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Intranet\certificates.aspx.cs">
+      <DependentUpon>certificates.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Intranet\certificates.aspx.designer.cs">
+      <DependentUpon>certificates.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Intranet\Circulars.aspx.cs">
       <DependentUpon>Circulars.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2044,6 +2069,13 @@
     </Compile>
     <Compile Include="Intranet\Manuals.aspx.designer.cs">
       <DependentUpon>Manuals.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Intranet\schedules.aspx.cs">
+      <DependentUpon>schedules.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Intranet\schedules.aspx.designer.cs">
+      <DependentUpon>schedules.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPages\CabinCrew.Master.cs">
       <DependentUpon>CabinCrew.Master</DependentUpon>
