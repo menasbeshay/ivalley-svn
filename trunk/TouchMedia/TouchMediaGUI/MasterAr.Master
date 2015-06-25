@@ -140,6 +140,9 @@
     <script src="assets/uniform/jquery.uniform.min.js"></script>
      <asp:ContentPlaceHolder ID="ContentPlaceHolderScripts" runat="server">
     </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolderScriptsPurchaseOrder" runat="server">
+
+        </asp:ContentPlaceHolder>
         <script src="js/scripts.js"></script>
     <script>
 
