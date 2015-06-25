@@ -36,7 +36,8 @@ namespace Flights_GUI.Intranet
                 Master.PageTitle = "Circulars";
                 if (CurrentAnnouncement == 0)
                 {
-                    LoadCirculars();
+                    LoadCircularsPublic();
+                    LoadCircularsGroup();
                     uiPanelViewAll.Visible = true;
                     uiPanelCurrent.Visible = false;
                 }
@@ -48,6 +49,13 @@ namespace Flights_GUI.Intranet
                 }
                 MarkNotificationsAsRead();
             }
+
+            UsersProfiles userProf = new UsersProfiles();
+            userProf.getUserByGUID(new Guid(Membership.GetUser(Page.User.Identity.Name).ProviderUserKey.ToString()));
+
+            Groups grps = new Groups();
+            grps.LoadByPrimaryKey(userProf.GroupID);
+            lblTabGroup.Text = grps.GroupName + " Circulars";
         }
 
         private void LoadCurrent()
@@ -74,25 +82,37 @@ namespace Flights_GUI.Intranet
             }
         }
 
-        private void LoadCirculars()
+        private void LoadCircularsPublic()
         {
             Announcement all = new Announcement();
-            all.GetAllCirculars();
-
-            uiRadListViewCirculars.DataSource = all.DefaultView;
-            uiRadListViewCirculars.DataBind();
+            all.GetAllCircularsPublic();
+            uiRadListViewCircularsPublic.DataSource = all.DefaultView;
+            uiRadListViewCircularsPublic.DataBind();
         }
-
-        protected void uiRadListViewCirculars_PageIndexChanged(object sender, Telerik.Web.UI.RadListViewPageChangedEventArgs e)
+        private void LoadCircularsGroup()
         {
-            uiRadListViewCirculars.CurrentPageIndex = e.NewPageIndex;
-            LoadCirculars();
-        }
+            UsersProfiles userProf = new UsersProfiles();
+            userProf.getUserByGUID(new Guid(Membership.GetUser(Page.User.Identity.Name).ProviderUserKey.ToString()));
 
+            Announcement all = new Announcement();
+            all.GetAllCircularsGroups(userProf.GroupID);
+            uiRadListViewCircularsGroup.DataSource = all.DefaultView;
+            uiRadListViewCircularsGroup.DataBind();
+        }
         protected void MarkNotificationsAsRead()
         {
             UsersNofications userNotif = new UsersNofications();
             userNotif.MarkNotificationsReadByNotificationType((new Guid(Membership.GetUser(Page.User.Identity.Name).ProviderUserKey.ToString())),1);
+        }
+        protected void uiRadListViewCircularsPublic_PageIndexChanged(object sender, Telerik.Web.UI.RadListViewPageChangedEventArgs e)
+        {
+            uiRadListViewCircularsPublic.CurrentPageIndex = e.NewPageIndex;
+            LoadCircularsPublic();
+        }
+        protected void uiRadListViewCircularsGroup_PageIndexChanged(object sender, Telerik.Web.UI.RadListViewPageChangedEventArgs e)
+        {
+            uiRadListViewCircularsGroup.CurrentPageIndex = e.NewPageIndex;
+            LoadCircularsGroup();
         }
     }
 }

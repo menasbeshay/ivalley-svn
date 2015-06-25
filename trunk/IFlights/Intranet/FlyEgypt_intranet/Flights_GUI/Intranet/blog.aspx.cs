@@ -36,7 +36,8 @@ namespace Flights_GUI.Intranet
                 Master.PageTitle = "Blog";
                 if (CurrentAnnouncement == 0)
                 {
-                    LoadCirculars();
+                    LoadCircularsPublic();
+                    LoadCircularsGroup();
                     uiPanelViewAll.Visible = true;
                     uiPanelCurrent.Visible = false;
                 }
@@ -47,13 +48,19 @@ namespace Flights_GUI.Intranet
                     uiPanelCurrent.Visible = true;
                 }
                 MarkNotificationsAsRead();
+
+                UsersProfiles userProf = new UsersProfiles();
+                userProf.getUserByGUID(new Guid(Membership.GetUser(Page.User.Identity.Name).ProviderUserKey.ToString()));
+
+                Groups grps = new Groups();
+                grps.LoadByPrimaryKey(userProf.GroupID);
+                lblTabGroup.Text = grps.GroupName + " Blogs";
             }
         }
 
         private void LoadCurrent()
         {
             Announcement current = new Announcement();
-
             if (current.LoadByPrimaryKey(CurrentAnnouncement))
             {
                 uiLabelTitle.Text = current.Title;
@@ -74,19 +81,33 @@ namespace Flights_GUI.Intranet
             }
         }
 
-        private void LoadCirculars()
+        private void LoadCircularsPublic()
         {
             Announcement all = new Announcement();
-            all.GetAllBlogs();
+            all.GetAllBlogsPublic();
+            uiRadListViewCircularsPublic.DataSource = all.DefaultView;
+            uiRadListViewCircularsPublic.DataBind();
+        }
+        private void LoadCircularsGroup()
+        {
+            UsersProfiles userProf = new UsersProfiles();
+            userProf.getUserByGUID(new Guid(Membership.GetUser(Page.User.Identity.Name).ProviderUserKey.ToString()));
 
-            uiRadListViewCirculars.DataSource = all.DefaultView;
-            uiRadListViewCirculars.DataBind();
+            Announcement all = new Announcement();
+            all.GetAllBlogsGroups(userProf.GroupID);
+            uiRadListViewCircularsGroup.DataSource = all.DefaultView;
+            uiRadListViewCircularsGroup.DataBind();
         }
 
-        protected void uiRadListViewCirculars_PageIndexChanged(object sender, Telerik.Web.UI.RadListViewPageChangedEventArgs e)
+        protected void uiRadListViewCircularsPublic_PageIndexChanged(object sender, Telerik.Web.UI.RadListViewPageChangedEventArgs e)
         {
-            uiRadListViewCirculars.CurrentPageIndex = e.NewPageIndex;
-            LoadCirculars();
+            uiRadListViewCircularsPublic.CurrentPageIndex = e.NewPageIndex;
+            LoadCircularsPublic();
+        }
+        protected void uiRadListViewCircularsGroup_PageIndexChanged(object sender, Telerik.Web.UI.RadListViewPageChangedEventArgs e)
+        {
+            uiRadListViewCircularsGroup.CurrentPageIndex = e.NewPageIndex;
+            LoadCircularsGroup();
         }
 
         protected void MarkNotificationsAsRead()

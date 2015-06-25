@@ -36,6 +36,7 @@ namespace Flights_GUI.Admin
             {
                 Master.PageTitle = "Circulars Management";
                 BindData();
+                loadGroups();
                 uiPanelViewAll.Visible = true;
                 uiPanelEdit.Visible = false;
             }
@@ -58,6 +59,22 @@ namespace Flights_GUI.Admin
                 }
                 else
                     uiImageMain.Visible = false;
+
+                if (!objData.IsColumnNull(Announcement.ColumnNames.UploadedFile))
+                {
+                    txtCurrentFile.Visible = true;
+                    btnDeleteCurrentFile.Visible = true;
+                    lblCurrentFile.Visible = true;
+                    txtCurrentFile.Text = objData.UploadedFile.Substring(objData.UploadedFile.LastIndexOf('/')+1);
+                }
+                if (!objData.IsColumnNull(Announcement.ColumnNames.GroupID))
+                {
+                    DropDownListGroups.SelectedValue =objData.GroupID.ToString();
+                }
+                else
+                {
+                    DropDownListGroups.SelectedIndex = 0;
+                }
                 uiTextBoxBrief.Text = objData.Brief;
                 CurrentAnnouncement = objData;
                 uiPanelEdit.Visible = true;
@@ -126,6 +143,15 @@ namespace Flights_GUI.Admin
                     Session["CurrentUploadedFiles"] = null;
                 }
             }
+
+            if (DropDownListGroups.SelectedValue =="0")
+            {
+                objdata.SetColumnNull(Announcement.ColumnNames.GroupID);
+            }
+            else
+            {
+                objdata.GroupID = int.Parse(DropDownListGroups.SelectedValue.ToString());
+            }
             
             objdata.Save();
             BindData();
@@ -155,9 +181,7 @@ namespace Flights_GUI.Admin
             objdata.GetAllCirculars();
             uiRadGridcirculars.DataSource = objdata.DefaultView;
             uiRadGridcirculars.DataBind();
-
         }
-
 
         private void ClearFields()
         {
@@ -166,10 +190,33 @@ namespace Flights_GUI.Admin
             uiRadEditorContnet.Content = "";
             uiTextBoxBrief.Text = "";
             uiImageMain.ImageUrl = "";
+            DropDownListGroups.SelectedIndex = 0;
         }
 
+        protected void btnDeleteCurrentFile_Click(object sender, EventArgs e)
+        {
+            Announcement objData = new Announcement();
+            objData = CurrentAnnouncement;
+            objData.SetColumnNull(Announcement.ColumnNames.UploadedFile);
+            objData.Save();
+            txtCurrentFile.Text = "";
+            txtCurrentFile.Visible = false;
+            btnDeleteCurrentFile.Visible = false;
+            lblCurrentFile.Visible = false;
+        }
+
+        private void loadGroups()
+        {
+            Groups grps = new Groups();
+            grps.LoadAll();
+            DropDownListGroups.DataSource = grps.DefaultView;
+            DropDownListGroups.DataTextField = Groups.ColumnNames.GroupName.ToString();
+            DropDownListGroups.DataValueField = Groups.ColumnNames.GroupID.ToString();
+            DropDownListGroups.DataBind();
+            DropDownListGroups.Items.Insert(0, new ListItem("Public", "0"));
+        }
 
         #endregion
-       
+
     }
 }
