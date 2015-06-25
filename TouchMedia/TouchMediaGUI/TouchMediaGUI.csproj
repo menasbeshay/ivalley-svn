@@ -1989,6 +1989,7 @@
     <Content Include="js\ui-nestable.js" />
     <Content Include="js\ui-tree.js" />
     <Content Include="Login.aspx" />
+    <Content Include="PurchaseOrder.aspx" />
     <Content Include="Scripts\_references.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -2096,6 +2097,13 @@
     <Compile Include="Models\GeneralLookup.cs" />
     <Compile Include="Models\StatusModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PurchaseOrder.aspx.cs">
+      <DependentUpon>PurchaseOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PurchaseOrder.aspx.designer.cs">
+      <DependentUpon>PurchaseOrder.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Splash.aspx.cs">
       <DependentUpon>Splash.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
