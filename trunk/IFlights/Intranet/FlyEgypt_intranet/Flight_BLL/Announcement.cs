@@ -25,7 +25,7 @@ namespace Flight_BLL
 
         public virtual bool GetAllCircularsGroups(int groupID)
         {
-            return LoadFromRawSql(@"select A.*, U.UserName, U.UserID from Announcement A Left join aspnet_users U on A.createdby = u.UserID where (IsBulletin is null or IsBulletin <> 1 ) and (IsBlog is null or IsBlog <> 1 ) and (A.GroupID = {0}) order by CreatedDate desc",groupID);
+            return LoadFromRawSql(@"select * from (Announcement join AnnouncementGroup on Announcement.AnnouncementID = AnnouncementGroup.AnnouncementID) where (IsBulletin is null or IsBulletin <> 1 ) and (IsBlog is null or IsBlog <> 1 ) and (AnnouncementGroup.GroupID = {0}) order by CreatedDate desc", groupID);
         }
         //--------------------
 
@@ -41,7 +41,7 @@ namespace Flight_BLL
 
         public virtual bool GetAllBulletinsGroups(int groupID)
         {
-            return LoadFromRawSql(@"select A.*, U.UserName, U.UserID from Announcement A Left join aspnet_users U on A.createdby = u.UserID where (IsBulletin = 1 ) and (A.GroupID = {0}) order by CreatedDate desc",groupID);
+            return LoadFromRawSql(@"select * from (Announcement join AnnouncementGroup on Announcement.AnnouncementID = AnnouncementGroup.AnnouncementID) where (IsBulletin = 1 ) and (AnnouncementGroup.GroupID = {0}) order by CreatedDate desc", groupID);
         }
         //--------------------
 
@@ -68,7 +68,7 @@ namespace Flight_BLL
 
         public virtual bool GetAllBlogsGroups(int groupID)
         {
-            return LoadFromRawSql(@"select A.*, U.UserName, U.UserID from Announcement A Left join aspnet_users U on A.createdby = u.UserID where (IsBlog = 1 ) and (A.GroupID = {0}) order by CreatedDate desc", groupID);
+            return LoadFromRawSql(@"select * from (Announcement join AnnouncementGroup on Announcement.AnnouncementID = AnnouncementGroup.AnnouncementID) where (IsBlog = 1 ) and (AnnouncementGroup.GroupID = {0}) order by CreatedDate desc", groupID);
         }
 
         public virtual bool GetTopBlogs()
