@@ -164,19 +164,19 @@ namespace Flights_GUI.Admin
 
             if (CurrentManual.ManualCategoryID == 12)
             {
-                SendingNotifications.sendNotif(5, CurrentManual.ManualCategoryID, CurrentManual.ManualID, CurrentForm.ManualFormID, null, null);
+                SendingNotifications.sendNotif(5, CurrentManual.ManualCategoryID, CurrentManual.ManualID, CurrentForm.ManualFormID, null, null, null, null);
             }
             else
             {
                 if (!cat.IsColumnNull(ManualCategory.ColumnNames.ParentCategoryID))
                 {
                     if (cat.ParentCategoryID != 12)
-                        SendingNotifications.sendNotif(4, CurrentManual.ManualCategoryID, CurrentManual.ManualID, CurrentForm.ManualFormID, null, null);
+                        SendingNotifications.sendNotif(4, CurrentManual.ManualCategoryID, CurrentManual.ManualID, CurrentForm.ManualFormID, null, null, null, null);
                     else
-                        SendingNotifications.sendNotif(5, CurrentManual.ManualCategoryID, CurrentManual.ManualID, CurrentForm.ManualFormID, null, null);
+                        SendingNotifications.sendNotif(5, CurrentManual.ManualCategoryID, CurrentManual.ManualID, CurrentForm.ManualFormID, null, null, null, null);
                 }
                 else
-                    SendingNotifications.sendNotif(4, CurrentManual.ManualCategoryID, CurrentManual.ManualID, CurrentForm.ManualFormID, null, null);
+                    SendingNotifications.sendNotif(4, CurrentManual.ManualCategoryID, CurrentManual.ManualID, CurrentForm.ManualFormID, null, null, null, null);
             }
 
 
@@ -319,19 +319,19 @@ namespace Flights_GUI.Admin
 
             if (CurrentManual.ManualCategoryID == 12)
             {
-                SendingNotifications.sendNotif(5, CurrentManual.ManualCategoryID, CurrentManual.ManualID, CurrentForm.ManualFormID, null, objdata.FromVersionID);
+                SendingNotifications.sendNotif(5, CurrentManual.ManualCategoryID, CurrentManual.ManualID, CurrentForm.ManualFormID, null, objdata.FromVersionID, null, null);
             }
             else
             {
                 if (!cat.IsColumnNull(ManualCategory.ColumnNames.ParentCategoryID))
                 {
                     if (cat.ParentCategoryID != 12)
-                        SendingNotifications.sendNotif(4, CurrentManual.ManualCategoryID, CurrentManual.ManualID, CurrentForm.ManualFormID, null, objdata.FromVersionID);
+                        SendingNotifications.sendNotif(4, CurrentManual.ManualCategoryID, CurrentManual.ManualID, CurrentForm.ManualFormID, null, objdata.FromVersionID, null, null);
                     else
-                        SendingNotifications.sendNotif(5, CurrentManual.ManualCategoryID, CurrentManual.ManualID, CurrentForm.ManualFormID, null, objdata.FromVersionID);
+                        SendingNotifications.sendNotif(5, CurrentManual.ManualCategoryID, CurrentManual.ManualID, CurrentForm.ManualFormID, null, objdata.FromVersionID, null, null);
                 }
                 else
-                    SendingNotifications.sendNotif(4, CurrentManual.ManualCategoryID, CurrentManual.ManualID, CurrentForm.ManualFormID, null, objdata.FromVersionID);
+                    SendingNotifications.sendNotif(4, CurrentManual.ManualCategoryID, CurrentManual.ManualID, CurrentForm.ManualFormID, null, objdata.FromVersionID, null, null);
             }
             BindData_Versions();
             CurrentFormVersion = null;

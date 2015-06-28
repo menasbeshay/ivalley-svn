@@ -9,13 +9,13 @@ namespace Flights_GUI.Admin
 {
     public class SendingNotifications
     {
-        public static void sendNotif(int NotificationType, int? CategoryID, int? ManualID, int? FormID, int? ManualVersionID, int? FormVersionID)
+        public static void sendNotif(int NotificationType, int? CategoryID, int? ManualID, int? FormID, int? ManualVersionID, int? FormVersionID, int? ScheduleID, int? ScheduleVersionID)
         {
-            System.Threading.Thread sendNotif = new System.Threading.Thread(() => SendNotifications(NotificationType, CategoryID, ManualID, FormID, ManualVersionID, FormVersionID));
+            System.Threading.Thread sendNotif = new System.Threading.Thread(() => SendNotifications(NotificationType, CategoryID, ManualID, FormID, ManualVersionID, FormVersionID, ScheduleID, ScheduleVersionID));
             sendNotif.Start();
         }
 
-        public static void SendNotifications(int NotificationType, int? CategoryID, int? ManualID, int? FormID, int? ManualVersionID , int? FormVersionID)
+        public static void SendNotifications(int NotificationType, int? CategoryID, int? ManualID, int? FormID, int? ManualVersionID, int? FormVersionID, int? ScheduleID, int? ScheduleVersionID)
         {
             MembershipUserCollection users = Membership.GetAllUsers();
             foreach (MembershipUser user in users)
@@ -46,6 +46,17 @@ namespace Flights_GUI.Admin
                     userNotif.FromVersionID = FormVersionID.Value;
                 else
                     userNotif.SetColumnNull("FromVersionID");
+
+                if (ScheduleID != null)
+                    userNotif.ScheduleID = ScheduleID.Value;
+                else
+                    userNotif.SetColumnNull("ScheduleID");
+
+                if (ScheduleVersionID != null)
+                    userNotif.ScheduleVersionID = ScheduleVersionID.Value;
+                else
+                    userNotif.SetColumnNull("ScheduleVersionID");
+
 
                 userNotif.UserID = new Guid(user.ProviderUserKey.ToString());
                 userNotif.NotificationType = NotificationType;

@@ -49,9 +49,19 @@ namespace Flight_BLL
         {
             return LoadFromRawSql("UPDATE UsersNofications SET IsRead = 1 WHERE UserID = {0} AND NotificationType= {1} AND CategoryID = {2} AND FormID is null AND ManualVersionID is null AND FromVersionID is null", UserID, NotificationTypeID, CategoryID);
         }
+
+        public virtual bool MarkSchedulesNotificationsRead(Guid UserID, int NotificationTypeID)
+        {
+            return LoadFromRawSql("UPDATE UsersNofications SET IsRead = 1 WHERE UserID = {0} AND NotificationType= {1} AND ScheduleVersionID is null", UserID, NotificationTypeID);
+        }
+
         public virtual bool MarkNotificationsReadByManualVersionID(Guid UserID, int ManualID)
         {
             return LoadFromRawSql("UPDATE UsersNofications SET IsRead = 1 WHERE UserID = {0} AND NotificationType=3 AND ManualID = {1} AND FormID is null AND FromVersionID is null", UserID, ManualID);
+        }
+        public virtual bool MarkNotificationsReadByScheduleVersionID(Guid UserID, int ScheduleID)
+        {
+            return LoadFromRawSql("UPDATE UsersNofications SET IsRead = 1 WHERE UserID = {0} AND NotificationType=8 AND ScheduleID = {1} AND FormID is null AND FromVersionID is null", UserID, ScheduleID);
         }
 
         public virtual bool MarkNotificationReadByFormID(Guid UserID, int ManualID )

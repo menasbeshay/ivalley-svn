@@ -21,29 +21,30 @@ namespace Flight_BLL
                                     Left join aspnet_users C on M.CreatedBy = C.UserID                                    
                                     order by CreatedDate desc");  
         }
-
-        public virtual bool GetManualsByCatID(int CatID, Guid UserID)
+        public virtual bool GetSchedulesByUserID(Guid UserID)
         {
             return LoadFromRawSql(@"select M.*, U.username UpdatedByName , C.username CreatedByName ,-- ,sum(case when UMV.UserNotificationID is not null then 1 else 0 end) ManualVersionUpdates ,
-                                    (Select Top 1 path from ManualVersion MV where MV.ManualID = M.ManualID Order by MV.LastUpdatedDate desc) VersionPath   ,
-                                    /*(select isnull(sum(case when UM.UserNotificationID is not null then 1 else 0 end),0)  from UsersNofications UM where M.ManualID = UM.ManualID and 
+                                    (Select Top 1 path from ScheduleVersion MV where MV.ScheduleID = M.ScheduleID Order by MV.LastUpdatedDate desc) VersionPath   ,
+                                    (select isnull(sum(case when UM.UserNotificationID is not null then 1 else 0 end),0)  from UsersNofications UM where M.ScheduleID = UM.ScheduleID and 
 								                                     UM.FormID is null and 
 								                                     UM.ManualVersionID is null and 
 								                                     UM.FromVersionID is null and 
+                                                                     UM.ScheduleID is not null and
+                                                                     UM.ScheduleVersionID is null and
 								                                     (UM.IsRead is null OR UM.IsRead <> 1) and
-								                                     UM.UserID = {1}) ScheduleUpdates, 
-                                    (select isnull(sum(case when UMV.UserNotificationID is not null then 1 else 0 end),0)  from UsersNofications UMV where M.ManualID = UMV.ManualID and 
+								                                     UM.UserID = {0}) ManualUpdates, 
+                                    (select isnull(sum(case when UMV.UserNotificationID is not null then 1 else 0 end),0)  from UsersNofications UMV where M.ScheduleID = UMV.ScheduleID and 
 								                                     UMV.FormID is null and 								 
 								                                     UMV.FromVersionID is null and 
-								                                     UMV.ManualVersionID is not null and
+								                                     UMV.ManualVersionID is null and
+                                                                     UMV.ScheduleID is not null and
+                                                                     UMV.ScheduleVersionID is not null and
 								                                     (UMV.IsRead is null OR UMV.IsRead <> 1) and
-								                                     UMV.UserID = {1}) ScheduleVersionUpdates	*/								 								    
-                                    from schedule M
+								                                     UMV.UserID = {0}) ManualVersionUpdates
+                                    from Schedule M
                                     Left join aspnet_users U on M.UpdatedBy = U.UserID
                                     Left join aspnet_users C on M.CreatedBy = C.UserID     
-                                    where ManualCategoryID = {0} 
-
-                                    order by CreatedDate desc", CatID, UserID);
+                                    order by CreatedDate desc", UserID);
         }
 	}
 }
