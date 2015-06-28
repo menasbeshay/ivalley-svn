@@ -2496,7 +2496,9 @@
     <Content Include="js\jqwidgets\styles\images\Thumbs.db" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AdminMenu.sitemap" />
+    <Content Include="AdminMenu.sitemap">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Admin\admin.Master" />
     <None Include="Properties\PublishProfiles\publish.pubxml" />
   </ItemGroup>

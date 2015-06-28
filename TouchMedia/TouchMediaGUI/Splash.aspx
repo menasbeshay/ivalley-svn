@@ -43,7 +43,7 @@
                         </a>
                     </div>
                     <div class="span4 responsive clearfix" data-tablet="span4" data-desktop="span4">
-                        <a href="#" style="text-decoration:none;">
+                        <a href="PurchaseOrder.aspx" style="text-decoration:none;">
                             <div class="circle-wrap">
                                 <div class="stats-circle green-color" style="height:140px;width:140px">
                                     <i class="icon-shopping-cart" style="font-size:5em"></i>
