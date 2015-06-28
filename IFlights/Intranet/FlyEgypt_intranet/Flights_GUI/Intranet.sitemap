@@ -30,7 +30,7 @@
           <siteMapNode url="~/intranet/forms.aspx?cid=10" title="Ground Handling (GRH)"  description="fa-file" htmlID="dsp"/>
           <siteMapNode url="~/intranet/forms.aspx?cid=11" title="Security Management (SEC)"  description="fa-file" htmlID="dsp"/>-->
         </siteMapNode>
-      <siteMapNode url="~/Intranet/schedule.aspx" title="Schedules"  description="fa-calendar" htmlID="Schedules" />
+      <siteMapNode url="~/Intranet/schedules.aspx" title="Schedules"  description="fa-calendar" htmlID="Schedules" />
       <siteMapNode url="~/intranet/manuals.aspx?cid=12" title="Aircraft Manuals" id="12"  description="fa-plane" htmlID="AircraftManuals">       
         <siteMapNode url="~/intranet/manuals.aspx?cid=13" title="Boeing Manuals" id="13"  description="fa-file" htmlID="dsp"/>
       </siteMapNode>

@@ -72,6 +72,33 @@ namespace Flights_GUI.Common
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json, UseHttpGet = true)]
+        public void GetScheduleVersions(int ID)
+        {
+            ScheduleVersion versions = new ScheduleVersion();
+            versions.GetVersionsByScheduleID(ID);
+
+            List<Version> AllVersions = versions.DefaultView.Table.AsEnumerable().Select(row =>
+            {
+                return new Version
+                {
+                    Title = row["Title"].ToString(),
+                    IssueNumber = row["IssueNumber"].ToString(),
+                    IssueDate = DateTime.Parse(row["IssueDate"].ToString()),
+                    RevisionNumber = row["RevisionNumber"].ToString(),
+                    RevisionDate = DateTime.Parse(row["RevisionDate"].ToString()),
+                    UpdatedByName = row["UpdatedByName"].ToString(),
+                    LastUpdatedDate = DateTime.Parse(row["LastUpdatedDate"].ToString()),
+                    Path = row["Path"].ToString()
+                };
+            }).ToList();
+            UsersNofications usNot = new UsersNofications();
+
+            usNot.MarkNotificationsReadByScheduleVersionID(new Guid(Membership.GetUser(Context.User.Identity.Name).ProviderUserKey.ToString()), ID);
+            SetContentResult(AllVersions);
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json, UseHttpGet = true)]
         public void GetFormVersions(int ID)
         {
             FromVersion versions = new FromVersion();

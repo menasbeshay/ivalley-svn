@@ -21,7 +21,6 @@ namespace Flights_GUI.MasterPages
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
-                #region
                 Label lblNot = e.Item.FindControl("lblNotification") as Label;
                 HiddenField hfRep = e.Item.FindControl("hfRepeater") as HiddenField;
                 UsersNofications userNotif = new UsersNofications();
@@ -54,11 +53,19 @@ namespace Flights_GUI.MasterPages
                         userNotif.GetColumn("NotifCount");
                         lblNot.Text = userNotif.GetColumn("NotifCount").ToString();
                         break;
+
                     case "Certificates":
                         userNotif.getNotificationsByNotificationType(new Guid(Membership.GetUser(Page.User.Identity.Name).ProviderUserKey.ToString()), 7);
                         userNotif.GetColumn("NotifCount");
                         lblNot.Text = userNotif.GetColumn("NotifCount").ToString();
                         break;
+
+                    case "Schedules":
+                        userNotif.getNotificationsByNotificationType(new Guid(Membership.GetUser(Page.User.Identity.Name).ProviderUserKey.ToString()), 8);
+                        userNotif.GetColumn("NotifCount");
+                        lblNot.Text = userNotif.GetColumn("NotifCount").ToString();
+                        break;
+
                     default:
                         lblNot.Visible = false;
                         break;
@@ -68,7 +75,6 @@ namespace Flights_GUI.MasterPages
                     lblNot.Visible = true;
                 }
 
-                #endregion
             }
         }
 

@@ -14,7 +14,6 @@ namespace Flight_BLL
 
         public bool GetVersionsByScheduleID(int ScheduleID)
         {
-
             return LoadFromRawSql(@"select M.*, U.username UpdatedByName , C.username CreatedByName from ScheduleVersion M
                                     Left join aspnet_users U on M.UpdatedBy = U.UserID
                                     Left join aspnet_users C on M.CreatedBy = C.UserID

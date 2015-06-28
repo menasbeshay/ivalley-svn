@@ -59,7 +59,6 @@ namespace Flights_GUI.Admin
             }
         }
 
-
         protected void uiRadGridmanuals_ItemCommand(object sender, Telerik.Web.UI.GridCommandEventArgs e)
         {
             if (e.CommandName == "EditSchedule")
@@ -140,10 +139,11 @@ namespace Flights_GUI.Admin
             uiPanelVersions.Visible = true;
             uiPanelEditVersions.Visible = false;
             uiPanelEdit.Visible = true;
-            
-            //ClearFields();
 
-            // add new notifications   
+
+            // add new notifications 
+
+            SendingNotifications.sendNotif(8, null, null, null, null, null, CurrentSchedule.ScheduleID, null);
       
             /*ManualCategory cat = new ManualCategory();
             cat.GetTopMostParent(CurrentSchedule.ManualCategoryID);
@@ -164,6 +164,7 @@ namespace Flights_GUI.Admin
                 else
                     SendingNotifications.sendNotif(3, CurrentSchedule.ManualCategoryID, CurrentSchedule.ManualID, null, null, null);
             }*/
+            //ClearFields();
         }
 
         protected void uiLinkButtonCancel_Click(object sender, EventArgs e)
@@ -176,7 +177,6 @@ namespace Flights_GUI.Admin
             uiPanelEdit.Visible = false;
             ClearFields();
         }
-
 
         #endregion
 
@@ -205,7 +205,6 @@ namespace Flights_GUI.Admin
 
 
         #endregion
-
 
         #region Versions
         protected void uiLinkButtonAddVersion_Click(object sender, EventArgs e)
@@ -300,6 +299,10 @@ namespace Flights_GUI.Admin
 
             objdata.Save();
             // add new notifications 
+
+            SendingNotifications.sendNotif(8, null, null, null, null, null, CurrentSchedule.ScheduleID ,objdata.ScheduleVersionID);
+
+
             /*ManualCategory cat = new ManualCategory();
             cat.GetTopMostParent(CurrentSchedule.ManualCategoryID);
 

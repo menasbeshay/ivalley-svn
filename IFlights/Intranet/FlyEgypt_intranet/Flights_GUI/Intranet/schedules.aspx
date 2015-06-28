@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/Admin.Master" AutoEventWireup="true" CodeBehind="schedules.aspx.cs" Inherits="Flights_GUI.Intranet.schedules" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/ExceptionLight.Master" AutoEventWireup="true" CodeBehind="schedules.aspx.cs" Inherits="Flights_GUI.Intranet.schedules" %>
 
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
 <%@ MasterType VirtualPath="~/MasterPages/ExceptionLight.Master" %>
@@ -66,7 +66,7 @@
                     { name: 'LastUpdatedDate', type: 'date' },
                     { name: 'Path' , type: 'string'}
                 ],
-                url: "../common/IntranetService.asmx/GetManualVersions?ID=" + manualid
+                url: "../common/IntranetService.asmx/GetScheduleVersions?ID=" + manualid
             };
             var dataAdapter = new $.jqx.dataAdapter(source);
             $("#jqxgrid").jqxGrid(
@@ -92,13 +92,12 @@
     </script>
     <style type="text/css">
         .RadTreeView .rtIn {
-            width:100%;
+            width: 100%;
         }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <div class="cell-12 clearfix">
-       
+    <div class="cell-12 clearfix">
         <telerik:RadGrid ID="uiRadGridmanuals" runat="server" AllowPaging="True"
             AutoGenerateColumns="False" CellSpacing="0"
             HorizontalAlign="Center" Width="100%"
@@ -106,74 +105,65 @@
             <AlternatingItemStyle HorizontalAlign="Center" />
             <MasterTableView>
                 <Columns>
-                                        
                     <telerik:GridTemplateColumn HeaderText="Title">
                         <ItemTemplate>
-                           <%# Eval("ManualUpdates").ToString() != "0" ? "<div style='position:relative;display:block;width:100%;height:1px'><label class='badge' style='top:-12px !important;left:-10px;'>"+ Eval("ManualUpdates") +"</label></div>" : "" %>
-                            <%# Eval("Title") %>                            
+                            <%# Eval("ManualUpdates").ToString() != "0" ? "<div style='position:relative;display:block;width:100%;height:1px'><label class='badge' style='top:-12px !important;left:-10px;'>"+ Eval("ManualUpdates") +"</label></div>" : "" %>
+                            <%# Eval("Name") %>
                         </ItemTemplate>
                     </telerik:GridTemplateColumn>
-                    <%--<telerik:GridBoundColumn DataField="IssueNumber" HeaderText="Issue No."></telerik:GridBoundColumn>
-                    <telerik:GridBoundColumn DataField="IssueDate" HeaderText="Issue Date" DataFormatString="{0:dd/MM/yyyy}"></telerik:GridBoundColumn>
-                    <telerik:GridBoundColumn DataField="RevisionNumber" HeaderText="Revision No."></telerik:GridBoundColumn>
-                    <telerik:GridBoundColumn DataField="RevisionDate" HeaderText="Revision Date" DataFormatString="{0:dd/MM/yyyy}"></telerik:GridBoundColumn>--%>
+                    <%--<telerik:GridBoundColumn DataField="Name" HeaderText="Schedule Name"></telerik:GridBoundColumn>--%>
+                    <telerik:GridBoundColumn DataField="StartDate" HeaderText="Start Date" DataFormatString="{0:dd/MM/yyyy}"></telerik:GridBoundColumn>
+                    <telerik:GridBoundColumn DataField="EndDate" HeaderText="End Date" DataFormatString="{0:dd/MM/yyyy}"></telerik:GridBoundColumn>
                     <telerik:GridBoundColumn DataField="CreatedByName" HeaderText="Created By"></telerik:GridBoundColumn>
                     <telerik:GridBoundColumn DataField="createdDate" HeaderText="Created Date" DataFormatString="{0:dd/MM/yyyy}"></telerik:GridBoundColumn>
                     <telerik:GridBoundColumn DataField="UpdatedByName" HeaderText="Updated By"></telerik:GridBoundColumn>
                     <telerik:GridBoundColumn DataField="LastUpdatedDate" HeaderText="Last Updated Date" DataFormatString="{0:dd/MM/yyyy}"></telerik:GridBoundColumn>
-                    <telerik:GridHyperLinkColumn DataTextField="Title" DataNavigateUrlFields="VersionPath" DataTextFormatString="Download" DataNavigateUrlFormatString="{0}" HeaderText="Last version">
+                    <telerik:GridHyperLinkColumn DataTextField="Name" DataNavigateUrlFields="VersionPath" DataTextFormatString="Download" DataNavigateUrlFormatString="{0}" HeaderText="Last version">
                     </telerik:GridHyperLinkColumn>
                     <telerik:GridTemplateColumn HeaderText="Other versions">
                         <ItemTemplate>
                             <!-- Button trigger modal -->
-                            <div style='position:relative;'>
-                            <button type="button" class="btn btn-primary btn-lg viewVersion" data-toggle="modal" data-target="#myModal" data-manualid="<%# Eval("ManualID") %>" data-manualName="<%# Eval("Title") %>">
-                             View versions
-                            </button>
-                            <!-- Modal -->
-                             <%# Eval("ManualVersionUpdates").ToString() != "0" ? "<label class='badge' style='top:-20% !important;left:0% !important'>"+ Eval("ManualVersionUpdates") +"</label>" : "" %>
+                            <div style='position: relative;'>
+                                <button type="button" class="btn btn-primary btn-lg viewVersion" data-toggle="modal" data-target="#myModal" data-manualid="<%# Eval("ScheduleID") %> " data-manualName="<%# Eval("Name") %>" >
+                                    View versions
+                                </button>
+                                <!-- Modal -->
+                                <%# Eval("ManualVersionUpdates").ToString() != "0" ? "<label class='badge' style='top:-20% !important;left:0% !important'>"+ Eval("ManualVersionUpdates") +"</label>" : "" %>
                             </div>
                         </ItemTemplate>
                     </telerik:GridTemplateColumn>
-                    <telerik:GridTemplateColumn HeaderText="Forms">
+<%--                    <telerik:GridTemplateColumn HeaderText="Forms">
                         <ItemTemplate>
                             <!-- Button trigger modal -->
-                            <div style='position:relative;'>
-                            <a class="btn empty main-border" href="forms.aspx?mid=<%# Eval("ManualID") %>">
-                             View Forms
-                            </a>
-                            <!-- Modal -->
-                             <%# Convert.ToInt32(Eval("ManualFormUpdates").ToString()) + Convert.ToInt32(Eval("ManualFormVersionUpdates").ToString()) > 0 ? "<label class='badge' style='top:-20% !important;left:0% !important'>"+ (Convert.ToInt32(Eval("ManualFormUpdates").ToString()) + Convert.ToInt32(Eval("ManualFormVersionUpdates").ToString())) +"</label>" : "" %>
+                            <div style='position: relative;'>
+                                <a class="btn empty main-border" href="forms.aspx?mid=<%# Eval("ManualID") %>">View Forms
+                                </a>
+                                <!-- Modal -->
+                                <%# Convert.ToInt32(Eval("ManualFormUpdates").ToString()) + Convert.ToInt32(Eval("ManualFormVersionUpdates").ToString()) > 0 ? "<label class='badge' style='top:-20% !important;left:0% !important'>"+ (Convert.ToInt32(Eval("ManualFormUpdates").ToString()) + Convert.ToInt32(Eval("ManualFormVersionUpdates").ToString())) +"</label>" : "" %>
                             </div>
                         </ItemTemplate>
-                    </telerik:GridTemplateColumn>
-                    
+                    </telerik:GridTemplateColumn>--%>
                 </Columns>
-                
             </MasterTableView>
             <HeaderStyle HorizontalAlign="Center" />
-            <ItemStyle HorizontalAlign="Center"  />
-
-<FilterMenu EnableImageSprites="False"></FilterMenu>
-
+            <ItemStyle HorizontalAlign="Center" />
+            <FilterMenu EnableImageSprites="False"></FilterMenu>
         </telerik:RadGrid>
-
     </div>
 
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                              <div class="modal-dialog modal-lg">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <h4 class="modal-title" id="myModalLabel">Manual Versions - <span id="manualName"></span></h4>
-                                  </div>
-                                  <div class="modal-body" id="modalbody">
-                                    
-                                  </div>
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>                                    
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Schedule Versions - <span id="manualName"></span></h4>
+                </div>
+                <div class="modal-body" id="modalbody">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </asp:Content>
