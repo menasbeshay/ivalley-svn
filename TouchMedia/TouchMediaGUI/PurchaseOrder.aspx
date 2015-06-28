@@ -59,30 +59,37 @@
                     <div class="row-fluid">
                         <div class="span12">
                             <asp:Panel ID="PanelPurchaseOrdersGrid" runat="server">
-                                <div class="span4">
+                                <div style="margin-bottom: 7px ; " >
                                     <asp:LinkButton ID="btnAddNewOrder" CssClass="btn btn-warning" OnClick="btnAddNewOrder_Click" runat="server"><i class="icon-plus icon-white"></i> انشاء امر شراء</asp:LinkButton>
                                 </div>
                                 <asp:GridView ID="GrdViewPurchaseOrders" OnRowCommand="GrdViewPurchaseOrders_RowCommand" CssClass="table table-striped table-bordered" AutoGenerateColumns="false" runat="server">
                                 <Columns>
                                     <asp:BoundField DataField="PurchaseOrderNumber" HeaderText="رقم امر الشراء" />
-                                    <asp:BoundField DataField="PurchaseOrderDate" HeaderText="تاريخ امر الشراء" />
-                                    <asp:BoundField DataField="DeliveryDate" HeaderText="ميعاد التسليم" />
-                                    <asp:BoundField DataField="DeliveryPlace" HeaderText="مكان التسليم" />
+                                    <asp:BoundField DataField="PurchaseOrderDate" HeaderText="تاريخ امر الشراء" DataFormatString="{0:dd/MM/yyyy}" />
+                                    <asp:BoundField DataField="DeliveryDate" HeaderText="ميعاد التسليم" DataFormatString="{0:dd/MM/yyyy}" />
+                                    <asp:BoundField DataField="DeliveryPlace" HeaderText="مكان التسليم"  />
                                     <asp:TemplateField HeaderText="العمليات">
                                         <ItemTemplate>
-                                            <asp:LinkButton ID="btnDelete" OnClientClick="return confirm('هل تريد حذف هذا السجل ?')" runat="server" CommandArgument='<%# Eval("PurchaseOrderID") %>' CommandName="deleteOrder">Delete</asp:LinkButton>
-                                            <asp:LinkButton ID="btnEdit" runat="server" CommandArgument='<%# Eval ("PurchaseOrderID") %>' CommandName="editOrder">Edit</asp:LinkButton>
+                                            <asp:LinkButton ID="btnDelete" OnClientClick="return confirm('هل تريد حذف هذا السجل ?')" runat="server" CommandArgument='<%# Eval("PurchaseOrderID") %>' CommandName="deleteGeneralOrder">حذف</asp:LinkButton>
+                                            <asp:LinkButton ID="btnEdit" runat="server" CommandArgument='<%# Eval ("PurchaseOrderID") %>' CommandName="editGeneralOrder">تعديل</asp:LinkButton>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>
                             </asp:GridView>
                             </asp:Panel>
-                            <asp:Panel ID="PanelPurchaseOrderGeneral" runat="server">
+                            <asp:Panel Visible="false" ID="PanelPurchaseOrderGeneral" runat="server">
                                 <div class="form-horizontal">
                                     <div class="block-margin-bottom-5 span12 clearfix">
                                         <div class="span6">
                                              <label class="control-label">رقم أمر الشراء</label>
                                              <asp:TextBox runat="server" type="text"  ID="txtPurchaseOrderNumber" />
+                                              <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="txtPurchaseOrderNumber"
+                                             ValidationExpression="^\d+$"
+                                             Display="Static"
+                                             ErrorMessage="أرقام فقط"
+                                             ValidationGroup="dlr"
+                                             runat="server"></asp:RegularExpressionValidator>
+                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="txtPurchaseOrderNumber" ValidationGroup="dlr" runat="server" ForeColor="Red" Font-Bold="true" ErrorMessage="*"/>
                                         </div>
                                         <div class="span6">
                                             <label class="control-label">التاريخ</label>
@@ -92,6 +99,7 @@
                                                     <i class="icon-calendar"></i>
                                                 </span>
                                             </div>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="txtPurchaseOrderDate" ValidationGroup="dlr" runat="server" ForeColor="Red" Font-Bold="true" ErrorMessage="*"/>
                                         </div>
                                     </div>
                                     <div class="block-margin-bottom-5 span12 clearfix">
@@ -103,21 +111,8 @@
                                         <div class="span6">
                                             
                                                 <label class="control-label">نوع المنتج</label>
-                                                <%--<div class="controls">
-                                                    <label class="checkbox">
-                                                        <input type="checkbox" value="" />
-                                                        منتج نهائي
-                                                    </label>
-                                                    <label class="checkbox">
-                                                        <input type="checkbox" value="" />
-                                                        عينة
-                                                    </label>
-                                                    <label class="checkbox">
-                                                        <input type="checkbox" value="" />
-                                                        منتج تحت التصنيع
-                                                    </label>
-                                                </div>--%>
-                                                <asp:CheckBoxList ID="CheckBoxList1" CssClass="checkSections" RepeatDirection="Horizontal" RepeatColumns="3" runat="server">
+                                               
+                                                <asp:CheckBoxList ID="uiCheckBoxListType" CssClass="checkSections" RepeatDirection="Horizontal" RepeatColumns="3" runat="server">
                                                     <asp:ListItem >
                                                         منتج نهائي
                                                     </asp:ListItem>
@@ -140,6 +135,7 @@
                                                     <i class="icon-calendar"></i>
                                                 </span>
                                             </div>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ControlToValidate="txtDeliveryDate" ValidationGroup="dlr" runat="server" ForeColor="Red" Font-Bold="true" ErrorMessage="*"/>
                                         </div>
                                         <div class="span6">
                                              <label class="control-label">مكان التسليم</label>
@@ -160,42 +156,75 @@
                                 <div>
                                    
                                     <div style="margin-bottom: 10px">
-                                        <asp:LinkButton runat="server" ID="btnSavePurchaseOrderGeneralGrid"  OnClick="btnSavePurchaseOrderGeneralGrid_Click" class="btn btn-success"><i class="icon-ok icon-white" ></i>حفظ</asp:LinkButton>
+                                        <asp:LinkButton runat="server" ID="btnSavePurchaseOrderGeneralGrid"  OnClick="btnSavePurchaseOrderGeneralGrid_Click" ValidationGroup="dlr" class="btn btn-success"><i class="icon-ok icon-white" ></i>حفظ</asp:LinkButton>
                                          <asp:LinkButton runat="server" ID="btnCancelPurchaseOrderGeneralGrid"  OnClick="btnCancelPurchaseOrderGeneralGrid_Click" class="btn btn-danger"><i class="icon-remove icon-white" ></i>الغاء</asp:LinkButton>
                                     </div>
                                 </div>
                             </div>
                                 </div>
                             </asp:Panel>
-
-
-                            
-                            <asp:Panel runat="server" ID="PanelPurchaseOrderDetails" GroupingText="تفاصيل طلب الشراء" >
+                          
+                            <asp:Panel runat="server" Visible="false" ID="PanelPurchaseOrderDetails" GroupingText="تفاصيل طلب الشراء" >
                                 <div class="form-horizontal">
                                     <div class ="block-margin-bottom-5 span12 clearfix">
                                         <div class ="span6">
                                             <label class="control-label">اجمالي القيمة</label>
                                             <asp:TextBox runat="server" type="text" ID="txtTotalValue" />
+                                             <asp:RegularExpressionValidator ID="RegularExpressionValidator3" ControlToValidate="txtTotalValue"
+                                             ValidationExpression="^[0-9]*(?:\.[0-9]*)?$"
+                                             Display="Static" 
+                                             ErrorMessage="أرقام فقط"
+                                             ValidationGroup="dlr"
+                                             runat="server"></asp:RegularExpressionValidator>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="txtTotalValue" ValidationGroup="dlrg" runat="server" ForeColor="Red" Font-Bold="true" ErrorMessage="*"/>
                                         </div>
                                         <div class="span6">
                                             <label class="control-label">سعر الوحدة</label>
                                             <asp:TextBox runat="server" type="text" ID="txtUnitPrice" />
+                                             <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ControlToValidate="txtUnitPrice"
+                                             ValidationExpression="^[0-9]*(?:\.[0-9]*)?$"
+                                             Display="Static" 
+                                             ErrorMessage="أرقام فقط"
+                                             ValidationGroup="dlr"
+                                             runat="server"></asp:RegularExpressionValidator>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" ControlToValidate="txtUnitPrice" ValidationGroup="dlrg" runat="server" ForeColor="Red" Font-Bold="true" ErrorMessage="*"/>
                                         </div>
                                     </div>
                                     <div class="block-margin-bottom-5 span12 clearfix">
                                         <div class="span6">
                                             <label class="control-label">الكمية المطلوبة</label>
                                             <asp:TextBox runat="server" type="text" ID="txtQuantityRequired" />
+                                              <asp:RegularExpressionValidator ID="RegularExpressionValidator4" ControlToValidate="txtQuantityRequired"
+                                             ValidationExpression="^\d+$"
+                                             Display="Static" 
+                                             ErrorMessage="أرقام فقط"
+                                             ValidationGroup="dlr"
+                                             runat="server"></asp:RegularExpressionValidator>
+                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator6" ControlToValidate="txtQuantityRequired" ValidationGroup="dlrg" runat="server" ForeColor="Red" Font-Bold="true" ErrorMessage="*"/>
                                         </div>
                                         <div class="span6">
                                             <label class="control-label">المخزون</label>
                                             <asp:TextBox runat="server" type="text" ID="txtStockOnHands" />
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator5" ControlToValidate="txtStockOnHands"
+                                             ValidationExpression="^\d+$"
+                                             Display="Static" 
+                                             ErrorMessage="أرقام فقط"
+                                             ValidationGroup="dlr"
+                                             runat="server"></asp:RegularExpressionValidator>
+                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator7" ControlToValidate="txtStockOnHands" ValidationGroup="dlrg" runat="server" ForeColor="Red" Font-Bold="true" ErrorMessage="*"/>
                                         </div>
                                     </div> 
                                     <div class ="block-margin-bottom-5 span12 clearfix">
                                         <div class="span6">
                                             <label class="control-label">الوحدة</label>
                                             <asp:TextBox runat="server" type="text" ID="txtUnit" />
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator6" ControlToValidate="txtUnit"
+                                             ValidationExpression="^\d+$"
+                                             Display="Static" 
+                                             ErrorMessage="أرقام فقط"
+                                             ValidationGroup="dlr"
+                                             runat="server"></asp:RegularExpressionValidator>
+                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" ControlToValidate="txtUnit" ValidationGroup="dlrg" runat="server" ForeColor="Red" Font-Bold="true" ErrorMessage="*"/>
                                         </div>
                                         <div class="span6">
                                             <label class="control-label">البيانات</label>
@@ -206,7 +235,7 @@
                                 <div>
                                    
                                     <div style="margin-bottom: 10px">
-                                        <asp:LinkButton runat="server" ID="btnSavePurchaseOrderDetails"  OnClick="btnSavePurchaseOrderDetails_Click" class="btn btn-success"><i class="icon-ok icon-white" ></i>حفظ</asp:LinkButton>
+                                        <asp:LinkButton runat="server" ID="btnSavePurchaseOrderDetails" ValidationGroup="dlrg" OnClick="btnSavePurchaseOrderDetails_Click" class="btn btn-success"><i class="icon-ok icon-white" ></i>حفظ</asp:LinkButton>
                                          <asp:LinkButton runat="server" ID="btnCancelPurchaseOrderDetails"  OnClick="btnCancelPurchaseOrderDetails_Click" class="btn btn-danger"><i class="icon-remove icon-white" ></i>الغاء</asp:LinkButton>
                                     </div>
                                 </div>
@@ -215,7 +244,7 @@
                             </asp:Panel>
                             <asp:Panel ID="PanelGrdPurcahseOrderDetails" runat="server">
                                 
-                                <asp:GridView ID="grdPurchaseOrderDetails" OnRowCommand="grdPurchaseOrderDetails_RowCommand" CssClass="table table-striped table-bordered" AutoGenerateColumns="false" runat="server">
+                                <asp:GridView ID="grdPurchaseOrderDetails" OnRowCommand="grdPurchaseOrderDetails_RowCommand" CssClass="table table-striped table-bordered" AutoGenerateColumns="false"  runat="server">
                                 <Columns>
                                     <asp:BoundField DataField="TotalValue" HeaderText="اجمالي القيمة" />
                                     <asp:BoundField DataField="UnitPrice" HeaderText="سعر الوحدة" />
@@ -225,8 +254,8 @@
                                      <asp:BoundField DataField="Description" HeaderText="البيانات" />
                                     <asp:TemplateField HeaderText="العمليات">
                                         <ItemTemplate>
-                                            <asp:LinkButton ID="btnDelete" OnClientClick="return confirm('هل تريد حذف هذا السجل ?')" runat="server" CommandArgument='<%# Eval("PurchaseOrderID") %>' CommandName="deleteOrder">Delete</asp:LinkButton>
-                                            <asp:LinkButton ID="btnEdit" runat="server" CommandArgument='<%# Eval ("PurchaseOrderID") %>' CommandName="editOrder">Edit</asp:LinkButton>
+                                            <asp:LinkButton ID="btnDelete" OnClientClick="return confirm('هل تريد حذف هذا السجل ?')" runat="server" CommandArgument='<%# Eval("PurchaseOrderDetailsID") %>' CommandName="deleteDetailsOrder">حذف</asp:LinkButton>
+                                            <asp:LinkButton ID="btnEdit" runat="server" CommandArgument='<%# Eval ("PurchaseOrderDetailsID") %>' CommandName="editDetailsOrder">تعديل</asp:LinkButton>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>

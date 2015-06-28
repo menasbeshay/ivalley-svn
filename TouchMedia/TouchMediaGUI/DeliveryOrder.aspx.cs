@@ -23,7 +23,7 @@ namespace TouchMediaGUI
 
 
                 DeliveryOrderBind();
-               
+
 
                 if (getQueryString_DeliveryOrder > 0)
                 {
@@ -43,9 +43,10 @@ namespace TouchMediaGUI
                     txtDepartmentResponsable.Text = EditDO.DepartmentResponsableName;
                     txtDeliveryOrderDate.Text = EditDO.DeliveryOrderDate.ToString("dd/MM/yyyy");
                     txtPermission.Text = EditDO.PermationNumber.ToString();
-                    txtDepartment.Text = EditDO.Department;
+                    drpDepartment.Text = EditDO.Department;
                     txtDeliveryOrderName.Text = EditDO.DeliveryOrderName;
                     drpStatusGeneral.SelectedValue = EditDO.DeliveryOrderStatusID.ToString();
+                    drpDepartment.SelectedValue = EditDO.DepartmentID.ToString();
                     DeliveryOrderDetailsBind();
 
                     WidGrdGeneralDeliveryOrder.Visible = false;
@@ -67,14 +68,15 @@ namespace TouchMediaGUI
                     if (!DODEdit.IsColumnNull("Price"))
                         txtPrice.Text = DODEdit.Price.ToString();
                     else
-                        txtPrice.Text =  "0.0";
+                        txtPrice.Text = "0.0";
                     txtDeliveryOrderCode.Text = DODEdit.DeliveryOrderCode;
                     drpStatusDetails.Text = DODEdit.DeliveryOrderStatusID.ToString();
+
                     if (!DODEdit.IsColumnNull("WatingHours"))
                         txtWatingHours.Text = DODEdit.WatingHours.ToString();
                     else
                         txtWatingHours.Text = "0";
-                   
+
                 }
 
                 BLL.DeliveryOrderStatus DOS = new DeliveryOrderStatus();
@@ -97,7 +99,12 @@ namespace TouchMediaGUI
                 drpTransformationSupplier.DataTextField = TransformationSupplier.ColumnNames.TransformationSupplierName;
                 drpTransformationSupplier.DataBind();
 
-               
+                Department dep = new Department();
+                dep.LoadAll();
+                drpDepartment.DataSource = dep.DefaultView;
+                drpDepartment.DataValueField = Department.ColumnNames.DepartmentID;
+                drpDepartment.DataTextField = Department.ColumnNames.DepartmentName;
+                drpDepartment.DataBind();
 
 
             }
@@ -134,12 +141,13 @@ namespace TouchMediaGUI
             else
                 txtPrice.Text = "0.0";
             Dodd.DeliveryOrderStatusID = int.Parse(drpStatusDetails.SelectedItem.Value);
+
             Dodd.DeliveryOrderID = getQueryString_DeliveryOrder;
             Dodd.Save();
             DeliveryOrderDetailsBind();
             grdDeliveryOrderDetails.Visible = true;
             ClearGrdDetails();
-            
+
         }
         private void ClearGrdDetails()
         {
@@ -152,7 +160,7 @@ namespace TouchMediaGUI
             txtDeliveryOrderCode.Text = "";
             txtWatingHours.Text = "";
             txtPrice.Text = "";
-           
+
         }
 
         protected void btnDeliceryOrderGrd_Click(object sender, EventArgs e)
@@ -163,19 +171,19 @@ namespace TouchMediaGUI
             {
                 DO.LoadByPrimaryKey(getQueryString_DeliveryOrder);
                 btnDeliceryOrderGrd.Text = "تعديل أمر نقل";
-               
+
             }
             else
             {
                 DO.AddNew();
 
                 btnDeliceryOrderGrd.Text = "أضافة أمر نقل";
-               
+
             }
 
             DO.ClientCode = int.Parse(txtClientCode.Text);
             DO.DeliveryOrderName = txtDeliveryOrderName.Text;
-            DO.Department = txtDepartment.Text;
+            DO.DepartmentID = int.Parse(drpDepartment.SelectedValue);
             if (txtPermission.Text != "")
             {
                 DO.PermationNumber = int.Parse(txtPermission.Text);
@@ -190,7 +198,7 @@ namespace TouchMediaGUI
             }
             else
                 txtKiloMeterBefore.Text = "0.0";
-            if (txtkiloMeterAfter.Text !="")
+            if (txtkiloMeterAfter.Text != "")
             {
                 DO.KilometerCounterAfter = decimal.Parse(txtkiloMeterAfter.Text);
             }
@@ -205,7 +213,7 @@ namespace TouchMediaGUI
             DO.DepartmentResponsableName = txtDepartmentResponsable.Text;
 
             DO.GeneralDeliveryCode = txtGeneralDeliveryCode.Text;
-            if (txtTotalPrice.Text !="")
+            if (txtTotalPrice.Text != "")
             {
                 DO.TotalPrice = double.Parse(txtTotalPrice.Text);
             }
@@ -289,8 +297,8 @@ namespace TouchMediaGUI
             else if (e.CommandName == "EditGrdDO")
             {
                 int ID = int.Parse(e.CommandArgument.ToString());
-               
-               
+
+
                 Response.Redirect("DeliveryOrder.aspx?DeliveryOrderID=" + ID.ToString());
 
             }
@@ -311,7 +319,7 @@ namespace TouchMediaGUI
             {
                 int ID = int.Parse(e.CommandArgument.ToString());
                 Response.Redirect(Request.Url.AbsolutePath.ToString() + "?DeliveryOrderID=" + Request.QueryString["DeliveryOrderID"].ToString() + "&DeliveryOrderDetailsID=" + ID.ToString());
-               
+
             }
             DeliveryOrderDetailsBind();
         }
@@ -328,16 +336,16 @@ namespace TouchMediaGUI
         protected void btnCancelDeliveryOrderDetails_Click(object sender, EventArgs e)
         {
             ClearGrdDetails();
-           
+
         }
 
         protected void btnCancelDeliveryOrderGrid_Click(object sender, EventArgs e)
         {
             Response.Redirect("DeliveryOrder.aspx");
-            
+
 
         }
 
-        
+
     }
 }

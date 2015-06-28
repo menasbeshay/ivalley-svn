@@ -1,8 +1,5 @@
 
-USE [TouchMediadb]
-GO
-
-/****** Object:  StoredProcedure [proc_CategoriesLoadByPrimaryKey]    Script Date: 6/22/2015 1:13:29 PM ******/
+/****** Object:  StoredProcedure [proc_CategoriesLoadByPrimaryKey]    Script Date: 6/28/2015 1:14:11 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CategoriesLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CategoriesLoadByPrimaryKey];
 GO
@@ -35,7 +32,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CategoriesLoadByPrimaryKey Succ
 ELSE PRINT 'Procedure Creation: proc_CategoriesLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CategoriesLoadAll]    Script Date: 6/22/2015 1:13:29 PM ******/
+/****** Object:  StoredProcedure [proc_CategoriesLoadAll]    Script Date: 6/28/2015 1:14:11 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CategoriesLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CategoriesLoadAll];
 GO
@@ -64,7 +61,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CategoriesLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_CategoriesLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CategoriesUpdate]    Script Date: 6/22/2015 1:13:29 PM ******/
+/****** Object:  StoredProcedure [proc_CategoriesUpdate]    Script Date: 6/28/2015 1:14:11 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CategoriesUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CategoriesUpdate];
 GO
@@ -103,7 +100,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_CategoriesInsert]    Script Date: 6/22/2015 1:13:29 PM ******/
+/****** Object:  StoredProcedure [proc_CategoriesInsert]    Script Date: 6/28/2015 1:14:11 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CategoriesInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CategoriesInsert];
 GO
@@ -143,7 +140,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_CategoriesInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_CategoriesInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_CategoriesDelete]    Script Date: 6/22/2015 1:13:29 PM ******/
+/****** Object:  StoredProcedure [proc_CategoriesDelete]    Script Date: 6/28/2015 1:14:11 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_CategoriesDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_CategoriesDelete];
 GO
