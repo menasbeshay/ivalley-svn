@@ -1,5 +1,5 @@
 
-/****** Object:  StoredProcedure [proc_JobOrderLoadByPrimaryKey]    Script Date: 6/22/2015 1:13:30 PM ******/
+/****** Object:  StoredProcedure [proc_JobOrderLoadByPrimaryKey]    Script Date: 6/28/2015 1:14:11 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_JobOrderLoadByPrimaryKey]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_JobOrderLoadByPrimaryKey];
 GO
@@ -22,7 +22,8 @@ BEGIN
 		[CreatedDate],
 		[UpdatedBy],
 		[LastUpdatedDate],
-		[JobOrderName]
+		[JobOrderName],
+		[ClientID]
 	FROM [JobOrder]
 	WHERE
 		([JobOrderID] = @JobOrderID)
@@ -39,7 +40,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_JobOrderLoadByPrimaryKey Succee
 ELSE PRINT 'Procedure Creation: proc_JobOrderLoadByPrimaryKey Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_JobOrderLoadAll]    Script Date: 6/22/2015 1:13:30 PM ******/
+/****** Object:  StoredProcedure [proc_JobOrderLoadAll]    Script Date: 6/28/2015 1:14:11 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_JobOrderLoadAll]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_JobOrderLoadAll];
 GO
@@ -60,7 +61,8 @@ BEGIN
 		[CreatedDate],
 		[UpdatedBy],
 		[LastUpdatedDate],
-		[JobOrderName]
+		[JobOrderName],
+		[ClientID]
 	FROM [JobOrder]
 
 	SET @Err = @@Error
@@ -75,7 +77,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_JobOrderLoadAll Succeeded'
 ELSE PRINT 'Procedure Creation: proc_JobOrderLoadAll Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_JobOrderUpdate]    Script Date: 6/22/2015 1:13:30 PM ******/
+/****** Object:  StoredProcedure [proc_JobOrderUpdate]    Script Date: 6/28/2015 1:14:11 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_JobOrderUpdate]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_JobOrderUpdate];
 GO
@@ -90,7 +92,8 @@ CREATE PROCEDURE [proc_JobOrderUpdate]
 	@CreatedDate datetime = NULL,
 	@UpdatedBy uniqueidentifier = NULL,
 	@LastUpdatedDate datetime = NULL,
-	@JobOrderName nvarchar(300) = NULL
+	@JobOrderName nvarchar(300) = NULL,
+	@ClientID int = NULL
 )
 AS
 BEGIN
@@ -107,7 +110,8 @@ BEGIN
 		[CreatedDate] = @CreatedDate,
 		[UpdatedBy] = @UpdatedBy,
 		[LastUpdatedDate] = @LastUpdatedDate,
-		[JobOrderName] = @JobOrderName
+		[JobOrderName] = @JobOrderName,
+		[ClientID] = @ClientID
 	WHERE
 		[JobOrderID] = @JobOrderID
 
@@ -128,7 +132,7 @@ GO
 
 
 
-/****** Object:  StoredProcedure [proc_JobOrderInsert]    Script Date: 6/22/2015 1:13:30 PM ******/
+/****** Object:  StoredProcedure [proc_JobOrderInsert]    Script Date: 6/28/2015 1:14:11 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_JobOrderInsert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_JobOrderInsert];
 GO
@@ -143,7 +147,8 @@ CREATE PROCEDURE [proc_JobOrderInsert]
 	@CreatedDate datetime = NULL,
 	@UpdatedBy uniqueidentifier = NULL,
 	@LastUpdatedDate datetime = NULL,
-	@JobOrderName nvarchar(300) = NULL
+	@JobOrderName nvarchar(300) = NULL,
+	@ClientID int = NULL
 )
 AS
 BEGIN
@@ -161,7 +166,8 @@ BEGIN
 		[CreatedDate],
 		[UpdatedBy],
 		[LastUpdatedDate],
-		[JobOrderName]
+		[JobOrderName],
+		[ClientID]
 	)
 	VALUES
 	(
@@ -172,7 +178,8 @@ BEGIN
 		@CreatedDate,
 		@UpdatedBy,
 		@LastUpdatedDate,
-		@JobOrderName
+		@JobOrderName,
+		@ClientID
 	)
 
 	SET @Err = @@Error
@@ -189,7 +196,7 @@ IF (@@Error = 0) PRINT 'Procedure Creation: proc_JobOrderInsert Succeeded'
 ELSE PRINT 'Procedure Creation: proc_JobOrderInsert Error on Creation'
 GO
 
-/****** Object:  StoredProcedure [proc_JobOrderDelete]    Script Date: 6/22/2015 1:13:30 PM ******/
+/****** Object:  StoredProcedure [proc_JobOrderDelete]    Script Date: 6/28/2015 1:14:11 PM ******/
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[proc_JobOrderDelete]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
     DROP PROCEDURE [proc_JobOrderDelete];
 GO

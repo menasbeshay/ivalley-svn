@@ -48,6 +48,7 @@
     <Compile Include="DeliveryOrder.cs" />
     <Compile Include="DeliveryOrderDetails.cs" />
     <Compile Include="DeliveryOrderStatus.cs" />
+    <Compile Include="Department.cs" />
     <Compile Include="DesignDetails.cs" />
     <Compile Include="DesignservicesType.cs" />
     <Compile Include="DigitalPrintingDetails.cs" />

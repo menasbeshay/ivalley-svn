@@ -35,7 +35,16 @@ namespace TouchMediaGUI
                     txtDeliveryPlace.Text = PoG.DeliveryPlace;
                     txtPaymentRequirement.Text = PoG.PaymentRequierment;
                     TxtManagerName.Text = PoG.ManagerName;
+                    uiCheckBoxListType.Items[0].Selected = PoG.ISFinalProduct;
+                    uiCheckBoxListType.Items[1].Selected = PoG.ISSample;
+                    uiCheckBoxListType.Items[2].Selected = PoG.ISProductUnderManufacturing;
                     BindDetailsPurchaseOrder();
+
+                    PanelPurchaseOrdersGrid.Visible = false;
+                    PanelPurchaseOrderGeneral.Visible = true;
+                    PanelGrdPurcahseOrderDetails.Visible = true;
+                    PanelPurchaseOrderDetails.Visible = true;
+
                     
                 }
                 if(getQueryString_PurchaseOrderDetails > 0)
@@ -50,6 +59,7 @@ namespace TouchMediaGUI
                     txtDescription.Text = POD.Description;
                     
                 }
+               
             }
             //BindGeneralPurchaseOrder();
             //BindDetailsPurchaseOrder();
@@ -90,12 +100,19 @@ namespace TouchMediaGUI
             Pur.DeliveryPlace = txtDeliveryPlace.Text;
             Pur.PaymentRequierment = txtPaymentRequirement.Text;
             Pur.ManagerName = TxtManagerName.Text;
+            Pur.ISFinalProduct = uiCheckBoxListType.Items[0].Selected;
+            Pur.ISProductUnderManufacturing = uiCheckBoxListType.Items[2].Selected;
+            Pur.ISSample = uiCheckBoxListType.Items[1].Selected;
             Pur.Save();
 
+            PanelPurchaseOrdersGrid.Visible = true;
+            PanelPurchaseOrderGeneral.Visible = false;
+            PanelGrdPurcahseOrderDetails.Visible = true;
+            PanelPurchaseOrderDetails.Visible = true;
             
             Response.Redirect("PurchaseOrder.aspx?PurchaseOrderID=" + Pur.PurchaseOrderID.ToString());
 
-            
+           
         }
 
         protected void btnCancelPurchaseOrderGeneralGrid_Click(object sender, EventArgs e)
@@ -116,15 +133,17 @@ namespace TouchMediaGUI
                 Purd.AddNew();
             }
             Purd.TotalValue = double.Parse(txtTotalValue.Text);
-            Purd.UnitPrice = int.Parse(txtUnitPrice.Text);
+            Purd.UnitPrice = double.Parse(txtUnitPrice.Text);
             Purd.QuantityRequired = int.Parse(txtQuantityRequired.Text);
             Purd.StockOnHand = int.Parse(txtStockOnHands.Text);
             Purd.Unit = int.Parse(txtUnit.Text);
             Purd.Description = txtDescription.Text;
             Purd.PurchaseOrderID = getQueryString_PurchaseOrder;
             Purd.Save();
+            
             BindDetailsPurchaseOrder();
             cleardetails();
+            
         }
 
         protected void btnCancelPurchaseOrderDetails_Click(object sender, EventArgs e)
@@ -162,7 +181,7 @@ namespace TouchMediaGUI
 
         protected void GrdViewPurchaseOrders_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if (e.CommandName == "editOrder")
+            if (e.CommandName == "editGeneralOrder")
             {
                 int ID = int.Parse(e.CommandArgument.ToString());
 
@@ -172,7 +191,7 @@ namespace TouchMediaGUI
 
 
             }
-            else if (e.CommandName == "deleteOrder")
+            else if (e.CommandName == "deleteGeneralOrder")
             {
                BLL.PurchaseOrder purdel = new BLL.PurchaseOrder();
                 PurchaseOrderDetails Purddel = new PurchaseOrderDetails();
@@ -188,15 +207,17 @@ namespace TouchMediaGUI
 
         protected void grdPurchaseOrderDetails_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if (e.CommandName == "deleteOrder")
+            if (e.CommandName == "deleteDetailsOrder")
             {
-                BLL.PurchaseOrder Del = new BLL.PurchaseOrder();
+                BLL.PurchaseOrderDetails Del = new BLL.PurchaseOrderDetails();
+
                 Del.LoadByPrimaryKey(int.Parse(e.CommandArgument.ToString()));
                 Del.MarkAsDeleted();
                 Del.Save();
                 BindDetailsPurchaseOrder();
+
             }
-            else if (e.CommandName == "editOrder")
+            else if (e.CommandName == "editDetailsOrder")
             {
                 int ID = int.Parse(e.CommandArgument.ToString());
                 Response.Redirect(Request.Url.AbsolutePath.ToString() + "?PurchaseOrderID=" + Request.QueryString["PurchaseOrderID"].ToString() + "&PurchaseOrderDetailsID=" + ID.ToString());
@@ -218,7 +239,10 @@ namespace TouchMediaGUI
 
         protected void btnAddNewOrder_Click(object sender, EventArgs e)
         {
-           
+            PanelPurchaseOrdersGrid.Visible = false;
+            PanelPurchaseOrderGeneral.Visible = true;
+            PanelGrdPurcahseOrderDetails.Visible = false;
+            PanelPurchaseOrderDetails.Visible = false;
 
         }
     }

@@ -145,7 +145,7 @@
                         <div class="block-margin-bottom-5 span12 clearfix">
                             <div class="span6">
                                <label class="control-label">القسم الطالب</label>
-                               <asp:TextBox runat="server" type="text"  ID="txtDepartment" />
+                               <asp:DropDownList runat="server" type="text"  ID="drpDepartment" />
                             </div>
                             <div class="span6">
                                 <label class="control-label">المسئول بالقسم الطالب</label>
