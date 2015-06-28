@@ -76,7 +76,11 @@
         <div class="cell-12 clearfix" style="margin-left: 0">
             <div class="cell-2">Group :</div>
             <div class="cell-10">
-                <asp:DropDownList ID="DropDownListGroups" runat="server"></asp:DropDownList>
+<%--                <asp:DropDownList ID="DropDownListGroups" runat="server"></asp:DropDownList>--%>
+
+                <asp:CheckBoxList ID="CheckBoxListGroups" RepeatDirection="Horizontal" RepeatColumns="5" runat="server">
+
+                </asp:CheckBoxList>
             </div>
         </div>
         <div style="clear: both; height: 5px;"></div>

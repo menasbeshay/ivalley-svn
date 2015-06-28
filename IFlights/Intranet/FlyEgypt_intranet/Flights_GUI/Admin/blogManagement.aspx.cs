@@ -67,16 +67,32 @@ namespace Flights_GUI.Admin
                     lblCurrentFile.Visible = true;
                     txtCurrentFile.Text = objData.UploadedFile.Substring(objData.UploadedFile.LastIndexOf('/') + 1);
                 }
-
                 if (!objData.IsColumnNull(Announcement.ColumnNames.GroupID))
                 {
-                    DropDownListGroups.SelectedValue = objData.GroupID.ToString();
+                    AnnouncementGroup objDataAnnouncement = new AnnouncementGroup();
+                    objDataAnnouncement.Where.AnnouncementID.Value = CurrentAnnouncement.AnnouncementID;
+                    objDataAnnouncement.Where.AnnouncementID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+                    objDataAnnouncement.Query.Load();
+
+                    foreach (ListItem item in CheckBoxListGroups.Items)
+                    {
+                        for (int i = 0; i < objDataAnnouncement.RowCount; i++)
+                        {
+                            if (objDataAnnouncement.GroupID == int.Parse(item.Value.ToString()))
+                            {
+                                item.Selected = true;
+                                break;
+                            }
+                            objDataAnnouncement.MoveNext();
+                        }
+                        objDataAnnouncement.Rewind();
+                    }
+
                 }
                 else
                 {
-                    DropDownListGroups.SelectedIndex = 0;
+                    CheckBoxListGroups.ClearSelection();
                 }
-
                 uiTextBoxBrief.Text = objData.Brief;
                 CurrentAnnouncement = objData;
                 uiPanelEdit.Visible = true;
@@ -117,19 +133,29 @@ namespace Flights_GUI.Admin
                 objdata.CreatedDate = DateTime.Now;
             }
             else
+            {
                 objdata = CurrentAnnouncement;
+                AnnouncementGroup AnnGroup = new AnnouncementGroup();
+                AnnGroup.Where.AnnouncementID.Value = CurrentAnnouncement.AnnouncementID;
+                AnnGroup.Where.AnnouncementID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+                AnnGroup.Query.Load();
+                AnnGroup.DeleteAll();
+                AnnGroup.Save();
+            }
             objdata.Title = uiTextBoxTitle.Text;
             objdata.Brief = uiTextBoxBrief.Text;
+
+
             //objdata.CreatedBy = uiTextBoxCreatedBy.Text;
-            
+
             if (uiFileUploadImg.HasFile)
             {
                 string path = "/fileuploads/circulars/" + Guid.NewGuid() + "_" + uiFileUploadImg.FileName;
                 uiFileUploadImg.SaveAs(Server.MapPath("~" + path));
                 objdata.MainPic = path;
             }
-            objdata.IsBlog = true;
             objdata.Content = Server.HtmlEncode(uiRadEditorContnet.Content);
+
 
             if (Session["CurrentUploadedFiles"] != null)
             {
@@ -147,16 +173,36 @@ namespace Flights_GUI.Admin
                 }
             }
 
-            if (DropDownListGroups.SelectedValue == "0")
+            //if (DropDownListGroups.SelectedValue =="0")
+            //{
+            //    objdata.SetColumnNull(Announcement.ColumnNames.GroupID);
+            //}
+            //else
+            //{
+            //    objdata.GroupID = int.Parse(DropDownListGroups.SelectedValue.ToString());
+            //}
+
+            objdata.Save();
+
+            if (CheckBoxListGroups.SelectedIndex == 0)
             {
                 objdata.SetColumnNull(Announcement.ColumnNames.GroupID);
             }
             else
             {
-                objdata.GroupID = int.Parse(DropDownListGroups.SelectedValue.ToString());
+                foreach (ListItem item in CheckBoxListGroups.Items)
+                {
+                    if (item.Selected)
+                    {
+                        AnnouncementGroup newAnnGroup = new AnnouncementGroup();
+                        newAnnGroup.AddNew();
+                        newAnnGroup.AnnouncementID = objdata.AnnouncementID;
+                        newAnnGroup.GroupID = int.Parse(item.Value);
+                        newAnnGroup.Save();
+                    }
+                }
             }
-            
-            objdata.Save();
+
             BindData();
             CurrentAnnouncement = null;
             uiPanelViewAll.Visible = true;
@@ -194,7 +240,7 @@ namespace Flights_GUI.Admin
             uiRadEditorContnet.Content = "";
             uiTextBoxBrief.Text = "";
             uiImageMain.ImageUrl = "";
-            DropDownListGroups.SelectedIndex = 0;
+            CheckBoxListGroups.ClearSelection();
         }
 
         protected void btnDeleteCurrentFile_Click(object sender, EventArgs e)
@@ -212,11 +258,12 @@ namespace Flights_GUI.Admin
         {
             Groups grps = new Groups();
             grps.LoadAll();
-            DropDownListGroups.DataSource = grps.DefaultView;
-            DropDownListGroups.DataTextField = Groups.ColumnNames.GroupName.ToString();
-            DropDownListGroups.DataValueField = Groups.ColumnNames.GroupID.ToString();
-            DropDownListGroups.DataBind();
-            DropDownListGroups.Items.Insert(0, new ListItem("Public", "0"));
+
+            CheckBoxListGroups.DataSource = grps.DefaultView;
+            CheckBoxListGroups.DataTextField = Groups.ColumnNames.GroupName.ToString();
+            CheckBoxListGroups.DataValueField = Groups.ColumnNames.GroupID.ToString();
+            CheckBoxListGroups.DataBind();
+            CheckBoxListGroups.Items.Insert(0, new ListItem("Public", "0"));
         }
 
         #endregion

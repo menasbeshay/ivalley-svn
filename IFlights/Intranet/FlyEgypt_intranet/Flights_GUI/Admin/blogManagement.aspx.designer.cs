@@ -94,13 +94,13 @@ namespace Flights_GUI.Admin {
         protected global::System.Web.UI.WebControls.Image uiImageMain;
         
         /// <summary>
-        /// DropDownListGroups control.
+        /// CheckBoxListGroups control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownListGroups;
+        protected global::System.Web.UI.WebControls.CheckBoxList CheckBoxListGroups;
         
         /// <summary>
         /// lblCurrentFile control.
