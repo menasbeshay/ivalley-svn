@@ -11,5 +11,12 @@ namespace Flight_BLL
 		{
 		
 		}
+
+        public bool GetGroupsByAnnouncementID(int AID)
+        {
+            this.Where.AnnouncementID.Value = AID;
+            this.Where.AnnouncementID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+            return this.Query.Load();
+        }
 	}
 }

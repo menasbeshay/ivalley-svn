@@ -67,32 +67,29 @@ namespace Flights_GUI.Admin
                     lblCurrentFile.Visible = true;
                     txtCurrentFile.Text = objData.UploadedFile.Substring(objData.UploadedFile.LastIndexOf('/') + 1);
                 }
-                if (!objData.IsColumnNull(Announcement.ColumnNames.GroupID))
-                {
-                    AnnouncementGroup objDataAnnouncement = new AnnouncementGroup();
-                    objDataAnnouncement.Where.AnnouncementID.Value = CurrentAnnouncement.AnnouncementID;
-                    objDataAnnouncement.Where.AnnouncementID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
-                    objDataAnnouncement.Query.Load();
 
-                    foreach (ListItem item in CheckBoxListGroups.Items)
+                CheckBoxListGroups.ClearSelection();
+                AnnouncementGroup objDataAnnouncement = new AnnouncementGroup();
+                objDataAnnouncement.Where.AnnouncementID.Value = objData.AnnouncementID;
+                objDataAnnouncement.Where.AnnouncementID.Operator = MyGeneration.dOOdads.WhereParameter.Operand.Equal;
+                objDataAnnouncement.Query.Load();
+
+                foreach (ListItem item in CheckBoxListGroups.Items)
+                {
+                    for (int i = 0; i < objDataAnnouncement.RowCount; i++)
                     {
-                        for (int i = 0; i < objDataAnnouncement.RowCount; i++)
+                        if (objDataAnnouncement.GroupID == int.Parse(item.Value.ToString()))
                         {
-                            if (objDataAnnouncement.GroupID == int.Parse(item.Value.ToString()))
-                            {
-                                item.Selected = true;
-                                break;
-                            }
-                            objDataAnnouncement.MoveNext();
+                            item.Selected = true;
+                            break;
                         }
-                        objDataAnnouncement.Rewind();
+                        objDataAnnouncement.MoveNext();
                     }
+                    objDataAnnouncement.Rewind();
+                }
 
-                }
-                else
-                {
-                    CheckBoxListGroups.ClearSelection();
-                }
+                   
+                
                 uiTextBoxBrief.Text = objData.Brief;
                 CurrentAnnouncement = objData;
                 uiPanelEdit.Visible = true;
@@ -145,7 +142,7 @@ namespace Flights_GUI.Admin
             objdata.Title = uiTextBoxTitle.Text;
             objdata.Brief = uiTextBoxBrief.Text;
 
-
+            objdata.IsBlog = true;
             //objdata.CreatedBy = uiTextBoxCreatedBy.Text;
 
             if (uiFileUploadImg.HasFile)
@@ -184,25 +181,19 @@ namespace Flights_GUI.Admin
 
             objdata.Save();
 
-            if (CheckBoxListGroups.SelectedIndex == 0)
+           
+            foreach (ListItem item in CheckBoxListGroups.Items)
             {
-                objdata.SetColumnNull(Announcement.ColumnNames.GroupID);
-            }
-            else
-            {
-                foreach (ListItem item in CheckBoxListGroups.Items)
+                if (item.Selected && item.Value != "0")
                 {
-                    if (item.Selected)
-                    {
-                        AnnouncementGroup newAnnGroup = new AnnouncementGroup();
-                        newAnnGroup.AddNew();
-                        newAnnGroup.AnnouncementID = objdata.AnnouncementID;
-                        newAnnGroup.GroupID = int.Parse(item.Value);
-                        newAnnGroup.Save();
-                    }
+                    AnnouncementGroup newAnnGroup = new AnnouncementGroup();
+                    newAnnGroup.AddNew();
+                    newAnnGroup.AnnouncementID = objdata.AnnouncementID;
+                    newAnnGroup.GroupID = int.Parse(item.Value);
+                    newAnnGroup.Save();
                 }
             }
-
+            
             BindData();
             CurrentAnnouncement = null;
             uiPanelViewAll.Visible = true;
