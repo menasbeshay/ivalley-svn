@@ -101,6 +101,12 @@ namespace Flights_GUI.Admin
             {
                 Announcement objData = new Announcement();
                 objData.LoadByPrimaryKey(Convert.ToInt32(e.CommandArgument.ToString()));
+
+                AnnouncementGroup groups = new AnnouncementGroup();
+                groups.GetGroupsByAnnouncementID(Convert.ToInt32(e.CommandArgument.ToString()));
+                groups.DeleteAll();
+                groups.Save();
+
                 objData.MarkAsDeleted();
                 objData.Save();
                 BindData();
