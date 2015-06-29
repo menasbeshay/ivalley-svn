@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using MyGeneration.dOOdads;
 using BLL;
 using System.Globalization;
+using System.Web.Security;
 
 
 
@@ -119,6 +120,8 @@ namespace TouchMediaGUI
             else
             {
                 Dodd.AddNew();
+                Dodd.CreatedBy = new Guid(Membership.GetUser().ProviderUserKey.ToString());
+                Dodd.CreatedDate = DateTime.Now;
             }
 
             Dodd.DeliveryFrom = txtDeliveryFrom.Text;
@@ -141,7 +144,8 @@ namespace TouchMediaGUI
             else
                 txtPrice.Text = "0.0";
             Dodd.DeliveryOrderStatusID = int.Parse(drpStatusDetails.SelectedItem.Value);
-
+            Dodd.UpdatedBy = new Guid(Membership.GetUser().ProviderUserKey.ToString());
+            Dodd.LastUpdatedDate = DateTime.Now;
             Dodd.DeliveryOrderID = getQueryString_DeliveryOrder;
             Dodd.Save();
             DeliveryOrderDetailsBind();
@@ -178,7 +182,8 @@ namespace TouchMediaGUI
                 DO.AddNew();
 
                 btnDeliceryOrderGrd.Text = "أضافة أمر نقل";
-
+                DO.CreatedBy = new Guid(Membership.GetUser().ProviderUserKey.ToString());
+                DO.CreatedDate = DateTime.Now;
             }
 
             DO.ClientCode = int.Parse(txtClientCode.Text);
@@ -220,6 +225,8 @@ namespace TouchMediaGUI
             else
                 txtTotalPrice.Text = "0.0";
             DO.DeliveryOrderStatusID = int.Parse(drpStatusGeneral.SelectedValue);
+            DO.LastUpdatedDate = DateTime.Now;
+            DO.UpdatedBy = new Guid(Membership.GetUser().ProviderUserKey.ToString());
             DO.Save();
 
             Response.Redirect("DeliveryOrder.aspx?DeliveryOrderID=" + DO.DeliveryOrderID.ToString());

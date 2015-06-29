@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BLL;
@@ -92,6 +93,8 @@ namespace TouchMediaGUI
             else
             {
                 Pur.AddNew();
+                Pur.CreatedBy = new Guid(Membership.GetUser().ProviderUserKey.ToString());
+                Pur.CreatedDate = DateTime.Now;
             }
             Pur.PurchaseOrderNumber = txtPurchaseOrderNumber.Text;
             Pur.PurchaseOrderDate = DateTime.ParseExact(txtPurchaseOrderDate.Text, "dd/MM/yyyy", null);
@@ -103,6 +106,8 @@ namespace TouchMediaGUI
             Pur.ISFinalProduct = uiCheckBoxListType.Items[0].Selected;
             Pur.ISProductUnderManufacturing = uiCheckBoxListType.Items[2].Selected;
             Pur.ISSample = uiCheckBoxListType.Items[1].Selected;
+            Pur.UpdatedBy = new Guid(Membership.GetUser().ProviderUserKey.ToString());
+            Pur.LastUpdatedDate = DateTime.Now;
             Pur.Save();
 
             PanelPurchaseOrdersGrid.Visible = true;
@@ -131,6 +136,8 @@ namespace TouchMediaGUI
             else
             {
                 Purd.AddNew();
+                Purd.CreatedBy = new Guid(Membership.GetUser().ProviderUserKey.ToString());
+                Purd.CreatedDate = DateTime.Now;
             }
             Purd.TotalValue = double.Parse(txtTotalValue.Text);
             Purd.UnitPrice = double.Parse(txtUnitPrice.Text);
@@ -139,6 +146,8 @@ namespace TouchMediaGUI
             Purd.Unit = int.Parse(txtUnit.Text);
             Purd.Description = txtDescription.Text;
             Purd.PurchaseOrderID = getQueryString_PurchaseOrder;
+            Purd.LastUpdatedDate = DateTime.Now;
+            Purd.UpdatedBy = new Guid(Membership.GetUser().ProviderUserKey.ToString());
             Purd.Save();
             
             BindDetailsPurchaseOrder();
