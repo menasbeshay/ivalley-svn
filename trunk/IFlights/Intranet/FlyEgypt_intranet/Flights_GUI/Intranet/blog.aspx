@@ -42,7 +42,7 @@
                                 <ItemTemplate>
                                     <div class="post-item " data-animate="fadeInLeft">
                                         <div class="post-image">
-                                            <a href='Circulars.aspx?cid=<%# Eval("AnnouncementID") %>'>
+                                            <a href='blog.aspx?cid=<%# Eval("AnnouncementID") %>'>
                                                 <div class="mask"></div>
                                                 <div class="post-lft-info">
                                                     <div class="main-bg">
@@ -57,7 +57,7 @@
                                         <article class="post-content">
                                             <div class="post-info-container">
                                                 <div class="post-info">
-                                                    <h2><a class="main-color" href='Circulars.aspx?cid=<%# Eval("AnnouncementID") %>'><%# Eval("Title").ToString() %></a></h2>
+                                                    <h2><a class="main-color" href='blog.aspx?cid=<%# Eval("AnnouncementID") %>'><%# Eval("Title").ToString() %></a></h2>
                                                     <ul class="post-meta">
                                                         <li class="meta-user"><i class="fa fa-user"></i>By: <a href="../Account/Profile.aspx?uid=<%# Eval("UserID") %>" target="_blank"><%# Eval("UserName").ToString() %></a></li>
                                                     </ul>
@@ -98,7 +98,7 @@
                                 <ItemTemplate>
                                     <div class="post-item " data-animate="fadeInLeft">
                                         <div class="post-image">
-                                            <a href='Circulars.aspx?cid=<%# Eval("AnnouncementID") %>'>
+                                            <a href='blog.aspx?cid=<%# Eval("AnnouncementID") %>'>
                                                 <div class="mask"></div>
                                                 <div class="post-lft-info">
                                                     <div class="main-bg">
@@ -113,7 +113,7 @@
                                         <article class="post-content">
                                             <div class="post-info-container">
                                                 <div class="post-info">
-                                                    <h2><a class="main-color" href='Circulars.aspx?cid=<%# Eval("AnnouncementID") %>'><%# Eval("Title").ToString() %></a></h2>
+                                                    <h2><a class="main-color" href='blog.aspx?cid=<%# Eval("AnnouncementID") %>'><%# Eval("Title").ToString() %></a></h2>
                                                     <ul class="post-meta">
                                                         <li class="meta-user"><i class="fa fa-user"></i>By: <a href="../Account/Profile.aspx?uid=<%# Eval("UserID") %>" target="_blank"><%# Eval("UserName").ToString() %></a></li>
 
