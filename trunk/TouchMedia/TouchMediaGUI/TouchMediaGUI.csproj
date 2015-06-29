@@ -76,6 +76,10 @@
       <HintPath>..\lib\Microsoft.AspNet.Web.Optimization.WebForms.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Microsoft Visual Studio 11.0\ReportViewer\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.ScriptManager.MSAjax">
       <HintPath>..\lib\Microsoft.ScriptManager.MSAjax.dll</HintPath>
     </Reference>
@@ -1990,6 +1994,7 @@
     <Content Include="js\ui-tree.js" />
     <Content Include="Login.aspx" />
     <Content Include="PurchaseOrder.aspx" />
+    <Content Include="Reports.aspx" />
     <Content Include="Scripts\_references.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -2047,12 +2052,22 @@
       <DependentUpon>commonMethods.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="FilterbyStatus.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FilterbyStatus.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DeliveryOrder.aspx.cs">
       <DependentUpon>DeliveryOrder.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="DeliveryOrder.aspx.designer.cs">
       <DependentUpon>DeliveryOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeliveryOrderReports.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DeliveryOrderReports.xsd</DependentUpon>
     </Compile>
     <Compile Include="En\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -2103,6 +2118,13 @@
     </Compile>
     <Compile Include="PurchaseOrder.aspx.designer.cs">
       <DependentUpon>PurchaseOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports.aspx.cs">
+      <DependentUpon>Reports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports.aspx.designer.cs">
+      <DependentUpon>Reports.aspx</DependentUpon>
     </Compile>
     <Compile Include="Splash.aspx.cs">
       <DependentUpon>Splash.aspx</DependentUpon>
@@ -2500,7 +2522,33 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Admin\admin.Master" />
+    <Content Include="DeliveryOrderReports.xsc">
+      <DependentUpon>DeliveryOrderReports.xsd</DependentUpon>
+    </Content>
+    <None Include="DeliveryOrderReports.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DeliveryOrderReports.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="DeliveryOrderReports.xss">
+      <DependentUpon>DeliveryOrderReports.xsd</DependentUpon>
+    </Content>
+    <Content Include="FilterbyStatus.xsc">
+      <DependentUpon>FilterbyStatus.xsd</DependentUpon>
+    </Content>
+    <None Include="FilterbyStatus.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FilterbyStatus.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="FilterbyStatus.xss">
+      <DependentUpon>FilterbyStatus.xsd</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\publish.pubxml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Reports\DeliveryReport.rdlc" />
+    <EmbeddedResource Include="Reports\DeliveryReportByStatus.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
