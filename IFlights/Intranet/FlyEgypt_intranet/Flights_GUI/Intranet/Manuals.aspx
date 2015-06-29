@@ -98,14 +98,14 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <aside class="cell-3 left-shop">
+    <aside class="cell-3 left-shop" style="padding:0px 0px;">
         <div class="widget" data-animate="fadeInLeft">
             <h3 class="widget-head">categories</h3>
             <div class="widget-content">
 
                 <telerik:RadTreeView ID="uiRadTreeViewCats" runat="server" OnNodeClick="uiRadTreeViewCats_NodeClick">
                     <NodeTemplate>
-                        <div class="cell-12" style="padding-left:0px;">
+                        <div class="cell-12" style="padding-left:0px;padding-right:0px;">
                             <div class="cell-11" style="padding-left:0px;">                                 
                                 <%# Eval("NotifCount").ToString() != "0" ? "<b>" + Eval("Title") + "</b>" : Eval("Title") %>
                             </div>
